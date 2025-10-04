@@ -1,0 +1,29 @@
+{
+  "id": "cybermancy",
+  "title": "Cybermancy (Daggerheart Extension)",
+  "description": "Cyberpunk/Shadowrun-flavored extension for Daggerheart: custom sheets, extra fields, roll helpers, and compendia.",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "13"
+  },
+  "authors": [{ "name": "Dan Weaver" }],
+  "packs": [
+    {
+      "name": "cybermancy-items",
+      "label": "Cybermancy Items",
+      "path": "packs/items.db",
+      "type": "Item",
+      "system": "daggerheart",
+      "private": false
+    }
+  ],
+  "esmodules": ["scripts/main.js"],
+  "styles": ["styles/cybermancy.css"],
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" }
+  ],
+  "url": "https://example.com/cybermancy",
+  "manifest": "https://example.com/cybermancy/module.json",
+  "download": "https://example.com/cybermancy/module.zip"
+}
