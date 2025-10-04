@@ -26,5 +26,5 @@
   ],
   "url": "https://github.com/knightweaver/Cybermancy",
   "manifest": "https://raw.githubusercontent.com/knightweaver/Cybermancy/main/module.json",
-  "download": "https://github.com/knightweaver/Cybermancy/releases/download/v0.0.1/Cybermancy-v0.0.1.zip"
+  "download": "https://github.com/knightweaver/cybermancy/archive/refs/tags/0.0.1.zip"
 }
