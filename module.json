@@ -8,7 +8,7 @@
     "verified": "13"
   },
   "authors": [{ "name": "Dan Weaver",
-				"url" : "https://github.com/knightweaver}],
+				"url" : "https://github.com/knightweaver"}],
   "packs": [
     {
       "name": "cybermancy-items",
