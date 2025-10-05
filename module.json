@@ -1,30 +1,76 @@
 {
-  "id": "cybermancy",
-  "title": "Cybermancy (Daggerheart Extension)",
-  "description": "Cyberpunk/Shadowrun-flavored extension for Daggerheart: custom sheets, extra fields, roll helpers, and compendia.",
-  "version": "0.0.1",
-  "compatibility": {
-    "minimum": "11",
-    "verified": "13"
-  },
-  "authors": [{ "name": "Dan Weaver",
-				"url" : "https://github.com/knightweaver"}],
-  "packs": [
-    {
-      "name": "cybermancy-items",
-      "label": "Cybermancy Items",
-      "path": "packs/items.db",
-      "type": "Item",
-      "system": "daggerheart",
-      "private": false
-    }
-  ],
-  "esmodules": ["scripts/main.js"],
-  "styles": ["styles/cybermancy.css"],
-  "languages": [
-    { "lang": "en", "name": "English", "path": "lang/en.json" }
-  ],
-  "url": "https://github.com/knightweaver/Cybermancy",
-  "manifest": "https://raw.githubusercontent.com/knightweaver/Cybermancy/main/module.json",
-  "download": "https://github.com/knightweaver/cybermancy/archive/refs/tags/0.0.1.zip"
+	"id": "cybermancy",
+	"title": "Cybermancy (Daggerheart Extension)",
+	"type": "module",
+	"description": "Cyberpunk/Shadowrun-flavored extension for Daggerheart: custom sheets, extra fields, roll helpers, and compendia.",
+	"version": "0.0.1",
+	"compatibility": {
+		"minimum": "11",
+		"verified": "13"
+	},
+	"type": "module",
+	"authors": [
+		{
+			"name": "Dan Weaver",
+			"url": "https://github.com/knightweaver"
+		}
+	],
+	"packs": [
+		{
+			"name": "items-armors",
+			"label": "Cybermancy • Armors",
+			"path": "packs/items-armors",
+			"type": "Item",
+			"system": "daggerheart"
+		},
+		{
+			"name": "items-consumables",
+			"label": "Cybermancy • Consumables",
+			"path": "packs/items-consumables",
+			"type": "Item",
+			"system": "daggerheart"
+		},
+		{
+			"name": "items-loot",
+			"label": "Cybermancy • Loot",
+			"path": "packs/items-loot",
+			"type": "Item",
+			"system": "daggerheart"
+		},
+		{
+			"name": "items-weapons",
+			"label": "Cybermancy • Weapons",
+			"path": "packs/items-weapons",
+			"type": "Item",
+			"system": "daggerheart"
+		}
+	],
+	"scripts": {
+		"pack:weapons": "fvtt package pack -n items-weapons --id cybermancy --type Module --inputDirectory ./src-data/items/weapons --outputDirectory ./packs",
+		"pack:armors": "fvtt package pack -n items-armors --id cybermancy --type Module --inputDirectory ./src-data/items/armors --outputDirectory ./packs",
+		"pack:consumables": "fvtt package pack -n items-consumables --id cybermancy --type Module --inputDirectory ./src-data/items/consumables --outputDirectory ./packs",
+		"pack:loot": "fvtt package pack -n items-loot --id cybermancy --type Module --inputDirectory ./src-data/items/loot --outputDirectory ./packs",
+		"pack:all": "npm run pack:weapons && npm run pack:armors && npm run pack:consumables && npm run pack:loot",
+		"unpack:weapons": "fvtt package unpack -n items-weapons --id cybermancy --type Module --outputDirectory ./src-data/items/weapons",
+		"unpack:armors": "fvtt package unpack -n items-armors --id cybermancy --type Module --outputDirectory ./src-data/items/armors",
+		"unpack:consumables": "fvtt package unpack -n items-consumables --id cybermancy --type Module --outputDirectory ./src-data/items/consumables",
+		"unpack:loot": "fvtt package unpack -n items-loot --id cybermancy --type Module --outputDirectory ./src-data/items/loot",
+		"unpack:all": "npm run unpack:weapons && npm run unpack:armors && npm run unpack:consumables && npm run unpack:loot"
+	},
+	"esmodules": [
+		"scripts/main.js"
+	],
+	"styles": [
+		"styles/cybermancy.css"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"url": "https://github.com/knightweaver/Cybermancy",
+	"manifest": "https://raw.githubusercontent.com/knightweaver/Cybermancy/main/module.json",
+	"download": "https://github.com/knightweaver/cybermancy/archive/refs/tags/0.0.1.zip"
 }

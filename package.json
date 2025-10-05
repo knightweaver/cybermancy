@@ -1,0 +1,30 @@
+{
+  "name": "cybermancy",
+  "version": "1.0.0",
+  "description": "Just getting started",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "pack:weapons": "fvtt package pack -n items-weapons --id cybermancy --type Module --inputDirectory ./src-data/items/weapons --outputDirectory ./packs",
+    "pack:armors": "fvtt package pack -n items-armors --id cybermancy --type Module --inputDirectory ./src-data/items/armors --outputDirectory ./packs",
+    "pack:consumables": "fvtt package pack -n items-consumables --id cybermancy --type Module --inputDirectory ./src-data/items/consumables --outputDirectory ./packs",
+    "pack:loot": "fvtt package pack -n items-loot --id cybermancy --type Module --inputDirectory ./src-data/items/loot --outputDirectory ./packs",
+    "pack:all": "npm run pack:weapons && npm run pack:armors && npm run pack:consumables && npm run pack:loot",
+    "unpack:weapons": "fvtt package unpack -n items-weapons --id cybermancy --type Module --outputDirectory ./src-data/items/weapons",
+    "unpack:armors": "fvtt package unpack -n items-armors --id cybermancy --type Module --outputDirectory ./src-data/items/armors",
+    "unpack:consumables": "fvtt package unpack -n items-consumables --id cybermancy --type Module --outputDirectory ./src-data/items/consumables",
+    "unpack:loot": "fvtt package unpack -n items-loot --id cybermancy --type Module --outputDirectory ./src-data/items/loot",
+    "unpack:all": "npm run unpack:weapons && npm run unpack:armors && npm run unpack:consumables && npm run unpack:loot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knightweaver/cybermancy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knightweaver/cybermancy/issues"
+  },
+  "homepage": "https://github.com/knightweaver/cybermancy#readme"
+}

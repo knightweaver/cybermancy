@@ -1,0 +1,33 @@
+# ---- Core Node / Foundry build output ----
+node_modules/
+dist/
+build/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- IDE files ----
+.idea/
+.vscode/
+*.iml
+
+# ---- Environment / secrets ----
+.env
+*.local
+
+# ---- Foundry VTT exports and test data ----
+fvtt-export/
+test-data/
+*.foundry.json
+*.portable.json
+
+# ---- Temporary or conversion outputs ----
+*.webp~
+*.tmp
+temp/
