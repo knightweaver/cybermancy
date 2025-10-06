@@ -1,7 +1,8 @@
 {
+  "folder": "d7tdCsIUd94XuTtq",
   "name": "Battleaxe",
   "type": "weapon",
-  "_id": "fbDYUja3ll9vCtrC",
+  "_id": "fbDYUja3ll9vCtrB",
   "img": "icons/weapons/axes/axe-double-jagged-black.webp",
   "system": {
     "description": "",
@@ -15,6 +16,7 @@
     "attack": {
       "name": "Attack",
       "img": "icons/skills/melee/blood-slash-foam-red.webp",
+      "_id": "ZSdAawliPNsoA7nP",
       "systemPath": "attack",
       "type": "attack",
       "range": "melee",
@@ -60,8 +62,7 @@
               "dice": "d6",
               "bonus": null,
               "custom": {
-                "enabled": false,
-                "formula": ""
+                "enabled": false
               }
             },
             "base": false
@@ -76,8 +77,7 @@
       "uses": {
         "value": null,
         "max": null,
-        "recovery": null,
-        "consumeOnSuccess": false
+        "recovery": null
       },
       "effects": [],
       "save": {
@@ -94,5 +94,23 @@
       }
     }
   },
-  "_key": "!items!fbDYUja3ll9vCtrC"
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753827787429,
+    "modifiedTime": 1753827801986,
+    "lastModifiedBy": "FecEtPuoQh6MpjQ0"
+  },
+  "_key": "!items!fbDYUja3ll9vCtrB"
 }
