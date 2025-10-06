@@ -14,7 +14,8 @@
     "unpack:armors": "fvtt package unpack -n items-armors --id cybermancy --type Module --outputDirectory ./src-data/items/armors",
     "unpack:consumables": "fvtt package unpack -n items-consumables --id cybermancy --type Module --outputDirectory ./src-data/items/consumables",
     "unpack:loot": "fvtt package unpack -n items-loot --id cybermancy --type Module --outputDirectory ./src-data/items/loot",
-    "unpack:all": "npm run unpack:weapons && npm run unpack:armors && npm run unpack:consumables && npm run unpack:loot"
+    "unpack:all": "npm run unpack:weapons && npm run unpack:armors && npm run unpack:consumables && npm run unpack:loot",
+    "validate:items": "node scripts/validate-items.mjs"
   },
   "repository": {
     "type": "git",
