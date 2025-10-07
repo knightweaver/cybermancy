@@ -1,0 +1,16 @@
+{
+  "$id": "actor.dh.json",
+  "allOf": [{ "$ref": "base.fvtt.json" }],
+  "properties": {
+    "type": { "enum": ["pc", "npc", "vehicle", "spirit"] },
+    "prototypeToken": { "type": "object" },
+    "system": {
+      "type": "object",
+      "required": ["attributes", "domains"],
+      "properties": {
+        "attributes": { "type": "object" },
+        "domains": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

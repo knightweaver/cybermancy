@@ -1,0 +1,16 @@
+{
+  "$id": "domain.dh.json",
+  "allOf": [{ "$ref": "base.fvtt.json" }],
+  "properties": {
+    "type": { "const": "domain" },
+    "system": {
+      "type": "object",
+      "required": ["family", "tier", "effects"],
+      "properties": {
+        "family": { "type": "string" },
+        "tier": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "effects": { "type": "array", "items": { "type": "object" } }
+      }
+    }
+  }
+}

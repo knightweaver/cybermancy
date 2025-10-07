@@ -3,19 +3,20 @@
   "version": "1.0.0",
   "description": "Just getting started",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "rimraf": "^6.0.1"
+  },
   "scripts": {
-    "pack:weapons": "fvtt package pack -n items-weapons --id cybermancy --type Module --inputDirectory ./src-data/items/weapons --outputDirectory ./packs",
-    "pack:armors": "fvtt package pack -n items-armors --id cybermancy --type Module --inputDirectory ./src-data/items/armors --outputDirectory ./packs",
-    "pack:consumables": "fvtt package pack -n items-consumables --id cybermancy --type Module --inputDirectory ./src-data/items/consumables --outputDirectory ./packs",
-    "pack:loot": "fvtt package pack -n items-loot --id cybermancy --type Module --inputDirectory ./src-data/items/loot --outputDirectory ./packs",
-    "pack:all": "npm run pack:weapons && npm run pack:armors && npm run pack:consumables && npm run pack:loot",
-    "unpack:weapons": "fvtt package unpack -n items-weapons --id cybermancy --type Module --outputDirectory ./src-data/items/weapons",
-    "unpack:armors": "fvtt package unpack -n items-armors --id cybermancy --type Module --outputDirectory ./src-data/items/armors",
-    "unpack:consumables": "fvtt package unpack -n items-consumables --id cybermancy --type Module --outputDirectory ./src-data/items/consumables",
-    "unpack:loot": "fvtt package unpack -n items-loot --id cybermancy --type Module --outputDirectory ./src-data/items/loot",
-    "unpack:all": "npm run unpack:weapons && npm run unpack:armors && npm run unpack:consumables && npm run unpack:loot",
-    "validate:items": "node scripts/validate-items.mjs"
+    "clean": "rimraf stage packs",
+    "validate": "node scripts/validate-docs.mjs",
+    "stage": "node scripts/stage-docs.mjs",
+    "pack": "node scripts/pack-direct.mjs",
+    "build": "npm run clean && npm run validate && npm run stage && npm run pack",
+    "etl:export": "node scripts/etl-export.mjs",
+    "etl:import": "node scripts/etl-import.mjs"
   },
   "repository": {
     "type": "git",

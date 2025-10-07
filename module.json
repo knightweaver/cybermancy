@@ -14,38 +14,41 @@
   "relationships": {
     "systems": [{ "id": "daggerheart" }]
   },
-  "packs": [
+"packs": [
+  { "name": "cybermancy-items",   "label": "Cybermancy Items",   "path": "packs/cybermancy-items",   "type": "Item",  "private": false },
+  { "name": "cybermancy-domains", "label": "Cybermancy Domains", "path": "packs/cybermancy-domains", "type": "Item",  "private": false },
+  { "name": "cybermancy-actors",  "label": "Cybermancy Actors",  "path": "packs/cybermancy-actors",  "type": "Actor", "private": false }
+  ],
+  "packFolders": [
     {
-      "name": "items-armors",
-      "label": "Cybermancy • Armors",
-      "path": "packs/items-armors",
-      "type": "Item",
-      "system": "daggerheart",
-      "private": false
-    },
-    {
-      "name": "items-consumables",
-      "label": "Cybermancy • Consumables",
-      "path": "packs/items-consumables",
-      "type": "Item",
-      "system": "daggerheart",
-      "private": false
-    },
-    {
-      "name": "items-loot",
-      "label": "Cybermancy • Loot",
-      "path": "packs/items-loot",
-      "type": "Item",
-      "system": "daggerheart",
-      "private": false
-    },
-    {
-      "name": "items-weapons",
-      "label": "Cybermancy • Weapons",
-      "path": "packs/items-weapons",
-      "type": "Item",
-      "system": "daggerheart",
-      "private": false
+      "name": "Cybermancy Items",
+      "sorting": "m",
+      "folders": [
+        {
+          "name": "Weapons",
+          "sorting": "a",
+          "color": "000000",
+          "packs": "items-weapons"
+        },
+        {
+          "name": "Armors",
+          "sorting": "a",
+          "color": "000000",
+          "packs": "items-armors"
+        },
+        {
+          "name": "Loot",
+          "sorting": "a",
+          "color": "000000",
+          "packs": "items-loot"
+        },
+        {
+          "name": "Consumables",
+          "sorting": "a",
+          "color": "000000",
+          "packs": "items-consumables"
+        }
+      ]
     }
   ],
   "esmodules": ["scripts/main.js"],

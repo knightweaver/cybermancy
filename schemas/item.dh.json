@@ -1,0 +1,15 @@
+{
+  "$id": "item.dh.json",
+  "allOf": [{ "$ref": "base.fvtt.json" }],
+  "properties": {
+    "type": { "enum": ["weapon", "armor", "consumable", "loot", "domainCard"] },
+    "system": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "rarity": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
