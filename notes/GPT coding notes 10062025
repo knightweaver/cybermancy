@@ -146,7 +146,7 @@ Replace your scripts block with this (keeps your validator, adds staging, and po
 ```json
 {
   "scripts": {
-    "validate:items": "node scripts/validate-items.mjs",
+    "validate:items": "node scripts/validate-docs.mjs",
 
     "stage:weapons": "node scripts/stage-items.mjs ./src-data/items/weapons ./stage/items/weapons Item",
     "stage:armors": "node scripts/stage-items.mjs ./src-data/items/armors ./stage/items/armors Item",

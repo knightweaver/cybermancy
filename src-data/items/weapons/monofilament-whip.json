@@ -4,11 +4,6 @@
   "name": "Monofilament Whip",
   "type": "weapon",
   "img": "assets/icons/weapons/whip-monofilament.webp",
-  "meta": {
-    "source": "foundry",
-    "class": null,
-    "name": "Monofilament Whip"
-  },
   "system": {
     "rarity": "uncommon",
     "tags": [
@@ -25,5 +20,9 @@
     "burden": "light",
     "feature": "Lethal Edge: On a Hope win, deal Severe damage if the Fear die shows 8–12.",
     "criticalEffect": "Slice in Two: On a critical success, sever or disable a limb, item, or piece of cover."
-  }
+  },
+  "flags": {},
+  "_id": "29edaee9-c70d-4dc9-9429-6dc190a876be",
+  "_key": "QUExQ15BREZX",
+  "_documentClass": "Item"
 }
