@@ -16,7 +16,7 @@
     "pack": "node scripts/pack-direct.mjs",
     "build": "npm run clean && npm run validate && npm run stage && npm run pack",
     "etl:export": "node scripts/etl-export.mjs",
-    "etl:import": "node scripts/etl-import.mjs"
+    "etl:import": "node scripts/etl-import.mjs "
   },
   "repository": {
     "type": "git",
