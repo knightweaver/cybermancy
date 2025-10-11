@@ -15,8 +15,8 @@
     "stage": "node scripts/stage-docs.mjs",
     "pack": "node scripts/pack-direct.mjs",
     "build": "npm run clean && npm run validate && npm run stage && npm run pack",
-    "foundry-to-portable": "node scripts/foundry2portable.mjs",
-    "portable-to-foundry": "node scripts/portable2foundry.mjs "
+    "foundry2portable": "node scripts/foundry2portable.mjs",
+    "portable2foundry": "node scripts/portable2foundry.mjs "
   },
   "repository": {
     "type": "git",

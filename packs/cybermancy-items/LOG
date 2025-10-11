@@ -1,5 +1,3 @@
-2025/10/07-06:17:37.093 b9d4 Delete type=3 #1
-2025/10/07-06:17:37.100 cffc Level-0 table #5: started
-2025/10/07-06:17:37.103 cffc Level-0 table #5: 1920 bytes OK
-2025/10/07-06:17:37.104 cffc Delete type=0 #3
-2025/10/07-06:17:37.104 cffc Manual compaction at level-0 from '!items!fbDYUja3ll9vCtrB' @ 72057594037927935 : 1 .. 'rUMUz4NPzaYT' @ 0 : 0; will stop at (end)
+2025/10/10-21:18:02.507 10a1c Recovering log #38
+2025/10/10-21:18:02.513 10a1c Delete type=0 #38
+2025/10/10-21:18:02.513 10a1c Delete type=3 #36
