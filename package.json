@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/knightweaver/cybermancy/issues"
   },
-  "homepage": "https://github.com/knightweaver/cybermancy#readme"
+  "homepage": "https://github.com/knightweaver/cybermancy#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }

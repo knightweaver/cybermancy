@@ -89,8 +89,8 @@ Reminder: you have to type in the folder name:
 
 ## 🧮 Build & Packaging Commands
 
-(*Use these in your `package.json` or local scripts for convenience*)
+Note that the https://github.com/foundryvtt/foundryvtt-cli package is also still useful, but only after the load via the Foundery macro.
 
-```bash
-npm run pack:all      # Build all compendium packs
-npm run unpack:all    # Unpack packs back into /src-data for editing
+This can be used to "unpack" a module, make changes to the output JSON files, and then repack.  The preserves all the keys, ids, folders, etc.
+
+
