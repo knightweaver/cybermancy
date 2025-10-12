@@ -1,0 +1,18 @@
+{
+  "name": "Battleaxe root-stripped via pack",
+  "type": "weapon",
+  "img": "icons/weapons/axes/axe-double-jagged-black.webp",
+  "description": "It's an axe",
+  "tier": 1,
+  "secondary": false,
+  "burden": "twoHanded",
+  "actions": "banana",
+  "primaryAction": "attack",
+  "range": "melee",
+  "numtargets": 1,
+  "trait": "strength",
+  "damage": "d10+3",
+  "damageType": "physical",
+  "damageTo": "hitPoints",
+  "intrinsicEffects": ""
+}

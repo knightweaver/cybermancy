@@ -1,0 +1,3 @@
+﻿name,type,img,description,tier,secondary,burden,primaryAction,additionalActions,intrinsicEffects,DHFeature,range,numtargets,trait,damage,damageType,damageTo
+Loaded Battleaxe,weapon,icons/weapons/axes/axe-double-jagged-black.webp,It's an axe,1,FALSE,twoHanded,attack,Legendary_Whip,,,melee,1,strength,d10+3,physical,hitPoints
+Monofilament whip,weapon,modules/cybermancy/assets/icons/weapons/whip-monofilament.webp,It's a whip,1,FALSE,oneHanded,attack,Legendary_Whip,,cumbersome,melee,1,strength,d4+2,physical,hitPoints

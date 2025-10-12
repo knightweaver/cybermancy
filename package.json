@@ -10,13 +10,8 @@
     "rimraf": "^6.0.1"
   },
   "scripts": {
-    "clean": "rimraf stage packs",
-    "validate": "node scripts/validate-docs.mjs",
-    "stage": "node scripts/stage-docs.mjs",
-    "pack": "node scripts/pack-direct.mjs",
-    "build": "npm run clean && npm run validate && npm run stage && npm run pack",
-    "foundry2portable": "node scripts/foundry2portable.mjs",
-    "portable2foundry": "node scripts/portable2foundry.mjs "
+    "cleanup": "rimraf stage packs",
+    "descriptor2loadable": "node scripts/descriptor2loadableJSON.mjs"
   },
   "repository": {
     "type": "git",
