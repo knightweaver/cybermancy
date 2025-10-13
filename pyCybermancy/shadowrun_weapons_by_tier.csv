@@ -1,0 +1,46 @@
+tier,name,trait,range,damage,burden,feature,criticalEffect
+1,Monofilament Whip,Finesse,Very Close,1d10,One-Handed,"Lethal Edge: On a Hope win, deal Severe damage if the Fear die shows 8–12.","Slice in Two: Sever or disable a limb, item, or piece of cover."
+1,Cyber Spur,Instinct,Melee,1d8+1,One-Handed,Concealed: Can be hidden; gain advantage on your first attack each scene.,"Ambush Kill: If striking from surprise, escalate Fear consequences for target."
+1,Shock Baton,Presence,Close,1d8+1,One-Handed,Stunning: Spend a Hope on a successful hit to inflict Dazed for one round.,Knockout: Target is stunned or unconscious for one scene beat.
+1,Vibro-Knife,Agility,Melee,1d8+2,One-Handed,Piercing: Ignores armor on a Hope critical.,Silent Kill: Disable one target silently with no alert escalation.
+1,Smartpistol,Finesse,Far,1d6+2,One-Handed,"Smartlink: Once per scene, reroll one attack die if linked to cyberware/gear.",Pinpoint: Crit ignores cover; disable weapon/armor.
+1,SMG (Machine Pistol),Agility,Close,1d6+3,Two-Handed,Burst Fire: Mark 1 Stress to attack an additional target in Close range.,Spray Down: Hit all targets in Very Close range with collateral fire.
+1,Assault Rifle,Strength,Far,1d8+3,Two-Handed,"Suppressive Fire: On a Hope win, target must mark 1 Stress to act next turn.","Shredding Burst: Force enemy into cover, reducing their next attack roll."
+1,Shotgun,Instinct,Close,1d10+2,Two-Handed,Scatter: Spend a Hope to attack all targets in Very Close range.,Point-Blank Devastation: Knock back and lose next action.
+1,Sniper Rifle,Knowledge,Very Far,1d8+4,Two-Handed,Scoped: Spend a round aiming to gain advantage on next shot.,Through and Through: Bullet passes through to a second target in line.
+1,Throwing Knives,Agility,Close,1d6+1,One-Handed,Quick Draw: May be used as a reaction against melee attackers.,"Pinning Strike: Pin target’s limb, weapon, or clothing, restricting movement."
+1,Fragmentation Grenade,Strength,Far (Area),1d12,One-Handed,"Explosive: On Hope win, half damage to all in Close range.",Shrapnel Storm: All enemies in area take full damage and mark 1 Stress.
+1,EMP Grenade,Tech,Far (Area),1d8,One-Handed,"Disruptive: On hit, drones/tech in range must succeed or shut down 1 round.",Total System Crash: All devices in area disabled until end of scene.
+2,Improved Monofilament Whip,Finesse,Very Close,1d10+4,One-Handed,"Lethal Edge: On a Hope win, upgrade one damage die to max value.","Severance: Cut through armor, restraints, or environmental barriers."
+2,Improved Cyber Spur,Instinct,Melee,1d8+4,One-Handed,Concealed: Cannot be detected by casual scans.,Spinal Strike: Target is paralyzed for 1 round.
+2,Improved Shock Baton,Presence,Close,1d8+3,One-Handed,Arc Charge: Spend 1 Stress to arc lightning to another Very Close target.,Overload: Target’s nervous system locks up; they drop gear.
+2,Improved Vibro-Knife,Agility,Melee,1d8+5,One-Handed,Piercing: Ignores 1 level of armor.,Assassin’s Cut: Severe damage ignoring defenses.
+2,Smartpistol Mk II,Finesse,Far,1d6+5,One-Handed,Smartlink: Auto-correct; reroll a miss once per scene.,Eye Shot: Disable optics or key sensors.
+2,Compact SMG,Agility,Close,1d6+6,Two-Handed,Burst Fire: Spend Hope to hit two targets in Close range.,Crowd Control: Panic/disrupt all enemies in Very Close range.
+2,Military Assault Rifle,Strength,Far,1d8+6,Two-Handed,"Suppressive Fire: On Hope win, all enemies in line of fire mark Stress.",Armor Break: Ignore armor; bullets chew through cover.
+2,Street Sweeper Shotgun,Instinct,Close,1d12+4,Two-Handed,Wide Scatter: Attack all targets in Very Close range once per scene.,Bone Shaker: Target knocked prone and loses next turn.
+2,Scoped Sniper Rifle,Knowledge,Very Far,1d8+6,Two-Handed,Scoped: Aim for advantage; crit chance rises if aiming 1 round.,Through and Through: Shot penetrates multiple targets.
+2,Fragmentation Grenade+,Strength,Far (Area),1d12+4,One-Handed,Explosive: Half damage to adjacent zones.,Massive Detonation: Full damage in wider zone (Far).
+2,EMP Grenade+,Tech,Far (Area),1d10,One-Handed,Disruptive: Drones/tech roll at Disadvantage.,Grid Blackout: All tech shuts down until reboot.
+3,Corporate Mono-Whip,Finesse,Very Close,1d12+6,One-Handed,Lethal Edge: Can slice through vehicles on Hope crit.,"Corpse-Cutter: Destroy one environmental object (door, drone, wall)."
+3,Titanium Cyber Spurs,Instinct,Melee,1d10+6,One-Handed,Hidden Killer: +2 to first attack in combat.,Critical Tendons: Cripple target’s mobility permanently.
+3,Heavy Shock Baton,Presence,Close,1d10+5,One-Handed,"Chain Lightning: Spend 2 Hope, arc to 2 additional targets.",System Shutdown: Target incapacitated (stun or KO).
+3,Combat Vibro-Blade,Agility,Melee,1d10+7,One-Handed,High Frequency: +2 to all attack rolls this scene after a hit.,Fatal Wound: Additional 1d12 bleed damage next turn.
+3,Smartpistol Elite,Finesse,Far,1d8+6,One-Handed,Autotarget: Always ignore cover.,One-Shot Kill: Severe damage ignoring all armor.
+3,Advanced SMG,Agility,Close,1d6+9,Two-Handed,"Bulletstorm: Once per rest, attack 3 targets in Close.",Suppression Killzone: Enemies must Retreat or mark Stress.
+3,Advanced Assault Rifle,Strength,Far,1d10+8,Two-Handed,"Full Auto: Spend Hope, double damage dice.","Critical Barrage: Mow down cover, forcing enemies into open."
+3,Riot Shotgun,Instinct,Close,1d12+8,Two-Handed,Knockback: Push targets back one range band.,Concussive Blast: Stun all in Close cone.
+3,Anti-Materiel Sniper,Knowledge,Very Far,1d10+8,Two-Handed,Penetration: Shoot through walls/vehicles.,Executioner’s Shot: Instantly remove non-boss foe.
+3,Cluster Grenade,Strength,Far (Area),1d12+6,One-Handed,Fragment Split: Hit two separate zones.,Kill Zone: Full damage in all adjacent zones.
+3,EMP Cascade,Tech,Far (Area),1d12,One-Handed,System Overload: Devices take 2 rounds to recover.,Matrix Burnout: Deckers hit take HP damage directly.
+4,Legendary Monofilament Whip,Finesse,Very Close,1d12+10,One-Handed,"Reality Cut: Can slice vehicles, turrets, drones.",Sever Reality: Slice environment — create a permanent gap or hazard.
+4,Diamond Cyber Spurs,Instinct,Melee,1d12+9,One-Handed,Ghost Kill: Cannot be tracked by sensors.,Spinal Sever: Target permanently disabled unless cybernetically healed.
+4,Thunder Baton,Presence,Close,1d12+9,One-Handed,"Overdrive: Once per rest, stun all enemies in Close range.",EMP Surge: Wipe out all small electronics in scene.
+4,Nano Vibro-Blade,Agility,Melee,1d12+9,One-Handed,Self-Sharpening: Ignore all armor values.,Critical Dissection: Narratively kill or disable any single non-boss foe.
+4,Smartpistol Omega,Finesse,Far,1d10+10,One-Handed,AI Assist: Advantage on all ranged rolls.,Neural Kill: Bullet bypasses physical armor; deals Stress + HP.
+4,Prototype SMG,Agility,Close,1d8+11,Two-Handed,Gyrostabilized: Fire with no recoil penalty.,Critical Spray: Hit all enemies in Close range automatically.
+4,Gauss Rifle,Strength,Far,1d12+12,Two-Handed,Rail Shot: Spend Stress to deal double damage dice.,Hyper-Pierce: Shot tears through multiple enemies/vehicles in a line.
+4,Plasma Shotgun,Instinct,Close,1d12+12,Two-Handed,Meltdown: Spend Hope to add 1d8 burn damage.,Critical Inferno: All targets in blast zone catch fire.
+4,Orbital Sniper Rifle,Knowledge,Very Far,1d12+12,Two-Handed,Satellite Link: Call in orbital fire once per rest.,Heaven’s Lance: Obliterate target zone — GM narrates consequences.
+4,Annihilation Grenade,Strength,Far (Area),1d20,One-Handed,"Final Boom: Single-use, but massive radius.",Tactical Nuke (Micro): Entire area wiped — citywide consequences.
+4,EMP Singularity,Tech,Far (Area),1d20,One-Handed,Blackout: Kill power grid in 1 km radius once per rest.,System Collapse: Entire Matrix zone crashes beyond repair.
