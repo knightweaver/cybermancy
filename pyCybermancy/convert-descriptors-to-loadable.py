@@ -2,24 +2,24 @@
 """
 main.py — Descriptor -> Foundry/Daggerheart Item JSON (catalog-aware; JSON/CSV; batch)
 
-Baseline semantics (remembered):
-- Catalog root key: "actions-effects".
-- Category key is descriptor["type"] verbatim (no pluralization).
-- Reference fields for catalog lookups: "additionalActions" and "intrinsicEffects".
-- Batch mode: JSON object/array or CSV rows; each record -> one output JSON named by 'name'.
-- Adds system.weaponFeatures from "DHFeature" (string/list, CSV-delimited), sluggified to {"value":"<slug>"}.
+Baseline:
+- Catalog root: "actions-effects"
+- Category key is descriptor["type"] verbatim (no pluralization)
+- Reference fields: "additionalActions", "intrinsicEffects"
+- Batch input: JSON object/array or CSV rows; each record -> one output named by 'name'
+- system.weaponFeatures from "DHFeature" (CSV-delimited/string/list), sluggified to {"value":"<slug>"}
 
-New in this version:
-1) New descriptor columns:
-   - "cybermancy-feature-name", "cybermancy-feature-effect"  -> emit an **Action** (type "attack") under system.actions
-   - "critical-effect-name", "critical-effect"               -> emit a **Generic** action (type "effect") under system.actions
-2) For both generated actions, Description uses the HTML formatting block provided by the user.
-3) Action image path: "icons/features/{slug}.png" (slug from the action name; lowercase, hyphen-separated).
-4) All prior behavior retained (attack builder, catalog lookups, CSV/JSON batch, etc.).
+Updates:
+1) Feature/critical actions from CSV/JSON columns:
+   - cybermancy-feature-name, cybermancy-feature-effect  -> Action (type "effect", actionType "action")
+   - critical-effect-name,   critical-effect             -> Generic action (type "effect", actionType "action")
+   Description is HTML-formatted per spec.
+2) Action image path: modules/cybermancy/assets/icons/features/{hyphen-slug}.png
+3) Column name robustness: hyphens/underscores/case-insensitive (aliases supported).
 
 Usage:
-  python main.py descriptors.json   -c actions-by-category.json -o outdir/
-  python main.py descriptors.csv    -c actions-by-category.json -o outdir/
+  python main.py descriptors.json -c actions-by-category.json -o outdir/
+  python main.py descriptors.csv  -c actions-by-category.json -o outdir/
 """
 
 from __future__ import annotations
@@ -81,10 +81,22 @@ def _slug_feature(s: str) -> str:
     return out
 
 def _slug_hyphen(s: str) -> str:
-    """Hyphen slug for file paths: 'Ambush Kill' -> 'ambush-kill'."""
     out = re.sub(r"[^\w]+", "-", str(s).strip().lower())
     out = re.sub(r"-+", "-", out).strip("-")
     return out
+
+def _norm_key(k: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (k or "").lower())
+
+def get_field(d: Dict[str, Any], aliases: List[str]) -> Any:
+    """Fetch value by any alias; hyphen/underscore/case insensitive."""
+    if not isinstance(d, dict): return None
+    norm_map = { _norm_key(k): k for k in d.keys() }
+    for a in aliases:
+        nk = _norm_key(a)
+        if nk in norm_map:
+            return d.get(norm_map[nk])
+    return None
 
 # -------------------- descriptor loading --------------------
 def load_descriptors(path: Path) -> List[Dict[str, Any]]:
@@ -94,11 +106,9 @@ def load_descriptors(path: Path) -> List[Dict[str, Any]]:
             rdr = csv.DictReader(fh)
             for row in rdr:
                 d = {k: _coerce_scalar(v) for k, v in row.items()}
-                # list-like post-process (legacy)
                 for k in ("additionalActions", "intrinsicEffects", "damageType"):
                     if isinstance(d.get(k), str):
                         d[k] = _split_list_cell(d[k])
-                # DHFeature slugs (list)
                 if "DHFeature" in d:
                     feats = _split_list_cell(d["DHFeature"])
                     d["DHFeature"] = [_slug_feature(x) for x in feats if x]
@@ -107,7 +117,6 @@ def load_descriptors(path: Path) -> List[Dict[str, Any]]:
             raise SystemExit("CSV descriptor has no rows.")
         return rows
 
-    # JSON
     data = json.loads(path.read_text(encoding="utf-8"))
     if isinstance(data, dict):
         rows = [data]
@@ -116,7 +125,6 @@ def load_descriptors(path: Path) -> List[Dict[str, Any]]:
     else:
         raise SystemExit("JSON descriptor must be an object or an array of objects.")
 
-    # post-process for JSON
     for d in rows:
         for k in ("additionalActions", "intrinsicEffects", "damageType"):
             if isinstance(d.get(k), str):
@@ -177,58 +185,36 @@ def build_attack(desc: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 def html_description_block(title: str, bullet: str, is_critical: bool = False) -> str:
-    """
-    Produce the requested HTML block. If is_critical=True, prefix title with 'Critical Effect - '.
-    """
-    title_text = f"Critical Effect - {title}" if is_critical else f"{title}:"
-    # Bruno Ace for title, Montserrat for bullet, with the structure the user provided
+    title_text = f"Critical Effect - {title}:" if is_critical else f"{title}:"
     return (
         "<p></p>"
         f"<p><span style=\"font-family: 'Bruno Ace'\"><strong>{title_text}</strong></span></p>"
-        "<ul>"
-        "<li>"
+        "<ul><li>"
         f"<p><span style=\"font-family: Montserrat, sans-serif\">{bullet}</span></p>"
-        "</li>"
-        "</ul>"
+        "</li></ul>"
     )
 
 def build_feature_action(feature_name: str, feature_effect: str) -> Dict[str, Any]:
-    """
-    "Action" action for cybermancy feature -> Daggerheart action of type 'attack'.
-    Minimal, macro-friendly; roll uses default config.
-    """
-    img = f"icons/features/{_slug_hyphen(feature_name)}.png"
+    """Cybermancy feature → Daggerheart action (type 'effect', actionType 'action')."""
+    img = f"modules/cybermancy/assets/icons/features/{_slug_hyphen(feature_name)}.png"
     return {
-        "type": "attack",
-        "damage": {"includeBase": True, "parts": []},
-        "range": "",
-        "roll": {
-            "useDefault": True,
-            "type": "attack",
-            "trait": None,
-            "difficulty": None,
-            "bonus": None,
-            "advState": "neutral",
-            "diceRolling": {"multiplier": "prof", "flatMultiplier": 1, "dice": "d6", "compare": None, "treshold": None},
-        },
+        "type": "effect",
         "systemPath": "actions",
         "description": html_description_block(feature_name, feature_effect, is_critical=False),
         "chatDisplay": True,
         "actionType": "action",
         "cost": [],
         "uses": {"value": None, "max": "", "recovery": None, "consumeOnSuccess": False},
-        "target": {"type": "any", "amount": None},
         "effects": [],
-        "save": {"trait": None, "difficulty": None, "damageMod": "none"},
+        "target": {"type": "any", "amount": None},
         "name": feature_name,
         "img": img,
+        "range": "",
     }
 
 def build_critical_effect_action(crit_name: str, crit_effect: str) -> Dict[str, Any]:
-    """
-    "Generic" action for critical effect -> Daggerheart action of type 'effect'.
-    """
-    img = f"icons/features/{_slug_hyphen(crit_name)}.png"
+    """Critical effect → generic action (type 'effect', actionType 'action')."""
+    img = f"modules/cybermancy/assets/icons/features/{_slug_hyphen(crit_name)}.png"
     return {
         "type": "effect",
         "systemPath": "actions",
@@ -252,10 +238,6 @@ def load_catalog(path: Path) -> Dict[str, Any]:
         raise SystemExit(f"Failed to read catalog {path}: {e}")
 
 def resolve_ref_actions(catalog: Dict[str, Any], category: str, key: str) -> Dict[str, Any]:
-    """
-    Look up:
-        catalog["actions-effects"][category][key]["actions"]
-    """
     root = catalog.get("actions-effects")
     if not isinstance(root, dict):
         raise ValueError("Catalog missing 'actions-effects' root.")
@@ -276,9 +258,7 @@ def merge_actions(dst: Dict[str, Any], src: Dict[str, Any]) -> None:
             dst[k] = v
         else:
             if json.dumps(dst[k], sort_keys=True) == json.dumps(v, sort_keys=True):
-                continue  # identical; skip
-            # conflict -> keep existing deterministically
-            continue
+                continue
 
 # -------------------- compile one item --------------------
 def compile_one(desc: Dict[str, Any], catalog: Dict[str, Any]) -> Dict[str, Any]:
@@ -304,7 +284,7 @@ def compile_one(desc: Dict[str, Any], catalog: Dict[str, Any]) -> Dict[str, Any]
     if feats:
         system["weaponFeatures"] = [{"value": f} for f in feats]
 
-    # 1) Catalog-referenced actions (additionalActions + intrinsicEffects)
+    # Catalog-referenced actions (additionalActions + intrinsicEffects)
     resolved_actions: Dict[str, Any] = {}
     for field in ("additionalActions", "intrinsicEffects"):
         for ref in as_list(desc.get(field)):
@@ -312,17 +292,16 @@ def compile_one(desc: Dict[str, Any], catalog: Dict[str, Any]) -> Dict[str, Any]
             src_actions = resolve_ref_actions(catalog, category, ref)
             merge_actions(resolved_actions, src_actions)
 
-    # 2) Cybermancy feature -> action (type 'attack')
-    feat_name = (desc.get("cybermancy-feature-name") or "").strip()
-    feat_text = (desc.get("cybermancy-feature-effect") or "").strip()
+    # Cybermancy feature -> action
+    feat_name = (get_field(desc, ["cybermancy-feature-name", "cybermancy_feature_name", "cybermancyfeaturename"]) or "").strip()
+    feat_text = (get_field(desc, ["cybermancy-feature-effect", "cybermancy_feature_effect", "cybermancyfeatureeffect"]) or "").strip()
     if feat_name:
         resolved_actions[feat_name] = build_feature_action(feat_name, feat_text)
 
-    # 3) Critical effect -> generic action (type 'effect')
-    crit_name = (desc.get("critical-effect-name") or "").strip()
-    crit_text = (desc.get("critical-effect") or "").strip()
+    # Critical effect -> generic action
+    crit_name = (get_field(desc, ["critical-effect-name", "critical_effect_name", "criticaleffectname"]) or "").strip()
+    crit_text = (get_field(desc, ["critical-effect", "critical_effect", "criticaleffect"]) or "").strip()
     if crit_name:
-        # Use the key in actions as the *reference identifier* (not prefixed), mirroring your example
         resolved_actions[crit_name] = build_critical_effect_action(crit_name, crit_text)
 
     if resolved_actions:
