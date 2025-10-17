@@ -2,7 +2,7 @@ Here’s the plain-English, system-text version of the common weapon Features as
 
 ![Foundryborne Action and Features page](https://github.com/Foundryborne/daggerheart/wiki/Actions-%26-Features_)
 
-# Core combat modifiers
+# Core Weapon combat modifiers
 
 **Reliable** — “+1 to attack rolls.” 
 
@@ -64,12 +64,88 @@ Here’s the plain-English, system-text version of the common weapon Features as
 
 Where this lives in Foundryborne (and evidence it’s implemented)
 
-Foundryborne’s Wiki → Actions & Features explains that items carry Features and that Features can include Actions (attack, damage, healing, generic, macro) and Effects that apply passively—this is the layer where these SRD features are enacted in-system. 
-GitHub
 
-The Massive behavior shows up in bug reports about the “Massive weapon keyword” interacting with custom damage formulas—evidence it’s implemented as a keyword that alters damage rolling (extra die, drop lowest). 
-GitHub
+# Core Armor combat modifiers
 
-The Spear “Cumbersome” correction appears in both community discussions and a Foundryborne issue adjusting compendium data, confirming the expected SRD semantics (Spear should not be Cumbersome). 
-GitHub
-+1
+**Flexible** — “+1 to Evasion.”
+Foundryborne: passive +1 Evasion when the item is equipped. 
+
+
+**Heavy** — “−1 to Evasion.”
+Foundryborne: passive −1 Evasion on equip. 
+
+
+**Very Heavy** — “−2 to Evasion; −1 to Agility.”
+Foundryborne: passive penalties applied while equipped. 
+
+
+**Resilient** — Before you’d mark your last Armor Slot, roll d6; on a 6, reduce the severity by one threshold without marking the slot.
+Foundryborne: a triggered effect at the “last slot” moment; GMs/players click/roll to resolve. 
+
+
+**Reinforced** — When you mark your last Armor Slot, increase your damage thresholds by +2 until you clear at least 1 slot.
+Foundryborne: stateful buff after last-slot is marked; clear it when you free a slot. 
+
+
+**Shifting** — When targeted for an attack, you may mark an Armor Slot to give the attack roll disadvantage.
+Foundryborne: spend-to-toggle disadvantage on the incoming roll. 
+
+
+**Quiet** — +2 to rolls to move silently.
+Foundryborne: passive situational bonus (GM applies/sets advantage as needed). 
+
+
+**Hopeful** — When you would spend a Hope, you can mark an Armor Slot instead.
+Foundryborne: replacement cost; mark slot instead of spending Hope. 
+
+
+**Warded** — You reduce incoming magic damage by your Armor Score before applying to thresholds.
+Foundryborne: subtract Armor Score from magic damage first, then resolve thresholds. 
+
+
+**Gilded** — +1 to Presence.
+Foundryborne: passive +1 Presence while equipped. 
+
+
+**Impenetrable** — Once per short rest, when you’d mark your last Hit Point, you can mark a Stress instead.
+Foundryborne: 1/short-rest replacement trigger at “last HP” moment. 
+
+
+**Sharp** — On a successful attack against a target in Melee, add a d4 to the damage roll.
+Foundryborne: conditional damage rider (melee only). 
+
+
+**Physical** — You can’t mark an Armor Slot to reduce magic damage.
+Foundryborne: prohibits using slots vs. magic. 
+
+
+**Magic** — You can’t mark an Armor Slot to reduce physical damage.
+Foundryborne: prohibits using slots vs. physical. 
+
+
+**Painful** — Each time you mark an Armor Slot, you must mark a Stress.
+Foundryborne: adds a cost when spending slots. 
+
+
+**Timeslowing** — Mark an Armor Slot to roll d4 and add to Evasion against an incoming attack.
+Foundryborne: reaction: spend slot, roll d4, add to Evasion for that attack. 
+
+
+**Channeling** — +1 to Spellcast Rolls.
+Foundryborne: passive +1 on spellcast checks while equipped. 
+
+
+**Burning** — When an adversary attacks you in Melee, they mark a Stress.
+Foundryborne: reactive penalty to melee attackers. 
+
+
+**Fortified** — When you mark an Armor Slot, you reduce severity by two thresholds instead of one.
+Foundryborne: stronger slot-spend mitigation. 
+
+
+**Truthseeking** — Armor glows when a creature within Close tells a lie.
+Foundryborne: narrative/visual indicator; no roll math. 
+
+
+**Difficult** — “−1 to all character traits and Evasion.”
+Foundryborne: broad passive penalties while equipped.
