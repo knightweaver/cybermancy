@@ -1,0 +1,117 @@
+{
+  "name": "Improved Cyber Spur",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/improved-cyber-spur.webp",
+  "system": {
+    "description": "Enhanced retractable spurs forged from titanium alloy, near undetectable by security scanners.",
+    "tier": 2,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/improved-cyber-spur.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "instinct",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d8",
+              "bonus": 4,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Concealed": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Concealed:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Cannot be detected by casual scans.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Concealed",
+        "img": "modules/cybermancy/assets/icons/features/concealed.webp",
+        "range": ""
+      },
+      "Spinal Strike": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Spinal Strike:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target is paralyzed for 1 round.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Spinal Strike",
+        "img": "modules/cybermancy/assets/icons/features/spinal-strike.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

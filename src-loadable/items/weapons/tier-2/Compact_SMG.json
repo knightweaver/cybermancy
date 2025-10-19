@@ -1,0 +1,117 @@
+{
+  "name": "Compact SMG",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/compact-smg.webp",
+  "system": {
+    "description": "A miniaturized submachine gun favored by covert teams — concealable but vicious in a firefight.",
+    "tier": 2,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/compact-smg.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "agility",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d6",
+              "bonus": 6,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Burst Fire": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Burst Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend Hope to hit two targets in Close range.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Burst Fire",
+        "img": "modules/cybermancy/assets/icons/features/burst-fire.webp",
+        "range": ""
+      },
+      "Crowd Control": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Crowd Control:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Panic/disrupt all enemies in Very Close range.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Crowd Control",
+        "img": "modules/cybermancy/assets/icons/features/crowd-control.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

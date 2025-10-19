@@ -1,0 +1,117 @@
+{
+  "name": "Assault Rifle",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/assault-rifle.webp",
+  "system": {
+    "description": "The runner’s staple: reliable, lethal, and adaptable across every corporate warzone on Earth.",
+    "tier": 1,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/assault-rifle.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "strength",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d8",
+              "bonus": 3,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Suppressive Fire": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Suppressive Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Hope win, target must mark 1 Stress to act next turn.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Suppressive Fire",
+        "img": "modules/cybermancy/assets/icons/features/suppressive-fire.webp",
+        "range": ""
+      },
+      "Shredding Burst": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Shredding Burst:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Force enemy into cover, reducing their next attack roll.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Shredding Burst",
+        "img": "modules/cybermancy/assets/icons/features/shredding-burst.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

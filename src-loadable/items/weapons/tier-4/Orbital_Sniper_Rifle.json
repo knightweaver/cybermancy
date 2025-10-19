@@ -1,0 +1,117 @@
+{
+  "name": "Orbital Sniper Rifle",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/orbital-sniper-rifle.webp",
+  "system": {
+    "description": "A satellite-linked rifle capable of marking and calling down orbital strikes.",
+    "tier": 4,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/orbital-sniper-rifle.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "veryFar",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "knowledge",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d12",
+              "bonus": 12,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Satellite Link": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Satellite Link:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Call in orbital fire once per rest.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Satellite Link",
+        "img": "modules/cybermancy/assets/icons/features/satellite-link.webp",
+        "range": ""
+      },
+      "Heavens Lance": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Heavens Lance:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Obliterate target zone, GM narrates consequences.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Heavens Lance",
+        "img": "modules/cybermancy/assets/icons/features/heavens-lance.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

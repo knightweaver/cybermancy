@@ -11,7 +11,10 @@
   },
   "scripts": {
     "cleanup": "rimraf stage packs",
-    "descriptor2loadable": "node scripts/descriptor2loadableJSON.mjs"
+    "descriptor2loadable": "node scripts/descriptor2loadableJSON.mjs",
+    "convert-jpg-to-webp": " py .\\convert_and_resize_png_to_webp.py --width 400 --height 400 --dpi 96 --quality 8 --lossless --recursive ..\\assets\\icons\\",
+    "convert descriptors to loadable": "py .\\pyCybermancy\\convert-descriptors-to-loadable.py .\\src-descriptors\\weapons.csv -o .\\src-loadable\\ -c .\\src-descriptors\\actions-by-category.json",
+    "browse images": "node scripts/image-browser.mjs"
   },
   "repository": {
     "type": "git",

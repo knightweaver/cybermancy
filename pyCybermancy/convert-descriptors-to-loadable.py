@@ -20,6 +20,11 @@ Updates:
 Usage:
   python main.py descriptors.json -c actions-by-category.json -o outdir/
   python main.py descriptors.csv  -c actions-by-category.json -o outdir/
+
+
+  NOTE: a really nice Excel equation to autogenreate a good prompt for image generation is:
+
+  =CONCATENATE("Cybermancy image generator thread: generate an image for ", W2, ".png in the size recommended by Foundry VTT for icons.  Focus on the descriptive aspects implied by " & V2 & " in the image generation. " & V2 & " in Cybermancy has the effect of: " & Y2)
 """
 
 from __future__ import annotations
@@ -196,7 +201,7 @@ def html_description_block(title: str, bullet: str, is_critical: bool = False) -
 
 def build_feature_action(feature_name: str, feature_effect: str) -> Dict[str, Any]:
     """Cybermancy feature → Daggerheart action (type 'effect', actionType 'action')."""
-    img = f"modules/cybermancy/assets/icons/features/{_slug_hyphen(feature_name)}.png"
+    img = f"modules/cybermancy/assets/icons/features/{_slug_hyphen(feature_name)}.webp"
     return {
         "type": "effect",
         "systemPath": "actions",
@@ -214,7 +219,7 @@ def build_feature_action(feature_name: str, feature_effect: str) -> Dict[str, An
 
 def build_critical_effect_action(crit_name: str, crit_effect: str) -> Dict[str, Any]:
     """Critical effect → generic action (type 'effect', actionType 'action')."""
-    img = f"modules/cybermancy/assets/icons/features/{_slug_hyphen(crit_name)}.png"
+    img = f"modules/cybermancy/assets/icons/features/{_slug_hyphen(crit_name)}.webp"
     return {
         "type": "effect",
         "systemPath": "actions",

@@ -1,0 +1,117 @@
+{
+  "name": "Smartpistol Elite",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/smartpistol-elite.webp",
+  "system": {
+    "description": "High-end model linked directly to neural networks for predictive targeting.",
+    "tier": 3,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/smartpistol-elite.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d8",
+              "bonus": 6,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Autotarget": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Autotarget:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Always ignore cover.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Autotarget",
+        "img": "modules/cybermancy/assets/icons/features/autotarget.webp",
+        "range": ""
+      },
+      "One-Shot Kill": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - One-Shot Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Severe damage ignoring all armor.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  One-Shot Kill",
+        "img": "modules/cybermancy/assets/icons/features/one-shot-kill.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

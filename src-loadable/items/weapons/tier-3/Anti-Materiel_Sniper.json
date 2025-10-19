@@ -1,0 +1,117 @@
+{
+  "name": "Anti-Materiel Sniper",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/anti-materiel-sniper.webp",
+  "system": {
+    "description": "Long-range rail weapon capable of puncturing vehicles, mechs, and even bunkers.",
+    "tier": 3,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/anti-materiel-sniper.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "veryFar",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "knowledge",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d10",
+              "bonus": 8,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Penetration": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Penetration:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Shoot through walls/vehicles.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Penetration",
+        "img": "modules/cybermancy/assets/icons/features/penetration.webp",
+        "range": ""
+      },
+      "Executioners Shot": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Executioners Shot:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Instantly remove non-boss foe.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Executioners Shot",
+        "img": "modules/cybermancy/assets/icons/features/executioners-shot.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

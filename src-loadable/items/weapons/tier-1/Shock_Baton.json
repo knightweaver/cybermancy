@@ -1,0 +1,117 @@
+{
+  "name": "Shock Baton",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/shock-baton.webp",
+  "system": {
+    "description": "A polymer club fitted with a high-voltage capacitor, used by corp security and riot control alike.",
+    "tier": 1,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/shock-baton.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "presence",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d8",
+              "bonus": 1,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Stunning": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Stunning:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a Hope on a successful hit to inflict Dazed for one round.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Stunning",
+        "img": "modules/cybermancy/assets/icons/features/stunning.webp",
+        "range": ""
+      },
+      "Knockout": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Knockout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target is stunned or unconscious for one scene beat.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Knockout",
+        "img": "modules/cybermancy/assets/icons/features/knockout.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

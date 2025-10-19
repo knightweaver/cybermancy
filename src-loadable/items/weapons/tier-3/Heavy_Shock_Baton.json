@@ -1,0 +1,117 @@
+{
+  "name": "Heavy Shock Baton",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/heavy-shock-baton.webp",
+  "system": {
+    "description": "Industrial security baton capable of stunning cybernetic brutes and armored enforcers alike.",
+    "tier": 3,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/heavy-shock-baton.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "presence",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d10",
+              "bonus": 5,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Chain Lightning": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Chain Lightning:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend 2 Hope, arc to 2 additional targets.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Chain Lightning",
+        "img": "modules/cybermancy/assets/icons/features/chain-lightning.webp",
+        "range": ""
+      },
+      "System Shutdown": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - System Shutdown:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target incapacitated (stun or KO).</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  System Shutdown",
+        "img": "modules/cybermancy/assets/icons/features/system-shutdown.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

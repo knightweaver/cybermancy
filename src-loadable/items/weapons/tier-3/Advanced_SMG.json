@@ -1,0 +1,117 @@
+{
+  "name": "Advanced SMG",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/advanced-smg.webp",
+  "system": {
+    "description": "Modular close-combat firearm with smart recoil dampers and ammo tracking.",
+    "tier": 3,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/advanced-smg.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "agility",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d6",
+              "bonus": 9,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "actions": {
+      "Bulletstorm": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Bulletstorm:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per rest, attack 3 targets in Close.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Bulletstorm",
+        "img": "modules/cybermancy/assets/icons/features/bulletstorm.webp",
+        "range": ""
+      },
+      "Suppression Killzone": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Suppression Killzone:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Enemies must Retreat or mark Stress.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Suppression Killzone",
+        "img": "modules/cybermancy/assets/icons/features/suppression-killzone.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

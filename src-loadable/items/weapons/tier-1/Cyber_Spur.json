@@ -1,0 +1,122 @@
+{
+  "name": "Cyber Spur",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/cyber-spur.webp",
+  "system": {
+    "description": "A retractable blade hidden in the user’s forearm, perfect for sudden, lethal strikes in close quarters.",
+    "tier": 1,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/cyber-spur.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "instinct",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6"
+        }
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d8",
+              "bonus": 0,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action"
+    },
+    "weaponFeatures": [
+      {
+        "value": "retractable"
+      }
+    ],
+    "actions": {
+      "Concealed": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Concealed:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Can be hidden; gain advantage on your first attack each scene.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Concealed",
+        "img": "modules/cybermancy/assets/icons/features/concealed.webp",
+        "range": ""
+      },
+      "Ambush Kill": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Ambush Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">If striking from surprise, escalate Fear consequences for target.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Ambush Kill",
+        "img": "modules/cybermancy/assets/icons/features/ambush-kill.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

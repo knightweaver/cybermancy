@@ -3,7 +3,7 @@
   "id": "cybermancy",
   "title": "Cybermancy (Daggerheart Extension)",
   "description": "Cyberpunk/Shadowrun-flavored extension for Daggerheart: custom sheets, extra fields, roll helpers, and compendia.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "compatibility": {
     "minimum": "11",
     "verified": "13"
@@ -15,38 +15,42 @@
     "systems": [{ "id": "daggerheart" }]
   },
 "packs": [
-  { "name": "cybermancy-items",   "label": "Cybermancy Items",   "path": "packs/cybermancy-items",   "type": "Item",  "private": false },
-  { "name": "cybermancy-domains", "label": "Cybermancy Domains", "path": "packs/cybermancy-domains", "type": "Item",  "private": false },
-  { "name": "cybermancy-actors",  "label": "Cybermancy Actors",  "path": "packs/cybermancy-actors",  "type": "Actor", "private": false }
-  ],
+  { "name": "cybermancy-weapons",   "label": "Weapons",   "path": "packs/items/weapons.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-armors",   "label": "Armors",   "path": "packs/items/armors.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-loot",   "label": "Loot",   "path": "packs/items/loot.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-consumables",   "label": "Consumables",   "path": "packs/items/consumables.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-cybernetics",   "label": "Cybernetics",   "path": "packs/items/cybernetics.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-drones-devices",   "label": "Drones & Devices",   "path": "packs/items/drones-devices.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-classes",   "label": "Classes",   "path": "packs/system/classes.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-subclasses",   "label": "Subclasses",   "path": "packs/system/subclasses.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-domains", "label": "Domains", "path": "packs/system/domains.db", "type": "Item",  "private": false },
+  { "name": "cybermancy-features", "label": "Features", "path": "packs/system/features.db", "type": "Item",  "private": false },
+  { "name": "cybermancy-communities",  "label": "Communities",  "path": "packs/system/communities.db",  "type": "Item", "private": false },
+  { "name": "cybermancy-adversaries",  "label": "Adversaries",  "path": "packs/adventures/adversaries.db",  "type": "Item", "private": false },
+  { "name": "cybermancy-environments",  "label": "Environments",  "path": "packs/adventures/environments.db",  "type": "Item", "private": false }
+],
   "packFolders": [
     {
-      "name": "Cybermancy Items",
+      "name": "Cybermancy SRD",
       "sorting": "m",
       "folders": [
         {
-          "name": "Weapons",
+          "name": "Items",
           "sorting": "a",
-          "color": "000000",
-          "packs": "items-weapons"
+          "color": "599522",
+          "packs": ["cybermancy-weapons", "cybermancy-armors", "cybermancy-loot", "cybermancy-consumables", "cybermancy-cybernetics", "cybermancy-drones-devices"]
         },
         {
-          "name": "Armors",
+          "name": "System",
           "sorting": "a",
-          "color": "000000",
-          "packs": "items-armors"
+          "color": "7b404f",
+          "packs": ["cybermancy-classes", "cybermancy-subclasses", "cybermancy-domains", "cybermancy-features", "cybermancy-communities"]
         },
         {
-          "name": "Loot",
+          "name": "Adventures",
           "sorting": "a",
-          "color": "000000",
-          "packs": "items-loot"
-        },
-        {
-          "name": "Consumables",
-          "sorting": "a",
-          "color": "000000",
-          "packs": "items-consumables"
+          "color": "326977",
+          "packs": ["cybermancy-adversaries", "cybermancy-environments"]
         }
       ]
     }
@@ -58,7 +62,7 @@
   ],
   "url": "https://github.com/knightweaver/cybermancy",
   "manifest": "https://github.com/knightweaver/cybermancy/releases/latest/download/module.json",
-  "download": "https://github.com/knightweaver/cybermancy/releases/download/v0.0.6/cybermancy-v0.0.6.zip",
+  "download": "https://github.com/knightweaver/cybermancy/releases/download/v0.0.7/cybermancy-v0.0.7.zip",
   "license": "LICENSE",
   "readme": "README.md"
 }
