@@ -1,0 +1,100 @@
+{
+  "name": "Minor Health Stimpack",
+  "type": "consumable",
+  "_id": "tPfKtKRRjv8qdSqy",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\minor-health-stimpack.webp",
+  "system": {
+    "description": "A compact medical injector loaded with clotting foam and nanite tissue repair. Restores 1d4 HP.",
+    "quantity": 1,
+    "actions": {
+      "9HVL2MPFX9VGiSsV": {
+        "type": "healing",
+        "_id": "9HVL2MPFX9VGiSsV",
+        "systemPath": "actions",
+        "description": "<p>Clear 1d4 HP.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d4",
+                "bonus": null
+              },
+              "applyTo": "hitPoints",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/potion-tube-corked-red.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\minor-health-stimpack.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753587253431,
+    "modifiedTime": 1754394742922,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!tPfKtKRRjv8qdSqy"
+}

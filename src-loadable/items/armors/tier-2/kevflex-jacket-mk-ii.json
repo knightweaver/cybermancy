@@ -1,0 +1,43 @@
+{
+  "folder": "hLn0v6ov6KuFgptu",
+  "name": "KevFlex Jacket Mk II",
+  "type": "armor",
+  "_id": "t91M61pSCMKStTNt",
+  "img": "modules/cybermancy/assets/icons/armors/kevflex-jacket-mk-ii.webp",
+  "system": {
+    "description": "Upgraded synthetic leather with doubled Kevlar threading—lightweight, better seams, cleaner lines.",
+    "actions": {},
+    "attached": [],
+    "tier": 2,
+    "equipped": false,
+    "baseScore": 4,
+    "armorFeatures": [],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 9,
+      "severe": 20
+    },
+    "img": "modules/cybermancy/assets/icons/armors/kevflex-jacket-mk-ii.webp"
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753805428821,
+    "modifiedTime": 1753805482906,
+    "lastModifiedBy": "FecEtPuoQh6MpjQ0"
+  },
+  "_key": "!items!t91M61pSCMKStTNt"
+}

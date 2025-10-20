@@ -1,0 +1,109 @@
+{
+  "name": "Combat Regen Inhalant",
+  "type": "consumable",
+  "_id": "cg6VtQ0eVZjDdcK0",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\combat-regen-inhalant.webp",
+  "system": {
+    "description": "A rapid-acting chemical cocktail—mark 1 Stress to clear 1 HP.",
+    "quantity": 1,
+    "actions": {
+      "FVn1NAbzHHyX2lsM": {
+        "type": "healing",
+        "_id": "FVn1NAbzHHyX2lsM",
+        "systemPath": "actions",
+        "description": "<p>Mark a Stress and clear a HP.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": true,
+                  "formula": "1"
+                },
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null
+              },
+              "applyTo": "hitPoints",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Imbibe",
+        "img": "icons/commodities/materials/bowl-powder-gold.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\combat-regen-inhalant.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753588752841,
+    "modifiedTime": 1754394825942,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!cg6VtQ0eVZjDdcK0"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Kinetic Leg Booster",
+  "type": "consumable",
+  "_id": "c2putn9apuurJhWX",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\kinetic-leg-booster.webp",
+  "system": {
+    "description": "A leg-mounted actuator charge that launches you up to Far range once without rolling.",
+    "quantity": 1,
+    "actions": {
+      "TT4jzve7o2ykPcQO": {
+        "type": "effect",
+        "_id": "TT4jzve7o2ykPcQO",
+        "systemPath": "actions",
+        "description": "<p>Eat this root to leap up to Far range once without needing to roll.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Eat",
+        "img": "icons/consumables/plants/dried-bundle-wrapped-stems-sticks-brown.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\kinetic-leg-booster.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753588566489,
+    "modifiedTime": 1754394659649,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!c2putn9apuurJhWX"
+}

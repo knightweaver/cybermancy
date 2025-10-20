@@ -1,0 +1,100 @@
+{
+  "name": "Minor Adrenaline Patch",
+  "type": "consumable",
+  "_id": "b6vGSPFWOlzZZDLO",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\minor-adrenaline-patch.webp",
+  "system": {
+    "description": "A mild stim patch that reduces stress hormones and stabilizes vitals. Clears 1d4 Stress.",
+    "quantity": 1,
+    "actions": {
+      "fdjpkjhzHQOrZPm0": {
+        "type": "healing",
+        "_id": "fdjpkjhzHQOrZPm0",
+        "systemPath": "actions",
+        "description": "<p>Clear 1d4 Stress.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d4",
+                "bonus": null
+              },
+              "applyTo": "stress",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/potion-tube-corked-green.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\minor-adrenaline-patch.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753587324465,
+    "modifiedTime": 1754394346717,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!b6vGSPFWOlzZZDLO"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Wall-Melt Gel",
+  "type": "consumable",
+  "_id": "cfVFmS8vT9dbq9s1",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\wall-melt-gel.webp",
+  "system": {
+    "description": "An industrial solvent that dissolves barriers in bright flashes—stand clear.",
+    "quantity": 1,
+    "actions": {
+      "FQ2Ty0pP3z6JrBr6": {
+        "type": "effect",
+        "_id": "FQ2Ty0pP3z6JrBr6",
+        "systemPath": "actions",
+        "description": "<p>This paste eats away walls and other surfaces in bright flashes.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/commodities/materials/bowl-powder-teal.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\wall-melt-gel.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753590344700,
+    "modifiedTime": 1754394373835,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!cfVFmS8vT9dbq9s1"
+}

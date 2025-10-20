@@ -1,0 +1,101 @@
+{
+  "name": "Focus Amp Tabs",
+  "type": "consumable",
+  "_id": "hvy5BkG3F6iOIXTx",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\focus-amp-tabs.webp",
+  "system": {
+    "description": "A pair of dissolving nootropic strips that flood the mind with clarity. Gain 2 Hope.",
+    "quantity": 1,
+    "actions": {
+      "9e4l2Yiy8uV26SQF": {
+        "type": "healing",
+        "_id": "9e4l2Yiy8uV26SQF",
+        "systemPath": "actions",
+        "description": "<p>You can eat these paired leaves to immediately gain 2 Hope.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": true,
+                  "formula": "2"
+                },
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null
+              },
+              "applyTo": "hope",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Eat",
+        "img": "icons/consumables/plants/leaf-serrated-pink.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\focus-amp-tabs.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753587484164,
+    "modifiedTime": 1754394924546,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!hvy5BkG3F6iOIXTx"
+}

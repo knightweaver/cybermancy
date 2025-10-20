@@ -1,224 +1,67 @@
-Awesome—let’s make this turnkey so you never think about `_id`/`_key` again. You’ll stage clean JSON → auto-generate IDs/keys → pack all four item subtypes.
 
----
+# Project update and notes 10/19/2025
 
-# 1) Add the staging script
+This is my attempt to capture my brain dump of all the things I have learned in the past 2 weeks.
 
-Create `scripts/stage-items.mjs` (from your module root):
+### TO DOs (10/189/2025)
+ - Load directly to Compendia macro?
+ - Update retitle_armors_and_zip.py to insert a bespoke stubbed out image name to the new icon
 
-```js
-// scripts/stage-items.mjs
-// Stage clean JSON into a build-ready shape by adding _id and _key,
-// stripping volatile fields, and ensuring embedded effect IDs.
-// Usage:
-//   node scripts/stage-items.mjs <srcDir> <outDir> [Item]
-//
-// Example:
-//   node scripts/stage-items.mjs ./src-data/items/weapons ./stage/items/weapons Item
+## Key observations
 
-import { readdirSync, statSync, readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
-import { join, resolve, dirname, extname } from "node:path";
-import { randomUUID } from "node:crypto";
+1. All Compendia content needs to be internally referenced, meaning they cannot be references to Items.  References to Other Compendia are acceptable, but make a dependency that needs to be recorded in the modules.json file.
+2. All things within Foundry VTT have an internally generated UUID that must come from Foundry, meaning all things must be created in Foundry or Imported through a Macro, then filed into Compendia (I wonder if there is a "Load directly to Compendia" option?)
 
-const [,, srcArg, outArg, docClassArg = "Item"] = process.argv;
-if (!srcArg || !outArg) {
-  console.error("Usage: node scripts/stage-items.mjs <srcDir> <outDir> [DocumentClass]");
-  process.exit(1);
-}
+There are 3 patterns that are emerging from this work:
 
-const SRC = resolve(srcArg);
-const OUT = resolve(outArg);
-const DOC_CLASS = docClassArg;
+### Build within Foundry VTT:
+  - For some Items there really is not need or value for trying to use a scripted approach.  This generally applies to:
+    - Class
+    - Subclasses
+    - Other Items that are low cardinality
+    - For these Items the path is to build the Item directly within Foundry VTT and use drag-and-drop to configure in subordinate Items (e.g. Features, Subclasses, etc.)
 
-const COLLECTION_BY_DOC_CLASS = {
-  Actor: "actors",
-  Adventure: "adventures",
-  Cards: "cards",
-  ChatMessage: "messages",
-  Combat: "combats",
-  FogExploration: "fog",
-  Folder: "folders",
-  Item: "items",
-  JournalEntry: "journal",
-  Macro: "macros",
-  Playlist: "playlists",
-  RollTable: "tables",
-  Scene: "scenes",
-  Setting: "settings",
-  User: "users"
-};
-const COLLECTION = COLLECTION_BY_DOC_CLASS[DOC_CLASS];
-if (!COLLECTION) {
-  console.error(`Unknown DocumentClass "${DOC_CLASS}".`);
-  process.exit(1);
-}
+### Build by "re-skinning" Daggerheart:
+  - For some Items, the original Daggerheart things are perfectly fine and the only real need is a new "skin" (meaning Name, Description, and icon image). Example are:
+    - Armor
+    - Consumables
+    - Loot
+    - For these items, the path is to:
+      1. Access the relevant item folder from daggerheart (e.g. `E:\Documents\Daniel\role-gaming\Cybermancy module development\daggerheart-main\daggerheart-main\src\packs\items\armors`) and make a .zip file out of it.
+      2. Load to ChatGPT with a prompt like "extract the name from the uploaded .zip file and make a new name and description based on the Cybermancy world and deliver that as a rename .csv file.  Include a stubbed image name based on the new Item name".
+      - Alternative path: copy paste the list from https://daggerheart.org/reference
+      3. Run `pyCybermancy\retitle_armors_and_zip.py` using the rename .csv file and the folder of original JSON files.
+      4. Run `pyCybermancy\batch-image-generation-on-OpenAI.py` to generate the new images automatically.
+```py .\batch-image-generation-on-OpenAI.py -i armors_rename_list.json -o armor-icons --model gpt-image-1-mini --effect-key type --name-key new_name --desc-key new_new_description --max-items 5```
+       5. Move the JSON files to the appropriate `cybermancy\src-loadable` subdirectory.
+       6. Open Foundry VTT and run the `Validate and Load Folder` macro.
+       7. File all the new Items in the right Compendia.
 
-function walk(dir) {
-  const out = [];
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) out.push(...walk(p));
-    else if (e.isFile() && extname(e.name).toLowerCase() === ".json") out.push(p);
-  }
-  return out;
-}
+### Build from a "descriptor" file:
+  - For some Items, the Daggerheart things won't do (e.g. guns).  For those, I have build a descriptor file and set of scripts to convert a CSV into a set of JSON files.
+    - Weapons
+    - Cybernetics
+    - Drones and Devices
+    - For these items, the path is to:
+      1. From the Master list `pyCybermancy\cybermancy-object-list.xlsx`, export the relevant sheet as a .csv file.
+      2. Run `pyCybermancy\convert-descriptors-to-loadable.py` using the rename .csv file and the folder of original JSON files.
+      4. Run `pyCybermancy\batch-image-generation-on-OpenAI.py` to generate the new images automatically.
+      5. Move the JSON files to the appropriate `cybermancy\src-loadable` subdirectory.
+      6. Open Foundry VTT and run the `Validate and Load Folder` macro.
+      7. File all the new Items in the right Compendia.
 
-function ensureIdsAndKey(doc) {
-  // primary doc id/key
-  doc._id ||= randomUUID();
-  doc._key ||= `!${COLLECTION}!${doc._id}`;
+## Other utility scripts:
 
-  // embedded Active Effects (common on Items/Actors)
-  if (Array.isArray(doc.effects)) {
-    for (const eff of doc.effects) {
-      if (eff && typeof eff === "object") eff._id ||= randomUUID();
-    }
-  }
-}
+ - `pyCybermancy\convert_and_resize_png_to_webp.py` - Just what it says, replace in situ a .png file with a.webp file:
 
-function sanitize(doc) {
-  const { _stats, flags, ownership, folder, ...rest } = doc;
-  return rest;
-}
+``` py .\\convert_and_resize_png_to_webp.py --width 400 --height 400 --dpi 96 --quality 8 --lossless --recursive ..\assets\icons\```
 
-function stageFile(absPath) {
-  const rel = absPath.slice(SRC.length + 1);
-  const raw = readFileSync(absPath, "utf8");
-  let doc;
-  try {
-    doc = JSON.parse(raw);
-  } catch (e) {
-    console.warn(`[skip invalid JSON] ${rel}: ${e.message}`);
-    return false;
-  }
-  if (!doc?.name || !doc?.type) {
-    console.warn(`[skip missing name/type] ${rel}`);
-    return false;
-  }
+ - `pyCybermancy\organize-by-tier.py` - Take a set of Item JSON files and reorganize them by tier into subfolders for easy loading.
 
-  ensureIdsAndKey(doc);
-  const outDoc = sanitize(doc);
+```py organize-by-tier.py E:\FoundryVTT\Data\modules\cybermancy\src-loadable\items\armors```
 
-  const outFile = join(OUT, rel);
-  mkdirSync(dirname(outFile), { recursive: true });
-  writeFileSync(outFile, JSON.stringify(outDoc, null, 2), "utf8");
-  console.log(`staged ${rel}`);
-  return true;
-}
+ - `tar -a -c -f cybermancy.zip --exclude=cybermancy/.git --exclude=cybermancy/node_modules --exclude=cybermancy/.idea --exclude=cybermancy/pyCybermancy --exclude=cybermancy/src-descriptors cybermancy`
 
-function main() {
-  // clean output
-  rmSync(OUT, { recursive: true, force: true });
-  mkdirSync(OUT, { recursive: true });
+Create the cybermancy module .zip file excluding all the unnecessary folders.
 
-  const files = walk(SRC);
-  if (files.length === 0) {
-    console.error(`No JSON files under ${SRC}`);
-    process.exit(2);
-  }
 
-  let ok = 0;
-  for (const f of files) ok += stageFile(f) ? 1 : 0;
-
-  if (!ok) {
-    console.error(`No valid documents staged from ${SRC}`);
-    process.exit(3);
-  }
-  console.log(`\n✅ Staged ${ok}/${files.length} files into ${OUT}`);
-}
-
-main();
-```
-
-What it does:
-
-* Adds `_id` and `_key` (`!items!<id>` for Item docs).
-* Ensures each embedded effect has an `_id`.
-* Strips `_stats`, `flags`, `ownership`, `folder`.
-* Mirrors your directory structure into `./stage/...`.
-
----
-
-# 2) Update your `package.json` scripts
-
-Replace your scripts block with this (keeps your validator, adds staging, and points pack to the **staged** dirs):
-
-```json
-{
-  "scripts": {
-    "validate:items": "node scripts/validate-docs.mjs",
-
-    "stage:weapons": "node scripts/stage-items.mjs ./src-data/items/weapons ./stage/items/weapons Item",
-    "stage:armors": "node scripts/stage-items.mjs ./src-data/items/armors ./stage/items/armors Item",
-    "stage:consumables": "node scripts/stage-items.mjs ./src-data/items/consumables ./stage/items/consumables Item",
-    "stage:loot": "node scripts/stage-items.mjs ./src-data/items/loot ./stage/items/loot Item",
-    "stage:all": "npm run stage:weapons && npm run stage:armors && npm run stage:consumables && npm run stage:loot",
-
-    "clean:packs": "rimraf ./packs/items-weapons ./packs/items-armors ./packs/items-consumables ./packs/items-loot",
-    "clean:stage": "rimraf ./stage",
-    "clean": "npm run clean:packs && npm run clean:stage",
-
-    "pack:weapons": "fvtt package pack -n items-weapons --id cybermancy --type Module --inputDirectory ./stage/items/weapons --outputDirectory ./packs -v",
-    "pack:armors": "fvtt package pack -n items-armors --id cybermancy --type Module --inputDirectory ./stage/items/armors --outputDirectory ./packs -v",
-    "pack:consumables": "fvtt package pack -n items-consumables --id cybermancy --type Module --inputDirectory ./stage/items/consumables --outputDirectory ./packs -v",
-    "pack:loot": "fvtt package pack -n items-loot --id cybermancy --type Module --inputDirectory ./stage/items/loot --outputDirectory ./packs -v",
-
-    "prepack:all": "npm run validate:items && npm run stage:all",
-    "pack:all": "npm run pack:weapons && npm run pack:armors && npm run pack:consumables && npm run pack:loot",
-
-    "build": "npm run clean && npm run prepack:all && npm run pack:all"
-  },
-  "devDependencies": {
-    "rimraf": "^6.0.1"
-  }
-}
-```
-
-Install the small helper dev-dep:
-
-```bash
-npm i -D rimraf
-```
-
-> If you prefer not to add `rimraf`, you can delete the `clean:*` scripts or replace them with your PowerShell `rd /s /q` commands.
-
----
-
-# 3) Run the full flow
-
-From your module root:
-
-```bash
-npm run build
-```
-
-This will:
-
-1. Clean any old `packs/` and `stage/`
-2. Validate your source JSON
-3. Stage files with `_id`/`_key`
-4. Pack all four compendia from `./stage/**` → `./packs/**`
-
-Check `packs/items-weapons/` etc. — you should now see `MANIFEST-*`, `CURRENT`, `LOG`, **and `*.ldb`** files.
-(Or use `fvtt package unpack -n items-weapons --outputDirectory ./_tmp_check/weapons` to verify.)
-
----
-
-## Notes / Tips
-
-* Your `module.json` should keep **folder paths** (v11+ LevelDB):
-
-  ```json
-  "packs": [
-    { "name": "items-weapons", "path": "packs/items-weapons", "type": "Item", "system": "daggerheart" },
-    { "name": "items-armors",  "path": "packs/items-armors",  "type": "Item", "system": "daggerheart" },
-    { "name": "items-consumables", "path": "packs/items-consumables", "type": "Item", "system": "daggerheart" },
-    { "name": "items-loot", "path": "packs/items-loot", "type": "Item", "system": "daggerheart" }
-  ]
-  ```
-* Keep developing either *inside* your Foundry **User Data** modules folder or **symlink** your project there so Foundry and the CLI see the same files.
-* If you later add Folders or Adventures to packs, those require their own `_key` formats (`!folders!<id>`, `!adventures!<id>`). We can extend the stager to handle those too.
-
----
-
-If you want, I can also add a `stage:folders` mode (for pack folders) or a tiny post-process that auto-links `system.armorFeatures[*].effectIds` to embedded effects by name.

@@ -1,0 +1,55 @@
+{
+  "name": "Mirror Corrector Sprite Mask",
+  "type": "loot",
+  "_id": "G0RktbmtnuAlKCRH",
+  "img": "modules/cybermancy/assets/icons/loot/mirror-corrector-sprite-mask.webp",
+  "system": {
+    "description": "This tiny sprite sits in the curve of your ear canal and whispers helpful advice during combat. Once per short rest, you can gain advantage on an attack roll. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {
+      "saCkJzt1fb9GnEre": {
+        "type": "effect",
+        "_id": "saCkJzt1fb9GnEre",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": 1,
+          "recovery": "shortRest"
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Listen",
+        "img": "icons/magic/light/orbs-smoke-pink.webp",
+        "range": ""
+      }
+    },
+    "img": "modules/cybermancy/assets/icons/loot/mirror-corrector-sprite-mask.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.344",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753637155361,
+    "modifiedTime": 1753637366036,
+    "lastModifiedBy": "OFxauskoxcvVTVNA"
+  },
+  "_key": "!items!G0RktbmtnuAlKCRH"
+}

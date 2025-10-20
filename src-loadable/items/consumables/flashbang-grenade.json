@@ -1,0 +1,101 @@
+{
+  "name": "Flashbang Grenade",
+  "type": "consumable",
+  "_id": "eAXHdzA5qNPldOpn",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\flashbang-grenade.webp",
+  "system": {
+    "description": "A high-intensity flash device blinding all targets within Close range until they take HP damage.",
+    "quantity": 1,
+    "actions": {
+      "vk4dE0C8bjNdTwAF": {
+        "type": "effect",
+        "_id": "vk4dE0C8bjNdTwAF",
+        "systemPath": "actions",
+        "description": "<p>You can activate this orb to create a flash of bright light. All targets within Close range become Vulnerable until they mark HP.</p><p>@Template[type:emanation|range:c]</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "effects": [
+          {
+            "_id": "nryJhrF26hyFQUxH",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Activate",
+        "img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+        "range": "close"
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\flashbang-grenade.webp"
+  },
+  "effects": [
+    {
+      "name": "Blinding Orb",
+      "img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.eAXHdzA5qNPldOpn",
+      "transfer": false,
+      "_id": "nryJhrF26hyFQUxH",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">You are Vulnerable until you mark a Hit Point.</span></p>",
+      "tint": "#ffffff",
+      "statuses": [
+        "vulnerable"
+      ],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.346",
+        "systemId": "daggerheart",
+        "systemVersion": "0.0.1",
+        "createdTime": 1753592689854,
+        "modifiedTime": 1753991240756,
+        "lastModifiedBy": "MQSznptE5yLT7kj8"
+      },
+      "_key": "!items.effects!eAXHdzA5qNPldOpn.nryJhrF26hyFQUxH"
+    }
+  ],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753592512731,
+    "modifiedTime": 1754394410769,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!eAXHdzA5qNPldOpn"
+}

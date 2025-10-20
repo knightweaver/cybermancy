@@ -1,0 +1,32 @@
+{
+  "name": "Nano Lorekeeper Patch",
+  "type": "loot",
+  "_id": "JsPYzrqpITqGj23I",
+  "img": "modules/cybermancy/assets/icons/loot/nano-lorekeeper-patch.webp",
+  "system": {
+    "description": "You can store the name and details of up to three hostile creatures inside this book. You gain a +1 bonus to action rolls against those creatures. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {},
+    "img": "modules/cybermancy/assets/icons/loot/nano-lorekeeper-patch.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.344",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753637467427,
+    "modifiedTime": 1753637489198,
+    "lastModifiedBy": "OFxauskoxcvVTVNA"
+  },
+  "_key": "!items!JsPYzrqpITqGj23I"
+}

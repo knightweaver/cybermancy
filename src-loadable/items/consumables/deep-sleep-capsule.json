@@ -1,0 +1,101 @@
+{
+  "name": "Deep-Sleep Capsule",
+  "type": "consumable",
+  "_id": "XZavUVlHEvE2srEt",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\deep-sleep-capsule.webp",
+  "system": {
+    "description": "A sedative capsule inducing full rest and clearing all Stress on waking.",
+    "quantity": 1,
+    "actions": {
+      "0cqzI66ChzO6x8WF": {
+        "type": "healing",
+        "_id": "0cqzI66ChzO6x8WF",
+        "systemPath": "actions",
+        "description": "<p>You can drink this potion to fall asleep for a full night’s rest. You clear all Stress upon waking.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": true,
+                  "formula": "@system.resources.stress.max"
+                },
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null
+              },
+              "applyTo": "stress",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Wake",
+        "img": "icons/consumables/potions/bottle-bulb-corked-labeled-blue.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true,
+    "img": "modules\\cybermancy\\assets\\icons\\consumables\\deep-sleep-capsule.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.346",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753591837472,
+    "modifiedTime": 1754394819077,
+    "lastModifiedBy": "MQSznptE5yLT7kj8"
+  },
+  "_key": "!items!XZavUVlHEvE2srEt"
+}
