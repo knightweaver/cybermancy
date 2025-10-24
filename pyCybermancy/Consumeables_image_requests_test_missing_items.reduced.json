@@ -1,0 +1,110 @@
+[
+  {
+    "new_name": "Agility Booster Nanoshot",
+    "new_description": "A fast-acting nanite injection that heightens reflex loops and micro-muscle response. +1 bonus to your next Agility roll.",
+    "img": "agility-booster-nanoshot",
+    "effect": "physical"
+  },
+  {
+    "new_name": "Agility Booster Plus",
+    "new_description": "An enhanced nanoshot that grants +1 Agility until your next rest.",
+    "img": "agility-booster-plus",
+    "effect": "physical"
+  },
+  {
+    "new_name": "Deep-Sleep Capsule",
+    "new_description": "A sedative capsule inducing full rest and clearing all Stress on waking.",
+    "img": "deep-sleep-capsule",
+    "effect": "strength"
+  },
+  {
+    "new_name": "Flashbang Grenade",
+    "new_description": "A high-intensity flash device blinding all targets within Close range until they take HP damage.",
+    "img": "flashbang-grenade",
+    "effect": "physical"
+  },
+  {
+    "new_name": "Focus Amp Tabs",
+    "new_description": "A pair of dissolving nootropic strips that flood the mind with clarity. Gain 2 Hope.",
+    "img": "focus-amp-tabs",
+    "effect": "cognitive"
+  },
+  {
+    "new_name": "Improved Plasma Grenade",
+    "new_description": "An upgraded plasma charge with doubled output. Deals 2d20 plasma damage within Far range.",
+    "img": "improved-plasma-grenade",
+    "effect": "physical"
+  },
+  {
+    "new_name": "Industrial Adhesive Gel",
+    "new_description": "A dual-compound resin that permanently bonds objects together.",
+    "img": "industrial-adhesive-gel",
+    "effect": "cognitive"
+  },
+  {
+    "new_name": "Macro-Size Serum",
+    "new_description": "A nanite expansion serum doubling your size with +2 Strength and +1 Proficiency until reverted.",
+    "img": "macro-size-serum",
+    "effect": "cognitive"
+  },
+  {
+    "new_name": "Memory Transfer Crystal",
+    "new_description": "Upon death, stores your last loadout data. An ally can absorb it, inheriting one of your cards before it dissolves.",
+    "img": "memory-transfer-crystal",
+    "effect": "healing"
+  },
+  {
+    "new_name": "Micro-Size Serum",
+    "new_description": "A nanite serum halving your body size with +2 Agility and –1 Proficiency until reverted.",
+    "img": "micro-size-serum",
+    "effect": "charisma"
+  },
+  {
+    "new_name": "Muscle Overdrive Plus",
+    "new_description": "Advanced muscle stim that grants +1 Strength until your next rest.",
+    "img": "muscle-overdrive-plus",
+    "effect": "strength"
+  },
+  {
+    "new_name": "Muscle Overdrive Serum",
+    "new_description": "A strength-enhancing stim that floods the body with synthetic adrenaline. +1 bonus to your next Strength roll.",
+    "img": "muscle-overdrive-serum",
+    "effect": "strength"
+  },
+  {
+    "new_name": "Neural Reset Drink",
+    "new_description": "A calming electrolyte-nootropic blend that restores mental balance. Choose one additional downtime move.",
+    "img": "neural-reset-drink",
+    "effect": "cognitive"
+  },
+  {
+    "new_name": "Night-Vision Eye Drops",
+    "new_description": "A retinal nanofluid that enhances low-light sensitivity. You can see in total darkness until your next rest.",
+    "img": "night-vision-eye-drops",
+    "effect": "physical"
+  },
+  {
+    "new_name": "Orbital Strike Beacon",
+    "new_description": "A miniaturized satellite uplink calling down a storm of kinetic rods. Deals 8d20 physical damage within Very Far range.",
+    "img": "orbital-strike-beacon",
+    "effect": "physical"
+  },
+  {
+    "new_name": "Reactive Deflection Matrix",
+    "new_description": "A single-use energy field that negates one instance of damage when Hope is spent, then shatters.",
+    "img": "reactive-deflection-matrix",
+    "effect": "physical"
+  },
+  {
+    "new_name": "Memory Transfer Crystal",
+    "new_description": "Upon death, stores your last loadout data. An ally can absorb it, inheriting one of your cards before it dissolves.",
+    "img": "memory-transfer-crystal",
+    "effect": "healing"
+  },
+  {
+    "new_name": "Unstable Plasma Grenade",
+    "new_description": "A volatile micro-fusion cell that can be hurled at a target cluster. On hit, deals 1d20 plasma damage within Far range.",
+    "img": "unstable-plasma-grenade",
+    "effect": "physical"
+  }
+]

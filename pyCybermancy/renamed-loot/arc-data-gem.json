@@ -1,0 +1,32 @@
+{
+  "name": "Arc Data Gem",
+  "type": "loot",
+  "_id": "hMu9It3ThCLCXuCA",
+  "img": "modules/cybermancy/assets/icons/loot/arc-data-gem.webp",
+  "system": {
+    "description": "You can attach this gem to a weapon, allowing you to use your Presence when making an attack with that weapon. stores resonance data and telemetry snapshots",
+    "quantity": 1,
+    "actions": {},
+    "img": "modules/cybermancy/assets/icons/loot/arc-data-gem.webp"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.344",
+    "systemId": "daggerheart",
+    "systemVersion": "0.0.1",
+    "createdTime": 1753640590771,
+    "modifiedTime": 1753640602606,
+    "lastModifiedBy": "OFxauskoxcvVTVNA"
+  },
+  "_key": "!items!hMu9It3ThCLCXuCA"
+}

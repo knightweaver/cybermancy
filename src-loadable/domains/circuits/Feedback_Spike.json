@@ -1,0 +1,19 @@
+{
+  "name": "Feedback Spike",
+  "img": "modules/cybermancy/assets/icons/domains/feedback-spike.webp",
+  "type": "Reaction",
+  "system": {
+    "description": "“Return to sender.” Spend 1 Hope when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.",
+    "domain": "circuit",
+    "recallCost": 0,
+    "level": 6,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Combat",
+    "effect": "Spend 1 Hope when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.",
+    "blurb": "“Return to sender.”"
+  },
+  "effects": []
+}

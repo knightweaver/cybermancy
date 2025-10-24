@@ -1,0 +1,19 @@
+{
+  "name": "Ghost Protocol",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/ghost-protocol.webp",
+  "type": "domainCard",
+  "system": {
+    "description": "“Being off the grid never felt so literal.” Spend 1 Hope to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or enemies targeting you have a -2 to hit.",
+    "domain": "circuits",
+    "recallCost": 0,
+    "level": 5,
+    "type": "ability",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Environment",
+    "effect": "Spend 1 Hope to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or enemies targeting you have a -2 to hit.",
+    "blurb": "“Being off the grid never felt so literal.”"
+  },
+  "effects": []
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Signal Boost",
+  "img": "modules/cybermancy/assets/icons/domains/signal-boost.webp",
+  "type": "Ability",
+  "system": {
+    "description": "“Sometimes all you need is a better connection.” Once per Scene, you can reroute local energy or data flow. Choose one ally within Close range; they gain +1 to their next roll that involves technology or reflexes.",
+    "domain": "circuit",
+    "recallCost": 0,
+    "level": 1,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Combat",
+    "effect": "Once per Scene, you can reroute local energy or data flow. Choose one ally within Close range; they gain +1 to their next roll that involves technology or reflexes.",
+    "blurb": "“Sometimes all you need is a better connection.”"
+  },
+  "effects": []
+}

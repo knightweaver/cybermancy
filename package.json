@@ -15,7 +15,8 @@
     "convert-jpg-to-webp": " py .\\convert_and_resize_png_to_webp.py --width 400 --height 400 --dpi 96 --quality 8 --lossless --recursive ..\\assets\\icons\\",
     "convert descriptors to loadable": "py .\\pyCybermancy\\convert-descriptors-to-loadable.py .\\src-descriptors\\weapons.csv -o .\\src-loadable\\ -c .\\src-descriptors\\actions-by-category.json",
     "browse images": "node scripts/image-browser.mjs",
-    "zip command": "tar -a -c -f cybermancy.zip --exclude=cybermancy/.git --exclude=cybermancy/node_modules --exclude=cybermancy/.idea --exclude=cybermancy/pyCybermancy --exclude=cybermancy/src-descriptors cybermancy"
+    "zip command": "tar -a -c -f cybermancy.zip --exclude=cybermancy/.git --exclude=cybermancy/node_modules --exclude=cybermancy/.idea --exclude=cybermancy/pyCybermancy --exclude=cybermancy/src-descriptors cybermancy",
+    "batch image generation": "py .\\batch-image-generation-on-OpenAI.py --input .\\circuit_domain_cards_witty.csv --outdir .\\circuit-domain-img --effect-key domain"
   },
   "repository": {
     "type": "git",

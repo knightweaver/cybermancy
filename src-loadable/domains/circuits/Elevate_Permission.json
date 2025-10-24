@@ -1,0 +1,19 @@
+{
+  "name": "Elevate Permission",
+  "img": "modules/cybermancy/assets/icons/domains/elevate-permission.webp",
+  "type": "Ability",
+  "system": {
+    "description": "“Because root access is a state of mind.” Spend 1 Hope Spend 1 Hope to escalate your access level on a Device you are Hacking from Infiltration to Control.",
+    "domain": "circuit",
+    "recallCost": 0,
+    "level": 2,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Improve Hacking",
+    "effect": "Spend 1 Hope Spend 1 Hope to escalate your access level on a Device you are Hacking from Infiltration to Control.",
+    "blurb": "“Because root access is a state of mind.”"
+  },
+  "effects": []
+}

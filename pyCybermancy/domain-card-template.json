@@ -1,0 +1,16 @@
+{
+  "name": "Rune Ward",
+  "img": "systems/daggerheart/assets/icons/domains/domain-card/arcana.png",
+  "type": "domainCard",
+  "system": {
+    "description": "",
+    "domain": "arcana",
+    "recallCost": 0,
+    "level": 1,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false
+  },
+  "effects": []
+}

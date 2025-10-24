@@ -1,0 +1,19 @@
+{
+  "name": "Reality Patch",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/reality-patch.webp",
+  "type": "domainCard",
+  "system": {
+    "description": "“If you can code it, you can unbreak it.” Spend 1 Hope to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.",
+    "domain": "circuits",
+    "recallCost": 0,
+    "level": 8,
+    "type": "ability",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Environment",
+    "effect": "Spend 1 Hope to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.",
+    "blurb": "“If you can code it, you can unbreak it.”"
+  },
+  "effects": []
+}

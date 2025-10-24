@@ -1,0 +1,146 @@
+[
+  {
+    "old_name": "Stride Potion",
+    "new_name": "Agility Booster Nanoshot",
+    "new_description": "A fast-acting nanite injection that heightens reflex loops and micro-muscle response. +1 bonus to your next Agility roll.",
+    "img": "agility-booster-nanoshot",
+    "img-path": "modules/cybermancy/assets/icons/consumables/agility-booster-nanoshot.webp",
+    "effect": "physical"
+  },
+  {
+    "old_name": "Major Stride Potion",
+    "new_name": "Agility Booster Plus",
+    "new_description": "An enhanced nanoshot that grants +1 Agility until your next rest.",
+    "img": "agility-booster-plus",
+    "img-path": "modules/cybermancy/assets/icons/consumables/agility-booster-plus.webp",
+    "effect": "physical"
+  },
+  {
+    "old_name": "Sleeping Sap",
+    "new_name": "Deep-Sleep Capsule",
+    "new_description": "A sedative capsule inducing full rest and clearing all Stress on waking.",
+    "img": "deep-sleep-capsule",
+    "img-path": "modules/cybermancy/assets/icons/consumables/deep-sleep-capsule.webp",
+    "effect": "strength"
+  },
+  {
+    "old_name": "Blinding Orb",
+    "new_name": "Flashbang Grenade",
+    "new_description": "A high-intensity flash device blinding all targets within Close range until they take HP damage.",
+    "img": "flashbang-grenade",
+    "img-path": "modules/cybermancy/assets/icons/consumables/flashbang-grenade.webp",
+    "effect": "physical"
+  },
+  {
+    "old_name": "Varik Leaves",
+    "new_name": "Focus Amp Tabs",
+    "new_description": "A pair of dissolving nootropic strips that flood the mind with clarity. Gain 2 Hope.",
+    "img": "focus-amp-tabs",
+    "img-path": "modules/cybermancy/assets/icons/consumables/focus-amp-tabs.webp",
+    "effect": "cognitive"
+  },
+  {
+    "old_name": "Improved Arcane Shard",
+    "new_name": "Improved Plasma Grenade",
+    "new_description": "An upgraded plasma charge with doubled output. Deals 2d20 plasma damage within Far range.",
+    "img": "improved-plasma-grenade",
+    "img-path": "modules/cybermancy/assets/icons/consumables/improved-plasma-grenade.webp",
+    "effect": "physical"
+  },
+  {
+    "old_name": "Bonding Honey",
+    "new_name": "Industrial Adhesive Gel",
+    "new_description": "A dual-compound resin that permanently bonds objects together.",
+    "img": "industrial-adhesive-gel",
+    "img-path": "modules/cybermancy/assets/icons/consumables/industrial-adhesive-gel.webp",
+    "effect": "cognitive"
+  },
+  {
+    "old_name": "Growing Potion",
+    "new_name": "Macro-Size Serum",
+    "new_description": "A nanite expansion serum doubling your size with +2 Strength and +1 Proficiency until reverted.",
+    "img": "macro-size-serum",
+    "img-path": "modules/cybermancy/assets/icons/consumables/macro-size-serum.webp",
+    "effect": "cognitive"
+  },
+  {
+    "old_name": "Knowledge Stone",
+    "new_name": "Memory Transfer Crystal",
+    "new_description": "Upon death, stores your last loadout data. An ally can absorb it, inheriting one of your cards before it dissolves.",
+    "img": "memory-transfer-crystal",
+    "img-path": "modules/cybermancy/assets/icons/consumables/memory-transfer-crystal.webp",
+    "effect": "healing"
+  },
+  {
+    "old_name": "Shrinking Potion",
+    "new_name": "Micro-Size Serum",
+    "new_description": "A nanite serum halving your body size with +2 Agility and –1 Proficiency until reverted.",
+    "img": "micro-size-serum",
+    "img-path": "modules/cybermancy/assets/icons/consumables/micro-size-serum.webp",
+    "effect": "charisma"
+  },
+  {
+    "old_name": "Major Bolster Potion",
+    "new_name": "Muscle Overdrive Plus",
+    "new_description": "Advanced muscle stim that grants +1 Strength until your next rest.",
+    "img": "muscle-overdrive-plus",
+    "img-path": "modules/cybermancy/assets/icons/consumables/muscle-overdrive-plus.webp",
+    "effect": "strength"
+  },
+  {
+    "old_name": "Bolster Potion",
+    "new_name": "Muscle Overdrive Serum",
+    "new_description": "A strength-enhancing stim that floods the body with synthetic adrenaline. +1 bonus to your next Strength roll.",
+    "img": "muscle-overdrive-serum",
+    "img-path": "modules/cybermancy/assets/icons/consumables/muscle-overdrive-serum.webp",
+    "effect": "strength"
+  },
+  {
+    "old_name": "Potion of Stability",
+    "new_name": "Neural Reset Drink",
+    "new_description": "A calming electrolyte-nootropic blend that restores mental balance. Choose one additional downtime move.",
+    "img": "neural-reset-drink",
+    "img-path": "modules/cybermancy/assets/icons/consumables/neural-reset-drink.webp",
+    "effect": "cognitive"
+  },
+  {
+    "old_name": "Vial of Moondrip",
+    "new_name": "Night-Vision Eye Drops",
+    "new_description": "A retinal nanofluid that enhances low-light sensitivity. You can see in total darkness until your next rest.",
+    "img": "night-vision-eye-drops",
+    "img-path": "modules/cybermancy/assets/icons/consumables/night-vision-eye-drops.webp",
+    "effect": "physical"
+  },
+  {
+    "old_name": "Stardrop",
+    "new_name": "Orbital Strike Beacon",
+    "new_description": "A miniaturized satellite uplink calling down a storm of kinetic rods. Deals 8d20 physical damage within Very Far range.",
+    "img": "orbital-strike-beacon",
+    "img-path": "modules/cybermancy/assets/icons/consumables/orbital-strike-beacon.webp",
+    "effect": "physical"
+  },
+  {
+    "old_name": "Mirror of Marigold",
+    "new_name": "Reactive Deflection Matrix",
+    "new_description": "A single-use energy field that negates one instance of damage when Hope is spent, then shatters.",
+    "img": "reactive-deflection-matrix",
+    "img-path": "modules/cybermancy/assets/icons/consumables/reactive-deflection-matrix.webp",
+    "effect": "physical"
+  },
+  {
+    "old_name": "Knowledge Stone",
+    "new_name": "Memory Transfer Crystal",
+    "new_description": "Upon death, stores your last loadout data. An ally can absorb it, inheriting one of your cards before it dissolves.",
+    "img": "memory-transfer-crystal",
+    "img-path": "modules/cybermancy/assets/icons/consumables/memory-transfer-crystal.webp",
+    "effect": "healing"
+  },
+  {
+    "old_name": "Unstable Arcane Shard",
+    "new_name": "Unstable Plasma Grenade",
+    "new_description": "A volatile micro-fusion cell that can be hurled at a target cluster. On hit, deals 1d20 plasma damage within Far range.",
+    "img": "unstable-plasma-grenade",
+    "img-path": "modules/cybermancy/assets/icons/consumables/unstable-plasma-grenade.webp",
+    "effect": "physical"
+  }
+]

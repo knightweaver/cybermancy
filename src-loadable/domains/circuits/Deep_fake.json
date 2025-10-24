@@ -1,0 +1,19 @@
+{
+  "name": "Deep fake",
+  "img": "modules/cybermancy/assets/icons/domains/deep-fake.webp",
+  "type": "Ability",
+  "system": {
+    "description": "“The universe called — it wants its encryption key back.” Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.",
+    "domain": "circuit",
+    "recallCost": 0,
+    "level": 9,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Scene management",
+    "effect": "Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.",
+    "blurb": "“The universe called — it wants its encryption key back.”"
+  },
+  "effects": []
+}

@@ -1,0 +1,5 @@
+2025/10/19-09:50:25.062 d4cc Recovering log #24
+2025/10/19-09:50:25.062 d4cc Level-0 table #26: started
+2025/10/19-09:50:25.075 d4cc Level-0 table #26: 1295 bytes OK
+2025/10/19-09:50:25.080 d4cc Delete type=0 #24
+2025/10/19-09:50:25.080 d4cc Delete type=3 #23

@@ -1,0 +1,19 @@
+{
+  "name": "Synchronized Uplink",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/synchronized-uplink.webp",
+  "type": "domainCard",
+  "system": {
+    "description": "“When the team shares your mind, chaos becomes choreography.” At the beginning of the session, place a number of tokens on this card equal to your Spellcasting Trait.  Make a Spellcasting roll and target any enemy you can see or detect within Very Far; on a success, send them a transmission (e.g. \"they ran down the hall!\").  They will believe the information and act accordingly ... usually",
+    "domain": "circuits",
+    "recallCost": 0,
+    "level": 4,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Crowd control",
+    "effect": "At the beginning of the session, place a number of tokens on this card equal to your Spellcasting Trait.  Make a Spellcasting roll and target any enemy you can see or detect within Very Far; on a success, send them a transmission (e.g. \"they ran down the hall!\").  They will believe the information and act accordingly ... usually",
+    "blurb": "“When the team shares your mind, chaos becomes choreography.”"
+  },
+  "effects": []
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Neural Sync",
+  "img": "modules/cybermancy/assets/icons/domains/5.-neural-sync.webp",
+  "type": "Reaction",
+  "system": {
+    "description": "“Two heads, one neural network.” Spend 1 Hope to instantly share sensory data with one ally within Far range. You both gain +1 to rolls using shared perception for one Scene.",
+    "domain": "circuit",
+    "recallCost": 0,
+    "level": 3,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Combat",
+    "effect": "Spend 1 Hope to instantly share sensory data with one ally within Far range. You both gain +1 to rolls using shared perception for one Scene.",
+    "blurb": "“Two heads, one neural network.”"
+  },
+  "effects": []
+}

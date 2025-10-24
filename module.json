@@ -26,8 +26,8 @@
   { "name": "cybermancy-domains", "label": "Domains", "path": "packs/system/domains.db", "type": "Item",  "private": false },
   { "name": "cybermancy-features", "label": "Features", "path": "packs/system/features.db", "type": "Item",  "private": false },
   { "name": "cybermancy-communities",  "label": "Communities",  "path": "packs/system/communities.db",  "type": "Item", "private": false },
-  { "name": "cybermancy-adversaries",  "label": "Adversaries",  "path": "packs/adventures/adversaries.db",  "type": "Item", "private": false },
-  { "name": "cybermancy-environments",  "label": "Environments",  "path": "packs/adventures/environments.db",  "type": "Item", "private": false }
+  { "name": "cybermancy-adversaries",  "label": "Adversaries",  "path": "packs/adventures/adversaries.db",  "type": "Actor", "private": false },
+  { "name": "cybermancy-environments",  "label": "Environments",  "path": "packs/adventures/environments.db",  "type": "Actor", "private": false }
 ],
   "packFolders": [
     {

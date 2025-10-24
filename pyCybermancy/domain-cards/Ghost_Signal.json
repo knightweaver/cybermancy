@@ -1,0 +1,19 @@
+{
+  "name": "Ghost Signal",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/ghost-signal.webp",
+  "type": "domainCard",
+  "system": {
+    "description": "“Sometimes your best ally is a flickering echo of bad code.” Target 1 weapon within Far, Spend 1 Hope and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.",
+    "domain": "circuits",
+    "recallCost": 0,
+    "level": 2,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Combat",
+    "effect": "Target 1 weapon within Far, Spend 1 Hope and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.",
+    "blurb": "“Sometimes your best ally is a flickering echo of bad code.”"
+  },
+  "effects": []
+}

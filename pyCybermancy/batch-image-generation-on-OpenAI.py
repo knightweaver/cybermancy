@@ -19,6 +19,7 @@ from PIL import Image
 from slugify import slugify
 from dotenv import load_dotenv
 from openai import OpenAI
+import csv
 
 # Color scheme mapping from your spec
 EFFECT_PALETTE = {
@@ -29,16 +30,36 @@ EFFECT_PALETTE = {
     "cognitive": "neon green to lime-white",
     "charisma": "neon green to lime-white",
     "armor": "any colors that articles of clothing might have, but tending toward steel grey to leather brown",
-    "loot": "use the description field to infer a color scheme for the item"
-
+    "loot": "use the description field to infer a color scheme for the item",
+    "circuit": "glowing circuitry motif, light grey background, neon blue and green accents",
+    "weapons": "gunmetal grey with accents of electric cyan and molten red-orange",
+    "corporate": "gunmetal and chrome with cold blue-white highlights",
+    "military": "matte steel with amber-orange tracer glows",
+    "prototype": "graphite and silver with lime-green or violet plasma lines",
+    "street": "scratched chrome with graffiti teal and orange",
+    "antique": "aged bronze and iron with faint amber and smoke-blue glow",
+    "stealth": "matte black and charcoal with subtle purple or cyan pulse lines",
+    "domain-bullet": "gunmetal and graphite base with fiery orange to ember-red glow and cyan tracer accents",
+    "domain-maker": "titanium grey and steel blue base with amber-gold and teal glows, accented by warm white plasma highlights",
 }
+# map common aliases (case/space-insensitive)
+NAME_ALIASES = {"name","card_name","title","item","card"}
+DESC_ALIASES = {"description","card_description","card_effect","effect_text","text","blurb"}
+EFFECT_ALIASES = {"effect","domain","type","category"}
+IMG_ALIASES = {"img","image","filename","file","icon"}
 
 STYLE = (
     "cyberpunk item icon, semi-realistic rendering, metallic/glass materials, "
     "clean silhouette, soft reflections, subtle vignette, NO text or labels, "
     "light grey background, consistent luminance"
 )
+#STYLE = (
+#    "cyberpunk weapon icon, semi-realistic rendering, gunmetal and graphite materials,"
+#    "clean silhouette, subtle reflections, light grey background, consistent luminance,"
+#    "with glowing accents of electric cyan and molten red-orange to imply energy and power."
+#)
 
+def norm(s): return s.strip().lower().replace(" ", "") if isinstance(s, str) else ""
 
 def build_prompt(name: str, description: str, effect: str) -> str:
     palette = EFFECT_PALETTE.get((effect or "").lower().strip(), "cyan–teal to electric blue")
@@ -50,33 +71,73 @@ def b64png_to_webp(b64_png: str, out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path, "WEBP", method=6, quality=95)
 
+def find_col(columns, preferred, aliases):
+    """Return the column name to use: prefer --*-key, else best alias match."""
+    cols_norm = {norm(c): c for c in columns}
+    # prefer the exact provided key
+    if preferred and norm(preferred) in cols_norm:
+        return cols_norm[norm(preferred)]
+    # try aliases
+    for a in aliases:
+        if a in cols_norm:
+            return cols_norm[a]
+    return None
 
-def load_items(json_path: Path, name_key: str, desc_key: str, effect_key: str, img_key: str) -> List[Dict[str, Any]]:
-    data = json.loads(json_path.read_text(encoding="utf-8"))
-    if isinstance(data, dict) and "items" in data and isinstance(data["items"], list):
-        data = data["items"]
-    if not isinstance(data, list):
-        raise ValueError("Input JSON must be a list of objects or an object with an 'items' list.")
+def load_items(path: Path, name_key: str, desc_key: str, effect_key: str, img_key: str):
+    # JSON path?
+    if path.suffix.lower() in {".json"}:
+        data = json.loads(path.read_text(encoding="utf-8-sig"))
+        if isinstance(data, dict) and "items" in data and isinstance(data["items"], list):
+            data = data["items"]
+        if not isinstance(data, list):
+            raise ValueError("Input JSON must be a list or an object with an 'items' list.")
+        # ensure fields exist (empty if missing)
+        items = []
+        for obj in data:
+            if isinstance(obj, dict):
+                items.append({
+                    name_key: str(obj.get(name_key, "")).strip(),
+                    desc_key: str(obj.get(desc_key, "")).strip(),
+                    effect_key: str(obj.get(effect_key, "")).strip(),
+                    img_key: str(obj.get(img_key, "")).strip(),
+                })
+        return items
 
-    items = []
-    for obj in data:
-        if not isinstance(obj, dict):
-            continue
-        name = str(obj.get(name_key, "")).strip()
-        if not name:
-            continue
-        desc = str(obj.get(desc_key, "")).strip()
-        eff = str(obj.get(effect_key, "")).strip()
-        img = str(obj.get(img_key, "")).strip()
-        items.append({name_key: name, desc_key: desc, effect_key: eff, img_key: img})
-    return items
+    # CSV path?
+    if path.suffix.lower() in {".csv"}:
+        with path.open("r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            cols = reader.fieldnames or []
+            # resolve columns (prefer explicit keys passed on CLI; else aliases)
+            name_col   = find_col(cols, name_key,   NAME_ALIASES)
+            desc_col   = find_col(cols, desc_key,   DESC_ALIASES)
+            effect_col = find_col(cols, effect_key, EFFECT_ALIASES)
+            img_col    = find_col(cols, img_key,    IMG_ALIASES)
 
+            if not name_col:
+                raise ValueError(f"Could not resolve name column. Passed '{name_key}', available: {cols}")
+            if not desc_col:
+                raise ValueError(f"Could not resolve description column. Passed '{desc_key}', available: {cols}")
+            if not effect_col:
+                raise ValueError(f"Could not resolve effect column. Passed '{effect_key}', available: {cols}")
+            # img is optional; if missing, we'll slugify the name later
+            items = []
+            for row in reader:
+                items.append({
+                    name_key:   str(row.get(name_col, "")).strip(),
+                    desc_key:   str(row.get(desc_col, "")).strip(),
+                    effect_key: str(row.get(effect_col, "")).strip(),
+                    img_key:    str(row.get(img_col, "")).strip() if img_col else "",
+                })
+            return items
+
+    raise ValueError(f"Unsupported input type: {path.suffix} (use .json or .csv)")
 
 def main():
     parser = argparse.ArgumentParser(description="Batch-generate Cybermancy item icons via OpenAI Images API.")
     parser.add_argument("--input", "-i", required=True, type=Path, help="Path to input JSON file.")
     parser.add_argument("--outdir", "-o", required=True, type=Path, help="Output directory for .webp files.")
-    parser.add_argument("--model", default="gpt-image-1", help="OpenAI image model (e.g., gpt-image-1 or gpt-image-1-mini).")
+    parser.add_argument("--model", default="gpt-image-1-mini", help="OpenAI image model (e.g., gpt-image-1 or gpt-image-1-mini).")
     parser.add_argument("--size", default="1024x1024", help="Image size, e.g., Supported values are: '1024x1024', '1024x1536', '1536x1024', and 'auto'.")
     parser.add_argument("--delay", type=float, default=1.0, help="Delay (s) between requests to avoid rate limits.")
     parser.add_argument("--max-items", type=int, default=0, help="Optional cap on number of items to render (0 = all).")

@@ -1,0 +1,19 @@
+{
+  "name": "Strobe Effect",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/strobe-effect.webp",
+  "type": "domainCard",
+  "system": {
+    "description": "“Flash ’em, crash ’em, and walk out glowing.” Spend 1 Hope to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The enemy must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.",
+    "domain": "circuits",
+    "recallCost": 0,
+    "level": 2,
+    "type": "ability",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Combat",
+    "effect": "Spend 1 Hope to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The enemy must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.",
+    "blurb": "“Flash ’em, crash ’em, and walk out glowing.”"
+  },
+  "effects": []
+}

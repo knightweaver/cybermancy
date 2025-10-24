@@ -1,0 +1,19 @@
+{
+  "name": "Creative coding",
+  "img": "modules/cybermancy/assets/icons/domains/creative-coding.webp",
+  "type": "Ability",
+  "system": {
+    "description": "“If at first you don’t succeed, reboot and lie about it.” Add a new Digital Feature to a Device that it didn't originally have (GM's discretion)",
+    "domain": "circuit",
+    "recallCost": 0,
+    "level": 6,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Scenario",
+    "effect": "Add a new Digital Feature to a Device that it didn't originally have (GM's discretion)",
+    "blurb": "“If at first you don’t succeed, reboot and lie about it.”"
+  },
+  "effects": []
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Patience Young Padawan",
+  "img": "modules/cybermancy/assets/icons/domains/patience-young-padawan.webp",
+  "type": "Ability",
+  "system": {
+    "description": "“Turns out, rushing a hack only impresses the ICE.” If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.",
+    "domain": "circuit",
+    "recallCost": 0,
+    "level": 1,
+    "type": "spell",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Improve Hack rolls",
+    "effect": "If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.",
+    "blurb": "“Turns out, rushing a hack only impresses the ICE.”"
+  },
+  "effects": []
+}

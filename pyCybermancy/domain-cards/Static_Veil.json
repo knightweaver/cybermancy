@@ -1,0 +1,19 @@
+{
+  "name": "Static Veil",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/static-veil.webp",
+  "type": "domainCard",
+  "system": {
+    "description": "“The perfect invisibility cloak smells faintly of ozone.” Spend 1 Hope to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, enemies roll with Disadvantage to detect you or your team.",
+    "domain": "circuits",
+    "recallCost": 0,
+    "level": 2,
+    "type": "ability",
+    "actions": [],
+    "resource": null,
+    "inVault": false,
+    "theme": "Combat",
+    "effect": "Spend 1 Hope to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, enemies roll with Disadvantage to detect you or your team.",
+    "blurb": "“The perfect invisibility cloak smells faintly of ozone.”"
+  },
+  "effects": []
+}

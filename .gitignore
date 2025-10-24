@@ -31,3 +31,4 @@ test-data/
 *.webp~
 *.tmp
 temp/
+/packs/

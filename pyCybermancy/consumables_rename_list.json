@@ -1,0 +1,422 @@
+[
+  {
+    "old_name":"Stride Potion",
+    "new_name":"Agility Booster Nanoshot",
+    "new_description":"A fast-acting nanite injection that heightens reflex loops and micro-muscle response. +1 bonus to your next Agility roll.",
+    "img":"stride-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\agility-booster-nanoshot.webp"
+  },
+  {
+    "old_name":"Bolster Potion",
+    "new_name":"Muscle Overdrive Serum",
+    "new_description":"A strength-enhancing stim that floods the body with synthetic adrenaline. +1 bonus to your next Strength roll.",
+    "img":"bolster-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\muscle-overdrive-serum.webp"
+  },
+  {
+    "old_name":"Control Potion",
+    "new_name":"Precision Sync Injector",
+    "new_description":"A neural alignment serum that steadies fine-motor control. +1 bonus to your next Finesse roll.",
+    "img":"control-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\precision-sync-injector.webp"
+  },
+  {
+    "old_name":"Attune Potion",
+    "new_name":"Instinct Amplifier Chip",
+    "new_description":"A temporary neural patch that sharpens intuition and sensory prediction. +1 bonus to your next Instinct roll.",
+    "img":"attune-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\instinct-amplifier-chip.webp"
+  },
+  {
+    "old_name":"Charm Potion",
+    "new_name":"Persona Enhancement Dose",
+    "new_description":"An injectable charisma mod that boosts confidence and pheromonal output. +1 bonus to your next Presence roll.",
+    "img":"charm-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\persona-enhancement-dose.webp"
+  },
+  {
+    "old_name":"Enlighten Potion",
+    "new_name":"Cognitive Overclock Pill",
+    "new_description":"A nootropic compound that spikes short-term intellect and recall. +1 bonus to your next Knowledge roll.",
+    "img":"enlighten-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\cognitive-overclock-pill.webp"
+  },
+  {
+    "old_name":"Minor Health Potion",
+    "new_name":"Minor Health Stimpack",
+    "new_description":"A compact medical injector loaded with clotting foam and nanite tissue repair. Restores 1d4 HP.",
+    "img":"minor-health-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\minor-health-stimpack.webp"
+  },
+  {
+    "old_name":"Minor Stamina Potion",
+    "new_name":"Minor Adrenaline Patch",
+    "new_description":"A mild stim patch that reduces stress hormones and stabilizes vitals. Clears 1d4 Stress.",
+    "img":"minor-stamina-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\minor-adrenaline-patch.webp"
+  },
+  {
+    "old_name":"Grindeltooth Venom",
+    "new_name":"Corrosive Edge Coating",
+    "new_description":"A reactive gel applied to blades that adds an acidic burst on impact. Adds 1d6 to your next physical damage roll.",
+    "img":"grindeltooth-venom.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\corrosive-edge-coating.webp"
+  },
+  {
+    "old_name":"Varik Leaves",
+    "new_name":"Focus Amp Tabs",
+    "new_description":"A pair of dissolving nootropic strips that flood the mind with clarity. Gain 2 Hope.",
+    "img":"varik-leaves.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\focus-amp-tabs.webp"
+  },
+  {
+    "old_name":"Vial of Moondrip",
+    "new_name":"Night-Vision Eye Drops",
+    "new_description":"A retinal nanofluid that enhances low-light sensitivity. You can see in total darkness until your next rest.",
+    "img":"vial-of-moondrip.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\night-vision-eye-drops.webp"
+  },
+  {
+    "old_name":"Unstable Arcane Shard",
+    "new_name":"Unstable Plasma Grenade",
+    "new_description":"A volatile micro-fusion cell that can be hurled at a target cluster. On hit, deals 1d20 plasma damage within Far range.",
+    "img":"unstable-arcane-shard.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\unstable-plasma-grenade.webp"
+  },
+  {
+    "old_name":"Potion of Stability",
+    "new_name":"Neural Reset Drink",
+    "new_description":"A calming electrolyte-nootropic blend that restores mental balance. Choose one additional downtime move.",
+    "img":"potion-of-stability.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\neural-reset-drink.webp"
+  },
+  {
+    "old_name":"Improved Grindeltooth Venom",
+    "new_name":"Enhanced Corrosive Edge Coating",
+    "new_description":"An upgraded acid polymer that superheats on contact. Adds 1d8 to your next physical damage roll.",
+    "img":"improved-grindeltooth-venom.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\enhanced-corrosive-edge-coating.webp"
+  },
+  {
+    "old_name":"Morphing Clay",
+    "new_name":"Biomimetic Mask Gel",
+    "new_description":"A skin-altering nanogel that reconfigures facial features. Spend 4 Hope to appear unrecognizable until next rest.",
+    "img":"morphing-clay.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\biomimetic-mask-gel.webp"
+  },
+  {
+    "old_name":"Vial of Darksmoke",
+    "new_name":"Reactive Evasion Smoke",
+    "new_description":"A one-use vial that releases micro-smoke drones. Roll d6s equal to Agility; add the highest to Evasion vs. that attack.",
+    "img":"vial-of-darksmoke.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\reactive-evasion-smoke.webp"
+  },
+  {
+    "old_name":"Jumping Root",
+    "new_name":"Kinetic Leg Booster",
+    "new_description":"A leg-mounted actuator charge that launches you up to Far range once without rolling.",
+    "img":"jumping-root.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\kinetic-leg-booster.webp"
+  },
+  {
+    "old_name":"Snap Powder",
+    "new_name":"Combat Regen Inhalant",
+    "new_description":"A rapid-acting chemical cocktail—mark 1 Stress to clear 1 HP.",
+    "img":"snap-powder.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\combat-regen-inhalant.webp"
+  },
+  {
+    "old_name":"Health Potion",
+    "new_name":"Standard Health Stimpack",
+    "new_description":"A dual-dose medical injector that rebuilds soft tissue instantly. Restores 1d4+1 HP.",
+    "img":"health-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\standard-health-stimpack.webp"
+  },
+  {
+    "old_name":"Stamina Potion",
+    "new_name":"Standard Adrenaline Patch",
+    "new_description":"A concentrated stim patch that resets stress pathways. Clears 1d4+1 Stress.",
+    "img":"stamina-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\standard-adrenaline-patch.webp"
+  },
+  {
+    "old_name":"Armor Stitcher",
+    "new_name":"Armor Nanite Repair Kit",
+    "new_description":"A swarm of nanites that reknit damaged armor plating. Spend any amount of Hope to clear that many Armor Slots.",
+    "img":"armor-stitcher.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\armor-nanite-repair-kit.webp"
+  },
+  {
+    "old_name":"Gill Salve",
+    "new_name":"Respirator Gel",
+    "new_description":"A bio-gel that filters oxygen from water through skin membranes. Breathe underwater minutes equal to your level.",
+    "img":"gill-salve.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\respirator-gel.webp"
+  },
+  {
+    "old_name":"Replication Parchment",
+    "new_name":"Data Clone Chip",
+    "new_description":"A single-use microdrive that duplicates any stored data perfectly. After use, becomes inert silicon.",
+    "img":"replication-parchment.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\data-clone-chip.webp"
+  },
+  {
+    "old_name":"Improved Arcane Shard",
+    "new_name":"Improved Plasma Grenade",
+    "new_description":"An upgraded plasma charge with doubled output. Deals 2d20 plasma damage within Far range.",
+    "img":"improved-arcane-shard.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\improved-plasma-grenade.webp"
+  },
+  {
+    "old_name":"Major Stride Potion",
+    "new_name":"Agility Booster Plus",
+    "new_description":"An enhanced nanoshot that grants +1 Agility until your next rest.",
+    "img":"major-stride-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\agility-booster-plus.webp"
+  },
+  {
+    "old_name":"Major Bolster Potion",
+    "new_name":"Muscle Overdrive Plus",
+    "new_description":"Advanced muscle stim that grants +1 Strength until your next rest.",
+    "img":"major-bolster-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\muscle-overdrive-plus.webp"
+  },
+  {
+    "old_name":"Major Control Potion",
+    "new_name":"Precision Sync Plus",
+    "new_description":"Optimized neural alignment implant granting +1 Finesse until next rest.",
+    "img":"major-control-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\precision-sync-plus.webp"
+  },
+  {
+    "old_name":"Major Attune Potion",
+    "new_name":"Instinct Amplifier Plus",
+    "new_description":"Refined AI-tuned patch that grants +1 Instinct until next rest.",
+    "img":"major-attune-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\instinct-amplifier-plus.webp"
+  },
+  {
+    "old_name":"Major Charm Potion",
+    "new_name":"Persona Enhancement Plus",
+    "new_description":"Improved pheromone mod granting +1 Presence until next rest.",
+    "img":"major-charm-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\persona-enhancement-plus.webp"
+  },
+  {
+    "old_name":"Major Enlighten Potion",
+    "new_name":"Cognitive Overclock Plus",
+    "new_description":"Advanced nootropic granting +1 Knowledge until next rest.",
+    "img":"major-enlighten-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\cognitive-overclock-plus.webp"
+  },
+  {
+    "old_name":"Blood of the Yorgi",
+    "new_name":"Phase-Shift Serum",
+    "new_description":"A rare experimental serum that lets the user blink through space within very Far range.",
+    "img":"blood-of-the-yorgi.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\phase-shift-serum.webp"
+  },
+  {
+    "old_name":"Hornet’s Secret Potion",
+    "new_name":"Guaranteed Critical Algorithm",
+    "new_description":"A microchip booster that ensures your next successful attack critically succeeds.",
+    "img":"hornet’s-secret-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\guaranteed-critical-algorithm.webp"
+  },
+  {
+    "old_name":"Redthorn Saliva",
+    "new_name":"Hyper-Corrosive Edge Coating",
+    "new_description":"A volatile toxin gel that adds 1d12 to your next physical damage roll.",
+    "img":"redthorn-saliva.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\hyper-corrosive-edge-coating.webp"
+  },
+  {
+    "old_name":"Channelstone",
+    "new_name":"Spell Cache Drive",
+    "new_description":"A neural-linked data drive that lets you temporarily load and cast one stored spell, then offload it.",
+    "img":"channelstone.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\spell-cache-drive.webp"
+  },
+  {
+    "old_name":"Mythic Dust",
+    "new_name":"Arc Resonance Powder",
+    "new_description":"Quantum dust that amplifies energy weapon output. Adds 1d12 to your next magic damage roll.",
+    "img":"mythic-dust.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\arc-resonance-powder.webp"
+  },
+  {
+    "old_name":"Acidpaste",
+    "new_name":"Wall-Melt Gel",
+    "new_description":"An industrial solvent that dissolves barriers in bright flashes—stand clear.",
+    "img":"acidpaste.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\wall-melt-gel.webp"
+  },
+  {
+    "old_name":"Hopehold Flare",
+    "new_name":"Morale Beacon Flare",
+    "new_description":"A short-range beacon that boosts allied morale. Allies in Close range roll d6 when spending Hope; on a 6, Hope isn’t spent.",
+    "img":"hopehold-flare.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\morale-beacon-flare.webp"
+  },
+  {
+    "old_name":"Major Arcane Shard",
+    "new_name":"Major Plasma Grenade",
+    "new_description":"A heavy plasma cell delivering 4d20 plasma damage within Far range.",
+    "img":"major-arcane-shard.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\major-plasma-grenade.webp"
+  },
+  {
+    "old_name":"Featherbone",
+    "new_name":"Grav-Damp Chip",
+    "new_description":"A spinal implant chip that reduces gravitational pull, letting you fall slowly for minutes equal to your level.",
+    "img":"featherbone.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\grav-damp-chip.webp"
+  },
+  {
+    "old_name":"Circle of the Void",
+    "new_name":"Null-Field Generator",
+    "new_description":"A portable field device that nullifies magic and digital resonance within Far range for one scene.",
+    "img":"circle-of-the-void.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\null-field-generator.webp"
+  },
+  {
+    "old_name":"Sun Tree Sap",
+    "new_name":"Quantum Flux Serum",
+    "new_description":"A chaotic serum that triggers random recovery or visions of death. Roll d6 for varying effects.",
+    "img":"sun-tree-sap.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\quantum-flux-serum.webp"
+  },
+  {
+    "old_name":"Dripfang Poison",
+    "new_name":"Neural Toxin Ampule",
+    "new_description":"A potent injectable that delivers 2d10 direct neural damage to a victim.",
+    "img":"dripfang-poison.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\neural-toxin-ampule.webp"
+  },
+  {
+    "old_name":"Major Health Potion",
+    "new_name":"Major Health Stimpack",
+    "new_description":"High-capacity stimpack restoring 1d4+2 HP.",
+    "img":"major-health-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\major-health-stimpack.webp"
+  },
+  {
+    "old_name":"Major Stamina Potion",
+    "new_name":"Major Adrenaline Patch",
+    "new_description":"Upgraded patch clearing 1d4+2 Stress.",
+    "img":"major-stamina-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\major-adrenaline-patch.webp"
+  },
+  {
+    "old_name":"Ogre Musk",
+    "new_name":"Tracking Scrambler Mist",
+    "new_description":"A chemical cloud that scrambles biosign and digital traces, preventing tracking until next rest.",
+    "img":"ogre-musk.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\tracking-scrambler-mist.webp"
+  },
+  {
+    "old_name":"Wingsprout",
+    "new_name":"Grav-Lift Harness",
+    "new_description":"Deployable grav-wings granting flight for minutes equal to your level.",
+    "img":"wingsprout.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\grav-lift-harness.webp"
+  },
+  {
+    "old_name":"Jar of Lost Voices",
+    "new_name":"Sonic Disruption Jar",
+    "new_description":"Releases a cacophony of ghostly feedback. All within Far range take 6d8 sonic damage.",
+    "img":"jar-of-lost-voices.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\sonic-disruption-jar.webp"
+  },
+  {
+    "old_name":"Dragonbloom Tea",
+    "new_name":"Pyro-Core Injector",
+    "new_description":"An internal reactor shot that lets you exhale plasma fire. Make an Instinct roll; targets in front take 2d20 physical damage.",
+    "img":"dragonbloom-tea.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\pyro-core-injector.webp"
+  },
+  {
+    "old_name":"Bridge Seed",
+    "new_name":"Nanowire Bridge Pod",
+    "new_description":"Deploys self-assembling nanowires forming a bridge up to Far range; dissolves after short rest.",
+    "img":"bridge-seed.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\nanowire-bridge-pod.webp"
+  },
+  {
+    "old_name":"Sleeping Sap",
+    "new_name":"Deep-Sleep Capsule",
+    "new_description":"A sedative capsule inducing full rest and clearing all Stress on waking.",
+    "img":"sleeping-sap.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\deep-sleep-capsule.webp"
+  },
+  {
+    "old_name":"Feast of Xurla",
+    "new_name":"Executive Feast Pack",
+    "new_description":"A luxury nutrient kit that clears all HP and Stress and grants 1d4 Hope.",
+    "img":"feast-of-xurla.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\executive-feast-pack.webp"
+  },
+  {
+    "old_name":"Bonding Honey",
+    "new_name":"Industrial Adhesive Gel",
+    "new_description":"A dual-compound resin that permanently bonds objects together.",
+    "img":"bonding-honey.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\industrial-adhesive-gel.webp"
+  },
+  {
+    "old_name":"Shrinking Potion",
+    "new_name":"Micro-Size Serum",
+    "new_description":"A nanite serum halving your body size with +2 Agility and –1 Proficiency until reverted.",
+    "img":"shrinking-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\micro-size-serum.webp"
+  },
+  {
+    "old_name":"Growing Potion",
+    "new_name":"Macro-Size Serum",
+    "new_description":"A nanite expansion serum doubling your size with +2 Strength and +1 Proficiency until reverted.",
+    "img":"growing-potion.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\macro-size-serum.webp"
+  },
+  {
+    "old_name":"Knowledge Stone",
+    "new_name":"Memory Transfer Crystal",
+    "new_description":"Upon death, stores your last loadout data. An ally can absorb it, inheriting one of your cards before it dissolves.",
+    "img":"knowledge-stone.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\memory-transfer-crystal.webp"
+  },
+  {
+    "old_name":"Sweet Moss",
+    "new_name":"Soothing Med-Gel",
+    "new_description":"A rest-time gel that clears 1d10 HP or 1d10 Stress when applied.",
+    "img":"sweet-moss.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\soothing-med-gel.webp"
+  },
+  {
+    "old_name":"Blinding Orb",
+    "new_name":"Flashbang Grenade",
+    "new_description":"A high-intensity flash device blinding all targets within Close range until they take HP damage.",
+    "img":"blinding-orb.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\flashbang-grenade.webp"
+  },
+  {
+    "old_name":"Death Tea",
+    "new_name":"Assassin’s Neurotoxin",
+    "new_description":"A lethal nanopoison: if you crit before your next long rest, your target dies. Fail—and so do you.",
+    "img":"death-tea.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\assassin’s-neurotoxin.webp"
+  },
+  {
+    "old_name":"Mirror of Marigold",
+    "new_name":"Reactive Deflection Matrix",
+    "new_description":"A single-use energy field that negates one instance of damage when Hope is spent, then shatters.",
+    "img":"mirror-of-marigold.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\reactive-deflection-matrix.webp"
+  },
+  {
+    "old_name":"Stardrop",
+    "new_name":"Orbital Strike Beacon",
+    "new_description":"A miniaturized satellite uplink calling down a storm of kinetic rods. Deals 8d20 physical damage within Very Far range.",
+    "img":"stardrop.webp",
+    "img-path":"modules\\cybermancy\\assets\\icons\\consumables\\orbital-strike-beacon.webp"
+  }
+]
