@@ -1,76 +1,162 @@
-// Delete selected world Items with a checkbox picker (GM only).
-// Shows all Items in the world (not compendia). Uncheck any to keep.
+/**
+ * Delete Items (and Folders) Macro for Foundry VTT (v10+)
+ * - Now supports selecting the Items ROOT to delete all items (and folders) in one run.
+ * - Choose root (Items root or a specific Item Folder), recurse, and optionally delete folders.
+ * - Dry run option reports counts only.
+ */
 
 (async () => {
-  if (!game.user.isGM) return ui.notifications.warn("GM only.");
+  const isItemFolder = f => f.type === "Item";
+  const allFolders = game.folders.filter(isItemFolder);
+  const ROOT = "__ROOT__";
 
-  const items = game.items.contents.sort((a,b)=> a.name.localeCompare(b.name));
-  if (!items.length) return ui.notifications.info("No world Items found.");
+  if (!allFolders.length && game.items.size === 0) {
+    ui.notifications?.warn("No Items or Item folders found.");
+    return;
+  }
 
-  const list = items.map(i => `
-    <label style="display:flex;gap:.5rem;align-items:center;padding:.15rem 0;">
-      <input type="checkbox" name="del" value="${i.id}" checked>
-      <span style="flex:1">${foundry.utils.escapeHTML(i.name)}</span>
-      <small style="opacity:.7">(${i.type})</small>
-    </label>
-  `).join("");
+  // Build <select> including ROOT
+  const folderOptions = [`<option value="${ROOT}">— Items (root) —</option>`]
+    .concat(
+      allFolders
+        .slice()
+        .sort((a,b)=>a.name.localeCompare(b.name))
+        .map(f => `<option value="${f.id}">${f.name}</option>`)
+    ).join("");
 
-  const content = `
-    <form>
-      <p><strong>${items.length}</strong> Items in world. Uncheck any to keep.</p>
-      <div style="display:flex;gap:1rem;align-items:center;margin:.25rem 0 .5rem;">
-        <label><input type="checkbox" id="chkAll" checked> Select all</label>
-        <input type="text" id="search" placeholder="Filter by name…" style="flex:1">
-      </div>
-      <div id="list" style="max-height:420px;overflow:auto;border:1px solid var(--color-border-light-1);padding:.5rem;">
-        ${list}
-      </div>
-    </form>
-  `;
-
-  const dlg = new Dialog({
-    title: "Delete World Items",
-    content,
-    buttons: {
-      delete: {
-        icon: '<i class="fas fa-trash"></i>',
-        label: "Delete selected",
-        callback: async (html) => {
-          const ids = Array.from(html[0].querySelectorAll('input[name="del"]:checked')).map(el => el.value);
-          if (!ids.length) return ui.notifications.info("Nothing selected.");
-          const confirmed = await Dialog.confirm({
-            title: "Confirm Deletion",
-            content: `<p>Delete <strong>${ids.length}</strong> selected Item(s)? This cannot be undone.</p>`
-          });
-          if (!confirmed) return;
-          // Bulk delete
-          await Item.deleteDocuments(ids);
-          ui.notifications.info(`Deleted ${ids.length} Item(s).`);
-        }
+  const html = await new Promise(resolve => {
+    new Dialog({
+      title: "Delete Items (and Folders)",
+      content: `
+        <form>
+          <div class="form-group">
+            <label>Root</label>
+            <select name="root">${folderOptions}</select>
+          </div>
+          <div class="form-group">
+            <label class="checkbox"><input type="checkbox" name="recurse" checked>
+              Include subfolders (if ROOT, this means *all* Item folders)
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="checkbox"><input type="checkbox" name="deleteFolders">
+              Also delete folder(s) after items are removed
+            </label>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label class="checkbox"><input type="checkbox" name="dryRun" checked>
+              Dry run (report only)
+            </label>
+          </div>
+        </form>
+      `,
+      buttons: {
+        run: { label: "Run", callback: html => resolve(html) },
+        cancel: { label: "Cancel", callback: () => resolve(null) }
       },
-      cancel: { label: "Cancel" }
-    },
-    render: (html) => {
-      const root = html[0];
-      const chkAll = root.querySelector("#chkAll");
-      const listEl = root.querySelector("#list");
-      const search = root.querySelector("#search");
+      default: "run"
+    }).render(true);
+  });
+  if (!html) return;
 
-      chkAll?.addEventListener("change", () => {
-        const boxes = listEl.querySelectorAll('input[name="del"]');
-        boxes.forEach(cb => { cb.checked = chkAll.checked; });
-      });
+  const rootId = html.find('select[name="root"]').val();
+  const recurse = html.find('input[name="recurse"]')[0].checked;
+  const deleteFolders = html.find('input[name="deleteFolders"]')[0].checked;
+  const dryRun = html.find('input[name="dryRun"]')[0].checked;
 
-      search?.addEventListener("input", () => {
-        const q = search.value.trim().toLowerCase();
-        for (const row of listEl.querySelectorAll("label")) {
-          const name = row.querySelector("span")?.textContent?.toLowerCase() ?? "";
-          row.style.display = name.includes(q) ? "" : "none";
-        }
-      });
-    },
-    default: "delete"
-  }, { width: 520 });
+  // Build parent->children map once
+  const byParent = new Map();
+  for (const f of allFolders) {
+    const pid = f.parent?.id ?? null;
+    if (!byParent.has(pid)) byParent.set(pid, []);
+    byParent.get(pid).push(f);
+  }
 
-  dlg.render(true);
+  // Post-order traversal (children before parent)
+  function postOrderFrom(folder) {
+    const out = [];
+    (function dfs(f) {
+      for (const child of (byParent.get(f.id) ?? [])) dfs(child);
+      out.push(f);
+    })(folder);
+    return out;
+  }
+
+  // Collect folders based on selection
+  let foldersOrdered = [];
+  if (rootId === ROOT) {
+    if (recurse) {
+      // All folders in post-order starting from all top-level roots
+      const roots = byParent.get(null) ?? [];
+      const out = [];
+      for (const top of roots) out.push(...postOrderFrom(top));
+      foldersOrdered = out;
+    } else {
+      // No folders if not recursing from ROOT
+      foldersOrdered = [];
+    }
+  } else {
+    const root = game.folders.get(rootId);
+    if (!root) {
+      ui.notifications?.error("Selected folder not found.");
+      return;
+    }
+    foldersOrdered = recurse ? postOrderFrom(root) : [root];
+  }
+
+  const folderIdsOrdered = foldersOrdered.map(f => f.id);
+  const folderIdSet = new Set(folderIdsOrdered);
+
+  // Collect items to delete
+  let itemsToDelete;
+  if (rootId === ROOT) {
+    if (recurse) {
+      // All items (in any folder + root)
+      itemsToDelete = Array.from(game.items);
+    } else {
+      // Only items directly in root (no folder)
+      itemsToDelete = game.items.filter(it => !it.folder);
+    }
+  } else {
+    // Items under selected folder(s)
+    itemsToDelete = game.items.filter(it => {
+      const fid = it.folder?.id ?? null;
+      return fid && (fid === rootId || folderIdSet.has(fid));
+    });
+  }
+
+  const itemIds = itemsToDelete.map(i => i.id);
+  const summary = {
+    root: (rootId === ROOT ? "Items (root)" : (game.folders.get(rootId)?.name ?? "(missing)")),
+    recurse,
+    items: itemIds.length,
+    foldersSelected: folderIdsOrdered.length,
+    willDeleteFolders: deleteFolders
+  };
+
+  console.log("[Delete Items & Folders] Summary", summary);
+
+  if (dryRun) {
+    ui.notifications?.info(
+      `Dry run: ${summary.items} item(s), ${deleteFolders ? summary.foldersSelected : 0} folder(s) would be deleted.`
+    );
+    return;
+  }
+
+  // 1) Delete items first
+  if (itemIds.length) {
+    await Item.deleteDocuments(itemIds);
+  }
+
+  // 2) Optionally delete folders (bottom-up)
+  if (deleteFolders && folderIdsOrdered.length) {
+    await Folder.deleteDocuments(folderIdsOrdered);
+  }
+
+  ui.notifications?.info(
+    `Deleted ${itemIds.length} item(s)` +
+    (deleteFolders ? ` and ${folderIdsOrdered.length} folder(s)` : "") +
+    ` from ${summary.root}.`
+  );
 })();
