@@ -1,16 +1,50 @@
 // Cybermancy – Folder Loader with Validation (recursive)
-// - Pick a folder via FilePicker
-// - Recursively find all .json files
-// - Validate each against pragmatic Daggerheart Item rules (weapon, armor, consumable, loot)
-// - Show a report (errors/warnings) and let you import All Valid or Selected rows
-//
-// Tested on Foundry v11–v13.
+// Now supports: weapon, armor, consumable, loot, feature (class/subclass Feature)
 
 (async () => {
   // ---------------- helpers ----------------
   const isStr = (v) => typeof v === "string" && v.trim().length > 0;
   const isNum = (v) => typeof v === "number" && Number.isFinite(v);
   const isObj = (v) => v && typeof v === "object" && !Array.isArray(v);
+
+  function validateActionMap(actions, ctx = "feature") {
+    const errors = [];
+    const warnings = [];
+
+    if (!isObj(actions)) {
+      errors.push(`${ctx}: "system.actions" must be an object keyed by action id/name.`);
+      return { errors, warnings };
+    }
+
+    const entries = Object.entries(actions);
+    if (!entries.length) {
+      warnings.push(`${ctx}: "system.actions" is empty.`);
+    }
+
+    for (const [key, a] of entries) {
+      if (!isObj(a)) { errors.push(`${ctx}: action "${key}" is not an object.`); continue; }
+      // Required basics
+      if (!isStr(a.name)) errors.push(`${ctx}: action "${key}" missing "name" (string).`);
+      if (!isStr(a.type) || !["attack","effect"].includes(a.type))
+        errors.push(`${ctx}: action "${key}" invalid "type" (attack|effect).`);
+      if (!isStr(a.systemPath) || a.systemPath !== "actions")
+        errors.push(`${ctx}: action "${key}" must have systemPath:"actions".`);
+      if (!isStr(a.actionType) || !["action","reaction"].includes(a.actionType))
+        errors.push(`${ctx}: action "${key}" invalid "actionType" (action|reaction).`);
+      if (!("chatDisplay" in a)) warnings.push(`${ctx}: action "${key}" missing "chatDisplay" (bool).`);
+      if (!isStr(a.img)) warnings.push(`${ctx}: action "${key}" missing/invalid "img" (string).`);
+      if (!("target" in a)) warnings.push(`${ctx}: action "${key}" missing "target".`);
+
+      if (a.type === "attack") {
+        const dmg = a.damage;
+        if (!isObj(dmg)) warnings.push(`${ctx}: action "${key}" attack missing "damage" object.`);
+        else if (!Array.isArray(dmg.parts)) warnings.push(`${ctx}: action "${key}" attack "damage.parts" should be an array.`);
+        const roll = a.roll;
+        if (!isObj(roll)) warnings.push(`${ctx}: action "${key}" attack missing "roll" object.`);
+      }
+    }
+    return { errors, warnings };
+  }
 
   function validateItem(doc) {
     const errors = [];
@@ -20,8 +54,8 @@
     if (!isStr(doc?.name)) errors.push(`Missing or invalid "name" (string required).`);
     if (!isStr(doc?.type)) errors.push(`Missing or invalid "type" (string required).`);
     const subtype = String(doc?.type || "").toLowerCase();
-    const allowed = new Set(["weapon", "armor", "consumable", "loot"]);
-    if (!allowed.has(subtype)) errors.push(`Unsupported item subtype "${doc?.type}". Allowed: weapon, armor, consumable, loot.`);
+    const allowed = new Set(["weapon", "armor", "consumable", "loot", "feature", "domaincard"]);
+    if (!allowed.has(subtype)) errors.push(`Unsupported item subtype "${doc?.type}". Allowed: weapon, armor, consumable, loot, feature, domaincard.`);
     if (!isObj(doc?.system)) errors.push(`Missing or invalid "system" (object required).`);
 
     // Subtype specifics
@@ -33,6 +67,7 @@
       if (dmg && !Array.isArray(dmg.parts)) warnings.push(`weapon: "system.attack.damage.parts" should be an array.`);
       if (!isNum(doc?.system?.tier)) warnings.push(`weapon: "system.tier" should be a number (e.g., 1).`);
     }
+
     if (subtype === "armor") {
       if (!isNum(doc?.system?.baseScore)) errors.push(`armor: "system.baseScore" (number) is required.`);
       const bt = doc?.system?.baseThresholds;
@@ -40,18 +75,45 @@
       if (bt && (!isNum(bt.major) || !isNum(bt.severe))) errors.push(`armor: "system.baseThresholds.major" and ".severe" must be numbers.`);
       if (!isNum(doc?.system?.tier)) warnings.push(`armor: "system.tier" should be a number (e.g., 1).`);
     }
+
     if (subtype === "consumable") {
       if (!("actions" in (doc.system || {})) && !("effect" in (doc.system || {}))) {
         warnings.push(`consumable: consider adding "system.actions" or "system.effect".`);
       }
     }
+
     if (subtype === "loot") {
       if (!isStr(doc?.system?.description) && !isStr(doc?.system?.text)) {
         warnings.push(`loot: add "system.description" or "system.text" for clarity.`);
       }
     }
 
-    // Effects hints
+    if (subtype === "domaincard") {
+      // Example structure ref: name/img/type=domainCard and system fields (description, domain, recallCost, level, type, actions, resource, inVault). :contentReference[oaicite:0]{index=0}
+      if (!isStr(doc?.system?.description)) errors.push(`domainCard: "system.description" (string) is required.`);
+      if (!isStr(doc?.system?.domain)) errors.push(`domainCard: "system.domain" (string) is required.`);
+      if (!isNum(doc?.system?.level)) warnings.push(`domainCard: "system.level" should be a number.`);
+      if (!isNum(doc?.system?.recallCost)) warnings.push(`domainCard: "system.recallCost" should be a number.`);
+      if (!isStr(doc?.system?.type)) warnings.push(`domainCard: "system.type" should be a string (e.g., "ability").`);
+      if ("actions" in (doc.system || {}) && !Array.isArray(doc.system.actions)) {
+        warnings.push(`domainCard: "system.actions" should be an array.`);
+      }
+      if ("inVault" in (doc.system || {}) ) {
+        warnings.push(`domainCard: "system.inVault" should be boolean.`);
+      }
+    }
+
+    if (subtype === "feature") {
+      if (!isStr(doc?.system?.description)) errors.push(`feature: "system.description" (string) is required.`);
+      if ("actions" in (doc.system || {})) {
+        const { errors: e2, warnings: w2 } = validateActionMap(doc.system.actions, "feature");
+        errors.push(...e2); warnings.push(...w2);
+      } else {
+        warnings.push(`feature: no "system.actions" found (feature will import without a button/action).`);
+      }
+    }
+
+    // Effects hints (applies to all)
     if (Array.isArray(doc?.effects)) {
       for (let i = 0; i < doc.effects.length; i++) {
         const e = doc.effects[i];
@@ -61,6 +123,7 @@
         if (e.transfer !== true) warnings.push(`effects[${i}]: consider "transfer: true" if equipping should apply it.`);
       }
     }
+
     return { errors, warnings };
   }
 
@@ -130,7 +193,6 @@
 
   async function browseRecursive(root) {
     const out = [];
-    // Guess source: use 'data' for modules/ and worlds/, otherwise default to 'data'
     const source = "data";
     async function walk(dir) {
       const res = await FilePicker.browse(source, dir, { wildcard: false });
@@ -150,11 +212,9 @@
   }
 
   // ---------------- flow ----------------
-  // 1) Select a folder
   const folder = await pickFolder();
   if (!folder) return;
 
-  // 2) Recursively collect .json files
   let files = [];
   try {
     files = await browseRecursive(folder);
@@ -168,7 +228,6 @@
     return;
   }
 
-  // 3) Validate all files
   const results = [];
   for (const path of files) {
     const name = path.split("/").pop();
@@ -181,7 +240,6 @@
     }
   }
 
-  // 4) Show report and let the user choose what to import
   const content = buildReportTable(results);
   let chosenIndexes = null;
 
@@ -227,7 +285,11 @@
     close: async () => {
       if (!Array.isArray(chosenIndexes)) return;
 
-      const docs = chosenIndexes.map(i => results[i]).filter(r => r && r.data && r.errors.length === 0).map(r => r.data);
+      const docs = chosenIndexes
+        .map(i => results[i])
+        .filter(r => r && r.data && r.errors.length === 0)
+        .map(r => r.data);
+
       if (!docs.length) {
         ui.notifications.warn("No valid documents selected to import.");
         return;
@@ -235,7 +297,6 @@
       try {
         const created = await Item.createDocuments(docs, { renderSheet: false });
         ui.notifications.info(`Imported ${created.length} item${created.length!==1?"s":""}.`);
-        // Optionally open the first created sheet
         if (created[0]?.sheet) created[0].sheet.render(true);
       } catch (err) {
         ui.notifications.error(`Import failed: ${err.message}`);

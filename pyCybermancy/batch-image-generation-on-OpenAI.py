@@ -41,6 +41,28 @@ EFFECT_PALETTE = {
     "stealth": "matte black and charcoal with subtle purple or cyan pulse lines",
     "domain-bullet": "gunmetal and graphite base with fiery orange to ember-red glow and cyan tracer accents",
     "domain-maker": "titanium grey and steel blue base with amber-gold and teal glows, accented by warm white plasma highlights",
+    # Classes
+    "class-netrunner": "graphite base with cyan/teal code glow and subtle violet accents",
+    "class-rigger": "steel/titanium base with teal (control links) and amber (power) highlights",
+    "class-streetsamurai": "gunmetal and black carbon fiber base with crimson and steel-blue accents, faint amber weapon glow",
+
+    # Netrunner Subclasses
+    "subclass-ghost-in-the-machine": "cool cyan/teal and violet; human silhouette dissolving into circuits/data",
+    "subclass-wrecking-ball": "gunmetal with high-contrast red-orange + electric blue ‘breach’ energy",
+
+    # Rigger Subclasses
+    "subclass-jack-of-all-trades": "titanium/steel-blue with balanced teal/amber utility glows (multi-drone toolkit)",
+    "subclass-speed-racer": "graphite/carbon with teal/amber speed trails; hints of magenta for motion blur",
+
+    # Street Samurai Subclasses
+    "subclass-bodyguard": "matte black and brushed silver with crimson-gold defensive highlights; strong, grounded presence",
+    "subclass-mercenary": "dark steel with burnt orange and neon red combat glows; tactical, ruthless, efficient",
+
+    # Domains
+    "domain-bullet": "gunmetal/graphite base with fiery orange→ember red glow and cyan tracer streaks",
+    "domain-make": "titanium grey + steel blue with amber-gold forge glow and teal circuitry accents",
+    "domain-circuit": "black/graphite vector iconography with cyan circuit lines (for SVG glyphs)"
+
 }
 # map common aliases (case/space-insensitive)
 NAME_ALIASES = {"name","card_name","title","item","card"}
@@ -49,10 +71,23 @@ EFFECT_ALIASES = {"effect","domain","type","category"}
 IMG_ALIASES = {"img","image","filename","file","icon"}
 
 STYLE = (
-    "cyberpunk item icon, semi-realistic rendering, metallic/glass materials, "
-    "clean silhouette, soft reflections, subtle vignette, NO text or labels, "
-    "light grey background, consistent luminance"
+    "Semi-realistic cyberpunk character emblem.",
+    "Subclass images should borrow motifs from their class images.",
+    "If the primary entity in the image is a character (netrunner, rigger, or street-samuri),The resulting image should not look like a robot, but should clearly be human, or at least human adjacent",
+    "If the primary entity in the image is a drone, can look like a typical drone",
+    "Larger canvas for detail (e.g. 800×800 px).",
+    "High-fidelity materials: carbon fiber, alloy plating, glass, neon.",
+    "Dynamic lighting: key + rim, warm/cool color contrast.",
+    "Minimal background: soft vignette, light grey field.",
+    "Readable at reduced scale, but richer detail than item icons.",
+    "No text, no lettering, no UI framing.",
+    "Clean edge discipline: no clutter beyond silhouette."
 )
+#STYLE = (
+#    "cyberpunk item icon, semi-realistic rendering, metallic/glass materials, "
+#    "clean silhouette, soft reflections, subtle vignette, NO text or labels, "
+#    "light grey background, consistent luminance"
+#)
 #STYLE = (
 #    "cyberpunk weapon icon, semi-realistic rendering, gunmetal and graphite materials,"
 #    "clean silhouette, subtle reflections, light grey background, consistent luminance,"
