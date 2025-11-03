@@ -32,9 +32,7 @@ def _row_get(row: dict, *keys, default=None):
 def compute_folder_parts(item: Dict[str, Any], row: Dict[str, Any]) -> List[str]:
     """
     domainCard -> [system.domain]
-    feature    -> [
-
-    class , subclass]
+    feature    -> [class , subclass]
     Fallbacks to Unknown tokens if missing.
     """
     itype = (item.get("type") or "").strip().lower()
@@ -81,6 +79,7 @@ Input: CSV (recommended) or JSON (array/object). Columns (case-insensitive; hyph
     - system.level      (number, domainCard)
     - recallCost        (number, domainCard; defaults to 1)
     - system.type       (string, domainCard; defaults "ability")
+    - tier              (number, cybernetics; defaults to 1
   Action (single action per row; all optional unless noted):
     - action.name           (required to emit an action)
     - action.kind           (attack|effect)  -> maps to action["type"]; default "effect"
@@ -226,7 +225,7 @@ def _parse_cost(s: Any) -> List[Dict[str, Any]]:
     for p in parts:
         m = re.match(r"^([A-Za-z_][\w\-]*?)\s*:\s*([+-]?\d+)$", p)
         if not m: continue
-        out.append({"key": m.group(1), "value": int(m.group(2)), "keyIsID": False, "scalable": False, "step": None})
+        out.append({"key": m.group(1), "value": int(m.group(2)), "keyIsID": False, "scalable": False, "step": None, "consumeOnSuccess": False})
     return out
 
 
@@ -249,7 +248,7 @@ def build_action(row: Dict[str, Any], fallback_img: str) -> Optional[Dict[str, A
         kind = "effect"
 
     actionType = (_get(row, "action.actionType", "action_actiontype") or "action").strip().lower()
-    if actionType not in {"action", "reaction"}:
+    if actionType not in {"action", "reaction", "passive"}:
         actionType = "action"
 
     # damage
@@ -283,7 +282,7 @@ def build_action(row: Dict[str, Any], fallback_img: str) -> Optional[Dict[str, A
     action = {
         "type": kind,
         "systemPath": "actions",
-        "description": _get(row, "action.description", "action_desc", "action.text") or "",
+        "description": _get(row, "action.description", "action_desc", "action.text", "description") or "",
         "chatDisplay": True,
         "actionType": actionType,
         "cost": _parse_cost(_get(row, "action.cost")),
@@ -343,11 +342,13 @@ def build_item_from_row(row: Dict[str, Any]) -> Dict[str, Any]:
     name = _get(row, "name") or ""
     itype = (_get(row, "type") or "feature").strip()
     img = _get(row, "img") or ""
+    tier = _get(row, "tier") or ""
 
     item: Dict[str, Any] = {
         "name": name,
         "type": itype,
         "img": img,
+        "tier": tier,
         "system": {"description": _get(row, "description") or ""},
         "effects": []
     }
@@ -371,7 +372,7 @@ def build_item_from_row(row: Dict[str, Any]) -> Dict[str, Any]:
     # Build action
     action = build_action(row, img)
     if action:
-        item["system"]["actions"] = [{ action["name"]: action }]
+        item["system"]["actions"] = { action["name"]: action }
 
     return item
 

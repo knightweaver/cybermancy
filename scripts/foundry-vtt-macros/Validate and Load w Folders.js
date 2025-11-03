@@ -42,8 +42,8 @@
         errors.push(`${ctx}: action[${i}] invalid "type" (attack|effect).`);
       if (!isStr(a.systemPath) || a.systemPath !== "actions")
         errors.push(`${ctx}: action[${i}] must have systemPath:"actions".`);
-      if (!isStr(a.actionType) || !["action","reaction"].includes(a.actionType))
-        errors.push(`${ctx}: action[${i}] invalid "actionType" (action|reaction).`);
+      if (!isStr(a.actionType) || !["action","reaction","passive"].includes(a.actionType))
+        errors.push(`${ctx}: action[${i}] invalid "actionType" (action|reaction|passive).`);
       if (!("chatDisplay" in a)) warnings.push(`${ctx}: action[${i}] missing "chatDisplay" (bool).`);
       if (!isStr(a.img)) warnings.push(`${ctx}: action[${i}] missing/invalid "img" (string).`);
       if (!("target" in a)) warnings.push(`${ctx}: action[${i}] missing "target".`);
