@@ -1,0 +1,112 @@
+{
+  "name": "Persona Enhancement Dose",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\persona-enhancement-dose.webp",
+  "system": {
+    "description": "An injectable charisma mod that boosts confidence and pheromonal output. +1 bonus to your next Presence roll.",
+    "quantity": 1,
+    "actions": {
+      "2trd3JYIb527LIrn": {
+        "type": "effect",
+        "_id": "2trd3JYIb527LIrn",
+        "systemPath": "actions",
+        "description": "<p>You gain a +1 bonus to your next Presence Roll.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "COrKb7gBin4Ro6r6",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/potion-tube-corked-blue.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Charm Potion",
+      "img": "icons/consumables/potions/potion-tube-corked-blue.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.CVBbFfOY75YwyQsp",
+      "transfer": false,
+      "_id": "COrKb7gBin4Ro6r6",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.presence.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!VEmAsES1Tk5DVVQG.COrKb7gBin4Ro6r6"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924710022,
+    "modifiedTime": 1760924710022,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "VEmAsES1Tk5DVVQG",
+  "sort": 0,
+  "_key": "!items!VEmAsES1Tk5DVVQG"
+}

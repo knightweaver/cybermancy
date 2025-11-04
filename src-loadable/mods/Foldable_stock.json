@@ -1,0 +1,10 @@
+{
+  "name": "Foldable stock",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/recoildamp-armature.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">When attached to a rifle, allows the gun to be concealed more easily.  -2 on a Perceive check for the prescence of the gun to be detected."
+  },
+  "effects": []
+}

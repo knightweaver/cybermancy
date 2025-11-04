@@ -1,0 +1,38 @@
+{
+  "name": "Engineer Solution",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/engineer-solution.webp",
+  "system": {
+    "description": "<i>Innovation given form.</i><p class=\"Card-Feature\">With one day of prep, you can construct nearly any practical device needed (GM discretion).",
+    "level": 9,
+    "domain": "maker",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Engineer Solution": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Innovation given form.</i><p class=\"Card-Feature\">With one day of prep, you can construct nearly any practical device needed (GM discretion).",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Engineer Solution",
+        "img": "modules/cybermancy/assets/icons/domains/maker/engineer-solution.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

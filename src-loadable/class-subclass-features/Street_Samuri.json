@@ -1,0 +1,52 @@
+{
+  "name": "Street Samuri",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/classes/street-samuri.webp",
+  "system": {
+    "description": "Steel is honest. Flesh lies.You walk the line between the old world’s honor and the new world’s circuitry.Some call you a mercenary, some a relic — they’re both right. You move through the sprawl like a storm wrapped in human skin: clean, efficient, and devastatingly precise. The Street Samurai doesn’t talk about strength; they demonstrate it.Your body is a weapon — sculpted, reforged, upgraded, and tuned past the edge of human tolerance. Every scar is a story, every implant a lesson bought in blood and chrome. You’ve seen what happens when code and conscience mix: it’s not pretty. That’s why you live by your own code — maybe ancient, maybe self-written, but always yours.Corporations build armies; gangs build legends. You build reputation. You fight because someone has to — and because deep down, you still believe that mastery of the blade, the gun, or the body means something in a world that’s sold its soul to machines.Some Street Samurai operate like ghosts, silent and unseen until the moment of violence. Others are thunder — explosive, unstoppable, and poetic in destruction. Neither path is wrong. Both are beautiful.What weapon have you made an extension of yourself? What line will you never cross — and what happens when someone makes you?",
+    "actions": {
+      "Street Samuri": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Steel is honest. Flesh lies.You walk the line between the old world’s honor and the new world’s circuitry.Some call you a mercenary, some a relic — they’re both right. You move through the sprawl like a storm wrapped in human skin: clean, efficient, and devastatingly precise. The Street Samurai doesn’t talk about strength; they demonstrate it.Your body is a weapon — sculpted, reforged, upgraded, and tuned past the edge of human tolerance. Every scar is a story, every implant a lesson bought in blood and chrome. You’ve seen what happens when code and conscience mix: it’s not pretty. That’s why you live by your own code — maybe ancient, maybe self-written, but always yours.Corporations build armies; gangs build legends. You build reputation. You fight because someone has to — and because deep down, you still believe that mastery of the blade, the gun, or the body means something in a world that’s sold its soul to machines.Some Street Samurai operate like ghosts, silent and unseen until the moment of violence. Others are thunder — explosive, unstoppable, and poetic in destruction. Neither path is wrong. Both are beautiful.What weapon have you made an extension of yourself? What line will you never cross — and what happens when someone makes you?",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Street Samuri",
+        "img": "modules/cybermancy/assets/icons/classes/street-samuri.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

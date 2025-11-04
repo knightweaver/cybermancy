@@ -1,0 +1,34 @@
+{
+  "name": "EMP Shells",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/emp-shells.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br><br> All subsequent attacks using that weapon create an EMP affect on the targeted drone or electronic construct, doing 2d8+3 physical damage.",
+    "actions": {
+      "EMP Shells": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br><br> All subsequent attacks using that weapon create an EMP affect on the targeted drone or electronic construct, doing 2d8+3 physical damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "EMP Shells",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/emp-shells.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

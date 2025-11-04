@@ -1,0 +1,56 @@
+{
+  "name": "Toxic Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/toxic-rounds.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress in addition to any Hit Points marked when taking damage.</p>",
+    "actions": {
+      "Toxic Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress in addition to any Hit Points marked when taking damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Toxic Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/toxic-rounds.webp",
+        "range": "",
+        "_id": "pbjZVxvxcufXyUix"
+      }
+    },
+    "quantity": 1,
+    "consumeOnUse": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172541511,
+    "modifiedTime": 1762172541511,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "4W6wqYy97s3NJQSE",
+  "sort": 0,
+  "_key": "!items!4W6wqYy97s3NJQSE"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Brainiac™ Signal Amplifier Array",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-signal-amplifier-array.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Extend your touch to distant realms.</i><br><br><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to increase the range at which you can interact with Devices or Drones for the remainder of the scene",
+    "actions": {
+      "Brainiac™ Signal Amplifier Array": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Extend your touch to distant realms.</i><br><br><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to increase the range at which you can interact with Devices or Drones for the remainder of the scene",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Signal Amplifier Array",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-signal-amplifier-array.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

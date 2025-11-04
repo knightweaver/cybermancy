@@ -1,0 +1,82 @@
+{
+  "name": "Cyberarm™ Monowhip",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-monowhip.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Unleash precision: slice worlds seamlessly.\"</i><br><br><p class=\"Card-Feature\">Hidden fingertip spool that deploys a monomolecular whip.  Melee weapon, d8, with Lethal Edge and Slice in Two effects",
+    "actions": {
+      "Cyberarm™ Monowhip": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>\"Unleash precision: slice worlds seamlessly.\"</i><br><br><p class=\"Card-Feature\">Hidden fingertip spool that deploys a monomolecular whip.  Melee weapon, d8, with Lethal Edge and Slice in Two effects",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Monowhip",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-monowhip.webp",
+        "range": "",
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "prof",
+                "dice": "d8",
+                "bonus": 0,
+                "flatMultiplier": 1
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "physical"
+              ],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

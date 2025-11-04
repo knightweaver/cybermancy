@@ -1,0 +1,95 @@
+{
+  "folder": "qDElCNnXyLI0oZc8",
+  "name": "Impact-Padded Street Vest",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/impact-padded-street-vest.webp",
+  "system": {
+    "description": "A padded street vest with shock-absorbing gel plates—cheap insurance against fists, batons, and stray shrapnel.",
+    "actions": {},
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "baseScore": 3,
+    "armorFeatures": [
+      {
+        "value": "flexible",
+        "effectIds": [
+          "v1FNEsypRF5W6vVc"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 5,
+      "severe": 11
+    }
+  },
+  "effects": [
+    {
+      "name": "Flexible",
+      "description": "+1 to Evasion",
+      "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+      "changes": [
+        {
+          "key": "system.evasion",
+          "mode": 2,
+          "value": "1"
+        }
+      ],
+      "_id": "v1FNEsypRF5W6vVc",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!1MyVxPv6Vxt7n5hi.v1FNEsypRF5W6vVc"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760911967769,
+    "modifiedTime": 1760911967769,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "1MyVxPv6Vxt7n5hi",
+  "sort": 0,
+  "_key": "!items!1MyVxPv6Vxt7n5hi"
+}

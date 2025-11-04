@@ -1,0 +1,34 @@
+{
+  "name": "Data-Spike Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/data-spike-rounds.webp",
+  "tier": 1,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round",
+    "actions": {
+      "Data-Spike Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Data-Spike Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/data-spike-rounds.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

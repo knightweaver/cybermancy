@@ -1,0 +1,34 @@
+{
+  "name": "Daemon Host",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>It speaks your syntax and calls you by your old handle.</i><br><br><p class=\"Card-Feature\">Spawns a self-aware daemon that hunts you across systems until destroyed or appeased.",
+    "actions": {
+      "Daemon Host": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>It speaks your syntax and calls you by your old handle.</i><br><br><p class=\"Card-Feature\">Spawns a self-aware daemon that hunts you across systems until destroyed or appeased.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Daemon Host",
+        "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

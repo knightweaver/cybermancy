@@ -1,0 +1,232 @@
+{
+  "name": "Cyberarm™ Monowhip",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-monowhip.webp",
+  "system": {
+    "description": "<i>\"Unleash precision: slice worlds seamlessly.\"</i><br /><br /><p class=\"Card-Feature\">Hidden fingertip spool that deploys a monomolecular whip.  Melee weapon, d8, with Lethal Edge and Slice in Two effects</p>",
+    "actions": {
+      "Cyberarm™ Monowhip": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>\"Unleash precision: slice worlds seamlessly.\"</i><br><br><p class=\"Card-Feature\">Hidden fingertip spool that deploys a monomolecular whip.  Melee weapon, d8, with Lethal Edge and Slice in Two effects",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Monowhip",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-monowhip.webp",
+        "range": "",
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "prof",
+                "dice": "d8",
+                "bonus": 0,
+                "flatMultiplier": 1
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "physical"
+              ],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "0zoabldyydISpSkY",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "0zoabldyydISpSkY": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>\"Unleash precision: slice worlds seamlessly.\"</i><br><br><p class=\"Card-Feature\">Hidden fingertip spool that deploys a monomolecular whip.  Melee weapon, d8, with Lethal Edge and Slice in Two effects",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "name": "Cyberarm™ Monowhip",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-monowhip.webp",
+        "range": "melee",
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "prof",
+                "dice": "d8",
+                "bonus": 0,
+                "flatMultiplier": 1
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "physical"
+              ],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "roll": {
+          "type": "attack",
+          "trait": "finesse",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "0zoabldyydISpSkY",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "Ltw6biEaU94UsHLB": {
+        "type": "effect",
+        "_id": "Ltw6biEaU94UsHLB",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Hope win, deal Severe damage if the Fear die shows 8-12.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Lethal Edge",
+        "img": "modules/cybermancy/assets/icons/features/lethal-edge.webp",
+        "range": ""
+      },
+      "T27NzGhs5a4fOB2c": {
+        "type": "effect",
+        "_id": "T27NzGhs5a4fOB2c",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Slice in Two:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Sever or disable a limb, item, or piece of cover.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Slice in Two",
+        "img": "modules/cybermancy/assets/icons/features/slice-in-two.webp",
+        "range": ""
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121292915,
+    "modifiedTime": 1762122578328,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "YQZqznYbSuMxsww4",
+  "sort": 2700000,
+  "_key": "!items!YQZqznYbSuMxsww4"
+}

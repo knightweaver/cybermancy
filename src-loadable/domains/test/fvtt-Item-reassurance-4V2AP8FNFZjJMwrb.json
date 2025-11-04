@@ -1,0 +1,39 @@
+{
+  "name": "Reassurance",
+  "img": "systems/daggerheart/assets/icons/domains/domain-card/splendor.png",
+  "type": "domainCard",
+  "system": {
+    "description": "<p class=\"Body-Foundation\">Once per rest, after an ally attempts an action roll but before the consequences take place, you can offer assistance or words of support. When you do, your ally can reroll their dice.</p>",
+    "domain": "splendor",
+    "recallCost": 0,
+    "level": 1,
+    "type": "ability",
+    "actions": {
+      "Reassurance": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p>Once per rest, after an ally attempts an action roll but before the consequences take place, you can offer assistance or words of support. When you do, your ally can reroll their dice.</p>",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": 0,
+          "max": "1",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reassure",
+        "img": "icons/sundries/gaming/dice-pair-white-green.webp",
+        "range": ""
+      }
+    },
+    "resource": null,
+    "inVault": false
+  },
+  "effects": []
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Arc Empty Chest Module",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/arc-empty-chest-module.webp",
+  "system": {
+    "description": "This magical chest appears empty. When you speak a specific trigger word or action and open the chest, you can see the items stored within it. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924944780,
+    "modifiedTime": 1760925007129,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "xdStD5gEpfUfPgmQ",
+  "sort": 4500000,
+  "_key": "!items!xdStD5gEpfUfPgmQ"
+}

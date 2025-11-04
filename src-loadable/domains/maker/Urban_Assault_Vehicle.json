@@ -1,0 +1,38 @@
+{
+  "name": "Urban Assault Vehicle",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/urban-assault-vehicle.webp",
+  "system": {
+    "description": "<i>War van supremacy.</i><p class=\"Card-Feature\">You own a large, heavily equipped vehicle large enough for your team plus 4 extra creatures - describe the vehicle on your character sheet. While driving this vehicle, gain +4 to Driving checks. On a critical success of a Driving roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion).",
+    "level": 8,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Urban Assault Vehicle": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>War van supremacy.</i><p class=\"Card-Feature\">You own a large, heavily equipped vehicle large enough for your team plus 4 extra creatures - describe the vehicle on your character sheet. While driving this vehicle, gain +4 to Driving checks. On a critical success of a Driving roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion).",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Urban Assault Vehicle",
+        "img": "modules/cybermancy/assets/icons/domains/maker/urban-assault-vehicle.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

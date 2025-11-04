@@ -1,0 +1,52 @@
+{
+  "name": "Heavy Ordinance",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/heavy-ordinance.webp",
+  "system": {
+    "description": "You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.",
+    "actions": {
+      "Heavy Ordinance": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Heavy Ordinance",
+        "img": "modules/cybermancy/assets/icons/subclasses/heavy-ordinance.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

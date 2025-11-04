@@ -1,0 +1,10 @@
+{
+  "name": "Armor-Piercing Slug Rail",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/armor-piercing-slug-rail.webp",
+  "tier": 3,
+  "system": {
+    "description": "<p class=\"Card-Feature\">When resolving a successful attack with this weapon, if it is loaded with Armor piercing rounds, the target must mark 2 Stress to mark 1 Armor Slot"
+  },
+  "effects": []
+}

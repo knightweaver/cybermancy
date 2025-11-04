@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Circuit",
+  "color": "#5d75ac",
+  "sorting": "a",
+  "_id": "tm1288pnX1jnYUBj",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621527342,
+    "modifiedTime": 1761621527342,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!folders!tm1288pnX1jnYUBj"
+}

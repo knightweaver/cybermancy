@@ -1,0 +1,34 @@
+{
+  "name": "Shock-Dispersion Skeleton",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/shock-dispersion-skeleton.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Arcane Shield: Veil your vulnerabilities.</i><br><br><p class=\"Card-Feature\">-2 to all sources of Physical damage",
+    "actions": {
+      "Shock-Dispersion Skeleton": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Shock-Dispersion Skeleton",
+        "img": "modules/cybermancy/assets/icons/cybernetics/shock-dispersion-skeleton.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

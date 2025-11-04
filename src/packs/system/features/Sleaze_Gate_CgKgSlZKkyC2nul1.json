@@ -1,0 +1,57 @@
+{
+  "name": "Sleaze Gate",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/sleaze-gate.webp",
+  "system": {
+    "description": "<i>The easiest path is always the one that bites.</i><br /><br /><p class=\"Card-Feature\">Appears as a friendly backdoor but injects trackers on use.</p>",
+    "actions": {
+      "Sleaze Gate": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The easiest path is always the one that bites.</i><br><br><p class=\"Card-Feature\">Appears as a friendly backdoor but injects trackers on use.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Sleaze Gate",
+        "img": "modules/cybermancy/assets/icons/ice/sleaze-gate.webp",
+        "range": "",
+        "_id": "zN6uxvLtuPykB45O"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "BImGuescyJIB1rRt",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762170911533,
+    "modifiedTime": 1762170990845,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "CgKgSlZKkyC2nul1",
+  "sort": 500000,
+  "_key": "!items!CgKgSlZKkyC2nul1"
+}

@@ -1,0 +1,95 @@
+{
+  "folder": "1cURuRcOqSf4B20b",
+  "name": "Kinetic-Only Bulwark",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/kinetic-only-bulwark.webp",
+  "system": {
+    "description": "Optimized to blunt physical force; don’t expect it to help against witchware or weird grids.",
+    "actions": {},
+    "attached": [],
+    "tier": 3,
+    "equipped": false,
+    "baseScore": 6,
+    "armorFeatures": [
+      {
+        "value": "physical",
+        "effectIds": [
+          "s8KtTIngTjnOlaTP"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 16,
+      "severe": 39
+    }
+  },
+  "effects": [
+    {
+      "name": "Physical",
+      "description": "You can't mark an Armor Slot to reduce magic damage.",
+      "img": "icons/commodities/stone/ore-pile-tan.webp",
+      "changes": [
+        {
+          "key": "system.rules.damageReduction.physical",
+          "mode": 5,
+          "value": "1"
+        }
+      ],
+      "_id": "s8KtTIngTjnOlaTP",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!nM9jFC2djb2H5X9T.s8KtTIngTjnOlaTP"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912056065,
+    "modifiedTime": 1760912059201,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "nM9jFC2djb2H5X9T",
+  "sort": 100000,
+  "_key": "!items!nM9jFC2djb2H5X9T"
+}

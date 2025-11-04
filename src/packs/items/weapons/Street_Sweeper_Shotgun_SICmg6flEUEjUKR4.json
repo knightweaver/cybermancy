@@ -1,0 +1,166 @@
+{
+  "name": "Street Sweeper Shotgun",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/street-sweeper-shotgun.webp",
+  "system": {
+    "description": "Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.",
+    "tier": 2,
+    "equipped": false,
+    "secondary": false,
+    "burden": "twoHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/street-sweeper-shotgun.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "strength",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d12",
+              "bonus": 4,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action",
+      "_id": "wlPRtvaYibVuC6Xv",
+      "description": "",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "actions": {
+      "Wide Scatter": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Wide Scatter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Attack all targets in Very Close range once per scene.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wide Scatter",
+        "img": "modules/cybermancy/assets/icons/features/wide-scatter.webp",
+        "range": "",
+        "_id": "F33aHye1yrSf1LXA"
+      },
+      "Bone Shaker": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Bone Shaker:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target knocked prone and loses next turn.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Bone Shaker",
+        "img": "modules/cybermancy/assets/icons/features/bone-shaker.webp",
+        "range": "",
+        "_id": "uhvGFd4RDP2glqEK"
+      }
+    },
+    "attached": [],
+    "weaponFeatures": [],
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": "ymSLQMOdoPIQY9US",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760883698818,
+    "modifiedTime": 1760883781792,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "SICmg6flEUEjUKR4",
+  "sort": 200000,
+  "_key": "!items!SICmg6flEUEjUKR4"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Shock Damping Frame",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/shock-damping-frame.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Whenever you make an attack with this gun, you may <strong>Spend 1 Hope</strong> to make a second attack at -2</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172767924,
+    "modifiedTime": 1762172767924,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "1iQjh03ZisasNgS5",
+  "sort": 0,
+  "_key": "!items!1iQjh03ZisasNgS5"
+}

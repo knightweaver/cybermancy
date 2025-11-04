@@ -1,0 +1,80 @@
+{
+  "name": "Empathic Feedback Loop",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/empathic-feedback-loop.webp",
+  "system": {
+    "description": "<i>\"Embrace renewal; hope embedded within.\"</i><br /><br /><p class=\"Card-Feature\">Once per rest, Gain 1 Hope</p>",
+    "actions": {
+      "Empathic Feedback Loop": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Embrace renewal; hope embedded within.\"</i><br><br><p class=\"Card-Feature\">Once per rest, Gain 1 Hope",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Empathic Feedback Loop",
+        "img": "modules/cybermancy/assets/icons/cybernetics/empathic-feedback-loop.webp",
+        "range": "",
+        "_id": "82HU0MjOpSLDwjrn"
+      },
+      "82HU0MjOpSLDwjrn": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p><em>\"Embrace renewal; hope embedded within.\"</em><br><br></p><p class=\"Card-Feature\">Once per rest, Gain 1 Hope</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Empathic Feedback Loop",
+        "img": "modules/cybermancy/assets/icons/cybernetics/empathic-feedback-loop.webp",
+        "range": "",
+        "_id": "82HU0MjOpSLDwjrn"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121298547,
+    "modifiedTime": 1762122318605,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "zZC1fpkxQs4FMJ0x",
+  "sort": 400000,
+  "_key": "!items!zZC1fpkxQs4FMJ0x"
+}

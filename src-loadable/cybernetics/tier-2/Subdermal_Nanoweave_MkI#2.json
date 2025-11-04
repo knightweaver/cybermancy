@@ -1,0 +1,34 @@
+{
+  "name": "Subdermal Nanoweave MkI",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/subdermal-nanoweave-mki.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Shield your core: a heartbeat fortified.</i><br><br><p class=\"Card-Feature\">+1 Hit Point",
+    "actions": {
+      "Subdermal Nanoweave MkI": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Subdermal Nanoweave MkI",
+        "img": "modules/cybermancy/assets/icons/cybernetics/subdermal-nanoweave-mki.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

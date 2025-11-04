@@ -1,0 +1,56 @@
+{
+  "name": "Armor Piercing Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/armor-piercing-rounds.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.</p>",
+    "actions": {
+      "Armor Piercing Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Armor Piercing Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/armor-piercing-rounds.webp",
+        "range": "",
+        "_id": "5HYkGFeoLTbDPLz4"
+      }
+    },
+    "quantity": 1,
+    "consumeOnUse": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172541266,
+    "modifiedTime": 1762172541266,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "B4GmWZESL7IGgFUa",
+  "sort": 0,
+  "_key": "!items!B4GmWZESL7IGgFUa"
+}

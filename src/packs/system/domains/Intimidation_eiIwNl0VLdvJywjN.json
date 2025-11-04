@@ -1,0 +1,93 @@
+{
+  "name": "Intimidation",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/intimidation.webp",
+  "system": {
+    "description": "<i>Fear is the first bullet.</i><p class=\"Card-Feature\">With a visible gun, make Presence rolls at  +d4.  Once per Scene, <strong>Spend 1 Hope</strong> to re-roll a Presence roll.</p>",
+    "level": 6,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Intimidation": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Fear is the first bullet.</i><p class=\"Card-Feature\">With a visible gun, make Presence rolls at  +d4.  Once per Scene, <strong>Spend 1 Hope</strong> to re-roll a Presence roll.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Intimidation",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/intimidation.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "B8Fp5JR1PQ34V2P8",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "8rJvlFGe8QeBmpxF",
+  "_id": "eiIwNl0VLdvJywjN",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621485404,
+    "modifiedTime": 1761621485404,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!eiIwNl0VLdvJywjN"
+}

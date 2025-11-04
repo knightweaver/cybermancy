@@ -1,0 +1,34 @@
+{
+  "name": "Overseer Protocol",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/overseer-protocol.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>You feel the CEO’s signature pulsing in every file.</i><br><br><p class=\"Card-Feature\">Forces compliance mode; all hacking penalties are doubled until root is restored.",
+    "actions": {
+      "Overseer Protocol": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You feel the CEO’s signature pulsing in every file.</i><br><br><p class=\"Card-Feature\">Forces compliance mode; all hacking penalties are doubled until root is restored.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Overseer Protocol",
+        "img": "modules/cybermancy/assets/icons/ice/overseer-protocol.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

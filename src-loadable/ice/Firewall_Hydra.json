@@ -1,0 +1,34 @@
+{
+  "name": "Firewall Hydra",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/firewall-hydra.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>Cut off one head—wake three daemons.</i><br><br><p class=\"Card-Feature\">Bypassing one layer spawns two new subroutines.",
+    "actions": {
+      "Firewall Hydra": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Cut off one head—wake three daemons.</i><br><br><p class=\"Card-Feature\">Bypassing one layer spawns two new subroutines.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Firewall Hydra",
+        "img": "modules/cybermancy/assets/icons/ice/firewall-hydra.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

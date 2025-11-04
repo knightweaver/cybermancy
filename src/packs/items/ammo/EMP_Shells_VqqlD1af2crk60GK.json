@@ -1,0 +1,56 @@
+{
+  "name": "EMP Shells",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/emp-shells.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br /> All subsequent attacks using that weapon create an EMP affect on the targeted drone or electronic construct, doing 2d8+3 physical damage.</p>",
+    "actions": {
+      "EMP Shells": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br><br> All subsequent attacks using that weapon create an EMP affect on the targeted drone or electronic construct, doing 2d8+3 physical damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "EMP Shells",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/emp-shells.webp",
+        "range": "",
+        "_id": "uLNXp74oiipvyYrl"
+      }
+    },
+    "quantity": 1,
+    "consumeOnUse": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172541353,
+    "modifiedTime": 1762172541353,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "VqqlD1af2crk60GK",
+  "sort": 0,
+  "_key": "!items!VqqlD1af2crk60GK"
+}

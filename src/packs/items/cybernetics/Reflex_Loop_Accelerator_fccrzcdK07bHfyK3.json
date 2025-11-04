@@ -1,0 +1,66 @@
+{
+  "name": "Reflex Loop Accelerator",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/reflex-loop-accelerator.webp",
+  "system": {
+    "description": "<i>Unleash potential, where stress births success.</i><br /><br /><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make your Hope die a d20 for 1 attack roll</p>",
+    "actions": {
+      "Reflex Loop Accelerator": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unleash potential, where stress births success.</i><br><br><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make your Hope die a d20 for 1 attack roll",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reflex Loop Accelerator",
+        "img": "modules/cybermancy/assets/icons/cybernetics/reflex-loop-accelerator.webp",
+        "range": "",
+        "_id": "InNUW1RpSEa6AVXV"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "9HwmiMHzsazAak1y",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121557128,
+    "modifiedTime": 1762121569933,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "fccrzcdK07bHfyK3",
+  "sort": 100098,
+  "_key": "!items!fccrzcdK07bHfyK3"
+}

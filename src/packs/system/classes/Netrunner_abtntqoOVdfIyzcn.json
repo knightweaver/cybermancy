@@ -1,0 +1,87 @@
+{
+  "name": "Netrunner",
+  "type": "class",
+  "_id": "abtntqoOVdfIyzcn",
+  "img": "modules/cybermancy/assets/icons/classes/netrunner.png",
+  "system": {
+    "description": "<p>You move through systems like smoke—quiet, graceful, inevitable. The code bends to your touch, never realizing it’s been rewritten until it’s already yours. Corporate vaults crumble behind polite smiles and phantom keystrokes, and somewhere an IT director feels their career dissolving with the data. But the real thrill isn’t just in the silicon. You know the human mind runs on softer code—fear, pride, loneliness—and you can rewrite that too. Machines are simple; people are the exquisite challenge.</p>",
+    "domains": [
+      "midnight",
+      "circuit"
+    ],
+    "classItems": [],
+    "hitPoints": 6,
+    "evasion": 10,
+    "features": [
+      {
+        "type": "hope",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.pCz1PNBHhFVZd6Wr"
+      },
+      {
+        "type": "hope",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.hKpnArlRjWO8gxIB"
+      },
+      {
+        "type": "hope",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.bhEg9CsNcpkeIaSQ"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.Bh5HoQUXcgTICLqR"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.19NWq7MianXfs6IN"
+      }
+    ],
+    "subclasses": [
+      "Compendium.cybermancy.cybermancy-subclasses.Item.bQ9AxAQyfLpZWlCo",
+      "Compendium.cybermancy.cybermancy-subclasses.Item.Orw5HUZOropAnDLJ"
+    ],
+    "inventory": {
+      "take": [
+        "Compendium.cybermancy.cybermancy-loot.Item.zC0HbqFSTbGAiDQb"
+      ],
+      "choiceA": [
+        "Compendium.cybermancy.cybermancy-loot.Item.3hRVdJwunzn57oy4"
+      ],
+      "choiceB": [
+        "Compendium.cybermancy.cybermancy-loot.Item.SdfqcCbypnNfLKuG"
+      ]
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 1,
+        "strength": -1,
+        "finesse": 1,
+        "instinct": 1,
+        "presence": 0,
+        "knowledge": 1
+      },
+      "suggestedPrimaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.n4XhRsC6zb4Og4zl",
+      "suggestedSecondaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.zXajmYeiCBqJPj9c",
+      "suggestedArmor": "Compendium.cybermancy.cybermancy-armors.Item.1MyVxPv6Vxt7n5hi"
+    },
+    "isMulticlass": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760888825056,
+    "modifiedTime": 1762204921121,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!abtntqoOVdfIyzcn"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Predictive Motion Processor",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/predictive-motion-processor.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Unleash precision beyond mortal reach.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on an attack roll",
+    "actions": {
+      "Predictive Motion Processor": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Predictive Motion Processor",
+        "img": "modules/cybermancy/assets/icons/cybernetics/predictive-motion-processor.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Wakizashi™ Dual-Targeting Suite",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-dual-targeting-suite.webp",
+  "system": {
+    "description": "<i>Unlock despair's edge, amplify hope.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current attack roll with your secondary weapon</p>",
+    "actions": {
+      "Wakizashi™ Dual-Targeting Suite": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unlock despair's edge, amplify hope.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current attack roll with your secondary weapon",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wakizashi™ Dual-Targeting Suite",
+        "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-dual-targeting-suite.webp",
+        "range": "",
+        "_id": "DGgFi3uTnrjStJ8N"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121469123,
+    "modifiedTime": 1762121519476,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "hrzO5Z6WJ4OjlnTd",
+  "sort": 100196,
+  "_key": "!items!hrzO5Z6WJ4OjlnTd"
+}

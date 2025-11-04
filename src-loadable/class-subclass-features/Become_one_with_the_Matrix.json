@@ -1,0 +1,52 @@
+{
+  "name": "Become one with the Matrix",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/become-one-with-the-matrix.webp",
+  "system": {
+    "description": "You delve so deeply, that you can almost see the System as a whole from the inside.  Start a counter at your Tier level (which by the time you are at Mastery, will be a d8 or d10).  While that counter is in effect:o\t+6 on all Analyze rollso\t+4 on all Infiltration rollso\t+2 on all Control rollso\t+d4 on all damage effectso\tCybernetic devices can be targeted as if they were regular devices.",
+    "actions": {
+      "Become one with the Matrix": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You delve so deeply, that you can almost see the System as a whole from the inside.  Start a counter at your Tier level (which by the time you are at Mastery, will be a d8 or d10).  While that counter is in effect:o\t+6 on all Analyze rollso\t+4 on all Infiltration rollso\t+2 on all Control rollso\t+d4 on all damage effectso\tCybernetic devices can be targeted as if they were regular devices.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Become one with the Matrix",
+        "img": "modules/cybermancy/assets/icons/subclasses/become-one-with-the-matrix.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

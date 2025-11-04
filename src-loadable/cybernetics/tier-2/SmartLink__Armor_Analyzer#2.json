@@ -1,0 +1,42 @@
+{
+  "name": "SmartLink™ Armor Analyzer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-armor-analyzer.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Unleash precision; amplify destruction's whisper.\"</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, <strong>Spend 1 Hope</strong> after a successful attack for +2 on all damage die rolled.  <br><br>Requires the SmartLink™ CPU implant",
+    "actions": {
+      "SmartLink™ Armor Analyzer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SmartLink™ Armor Analyzer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-armor-analyzer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

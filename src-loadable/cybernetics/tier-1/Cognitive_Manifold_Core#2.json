@@ -1,0 +1,42 @@
+{
+  "name": "Cognitive Manifold Core",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-manifold-core.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Unleash hope, transcend limits.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Spellcasting Roll",
+    "actions": {
+      "Cognitive Manifold Core": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cognitive Manifold Core",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-manifold-core.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

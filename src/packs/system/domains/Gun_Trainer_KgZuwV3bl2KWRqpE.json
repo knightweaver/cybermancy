@@ -1,0 +1,133 @@
+{
+  "name": "Gun Trainer",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+  "system": {
+    "description": "<p><em>You teach death politely.</em></p><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns. Give each ally a <strong>Bullet die</strong> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10). They may use this <strong>Bullet die</strong> in the same way as your Class or Subclass</p>",
+    "level": 1,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Gun Trainer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You teach death politely.</i><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may use this <b>Bullet die</b> in the same way as your Class or Subclass",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gun Trainer",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+        "range": "",
+        "_id": "GErrc3LJXoclSTrj"
+      },
+      "GErrc3LJXoclSTrj": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You teach death politely.</i><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may use this <b>Bullet die</b> in the same way as your Class or Subclass",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "SAKo8otXpbMBPXpW",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gun Trainer",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+        "range": "",
+        "_id": "GErrc3LJXoclSTrj"
+      }
+    },
+    "resource": null
+  },
+  "effects": [
+    {
+      "name": "Gun Trainer",
+      "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+      "origin": "Compendium.cybermancy.cybermancy-domains.Item.KgZuwV3bl2KWRqpE",
+      "transfer": false,
+      "_id": "SAKo8otXpbMBPXpW",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1761621936449,
+        "modifiedTime": 1761621941815,
+        "lastModifiedBy": "9AtfWssIybpdSZVY"
+      },
+      "_key": "!items.effects!KgZuwV3bl2KWRqpE.SAKo8otXpbMBPXpW"
+    }
+  ],
+  "folder": "YgAeAFdlW9NkH1JF",
+  "_id": "KgZuwV3bl2KWRqpE",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621423579,
+    "modifiedTime": 1761621936484,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!KgZuwV3bl2KWRqpE"
+}

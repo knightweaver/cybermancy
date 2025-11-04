@@ -1,0 +1,166 @@
+{
+  "name": "Smartpistol Elite",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/smartpistol-elite.webp",
+  "system": {
+    "description": "High-end model linked directly to neural networks for predictive targeting.",
+    "tier": 3,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/smartpistol-elite.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d8",
+              "bonus": 6,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action",
+      "_id": "JWvbPlWJyULlAXPX",
+      "description": "",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "actions": {
+      "Autotarget": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Autotarget:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Always ignore cover.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Autotarget",
+        "img": "modules/cybermancy/assets/icons/features/autotarget.webp",
+        "range": "",
+        "_id": "3VcbH2pVski64qt2"
+      },
+      "One-Shot Kill": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - One-Shot Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Severe damage ignoring all armor.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  One-Shot Kill",
+        "img": "modules/cybermancy/assets/icons/features/one-shot-kill.webp",
+        "range": "",
+        "_id": "0KUNFgJUlyKbacxo"
+      }
+    },
+    "attached": [],
+    "weaponFeatures": [],
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": "1XW98KTKy0Fut0a9",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760883837952,
+    "modifiedTime": 1760883837952,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "29NkBN7j8UjXHZqq",
+  "sort": 0,
+  "_key": "!items!29NkBN7j8UjXHZqq"
+}

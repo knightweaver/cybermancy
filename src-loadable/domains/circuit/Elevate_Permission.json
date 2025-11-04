@@ -1,0 +1,65 @@
+{
+  "name": "Elevate Permission",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/elevate-permission.webp",
+  "system": {
+    "description": "<i>“Because root access is a state of mind.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.",
+    "level": 2,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Elevate Permission": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Because root access is a state of mind.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Elevate Permission",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/elevate-permission.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

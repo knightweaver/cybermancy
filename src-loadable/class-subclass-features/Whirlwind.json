@@ -1,0 +1,52 @@
+{
+  "name": "Whirlwind",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/whirlwind.webp",
+  "system": {
+    "description": "Once per Scene, If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 4 Hope to make 2 attacks with each against different targets (4 targets total – if there are not enough targets, you cannot use this ability).",
+    "actions": {
+      "Whirlwind": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Once per Scene, If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 4 Hope to make 2 attacks with each against different targets (4 targets total – if there are not enough targets, you cannot use this ability).",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Whirlwind",
+        "img": "modules/cybermancy/assets/icons/subclasses/whirlwind.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

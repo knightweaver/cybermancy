@@ -1,0 +1,52 @@
+{
+  "name": "Quick hack",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/quick-hack.webp",
+  "system": {
+    "description": "Gain Control of 1 unhardened device.  Mark 1 Stress to make an Infiltration or a Control roll at +2.",
+    "actions": {
+      "Quick hack": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Gain Control of 1 unhardened device.  Mark 1 Stress to make an Infiltration or a Control roll at +2.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Quick hack",
+        "img": "modules/cybermancy/assets/icons/subclasses/quick-hack.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

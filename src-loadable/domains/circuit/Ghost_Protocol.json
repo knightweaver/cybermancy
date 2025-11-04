@@ -1,0 +1,65 @@
+{
+  "name": "Ghost Protocol",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/ghost-protocol.webp",
+  "system": {
+    "description": "<i>“Being off the grid never felt so literal.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or creatures targeting you have a -2 to hit.",
+    "level": 5,
+    "domain": "circuit",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Ghost Protocol": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Being off the grid never felt so literal.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or creatures targeting you have a -2 to hit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ghost Protocol",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/ghost-protocol.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

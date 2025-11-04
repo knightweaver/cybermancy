@@ -1,0 +1,52 @@
+{
+  "name": "Ghost in the machine",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/ghost-in-the-machine-.webp",
+  "system": {
+    "description": "You don’t fight the system — you become it.You are a master of the elegant hack — graceful, invisible, and devastating. Like a digital Aikido master, you don’t force your way in; you let the system defeat itself. By the time a firewall realizes you were there, its secrets are already screaming across the Matrix. Somewhere, another corporate IT director refreshes a dashboard and watches their career dissolve in real time.But you know the truth: not all hacks are digital. The front desk clerk, the security guard, the middle manager with a weak password and a weaker ego — they’re just as exploitable as code. You slip through people the same way you slip through systems: softly, politely, with a smile sharp enough to cut steel.You don’t just crack systems. You rewrite them. Whether it’s a server, a person, or an entire corporation, when you leave, nothing operates quite the way it did before.",
+    "actions": {
+      "Ghost in the machine": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You don’t fight the system — you become it.You are a master of the elegant hack — graceful, invisible, and devastating. Like a digital Aikido master, you don’t force your way in; you let the system defeat itself. By the time a firewall realizes you were there, its secrets are already screaming across the Matrix. Somewhere, another corporate IT director refreshes a dashboard and watches their career dissolve in real time.But you know the truth: not all hacks are digital. The front desk clerk, the security guard, the middle manager with a weak password and a weaker ego — they’re just as exploitable as code. You slip through people the same way you slip through systems: softly, politely, with a smile sharp enough to cut steel.You don’t just crack systems. You rewrite them. Whether it’s a server, a person, or an entire corporation, when you leave, nothing operates quite the way it did before.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ghost in the machine",
+        "img": "modules/cybermancy/assets/icons/subclasses/ghost-in-the-machine-.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

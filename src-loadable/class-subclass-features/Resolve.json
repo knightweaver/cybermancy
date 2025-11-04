@@ -1,0 +1,52 @@
+{
+  "name": "Resolve",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/resolve.webp",
+  "system": {
+    "description": "You gain a pool of dice called Bullet die.  Whenever you fail an attack roll with Fear, add a d6 to your Bullet die pool.  You can store a number of Bullet die equal to your proficiency.  When you make an attack roll or damage roll, you can spend any number of these Bullet Dice, rolling them and adding their result to the total. At the start of each session, clear any unspent Bullet Dice and gain 1 Hope per die cleared.",
+    "actions": {
+      "Resolve": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You gain a pool of dice called Bullet die.  Whenever you fail an attack roll with Fear, add a d6 to your Bullet die pool.  You can store a number of Bullet die equal to your proficiency.  When you make an attack roll or damage roll, you can spend any number of these Bullet Dice, rolling them and adding their result to the total. At the start of each session, clear any unspent Bullet Dice and gain 1 Hope per die cleared.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Resolve",
+        "img": "modules/cybermancy/assets/icons/subclasses/resolve.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

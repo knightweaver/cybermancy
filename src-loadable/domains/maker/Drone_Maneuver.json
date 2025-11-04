@@ -1,0 +1,65 @@
+{
+  "name": "Drone Maneuver",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/drone-maneuver.webp",
+  "system": {
+    "description": "<i>Dodge by remote instinct.</i><p class=\"Card-Feature\">As a Reaction, <strong>Mark 1 Stress</strong> to give your <b>Primary Drone</b> +2 Evasion for one attack before results are determined.",
+    "level": 1,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Drone Maneuver": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Dodge by remote instinct.</i><p class=\"Card-Feature\">As a Reaction, <strong>Mark 1 Stress</strong> to give your <b>Primary Drone</b> +2 Evasion for one attack before results are determined.",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Drone Maneuver",
+        "img": "modules/cybermancy/assets/icons/domains/maker/drone-maneuver.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

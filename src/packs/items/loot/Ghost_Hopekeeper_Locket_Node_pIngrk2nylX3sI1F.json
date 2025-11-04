@@ -1,0 +1,107 @@
+{
+  "name": "Ghost Hopekeeper Locket Node",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/ghost-hopekeeper-locket-node.webp",
+  "system": {
+    "description": "During a long rest, if you have 6 Hope, you can spend a Hope to imbue this locket with your bountiful resolve. When you have 0 Hope, you can use the locket to immediately gain a Hope. The locket must be re-imbued before it can be used this way again. black-mar",
+    "quantity": 1,
+    "actions": {
+      "iwDm6P1ABr7vojGr": {
+        "type": "effect",
+        "_id": "iwDm6P1ABr7vojGr",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "keyIsID": false,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Imbue",
+        "img": "icons/equipment/neck/amulet-round-engraved-spiral-gold.webp",
+        "range": ""
+      },
+      "xof31iSNIfxhbZH9": {
+        "type": "healing",
+        "_id": "xof31iSNIfxhbZH9",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": "above",
+            "treshold": 1
+          },
+          "useDefault": false
+        },
+        "name": "Use",
+        "img": "icons/equipment/neck/amulet-round-engraved-spiral-gold.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924979988,
+    "modifiedTime": 1760925007129,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "pIngrk2nylX3sI1F",
+  "sort": 100000,
+  "_key": "!items!pIngrk2nylX3sI1F"
+}

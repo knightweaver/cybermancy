@@ -1,0 +1,52 @@
+{
+  "name": "Power Up",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+  "system": {
+    "description": "Spend 3 Hope when your Primary Drone succeeds on an Attack to have your Primary Drone attack two additional adversaries within Far.",
+    "actions": {
+      "Power Up": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope when your Primary Drone succeeds on an Attack to have your Primary Drone attack two additional adversaries within Far.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Power Up",
+        "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

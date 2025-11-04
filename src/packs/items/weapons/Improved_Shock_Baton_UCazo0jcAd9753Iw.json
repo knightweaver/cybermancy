@@ -1,0 +1,166 @@
+{
+  "name": "Improved Shock Baton",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/improved-shock-baton.webp",
+  "system": {
+    "description": "Upgraded battery coils deliver chained electrical arcs between multiple nearby targets.",
+    "tier": 2,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/improved-shock-baton.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "agility",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d8",
+              "bonus": 3,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action",
+      "_id": "vdxvT0tLV1kcyV8Q",
+      "description": "",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "actions": {
+      "Arc Charge": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Arc Charge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend 1 Stress to arc lightning to another Very Close target.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Arc Charge",
+        "img": "modules/cybermancy/assets/icons/features/arc-charge.webp",
+        "range": "",
+        "_id": "N9Xa0vxT7VtZAlRB"
+      },
+      "Overload": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Overload:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Targets nervous system locks up; they drop gear.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  Overload",
+        "img": "modules/cybermancy/assets/icons/features/overload.webp",
+        "range": "",
+        "_id": "ahSJdeDw0aC4FM7Y"
+      }
+    },
+    "attached": [],
+    "weaponFeatures": [],
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": "ymSLQMOdoPIQY9US",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760883693859,
+    "modifiedTime": 1760883756414,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "UCazo0jcAd9753Iw",
+  "sort": 700000,
+  "_key": "!items!UCazo0jcAd9753Iw"
+}

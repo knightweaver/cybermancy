@@ -1,0 +1,42 @@
+{
+  "name": "Feline Feet Mk.II",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/feline-feet-mk.ii.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Graceful precision dances on synthetic paws.</i><br><br><p class=\"Card-Feature\">Before rolling an Agility check for an action or reaction, <strong>Spend 2 Hope</strong> to gain +4 on that roll. You can only have 1 Feline Feet enhancement, but they can be upgraded.",
+    "actions": {
+      "Feline Feet Mk.II": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Feline Feet Mk.II",
+        "img": "modules/cybermancy/assets/icons/cybernetics/feline-feet-mk.ii.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

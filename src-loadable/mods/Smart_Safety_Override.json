@@ -1,0 +1,10 @@
+{
+  "name": "Smart Safety Override",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/smart-safety-override.webp",
+  "tier": 3,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per long rest, as a Reaction, <strong>Spend 1 Hope</strong> to make an attack on a creature targeting you before they make their attack"
+  },
+  "effects": []
+}

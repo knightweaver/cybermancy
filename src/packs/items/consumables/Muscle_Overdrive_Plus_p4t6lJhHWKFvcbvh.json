@@ -1,0 +1,112 @@
+{
+  "name": "Muscle Overdrive Plus",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\muscle-overdrive-plus.webp",
+  "system": {
+    "description": "Advanced muscle stim that grants +1 Strength until your next rest.",
+    "quantity": 1,
+    "actions": {
+      "Z7ehTbRegQvq74tl": {
+        "type": "effect",
+        "_id": "Z7ehTbRegQvq74tl",
+        "systemPath": "actions",
+        "description": "<p>You gain a +1 bonus to your Strength until your next rest.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "3PfXBJy0ZjLBDAIn",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/potion-jar-corked-orange.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Major Bolster Potion",
+      "img": "icons/consumables/potions/potion-jar-corked-orange.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.mnyQDRtngWWQeRXF",
+      "transfer": false,
+      "_id": "3PfXBJy0ZjLBDAIn",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.strength.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!p4t6lJhHWKFvcbvh.3PfXBJy0ZjLBDAIn"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924701365,
+    "modifiedTime": 1760924701365,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "p4t6lJhHWKFvcbvh",
+  "sort": 0,
+  "_key": "!items!p4t6lJhHWKFvcbvh"
+}

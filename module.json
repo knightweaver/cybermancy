@@ -20,6 +20,8 @@
   { "name": "cybermancy-loot",   "label": "Loot",   "path": "packs/items/loot.db",   "type": "Item",  "private": false },
   { "name": "cybermancy-consumables",   "label": "Consumables",   "path": "packs/items/consumables.db",   "type": "Item",  "private": false },
   { "name": "cybermancy-cybernetics",   "label": "Cybernetics",   "path": "packs/items/cybernetics.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-ammo",   "label": "Ammo",   "path": "packs/items/ammo.db",   "type": "Item",  "private": false },
+  { "name": "cybermancy-mods",   "label": "Weapon Mods",   "path": "packs/items/mods.db",   "type": "Item",  "private": false },
   { "name": "cybermancy-drones-devices",   "label": "Drones & Devices",   "path": "packs/items/drones-devices.db",   "type": "Item",  "private": false },
   { "name": "cybermancy-classes",   "label": "Classes",   "path": "packs/system/classes.db",   "type": "Item",  "private": false },
   { "name": "cybermancy-subclasses",   "label": "Subclasses",   "path": "packs/system/subclasses.db",   "type": "Item",  "private": false },
@@ -38,7 +40,7 @@
           "name": "Items",
           "sorting": "a",
           "color": "599522",
-          "packs": ["cybermancy-weapons", "cybermancy-armors", "cybermancy-loot", "cybermancy-consumables", "cybermancy-cybernetics", "cybermancy-drones-devices"]
+          "packs": ["cybermancy-weapons", "cybermancy-armors", "cybermancy-loot", "cybermancy-consumables", "cybermancy-cybernetics", "cybermancy-drones-devices", "cybermancy-ammo", "cybermancy-mods"]
         },
         {
           "name": "System",
@@ -50,7 +52,7 @@
           "name": "Adventures",
           "sorting": "a",
           "color": "326977",
-          "packs": ["cybermancy-adversaries", "cybermancy-environments"]
+          "packs": ["cybermancy-adversaries", "cybermancy-environments", "cybermancy-ice"]
         }
       ]
     }

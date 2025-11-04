@@ -1,0 +1,57 @@
+{
+  "name": "Cyberarm™ Holdall",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-holdall.webp",
+  "system": {
+    "description": "<i>\"Secrets hidden beneath your seamless alloy.\"</i><br /><br /><p class=\"Card-Feature\">You have a disguised compartment integrated into your Cyberarm unit that can hold a few small items (about 64 cm^2 of storage).  Impossible to detect without a physical search of the arm.<br /><br />Requires Cyberarm™ base unit</p>",
+    "actions": {
+      "Cyberarm™ Holdall": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Secrets hidden beneath your seamless alloy.\"</i><br><br><p class=\"Card-Feature\">You have a disguised compartment integrated into your Cyberarm unit that can hold a few small items (about 64 cm^2 of storage).  Impossible to detect without a physical search of the arm.<br><br>Requires Cyberarm™ base unit",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Holdall",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-holdall.webp",
+        "range": "",
+        "_id": "FJasM7da0zbBBiKM"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121290754,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "FIkDeKP8o3dl5RZo",
+  "sort": 3100000,
+  "_key": "!items!FIkDeKP8o3dl5RZo"
+}

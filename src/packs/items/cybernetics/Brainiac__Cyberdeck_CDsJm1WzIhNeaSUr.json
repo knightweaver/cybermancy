@@ -1,0 +1,57 @@
+{
+  "name": "Brainiac™ Cyberdeck",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-cyberdeck.webp",
+  "system": {
+    "description": "<i>\"Whispered code, unleashed within arm's reach.\"</i><br /><br /><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a hacking rig, but it isn't as powerful as a normal hacking rig and has shorter range.  You may make Spellcasting (Hacking) actions within Very Close and at -2 on your rolls.  <br /><br /> Requires ™ Base Unit.</p>",
+    "actions": {
+      "Brainiac™ Cyberdeck": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Whispered code, unleashed within arm's reach.\"</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a hacking rig, but it isn't as powerful as a normal hacking rig and has shorter range.  You may make Spellcasting (Hacking) actions within Very Close and at -2 on your rolls.  <br><br> Requires ™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Cyberdeck",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-cyberdeck.webp",
+        "range": "",
+        "_id": "PH2yh9IiSXd8FyrX"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121271178,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "CDsJm1WzIhNeaSUr",
+  "sort": 4300000,
+  "_key": "!items!CDsJm1WzIhNeaSUr"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "DreamWeaver Chip",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/dreamweaver-chip.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Dream deeper, recharge beyond limits.\"</i><br><br><p class=\"Card-Feature\">Gain one additional long rest downtime action",
+    "actions": {
+      "DreamWeaver Chip": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Dream deeper, recharge beyond limits.\"</i><br><br><p class=\"Card-Feature\">Gain one additional long rest downtime action",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "DreamWeaver Chip",
+        "img": "modules/cybermancy/assets/icons/cybernetics/dreamweaver-chip.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

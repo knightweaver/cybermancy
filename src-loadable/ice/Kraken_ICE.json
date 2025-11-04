@@ -1,0 +1,34 @@
+{
+  "name": "Kraken ICE",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/kraken-ice.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>Your drone pivots its gun toward you and waits.</i><br><br><p class=\"Card-Feature\">Attempts to seize control of your cyberware or drones for one Scene.",
+    "actions": {
+      "Kraken ICE": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your drone pivots its gun toward you and waits.</i><br><br><p class=\"Card-Feature\">Attempts to seize control of your cyberware or drones for one Scene.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Kraken ICE",
+        "img": "modules/cybermancy/assets/icons/ice/kraken-ice.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

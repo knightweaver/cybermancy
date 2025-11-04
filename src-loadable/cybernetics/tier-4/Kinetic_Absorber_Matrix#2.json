@@ -1,0 +1,42 @@
+{
+  "name": "Kinetic Absorber Matrix",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/kinetic-absorber-matrix.webp",
+  "tier": 4,
+  "system": {
+    "description": "<i>\"Fortify your flesh: hope, tokenized resilience.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 3 Hope</strong> to place 3 tokens on this card. <br><br>As a Reaction, you can remove one token to negate a source of Physical damage.",
+    "actions": {
+      "Kinetic Absorber Matrix": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Kinetic Absorber Matrix",
+        "img": "modules/cybermancy/assets/icons/cybernetics/kinetic-absorber-matrix.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

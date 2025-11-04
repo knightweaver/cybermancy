@@ -1,0 +1,93 @@
+{
+  "name": "Strobe Effect",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/strobe-effect.webp",
+  "system": {
+    "description": "<i>“Flash ’em, crash ’em, and walk out glowing.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The creature must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.</p>",
+    "level": 2,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Strobe Effect": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Flash ’em, crash ’em, and walk out glowing.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The creature must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Strobe Effect",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/strobe-effect.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "oFEvN3t5HA8zbuG3",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "lXh1TMkpHM0kk03b",
+  "_id": "F1FhWzs2nQwZaZcR",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621621441,
+    "modifiedTime": 1761621621441,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!F1FhWzs2nQwZaZcR"
+}

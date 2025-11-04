@@ -1,0 +1,39 @@
+site_name: Cybermancy — Player Guide
+site_url: https://knightweaver.github.io/cybermancy/player/
+docs_dir: docs/player-facing
+site_dir: _site/player
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - search.highlight
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+plugins:
+  - search
+  - include-markdown
+nav:
+  - Home: index.md
+  - World:
+      - The Council (player): world/player-visible-info-on-the-council.md
+      - The Cabal (player): world/player-visible-info-on-the-cabal.md
+      - Timeline (player): world/player-visible-info-on-timeline.md
+  - Items:
+      - Ammo: items/ammo.md
+      - Armors: items/armors.md
+      - Consumables: items/consumables.md
+      - Cybernetics: items/cybernetics.md
+      - Drones & Devices: items/drones-devices.md
+      - Loot: items/loot.md
+      - Mods: items/mods.md
+      - Weapons: items/weapons.md
+  - System:
+      - Classes: system/classes.md
+      - Domains: system/domains.md
+      - Features: system/features.md
+      - Subclasses: system/subclasses.md

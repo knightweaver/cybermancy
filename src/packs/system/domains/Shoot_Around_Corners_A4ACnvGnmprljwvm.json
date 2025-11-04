@@ -1,0 +1,60 @@
+{
+  "name": "Shoot Around Corners",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corners.webp",
+  "system": {
+    "description": "<i>Geometry is your ally.</i><p class=\"Card-Feature\">Hit a target around a 45° corner with disadvantage.</p>",
+    "level": 8,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Shoot Around Corners": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Geometry is your ally.</i><p class=\"Card-Feature\">Hit a target around a 45° corner with disadvantage.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Shoot Around Corners",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corners.webp",
+        "range": "",
+        "_id": "boLrg3r61aRU4HsD"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "LRtDTbUY3R6iIowv",
+  "_id": "A4ACnvGnmprljwvm",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621487807,
+    "modifiedTime": 1761621487807,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!A4ACnvGnmprljwvm"
+}

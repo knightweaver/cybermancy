@@ -1,0 +1,42 @@
+{
+  "name": "Oculus™ Eagle Eye",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-eagle-eye.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Sharpen sights, redefine the unseen.\"</i><br><br><p class=\"Card-Feature\">Up to 10x optical zoom.  <strong>Spend 1 Hope</strong> to gain +2 on a Perceive check.  <br><br>Requires Oculus ™ base unit.",
+    "actions": {
+      "Oculus™ Eagle Eye": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Eagle Eye",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-eagle-eye.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

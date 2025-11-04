@@ -1,0 +1,32 @@
+{
+  "name": "Patterned Data Gem",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/arc-data-gem.webp",
+  "system": {
+    "description": "You can attach this gem to a weapon, allowing you to use your Instinct when making an attack with that weapon. stores resonance data and telemetry snapshots",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924998868,
+    "modifiedTime": 1760925007129,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "kPCpu8OiJyxHDqLX",
+  "sort": 2100000,
+  "_key": "!items!kPCpu8OiJyxHDqLX"
+}

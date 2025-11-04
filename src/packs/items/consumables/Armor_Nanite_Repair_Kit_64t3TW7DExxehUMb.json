@@ -1,0 +1,66 @@
+{
+  "name": "Armor Nanite Repair Kit",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\armor-nanite-repair-kit.webp",
+  "system": {
+    "description": "A swarm of nanites that reknit damaged armor plating. Spend any amount of Hope to clear that many Armor Slots.",
+    "quantity": 1,
+    "actions": {
+      "htoGx8qrv8trds81": {
+        "type": "effect",
+        "_id": "htoGx8qrv8trds81",
+        "systemPath": "actions",
+        "description": "<p>You can use this stitcher to spend any number of Hope and clear that many Armor Slots.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": true,
+            "key": "hope",
+            "value": 1,
+            "step": 1,
+            "keyIsID": false,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Stitch",
+        "img": "icons/skills/trades/textiles-stitching-leather-brown.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924668070,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "64t3TW7DExxehUMb",
+  "sort": 1800000,
+  "_key": "!items!64t3TW7DExxehUMb"
+}

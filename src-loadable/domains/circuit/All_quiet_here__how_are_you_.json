@@ -1,0 +1,65 @@
+{
+  "name": "All quiet here, how are you?",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/all-quiet-here,-how-are-you?.webp",
+  "system": {
+    "description": "<i>“If at first you don’t succeed, reboot and lie about it.”</i><p class=\"Card-Feature\">Mark Stress (up to your Proficiency) to lower the System Alert one level per Stress marked.",
+    "level": 3,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "All quiet here, how are you?": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“If at first you don’t succeed, reboot and lie about it.”</i><p class=\"Card-Feature\">Mark Stress (up to your Proficiency) to lower the System Alert one level per Stress marked.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "All quiet here, how are you?",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/all-quiet-here,-how-are-you?.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

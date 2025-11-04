@@ -1,0 +1,43 @@
+name: Build & Deploy Docs (Player + GM)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install mkdocs + plugins
+        run: |
+          pip install mkdocs-material mkdocs-include-markdown-plugin
+
+      - name: Build Player site
+        run: |
+          mkdocs -f mkdocs.player.yml build
+
+      - name: Build GM site
+        run: |
+          mkdocs -f mkdocs.gm.yml build
+
+      # At this point, we have:
+      #   _site/player/  and  _site/gm/
+
+      - name: Deploy both to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          # keep_files false is fine because we publish both subfolders together
+          # The final URLs will be:
+          #   https://knightweaver.github.io/cybermancy/player/
+          #   https://knightweaver.github.io/cybermancy/gm/

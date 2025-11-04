@@ -1,0 +1,42 @@
+{
+  "name": "Endosteel Frame",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/endosteel-frame.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>Hope-fueled shield: halve your harm.</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to place 2 tokens on this card. <br><br>As a Reaction, you can remove one token to negate a source of Physical damage by half.",
+    "actions": {
+      "Endosteel Frame": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Endosteel Frame",
+        "img": "modules/cybermancy/assets/icons/cybernetics/endosteel-frame.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Oculus™ Spectra",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-spectra.webp",
+  "system": {
+    "description": "<i>\"Pierce veils of light unseen before.\"</i><br /><br /><p class=\"Card-Feature\">Gain the ability to see in infrared and ultraviolet spectra. <br /><br />Requires Oculus ™ base unit.</p>",
+    "actions": {
+      "Oculus™ Spectra": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Pierce veils of light unseen before.\"</i><br><br><p class=\"Card-Feature\">Gain the ability to see in infrared and ultraviolet spectra. <br><br>Requires Oculus ™ base unit.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Spectra",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-spectra.webp",
+        "range": "",
+        "_id": "kqKvp4jR9pXjIy0J"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121319402,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "nucU6uN0T6hH3NfV",
+  "sort": 1800000,
+  "_key": "!items!nucU6uN0T6hH3NfV"
+}

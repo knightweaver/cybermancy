@@ -1,0 +1,66 @@
+{
+  "name": "Cognitive Overclock Node",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-overclock-node.webp",
+  "system": {
+    "description": "<i>\"Hope-fueled edge, perfection's clandestine spark.\"</i><br /><br /><p class=\"Card-Feature\">Once per long rest, <strong>Spend 1 Hope</strong> to gain advantage on an action (of any type)</p>",
+    "actions": {
+      "Cognitive Overclock Node": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Hope-fueled edge, perfection's clandestine spark.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 1 Hope</strong> to gain advantage on an action (of any type)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cognitive Overclock Node",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-overclock-node.webp",
+        "range": "",
+        "_id": "mw2exkUURt0U2xTT"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468451,
+    "modifiedTime": 1762121507886,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "kx3D4qmIEp0y5Q8Q",
+  "sort": 1500000,
+  "_key": "!items!kx3D4qmIEp0y5Q8Q"
+}

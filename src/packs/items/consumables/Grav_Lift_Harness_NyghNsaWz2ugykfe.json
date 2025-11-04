@@ -1,0 +1,105 @@
+{
+  "name": "Grav-Lift Harness",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\grav-lift-harness.webp",
+  "system": {
+    "description": "Deployable grav-wings granting flight for minutes equal to your level.",
+    "quantity": 1,
+    "actions": {
+      "HopgGHn12CHiDNuk": {
+        "type": "effect",
+        "_id": "HopgGHn12CHiDNuk",
+        "systemPath": "actions",
+        "description": "<p>You gain magic wings that allow you to fly for a number of minutes equal to your level.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "80F8gAn7ejhhNL7R",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/consumables/plants/leaf-broad-blue.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Wingsprout",
+      "img": "icons/consumables/plants/leaf-broad-blue.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.n10vozlmosVR6lo4",
+      "transfer": false,
+      "_id": "80F8gAn7ejhhNL7R",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">You gain magic wings that allow you to fly for a number of minutes equal to your level.</span></p>",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!NyghNsaWz2ugykfe.80F8gAn7ejhhNL7R"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924678582,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "NyghNsaWz2ugykfe",
+  "sort": 800000,
+  "_key": "!items!NyghNsaWz2ugykfe"
+}

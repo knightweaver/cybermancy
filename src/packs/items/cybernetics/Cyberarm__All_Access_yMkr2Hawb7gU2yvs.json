@@ -1,0 +1,66 @@
+{
+  "name": "Cyberarm™ All Access",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-all-access.webp",
+  "system": {
+    "description": "<i>Unlock elegance, embrace limitless entry.</i><br /><br /><p class=\"Card-Feature\">You always have a lock pick with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 Finesse on a lock picking attempt. <br /><br />Requires Cyberarm™ base unit</p>",
+    "actions": {
+      "Cyberarm™ All Access": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unlock elegance, embrace limitless entry.</i><br><br><p class=\"Card-Feature\">You always have a lock pick with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 Finesse on a lock picking attempt. <br><br>Requires Cyberarm™ base unit",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ All Access",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-all-access.webp",
+        "range": "",
+        "_id": "QPTLtytKBKVrd72w"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121284385,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "yMkr2Hawb7gU2yvs",
+  "sort": 3000000,
+  "_key": "!items!yMkr2Hawb7gU2yvs"
+}

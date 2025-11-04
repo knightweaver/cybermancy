@@ -1,0 +1,84 @@
+{
+  "name": "Creative coding",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/creative-coding.webp",
+  "system": {
+    "description": "<i>“If at first you don’t succeed, reboot and lie about it.”</i><p class=\"Card-Feature\">Once per long rest, add a new Digital Feature to a Device that it didn't originally have (GM's discretion)</p>",
+    "level": 6,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Creative coding": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“If at first you don’t succeed, reboot and lie about it.”</i><p class=\"Card-Feature\">Once per long rest, add a new Digital Feature to a Device that it didn't originally have (GM's discretion)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Creative coding",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/creative-coding.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "D6YaS5yIPHb26PEp",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "p7l7Pp8lBy5C9mxh",
+  "_id": "rEWNN8WyG1h8In8x",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621628510,
+    "modifiedTime": 1761621628510,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!rEWNN8WyG1h8In8x"
+}

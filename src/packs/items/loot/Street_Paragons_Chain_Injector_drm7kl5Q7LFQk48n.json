@@ -1,0 +1,65 @@
+{
+  "name": "Street Paragons Chain Injector",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/street-paragons-chain-injector.webp",
+  "system": {
+    "description": "As a downtime move, you can meditate on an ideal or principle you hold dear and focus your will into this chain. Once per long rest, you can spend a Hope to roll a d20 as your Hope Die for rolls that directly align with that principle. black-market tech favore",
+    "quantity": 1,
+    "actions": {
+      "esnUuqMcvyOvI6PV": {
+        "type": "effect",
+        "_id": "esnUuqMcvyOvI6PV",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "keyIsID": false,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/equipment/neck/choker-chain-thin-gold.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925012918,
+    "modifiedTime": 1760925012918,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "drm7kl5Q7LFQk48n",
+  "sort": 0,
+  "_key": "!items!drm7kl5Q7LFQk48n"
+}

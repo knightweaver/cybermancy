@@ -1,0 +1,34 @@
+{
+  "name": "Modular Hardpoint Interface",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/modular-hardpoint-interface.webp",
+  "tier": 4,
+  "system": {
+    "description": "<i>\"Enhance potential, expand your digital domain.\"</i><br><br><p class=\"Card-Feature\">Increase the number of Domain Cards in your load out by 1 permenantly.",
+    "actions": {
+      "Modular Hardpoint Interface": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Enhance potential, expand your digital domain.\"</i><br><br><p class=\"Card-Feature\">Increase the number of Domain Cards in your load out by 1 permenantly.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Modular Hardpoint Interface",
+        "img": "modules/cybermancy/assets/icons/cybernetics/modular-hardpoint-interface.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

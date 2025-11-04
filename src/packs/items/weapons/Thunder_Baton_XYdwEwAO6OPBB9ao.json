@@ -1,0 +1,166 @@
+{
+  "name": "Thunder Baton",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/thunder-baton.webp",
+  "system": {
+    "description": "Electrified shock weapon tuned for area suppression, discharging arcs of blinding light and sound.",
+    "tier": 4,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/thunder-baton.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "strength",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d12",
+              "bonus": 9,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action",
+      "_id": "ed5JXgGKZANRyPn2",
+      "description": "",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "actions": {
+      "Overdrive": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Overdrive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per rest, stun all enemies in Close range.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Overdrive",
+        "img": "modules/cybermancy/assets/icons/features/overdrive.webp",
+        "range": "",
+        "_id": "HZCG4bgU9Z0zPrw4"
+      },
+      "EMP Surge": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - EMP Surge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Wipe out all small electronics in scene.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  EMP Surge",
+        "img": "modules/cybermancy/assets/icons/features/emp-surge.webp",
+        "range": "",
+        "_id": "IgGCc3HRQ1eX7mLT"
+      }
+    },
+    "attached": [],
+    "weaponFeatures": [],
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": "CjdIePKPbUOc4CPq",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760883948304,
+    "modifiedTime": 1760883995470,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "XYdwEwAO6OPBB9ao",
+  "sort": 0,
+  "_key": "!items!XYdwEwAO6OPBB9ao"
+}

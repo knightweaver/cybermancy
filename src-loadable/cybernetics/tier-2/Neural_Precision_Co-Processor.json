@@ -1,0 +1,43 @@
+{
+  "name": "Neural Precision Co-Processor",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/neural-precision-co-processor.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Elevate thought; brilliance, a heartbeat away.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)",
+    "actions": {
+      "Neural Precision Co-Processor": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Elevate thought; brilliance, a heartbeat away.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Neural Precision Co-Processor",
+        "img": "modules/cybermancy/assets/icons/cybernetics/neural-precision-co-processor.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

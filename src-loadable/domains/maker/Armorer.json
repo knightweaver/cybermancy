@@ -1,0 +1,46 @@
+{
+  "name": "Armorer",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/armorer.webp",
+  "system": {
+    "description": "<i>Armor is just skin for machines.</i><p class=\"Card-Feature\">During downtime, <strong>Spend 1 Hope</strong> to repair up to 3 armor slots for yourself or an ally.",
+    "level": 2,
+    "domain": "maker",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Armorer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Armor is just skin for machines.</i><p class=\"Card-Feature\">During downtime, <strong>Spend 1 Hope</strong> to repair up to 3 armor slots for yourself or an ally.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Armorer",
+        "img": "modules/cybermancy/assets/icons/domains/maker/armorer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

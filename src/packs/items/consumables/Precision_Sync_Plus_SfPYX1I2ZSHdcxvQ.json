@@ -1,0 +1,112 @@
+{
+  "name": "Precision Sync Plus",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\precision-sync-plus.webp",
+  "system": {
+    "description": "Optimized neural alignment implant granting +1 Finesse until next rest.",
+    "quantity": 1,
+    "actions": {
+      "fk272mE2zHIHq8qR": {
+        "type": "effect",
+        "_id": "fk272mE2zHIHq8qR",
+        "systemPath": "actions",
+        "description": "<p>You gain a +1 bonus to your Finesse until your next rest.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "YOgojNdjARXUUrky",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/bottle-round-corked-blue.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Major Control Potion",
+      "img": "icons/consumables/potions/bottle-round-corked-blue.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.80s1FLmTLtohZ5GH",
+      "transfer": false,
+      "_id": "YOgojNdjARXUUrky",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.finesse.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!SfPYX1I2ZSHdcxvQ.YOgojNdjARXUUrky"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924717622,
+    "modifiedTime": 1760924717622,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "SfPYX1I2ZSHdcxvQ",
+  "sort": 0,
+  "_key": "!items!SfPYX1I2ZSHdcxvQ"
+}

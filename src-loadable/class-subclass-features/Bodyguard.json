@@ -1,0 +1,52 @@
+{
+  "name": "Bodyguard",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/bodyguard.webp",
+  "system": {
+    "description": "Your loyalty is your weapon, and your silence is its sheath.You are the wall between your client and the world’s chaos — the first to see danger, and the last thing it ever sees. Whether you stand like a fortress in plain sight or move unseen like a whisper of steel, your purpose is singular: protection.You don’t protect because you’re paid to. You protect because it gives you meaning. The world has too many killers and not enough shields, and someone has to draw the line. Maybe you guard corporate executives, syndicate heirs, or idealistic runners too valuable to lose — it doesn’t matter. Once they’re under your care, you’re their shadow, their shield, their retribution.Every plan you make, every upgrade you install, every strike you deliver — it’s all in service of one truth: you are the difference between a job gone bad and a life saved.When the bullets start flying, you don’t dive for cover — you are the cover.",
+    "actions": {
+      "Bodyguard": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Your loyalty is your weapon, and your silence is its sheath.You are the wall between your client and the world’s chaos — the first to see danger, and the last thing it ever sees. Whether you stand like a fortress in plain sight or move unseen like a whisper of steel, your purpose is singular: protection.You don’t protect because you’re paid to. You protect because it gives you meaning. The world has too many killers and not enough shields, and someone has to draw the line. Maybe you guard corporate executives, syndicate heirs, or idealistic runners too valuable to lose — it doesn’t matter. Once they’re under your care, you’re their shadow, their shield, their retribution.Every plan you make, every upgrade you install, every strike you deliver — it’s all in service of one truth: you are the difference between a job gone bad and a life saved.When the bullets start flying, you don’t dive for cover — you are the cover.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Bodyguard",
+        "img": "modules/cybermancy/assets/icons/subclasses/bodyguard.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

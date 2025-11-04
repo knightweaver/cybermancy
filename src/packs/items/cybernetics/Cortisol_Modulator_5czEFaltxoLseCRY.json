@@ -1,0 +1,57 @@
+{
+  "name": "Cortisol Modulator",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cortisol-modulator.webp",
+  "system": {
+    "description": "<i>Ethereal serenity, engineered for your mind.</i><br /><br /><p class=\"Card-Feature\">Once per rest, Recover 1 Stress</p>",
+    "actions": {
+      "Cortisol Modulator": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Ethereal serenity, engineered for your mind.</i><br><br><p class=\"Card-Feature\">Once per rest, Recover 1 Stress",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cortisol Modulator",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cortisol-modulator.webp",
+        "range": "",
+        "_id": "uRaBmEYZOuuPYlAC"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121282497,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "5czEFaltxoLseCRY",
+  "sort": 3800000,
+  "_key": "!items!5czEFaltxoLseCRY"
+}

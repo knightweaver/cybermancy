@@ -1,0 +1,43 @@
+{
+  "name": "Oculus™ Palette",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-palette.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Shift your gaze, shape your truth.\"</i><br><br><p class=\"Card-Feature\">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br><br>Requires Oculus ™ base unit.",
+    "actions": {
+      "Oculus™ Palette": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Shift your gaze, shape your truth.\"</i><br><br><p class=\"Card-Feature\">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br><br>Requires Oculus ™ base unit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Palette",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-palette.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Ash Cloud",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/ash-cloud.webp",
+  "system": {
+    "description": "<i>You move blind through data smoke and security ghosts.</i><br /><br /><p class=\"Card-Feature\">Obscures architecture; hack rolls suffer -1 until cleared.</p>",
+    "actions": {
+      "Ash Cloud": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You move blind through data smoke and security ghosts.</i><br><br><p class=\"Card-Feature\">Obscures architecture; hack rolls suffer -1 until cleared.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ash Cloud",
+        "img": "modules/cybermancy/assets/icons/ice/ash-cloud.webp",
+        "range": "",
+        "_id": "fvxDCCaFQqKiO014"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "BImGuescyJIB1rRt",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762170911019,
+    "modifiedTime": 1762170961043,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "dvYk2MSixPqXN5BK",
+  "sort": 100000,
+  "_key": "!items!dvYk2MSixPqXN5BK"
+}

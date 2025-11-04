@@ -1,0 +1,10 @@
+{
+  "name": "Subsonic Suppressor",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/subsonic-suppressor.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Attacks harder to detect; all enemies attempting to Perceive your attack roll at Disadvantage"
+  },
+  "effects": []
+}

@@ -1,0 +1,93 @@
+{
+  "name": "Body Shield",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/body-shield.webp",
+  "system": {
+    "description": "<i>Pragmatism over pity.</i><p class=\"Card-Feature\">Once per Scene, <strong>Mark 1 Stress</strong> and grab a creature of your size or smaller within Very Close. Gain +2 Evasion until next your next Action.</p>",
+    "level": 4,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Body Shield": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Pragmatism over pity.</i><p class=\"Card-Feature\">Once per Scene, <strong>Mark 1 Stress</strong> and grab a creature of your size or smaller within Very Close. Gain +2 Evasion until next your next Action.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Body Shield",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/body-shield.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "BwuK4SlUaDmmDE5G",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "jpqYI8fcPmFgbcKf",
+  "_id": "Rg1l2sA4DDvaNcBo",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621481843,
+    "modifiedTime": 1761621481843,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!Rg1l2sA4DDvaNcBo"
+}

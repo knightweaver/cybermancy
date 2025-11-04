@@ -1,0 +1,112 @@
+{
+  "name": "Zero Piercing Arrows Patch",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/zero-piercing-arrows-patch.webp",
+  "system": {
+    "description": "Three times per rest when you succeed on an attack with one of these arrows, you can add your Proficiency to the damage roll. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {
+      "DW5AqEM0F8XaUqpn": {
+        "type": "effect",
+        "_id": "DW5AqEM0F8XaUqpn",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "3",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": [
+    {
+      "name": "Piercing Arrows",
+      "type": "base",
+      "_id": "lRfqfbwlfxzPbE6U",
+      "img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.bonuses.damage.physical.bonus",
+          "mode": 2,
+          "value": "@system.proficiency",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.damage.magical.bonus",
+          "mode": 2,
+          "value": "@system.proficiency",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">Add your Proficiency to the damage roll of this attack.</span></p>",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!UXYsYymiO5hY3jHH.lRfqfbwlfxzPbE6U"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925020444,
+    "modifiedTime": 1760925020444,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "UXYsYymiO5hY3jHH",
+  "sort": 0,
+  "_key": "!items!UXYsYymiO5hY3jHH"
+}

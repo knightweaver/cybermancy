@@ -1,0 +1,58 @@
+{
+  "name": "Subdermal weave Mk.I",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/subdermal-weave-mk-i.webp",
+  "system": {
+    "description": "<i>\"Elegance woven beneath, strength redefined.\"</i><br /><br /><p class=\"Card-Feature\">Gain +1/+1 to Major / Severe damage thresholds. You can only have 1 Subdermal weave enhancement, but they can be upgraded.</p>",
+    "actions": {
+      "Subdermal weave Mk": {
+        "I": {
+          "type": "effect",
+          "systemPath": "actions",
+          "description": "<i>\"Elegance woven beneath, strength redefined.\"</i><br><br><p class=\"Card-Feature\">Gain +1/+1 to Major / Severe damage thresholds. You can only have 1 Subdermal weave enhancement, but they can be upgraded.",
+          "chatDisplay": true,
+          "actionType": "passive",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": "",
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "target": {
+            "type": "any",
+            "amount": null
+          },
+          "name": "Subdermal weave Mk.I",
+          "img": "modules/cybermancy/assets/icons/cybernetics/subdermal-weave-mk.i.webp",
+          "range": ""
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121323978,
+    "modifiedTime": 1762121755261,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "SiiNVfGjNfizOdeE",
+  "sort": 2300000,
+  "_key": "!items!SiiNVfGjNfizOdeE"
+}

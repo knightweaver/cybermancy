@@ -1,0 +1,57 @@
+{
+  "name": "SmartLink™ Targeting Reticle Implant",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-targeting-reticle-implant.webp",
+  "system": {
+    "description": "<i>Precision unleashed; elevate your aim.</i><br /><br /><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, +1 Attack.  <br /><br />Requires the SmartLink™ CPU implant</p>",
+    "actions": {
+      "SmartLink™ Targeting Reticle Implant": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Precision unleashed; elevate your aim.</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, +1 Attack.  <br><br>Requires the SmartLink™ CPU implant",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SmartLink™ Targeting Reticle Implant",
+        "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-targeting-reticle-implant.webp",
+        "range": "",
+        "_id": "K8M5XTdcY2SOyLcO"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121469012,
+    "modifiedTime": 1762121515597,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "y2G4z8g2dcjrMgPn",
+  "sort": 103125,
+  "_key": "!items!y2G4z8g2dcjrMgPn"
+}

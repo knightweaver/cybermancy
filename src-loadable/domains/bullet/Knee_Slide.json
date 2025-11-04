@@ -1,0 +1,65 @@
+{
+  "name": "Knee Slide",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/knee-slide.webp",
+  "system": {
+    "description": "<i>The floor is your runway.</i><p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to move up to Far in a straight line; Attack all creatures passed. Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.",
+    "level": 4,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Knee Slide": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>The floor is your runway.</i><p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to move up to Far in a straight line; Attack all creatures passed. Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Knee Slide",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/knee-slide.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

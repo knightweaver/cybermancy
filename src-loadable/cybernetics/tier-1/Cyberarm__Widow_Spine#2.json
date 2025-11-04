@@ -1,0 +1,42 @@
+{
+  "name": "Cyberarm™ Widow Spine",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-widow-spine.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Grapple destiny; ensnare fate's embrace.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an attack roll against a creature of your size or less who is within Very Close. On a success, pull them to within Melee range of you and give them the <i>Restrained</i> condition.  GM must spotlight that creature and spend 1 Fear to remove the condition.<br><br>Requires Cyberarm™ base unit",
+    "actions": {
+      "Cyberarm™ Widow Spine": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Widow Spine",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-widow-spine.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

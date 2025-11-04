@@ -1,0 +1,66 @@
+{
+  "name": "Wakizashi™ Kinetic Feedback Enhancer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-kinetic-feedback-enhancer.webp",
+  "system": {
+    "description": "<i>Hope-fueled fury, precision scars victory.</i><br /><br /><p class=\"Card-Feature\">After a successful attack with your secondary weapon, <strong>Spend 1 Hope</strong> for +2 on all damage die rolled. <br /><br />Requires the Wakizashi™ Base Unit.</p>",
+    "actions": {
+      "Wakizashi™ Kinetic Feedback Enhancer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Hope-fueled fury, precision scars victory.</i><br><br><p class=\"Card-Feature\">After a successful attack with your secondary weapon, <strong>Spend 1 Hope</strong> for +2 on all damage die rolled. <br><br>Requires the Wakizashi™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wakizashi™ Kinetic Feedback Enhancer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-kinetic-feedback-enhancer.webp",
+        "range": "",
+        "_id": "6khTF4mjvvftxzPy"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121397450,
+    "modifiedTime": 1762121397450,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "gnMnnIxMapcFNnul",
+  "sort": 0,
+  "_key": "!items!gnMnnIxMapcFNnul"
+}

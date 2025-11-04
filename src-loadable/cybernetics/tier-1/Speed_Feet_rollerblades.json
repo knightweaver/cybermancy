@@ -1,0 +1,43 @@
+{
+  "name": "Speed Feet rollerblades",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/speed-feet-rollerblades.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Glide seamlessly, strike swiftly with precision.</i><br><br><p class=\"Card-Feature\">Your feet have been replaced with cybernetics that have retractable wheels.  <strong>Spend 1 Hope</strong> to move within Far and still make an attack, your Evasion is -1 until your next action.",
+    "actions": {
+      "Speed Feet rollerblades": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Glide seamlessly, strike swiftly with precision.</i><br><br><p class=\"Card-Feature\">Your feet have been replaced with cybernetics that have retractable wheels.  <strong>Spend 1 Hope</strong> to move within Far and still make an attack, your Evasion is -1 until your next action.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Speed Feet rollerblades",
+        "img": "modules/cybermancy/assets/icons/cybernetics/speed-feet-rollerblades.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

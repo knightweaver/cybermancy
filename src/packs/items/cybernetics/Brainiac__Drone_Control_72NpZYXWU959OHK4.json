@@ -1,0 +1,57 @@
+{
+  "name": "Brainiac™ Drone Control",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-drone-control.webp",
+  "system": {
+    "description": "<i>\"\" - Master minds, bend drones, limitlessly near.</i><br /><br /><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a rigger drone control module, but it isn't as powerful as a normal regger drone control unitand has shorter range.  You may control any of your drones within Close and at -2 on your rolls.  <br /><br /> Requires Brainiac™ Base Unit.</p>",
+    "actions": {
+      "Brainiac™ Drone Control": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"\" - Master minds, bend drones, limitlessly near.</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a rigger drone control module, but it isn't as powerful as a normal regger drone control unitand has shorter range.  You may control any of your drones within Close and at -2 on your rolls.  <br><br> Requires Brainiac™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Drone Control",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-drone-control.webp",
+        "range": "",
+        "_id": "ojzFxXUj1He0EgBo"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468329,
+    "modifiedTime": 1762121507886,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "72NpZYXWU959OHK4",
+  "sort": 1800000,
+  "_key": "!items!72NpZYXWU959OHK4"
+}

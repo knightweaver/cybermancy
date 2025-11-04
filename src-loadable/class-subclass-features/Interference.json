@@ -1,0 +1,52 @@
+{
+  "name": "Interference",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/interference.webp",
+  "system": {
+    "description": "Spend 3 Hope to disrupt electronics within Close.  Set a d4 to a value of 1 and increment each time you chose to have one of the following effects:o",
+    "actions": {
+      "Interference": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to disrupt electronics within Close.  Set a d4 to a value of 1 and increment each time you chose to have one of the following effects:o",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Interference",
+        "img": "modules/cybermancy/assets/icons/subclasses/interference.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

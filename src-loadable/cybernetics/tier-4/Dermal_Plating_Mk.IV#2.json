@@ -1,0 +1,34 @@
+{
+  "name": "Dermal Plating Mk.IV",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk.iv.webp",
+  "tier": 4,
+  "system": {
+    "description": "<i>Unyielding shield, elegance beneath the skin.</i><br><br><p class=\"Card-Feature\">Gain +4 Armor Slot. You can only have 1 Dermal Plating enhancement, but they can be upgraded.",
+    "actions": {
+      "Dermal Plating Mk.IV": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Dermal Plating Mk.IV",
+        "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk.iv.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

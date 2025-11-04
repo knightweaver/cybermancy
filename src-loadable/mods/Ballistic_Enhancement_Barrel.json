@@ -1,0 +1,10 @@
+{
+  "name": "Ballistic Enhancement Barrel",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/ballistic-enhancement-barrel.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Increase the die increment whenever this weapon is fired (e.g. from a d4 to a d6).  If a Critical Failure is rolled while firing a weapon with this mod, the creature holding the weapon must Mark 2 Hit Points of damage and the weapon is destroyed."
+  },
+  "effects": []
+}

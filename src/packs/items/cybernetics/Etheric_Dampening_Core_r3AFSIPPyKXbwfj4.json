@@ -1,0 +1,57 @@
+{
+  "name": "Etheric Dampening Core",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/etheric-dampening-core.webp",
+  "system": {
+    "description": "<i>Become impervious to arcane whispers.</i><br /><br /><p class=\"Card-Feature\">-2 to all sources of Magical damage</p>",
+    "actions": {
+      "Etheric Dampening Core": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Become impervious to arcane whispers.</i><br><br><p class=\"Card-Feature\">-2 to all sources of Magical damage",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Etheric Dampening Core",
+        "img": "modules/cybermancy/assets/icons/cybernetics/etheric-dampening-core.webp",
+        "range": "",
+        "_id": "uDmzG8YUw2tnyTX2"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468587,
+    "modifiedTime": 1762121507886,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "r3AFSIPPyKXbwfj4",
+  "sort": 1200000,
+  "_key": "!items!r3AFSIPPyKXbwfj4"
+}

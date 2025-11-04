@@ -1,0 +1,43 @@
+{
+  "name": "Oculus™ Witch Eye",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-witch-eye.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Empower your gaze, command with intent.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Presence roll in which you are attempting to Intimidate a creature. <br><br>Requires Oculus ™ base unit.",
+    "actions": {
+      "Oculus™ Witch Eye": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Empower your gaze, command with intent.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Presence roll in which you are attempting to Intimidate a creature. <br><br>Requires Oculus ™ base unit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Witch Eye",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-witch-eye.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Tier 1",
+  "color": null,
+  "sorting": "a",
+  "_id": "c4tzMLc9mBHW8KiD",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121254654,
+    "modifiedTime": 1762121254654,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!folders!c4tzMLc9mBHW8KiD"
+}

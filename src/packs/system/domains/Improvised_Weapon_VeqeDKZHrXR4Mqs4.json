@@ -1,0 +1,93 @@
+{
+  "name": "Improvised Weapon",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/improvised-weapon.webp",
+  "system": {
+    "description": "<i>The world is your arsenal.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> spend at least 1 minute to create a d6 melee weapon.</p>",
+    "level": 5,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Improvised Weapon": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>The world is your arsenal.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> spend at least 1 minute to create a d6 melee weapon.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Improvised Weapon",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/improvised-weapon.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "MSfUOx4ThsXPMDAA",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "GYOsBGZZy1EFYHnF",
+  "_id": "VeqeDKZHrXR4Mqs4",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621483578,
+    "modifiedTime": 1761621483578,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!VeqeDKZHrXR4Mqs4"
+}

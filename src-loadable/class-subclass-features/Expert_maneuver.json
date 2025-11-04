@@ -1,0 +1,52 @@
+{
+  "name": "Expert maneuver",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/expert-maneuver.webp",
+  "system": {
+    "description": "Spend 3 Hope to negate any Driving Environment Event.",
+    "actions": {
+      "Expert maneuver": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to negate any Driving Environment Event.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Expert maneuver",
+        "img": "modules/cybermancy/assets/icons/subclasses/expert-maneuver.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

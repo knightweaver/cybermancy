@@ -1,0 +1,38 @@
+{
+  "name": "Chinook",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/chinook.webp",
+  "system": {
+    "description": "<i>Airlift on demand.</i><p class=\"Card-Feature\">While active, your <b>Primary Drone</b> can carry you and one ally. While equipped, it may only carry one weapon and has -2 Evasion.",
+    "level": 10,
+    "domain": "maker",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Chinook": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Airlift on demand.</i><p class=\"Card-Feature\">While active, your <b>Primary Drone</b> can carry you and one ally. While equipped, it may only carry one weapon and has -2 Evasion.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Chinook",
+        "img": "modules/cybermancy/assets/icons/domains/maker/chinook.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

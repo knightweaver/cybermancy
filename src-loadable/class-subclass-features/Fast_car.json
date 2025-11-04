@@ -1,0 +1,52 @@
+{
+  "name": "Fast car",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/fast-car.webp",
+  "system": {
+    "description": "You start with a car that grants you +1 on all Driving checks (when you are driving that car)",
+    "actions": {
+      "Fast car": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You start with a car that grants you +1 on all Driving checks (when you are driving that car)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Fast car",
+        "img": "modules/cybermancy/assets/icons/subclasses/fast-car.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

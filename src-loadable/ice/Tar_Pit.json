@@ -1,0 +1,34 @@
+{
+  "name": "Tar Pit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/tar-pit.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Your thoughts drag like they’re knee-deep in code molasses.</i><br><br><p class=\"Card-Feature\">Locks your interface until you force-disconnect or spend Hope to break free.",
+    "actions": {
+      "Tar Pit": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your thoughts drag like they’re knee-deep in code molasses.</i><br><br><p class=\"Card-Feature\">Locks your interface until you force-disconnect or spend Hope to break free.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Tar Pit",
+        "img": "modules/cybermancy/assets/icons/ice/tar-pit.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

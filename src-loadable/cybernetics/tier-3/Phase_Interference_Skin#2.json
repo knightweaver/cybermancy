@@ -1,0 +1,42 @@
+{
+  "name": "Phase Interference Skin",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/phase-interference-skin.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Aegis of Hope: Armor for the Soul.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to place 2 tokens on this card. <br><br>As a Reaction, you can remove one token to reduce a source of Magical damage by half",
+    "actions": {
+      "Phase Interference Skin": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Phase Interference Skin",
+        "img": "modules/cybermancy/assets/icons/cybernetics/phase-interference-skin.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

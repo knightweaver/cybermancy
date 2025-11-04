@@ -1,0 +1,166 @@
+{
+  "name": "EMP Singularity",
+  "type": "weapon",
+  "img": "modules/cybermancy/assets/icons/weapons/emp-singularity.webp",
+  "system": {
+    "description": "A massive EMP charge that disables all systems across multiple networks simultaneously within Very Far range",
+    "tier": 4,
+    "equipped": false,
+    "secondary": false,
+    "burden": "oneHanded",
+    "attack": {
+      "name": "Attack",
+      "img": "modules/cybermancy/assets/icons/weapons/emp-singularity.webp",
+      "systemPath": "attack",
+      "type": "attack",
+      "range": "far",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "trait": "finesse",
+        "type": "attack",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "dice": "d20",
+              "bonus": 0,
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "type": [
+              "physical"
+            ],
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "chatDisplay": true,
+      "actionType": "action",
+      "_id": "Yr8w1tItth4Ij8Ba",
+      "description": "",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "actions": {
+      "Blackout": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Blackout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Kill power grid in 1 km radius once per rest.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Blackout",
+        "img": "modules/cybermancy/assets/icons/features/blackout.webp",
+        "range": "",
+        "_id": "yx1ncK6U5xswVzY0"
+      },
+      "System Collapse": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - System Collapse:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Entire Matrix zone crashes beyond repair.</span></p></li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Critical Effect:  System Collapse",
+        "img": "modules/cybermancy/assets/icons/features/system-collapse.webp",
+        "range": "",
+        "_id": "dhhS6j3UObu9qqZf"
+      }
+    },
+    "attached": [],
+    "weaponFeatures": [],
+    "rules": {
+      "attack": {
+        "roll": {
+          "trait": null
+        }
+      }
+    }
+  },
+  "effects": [],
+  "folder": "CjdIePKPbUOc4CPq",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760883939761,
+    "modifiedTime": 1760883968275,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "jfyi2Kd6Tanx1cy9",
+  "sort": 600000,
+  "_key": "!items!jfyi2Kd6Tanx1cy9"
+}

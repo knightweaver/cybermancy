@@ -1,0 +1,52 @@
+{
+  "name": "Get behind me",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/get-behind-me.webp",
+  "system": {
+    "description": "As a Reaction, when an adversary makes a successful attack on an ally within Close, move immediately to position your token within Melee of your ally and between the adversary and the ally (moving one of them if necessary).  The attack is now successful on you instead of your ally.",
+    "actions": {
+      "Get behind me": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "As a Reaction, when an adversary makes a successful attack on an ally within Close, move immediately to position your token within Melee of your ally and between the adversary and the ally (moving one of them if necessary).  The attack is now successful on you instead of your ally.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Get behind me",
+        "img": "modules/cybermancy/assets/icons/subclasses/get-behind-me.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

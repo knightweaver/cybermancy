@@ -1,0 +1,100 @@
+{
+  "folder": "rC9i0rH9DskIvndW",
+  "name": "Legendary Assault Carapace",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/legendary-assault-carapace.webp",
+  "system": {
+    "description": "Black-ops composite suit meant to take a rocket and keep you upright.",
+    "actions": {},
+    "attached": [],
+    "tier": 4,
+    "equipped": false,
+    "baseScore": 7,
+    "armorFeatures": [
+      {
+        "value": "veryheavy",
+        "effectIds": [
+          "zvzkRX2Uevemmbz4"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 17,
+      "severe": 44
+    }
+  },
+  "effects": [
+    {
+      "name": "Very Heavy",
+      "description": "-2 to Evasion; -1 to Agility",
+      "img": "icons/commodities/metal/ingot-stamped-steel.webp",
+      "changes": [
+        {
+          "key": "system.evasion",
+          "mode": 2,
+          "value": "-2"
+        },
+        {
+          "key": "system.traits.agility.value",
+          "mode": 2,
+          "value": "-1"
+        }
+      ],
+      "_id": "zvzkRX2Uevemmbz4",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!loSpbuikrOKEWDUP.zvzkRX2Uevemmbz4"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912115994,
+    "modifiedTime": 1760912121303,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "loSpbuikrOKEWDUP",
+  "sort": 600000,
+  "_key": "!items!loSpbuikrOKEWDUP"
+}

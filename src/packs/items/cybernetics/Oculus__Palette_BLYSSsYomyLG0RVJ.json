@@ -1,0 +1,66 @@
+{
+  "name": "Oculus™ Palette",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-palette.webp",
+  "system": {
+    "description": "<i>\"Shift your gaze, shape your truth.\"</i><br /><br /><p class=\"Card-Feature\">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br /><br />Requires Oculus ™ base unit.</p>",
+    "actions": {
+      "Oculus™ Palette": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Shift your gaze, shape your truth.\"</i><br><br><p class=\"Card-Feature\">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br><br>Requires Oculus ™ base unit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Palette",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-palette.webp",
+        "range": "",
+        "_id": "oKvu1z5TKpriLak7"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121318649,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "BLYSSsYomyLG0RVJ",
+  "sort": 1700000,
+  "_key": "!items!BLYSSsYomyLG0RVJ"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Nanite Medigel Reservoir",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/nanite-medigel-reservoir.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Double your renewal, embrace pure vitality.</i><br><br><p class=\"Card-Feature\">Once per long rest, when you heal a Hit Point, you may heal and additional Hit Point",
+    "actions": {
+      "Nanite Medigel Reservoir": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Double your renewal, embrace pure vitality.</i><br><br><p class=\"Card-Feature\">Once per long rest, when you heal a Hit Point, you may heal and additional Hit Point",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Nanite Medigel Reservoir",
+        "img": "modules/cybermancy/assets/icons/cybernetics/nanite-medigel-reservoir.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

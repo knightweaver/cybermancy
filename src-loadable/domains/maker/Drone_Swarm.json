@@ -1,0 +1,38 @@
+{
+  "name": "Drone Swarm",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/drone-swarm.webp",
+  "system": {
+    "description": "<i>You are never outnumbered.</i><p class=\"Card-Feature\">Once per long rest, place tokens on this card equal to your proficiency level.  As a Reaction, spend 1 token to have one of the following effects to 1 target creatures <ol><li>Harass. (-1 all rolls), <li>Suppress (-1 evasion), <li>Assist (+1 evasion)</ol>. Discard all remaining tokens at the end of the Scene.",
+    "level": 2,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Drone Swarm": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You are never outnumbered.</i><p class=\"Card-Feature\">Once per long rest, place tokens on this card equal to your proficiency level.  As a Reaction, spend 1 token to have one of the following effects to 1 target creatures <ol><li>Harass. (-1 all rolls), <li>Suppress (-1 evasion), <li>Assist (+1 evasion)</ol>. Discard all remaining tokens at the end of the Scene.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Drone Swarm",
+        "img": "modules/cybermancy/assets/icons/domains/maker/drone-swarm.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Body Shield",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/body-shield.webp",
+  "system": {
+    "description": "<i>Pragmatism over pity.</i><p class=\"Card-Feature\">Once per Scene, <strong>Mark 1 Stress</strong> and grab a creature of your size or smaller within Very Close. Gain +2 Evasion until next your next Action.",
+    "level": 4,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Body Shield": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Pragmatism over pity.</i><p class=\"Card-Feature\">Once per Scene, <strong>Mark 1 Stress</strong> and grab a creature of your size or smaller within Very Close. Gain +2 Evasion until next your next Action.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Body Shield",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/body-shield.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

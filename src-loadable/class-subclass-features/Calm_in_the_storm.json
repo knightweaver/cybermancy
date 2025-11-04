@@ -1,0 +1,52 @@
+{
+  "name": "Calm in the storm",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+  "system": {
+    "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+    "actions": {
+      "Calm in the storm": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Calm in the storm",
+        "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

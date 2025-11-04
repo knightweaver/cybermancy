@@ -1,0 +1,69 @@
+{
+  "name": "Assess Equipment",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/assess-equipment.webp",
+  "system": {
+    "description": "<i>Every circuit tells a secret.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.</p>",
+    "level": 4,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Assess Equipment": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Every circuit tells a secret.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Assess Equipment",
+        "img": "modules/cybermancy/assets/icons/domains/maker/assess-equipment.webp",
+        "range": "",
+        "_id": "wEbK30mQG2bf5vfP"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "ytCG9iu5IyOFqKGE",
+  "_id": "1Oyhwao0UTFTe0EO",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621716054,
+    "modifiedTime": 1761621716054,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!1Oyhwao0UTFTe0EO"
+}

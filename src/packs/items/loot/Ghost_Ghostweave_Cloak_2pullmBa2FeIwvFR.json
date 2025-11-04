@@ -1,0 +1,32 @@
+{
+  "name": "Ghost Ghostweave Cloak",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/ghost-ghostweave-cloak.webp",
+  "system": {
+    "description": "A creature with a Spellcast trait wearing this cloak can adjust its color, texture, and size at will. blends with urban spectra and sensor noise",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924966780,
+    "modifiedTime": 1760925007129,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "2pullmBa2FeIwvFR",
+  "sort": 2500000,
+  "_key": "!items!2pullmBa2FeIwvFR"
+}

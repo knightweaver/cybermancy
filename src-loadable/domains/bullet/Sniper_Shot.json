@@ -1,0 +1,65 @@
+{
+  "name": "Sniper Shot",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/sniper-shot.webp",
+  "system": {
+    "description": "<i>Stillness is your superpower.</i><p class=\"Card-Feature\">If you have a scope mod on your gun, <strong>Spend 1 Hope</strong> to gain +2 to attack (in addition to the +1 bonus provided by the scope).",
+    "level": 3,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Sniper Shot": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Stillness is your superpower.</i><p class=\"Card-Feature\">If you have a scope mod on your gun, <strong>Spend 1 Hope</strong> to gain +2 to attack (in addition to the +1 bonus provided by the scope).",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Sniper Shot",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/sniper-shot.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

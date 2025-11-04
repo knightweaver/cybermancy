@@ -1,0 +1,85 @@
+{
+  "name": "Eclipse Wall",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/eclipse-wall.webp",
+  "system": {
+    "description": "<i>The world outside goes silent—you’re inside the machine now.</i><br /><br /><p class=\"Card-Feature\">Cuts external connections; you are alone until it drops.</p>",
+    "actions": {
+      "Eclipse Wall": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The world outside goes silent—you’re inside the machine now.</i><br><br><p class=\"Card-Feature\">Cuts external connections; you are alone until it drops.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Eclipse Wall",
+        "img": "modules/cybermancy/assets/icons/ice/eclipse-wall.webp",
+        "range": "",
+        "_id": "j9qWAhAXOzsnxEba"
+      },
+      "j9qWAhAXOzsnxEba": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p><em>The world outside goes silent—you’re inside the machine now.</em><br><br></p><p class=\"Card-Feature\">The cognitive dissonance created by interacting with this ICE results in -2 on Evasion until you break this subroutine or disengage from the Device.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Consuming Digital Veil",
+        "img": "modules/cybermancy/assets/icons/ice/eclipse-wall.webp",
+        "range": "",
+        "_id": "j9qWAhAXOzsnxEba"
+      }
+    },
+    "resource": {
+      "type": "simple",
+      "value": 12,
+      "max": "",
+      "icon": "fa-solid fa-microchip"
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "wCGkCV9uQXcmcfwo",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762170911159,
+    "modifiedTime": 1762171308324,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "xODPZVDWhtbdiyWb",
+  "sort": -100000,
+  "_key": "!items!xODPZVDWhtbdiyWb"
+}

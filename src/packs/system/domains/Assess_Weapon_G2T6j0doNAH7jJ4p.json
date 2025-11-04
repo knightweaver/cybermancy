@@ -1,0 +1,60 @@
+{
+  "name": "Assess Weapon",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/assess-weapon.webp",
+  "system": {
+    "description": "<i>Every gun tells a story.</i><p class=\"Card-Feature\">Identify the weapon type and potential weaknesses or modifications of one visible gun within Far</p>",
+    "level": 1,
+    "domain": "bullet",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Assess Weapon": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Every gun tells a story.</i><p class=\"Card-Feature\">Identify the weapon type and potential weaknesses or modifications of one visible gun within Far",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Assess Weapon",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/assess-weapon.webp",
+        "range": "",
+        "_id": "p6OTvH6OyyFJfUvs"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "YgAeAFdlW9NkH1JF",
+  "_id": "G2T6j0doNAH7jJ4p",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621423579,
+    "modifiedTime": 1761621423579,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!G2T6j0doNAH7jJ4p"
+}

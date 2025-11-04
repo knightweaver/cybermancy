@@ -1,0 +1,65 @@
+{
+  "name": "Neural Sync",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/neural-sync.webp",
+  "system": {
+    "description": "<i>“Two heads, one neural network.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to instantly share sensory data with one ally within Far range. You both gain +1 to rolls using shared perception for one Scene.",
+    "level": 3,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Neural Sync": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Two heads, one neural network.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to instantly share sensory data with one ally within Far range. You both gain +1 to rolls using shared perception for one Scene.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Neural Sync",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/neural-sync.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

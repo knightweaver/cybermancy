@@ -1,0 +1,93 @@
+{
+  "name": "Ricochet",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/ricochet.webp",
+  "system": {
+    "description": "<i>Bullets obey geometry, not walls.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Attack at -2 a target with the Hidden condition by virtue of being behind cover.</p>",
+    "level": 3,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Ricochet": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Bullets obey geometry, not walls.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Attack at -2 a target with the Hidden condition by virtue of being behind cover.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ricochet",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/ricochet.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "lOzqnllHGBKZpTGy",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "OycTPAJaZDKCQiMQ",
+  "_id": "HRi64xPJfM53oHhk",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621480135,
+    "modifiedTime": 1761621480135,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!HRi64xPJfM53oHhk"
+}

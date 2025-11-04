@@ -1,0 +1,33 @@
+{
+  "folder": "iyutrVxyiXcSqPw9",
+  "name": "Primary Drone upgrade - dmg threshold and upgrade",
+  "type": "feature",
+  "_id": "CVpZuapdS1jXeSt6",
+  "img": "modules/cybermancy/assets/icons/subclasses/primary-drone-upgrade.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Your Primary Drone is tougher now - damage thresholds of 9 / 15. Also, choose an additional upgrade for your Primary Drone</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761614109782,
+    "modifiedTime": 1761614188263,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!CVpZuapdS1jXeSt6"
+}

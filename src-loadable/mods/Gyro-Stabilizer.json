@@ -1,0 +1,10 @@
+{
+  "name": "Gyro-Stabilizer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/gyro-stabilizer.webp",
+  "tier": 3,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per scene, as a reaction, <strong>Spend 1 Hope</strong> to reroll one failed Agility or Finesse based attack."
+  },
+  "effects": []
+}

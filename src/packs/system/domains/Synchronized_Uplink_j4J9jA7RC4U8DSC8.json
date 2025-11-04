@@ -1,0 +1,93 @@
+{
+  "name": "Synchronized Uplink",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/synchronized-uplink.webp",
+  "system": {
+    "description": "<i>“When the team shares your mind, chaos becomes choreography.”</i><p class=\"Card-Feature\">At the beginning of the session, place a number of tokens on this card equal to your Spellcasting Trait.  Make a Spellcasting roll and target any creature you can see or detect within Very Far; on a success, send them a transmission (e.g. \"they ran down the hall!\").  They will believe the information and act accordingly ... usually</p>",
+    "level": 4,
+    "domain": "circuit",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Synchronized Uplink": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“When the team shares your mind, chaos becomes choreography.”</i><p class=\"Card-Feature\">At the beginning of the session, place a number of tokens on this card equal to your Spellcasting Trait.  Make a Spellcasting roll and target any creature you can see or detect within Very Far; on a success, send them a transmission (e.g. \"they ran down the hall!\").  They will believe the information and act accordingly ... usually",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Synchronized Uplink",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/synchronized-uplink.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "37Y665mHur5jMb03",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "Uw4JAFIXyjcjSJoo",
+  "_id": "j4J9jA7RC4U8DSC8",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621624890,
+    "modifiedTime": 1761621624890,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!j4J9jA7RC4U8DSC8"
+}

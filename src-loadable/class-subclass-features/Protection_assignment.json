@@ -1,0 +1,52 @@
+{
+  "name": "Protection assignment",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/protection-assignment.webp",
+  "system": {
+    "description": "At the beginning of a Scene, designate 1 ally as your Primary Focus.  If they are within Very Close of you, they get +2 Evasion.  Mark 1 Stress to change which ally is your focus.",
+    "actions": {
+      "Protection assignment": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "At the beginning of a Scene, designate 1 ally as your Primary Focus.  If they are within Very Close of you, they get +2 Evasion.  Mark 1 Stress to change which ally is your focus.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Protection assignment",
+        "img": "modules/cybermancy/assets/icons/subclasses/protection-assignment.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Cyberarm™ Base Unit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-base-unit.webp",
+  "system": {
+    "description": "<i>Unleash untamed might with mechanical grace.</i><br /><br /><p class=\"Card-Feature\">Cyberarm™ base unit - enables other Cyberarm-related cybernetics.  <br /><br /> Once per long rest, <strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw</p>",
+    "actions": {
+      "Cyberarm™ Base Unit": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unleash untamed might with mechanical grace.</i><br><br><p class=\"Card-Feature\">Cyberarm™ base unit - enables other Cyberarm-related cybernetics.  <br><br> Once per long rest, <strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Base Unit",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-base-unit.webp",
+        "range": "",
+        "_id": "Nbsc0UwlLhkEf8OM"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121288810,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "5SEtYPqU3s9fEkUA",
+  "sort": 3300000,
+  "_key": "!items!5SEtYPqU3s9fEkUA"
+}

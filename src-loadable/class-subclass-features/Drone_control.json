@@ -1,0 +1,52 @@
+{
+  "name": "Drone control",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/drone-control.webp",
+  "system": {
+    "description": "Mark 1 Stress to target 1 drone within Far and make a Knowledge check against the drone’s Difficulty.   On success, you may immediately use that drone to perform an Action.  The drone remains under your control until the GM Spends 1 Fear.",
+    "actions": {
+      "Drone control": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Mark 1 Stress to target 1 drone within Far and make a Knowledge check against the drone’s Difficulty.   On success, you may immediately use that drone to perform an Action.  The drone remains under your control until the GM Spends 1 Fear.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Drone control",
+        "img": "modules/cybermancy/assets/icons/subclasses/drone-control.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,114 @@
+{
+  "name": "Biomimetic Mask Gel",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\biomimetic-mask-gel.webp",
+  "system": {
+    "description": "A skin-altering nanogel that reconfigures facial features. Spend 4 Hope to appear unrecognizable until next rest.",
+    "quantity": 1,
+    "actions": {
+      "S4wEG1RzfLNtvcg7": {
+        "type": "effect",
+        "_id": "S4wEG1RzfLNtvcg7",
+        "systemPath": "actions",
+        "description": "<p>You can spend a Hope to use this clay, altering your face enough to make you unrecognizable until your next rest.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "keyIsID": false,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "rMno0zO5Cbwlu4zn",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/commodities/stone/ore-chunk-brown.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Morphing Clay",
+      "img": "icons/commodities/stone/ore-chunk-brown.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.f1NHVSIHJJCIOaBl",
+      "transfer": false,
+      "_id": "rMno0zO5Cbwlu4zn",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">Your face is unrecognizable until your next rest.</span></p>",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!DCjmSNv6ZCmPi01H.rMno0zO5Cbwlu4zn"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924669269,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "DCjmSNv6ZCmPi01H",
+  "sort": 2000000,
+  "_key": "!items!DCjmSNv6ZCmPi01H"
+}

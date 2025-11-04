@@ -1,0 +1,42 @@
+{
+  "name": "Cognitive Overclock Node",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-overclock-node.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Hope-fueled edge, perfection's clandestine spark.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 1 Hope</strong> to gain advantage on an action (of any type)",
+    "actions": {
+      "Cognitive Overclock Node": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cognitive Overclock Node",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-overclock-node.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

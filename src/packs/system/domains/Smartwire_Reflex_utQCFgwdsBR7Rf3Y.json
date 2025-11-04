@@ -1,0 +1,84 @@
+{
+  "name": "Smartwire Reflex",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/smartwire-reflex.webp",
+  "system": {
+    "description": "<i>“You’re half machine — might as well let it drive.”</i><p class=\"Card-Feature\">Once per Scene, you may reroll one failed Agility, Spellcasting or Finesse roll as your implants auto-correct your motion.</p>",
+    "level": 5,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Smartwire Reflex": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“You’re half machine — might as well let it drive.”</i><p class=\"Card-Feature\">Once per Scene, you may reroll one failed Agility, Spellcasting or Finesse roll as your implants auto-correct your motion.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Smartwire Reflex",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/smartwire-reflex.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "NgeO7xrTnrhsXcvr",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "IrWkg6b0jizPvi6P",
+  "_id": "utQCFgwdsBR7Rf3Y",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621626603,
+    "modifiedTime": 1761621626603,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!utQCFgwdsBR7Rf3Y"
+}

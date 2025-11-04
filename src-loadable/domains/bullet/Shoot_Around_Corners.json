@@ -1,0 +1,38 @@
+{
+  "name": "Shoot Around Corners",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corners.webp",
+  "system": {
+    "description": "<i>Geometry is your ally.</i><p class=\"Card-Feature\">Hit a target around a 45° corner with disadvantage.",
+    "level": 8,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Shoot Around Corners": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Geometry is your ally.</i><p class=\"Card-Feature\">Hit a target around a 45° corner with disadvantage.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Shoot Around Corners",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corners.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

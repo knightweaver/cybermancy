@@ -1,0 +1,88 @@
+{
+  "name": "Quantum Charging Quiver Module",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/quantum-charging-quiver-module.webp",
+  "system": {
+    "description": "When you succeed on an attack with an arrow stored in this quiver, gain a bonus to the damage roll equal to your current tier. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [
+    {
+      "name": "Charging Quiver",
+      "type": "base",
+      "_id": "0zebbOsyjkm9IqE6",
+      "img": "icons/weapons/ammunition/arrow-broadhead-glowing-orange.webp",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.bonuses.damage.physical.bonus",
+          "mode": 2,
+          "value": "@system.tier",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.damage.magical.bonus",
+          "mode": 2,
+          "value": "@system.tier",
+          "priority": null
+        }
+      ],
+      "disabled": true,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!mo0eyswIV2Kxtwkq.0zebbOsyjkm9IqE6"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925009236,
+    "modifiedTime": 1760925009236,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "mo0eyswIV2Kxtwkq",
+  "sort": 0,
+  "_key": "!items!mo0eyswIV2Kxtwkq"
+}

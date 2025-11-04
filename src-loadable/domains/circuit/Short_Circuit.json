@@ -1,0 +1,57 @@
+{
+  "name": "Short Circuit",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/short-circuit.webp",
+  "system": {
+    "description": "<i>“Sometimes the best fix is a hard crash.”</i><p class=\"Card-Feature\">Once per rest, target any mechanical Adversaries (Drones, robots, etc.) within Far and make a Spellcasting roll against the Adversaries's Difficulty.  On a success, the target loses its next round and takes d8+2 damage",
+    "level": 4,
+    "domain": "circuit",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Short Circuit": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Sometimes the best fix is a hard crash.”</i><p class=\"Card-Feature\">Once per rest, target any mechanical Adversaries (Drones, robots, etc.) within Far and make a Spellcasting roll against the Adversaries's Difficulty.  On a success, the target loses its next round and takes d8+2 damage",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Short Circuit",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/short-circuit.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

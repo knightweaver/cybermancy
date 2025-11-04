@@ -1,0 +1,32 @@
+{
+  "name": "Street Portal Seed Seal",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/street-portal-seed-seal.webp",
+  "system": {
+    "description": "You can plant this seed in the ground to grow a portal in that spot. The portal is ready to use in 24 hours. You can use this portal to travel to any other location where you planted a portal seed. A portal can be destroyed by dealing any amount of magic damag",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925014652,
+    "modifiedTime": 1760925014652,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "EvPiBUDvcDKGq8ru",
+  "sort": 0,
+  "_key": "!items!EvPiBUDvcDKGq8ru"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Trauma Suppression Cortex",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/trauma-suppression-cortex.webp",
+  "system": {
+    "description": "<i>Hope's Shield: Defy damage, embrace resilience.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 3 Hope</strong> to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>",
+    "actions": {
+      "Trauma Suppression Cortex": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Hope's Shield: Defy damage, embrace resilience.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 3 Hope</strong> to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Trauma Suppression Cortex",
+        "img": "modules/cybermancy/assets/icons/cybernetics/trauma-suppression-cortex.webp",
+        "range": "",
+        "_id": "a8iIVKbawpBvoJYe"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "9HwmiMHzsazAak1y",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121557447,
+    "modifiedTime": 1762121575549,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "rIJL7vpon60qlM6l",
+  "sort": 100001,
+  "_key": "!items!rIJL7vpon60qlM6l"
+}

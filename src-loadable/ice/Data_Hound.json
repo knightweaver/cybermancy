@@ -1,0 +1,34 @@
+{
+  "name": "Data Hound",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/data-hound.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>A blinking icon follows you across subnets—and it’s learning.</i><br><br><p class=\"Card-Feature\">Marks and traces your signature, alerting other nodes as you move.",
+    "actions": {
+      "Data Hound": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>A blinking icon follows you across subnets—and it’s learning.</i><br><br><p class=\"Card-Feature\">Marks and traces your signature, alerting other nodes as you move.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Data Hound",
+        "img": "modules/cybermancy/assets/icons/ice/data-hound.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

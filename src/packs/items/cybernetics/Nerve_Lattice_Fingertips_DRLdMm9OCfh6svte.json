@@ -1,0 +1,66 @@
+{
+  "name": "Nerve-Lattice Fingertips",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/nerve-lattice-fingertips.webp",
+  "system": {
+    "description": "<i>\"Empower precision, barter with destiny.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Finesse roll or saving throw</p>",
+    "actions": {
+      "Nerve-Lattice Fingertips": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Empower precision, barter with destiny.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Finesse roll or saving throw",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Nerve-Lattice Fingertips",
+        "img": "modules/cybermancy/assets/icons/cybernetics/nerve-lattice-fingertips.webp",
+        "range": "",
+        "_id": "eNKZKbZVLKiZwk8i"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121316009,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "DRLdMm9OCfh6svte",
+  "sort": 1400000,
+  "_key": "!items!DRLdMm9OCfh6svte"
+}

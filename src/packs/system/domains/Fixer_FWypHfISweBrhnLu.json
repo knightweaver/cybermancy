@@ -1,0 +1,60 @@
+{
+  "name": "Fixer",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/fixer.webp",
+  "system": {
+    "description": "<i>You know who to call.</i><p class=\"Card-Feature\">You have a contact for materials. Non-weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.</p>",
+    "level": 5,
+    "domain": "maker",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Fixer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You know who to call.</i><p class=\"Card-Feature\">You have a contact for materials. Non-weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Fixer",
+        "img": "modules/cybermancy/assets/icons/domains/maker/fixer.webp",
+        "range": "",
+        "_id": "i3YrkJvApvH4BFY4"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "1BndkscmNXZAJbne",
+  "_id": "FWypHfISweBrhnLu",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621717444,
+    "modifiedTime": 1761621717444,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!FWypHfISweBrhnLu"
+}

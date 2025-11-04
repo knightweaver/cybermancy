@@ -1,0 +1,43 @@
+site_name: Cybermancy — GM Guide
+site_url: https://knightweaver.github.io/cybermancy/gm/
+docs_dir: docs/gm-facing
+site_dir: _site/gm
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - search.highlight
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+plugins:
+  - search
+  - include-markdown
+nav:
+  - Home: index.md
+  - World:
+      - The Council: world/the-council.md
+      - Council Projects: world/the-council-projects.md
+      - The Cabal: world/the-cabal.md
+      - Cabal Projects: world/the-cabal-projects.md
+      - Timeline: world/timeline.md
+  - Items:
+      - Ammo: items/ammo.md
+      - Armors: items/armors.md
+      - Consumables: items/consumables.md
+      - Cybernetics: items/cybernetics.md
+      - Drones & Devices: items/drones-devices.md
+      - Loot: items/loot.md
+      - Mods: items/mods.md
+      - Weapons: items/weapons.md
+  - Adventures:
+      - Adversaries: adventures/adversaries.md
+      - NPC Actors: adventures/npc-actors.md
+      - Environments: adventures/environments.md
+  - Meta:
+      - ETL Pipeline: meta/etl-pipeline.md
+      - Visual Canon: meta/visual-canon.md

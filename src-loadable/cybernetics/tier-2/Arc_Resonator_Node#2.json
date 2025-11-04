@@ -1,0 +1,42 @@
+{
+  "name": "Arc Resonator Node",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/arc-resonator-node.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Surge forward: amplify your arcane arsenal.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> after making a successful Spellcasting roll that does damage, increase the size of the damage die rolled by 1 step (e.g. from d4 to d6)",
+    "actions": {
+      "Arc Resonator Node": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Arc Resonator Node",
+        "img": "modules/cybermancy/assets/icons/cybernetics/arc-resonator-node.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

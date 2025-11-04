@@ -1,0 +1,66 @@
+{
+  "name": "Brainiac™ Mirror Neuron Amplifier",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-mirror-neuron-amplifier.webp",
+  "system": {
+    "description": "<i>\"Trade hope for unwavering charisma surge.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Prescence Roll or Saving Throw</p>",
+    "actions": {
+      "Brainiac™ Mirror Neuron Amplifier": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Trade hope for unwavering charisma surge.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Prescence Roll or Saving Throw",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Mirror Neuron Amplifier",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-mirror-neuron-amplifier.webp",
+        "range": "",
+        "_id": "ThajoBm3XKDFcpn0"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "9HwmiMHzsazAak1y",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121556773,
+    "modifiedTime": 1762121559446,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "BCXh0fwKjr7uGcvc",
+  "sort": 100000,
+  "_key": "!items!BCXh0fwKjr7uGcvc"
+}

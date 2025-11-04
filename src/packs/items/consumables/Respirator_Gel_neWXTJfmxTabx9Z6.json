@@ -1,0 +1,57 @@
+{
+  "name": "Respirator Gel",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\respirator-gel.webp",
+  "system": {
+    "description": "A bio-gel that filters oxygen from water through skin membranes. Breathe underwater minutes equal to your level.",
+    "quantity": 1,
+    "actions": {
+      "57IIcyhEs2ByoENx": {
+        "type": "effect",
+        "_id": "57IIcyhEs2ByoENx",
+        "systemPath": "actions",
+        "description": "<p>You can apply this salve to your neck to breathe underwater for a number of minutes equal to your level.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Apply",
+        "img": "icons/commodities/materials/bowl-powder-blue.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924721892,
+    "modifiedTime": 1760924721892,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "neWXTJfmxTabx9Z6",
+  "sort": 0,
+  "_key": "!items!neWXTJfmxTabx9Z6"
+}

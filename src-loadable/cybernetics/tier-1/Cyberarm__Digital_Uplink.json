@@ -1,0 +1,43 @@
+{
+  "name": "Cyberarm™ Digital Uplink",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-digital-uplink.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Embrace fusion; hack reality's core.\"</i><br><br><p class=\"Card-Feature\">You always have a digital link and storage device with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 on a Spellcasting (Hacking) attempt on a device within Melee range. <br><br>Requires Cyberarm™ base unit",
+    "actions": {
+      "Cyberarm™ Digital Uplink": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Embrace fusion; hack reality's core.\"</i><br><br><p class=\"Card-Feature\">You always have a digital link and storage device with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 on a Spellcasting (Hacking) attempt on a device within Melee range. <br><br>Requires Cyberarm™ base unit",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Digital Uplink",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-digital-uplink.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

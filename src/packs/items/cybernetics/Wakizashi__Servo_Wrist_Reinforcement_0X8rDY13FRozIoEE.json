@@ -1,0 +1,66 @@
+{
+  "name": "Wakizashi™ Servo Wrist Reinforcement",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-servo-wrist-reinforcement.webp",
+  "system": {
+    "description": "<i>\"Flesh meets metal; unleash hidden power.\"</i><br /><br /><p class=\"Card-Feature\">After a successful attack with your secondary weapon, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  <br /><br />Requires the Wakizashi™ Base Unit.</p>",
+    "actions": {
+      "Wakizashi™ Servo Wrist Reinforcement": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Flesh meets metal; unleash hidden power.\"</i><br><br><p class=\"Card-Feature\">After a successful attack with your secondary weapon, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  <br><br>Requires the Wakizashi™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wakizashi™ Servo Wrist Reinforcement",
+        "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-servo-wrist-reinforcement.webp",
+        "range": "",
+        "_id": "Vug7SLmu0RBGwYwB"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121469149,
+    "modifiedTime": 1762121521667,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "0X8rDY13FRozIoEE",
+  "sort": 100098,
+  "_key": "!items!0X8rDY13FRozIoEE"
+}

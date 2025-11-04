@@ -1,0 +1,56 @@
+{
+  "name": "Data-Spike Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/data-spike-rounds.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round</p>",
+    "actions": {
+      "Data-Spike Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Data-Spike Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/data-spike-rounds.webp",
+        "range": "",
+        "_id": "1XpqnTWaSMgmOnpO"
+      }
+    },
+    "quantity": 1,
+    "consumeOnUse": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172541331,
+    "modifiedTime": 1762172541331,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "42INI9FyMuNnTBB1",
+  "sort": 0,
+  "_key": "!items!42INI9FyMuNnTBB1"
+}

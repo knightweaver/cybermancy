@@ -1,0 +1,100 @@
+{
+  "folder": "qDElCNnXyLI0oZc8",
+  "name": "Composite Riot Carapace",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/composite-riot-carapace.webp",
+  "system": {
+    "description": "Full-coverage composite plating over impact mesh. Heavy, loud, and built to walk through riots.",
+    "actions": {},
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "baseScore": 4,
+    "armorFeatures": [
+      {
+        "value": "veryheavy",
+        "effectIds": [
+          "mfKMW9SX3Mnos1nY"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 8,
+      "severe": 17
+    }
+  },
+  "effects": [
+    {
+      "name": "Very Heavy",
+      "description": "-2 to Evasion; -1 to Agility",
+      "img": "icons/commodities/metal/ingot-stamped-steel.webp",
+      "changes": [
+        {
+          "key": "system.evasion",
+          "mode": 2,
+          "value": "-2"
+        },
+        {
+          "key": "system.traits.agility.value",
+          "mode": 2,
+          "value": "-1"
+        }
+      ],
+      "_id": "mfKMW9SX3Mnos1nY",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!N2pJxQCp4JmsMKqQ.mfKMW9SX3Mnos1nY"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760911966465,
+    "modifiedTime": 1760911966465,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "N2pJxQCp4JmsMKqQ",
+  "sort": 0,
+  "_key": "!items!N2pJxQCp4JmsMKqQ"
+}

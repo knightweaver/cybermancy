@@ -1,0 +1,46 @@
+{
+  "name": "Situational Awareness",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/situational-awareness.webp",
+  "system": {
+    "description": "<i>Nothing moves without you noticing.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong>; make a Perception check at +3 to detect all armed entities within Far.",
+    "level": 4,
+    "domain": "bullet",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Situational Awareness": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Nothing moves without you noticing.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong>; make a Perception check at +3 to detect all armed entities within Far.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Situational Awareness",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/situational-awareness.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

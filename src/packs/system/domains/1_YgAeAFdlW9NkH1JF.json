@@ -1,0 +1,22 @@
+{
+  "name": "1",
+  "type": "Item",
+  "_id": "YgAeAFdlW9NkH1JF",
+  "description": "",
+  "folder": "PIwzFFHhkLLuCxgj",
+  "sorting": "a",
+  "sort": 900000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "lastModifiedBy": "9AtfWssIybpdSZVY",
+    "modifiedTime": 1761621423601
+  },
+  "_key": "!folders!YgAeAFdlW9NkH1JF"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Oculus™ Inspecter",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-inspecter.webp",
+  "system": {
+    "description": "<i>\"Eyes unveil secrets, but Hope pays.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Sense roll so long as you can see the creature's face and eyes.</p>",
+    "actions": {
+      "Oculus™ Inspecter": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Eyes unveil secrets, but Hope pays.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Sense roll so long as you can see the creature's face and eyes.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Inspecter",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-inspecter.webp",
+        "range": "",
+        "_id": "zJ2aqYWy24srRzYT"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468799,
+    "modifiedTime": 1762121507886,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "kd5X0dQPDbQd2WRU",
+  "sort": 500000,
+  "_key": "!items!kd5X0dQPDbQd2WRU"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Smart Safety Override",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/smart-safety-override.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per long rest, as a Reaction, <strong>Spend 1 Hope</strong> to make an attack on a creature targeting you before they make their attack</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172767980,
+    "modifiedTime": 1762172767980,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "NRiLSYAWI0CPWlyw",
+  "sort": 0,
+  "_key": "!items!NRiLSYAWI0CPWlyw"
+}

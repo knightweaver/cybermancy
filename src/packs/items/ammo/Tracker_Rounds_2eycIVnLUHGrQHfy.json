@@ -1,0 +1,56 @@
+{
+  "name": "Tracker Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/tracker-rounds.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.</p>",
+    "actions": {
+      "Tracker Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Tracker Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/tracker-rounds.webp",
+        "range": "",
+        "_id": "mJort3nHmLneyreC"
+      }
+    },
+    "quantity": 1,
+    "consumeOnUse": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172541564,
+    "modifiedTime": 1762172541564,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "2eycIVnLUHGrQHfy",
+  "sort": 0,
+  "_key": "!items!2eycIVnLUHGrQHfy"
+}

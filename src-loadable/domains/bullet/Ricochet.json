@@ -1,0 +1,65 @@
+{
+  "name": "Ricochet",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/ricochet.webp",
+  "system": {
+    "description": "<i>Bullets obey geometry, not walls.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Attack at -2 a target with the Hidden condition by virtue of being behind cover.",
+    "level": 3,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Ricochet": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Bullets obey geometry, not walls.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Attack at -2 a target with the Hidden condition by virtue of being behind cover.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ricochet",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/ricochet.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Scrambler Field",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/scrambler-field.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Your interface can’t decide what’s real.</i><br><br><p class=\"Card-Feature\">Randomizes outputs—success and failure both become chaotic.",
+    "actions": {
+      "Scrambler Field": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your interface can’t decide what’s real.</i><br><br><p class=\"Card-Feature\">Randomizes outputs—success and failure both become chaotic.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Scrambler Field",
+        "img": "modules/cybermancy/assets/icons/ice/scrambler-field.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

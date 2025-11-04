@@ -1,0 +1,57 @@
+{
+  "name": "Nanite Trauma Mesh",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/nanite-trauma-mesh.webp",
+  "system": {
+    "description": "<i>Escape harm's grasp; rewrite fate.</i><br /><br /><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound</p>",
+    "actions": {
+      "Nanite Trauma Mesh": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Escape harm's grasp; rewrite fate.</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Nanite Trauma Mesh",
+        "img": "modules/cybermancy/assets/icons/cybernetics/nanite-trauma-mesh.webp",
+        "range": "",
+        "_id": "Na67H0iEnMK9f3gG"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121314905,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "okz6crfgTiKJxu70",
+  "sort": 1300000,
+  "_key": "!items!okz6crfgTiKJxu70"
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Intimidation",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/intimidation.webp",
+  "system": {
+    "description": "<i>Fear is the first bullet.</i><p class=\"Card-Feature\">With a visible gun, make Presence rolls at  +d4.  Once per Scene, <strong>Spend 1 Hope</strong> to re-roll a Presence roll.",
+    "level": 6,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Intimidation": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Fear is the first bullet.</i><p class=\"Card-Feature\">With a visible gun, make Presence rolls at  +d4.  Once per Scene, <strong>Spend 1 Hope</strong> to re-roll a Presence roll.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Intimidation",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/intimidation.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

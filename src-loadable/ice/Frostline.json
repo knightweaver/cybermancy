@@ -1,0 +1,34 @@
+{
+  "name": "Frostline",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/frostline.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Packets crawl. Time dilates. The grid grows glacial.</i><br><br><p class=\"Card-Feature\">Freezes the network; all hack rolls suffer Disadvantage until thawed.",
+    "actions": {
+      "Frostline": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Packets crawl. Time dilates. The grid grows glacial.</i><br><br><p class=\"Card-Feature\">Freezes the network; all hack rolls suffer Disadvantage until thawed.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Frostline",
+        "img": "modules/cybermancy/assets/icons/ice/frostline.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

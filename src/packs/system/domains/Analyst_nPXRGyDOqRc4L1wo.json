@@ -1,0 +1,93 @@
+{
+  "name": "Analyst",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/analyst.webp",
+  "system": {
+    "description": "<i>Knowledge is the best weapon.</i><p class=\"Card-Feature\">Once per session, <strong>Spend 2 Hope</strong> to ask the GM 3 yes/no questions about a material, structure, or device.</p>",
+    "level": 9,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Analyst": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Knowledge is the best weapon.</i><p class=\"Card-Feature\">Once per session, <strong>Spend 2 Hope</strong> to ask the GM 3 yes/no questions about a material, structure, or device.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Analyst",
+        "img": "modules/cybermancy/assets/icons/domains/maker/analyst.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "a6rTyNzPFG559DNj",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "gypkziqVgvyVK7on",
+  "_id": "nPXRGyDOqRc4L1wo",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621722692,
+    "modifiedTime": 1761621722692,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!nPXRGyDOqRc4L1wo"
+}

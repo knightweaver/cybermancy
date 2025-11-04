@@ -1,0 +1,57 @@
+{
+  "name": "Shock-Dispersion Skeleton",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/shock-dispersion-skeleton.webp",
+  "system": {
+    "description": "<i>Arcane Shield: Veil your vulnerabilities.</i><br /><br /><p class=\"Card-Feature\">-2 to all sources of Physical damage</p>",
+    "actions": {
+      "Shock-Dispersion Skeleton": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Arcane Shield: Veil your vulnerabilities.</i><br><br><p class=\"Card-Feature\">-2 to all sources of Physical damage",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Shock-Dispersion Skeleton",
+        "img": "modules/cybermancy/assets/icons/cybernetics/shock-dispersion-skeleton.webp",
+        "range": "",
+        "_id": "HlR01zsFjml3ZnbT"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468931,
+    "modifiedTime": 1762121512885,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "FcdbPDC2MwouFdq7",
+  "sort": 125000,
+  "_key": "!items!FcdbPDC2MwouFdq7"
+}

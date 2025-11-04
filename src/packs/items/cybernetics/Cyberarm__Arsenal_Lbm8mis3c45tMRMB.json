@@ -1,0 +1,110 @@
+{
+  "name": "Cyberarm™ Arsenal",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-arsenal.webp",
+  "system": {
+    "description": "<i>\"Arm your elegance with precision art.\"</i><br /><br /><p class=\"Card-Feature\">This is a somewhat visible mod to the Cyberarm™ , meaning anyone seeing you can detect you have a weapon with a Perceive (10) roll.  Embedded SmartLink™ pistol, d8+1 with Smarklink and Pinpoint effects</p>",
+    "actions": {
+      "Cyberarm™ Arsenal": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>\"Arm your elegance with precision art.\"</i><br><br><p class=\"Card-Feature\">This is a somewhat visible mod to the Cyberarm™ , meaning anyone seeing you can detect you have a weapon with a Perceive (10) roll.  Embedded SmartLink™ pistol, d8+1 with Smarklink and Pinpoint effects",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Arsenal",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-arsenal.webp",
+        "range": "",
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "prof",
+                "dice": "d8",
+                "bonus": 1,
+                "flatMultiplier": 1
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "physical"
+              ],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "KyX1miaW0hmLHCOn",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121285306,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "Lbm8mis3c45tMRMB",
+  "sort": 3200000,
+  "_key": "!items!Lbm8mis3c45tMRMB"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Neural Ripper",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/neural-ripper.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>It burns your nerves before you even see it.</i><br><br><p class=\"Card-Feature\">Targets wetware directly; roll physical defense or mark HP instead of Stress.",
+    "actions": {
+      "Neural Ripper": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>It burns your nerves before you even see it.</i><br><br><p class=\"Card-Feature\">Targets wetware directly; roll physical defense or mark HP instead of Stress.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Neural Ripper",
+        "img": "modules/cybermancy/assets/icons/ice/neural-ripper.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Signal Boost",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/signal-boost.webp",
+  "system": {
+    "description": "<i>“Sometimes all you need is a better connection.”</i><p class=\"Card-Feature\">Once per Scene, you can reroute local energy or data flow. Choose one ally within Close range; they gain +1 to their next roll that involves technology or reflexes.",
+    "level": 1,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Signal Boost": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Sometimes all you need is a better connection.”</i><p class=\"Card-Feature\">Once per Scene, you can reroute local energy or data flow. Choose one ally within Close range; they gain +1 to their next roll that involves technology or reflexes.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Signal Boost",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/signal-boost.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

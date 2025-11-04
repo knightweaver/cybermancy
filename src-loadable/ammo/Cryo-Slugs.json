@@ -1,0 +1,34 @@
+{
+  "name": "Cryo-Slugs",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/cryo-slugs.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit receive -2 Evasion until the GM spends 1 Fear to remove the effect.",
+    "actions": {
+      "Cryo-Slugs": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit receive -2 Evasion until the GM spends 1 Fear to remove the effect.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cryo-Slugs",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/cryo-slugs.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

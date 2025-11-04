@@ -1,0 +1,46 @@
+{
+  "name": "Project Manager",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/project-manager.webp",
+  "system": {
+    "description": "<i>Leadership through logistics.</i><p class=\"Card-Feature\">Once per rest, <strong>Spend 1 Hope</strong> before a Group Action to grant +2 to the roll.",
+    "level": 3,
+    "domain": "maker",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Project Manager": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Leadership through logistics.</i><p class=\"Card-Feature\">Once per rest, <strong>Spend 1 Hope</strong> before a Group Action to grant +2 to the roll.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Project Manager",
+        "img": "modules/cybermancy/assets/icons/domains/maker/project-manager.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Rapid Fire",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/rapid-fire.webp",
+  "system": {
+    "description": "<i>The sound of inevitability.</i><p class=\"Card-Feature\">Each time you make an Attack with a gun, you may attack 2 different targets within Close of eachother.  Each shot is at -2",
+    "level": 2,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Rapid Fire": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The sound of inevitability.</i><p class=\"Card-Feature\">Each time you make an Attack with a gun, you may attack 2 different targets within Close of eachother.  Each shot is at -2",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Rapid Fire",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/rapid-fire.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

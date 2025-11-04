@@ -1,0 +1,38 @@
+{
+  "name": "Assess Weapon",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/assess-weapon.webp",
+  "system": {
+    "description": "<i>Every gun tells a story.</i><p class=\"Card-Feature\">Identify the weapon type and potential weaknesses or modifications of one visible gun within Far",
+    "level": 1,
+    "domain": "bullet",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Assess Weapon": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Every gun tells a story.</i><p class=\"Card-Feature\">Identify the weapon type and potential weaknesses or modifications of one visible gun within Far",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Assess Weapon",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/assess-weapon.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

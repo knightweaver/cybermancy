@@ -1,0 +1,42 @@
+{
+  "name": "Psi-Focus Amplifier",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/psi-focus-amplifier.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Power surges—increase, unleash devastation.\"</i><br><br><p class=\"Card-Feature\">After a successful Spellcasting roll that does damage, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).",
+    "actions": {
+      "Psi-Focus Amplifier": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Psi-Focus Amplifier",
+        "img": "modules/cybermancy/assets/icons/cybernetics/psi-focus-amplifier.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Vox Resonance Enhancer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/vox-resonance-enhancer.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Whispering Echo: Amplify Charisma, Eclipse Despair.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> for advange on a Prescence Roll.  If you are a Bard, once per long-rest you may <strong>Spend 3 Hope</strong> to increase the size of your Bard Die (e.g. from d4 to d6) before giving Bardic Inspriration",
+    "actions": {
+      "Vox Resonance Enhancer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Whispering Echo: Amplify Charisma, Eclipse Despair.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> for advange on a Prescence Roll.  If you are a Bard, once per long-rest you may <strong>Spend 3 Hope</strong> to increase the size of your Bard Die (e.g. from d4 to d6) before giving Bardic Inspriration",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Vox Resonance Enhancer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/vox-resonance-enhancer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

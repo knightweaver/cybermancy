@@ -1,0 +1,34 @@
+{
+  "name": "Eclipse Wall",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/eclipse-wall.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>The world outside goes silent—you’re inside the machine now.</i><br><br><p class=\"Card-Feature\">Cuts external connections; you are alone until it drops.",
+    "actions": {
+      "Eclipse Wall": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The world outside goes silent—you’re inside the machine now.</i><br><br><p class=\"Card-Feature\">Cuts external connections; you are alone until it drops.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Eclipse Wall",
+        "img": "modules/cybermancy/assets/icons/ice/eclipse-wall.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

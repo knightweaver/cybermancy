@@ -1,0 +1,93 @@
+{
+  "name": "Ghost Signal",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/ghost-signal.webp",
+  "system": {
+    "description": "<i>“Sometimes your best ally is a flickering echo of bad code.”</i><p class=\"Card-Feature\">Target 1 weapon within Far, <strong>Spend 1 Hope</strong> and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.</p>",
+    "level": 2,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Ghost Signal": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Sometimes your best ally is a flickering echo of bad code.”</i><p class=\"Card-Feature\">Target 1 weapon within Far, <strong>Spend 1 Hope</strong> and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ghost Signal",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/ghost-signal.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "J6FlFdwp9oON2EuX",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "lXh1TMkpHM0kk03b",
+  "_id": "pGb8QNSITCJhmnd7",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621621441,
+    "modifiedTime": 1761621621441,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!pGb8QNSITCJhmnd7"
+}

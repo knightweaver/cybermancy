@@ -1,0 +1,66 @@
+{
+  "name": "Brainiac™ Know-it-all",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-know-it-all.webp",
+  "system": {
+    "description": "<i>Unlock brilliance; trade despair for genius.</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Knowledge Roll or Saving Throw. <br /><br /> Requires Brainiac™ Base Unit.</p>",
+    "actions": {
+      "Brainiac™ Know-it-all": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unlock brilliance; trade despair for genius.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Knowledge Roll or Saving Throw. <br><br> Requires Brainiac™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Know-it-all",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-know-it-all.webp",
+        "range": "",
+        "_id": "cmAkVQbGFJnGp1Yl"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468410,
+    "modifiedTime": 1762121507886,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "0hYKkPSBrv7ZNgHd",
+  "sort": 1600000,
+  "_key": "!items!0hYKkPSBrv7ZNgHd"
+}

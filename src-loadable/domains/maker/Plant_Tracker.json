@@ -1,0 +1,46 @@
+{
+  "name": "Plant Tracker",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/plant-tracker.webp",
+  "system": {
+    "description": "<i>They can run, but they can’t hide.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> to plant a tracker on a creature or device within Very Close. Roll Finesse vs target’s difficulty to avoid detection.",
+    "level": 3,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Plant Tracker": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>They can run, but they can’t hide.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> to plant a tracker on a creature or device within Very Close. Roll Finesse vs target’s difficulty to avoid detection.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Plant Tracker",
+        "img": "modules/cybermancy/assets/icons/domains/maker/plant-tracker.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

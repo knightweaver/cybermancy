@@ -1,0 +1,60 @@
+{
+  "name": "Fixer",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/fixer.webp",
+  "system": {
+    "description": "<i>The streets remember your name.</i><p class=\"Card-Feature\">You have a contact for weapons. Weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.</p>",
+    "level": 5,
+    "domain": "bullet",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Fixer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The streets remember your name.</i><p class=\"Card-Feature\">You have a contact for weapons. Weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Fixer",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/fixer.webp",
+        "range": "",
+        "_id": "FgD7xwtBfovU6neZ"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "GYOsBGZZy1EFYHnF",
+  "_id": "CJ6dICMm2FAH9quH",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621483578,
+    "modifiedTime": 1761621483578,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!CJ6dICMm2FAH9quH"
+}

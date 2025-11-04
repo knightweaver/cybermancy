@@ -1,0 +1,112 @@
+{
+  "name": "Combat Regen Inhalant",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\combat-regen-inhalant.webp",
+  "system": {
+    "description": "A rapid-acting chemical cocktail—mark 1 Stress to clear 1 HP.",
+    "quantity": 1,
+    "actions": {
+      "FVn1NAbzHHyX2lsM": {
+        "type": "healing",
+        "_id": "FVn1NAbzHHyX2lsM",
+        "systemPath": "actions",
+        "description": "<p>Mark a Stress and clear a HP.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": true,
+                  "formula": "1"
+                },
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null
+              },
+              "applyTo": "hitPoints",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Imbibe",
+        "img": "icons/commodities/materials/bowl-powder-gold.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924672006,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "qGROFOZmyPxCZlIx",
+  "sort": 1700000,
+  "_key": "!items!qGROFOZmyPxCZlIx"
+}

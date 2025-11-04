@@ -1,0 +1,42 @@
+{
+  "name": "Limbic Nullifier",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/limbic-nullifier.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Hope's haven in cybernetic grace.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to prevent Marking up to 2 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)",
+    "actions": {
+      "Limbic Nullifier": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Limbic Nullifier",
+        "img": "modules/cybermancy/assets/icons/cybernetics/limbic-nullifier.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

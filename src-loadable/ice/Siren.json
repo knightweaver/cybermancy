@@ -1,0 +1,34 @@
+{
+  "name": "Siren",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/siren.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br><br><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.",
+    "actions": {
+      "Siren": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br><br><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Siren",
+        "img": "modules/cybermancy/assets/icons/ice/siren.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

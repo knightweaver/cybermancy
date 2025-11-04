@@ -1,0 +1,34 @@
+{
+  "name": "Brainiac™ Skilz",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-skilz.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Unlock hidden worlds with neural flair.\"</i><br><br><p class=\"Card-Feature\">Gain 1 Experience slot and fill it in with a new Experience (GM discretion).  As a downtime activity, spend 1 Mega to change the Experience<br><br> Requires Brainiac™ Base Unit.",
+    "actions": {
+      "Brainiac™ Skilz": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Skilz",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-skilz.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

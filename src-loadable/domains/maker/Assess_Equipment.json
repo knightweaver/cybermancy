@@ -1,0 +1,46 @@
+{
+  "name": "Assess Equipment",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/assess-equipment.webp",
+  "system": {
+    "description": "<i>Every circuit tells a secret.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.",
+    "level": 4,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Assess Equipment": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Every circuit tells a secret.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Assess Equipment",
+        "img": "modules/cybermancy/assets/icons/domains/maker/assess-equipment.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

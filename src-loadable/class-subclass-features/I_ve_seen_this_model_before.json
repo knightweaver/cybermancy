@@ -1,0 +1,52 @@
+{
+  "name": "I’ve seen this model before",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/i’ve-seen-this-model-before.webp",
+  "system": {
+    "description": "Spend 1 Hope to give +2 on your next Infiltration roll.  On a result of:o\tSucceed with Hope - You gain access to the Infiltration actions only and you leave a backdoor such that this device is at -2 Difficulty until your next rest (short or long) for all rolls, Infiltrate or Control.o\tSucceed with Fear – You gain access to the Infiltration actions only.o\tFail with Hope – No access granted, but no increate in the System Alert levelo\tFail with Fear – No access granted, Increate the System Alert by 1.",
+    "actions": {
+      "I’ve seen this model before": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 1 Hope to give +2 on your next Infiltration roll.  On a result of:o\tSucceed with Hope - You gain access to the Infiltration actions only and you leave a backdoor such that this device is at -2 Difficulty until your next rest (short or long) for all rolls, Infiltrate or Control.o\tSucceed with Fear – You gain access to the Infiltration actions only.o\tFail with Hope – No access granted, but no increate in the System Alert levelo\tFail with Fear – No access granted, Increate the System Alert by 1.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "I’ve seen this model before",
+        "img": "modules/cybermancy/assets/icons/subclasses/i’ve-seen-this-model-before.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

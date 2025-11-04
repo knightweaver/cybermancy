@@ -1,0 +1,93 @@
+{
+  "name": "Deep fake",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/deep-fake.webp",
+  "system": {
+    "description": "<i>“The universe called — it wants its encryption key back.”</i><p class=\"Card-Feature\">Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.</p>",
+    "level": 9,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Deep fake": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“The universe called — it wants its encryption key back.”</i><p class=\"Card-Feature\">Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Deep fake",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/deep-fake.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "sBeySaP1Z4JDtaGq",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "Fbv5pakmTfrgPVKj",
+  "_id": "kaEPWxvpVac4kd2L",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621634477,
+    "modifiedTime": 1761621634477,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!kaEPWxvpVac4kd2L"
+}

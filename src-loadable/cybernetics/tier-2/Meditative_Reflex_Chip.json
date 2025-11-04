@@ -1,0 +1,34 @@
+{
+  "name": "Meditative Reflex Chip",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/meditative-reflex-chip.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Serenity unlocked: elite stress liberation device.</i><br><br><p class=\"Card-Feature\">Gain an additional downtime action that can only be used to clear one Stress mark.",
+    "actions": {
+      "Meditative Reflex Chip": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Serenity unlocked: elite stress liberation device.</i><br><br><p class=\"Card-Feature\">Gain an additional downtime action that can only be used to clear one Stress mark.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Meditative Reflex Chip",
+        "img": "modules/cybermancy/assets/icons/cybernetics/meditative-reflex-chip.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

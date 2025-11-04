@@ -1,0 +1,33 @@
+{
+  "name": "Flash-Diverter (Strobe Muzzle)",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/flash-diverter-strobe-muzzle.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">All enemies within Very Close must make an Instinct saving throw or be Shaken and have a -2 on their next attack action.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172767706,
+    "modifiedTime": 1762172778709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "eTzwncg0pGgaH9rz",
+  "sort": 0,
+  "_key": "!items!eTzwncg0pGgaH9rz"
+}

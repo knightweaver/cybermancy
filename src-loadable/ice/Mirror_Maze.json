@@ -1,0 +1,34 @@
+{
+  "name": "Mirror Maze",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/mirror-maze.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>You’re not lost in code—the code is lost in you.</i><br><br><p class=\"Card-Feature\">Spawns fake nodes and recursive logins; wastes time and Hope.",
+    "actions": {
+      "Mirror Maze": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You’re not lost in code—the code is lost in you.</i><br><br><p class=\"Card-Feature\">Spawns fake nodes and recursive logins; wastes time and Hope.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Mirror Maze",
+        "img": "modules/cybermancy/assets/icons/ice/mirror-maze.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

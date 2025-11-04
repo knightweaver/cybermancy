@@ -1,0 +1,42 @@
+{
+  "name": "Nerve-Lattice Fingertips",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/nerve-lattice-fingertips.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Empower precision, barter with destiny.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Finesse roll or saving throw",
+    "actions": {
+      "Nerve-Lattice Fingertips": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Nerve-Lattice Fingertips",
+        "img": "modules/cybermancy/assets/icons/cybernetics/nerve-lattice-fingertips.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

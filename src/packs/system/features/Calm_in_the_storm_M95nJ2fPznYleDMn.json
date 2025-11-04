@@ -1,0 +1,128 @@
+{
+  "name": "Calm in the storm",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+  "system": {
+    "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+    "actions": {
+      "Calm in the storm": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Calm in the storm",
+        "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "iqR8RG8XNc9rjPV4",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "iqR8RG8XNc9rjPV4": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Calm in the storm",
+        "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "iqR8RG8XNc9rjPV4",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "0vjuCPBtaGC6yT9n",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761535637195,
+    "modifiedTime": 1761614859777,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "M95nJ2fPznYleDMn",
+  "sort": 100000,
+  "_key": "!items!M95nJ2fPznYleDMn"
+}

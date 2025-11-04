@@ -1,0 +1,10 @@
+{
+  "name": "Caseless High-Cap Mag",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/caseless-high-cap-mag.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per scene, when you are required to make a Reload action, you may perform that Reload as a free action"
+  },
+  "effects": []
+}

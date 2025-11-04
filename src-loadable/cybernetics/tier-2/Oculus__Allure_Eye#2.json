@@ -1,0 +1,42 @@
+{
+  "name": "Oculus™ Allure Eye",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-allure-eye.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Illuminate desire, captivate with a gaze.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Charm roll so long at the target creature can see your eyes. <br><br>Requires Oculus ™ base unit.",
+    "actions": {
+      "Oculus™ Allure Eye": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Allure Eye",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-allure-eye.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Smartwire Reflex",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/smartwire-reflex.webp",
+  "system": {
+    "description": "<i>“You’re half machine — might as well let it drive.”</i><p class=\"Card-Feature\">Once per Scene, you may reroll one failed Agility, Spellcasting or Finesse roll as your implants auto-correct your motion.",
+    "level": 5,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Smartwire Reflex": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“You’re half machine — might as well let it drive.”</i><p class=\"Card-Feature\">Once per Scene, you may reroll one failed Agility, Spellcasting or Finesse roll as your implants auto-correct your motion.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Smartwire Reflex",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/smartwire-reflex.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

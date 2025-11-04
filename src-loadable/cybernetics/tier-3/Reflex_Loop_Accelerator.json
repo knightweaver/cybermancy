@@ -1,0 +1,43 @@
+{
+  "name": "Reflex Loop Accelerator",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/reflex-loop-accelerator.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>Unleash potential, where stress births success.</i><br><br><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make your Hope die a d20 for 1 attack roll",
+    "actions": {
+      "Reflex Loop Accelerator": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unleash potential, where stress births success.</i><br><br><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make your Hope die a d20 for 1 attack roll",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reflex Loop Accelerator",
+        "img": "modules/cybermancy/assets/icons/cybernetics/reflex-loop-accelerator.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

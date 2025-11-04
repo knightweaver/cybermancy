@@ -1,0 +1,112 @@
+{
+  "name": "Instinct Amplifier Plus",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\instinct-amplifier-plus.webp",
+  "system": {
+    "description": "Refined AI-tuned patch that grants +1 Instinct until next rest.",
+    "quantity": 1,
+    "actions": {
+      "zerWKpcBvtiaUfaw": {
+        "type": "effect",
+        "_id": "zerWKpcBvtiaUfaw",
+        "systemPath": "actions",
+        "description": "<p>You gain a +1 bonus to your Instinct until your next rest.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "v2EXGXbJaewaMxFC",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/bottle-round-corked-pink.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Major Attune Potion",
+      "img": "icons/consumables/potions/bottle-round-corked-pink.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.CCPFm5iXXwvyYYwR",
+      "transfer": false,
+      "_id": "v2EXGXbJaewaMxFC",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.instinct.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!6PeWDgLjg0qn7IF6.v2EXGXbJaewaMxFC"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924687070,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "6PeWDgLjg0qn7IF6",
+  "sort": 300000,
+  "_key": "!items!6PeWDgLjg0qn7IF6"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Subdermal weave Mk.IV",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/subdermal-weave-mk.iv.webp",
+  "tier": 4,
+  "system": {
+    "description": "<i>\"Master the battlefield with unyielding resilience.\"</i><br><br><p class=\"Card-Feature\">Gain +4/+4 to Major / Severe damage thresholds. You can only have 1 Subdermal weave enhancement, but they can be upgraded.",
+    "actions": {
+      "Subdermal weave Mk.IV": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Subdermal weave Mk.IV",
+        "img": "modules/cybermancy/assets/icons/cybernetics/subdermal-weave-mk.iv.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Gorilla Arms Mk.III",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/gorilla-arms-mk.iii.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Unleash the steel within; crush with precision.\"</i><br><br><p class=\"Card-Feature\">After a successful attack roll with a melee weapon that does physical damage, <strong>Spend 1 Hope</strong> per proficiency level to add +d8 of damage. You can only have 1 Gorilla Arms enhancement, but they can be upgraded.",
+    "actions": {
+      "Gorilla Arms Mk.III": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gorilla Arms Mk.III",
+        "img": "modules/cybermancy/assets/icons/cybernetics/gorilla-arms-mk.iii.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

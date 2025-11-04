@@ -1,0 +1,66 @@
+{
+  "name": "Limbic Nullifier",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/limbic-nullifier.webp",
+  "system": {
+    "description": "<i>\"Hope's haven in cybernetic grace.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to prevent Marking up to 2 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>",
+    "actions": {
+      "Limbic Nullifier": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Hope's haven in cybernetic grace.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to prevent Marking up to 2 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Limbic Nullifier",
+        "img": "modules/cybermancy/assets/icons/cybernetics/limbic-nullifier.webp",
+        "range": "",
+        "_id": "M8kTLpIq7fEBbX7H"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468702,
+    "modifiedTime": 1762121507886,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "2cOQS2yFh95kWY7T",
+  "sort": 900000,
+  "_key": "!items!2cOQS2yFh95kWY7T"
+}

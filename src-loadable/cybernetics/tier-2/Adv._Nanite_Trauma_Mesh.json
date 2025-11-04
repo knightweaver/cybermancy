@@ -1,0 +1,34 @@
+{
+  "name": "Adv. Nanite Trauma Mesh",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/adv.-nanite-trauma-mesh.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Defy destruction with hidden resilience.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Major Wound",
+    "actions": {
+      "Adv. Nanite Trauma Mesh": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Defy destruction with hidden resilience.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Major Wound",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Adv. Nanite Trauma Mesh",
+        "img": "modules/cybermancy/assets/icons/cybernetics/adv.-nanite-trauma-mesh.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

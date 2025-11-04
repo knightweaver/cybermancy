@@ -1,0 +1,93 @@
+{
+  "name": "Cyberware Malfunction",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/cyberware-malfunction.webp",
+  "system": {
+    "description": "<i>“Every brain’s got a port — some just need a gentle knock.”</i><p class=\"Card-Feature\">Your Digital Awareness can now detect cybernetics within individuals.  <strong>Spend 2 Hope</strong> and make a Spellcasting roll against their Difficulty, to do d10+3 damage</p>",
+    "level": 8,
+    "domain": "circuit",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Cyberware Malfunction": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Every brain’s got a port — some just need a gentle knock.”</i><p class=\"Card-Feature\">Your Digital Awareness can now detect cybernetics within individuals.  <strong>Spend 2 Hope</strong> and make a Spellcasting roll against their Difficulty, to do d10+3 damage",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberware Malfunction",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/cyberware-malfunction.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "3obDgk9ecJlCPueL",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "JfBdvLAlHk4pvI5s",
+  "_id": "fS2SBs0140NtIqyi",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621632487,
+    "modifiedTime": 1761621632487,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!fS2SBs0140NtIqyi"
+}

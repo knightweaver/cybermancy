@@ -1,0 +1,66 @@
+{
+  "name": "Gyroscopic Stabilizer Frame",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/gyroscopic-stabilizer-frame.webp",
+  "system": {
+    "description": "<i>\"Precision reborn; risk is your muse.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, as a Reaction, <strong>Mark 1 Stress</strong> to reroll 1 Agility ablity or saving throw</p>",
+    "actions": {
+      "Gyroscopic Stabilizer Frame": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Precision reborn; risk is your muse.\"</i><br><br><p class=\"Card-Feature\">Once per scene, as a Reaction, <strong>Mark 1 Stress</strong> to reroll 1 Agility ablity or saving throw",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gyroscopic Stabilizer Frame",
+        "img": "modules/cybermancy/assets/icons/cybernetics/gyroscopic-stabilizer-frame.webp",
+        "range": "",
+        "_id": "ZGiDeuWPWZga6jHs"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121310801,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "zlnENzvRFAs3mHnD",
+  "sort": 800000,
+  "_key": "!items!zlnENzvRFAs3mHnD"
+}

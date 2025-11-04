@@ -1,0 +1,107 @@
+{
+  "folder": "rC9i0rH9DskIvndW",
+  "name": "Timeslip Silks",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/timeslip-silks.webp",
+  "system": {
+    "description": "Exotic silks with micro-time skew—edge reality for a moment when the shot is coming.",
+    "actions": {
+      "8PD5JQuS05IA6HJT": {
+        "type": "attack",
+        "actionType": "action",
+        "chatDisplay": true,
+        "name": "Slow Time",
+        "description": "Mark an Armor Slot to roll a d4 and add its result as a bonus to your Evasion against an incoming attack.",
+        "img": "icons/magic/time/hourglass-brown-orange.webp",
+        "cost": [
+          {
+            "key": "armorSlot",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "roll": {
+          "type": "diceSet",
+          "diceRolling": {
+            "dice": "d4",
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "compare": null,
+            "treshold": null
+          },
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "useDefault": false
+        },
+        "_id": "8PD5JQuS05IA6HJT",
+        "effects": [],
+        "systemPath": "actions",
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "attached": [],
+    "tier": 4,
+    "equipped": false,
+    "baseScore": 7,
+    "armorFeatures": [
+      {
+        "value": "timeslowing",
+        "effectIds": [],
+        "actionIds": [
+          "8PD5JQuS05IA6HJT"
+        ]
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 13,
+      "severe": 36
+    }
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912121288,
+    "modifiedTime": 1760912121303,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "rj5Nc7dfY2x9FKKu",
+  "sort": 200000,
+  "_key": "!items!rj5Nc7dfY2x9FKKu"
+}

@@ -1,0 +1,112 @@
+{
+  "name": "Muscle Overdrive Serum",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\muscle-overdrive-serum.webp",
+  "system": {
+    "description": "A strength-enhancing stim that floods the body with synthetic adrenaline. +1 bonus to your next Strength roll.",
+    "quantity": 1,
+    "actions": {
+      "YqbQKTgblItoZOm8": {
+        "type": "effect",
+        "_id": "YqbQKTgblItoZOm8",
+        "systemPath": "actions",
+        "description": "<p>You gain a +1 bonus to your next Strength Roll.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "HVCJp9Tkhr1i4Oc1",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/potion-vial-tube-yellow.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Bolster Potion",
+      "img": "icons/consumables/potions/potion-vial-tube-yellow.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.FOPQNqXbiVO0ilYL",
+      "transfer": false,
+      "_id": "HVCJp9Tkhr1i4Oc1",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.strength.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!RXxfnXHATGLZa5YV.HVCJp9Tkhr1i4Oc1"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924702324,
+    "modifiedTime": 1760924702324,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "RXxfnXHATGLZa5YV",
+  "sort": 0,
+  "_key": "!items!RXxfnXHATGLZa5YV"
+}

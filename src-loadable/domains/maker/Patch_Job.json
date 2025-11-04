@@ -1,0 +1,46 @@
+{
+  "name": "Patch Job",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/patch-job.webp",
+  "system": {
+    "description": "<i>Duct tape, hope, and brilliance.</i><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to restore 2 HP to your <b>Primary Drone</b>.",
+    "level": 1,
+    "domain": "maker",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Patch Job": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Duct tape, hope, and brilliance.</i><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to restore 2 HP to your <b>Primary Drone</b>.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Patch Job",
+        "img": "modules/cybermancy/assets/icons/domains/maker/patch-job.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

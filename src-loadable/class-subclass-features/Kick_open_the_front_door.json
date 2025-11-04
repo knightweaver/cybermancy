@@ -1,0 +1,52 @@
+{
+  "name": "Kick open the front door",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/kick-open-the-front-door.webp",
+  "system": {
+    "description": "Spend 1 Hope to gain +4 on your first Control roll against a device if and only if you have not made an Analysis check on it.  On a result of:o\tSucceed with Hope -  gain Control (access to all actions) and don’t raise the System alert level.o\tSucceed with Fear – gain Control (access to all actions) and raise the System alert level 1 step.o\tFail with Hope or Fear – don’t gain ontrol and raise the System alert level 2 steps.",
+    "actions": {
+      "Kick open the front door": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 1 Hope to gain +4 on your first Control roll against a device if and only if you have not made an Analysis check on it.  On a result of:o\tSucceed with Hope -  gain Control (access to all actions) and don’t raise the System alert level.o\tSucceed with Fear – gain Control (access to all actions) and raise the System alert level 1 step.o\tFail with Hope or Fear – don’t gain ontrol and raise the System alert level 2 steps.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Kick open the front door",
+        "img": "modules/cybermancy/assets/icons/subclasses/kick-open-the-front-door.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

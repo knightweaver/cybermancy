@@ -1,0 +1,52 @@
+{
+  "name": "Netrunner",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/classes/netrunner.webp",
+  "system": {
+    "description": "Hacking, hiding, and infiltrating.  A digital ghost (and sometimes a physical one as well).  The class I’m going for should feel like the player has access to touch the digital space just about anywhere in the urban world.  They are almost a cross between a Sorcerer and  Rogue.  On a Shadowrun, they should feel like they are in a “target rich” environment.  Just about anywhere in Night City, Megatropolis, or New Denver, they should be able to find a camera, drone, IOT device or appliance to hack.",
+    "actions": {
+      "Netrunner": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Hacking, hiding, and infiltrating.  A digital ghost (and sometimes a physical one as well).  The class I’m going for should feel like the player has access to touch the digital space just about anywhere in the urban world.  They are almost a cross between a Sorcerer and  Rogue.  On a Shadowrun, they should feel like they are in a “target rich” environment.  Just about anywhere in Night City, Megatropolis, or New Denver, they should be able to find a camera, drone, IOT device or appliance to hack.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Netrunner",
+        "img": "modules/cybermancy/assets/icons/classes/netrunner.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

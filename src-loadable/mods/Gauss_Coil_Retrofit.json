@@ -1,0 +1,10 @@
+{
+  "name": "Gauss Coil Retrofit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/gauss-coil-retrofit.webp",
+  "tier": 4,
+  "system": {
+    "description": "<p class=\"Card-Feature\">+1 range tier and +1 armor penetration. Critical: pierce through to behind target. Slot: Receiver / Power."
+  },
+  "effects": []
+}

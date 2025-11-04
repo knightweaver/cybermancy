@@ -1,0 +1,66 @@
+{
+  "name": "Cognitive Filter Array",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-filter-array.webp",
+  "system": {
+    "description": "<i>Stress for clarity; mind transcends chaos.</i><br /><br /><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence</p>",
+    "actions": {
+      "Cognitive Filter Array": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Stress for clarity; mind transcends chaos.</i><br><br><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cognitive Filter Array",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-filter-array.webp",
+        "range": "",
+        "_id": "L0gEd0EVYa7VwZlA"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "9HwmiMHzsazAak1y",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121556812,
+    "modifiedTime": 1762121561453,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "FR4N4dWYPOH8PNSq",
+  "sort": 150000,
+  "_key": "!items!FR4N4dWYPOH8PNSq"
+}

@@ -1,0 +1,112 @@
+{
+  "name": "Instinct Amplifier Chip",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\instinct-amplifier-chip.webp",
+  "system": {
+    "description": "A temporary neural patch that sharpens intuition and sensory prediction. +1 bonus to your next Instinct roll.",
+    "quantity": 1,
+    "actions": {
+      "aiyNOQZbVpTDagXy": {
+        "type": "effect",
+        "_id": "aiyNOQZbVpTDagXy",
+        "systemPath": "actions",
+        "description": "<p>You gain a +1 bonus to your next Instinct Roll.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "I5vgALTNDVApxy9d",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/bottle-conical-corked-purple.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Attune Potion",
+      "img": "icons/consumables/potions/bottle-conical-corked-purple.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.JGD3M9hBHtVAA8XP",
+      "transfer": false,
+      "_id": "I5vgALTNDVApxy9d",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.instinct.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!xcZFmptfqr1Idtsy.I5vgALTNDVApxy9d"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924686076,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "xcZFmptfqr1Idtsy",
+  "sort": 400000,
+  "_key": "!items!xcZFmptfqr1Idtsy"
+}

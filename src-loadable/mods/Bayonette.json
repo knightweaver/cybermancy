@@ -1,0 +1,10 @@
+{
+  "name": "Bayonette",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/monofilament-edge-adapter.webp",
+  "tier": 3,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Add +d4 damage to Melee attacks made with this gun"
+  },
+  "effects": []
+}

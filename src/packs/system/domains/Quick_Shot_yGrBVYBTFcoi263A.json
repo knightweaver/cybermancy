@@ -1,0 +1,93 @@
+{
+  "name": "Quick Shot",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/quick-shot.webp",
+  "system": {
+    "description": "<i>Two shots, one heartbeat.</i><p class=\"Card-Feature\">After a successful attack on a target, <strong>Spend 1 Hope</strong> to apply the damage to a second target within Very Close range.</p>",
+    "level": 2,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Quick Shot": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Two shots, one heartbeat.</i><p class=\"Card-Feature\">After a successful attack on a target, <strong>Spend 1 Hope</strong> to apply the damage to a second target within Very Close range.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Quick Shot",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/quick-shot.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "7kwtqCiAIIojOKXb",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "paRBhOOSprSGczw7",
+  "_id": "yGrBVYBTFcoi263A",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621478125,
+    "modifiedTime": 1761621478125,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!yGrBVYBTFcoi263A"
+}

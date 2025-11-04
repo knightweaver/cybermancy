@@ -1,0 +1,60 @@
+{
+  "name": "Gunsmith",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/gunsmith.webp",
+  "system": {
+    "description": "<i>Your tools are extensions of your will.</i><p class=\"Card-Feature\">Gain +1 mod slot for each firearm you own.</p>",
+    "level": 5,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Gunsmith": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your tools are extensions of your will.</i><p class=\"Card-Feature\">Gain +1 mod slot for each firearm you own.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gunsmith",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/gunsmith.webp",
+        "range": "",
+        "_id": "pmC74DJb3cKfvhJu"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "GYOsBGZZy1EFYHnF",
+  "_id": "uy09q5jzHg1SbqFi",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621483578,
+    "modifiedTime": 1761621483578,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!uy09q5jzHg1SbqFi"
+}

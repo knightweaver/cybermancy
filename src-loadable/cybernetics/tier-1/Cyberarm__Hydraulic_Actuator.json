@@ -1,0 +1,43 @@
+{
+  "name": "Cyberarm™ Hydraulic Actuator",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-hydraulic-actuator.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Unleash your power, rest and rise.\"</i><br><br><p class=\"Card-Feature\">Reduce the Cyberarm™ Strength effect's recovery time to once per rest.  <br><br><strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw",
+    "actions": {
+      "Cyberarm™ Hydraulic Actuator": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Unleash your power, rest and rise.\"</i><br><br><p class=\"Card-Feature\">Reduce the Cyberarm™ Strength effect's recovery time to once per rest.  <br><br><strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Hydraulic Actuator",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-hydraulic-actuator.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

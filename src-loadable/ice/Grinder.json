@@ -1,0 +1,34 @@
+{
+  "name": "Grinder",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/grinder.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>The system eats your focus one grain at a time.</i><br><br><p class=\"Card-Feature\">Erodes Hope or reduces Stress recovery for the rest of the Scene.",
+    "actions": {
+      "Grinder": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The system eats your focus one grain at a time.</i><br><br><p class=\"Card-Feature\">Erodes Hope or reduces Stress recovery for the rest of the Scene.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Grinder",
+        "img": "modules/cybermancy/assets/icons/ice/grinder.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

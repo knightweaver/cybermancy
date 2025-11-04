@@ -1,0 +1,42 @@
+{
+  "name": "Mana Projector Coil",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/mana-projector-coil.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Unveil horizons, empower your reach.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to increase the range of one Spell you are casting",
+    "actions": {
+      "Mana Projector Coil": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Mana Projector Coil",
+        "img": "modules/cybermancy/assets/icons/cybernetics/mana-projector-coil.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Digital wasteland",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/digital-wasteland.webp",
+  "system": {
+    "description": "You are on fire and a little out of control.  Start a counter at your Tier level (which by the time you are at Mastery, will be a d8 or d10).  While that counter is in effect:o\t+6 on all Control rollso\tYou cannot make Analyze or Infiltration rollso\t+d6 on all damage effects",
+    "actions": {
+      "Digital wasteland": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You are on fire and a little out of control.  Start a counter at your Tier level (which by the time you are at Mastery, will be a d8 or d10).  While that counter is in effect:o\t+6 on all Control rollso\tYou cannot make Analyze or Infiltration rollso\t+d6 on all damage effects",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Digital wasteland",
+        "img": "modules/cybermancy/assets/icons/subclasses/digital-wasteland.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

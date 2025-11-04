@@ -1,0 +1,57 @@
+{
+  "name": "SmartLink™ Targeting Core",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-targeting-core.webp",
+  "system": {
+    "description": "<i>\"Precision Perfected, Lethality Enhanced.\"</i><br /><br /><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, +2 Attack.  <br /><br />Requires the SmartLink™ CPU implant</p>",
+    "actions": {
+      "SmartLink™ Targeting Core": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Precision Perfected, Lethality Enhanced.\"</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, +2 Attack.  <br><br>Requires the SmartLink™ CPU implant",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SmartLink™ Targeting Core",
+        "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-targeting-core.webp",
+        "range": "",
+        "_id": "2NjnM4ntsa50nXQx"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468981,
+    "modifiedTime": 1762121514709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "TEZN19Sg7GvnJl5i",
+  "sort": 106250,
+  "_key": "!items!TEZN19Sg7GvnJl5i"
+}

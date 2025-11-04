@@ -1,0 +1,34 @@
+{
+  "name": "Nanite Trauma Mesh",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/nanite-trauma-mesh.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Escape harm's grasp; rewrite fate.</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound",
+    "actions": {
+      "Nanite Trauma Mesh": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Escape harm's grasp; rewrite fate.</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Nanite Trauma Mesh",
+        "img": "modules/cybermancy/assets/icons/cybernetics/nanite-trauma-mesh.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

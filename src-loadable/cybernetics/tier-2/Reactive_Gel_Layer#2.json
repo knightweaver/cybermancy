@@ -1,0 +1,42 @@
+{
+  "name": "Reactive Gel Layer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/reactive-gel-layer.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Hope's shield: armor's unseen embrace.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to prevent 2 Hit Points of damage when marking an Armor Slot",
+    "actions": {
+      "Reactive Gel Layer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reactive Gel Layer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/reactive-gel-layer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

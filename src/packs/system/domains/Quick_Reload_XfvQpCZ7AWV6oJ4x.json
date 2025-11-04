@@ -1,0 +1,60 @@
+{
+  "name": "Quick Reload",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/quick-reload.webp",
+  "system": {
+    "description": "<i>Reloading is for amateurs.</i><p class=\"Card-Feature\">Swap ammunition types without spending an action.</p>",
+    "level": 1,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Quick Reload": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Reloading is for amateurs.</i><p class=\"Card-Feature\">Swap ammunition types without spending an action.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Quick Reload",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/quick-reload.webp",
+        "range": "",
+        "_id": "GQQztwpzV1LCJHRK"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "YgAeAFdlW9NkH1JF",
+  "_id": "XfvQpCZ7AWV6oJ4x",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621423579,
+    "modifiedTime": 1761621423579,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!XfvQpCZ7AWV6oJ4x"
+}

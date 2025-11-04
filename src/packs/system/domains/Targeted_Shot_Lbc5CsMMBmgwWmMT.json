@@ -1,0 +1,93 @@
+{
+  "name": "Targeted Shot",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/targeted-shot.webp",
+  "system": {
+    "description": "<i>Precision is compassion—end it cleanly.</i><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make an Attack targeting a specific limb, device mod, weapon, etc. on a creature at -2 on the Attack roll.  On a successful attack roll, disable a targeted component for the Scene</p>",
+    "level": 5,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Targeted Shot": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Precision is compassion—end it cleanly.</i><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make an Attack targeting a specific limb, device mod, weapon, etc. on a creature at -2 on the Attack roll.  On a successful attack roll, disable a targeted component for the Scene",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Targeted Shot",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/targeted-shot.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "5UiHjQcbA2AVKYAw",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "GYOsBGZZy1EFYHnF",
+  "_id": "Lbc5CsMMBmgwWmMT",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621483578,
+    "modifiedTime": 1761621483578,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!Lbc5CsMMBmgwWmMT"
+}

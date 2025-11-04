@@ -1,0 +1,34 @@
+{
+  "name": "Zero Mirror",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/zero-mirror.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>Weaponized intent rebounds—the system uses you.</i><br><br><p class=\"Card-Feature\">Replicates your last command and turns it back on you.",
+    "actions": {
+      "Zero Mirror": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Weaponized intent rebounds—the system uses you.</i><br><br><p class=\"Card-Feature\">Replicates your last command and turns it back on you.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Zero Mirror",
+        "img": "modules/cybermancy/assets/icons/ice/zero-mirror.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

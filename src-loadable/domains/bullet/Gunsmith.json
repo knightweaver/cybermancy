@@ -1,0 +1,38 @@
+{
+  "name": "Gunsmith",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/gunsmith.webp",
+  "system": {
+    "description": "<i>Your tools are extensions of your will.</i><p class=\"Card-Feature\">Gain +1 mod slot for each firearm you own.",
+    "level": 5,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Gunsmith": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your tools are extensions of your will.</i><p class=\"Card-Feature\">Gain +1 mod slot for each firearm you own.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gunsmith",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/gunsmith.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Overload",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/overload.webp",
+  "system": {
+    "description": "<i>“Push it past the redline — what’s the worst that could happen?”</i><p class=\"Card-Feature\">Make a Spellcasting roll (15) to make a device you Control explode causing all Adversaries within Very Close of the Device to take 2d6 damage, and all within Close take 1d6",
+    "level": 3,
+    "domain": "circuit",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Overload": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Push it past the redline — what’s the worst that could happen?”</i><p class=\"Card-Feature\">Make a Spellcasting roll (15) to make a device you Control explode causing all Adversaries within Very Close of the Device to take 2d6 damage, and all within Close take 1d6",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Overload",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/overload.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

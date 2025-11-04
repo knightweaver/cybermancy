@@ -1,0 +1,52 @@
+{
+  "name": "Focused aggression",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/focused-aggression.webp",
+  "system": {
+    "description": "Spend 3 Hope to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.",
+    "actions": {
+      "Focused aggression": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Focused aggression",
+        "img": "modules/cybermancy/assets/icons/subclasses/focused-aggression.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

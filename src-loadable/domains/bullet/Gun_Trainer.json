@@ -1,0 +1,38 @@
+{
+  "name": "Gun Trainer",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+  "system": {
+    "description": "<i>You teach death politely.</i><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may use this <b>Bullet die</b> in the same way as your Class or Subclass",
+    "level": 1,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Gun Trainer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You teach death politely.</i><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may use this <b>Bullet die</b> in the same way as your Class or Subclass",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gun Trainer",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

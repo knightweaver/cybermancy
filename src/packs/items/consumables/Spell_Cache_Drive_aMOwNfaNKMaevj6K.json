@@ -1,0 +1,57 @@
+{
+  "name": "Spell Cache Drive",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\spell-cache-drive.webp",
+  "system": {
+    "description": "A neural-linked data drive that lets you temporarily load and cast one stored spell, then offload it.",
+    "quantity": 1,
+    "actions": {
+      "X4KtBG5Uve09hRoj": {
+        "type": "effect",
+        "_id": "X4KtBG5Uve09hRoj",
+        "systemPath": "actions",
+        "description": "<p>You can use this stone to take a spell or grimoire from your vault, use it once, and return it to your vault.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/commodities/stone/engraved-symbol-water-grey.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924724580,
+    "modifiedTime": 1760924724580,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "aMOwNfaNKMaevj6K",
+  "sort": 0,
+  "_key": "!items!aMOwNfaNKMaevj6K"
+}

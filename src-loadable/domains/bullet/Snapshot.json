@@ -1,0 +1,65 @@
+{
+  "name": "Snapshot",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/snapshot.webp",
+  "system": {
+    "description": "<i>Faster than the spotlight.</i><p class=\"Card-Feature\">Once per Scene, as a Reaction, <strong>Spend 1 Hope</strong> when the GM spotlights an opponent to make a single ranged attack.",
+    "level": 2,
+    "domain": "bullet",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Snapshot": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Faster than the spotlight.</i><p class=\"Card-Feature\">Once per Scene, as a Reaction, <strong>Spend 1 Hope</strong> when the GM spotlights an opponent to make a single ranged attack.",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Snapshot",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/snapshot.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

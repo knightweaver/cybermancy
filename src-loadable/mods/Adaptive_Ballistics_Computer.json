@@ -1,0 +1,10 @@
+{
+  "name": "Adaptive Ballistics Computer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/adaptive-ballistics-computer.webp",
+  "tier": 3,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to attack with advantage"
+  },
+  "effects": []
+}

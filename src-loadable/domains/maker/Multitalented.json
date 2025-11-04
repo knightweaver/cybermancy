@@ -1,0 +1,38 @@
+{
+  "name": "Multitalented",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/multitalented.webp",
+  "system": {
+    "description": "<i>Expertise knows no boundaries.</i><p class=\"Card-Feature\">You may add one Domain card from Circuit, Codex, or Bullet to your loadout of Level 4 or less.",
+    "level": 6,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Multitalented": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Expertise knows no boundaries.</i><p class=\"Card-Feature\">You may add one Domain card from Circuit, Codex, or Bullet to your loadout of Level 4 or less.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Multitalented",
+        "img": "modules/cybermancy/assets/icons/domains/maker/multitalented.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Improvised Weapon",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/improvised-weapon.webp",
+  "system": {
+    "description": "<i>The world is your arsenal.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> spend at least 1 minute to create a d6 melee weapon.",
+    "level": 5,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Improvised Weapon": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>The world is your arsenal.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> spend at least 1 minute to create a d6 melee weapon.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Improvised Weapon",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/improvised-weapon.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

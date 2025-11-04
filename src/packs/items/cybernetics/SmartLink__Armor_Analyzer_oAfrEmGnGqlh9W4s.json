@@ -1,0 +1,66 @@
+{
+  "name": "SmartLink™ Armor Analyzer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-armor-analyzer.webp",
+  "system": {
+    "description": "<i>\"Unleash precision; amplify destruction's whisper.\"</i><br /><br /><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, <strong>Spend 1 Hope</strong> after a successful attack for +2 on all damage die rolled.  <br /><br />Requires the SmartLink™ CPU implant</p>",
+    "actions": {
+      "SmartLink™ Armor Analyzer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Unleash precision; amplify destruction's whisper.\"</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, <strong>Spend 1 Hope</strong> after a successful attack for +2 on all damage die rolled.  <br><br>Requires the SmartLink™ CPU implant",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SmartLink™ Armor Analyzer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-armor-analyzer.webp",
+        "range": "",
+        "_id": "fZk5va4f5zf9wNAN"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468956,
+    "modifiedTime": 1762121513878,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "oAfrEmGnGqlh9W4s",
+  "sort": 112500,
+  "_key": "!items!oAfrEmGnGqlh9W4s"
+}

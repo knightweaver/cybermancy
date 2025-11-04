@@ -1,0 +1,43 @@
+{
+  "name": "Parallel Synapse Array",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/parallel-synapse-array.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Unleash hidden strength with a whisper.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)",
+    "actions": {
+      "Parallel Synapse Array": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unleash hidden strength with a whisper.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Parallel Synapse Array",
+        "img": "modules/cybermancy/assets/icons/cybernetics/parallel-synapse-array.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Oculus™ Inspecter",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/oculus-inspecter.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Eyes unveil secrets, but Hope pays.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Sense roll so long as you can see the creature's face and eyes.",
+    "actions": {
+      "Oculus™ Inspecter": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Oculus™ Inspecter",
+        "img": "modules/cybermancy/assets/icons/cybernetics/oculus-inspecter.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

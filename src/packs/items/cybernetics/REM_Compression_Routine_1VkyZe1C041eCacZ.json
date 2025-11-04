@@ -1,0 +1,57 @@
+{
+  "name": "REM Compression Routine",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/rem-compression-routine.webp",
+  "system": {
+    "description": "<i>\"Crave rest? Double the dream.\"</i><br /><br /><p class=\"Card-Feature\">During a long rest, gain one additional short rest downtime action</p>",
+    "actions": {
+      "REM Compression Routine": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Crave rest? Double the dream.\"</i><br><br><p class=\"Card-Feature\">During a long rest, gain one additional short rest downtime action",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "REM Compression Routine",
+        "img": "modules/cybermancy/assets/icons/cybernetics/rem-compression-routine.webp",
+        "range": "",
+        "_id": "o8DCJB3s2yjVTEfI"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "9HwmiMHzsazAak1y",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121557264,
+    "modifiedTime": 1762121571813,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "1VkyZe1C041eCacZ",
+  "sort": 100025,
+  "_key": "!items!1VkyZe1C041eCacZ"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Caracal Ears",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/caracal-ears.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Whispers unveiled, secrets echo endlessly.</i><br><br><p class=\"Card-Feature\">Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.",
+    "actions": {
+      "Caracal Ears": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Whispers unveiled, secrets echo endlessly.</i><br><br><p class=\"Card-Feature\">Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Caracal Ears",
+        "img": "modules/cybermancy/assets/icons/cybernetics/caracal-ears.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Reality Patch",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/reality-patch.webp",
+  "system": {
+    "description": "<i>“If you can code it, you can unbreak it.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.",
+    "level": 8,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Reality Patch": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“If you can code it, you can unbreak it.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reality Patch",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/reality-patch.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

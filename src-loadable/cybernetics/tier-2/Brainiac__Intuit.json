@@ -1,0 +1,43 @@
+{
+  "name": "Brainiac™ Intuit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-intuit.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Awaken your potential with a spark.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on an Instinct Roll or Saving Throw. <br><br> Requires Brainiac™ Base Unit.",
+    "actions": {
+      "Brainiac™ Intuit": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Awaken your potential with a spark.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on an Instinct Roll or Saving Throw. <br><br> Requires Brainiac™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Intuit",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-intuit.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,137 @@
+{
+  "name": "Situational awareness",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an Instinct roll (13). On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).</p>",
+    "actions": {
+      "Situational awareness": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 1 Hope and make an Instinct roll (13).  On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Situational awareness",
+        "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "XkK1b1cTs0wuw026",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "XkK1b1cTs0wuw026": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an Instinct roll (13). On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "keyIsID": false,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Situational awareness",
+        "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": "trait",
+          "trait": "instinct",
+          "difficulty": 13,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "XkK1b1cTs0wuw026",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "0vjuCPBtaGC6yT9n",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761535665371,
+    "modifiedTime": 1761615126391,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "4nEtDOwDjKMnxOLc",
+  "sort": 0,
+  "_key": "!items!4nEtDOwDjKMnxOLc"
+}

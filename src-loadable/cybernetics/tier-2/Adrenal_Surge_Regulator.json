@@ -1,0 +1,43 @@
+{
+  "name": "Adrenal Surge Regulator",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/adrenal-surge-regulator.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Ascend with Hope, embrace limitless potential.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Reaction Roll",
+    "actions": {
+      "Adrenal Surge Regulator": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Ascend with Hope, embrace limitless potential.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Reaction Roll",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Adrenal Surge Regulator",
+        "img": "modules/cybermancy/assets/icons/cybernetics/adrenal-surge-regulator.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

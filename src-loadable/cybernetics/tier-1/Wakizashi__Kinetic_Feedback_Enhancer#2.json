@@ -1,0 +1,42 @@
+{
+  "name": "Wakizashi™ Kinetic Feedback Enhancer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-kinetic-feedback-enhancer.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Hope-fueled fury, precision scars victory.</i><br><br><p class=\"Card-Feature\">After a successful attack with your secondary weapon, <strong>Spend 1 Hope</strong> for +2 on all damage die rolled. <br><br>Requires the Wakizashi™ Base Unit.",
+    "actions": {
+      "Wakizashi™ Kinetic Feedback Enhancer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wakizashi™ Kinetic Feedback Enhancer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-kinetic-feedback-enhancer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

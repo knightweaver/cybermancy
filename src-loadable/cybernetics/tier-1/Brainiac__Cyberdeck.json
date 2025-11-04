@@ -1,0 +1,34 @@
+{
+  "name": "Brainiac™ Cyberdeck",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-cyberdeck.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Whispered code, unleashed within arm's reach.\"</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a hacking rig, but it isn't as powerful as a normal hacking rig and has shorter range.  You may make Spellcasting (Hacking) actions within Very Close and at -2 on your rolls.  <br><br> Requires ™ Base Unit.",
+    "actions": {
+      "Brainiac™ Cyberdeck": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Whispered code, unleashed within arm's reach.\"</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a hacking rig, but it isn't as powerful as a normal hacking rig and has shorter range.  You may make Spellcasting (Hacking) actions within Very Close and at -2 on your rolls.  <br><br> Requires ™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Cyberdeck",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-cyberdeck.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

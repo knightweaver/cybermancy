@@ -1,0 +1,38 @@
+{
+  "name": "Field Experience",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/field-experience.webp",
+  "system": {
+    "description": "<i>“You’ve seen this circuit before — probably in the wreckage of your last run.”</i><p class=\"Card-Feature\">Once per Long Rest, put tokens on this card equal to your Spellcasting (Hacking) to gain one of the following effect: +1 on next Hack action, +1 on Evasion as a Reaction, Gain 1 Hope, Clear 1 Stress",
+    "level": 1,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Field Experience": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>“You’ve seen this circuit before — probably in the wreckage of your last run.”</i><p class=\"Card-Feature\">Once per Long Rest, put tokens on this card equal to your Spellcasting (Hacking) to gain one of the following effect: +1 on next Hack action, +1 on Evasion as a Reaction, Gain 1 Hope, Clear 1 Stress",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Field Experience",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/field-experience.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

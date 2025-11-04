@@ -1,0 +1,60 @@
+{
+  "name": "Getaway Vehicle",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/getaway-vehicle.webp",
+  "system": {
+    "description": "<i>Drive fast, live smarter.</i><p class=\"Card-Feature\">You own a vehicle large enough for your team - describe the vehicle on your character sheet. While driving this vehicle, gain +2 to Driving checks. On a critical roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion), and adjust your Chase Die by and additional -1 to +1</p>",
+    "level": 3,
+    "domain": "maker",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Getaway Vehicle": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Drive fast, live smarter.</i><p class=\"Card-Feature\">You own a vehicle large enough for your team - describe the vehicle on your character sheet. While driving this vehicle, gain +2 to Driving checks. On a critical roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion), and adjust your Chase Die by and additional -1 to +1",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Getaway Vehicle",
+        "img": "modules/cybermancy/assets/icons/domains/maker/getaway-vehicle.webp",
+        "range": "",
+        "_id": "D367T4qIcPhTDXof"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "8XMZy1Zre5ivFgbf",
+  "_id": "YyK2zxewb5OM65GB",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621714185,
+    "modifiedTime": 1761621714185,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!YyK2zxewb5OM65GB"
+}

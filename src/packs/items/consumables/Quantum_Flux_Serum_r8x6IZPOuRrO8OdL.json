@@ -1,0 +1,81 @@
+{
+  "name": "Quantum Flux Serum",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\quantum-flux-serum.webp",
+  "system": {
+    "description": "A chaotic serum that triggers random recovery or visions of death. Roll d6 for varying effects.",
+    "quantity": 1,
+    "actions": {
+      "Fh7OR8ZmiLNvRPHa": {
+        "type": "attack",
+        "_id": "Fh7OR8ZmiLNvRPHa",
+        "systemPath": "actions",
+        "description": "<p>Consume this sap to roll a [[/r d6]]. On a result of 5–6, clear 2 HP. On a result of 2–4, clear 3 Stress. On a result of 1, see through the veil of death and return changed, gaining one scar.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "diceSet",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Consume",
+        "img": "icons/consumables/drinks/wine-amphora-clay-pink.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924719333,
+    "modifiedTime": 1760924719333,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "r8x6IZPOuRrO8OdL",
+  "sort": 0,
+  "_key": "!items!r8x6IZPOuRrO8OdL"
+}

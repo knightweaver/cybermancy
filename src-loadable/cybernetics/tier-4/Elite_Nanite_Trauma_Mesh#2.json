@@ -1,0 +1,34 @@
+{
+  "name": "Elite Nanite Trauma Mesh",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/elite-nanite-trauma-mesh.webp",
+  "tier": 4,
+  "system": {
+    "description": "<i>\"Defy Fate, Preserve with Precision.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Severe Wound",
+    "actions": {
+      "Elite Nanite Trauma Mesh": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Elite Nanite Trauma Mesh",
+        "img": "modules/cybermancy/assets/icons/cybernetics/elite-nanite-trauma-mesh.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

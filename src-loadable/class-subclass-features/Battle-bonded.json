@@ -1,0 +1,52 @@
+{
+  "name": "Battle-bonded",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/battle-bonded.webp",
+  "system": {
+    "description": "when you and your Primary Drone are within Very Close, Spend 1 Hope to give you both +2 Evasion for 1 adversary’s attack",
+    "actions": {
+      "Battle-bonded": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "when you and your Primary Drone are within Very Close, Spend 1 Hope to give you both +2 Evasion for 1 adversary’s attack",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Battle-bonded",
+        "img": "modules/cybermancy/assets/icons/subclasses/battle-bonded.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

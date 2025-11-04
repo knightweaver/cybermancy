@@ -1,0 +1,34 @@
+{
+  "name": "Thermobaric Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/thermobaric-rounds.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets get the Burning condition when hit and must Mark 1 HitPoint whenever they take an action until the GM Spends 1 Fear to remove the Burning condition.",
+    "actions": {
+      "Thermobaric Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets get the Burning condition when hit and must Mark 1 HitPoint whenever they take an action until the GM Spends 1 Fear to remove the Burning condition.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Thermobaric Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/thermobaric-rounds.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

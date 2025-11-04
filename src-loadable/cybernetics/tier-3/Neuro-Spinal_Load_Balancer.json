@@ -1,0 +1,43 @@
+{
+  "name": "Neuro-Spinal Load Balancer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/neuro-spinal-load-balancer.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Fortify Essence; transmute fear to vapor.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Mark 2 Armor slots and entirely prevent the damage from 1 attack",
+    "actions": {
+      "Neuro-Spinal Load Balancer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Fortify Essence; transmute fear to vapor.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Mark 2 Armor slots and entirely prevent the damage from 1 attack",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Neuro-Spinal Load Balancer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/neuro-spinal-load-balancer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

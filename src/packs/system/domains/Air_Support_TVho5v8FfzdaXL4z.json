@@ -1,0 +1,60 @@
+{
+  "name": "Air Support",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/air-support.webp",
+  "system": {
+    "description": "<i>The sky belongs to you.</i><p class=\"Card-Feature\">One per long rest, you launch and control drones that provide tactical overwatch. Spotlight an Action to shift the drones between Offensive mode and Defensive mode: </p><p><b>Defensive mode</b>: You have +2 Evasion and all allies have +1 Evasion</p><b>Offensive mode</b>: You have +2 to your attacks and all allies have +1 to their attacks",
+    "level": 3,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Air Support": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The sky belongs to you.</i><p class=\"Card-Feature\">One per long rest, you launch and control drones that provide tactical overwatch. Spotlight an Action to shift the drones between Offensive mode and Defensive mode: <p><b>Defensive mode</b>: You have +2 Evasion and all allies have +1 Evasion</p><b>Offensive mode</b>: You have +2 to your attacks and all allies have +1 to their attacks",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Air Support",
+        "img": "modules/cybermancy/assets/icons/domains/maker/air-support.webp",
+        "range": "",
+        "_id": "oAzj3n846rOfOo6K"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "8XMZy1Zre5ivFgbf",
+  "_id": "TVho5v8FfzdaXL4z",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621714185,
+    "modifiedTime": 1761621714185,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!TVho5v8FfzdaXL4z"
+}

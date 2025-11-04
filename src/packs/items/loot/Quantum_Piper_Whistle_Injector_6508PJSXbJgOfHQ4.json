@@ -1,0 +1,32 @@
+{
+  "name": "Quantum Piper Whistle Injector",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/quantum-piper-whistle-injector.webp",
+  "system": {
+    "description": "This handcrafted whistle has a distinctive sound. When you blow this whistle, its piercing tone can be heard within a 1-mile radius. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925010286,
+    "modifiedTime": 1760925010286,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "6508PJSXbJgOfHQ4",
+  "sort": 0,
+  "_key": "!items!6508PJSXbJgOfHQ4"
+}

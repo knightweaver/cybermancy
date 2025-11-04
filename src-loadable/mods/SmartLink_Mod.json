@@ -1,0 +1,10 @@
+{
+  "name": "SmartLink Mod",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/smartlink.webp",
+  "tier": 1,
+  "system": {
+    "description": "<p class=\"Card-Feature\">This mod can be applied to just about any weapon (GM's discretion) to allow that weapon to become compatible with the SmartLink™ cybernetic system."
+  },
+  "effects": []
+}

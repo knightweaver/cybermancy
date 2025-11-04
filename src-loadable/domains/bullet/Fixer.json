@@ -1,0 +1,38 @@
+{
+  "name": "Fixer",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/fixer.webp",
+  "system": {
+    "description": "<i>The streets remember your name.</i><p class=\"Card-Feature\">You have a contact for weapons. Weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.",
+    "level": 5,
+    "domain": "bullet",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Fixer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The streets remember your name.</i><p class=\"Card-Feature\">You have a contact for weapons. Weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Fixer",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/fixer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,93 @@
+{
+  "name": "Elevate Permission",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/elevate-permission.webp",
+  "system": {
+    "description": "<i>“Because root access is a state of mind.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.</p>",
+    "level": 2,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Elevate Permission": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Because root access is a state of mind.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Elevate Permission",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/elevate-permission.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "3ThkAh3szyt9GLz6",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "lXh1TMkpHM0kk03b",
+  "_id": "CXvDBt9ED0d8N3r5",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621621441,
+    "modifiedTime": 1761621621441,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!CXvDBt9ED0d8N3r5"
+}

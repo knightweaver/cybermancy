@@ -1,0 +1,34 @@
+{
+  "name": "Dermal Plating Mk.III",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk.iii.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Fortify flesh; embrace hidden resilience.\"</i><br><br><p class=\"Card-Feature\">Gain +3 Armor Slot. You can only have 1 Dermal Plating enhancement, but they can be upgraded.",
+    "actions": {
+      "Dermal Plating Mk.III": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Dermal Plating Mk.III",
+        "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk.iii.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

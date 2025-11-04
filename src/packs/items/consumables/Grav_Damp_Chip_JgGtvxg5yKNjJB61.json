@@ -1,0 +1,57 @@
+{
+  "name": "Grav-Damp Chip",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\grav-damp-chip.webp",
+  "system": {
+    "description": "A spinal implant chip that reduces gravitational pull, letting you fall slowly for minutes equal to your level.",
+    "quantity": 1,
+    "actions": {
+      "MC0EA6TDZpEHMz11": {
+        "type": "effect",
+        "_id": "MC0EA6TDZpEHMz11",
+        "systemPath": "actions",
+        "description": "<p>You can use this bone to control your falling speed for a number of minutes equal to your level.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/commodities/bones/bones-stack-worn-brown.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924677588,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "JgGtvxg5yKNjJB61",
+  "sort": 700000,
+  "_key": "!items!JgGtvxg5yKNjJB61"
+}

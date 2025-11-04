@@ -1,0 +1,34 @@
+{
+  "name": "Cyberarm™  Combat Limbs",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm--combat-limbs.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Edge precision, unrivaled force, definitive impact.</i><br><br><p class=\"Card-Feature\">+1 to all Attacks made by a Melee weapon that does physical damage. <br><br>Requires Cyberarm™ base unit",
+    "actions": {
+      "Cyberarm™  Combat Limbs": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Edge precision, unrivaled force, definitive impact.</i><br><br><p class=\"Card-Feature\">+1 to all Attacks made by a Melee weapon that does physical damage. <br><br>Requires Cyberarm™ base unit",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™  Combat Limbs",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm--combat-limbs.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

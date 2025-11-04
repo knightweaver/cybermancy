@@ -1,0 +1,65 @@
+{
+  "name": "Full Automatic",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/full-automatic.webp",
+  "system": {
+    "description": "<i>Mercy jammed with the trigger.</i><p class=\"Card-Feature\"><strong>Mark 4 Stress</strong>Attack all targets within Very Far in a 90 degree cone.  Make 1 Attack roll at +2 against the first target, which must be at the left or right side of the cone, and all subsequent target is in the natural order sweeping through the cone.  Subtract 1 from that value for the second target and subtract 1 more for each subsequent target.  (So, 1 roll of the Destiny dice, but the value is applied to all targets, starting at +2 and going down by 1 for each target after the first). Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.",
+    "level": 10,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Full Automatic": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Mercy jammed with the trigger.</i><p class=\"Card-Feature\"><strong>Mark 4 Stress</strong>Attack all targets within Very Far in a 90 degree cone.  Make 1 Attack roll at +2 against the first target, which must be at the left or right side of the cone, and all subsequent target is in the natural order sweeping through the cone.  Subtract 1 from that value for the second target and subtract 1 more for each subsequent target.  (So, 1 roll of the Destiny dice, but the value is applied to all targets, starting at +2 and going down by 1 for each target after the first). Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 4,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Full Automatic",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/full-automatic.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

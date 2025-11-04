@@ -1,0 +1,57 @@
+{
+  "name": "Industrial Adhesive Gel",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\industrial-adhesive-gel.webp",
+  "system": {
+    "description": "A dual-compound resin that permanently bonds objects together.",
+    "quantity": 1,
+    "actions": {
+      "SWrgUGHIWCXpED1b": {
+        "type": "effect",
+        "_id": "SWrgUGHIWCXpED1b",
+        "systemPath": "actions",
+        "description": "<p>This honey can be used to glue two objects together permanently.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/consumables/food/soup-broth-bowl-wooden-yellow.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924685084,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "s7lpgBMQcllWJSMv",
+  "sort": 200000,
+  "_key": "!items!s7lpgBMQcllWJSMv"
+}

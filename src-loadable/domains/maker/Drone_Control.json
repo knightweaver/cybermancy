@@ -1,0 +1,65 @@
+{
+  "name": "Drone Control",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/drone-control.webp",
+  "system": {
+    "description": "<i>Precision through proxies.</i><p class=\"Card-Feature\">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack at +2.",
+    "level": 1,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Drone Control": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Precision through proxies.</i><p class=\"Card-Feature\">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack at +2.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Drone Control",
+        "img": "modules/cybermancy/assets/icons/domains/maker/drone-control.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

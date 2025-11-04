@@ -1,0 +1,56 @@
+{
+  "name": "Ghost Luck Patch",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/ghost-luck-patch.webp",
+  "system": {
+    "description": "You can attach this charm to a weapon with a Melee range. Three times per rest, you can activate the charm and attack a target within Close range. cryptographic sigils route through subdermal coils tuned for close-quarters in blackout zones",
+    "quantity": 1,
+    "actions": {
+      "nlAfmdgfHTmsOdPb": {
+        "type": "effect",
+        "_id": "nlAfmdgfHTmsOdPb",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "3",
+          "recovery": "shortRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Activate",
+        "img": "icons/equipment/neck/amulet-carved-stone-spiral-blue.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924980972,
+    "modifiedTime": 1760925007129,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "Gr8ViHC7I6xC8bnZ",
+  "sort": 200000,
+  "_key": "!items!Gr8ViHC7I6xC8bnZ"
+}

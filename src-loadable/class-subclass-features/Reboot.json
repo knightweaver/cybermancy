@@ -1,0 +1,52 @@
+{
+  "name": "Reboot",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/reboot.webp",
+  "system": {
+    "description": "Spend 3 Hope to restore a failed digital device (cybernetic, drone,",
+    "actions": {
+      "Reboot": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to restore a failed digital device (cybernetic, drone,",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reboot",
+        "img": "modules/cybermancy/assets/icons/subclasses/reboot.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

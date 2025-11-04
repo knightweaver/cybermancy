@@ -1,0 +1,10 @@
+{
+  "name": "Holo-Displacer Camo",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/holo-displacer-camo.webp",
+  "tier": 3,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per Scene, force one attacker to roll at Disadvantage. Critical: decoy draws fire. Slot: External / Electronics."
+  },
+  "effects": []
+}

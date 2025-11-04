@@ -1,0 +1,84 @@
+{
+  "name": "Overload",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/overload.webp",
+  "system": {
+    "description": "<i>“Push it past the redline — what’s the worst that could happen?”</i><p class=\"Card-Feature\">Make a Spellcasting roll (15) to make a device you Control explode causing all Adversaries within Very Close of the Device to take 2d6 damage, and all within Close take 1d6</p>",
+    "level": 3,
+    "domain": "circuit",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Overload": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Push it past the redline — what’s the worst that could happen?”</i><p class=\"Card-Feature\">Make a Spellcasting roll (15) to make a device you Control explode causing all Adversaries within Very Close of the Device to take 2d6 damage, and all within Close take 1d6",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Overload",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/overload.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "f9lXTTDZu0vzo6aB",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "b9vJwbmAoXU02c9H",
+  "_id": "hED2fdrnX6NrSL8x",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621623097,
+    "modifiedTime": 1761621623097,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!hED2fdrnX6NrSL8x"
+}

@@ -1,0 +1,95 @@
+{
+  "folder": "1cURuRcOqSf4B20b",
+  "name": "Slash-Resistant Polymer Coat",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/slash-resistant-polymer-coat.webp",
+  "system": {
+    "description": "Full-length polymer-link coat—blades skate, you keep walking.",
+    "actions": {},
+    "attached": [],
+    "tier": 3,
+    "equipped": false,
+    "baseScore": 6,
+    "armorFeatures": [
+      {
+        "value": "heavy",
+        "effectIds": [
+          "qlzHOAnpBYzosQxK"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 13,
+      "severe": 31
+    }
+  },
+  "effects": [
+    {
+      "name": "Heavy",
+      "description": "-1 to Evasion",
+      "img": "icons/commodities/metal/ingot-worn-iron.webp",
+      "changes": [
+        {
+          "key": "system.evasion",
+          "mode": 2,
+          "value": "-1"
+        }
+      ],
+      "_id": "qlzHOAnpBYzosQxK",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!q6LNtTqop8ivrXmy.qlzHOAnpBYzosQxK"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912061408,
+    "modifiedTime": 1760912061408,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "q6LNtTqop8ivrXmy",
+  "sort": 0,
+  "_key": "!items!q6LNtTqop8ivrXmy"
+}

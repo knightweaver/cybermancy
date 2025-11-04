@@ -1,0 +1,52 @@
+{
+  "name": "I’ve driven this before",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/i’ve-driven-this-before.webp",
+  "system": {
+    "description": "+2 on any Driving check, regardless of what you are driving.",
+    "actions": {
+      "I’ve driven this before": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "+2 on any Driving check, regardless of what you are driving.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "I’ve driven this before",
+        "img": "modules/cybermancy/assets/icons/subclasses/i’ve-driven-this-before.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

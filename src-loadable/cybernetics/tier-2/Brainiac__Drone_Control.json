@@ -1,0 +1,34 @@
+{
+  "name": "Brainiac™ Drone Control",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-drone-control.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"\" - Master minds, bend drones, limitlessly near.</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a rigger drone control module, but it isn't as powerful as a normal regger drone control unitand has shorter range.  You may control any of your drones within Close and at -2 on your rolls.  <br><br> Requires Brainiac™ Base Unit.",
+    "actions": {
+      "Brainiac™ Drone Control": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"\" - Master minds, bend drones, limitlessly near.</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a rigger drone control module, but it isn't as powerful as a normal regger drone control unitand has shorter range.  You may control any of your drones within Close and at -2 on your rolls.  <br><br> Requires Brainiac™ Base Unit.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Drone Control",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-drone-control.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

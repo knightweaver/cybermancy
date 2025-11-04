@@ -1,0 +1,56 @@
+{
+  "name": "Breeching Shells",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/breeching-shells.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br /> Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.</p>",
+    "actions": {
+      "Breeching Shells": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br><br> Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Breeching Shells",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/breeching-shells.webp",
+        "range": "",
+        "_id": "DwPlpfYaB5fTgfB3"
+      }
+    },
+    "quantity": 1,
+    "consumeOnUse": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172541283,
+    "modifiedTime": 1762172541283,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "9RFZPji1DIZUa2ev",
+  "sort": 0,
+  "_key": "!items!9RFZPji1DIZUa2ev"
+}

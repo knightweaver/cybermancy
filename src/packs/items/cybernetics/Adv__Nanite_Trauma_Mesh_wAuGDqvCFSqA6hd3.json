@@ -1,0 +1,59 @@
+{
+  "name": "Adv. Nanite Trauma Mesh",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/adv-nanite-trauma-mesh.webp",
+  "system": {
+    "description": "<i>\"Defy destruction with hidden resilience.\"</i><br /><br /><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Major Wound</p>",
+    "actions": {
+      "Adv": {
+        " Nanite Trauma Mesh": {
+          "type": "effect",
+          "systemPath": "actions",
+          "description": "<i>\"Defy destruction with hidden resilience.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Major Wound",
+          "chatDisplay": true,
+          "actionType": "reaction",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": "",
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "target": {
+            "type": "any",
+            "amount": null
+          },
+          "name": "Adv. Nanite Trauma Mesh",
+          "img": "modules/cybermancy/assets/icons/cybernetics/adv.-nanite-trauma-mesh.webp",
+          "range": "",
+          "_id": "b5CeXB8qrDt3quvu"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121467380,
+    "modifiedTime": 1762121781534,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "wAuGDqvCFSqA6hd3",
+  "sort": 2000000,
+  "_key": "!items!wAuGDqvCFSqA6hd3"
+}

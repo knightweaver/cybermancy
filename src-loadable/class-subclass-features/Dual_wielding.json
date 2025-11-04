@@ -1,0 +1,52 @@
+{
+  "name": "Dual wielding",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/dual-wielding.webp",
+  "system": {
+    "description": "If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 2 Hope to make an attack with each against different targets. =",
+    "actions": {
+      "Dual wielding": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 2 Hope to make an attack with each against different targets. =",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Dual wielding",
+        "img": "modules/cybermancy/assets/icons/subclasses/dual-wielding.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

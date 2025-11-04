@@ -1,0 +1,66 @@
+{
+  "name": "Wakizashi™ Neural Balancer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-neural-balancer.webp",
+  "system": {
+    "description": "<i>Unlock hidden potential with Hope's precision.</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on any attack roll with your secondary weapon.</p>",
+    "actions": {
+      "Wakizashi™ Neural Balancer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unlock hidden potential with Hope's precision.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on any attack roll with your secondary weapon.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wakizashi™ Neural Balancer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-neural-balancer.webp",
+        "range": "",
+        "_id": "TfQIJlYdSWJJkzSN"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121399009,
+    "modifiedTime": 1762121399009,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "YdWQkdghH6jXbHnx",
+  "sort": 0,
+  "_key": "!items!YdWQkdghH6jXbHnx"
+}

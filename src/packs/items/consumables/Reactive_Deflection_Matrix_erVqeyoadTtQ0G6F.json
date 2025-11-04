@@ -1,0 +1,66 @@
+{
+  "name": "Reactive Deflection Matrix",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\reactive-deflection-matrix.webp",
+  "system": {
+    "description": "A single-use energy field that negates one instance of damage when Hope is spent, then shatters.",
+    "quantity": 1,
+    "actions": {
+      "EPN43cQmNC97cCw9": {
+        "type": "effect",
+        "_id": "EPN43cQmNC97cCw9",
+        "systemPath": "actions",
+        "description": "<p>When you take damage, you can spend a Hope to negate that damage, after which the mirror shatters.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "keyIsID": false,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Use",
+        "img": "icons/commodities/treasure/token-silver-blue.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924720085,
+    "modifiedTime": 1760924720085,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "erVqeyoadTtQ0G6F",
+  "sort": 0,
+  "_key": "!items!erVqeyoadTtQ0G6F"
+}

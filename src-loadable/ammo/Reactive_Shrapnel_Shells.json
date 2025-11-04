@@ -1,0 +1,34 @@
+{
+  "name": "Reactive Shrapnel Shells",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/reactive-shrapnel-shells.webp",
+  "tier": 3,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br><br> All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.",
+    "actions": {
+      "Reactive Shrapnel Shells": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br><br> All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reactive Shrapnel Shells",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/reactive-shrapnel-shells.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

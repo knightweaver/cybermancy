@@ -1,0 +1,42 @@
+{
+  "name": "SmartLink™ Ballistics",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-ballistics.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Extend your reach, redefine distance.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and take an action to increase the allowed range for your next action with a SmarkLink gun. <br><br>Requires the SmartLink™ CPU implant",
+    "actions": {
+      "SmartLink™ Ballistics": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SmartLink™ Ballistics",
+        "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-ballistics.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

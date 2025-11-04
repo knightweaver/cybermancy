@@ -1,0 +1,43 @@
+{
+  "name": "Gorilla Arms Mk.II",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/gorilla-arms-mk.ii.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Hope-fueled strikes, each blow amplified.\"</i><br><br><p class=\"Card-Feature\">After a successful attack roll with a melee weapon that does physical damage, <strong>Spend 1 Hope</strong> per proficiency level to add +d6 of damage. You can only have 1 Gorilla Arms enhancement, but they can be upgraded.",
+    "actions": {
+      "Gorilla Arms Mk.II": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Hope-fueled strikes, each blow amplified.\"</i><br><br><p class=\"Card-Feature\">After a successful attack roll with a melee weapon that does physical damage, <strong>Spend 1 Hope</strong> per proficiency level to add +d6 of damage. You can only have 1 Gorilla Arms enhancement, but they can be upgraded.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gorilla Arms Mk.II",
+        "img": "modules/cybermancy/assets/icons/cybernetics/gorilla-arms-mk.ii.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

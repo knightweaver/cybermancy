@@ -1,0 +1,74 @@
+{
+  "folder": "rC9i0rH9DskIvndW",
+  "name": "Truthlight Carapace",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/truthlight-carapace.webp",
+  "system": {
+    "description": "Embedded truth-sensors flare when lies hit the air—corp meetings just got interesting.",
+    "actions": {
+      "sY3W5JYspN5Du5ag": {
+        "type": "effect",
+        "actionType": "action",
+        "chatDisplay": true,
+        "name": "Truthseeking",
+        "description": "This armor glows when another creature within Close range tells a lie.",
+        "img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+        "_id": "sY3W5JYspN5Du5ag",
+        "effects": [],
+        "systemPath": "actions",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": null,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        }
+      }
+    },
+    "attached": [],
+    "tier": 4,
+    "equipped": false,
+    "baseScore": 6,
+    "armorFeatures": [
+      {
+        "value": "truthseeking",
+        "effectIds": [],
+        "actionIds": [
+          "sY3W5JYspN5Du5ag"
+        ]
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 13,
+      "severe": 36
+    }
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912122528,
+    "modifiedTime": 1760912122528,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "0tWUeBmq49gSjtnI",
+  "sort": 0,
+  "_key": "!items!0tWUeBmq49gSjtnI"
+}

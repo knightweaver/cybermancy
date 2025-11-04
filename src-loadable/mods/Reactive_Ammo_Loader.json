@@ -1,0 +1,10 @@
+{
+  "name": "Reactive Ammo Loader",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/reactive-ammo-loader.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per scene, perform the Reload action as a free action."
+  },
+  "effects": []
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Gun trainer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/gun-trainer.webp",
+  "system": {
+    "description": "As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may roll this <b>Bullet die</b> whenever they make an attack with a gun and add the result to their attack roll.",
+    "actions": {
+      "Gun trainer": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may roll this <b>Bullet die</b> whenever they make an attack with a gun and add the result to their attack roll.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gun trainer",
+        "img": "modules/cybermancy/assets/icons/subclasses/gun-trainer.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

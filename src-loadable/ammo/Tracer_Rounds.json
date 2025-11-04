@@ -1,0 +1,34 @@
+{
+  "name": "Tracer Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/tracer-rounds.webp",
+  "tier": 1,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any rifle and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  When you target a creature with these rounds, the next ally to attack that target gains +2 on their attack.",
+    "actions": {
+      "Tracer Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any rifle and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  When you target a creature with these rounds, the next ally to attack that target gains +2 on their attack.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Tracer Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/tracer-rounds.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

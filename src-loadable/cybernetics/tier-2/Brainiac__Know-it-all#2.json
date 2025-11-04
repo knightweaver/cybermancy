@@ -1,0 +1,42 @@
+{
+  "name": "Brainiac™ Know-it-all",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-know-it-all.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Unlock brilliance; trade despair for genius.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Knowledge Roll or Saving Throw. <br><br> Requires Brainiac™ Base Unit.",
+    "actions": {
+      "Brainiac™ Know-it-all": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Know-it-all",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-know-it-all.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

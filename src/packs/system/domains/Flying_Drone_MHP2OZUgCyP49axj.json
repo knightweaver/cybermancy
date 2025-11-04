@@ -1,0 +1,60 @@
+{
+  "name": "Flying Drone",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/flying-drone.webp",
+  "system": {
+    "description": "<i>The sky hums with your genius.</i><p class=\"Card-Feature\">Your <b>Primary Drone</b> gains flight, +4 Evasion, and may carry 3 weapons.</p>",
+    "level": 5,
+    "domain": "maker",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Flying Drone": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The sky hums with your genius.</i><p class=\"Card-Feature\">Your <b>Primary Drone</b> gains flight, +4 Evasion, and may carry 3 weapons.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Flying Drone",
+        "img": "modules/cybermancy/assets/icons/domains/maker/flying-drone.webp",
+        "range": "",
+        "_id": "Rtl5XdNcczcKJQlS"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "1BndkscmNXZAJbne",
+  "_id": "MHP2OZUgCyP49axj",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621717444,
+    "modifiedTime": 1761621717444,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!MHP2OZUgCyP49axj"
+}

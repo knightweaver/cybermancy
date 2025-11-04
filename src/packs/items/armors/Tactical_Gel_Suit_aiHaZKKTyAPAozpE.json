@@ -1,0 +1,95 @@
+{
+  "folder": "1cURuRcOqSf4B20b",
+  "name": "Tactical Gel Suit",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/tactical-gel-suit.webp",
+  "system": {
+    "description": "Combat-grade gel padding bonded to compression mesh—soaks hits, keeps you moving.",
+    "actions": {},
+    "attached": [],
+    "tier": 3,
+    "equipped": false,
+    "baseScore": 5,
+    "armorFeatures": [
+      {
+        "value": "flexible",
+        "effectIds": [
+          "Fq9Q93IHCchhfSss"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 9,
+      "severe": 23
+    }
+  },
+  "effects": [
+    {
+      "name": "Flexible",
+      "description": "+1 to Evasion",
+      "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+      "changes": [
+        {
+          "key": "system.evasion",
+          "mode": 2,
+          "value": "1"
+        }
+      ],
+      "_id": "Fq9Q93IHCchhfSss",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!aiHaZKKTyAPAozpE.Fq9Q93IHCchhfSss"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912062656,
+    "modifiedTime": 1760912062656,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "aiHaZKKTyAPAozpE",
+  "sort": 0,
+  "_key": "!items!aiHaZKKTyAPAozpE"
+}

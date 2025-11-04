@@ -1,0 +1,34 @@
+{
+  "name": "Brainstorm",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/brainstorm.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Every sound becomes light. Every color screams.</i><br><br><p class=\"Card-Feature\">On first contact, floods your neural link with raw sensory data; roll Fear or mark Stress.",
+    "actions": {
+      "Brainstorm": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Every sound becomes light. Every color screams.</i><br><br><p class=\"Card-Feature\">On first contact, floods your neural link with raw sensory data; roll Fear or mark Stress.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainstorm",
+        "img": "modules/cybermancy/assets/icons/ice/brainstorm.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

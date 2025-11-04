@@ -1,0 +1,112 @@
+{
+  "name": "Agility Booster Plus",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\agility-booster-plus.webp",
+  "system": {
+    "description": "An enhanced nanoshot that grants +1 Agility until your next rest.",
+    "quantity": 1,
+    "actions": {
+      "UIVnvI726LJnlK86": {
+        "type": "effect",
+        "_id": "UIVnvI726LJnlK86",
+        "systemPath": "actions",
+        "description": "<p>You gain a +1 bonus to your Agility until your next rest.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "L9dAw8pws1o02XkE",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/potion-jar-capped-teal.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [
+    {
+      "name": "Major Stride Potion",
+      "img": "icons/consumables/potions/potion-jar-capped-teal.webp",
+      "origin": "Compendium.daggerheart.consumables.Item.yK6eEDUrsPbZA8G0",
+      "transfer": false,
+      "_id": "L9dAw8pws1o02XkE",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [
+        {
+          "key": "system.traits.agility.value",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!80UgkndfAfZlR0Wz.L9dAw8pws1o02XkE"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924666149,
+    "modifiedTime": 1760924687084,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "80UgkndfAfZlR0Wz",
+  "sort": 2300000,
+  "_key": "!items!80UgkndfAfZlR0Wz"
+}

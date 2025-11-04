@@ -1,0 +1,43 @@
+{
+  "name": "Dynamic tattoo",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/dynamic-tattoo.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Radiate power; command with a glance.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +1 on a Presence roll, so long as the target can see your skin",
+    "actions": {
+      "Dynamic tattoo": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Radiate power; command with a glance.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +1 on a Presence roll, so long as the target can see your skin",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Dynamic tattoo",
+        "img": "modules/cybermancy/assets/icons/cybernetics/dynamic-tattoo.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,93 @@
+{
+  "name": "Reality Patch",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/reality-patch.webp",
+  "system": {
+    "description": "<i>“If you can code it, you can unbreak it.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.</p>",
+    "level": 8,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Reality Patch": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“If you can code it, you can unbreak it.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reality Patch",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/reality-patch.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "Dq5K5pCPkBJQQJXD",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "JfBdvLAlHk4pvI5s",
+  "_id": "DS8n1oCxZ8LKpXcg",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621632487,
+    "modifiedTime": 1761621632487,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!DS8n1oCxZ8LKpXcg"
+}

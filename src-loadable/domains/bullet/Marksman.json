@@ -1,0 +1,65 @@
+{
+  "name": "Marksman",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/marksman.webp",
+  "system": {
+    "description": "<i>One bullet, one breath.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to attack with advantage and deal +d4 damage.",
+    "level": 1,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Marksman": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>One bullet, one breath.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to attack with advantage and deal +d4 damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Marksman",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/marksman.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

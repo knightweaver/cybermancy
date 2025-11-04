@@ -1,0 +1,63 @@
+{
+  "name": "Speed Racer",
+  "type": "subclass",
+  "_id": "6msj9R1XSoQMjJVa",
+  "img": "modules/cybermancy/assets/icons/subclasses/speed-racer.webp",
+  "system": {
+    "description": "<p>You don’t chase speed — you <em data-start=\"325\" data-end=\"330\">are</em> speed.</p><p></p><p><br /></p><p data-start=\"341\" data-end=\"625\">You were born with one hand on the throttle and the other flipping physics the bird. The city’s your racetrack, the skyline your scoreboard. The world slows down when you floor it — neon lines stretch into eternity, tires sing your name, and every corner is a dare you can’t resist.</p><p></p><p><br /></p><p data-start=\"627\" data-end=\"878\">You don’t just drive; you <em data-start=\"653\" data-end=\"672\">command momentum.</em> Every turn, every drift, every impossible leap is choreography between machine and madness. The dashboard’s your altar, the engine’s your heartbeat, and the smell of burning synth-rubber is your incense.</p><p></p><p><br /></p><p data-start=\"880\" data-end=\"1105\">Safety is for people who still think death is permanent. You tune your ride like a symphony — stripping weight, rewriting firmware, bending the limits of torque and reason until your machine hums in harmony with your pulse.</p><p></p><p><br /></p><p data-start=\"1107\" data-end=\"1254\">Others measure distance in meters. You measure it in milliseconds. You’re not here to win races. You’re here to <strong data-start=\"1219\" data-end=\"1254\">rewrite the definition of fast.</strong></p>",
+    "spellcastingTrait": "agility",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.K3sDmmwIWMuIoYDG"
+      },
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.IQ3k8b7LjD1aA9xr"
+      },
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.LZQ2OzAying27rrO"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.9sLrb2BwPaCkjFGH"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.KfUgMjV6BpELeeB1"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.C4W2GRrGcTClyv3M"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.YdEMClXXDAw80PZM"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.cybermancy.cybermancy-classes.Item.G8khPip0W22RIZU9"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762206094638,
+    "modifiedTime": 1762206790184,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!6msj9R1XSoQMjJVa"
+}

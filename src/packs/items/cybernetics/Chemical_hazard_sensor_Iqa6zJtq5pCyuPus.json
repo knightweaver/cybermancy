@@ -1,0 +1,66 @@
+{
+  "name": "Chemical hazard sensor",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/chemical-hazard-sensor.webp",
+  "system": {
+    "description": "<i>Inhale secrets; exhale mastery.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to monitor your environment for chemicals of all types.  Like a massively improved sense of smell</p>",
+    "actions": {
+      "Chemical hazard sensor": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Inhale secrets; exhale mastery.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to monitor your environment for chemicals of all types.  Like a massively improved sense of smell",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Chemical hazard sensor",
+        "img": "modules/cybermancy/assets/icons/cybernetics/chemical-hazard-sensor.webp",
+        "range": "",
+        "_id": "3uETmp5BBLmLgDxD"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121274729,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "Iqa6zJtq5pCyuPus",
+  "sort": 4000000,
+  "_key": "!items!Iqa6zJtq5pCyuPus"
+}

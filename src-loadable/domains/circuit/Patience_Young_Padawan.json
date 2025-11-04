@@ -1,0 +1,38 @@
+{
+  "name": "Patience Young Padawan",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/patience-young-padawan.webp",
+  "system": {
+    "description": "<i>“Turns out, rushing a hack only impresses the ICE.”</i><p class=\"Card-Feature\">If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.",
+    "level": 1,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Patience Young Padawan": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>“Turns out, rushing a hack only impresses the ICE.”</i><p class=\"Card-Feature\">If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Patience Young Padawan",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/patience-young-padawan.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

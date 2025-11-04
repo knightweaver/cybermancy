@@ -1,0 +1,33 @@
+{
+  "name": "Reactive Shrapnel Shells",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/reactive-shrapnel-shells.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">On hit, minor AoE splash. Critical: heavy AoE; creates hazard zone. Slot: Ammo.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172767871,
+    "modifiedTime": 1762172767871,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "XHzgsmZWeIxgI9R6",
+  "sort": 0,
+  "_key": "!items!XHzgsmZWeIxgI9R6"
+}

@@ -1,0 +1,103 @@
+{
+  "name": "Major Health Stimpack",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\major-health-stimpack.webp",
+  "system": {
+    "description": "High-capacity stimpack restoring 1d4+2 HP.",
+    "quantity": 1,
+    "actions": {
+      "Xm2ldAlmUQY4jlLb": {
+        "type": "healing",
+        "_id": "Xm2ldAlmUQY4jlLb",
+        "systemPath": "actions",
+        "description": "<p>Clear 1d4+2 HP.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "flat",
+                "dice": "d4",
+                "bonus": 2,
+                "flatMultiplier": 1
+              },
+              "applyTo": "hitPoints",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/bottle-round-label-cork-red.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924695220,
+    "modifiedTime": 1760924695220,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "G0oREUaGo7vN2W28",
+  "sort": 0,
+  "_key": "!items!G0oREUaGo7vN2W28"
+}

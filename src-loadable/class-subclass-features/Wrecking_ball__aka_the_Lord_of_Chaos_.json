@@ -1,0 +1,52 @@
+{
+  "name": "Wrecking ball (aka the Lord of Chaos)",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/wrecking-ball-(aka-the-lord-of-chaos).webp",
+  "system": {
+    "description": "Subtlety is for firewalls that haven’t met you yet.You don’t slip in quietly — you announce your arrival with a digital detonation and a smile. You love the sound of collapsing servers, the flicker of dying security feeds, the panic in a sysadmin’s voice when their screen goes black. Some Netrunners whisper through the grid like ghosts; you come through like a riot.You want them to know who hit them — to feel the tremor of your signature tearing through their systems, to understand that resistance was never an option. You want the enemy to know that you have them by the short hairs and you love to look them deeply and lovingly in the eyes while you pull!  To you, hacking isn’t theft — it’s performance art. Get in fast, break everything worth breaking, grab the payload, and vanish before the smoke clears. The infiltrators can have their subtlety. You’re here to make legends — and sometimes, enemies.",
+    "actions": {
+      "Wrecking ball (aka the Lord of Chaos)": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Subtlety is for firewalls that haven’t met you yet.You don’t slip in quietly — you announce your arrival with a digital detonation and a smile. You love the sound of collapsing servers, the flicker of dying security feeds, the panic in a sysadmin’s voice when their screen goes black. Some Netrunners whisper through the grid like ghosts; you come through like a riot.You want them to know who hit them — to feel the tremor of your signature tearing through their systems, to understand that resistance was never an option. You want the enemy to know that you have them by the short hairs and you love to look them deeply and lovingly in the eyes while you pull!  To you, hacking isn’t theft — it’s performance art. Get in fast, break everything worth breaking, grab the payload, and vanish before the smoke clears. The infiltrators can have their subtlety. You’re here to make legends — and sometimes, enemies.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wrecking ball (aka the Lord of Chaos)",
+        "img": "modules/cybermancy/assets/icons/subclasses/wrecking-ball-(aka-the-lord-of-chaos).webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

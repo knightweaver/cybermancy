@@ -1,0 +1,34 @@
+{
+  "name": "Cyberarm™ Shock Servo Enhancer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-shock-servo-enhancer.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>\"Unleash silent fury, upgrade your strike.\"</i><br><br><p class=\"Card-Feature\">Once per scene, after making a successful Melee attack with a weapon that does physical damage, increase the damage die increment by 1 (e.g. d4 to d6).  <br><br>Requires Cyberarm™ base unit",
+    "actions": {
+      "Cyberarm™ Shock Servo Enhancer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Shock Servo Enhancer",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-shock-servo-enhancer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Claws",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/claws.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>Forged elegance, lethal precision.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage",
+    "actions": {
+      "Claws": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Forged elegance, lethal precision.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Claws",
+        "img": "modules/cybermancy/assets/icons/cybernetics/claws.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

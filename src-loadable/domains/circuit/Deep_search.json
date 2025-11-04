@@ -1,0 +1,65 @@
+{
+  "name": "Deep search",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/deep-search.webp",
+  "system": {
+    "description": "<i>“The Grid whispers, if you know how to listen.”</i><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to know something about an creature.  As the GM up to 3 yes/no questions.",
+    "level": 3,
+    "domain": "circuit",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Deep search": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“The Grid whispers, if you know how to listen.”</i><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to know something about an creature.  As the GM up to 3 yes/no questions.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Deep search",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/deep-search.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

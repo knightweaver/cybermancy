@@ -1,0 +1,52 @@
+{
+  "name": "Jack of all trades",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/jack-of-all-trades-.webp",
+  "system": {
+    "description": "If it’s got wires, gears, or bad firmware — you can fix it, improve it, or weaponize it.You build because you have to. The world is one big broken machine, and someone’s got to keep it running — preferably better than before. You’re a tinkerer, a mechanic, an engineer, a hobbyist with a soldering iron and a god complex. There’s no problem you can’t solve with the right parts, a questionable power source, and a little creative coding.Your workshop is your temple: a cluttered shrine to invention where burnt circuit boards are relics and every half-finished drone hums with potential. You take things apart because understanding how they shouldn’t work is the first step to making them better.Corporations lock down their tech with governors, safeties, and surveillance firmware — but you’ve made a career out of unlocking what’s not meant to be touched. You’ve got the patience of a saint, the curiosity of a child, and the attention span of a caffeinated raccoon.You don’t specialize. You improvise. And if it breaks again? Even better — that’s just another chance to make it stronger.",
+    "actions": {
+      "Jack of all trades": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "If it’s got wires, gears, or bad firmware — you can fix it, improve it, or weaponize it.You build because you have to. The world is one big broken machine, and someone’s got to keep it running — preferably better than before. You’re a tinkerer, a mechanic, an engineer, a hobbyist with a soldering iron and a god complex. There’s no problem you can’t solve with the right parts, a questionable power source, and a little creative coding.Your workshop is your temple: a cluttered shrine to invention where burnt circuit boards are relics and every half-finished drone hums with potential. You take things apart because understanding how they shouldn’t work is the first step to making them better.Corporations lock down their tech with governors, safeties, and surveillance firmware — but you’ve made a career out of unlocking what’s not meant to be touched. You’ve got the patience of a saint, the curiosity of a child, and the attention span of a caffeinated raccoon.You don’t specialize. You improvise. And if it breaks again? Even better — that’s just another chance to make it stronger.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Jack of all trades",
+        "img": "modules/cybermancy/assets/icons/subclasses/jack-of-all-trades-.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

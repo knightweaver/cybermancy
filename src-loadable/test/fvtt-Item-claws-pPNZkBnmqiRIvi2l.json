@@ -1,0 +1,144 @@
+{
+  "name": "Claws",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/claws.webp",
+  "system": {
+    "description": "<i>Forged elegance, lethal precision.</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage</p>",
+    "actions": {
+      "97PdZPwpMHO2xfQJ": {
+        "type": "effect",
+        "_id": "97PdZPwpMHO2xfQJ",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "keyIsID": false,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Extend Claws",
+        "img": "modules/cybermancy/assets/icons/cybernetics/claws.webp",
+        "range": ""
+      },
+      "CTVuxFR09vlhzUAq": {
+        "type": "attack",
+        "_id": "CTVuxFR09vlhzUAq",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "resultBased": false,
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "prof",
+                "dice": "d4",
+                "bonus": null,
+                "flatMultiplier": 1
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "physical"
+              ],
+              "base": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "effects": [],
+        "roll": {
+          "type": "attack",
+          "trait": "strength",
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Slash",
+        "img": "modules/cybermancy/assets/icons/cybernetics/claws.webp",
+        "range": "melee"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "cybermancy-moducle-builder",
+      "uuid": "Item.pPNZkBnmqiRIvi2l",
+      "coreVersion": "13.350",
+      "systemId": "daggerheart",
+      "systemVersion": "1.1.2"
+    },
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762098968291,
+    "modifiedTime": 1762099624183,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

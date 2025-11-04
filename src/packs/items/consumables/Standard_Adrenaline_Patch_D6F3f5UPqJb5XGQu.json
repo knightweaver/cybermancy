@@ -1,0 +1,103 @@
+{
+  "name": "Standard Adrenaline Patch",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\standard-adrenaline-patch.webp",
+  "system": {
+    "description": "A concentrated stim patch that resets stress pathways. Clears 1d4+1 Stress.",
+    "quantity": 1,
+    "actions": {
+      "BnYXCo5zr50Sw8gj": {
+        "type": "healing",
+        "_id": "BnYXCo5zr50Sw8gj",
+        "systemPath": "actions",
+        "description": "<p>Clear 1d4+1 Stress.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d4",
+                "bonus": 1
+              },
+              "applyTo": "stress",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "name": "Drink",
+        "img": "icons/consumables/potions/bottle-corked-green.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924725525,
+    "modifiedTime": 1760924725525,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "D6F3f5UPqJb5XGQu",
+  "sort": 0,
+  "_key": "!items!D6F3f5UPqJb5XGQu"
+}

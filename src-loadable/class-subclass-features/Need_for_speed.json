@@ -1,0 +1,52 @@
+{
+  "name": "Need for speed",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/need-for-speed.webp",
+  "system": {
+    "description": "Spend 3 Hope to make 2 Drive checks whenever you are Spotlighted during a Chase.",
+    "actions": {
+      "Need for speed": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to make 2 Drive checks whenever you are Spotlighted during a Chase.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Need for speed",
+        "img": "modules/cybermancy/assets/icons/subclasses/need-for-speed.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

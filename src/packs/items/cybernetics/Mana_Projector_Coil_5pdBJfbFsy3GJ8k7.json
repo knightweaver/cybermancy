@@ -1,0 +1,66 @@
+{
+  "name": "Mana Projector Coil",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/mana-projector-coil.webp",
+  "system": {
+    "description": "<i>\"Unveil horizons, empower your reach.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to increase the range of one Spell you are casting</p>",
+    "actions": {
+      "Mana Projector Coil": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Unveil horizons, empower your reach.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to increase the range of one Spell you are casting",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Mana Projector Coil",
+        "img": "modules/cybermancy/assets/icons/cybernetics/mana-projector-coil.webp",
+        "range": "",
+        "_id": "xqWk2jkpvtumJAon"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121311588,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "5pdBJfbFsy3GJ8k7",
+  "sort": 900000,
+  "_key": "!items!5pdBJfbFsy3GJ8k7"
+}

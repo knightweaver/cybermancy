@@ -1,0 +1,66 @@
+{
+  "name": "SmartLink™ Ballistics",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-ballistics.webp",
+  "system": {
+    "description": "<i>\"Extend your reach, redefine distance.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and take an action to increase the allowed range for your next action with a SmarkLink gun. <br /><br />Requires the SmartLink™ CPU implant</p>",
+    "actions": {
+      "SmartLink™ Ballistics": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Extend your reach, redefine distance.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and take an action to increase the allowed range for your next action with a SmarkLink gun. <br><br>Requires the SmartLink™ CPU implant",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SmartLink™ Ballistics",
+        "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-ballistics.webp",
+        "range": "",
+        "_id": "dJBqwbbQ2FobTjD5"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121321401,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "TDUzGFYWu5Qb2PfE",
+  "sort": 2000000,
+  "_key": "!items!TDUzGFYWu5Qb2PfE"
+}

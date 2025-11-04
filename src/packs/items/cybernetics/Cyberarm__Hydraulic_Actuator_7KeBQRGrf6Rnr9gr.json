@@ -1,0 +1,66 @@
+{
+  "name": "Cyberarm™ Hydraulic Actuator",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-hydraulic-actuator.webp",
+  "system": {
+    "description": "<i>\"Unleash your power, rest and rise.\"</i><br /><br /><p class=\"Card-Feature\">Reduce the Cyberarm™ Strength effect's recovery time to once per rest.  <br /><br /><strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw</p>",
+    "actions": {
+      "Cyberarm™ Hydraulic Actuator": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Unleash your power, rest and rise.\"</i><br><br><p class=\"Card-Feature\">Reduce the Cyberarm™ Strength effect's recovery time to once per rest.  <br><br><strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Hydraulic Actuator",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-hydraulic-actuator.webp",
+        "range": "",
+        "_id": "rVpRbNfYggYzZm9C"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121291889,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "7KeBQRGrf6Rnr9gr",
+  "sort": 2500000,
+  "_key": "!items!7KeBQRGrf6Rnr9gr"
+}

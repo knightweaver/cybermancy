@@ -1,0 +1,58 @@
+{
+  "name": "Dermal Plating Mk.I",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk-i.webp",
+  "system": {
+    "description": "<i>\"Fortified skin, limitless potential.\"</i><br /><br /><p class=\"Card-Feature\">Gain +1 Armor Slot. You can only have 1 Dermal Plating enhancement, but they can be upgraded.</p>",
+    "actions": {
+      "Dermal Plating Mk": {
+        "I": {
+          "type": "effect",
+          "systemPath": "actions",
+          "description": "<i>\"Fortified skin, limitless potential.\"</i><br><br><p class=\"Card-Feature\">Gain +1 Armor Slot. You can only have 1 Dermal Plating enhancement, but they can be upgraded.",
+          "chatDisplay": true,
+          "actionType": "passive",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": "",
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "target": {
+            "type": "any",
+            "amount": null
+          },
+          "name": "Dermal Plating Mk.I",
+          "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk.i.webp",
+          "range": ""
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121295681,
+    "modifiedTime": 1762121663853,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "W7VypZpmaJJ5Jz31",
+  "sort": 2600000,
+  "_key": "!items!W7VypZpmaJJ5Jz31"
+}

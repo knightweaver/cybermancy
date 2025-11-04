@@ -1,0 +1,66 @@
+{
+  "name": "Tactical Subcortex",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/tactical-subcortex.webp",
+  "system": {
+    "description": "<i>Ascend reactions, thrive with precision.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to gain +2 on the current Reaction Roll</p>",
+    "actions": {
+      "Tactical Subcortex": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Ascend reactions, thrive with precision.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to gain +2 on the current Reaction Roll",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Tactical Subcortex",
+        "img": "modules/cybermancy/assets/icons/cybernetics/tactical-subcortex.webp",
+        "range": "",
+        "_id": "vVPUbfaQM7HaeO40"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121324841,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "2waJuDTwhTGhou6B",
+  "sort": 2400000,
+  "_key": "!items!2waJuDTwhTGhou6B"
+}

@@ -1,0 +1,84 @@
+{
+  "name": "Digital Recon",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/digital-recon.webp",
+  "system": {
+    "description": "<i>“Your paranoia finally pays dividends.”</i><p class=\"Card-Feature\">Before entering an Environment, make a Spellcasting (Hacking) roll (13), to gain information about the security stance of the target (what Tier levels of ICE are used, how many levels to the security, what System Alert responses are possible, etc.).  On a failure, all Devices in the Enviroment have a Difficulty +1.</p>",
+    "level": 4,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Digital Recon": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Your paranoia finally pays dividends.”</i><p class=\"Card-Feature\">Before entering an Environment, make a Spellcasting (Hacking) roll (13), to gain information about the security stance of the target (what Tier levels of ICE are used, how many levels to the security, what System Alert responses are possible, etc.).  On a failure, all Devices in the Enviroment have a Difficulty +1.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Digital Recon",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/digital-recon.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "7e6sbesypFbBAmUX",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "Uw4JAFIXyjcjSJoo",
+  "_id": "hyRMKo9waICsVyuR",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621624890,
+    "modifiedTime": 1761621624890,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!hyRMKo9waICsVyuR"
+}

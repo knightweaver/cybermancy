@@ -1,0 +1,66 @@
+{
+  "name": "Motion Prediction Gyro",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/motion-prediction-gyro.webp",
+  "system": {
+    "description": "<i>\"Swift salvation in chrome elegance.\"</i><br /><br /><p class=\"Card-Feature\">As a Reaction, <strong>Mark 1 Stress</strong> to gain +2 on an Agility saving throw</p>",
+    "actions": {
+      "Motion Prediction Gyro": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Swift salvation in chrome elegance.\"</i><br><br><p class=\"Card-Feature\">As a Reaction, <strong>Mark 1 Stress</strong> to gain +2 on an Agility saving throw",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Motion Prediction Gyro",
+        "img": "modules/cybermancy/assets/icons/cybernetics/motion-prediction-gyro.webp",
+        "range": "",
+        "_id": "jYQCnoiAm9ZDfMJ0"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121312322,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "8Ja7fS791Kr06KIW",
+  "sort": 1000000,
+  "_key": "!items!8Ja7fS791Kr06KIW"
+}

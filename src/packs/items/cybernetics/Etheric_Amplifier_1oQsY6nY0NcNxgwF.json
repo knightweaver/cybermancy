@@ -1,0 +1,66 @@
+{
+  "name": "Etheric Amplifier",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/etheric-amplifier.webp",
+  "system": {
+    "description": "<i>\"Elegantly Enhance Destruction: Your Power Multiplied.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> to add +2 damage per die rolled to any attack that does magical damage</p>",
+    "actions": {
+      "Etheric Amplifier": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Elegantly Enhance Destruction: Your Power Multiplied.\"</i><br><br><p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> to add +2 damage per die rolled to any attack that does magical damage",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Etheric Amplifier",
+        "img": "modules/cybermancy/assets/icons/cybernetics/etheric-amplifier.webp",
+        "range": "",
+        "_id": "soorfj5pnsSK6Q8V"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121301987,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "1oQsY6nY0NcNxgwF",
+  "sort": 500000,
+  "_key": "!items!1oQsY6nY0NcNxgwF"
+}

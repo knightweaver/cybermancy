@@ -1,0 +1,57 @@
+{
+  "name": "Nanite Medigel Reservoir",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/nanite-medigel-reservoir.webp",
+  "system": {
+    "description": "<i>Double your renewal, embrace pure vitality.</i><br /><br /><p class=\"Card-Feature\">Once per long rest, when you heal a Hit Point, you may heal and additional Hit Point</p>",
+    "actions": {
+      "Nanite Medigel Reservoir": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Double your renewal, embrace pure vitality.</i><br><br><p class=\"Card-Feature\">Once per long rest, when you heal a Hit Point, you may heal and additional Hit Point",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Nanite Medigel Reservoir",
+        "img": "modules/cybermancy/assets/icons/cybernetics/nanite-medigel-reservoir.webp",
+        "range": "",
+        "_id": "iHAJwuLA4OzoKVmv"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121314001,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "nRG90wBacYssoMnb",
+  "sort": 1200000,
+  "_key": "!items!nRG90wBacYssoMnb"
+}

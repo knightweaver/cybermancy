@@ -1,0 +1,34 @@
+{
+  "name": "Empathic Feedback Loop",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/empathic-feedback-loop.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Embrace renewal; hope embedded within.\"</i><br><br><p class=\"Card-Feature\">Once per rest, Gain 1 Hope",
+    "actions": {
+      "Empathic Feedback Loop": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Embrace renewal; hope embedded within.\"</i><br><br><p class=\"Card-Feature\">Once per rest, Gain 1 Hope",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": 1,
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Empathic Feedback Loop",
+        "img": "modules/cybermancy/assets/icons/cybernetics/empathic-feedback-loop.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

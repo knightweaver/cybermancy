@@ -1,0 +1,66 @@
+{
+  "name": "Dynamic tattoo",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/dynamic-tattoo.webp",
+  "system": {
+    "description": "<i>\"Radiate power; command with a glance.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +1 on a Presence roll, so long as the target can see your skin</p>",
+    "actions": {
+      "Dynamic tattoo": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Radiate power; command with a glance.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +1 on a Presence roll, so long as the target can see your skin",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Dynamic tattoo",
+        "img": "modules/cybermancy/assets/icons/cybernetics/dynamic-tattoo.webp",
+        "range": "",
+        "_id": "qixrTm4ha4LAAejP"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121296665,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "WYIvMLTfIWu0MdIp",
+  "sort": 100000,
+  "_key": "!items!WYIvMLTfIWu0MdIp"
+}

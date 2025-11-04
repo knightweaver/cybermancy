@@ -1,0 +1,52 @@
+{
+  "name": "Digital Awareness",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/digital-awareness.webp",
+  "system": {
+    "description": "You can take an Action to become aware of any digital signal within Very Close.  Spend 1 Hope to extend the range to within Close.  Mark 1 Stress to extend the range to within Far.  This alerts you to the devices’ presence, type, and whether they are hardened or unharden-",
+    "actions": {
+      "Digital Awareness": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You can take an Action to become aware of any digital signal within Very Close.  Spend 1 Hope to extend the range to within Close.  Mark 1 Stress to extend the range to within Far.  This alerts you to the devices’ presence, type, and whether they are hardened or unharden-",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Digital Awareness",
+        "img": "modules/cybermancy/assets/icons/subclasses/digital-awareness.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Dermal Plating Mk.II",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk.ii.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Armor solidified, elegance amplified.</i><br><br><p class=\"Card-Feature\">Gain +2 Armor Slot. You can only have 1 Dermal Plating enhancement, but they can be upgraded.",
+    "actions": {
+      "Dermal Plating Mk.II": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Armor solidified, elegance amplified.</i><br><br><p class=\"Card-Feature\">Gain +2 Armor Slot. You can only have 1 Dermal Plating enhancement, but they can be upgraded.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Dermal Plating Mk.II",
+        "img": "modules/cybermancy/assets/icons/cybernetics/dermal-plating-mk.ii.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

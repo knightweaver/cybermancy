@@ -1,0 +1,65 @@
+{
+  "name": "Bullet Time",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/bullet-time.webp",
+  "system": {
+    "description": "<i>You’re never where they’re aiming.</i><p class=\"Card-Feature\">Once per rest, Spend 2 Hope to gain +4 to evasion against one chosen target until your next action.",
+    "level": 4,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Bullet Time": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>You’re never where they’re aiming.</i><p class=\"Card-Feature\">Once per rest, Spend 2 Hope to gain +4 to evasion against one chosen target until your next action.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Bullet Time",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/bullet-time.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

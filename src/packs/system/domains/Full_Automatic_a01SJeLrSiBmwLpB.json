@@ -1,0 +1,93 @@
+{
+  "name": "Full Automatic",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/full-automatic.webp",
+  "system": {
+    "description": "<i>Mercy jammed with the trigger.</i><p class=\"Card-Feature\"><strong>Mark 4 Stress</strong>Attack all targets within Very Far in a 90 degree cone.  Make 1 Attack roll at +2 against the first target, which must be at the left or right side of the cone, and all subsequent target is in the natural order sweeping through the cone.  Subtract 1 from that value for the second target and subtract 1 more for each subsequent target.  (So, 1 roll of the Destiny dice, but the value is applied to all targets, starting at +2 and going down by 1 for each target after the first). Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.</p>",
+    "level": 10,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Full Automatic": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Mercy jammed with the trigger.</i><p class=\"Card-Feature\"><strong>Mark 4 Stress</strong>Attack all targets within Very Far in a 90 degree cone.  Make 1 Attack roll at +2 against the first target, which must be at the left or right side of the cone, and all subsequent target is in the natural order sweeping through the cone.  Subtract 1 from that value for the second target and subtract 1 more for each subsequent target.  (So, 1 roll of the Destiny dice, but the value is applied to all targets, starting at +2 and going down by 1 for each target after the first). Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 4,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Full Automatic",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/full-automatic.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "uMPsbwJhefUUJkJZ",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "PQLMzRcf34c4h3Eh",
+  "_id": "a01SJeLrSiBmwLpB",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621489495,
+    "modifiedTime": 1761621489495,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!a01SJeLrSiBmwLpB"
+}

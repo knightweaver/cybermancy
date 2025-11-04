@@ -1,0 +1,52 @@
+{
+  "name": "Rigger",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/classes/rigger.webp",
+  "system": {
+    "description": "The Rigger is the Maker, the Tinkerer, the Engineer—the soul who sees the world not as it is, but as it could be with the right parts and enough time on the bench. Every Rigger has a workshop somewhere: for some, it’s a pristine cathedral of tools and precision, where every wrench gleams under fluorescent light and nothing is ever out of place. For others, it’s organized chaos—wires draped like ivy, half-built drones humming in the dark, and a workbench only they can navigate.Every Rigger starts by asking one question: what kind of builder are you? And what does your workshop say about you?Most Riggers keep a “day job” that funds their obsession—a cover story that keeps the corporate auditors from asking why so many unregistered servos, capacitors, and prototype AIs keep showing up on their expense reports. Maybe you’re a licensed mechanic, maybe a tech salvager, maybe you just “repair” things that don’t technically belong to you.At the heart of every Rigger’s identity is their Primary Drone—their masterpiece, companion, and canvas. It’s never finished. It grows, evolves, and mutates with each new breakthrough or bad idea. Some are elegant—chrome-winged and graceful as birds. Others are ugly, heavy, loud, and perfect.What does your drone look like? What purpose—or personality—did you design into it? And when the fight starts, who’s really piloting who?",
+    "actions": {
+      "Rigger": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "The Rigger is the Maker, the Tinkerer, the Engineer—the soul who sees the world not as it is, but as it could be with the right parts and enough time on the bench. Every Rigger has a workshop somewhere: for some, it’s a pristine cathedral of tools and precision, where every wrench gleams under fluorescent light and nothing is ever out of place. For others, it’s organized chaos—wires draped like ivy, half-built drones humming in the dark, and a workbench only they can navigate.Every Rigger starts by asking one question: what kind of builder are you? And what does your workshop say about you?Most Riggers keep a “day job” that funds their obsession—a cover story that keeps the corporate auditors from asking why so many unregistered servos, capacitors, and prototype AIs keep showing up on their expense reports. Maybe you’re a licensed mechanic, maybe a tech salvager, maybe you just “repair” things that don’t technically belong to you.At the heart of every Rigger’s identity is their Primary Drone—their masterpiece, companion, and canvas. It’s never finished. It grows, evolves, and mutates with each new breakthrough or bad idea. Some are elegant—chrome-winged and graceful as birds. Others are ugly, heavy, loud, and perfect.What does your drone look like? What purpose—or personality—did you design into it? And when the fight starts, who’s really piloting who?",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Rigger",
+        "img": "modules/cybermancy/assets/icons/classes/rigger.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

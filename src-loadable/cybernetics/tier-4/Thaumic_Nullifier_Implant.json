@@ -1,0 +1,43 @@
+{
+  "name": "Thaumic Nullifier Implant",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/thaumic-nullifier-implant.webp",
+  "tier": 4,
+  "system": {
+    "description": "<i>Hope-crafted aegis against magical harm.</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 3 Hope</strong> to place 3 tokens on this card.  <br><br>As a Reaction, you can remove one token to negate a source of Magical damage.",
+    "actions": {
+      "Thaumic Nullifier Implant": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Hope-crafted aegis against magical harm.</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 3 Hope</strong> to place 3 tokens on this card.  <br><br>As a Reaction, you can remove one token to negate a source of Magical damage.",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Thaumic Nullifier Implant",
+        "img": "modules/cybermancy/assets/icons/cybernetics/thaumic-nullifier-implant.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

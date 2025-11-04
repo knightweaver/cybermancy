@@ -1,0 +1,90 @@
+{
+  "name": "Orbital Strike Beacon",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\orbital-strike-beacon.webp",
+  "system": {
+    "description": "A miniaturized satellite uplink calling down a storm of kinetic rods. Deals 8d20 physical damage within Very Far range.",
+    "quantity": 1,
+    "actions": {
+      "pt5U6hlyx4T7MUOa": {
+        "type": "damage",
+        "_id": "pt5U6hlyx4T7MUOa",
+        "systemPath": "actions",
+        "description": "<p>You can use this stardrop to summon a hailstorm of comets that deals 8d20 physical damage to all targets within Very Far range.</p><p>@Template[type:emanation|range:vf]</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 8,
+                "dice": "d20",
+                "bonus": null
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "physical"
+              ],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "name": "Use",
+        "img": "icons/magic/light/projectiles-star-purple.webp",
+        "range": "veryFar"
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924709053,
+    "modifiedTime": 1760924709053,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "U73BdyEYRNURbcfZ",
+  "sort": 0,
+  "_key": "!items!U73BdyEYRNURbcfZ"
+}

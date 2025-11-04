@@ -1,0 +1,69 @@
+{
+  "name": "Stealth Drone",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/stealth-drone.webp",
+  "system": {
+    "description": "<i>Your eyes are everywhere.</i><p class=\"Card-Feature\">Once per Scene, <strong>Spend 1 Hope</strong> to launch a tiny <b>Stealth Drone</b> within Very Far.  The drone provide audio within Very Close and visual signal.  When you take an Action, you can reposition the drone anywhere within Very Far.  creatures within Very Close can take an action to make an <b>Instinct</b> roll (Difficulty 15) to detect the drone, and if detected destroy the drone.</p>",
+    "level": 4,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Stealth Drone": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your eyes are everywhere.</i><p class=\"Card-Feature\">Once per Scene, <strong>Spend 1 Hope</strong> to launch a tiny <b>Stealth Drone</b> within Very Far.  The drone provide audio within Very Close and visual signal.  When you take an Action, you can reposition the drone anywhere within Very Far.  creatures within Very Close can take an action to make an <b>Instinct</b> roll (Difficulty 15) to detect the drone, and if detected destroy the drone.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Stealth Drone",
+        "img": "modules/cybermancy/assets/icons/domains/maker/stealth-drone.webp",
+        "range": "",
+        "_id": "wEpBTbA2Vu8u2A0X"
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "ytCG9iu5IyOFqKGE",
+  "_id": "r3bd36CIk4QJKR2v",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621716054,
+    "modifiedTime": 1761621716054,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!r3bd36CIk4QJKR2v"
+}

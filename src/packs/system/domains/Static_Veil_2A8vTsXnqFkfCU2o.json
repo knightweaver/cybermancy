@@ -1,0 +1,93 @@
+{
+  "name": "Static Veil",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/static-veil.webp",
+  "system": {
+    "description": "<i>“The perfect invisibility cloak smells faintly of ozone.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, creatures roll with Disadvantage to detect you or your team.</p>",
+    "level": 2,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Static Veil": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“The perfect invisibility cloak smells faintly of ozone.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, creatures roll with Disadvantage to detect you or your team.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Static Veil",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/static-veil.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "0zwlYEvHx4hiOU9K",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "lXh1TMkpHM0kk03b",
+  "_id": "2A8vTsXnqFkfCU2o",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621621441,
+    "modifiedTime": 1761621621441,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!2A8vTsXnqFkfCU2o"
+}

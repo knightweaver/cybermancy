@@ -1,0 +1,52 @@
+{
+  "name": "Situational awareness",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+  "system": {
+    "description": "Spend 1 Hope and make an Instinct roll (13).  On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).",
+    "actions": {
+      "Situational awareness": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 1 Hope and make an Instinct roll (13).  On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Situational awareness",
+        "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

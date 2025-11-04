@@ -1,0 +1,46 @@
+{
+  "name": "Quick Change",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/quick-change.webp",
+  "system": {
+    "description": "<i>The right tool for the wrong moment.</i><p class=\"Card-Feature\">Once per Scene, <strong>Mark 1 Stress</strong> to replace one module on your <b>Primary Drone</b> instantly.",
+    "level": 4,
+    "domain": "maker",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Quick Change": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The right tool for the wrong moment.</i><p class=\"Card-Feature\">Once per Scene, <strong>Mark 1 Stress</strong> to replace one module on your <b>Primary Drone</b> instantly.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Quick Change",
+        "img": "modules/cybermancy/assets/icons/domains/maker/quick-change.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

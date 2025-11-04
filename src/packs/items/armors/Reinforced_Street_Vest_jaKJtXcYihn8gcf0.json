@@ -1,0 +1,95 @@
+{
+  "folder": "XOEB45pDf3McLbfF",
+  "name": "Reinforced Street Vest",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/reinforced-street-vest.webp",
+  "system": {
+    "description": "Up-armored padding with denser gels and better dispersion. Looks cheap, works miracles.",
+    "actions": {},
+    "attached": [],
+    "tier": 2,
+    "equipped": false,
+    "baseScore": 4,
+    "armorFeatures": [
+      {
+        "value": "flexible",
+        "effectIds": [
+          "BFwU3ErPaajUSMUz"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 7,
+      "severe": 16
+    }
+  },
+  "effects": [
+    {
+      "name": "Flexible",
+      "description": "+1 to Evasion",
+      "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+      "changes": [
+        {
+          "key": "system.evasion",
+          "mode": 2,
+          "value": "1"
+        }
+      ],
+      "_id": "BFwU3ErPaajUSMUz",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!jaKJtXcYihn8gcf0.BFwU3ErPaajUSMUz"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912022360,
+    "modifiedTime": 1760912022360,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "jaKJtXcYihn8gcf0",
+  "sort": 0,
+  "_key": "!items!jaKJtXcYihn8gcf0"
+}

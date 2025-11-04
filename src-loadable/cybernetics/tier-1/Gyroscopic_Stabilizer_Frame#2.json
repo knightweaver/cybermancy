@@ -1,0 +1,42 @@
+{
+  "name": "Gyroscopic Stabilizer Frame",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/gyroscopic-stabilizer-frame.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Precision reborn; risk is your muse.\"</i><br><br><p class=\"Card-Feature\">Once per scene, as a Reaction, <strong>Mark 1 Stress</strong> to reroll 1 Agility ablity or saving throw",
+    "actions": {
+      "Gyroscopic Stabilizer Frame": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Gyroscopic Stabilizer Frame",
+        "img": "modules/cybermancy/assets/icons/cybernetics/gyroscopic-stabilizer-frame.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

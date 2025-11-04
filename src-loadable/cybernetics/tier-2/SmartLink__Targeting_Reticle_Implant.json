@@ -1,0 +1,34 @@
+{
+  "name": "SmartLink™ Targeting Reticle Implant",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-targeting-reticle-implant.webp",
+  "tier": 2,
+  "system": {
+    "description": "<i>Precision unleashed; elevate your aim.</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, +1 Attack.  <br><br>Requires the SmartLink™ CPU implant",
+    "actions": {
+      "SmartLink™ Targeting Reticle Implant": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Precision unleashed; elevate your aim.</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, +1 Attack.  <br><br>Requires the SmartLink™ CPU implant",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SmartLink™ Targeting Reticle Implant",
+        "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-targeting-reticle-implant.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

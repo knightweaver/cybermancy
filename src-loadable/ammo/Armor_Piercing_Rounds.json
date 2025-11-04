@@ -1,0 +1,34 @@
+{
+  "name": "Armor Piercing Rounds",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/armor-piercing-rounds.webp",
+  "tier": 1,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.",
+    "actions": {
+      "Armor Piercing Rounds": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Armor Piercing Rounds",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/armor-piercing-rounds.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

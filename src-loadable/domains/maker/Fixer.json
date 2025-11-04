@@ -1,0 +1,38 @@
+{
+  "name": "Fixer",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/fixer.webp",
+  "system": {
+    "description": "<i>You know who to call.</i><p class=\"Card-Feature\">You have a contact for materials. Non-weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.",
+    "level": 5,
+    "domain": "maker",
+    "recallCost": 0,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Fixer": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>You know who to call.</i><p class=\"Card-Feature\">You have a contact for materials. Non-weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Fixer",
+        "img": "modules/cybermancy/assets/icons/domains/maker/fixer.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Improvised Mod",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/improvised-mod.webp",
+  "system": {
+    "description": "<i>Improvise, adapt, overclock.</i><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to add a temporary extra mod to your <b>Primary Drone</b> for the current scene.  At the end of the Scene, remove 1 mod.",
+    "level": 3,
+    "domain": "maker",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Improvised Mod": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Improvise, adapt, overclock.</i><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to add a temporary extra mod to your <b>Primary Drone</b> for the current scene.  At the end of the Scene, remove 1 mod.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Improvised Mod",
+        "img": "modules/cybermancy/assets/icons/domains/maker/improvised-mod.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

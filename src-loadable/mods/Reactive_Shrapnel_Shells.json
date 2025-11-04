@@ -1,0 +1,10 @@
+{
+  "name": "Reactive Shrapnel Shells",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/reactive-shrapnel-shells.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">On hit, minor AoE splash. Critical: heavy AoE; creates hazard zone. Slot: Ammo."
+  },
+  "effects": []
+}

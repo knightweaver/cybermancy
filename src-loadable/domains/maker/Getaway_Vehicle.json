@@ -1,0 +1,38 @@
+{
+  "name": "Getaway Vehicle",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/getaway-vehicle.webp",
+  "system": {
+    "description": "<i>Drive fast, live smarter.</i><p class=\"Card-Feature\">You own a vehicle large enough for your team - describe the vehicle on your character sheet. While driving this vehicle, gain +2 to Driving checks. On a critical roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion), and adjust your Chase Die by and additional -1 to +1",
+    "level": 3,
+    "domain": "maker",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Getaway Vehicle": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Drive fast, live smarter.</i><p class=\"Card-Feature\">You own a vehicle large enough for your team - describe the vehicle on your character sheet. While driving this vehicle, gain +2 to Driving checks. On a critical roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion), and adjust your Chase Die by and additional -1 to +1",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Getaway Vehicle",
+        "img": "modules/cybermancy/assets/icons/domains/maker/getaway-vehicle.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

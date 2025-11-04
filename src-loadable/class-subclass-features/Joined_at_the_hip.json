@@ -1,0 +1,52 @@
+{
+  "name": "Joined at the hip",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/joined-at-the-hip.webp",
+  "system": {
+    "description": "One per long rest if you and your Primary Drone are within Close of each other, when damage from an attack would Mark either of your last Hit Point, you or your Primary Drone can move to the other’s side and Mark the Hit Point instead.",
+    "actions": {
+      "Joined at the hip": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "One per long rest if you and your Primary Drone are within Close of each other, when damage from an attack would Mark either of your last Hit Point, you or your Primary Drone can move to the other’s side and Mark the Hit Point instead.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Joined at the hip",
+        "img": "modules/cybermancy/assets/icons/subclasses/joined-at-the-hip.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

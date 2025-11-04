@@ -1,0 +1,52 @@
+{
+  "name": "You’re in my sights",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/you’re-in-my-sights.webp",
+  "system": {
+    "description": "Spend 1 Hope to make an adversary within Very Close your Primary Focus.  If that adversary attempts to leave Very Close range, you may move with them automatically on their Action. +2 to all your attacks and damage against that Primary Focus",
+    "actions": {
+      "You’re in my sights": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 1 Hope to make an adversary within Very Close your Primary Focus.  If that adversary attempts to leave Very Close range, you may move with them automatically on their Action. +2 to all your attacks and damage against that Primary Focus",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "You’re in my sights",
+        "img": "modules/cybermancy/assets/icons/subclasses/you’re-in-my-sights.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

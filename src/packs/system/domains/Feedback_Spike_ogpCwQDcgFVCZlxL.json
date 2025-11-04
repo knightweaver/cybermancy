@@ -1,0 +1,93 @@
+{
+  "name": "Feedback Spike",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/feedback-spike.webp",
+  "system": {
+    "description": "<i>“Return to sender.”</i><p class=\"Card-Feature\">As a Reaction, <strong>Spend 1 Hope</strong> when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.</p>",
+    "level": 6,
+    "domain": "circuit",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Feedback Spike": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>“Return to sender.”</i><p class=\"Card-Feature\">As a Reaction, <strong>Spend 1 Hope</strong> when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Feedback Spike",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/feedback-spike.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "hFgIiaRJKCFEjUMz",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "p7l7Pp8lBy5C9mxh",
+  "_id": "ogpCwQDcgFVCZlxL",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621628510,
+    "modifiedTime": 1761621628510,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!ogpCwQDcgFVCZlxL"
+}

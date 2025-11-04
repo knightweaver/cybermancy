@@ -1,0 +1,38 @@
+{
+  "name": "Good Maintenance",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/good-maintenance.webp",
+  "system": {
+    "description": "<i>A well-oiled machine never quits.</i><p class=\"Card-Feature\">Your weapons and <b>Primary Drone</b> cannot malfunction except through magical effects.",
+    "level": 6,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Good Maintenance": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>A well-oiled machine never quits.</i><p class=\"Card-Feature\">Your weapons and <b>Primary Drone</b> cannot malfunction except through magical effects.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Good Maintenance",
+        "img": "modules/cybermancy/assets/icons/domains/maker/good-maintenance.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

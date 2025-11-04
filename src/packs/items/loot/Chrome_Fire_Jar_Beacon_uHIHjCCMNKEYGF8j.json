@@ -1,0 +1,56 @@
+{
+  "name": "Chrome Fire Jar Beacon",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/chrome-fire-jar-beacon.webp",
+  "system": {
+    "description": "You can pour out the strange liquid contents of this jar to instantly produce fire. The contents regenerate when you take a long rest. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {
+      "nzXMuxD8DpT1dMXF": {
+        "type": "effect",
+        "_id": "nzXMuxD8DpT1dMXF",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Pour",
+        "img": "icons/containers/kitchenware/jug-wrapped-red.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924954125,
+    "modifiedTime": 1760925007129,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "uHIHjCCMNKEYGF8j",
+  "sort": 3400000,
+  "_key": "!items!uHIHjCCMNKEYGF8j"
+}

@@ -1,0 +1,106 @@
+{
+  "name": "Zero Quantum Amulet",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/zero-quantum-amulet.webp",
+  "system": {
+    "description": "Once per long rest, you can activate this amulet to become **Hidden** until you move. While **Hidden** in this way, you remain unseen even if an adversary moves to where they would normally see you. cryptographic sigils route through subdermal coils",
+    "quantity": 1,
+    "actions": {
+      "vitnEzfU3gCzsRem": {
+        "type": "effect",
+        "_id": "vitnEzfU3gCzsRem",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "YBkYjxU0Vn5JEsMK",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Activate",
+        "img": "icons/equipment/neck/pendant-rough-silver-purple.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": [
+    {
+      "name": "Elusive Amulet",
+      "img": "icons/equipment/neck/pendant-rough-silver-purple.webp",
+      "origin": "Compendium.daggerheart.loot.Item.PkmTZXRMZL022O75",
+      "transfer": true,
+      "_id": "YBkYjxU0Vn5JEsMK",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null,
+        "seconds": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">You are Hidden until you move. While Hidden in this way, you remain unseen even if an adversary moves to where they would normally see you.</span></p>",
+      "tint": "#ffffff",
+      "statuses": [
+        "hidden"
+      ],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!zBfu17n5wv40zxc3.YBkYjxU0Vn5JEsMK"
+    }
+  ],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925021749,
+    "modifiedTime": 1760925021749,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "zBfu17n5wv40zxc3",
+  "sort": 0,
+  "_key": "!items!zBfu17n5wv40zxc3"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "name",
+  "type": "type",
+  "img": "img",
+  "system": {
+    "description": "description",
+    "actions": {
+      "action.name": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "system.description",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "action.name",
+        "img": "img",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

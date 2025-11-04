@@ -1,0 +1,38 @@
+{
+  "name": "Quick Reload",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/quick-reload.webp",
+  "system": {
+    "description": "<i>Reloading is for amateurs.</i><p class=\"Card-Feature\">Swap ammunition types without spending an action.",
+    "level": 1,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Quick Reload": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Reloading is for amateurs.</i><p class=\"Card-Feature\">Swap ammunition types without spending an action.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Quick Reload",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/quick-reload.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

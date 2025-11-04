@@ -1,0 +1,57 @@
+{
+  "name": "Nanowire Bridge Pod",
+  "type": "consumable",
+  "img": "modules\\cybermancy\\assets\\icons\\consumables\\nanowire-bridge-pod.webp",
+  "system": {
+    "description": "Deploys self-assembling nanowires forming a bridge up to Far range; dissolves after short rest.",
+    "quantity": 1,
+    "actions": {
+      "dk7fhkfA4m5lqNWB": {
+        "type": "effect",
+        "_id": "dk7fhkfA4m5lqNWB",
+        "systemPath": "actions",
+        "description": "<p>Thick vines grow from your location to a point of your choice within Far range, allowing you to climb up or across them. The vines dissipate on your next short rest.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Plant",
+        "img": "icons/consumables/plants/leaf-old-dried-curled-green.webp",
+        "range": ""
+      }
+    },
+    "consumeOnUse": true
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924703339,
+    "modifiedTime": 1760924703339,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "mfKOR9J8sFyHfyyK",
+  "sort": 0,
+  "_key": "!items!mfKOR9J8sFyHfyyK"
+}

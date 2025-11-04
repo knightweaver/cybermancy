@@ -1,0 +1,95 @@
+{
+  "folder": "rC9i0rH9DskIvndW",
+  "name": "Caster’s Conduit Harness",
+  "type": "armor",
+  "img": "modules/cybermancy/assets/icons/armors/casters-conduit-harness.webp",
+  "system": {
+    "description": "Latticed conduits that route arcane surge cleanly—focus in, cast true.",
+    "actions": {},
+    "attached": [],
+    "tier": 4,
+    "equipped": false,
+    "baseScore": 5,
+    "armorFeatures": [
+      {
+        "value": "channeling",
+        "effectIds": [
+          "8bwf1Ri3jYkjphEv"
+        ],
+        "actionIds": []
+      }
+    ],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 13,
+      "severe": 36
+    }
+  },
+  "effects": [
+    {
+      "name": "Channeling",
+      "description": "+1 to Spellcast Rolls",
+      "img": "icons/magic/symbols/rune-sigil-horned-blue.webp",
+      "changes": [
+        {
+          "key": "system.bonuses.roll.spellcast",
+          "mode": 2,
+          "value": "1"
+        }
+      ],
+      "_id": "8bwf1Ri3jYkjphEv",
+      "type": "base",
+      "system": {
+        "rangeDependence": {
+          "enabled": false,
+          "type": "withinRange",
+          "target": "hostile",
+          "range": "melee"
+        }
+      },
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "combat": null
+      },
+      "origin": null,
+      "tint": "#ffffff",
+      "transfer": true,
+      "statuses": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "lastModifiedBy": null
+      },
+      "_key": "!items.effects!nTcerhgJ9wnO9eFp.8bwf1Ri3jYkjphEv"
+    }
+  ],
+  "ownership": {
+    "default": 0,
+    "FecEtPuoQh6MpjQ0": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760912124072,
+    "modifiedTime": 1760912131826,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "nTcerhgJ9wnO9eFp",
+  "sort": 0,
+  "_key": "!items!nTcerhgJ9wnO9eFp"
+}

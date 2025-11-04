@@ -1,0 +1,59 @@
+{
+  "name": "Jack of All Trades",
+  "type": "subclass",
+  "_id": "WydcKdOMoGrShfTF",
+  "img": "modules/cybermancy/assets/icons/subclasses/jack-of-all-trades.webp",
+  "system": {
+    "description": "<p>You don’t fix machines — you resurrect them.</p><p></p><p data-start=\"385\" data-end=\"624\">Every system you touch hums with new life, even if it screams a little first. You see the world as one colossal machine — broken, jury-rigged, and begging for someone reckless enough to open it up and make it better. That someone is you.</p><p></p><p data-start=\"626\" data-end=\"922\">You’re a tinkerer, a mechanic, an engineer, and an artist with a soldering iron for a brush. Where others see scrap, you see potential. Where others see warning labels, you see a challenge. The difference between a repair and an upgrade is mostly attitude — and yours is dangerously optimistic.</p><p></p><p data-start=\"924\" data-end=\"1215\">Your workshop is chaos incarnate: wires draped like vines, half-built drones twitching on the bench, sparks popping like punctuation to your thoughts. Every failure is just a prototype that didn’t know it yet. Every explosion is a lesson in physics — the kind that smells faintly of ozone.</p><p></p><p data-start=\"1217\" data-end=\"1399\">Corporations build things to last. You build things to <em data-start=\"1272\" data-end=\"1279\">live.</em> You strip their safeties, rewrite their firmware, and rewire their souls until they remember what freedom feels like.</p><p data-start=\"1401\" data-end=\"1543\">You don’t specialize. You improvise. And when something breaks again — it’s just the universe giving you another chance to make it stronger.</p>",
+    "spellcastingTrait": "knowledge",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.U1ogD0UVKecUvIjj"
+      },
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.8CJ3RY02PhdId6tO"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.AlyAKBVG7X7Jm8hB"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.Zxa69vc44GIKDJ0w"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.CVpZuapdS1jXeSt6"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.rKMXrkBZWyYOiagv"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.cybermancy.cybermancy-classes.Item.G8khPip0W22RIZU9"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762205400975,
+    "modifiedTime": 1762206787236,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!WydcKdOMoGrShfTF"
+}

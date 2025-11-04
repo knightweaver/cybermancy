@@ -1,0 +1,52 @@
+{
+  "name": "The right drone for the job",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+  "system": {
+    "description": "Once per long rest, change 1 mod on your Primary Drone",
+    "actions": {
+      "The right drone for the job": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Once per long rest, change 1 mod on your Primary Drone",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "The right drone for the job",
+        "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

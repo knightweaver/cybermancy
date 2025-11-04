@@ -1,0 +1,34 @@
+{
+  "name": "Regenerative Stemware",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/regenerative-stemware.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Restore, rejuvenate: your timeless touchpoint.\"</i><br><br><p class=\"Card-Feature\">Gain an additional short rest downtime action that can only be used to heal a Hit Point",
+    "actions": {
+      "Regenerative Stemware": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Regenerative Stemware",
+        "img": "modules/cybermancy/assets/icons/cybernetics/regenerative-stemware.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

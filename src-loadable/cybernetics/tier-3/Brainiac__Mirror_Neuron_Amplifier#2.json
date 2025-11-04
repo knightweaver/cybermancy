@@ -1,0 +1,42 @@
+{
+  "name": "Brainiac™ Mirror Neuron Amplifier",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-mirror-neuron-amplifier.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>\"Trade hope for unwavering charisma surge.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Prescence Roll or Saving Throw",
+    "actions": {
+      "Brainiac™ Mirror Neuron Amplifier": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Brainiac™ Mirror Neuron Amplifier",
+        "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-mirror-neuron-amplifier.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

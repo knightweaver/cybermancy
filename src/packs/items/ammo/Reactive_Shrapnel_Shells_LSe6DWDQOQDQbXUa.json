@@ -1,0 +1,56 @@
+{
+  "name": "Reactive Shrapnel Shells",
+  "type": "consumable",
+  "img": "modules/cybermancy/assets/icons/consumables/ammo/reactive-shrapnel-shells.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br /><br /> All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.</p>",
+    "actions": {
+      "Reactive Shrapnel Shells": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br><br> All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reactive Shrapnel Shells",
+        "img": "modules/cybermancy/assets/icons/consumables/ammo/reactive-shrapnel-shells.webp",
+        "range": "",
+        "_id": "c6DGFC6sDaUNJDUW"
+      }
+    },
+    "quantity": 1,
+    "consumeOnUse": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172541408,
+    "modifiedTime": 1762172541408,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "LSe6DWDQOQDQbXUa",
+  "sort": 0,
+  "_key": "!items!LSe6DWDQOQDQbXUa"
+}

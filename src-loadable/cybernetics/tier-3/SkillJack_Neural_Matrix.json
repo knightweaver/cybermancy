@@ -1,0 +1,43 @@
+{
+  "name": "SkillJack Neural Matrix",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/skilljack-neural-matrix.webp",
+  "tier": 3,
+  "system": {
+    "description": "<i>Elevate potential; risk-draped enhancement awaits.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to increase your Proficiency level for 1 action or reaction",
+    "actions": {
+      "SkillJack Neural Matrix": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Elevate potential; risk-draped enhancement awaits.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to increase your Proficiency level for 1 action or reaction",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "SkillJack Neural Matrix",
+        "img": "modules/cybermancy/assets/icons/cybernetics/skilljack-neural-matrix.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

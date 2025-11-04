@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Batch Cybermancy icon generator (CLI)
-- Reads items from a JSON file (expects keys: name, description, effect, img).
-- Generates one .webp per item via OpenAI Images API.
-- Outputs individual .webp files (no zipping).
+- Reads items from JSON or CSV.
+- CSV should include: name, description, effect, img (optional), style (new), organ (for cybernetics).
+- Per-row 'style' selects a visual style preset; 'effect' still maps to EFFECT_PALETTE.
 
 Dependencies:
   pip install openai pillow python-slugify python-dotenv
@@ -11,26 +11,27 @@ Env:
   OPENAI_API_KEY in .env or environment
 """
 
-import os, json, base64, time, argparse, logging
+import os, json, base64, time, argparse, logging, csv, re
 from io import BytesIO
 from pathlib import Path
-from typing import Any, Dict, Iterable, List
+from typing import Dict, List, Any
 from PIL import Image
 from slugify import slugify
 from dotenv import load_dotenv
 from openai import OpenAI
-import csv
 
-# Color scheme mapping from your spec
-EFFECT_PALETTE = {
+# -----------------------------
+# Color scheme / effect palette
+# -----------------------------
+EFFECT_PALETTE: Dict[str, str] = {
     "healing": "warm red–orange to amber",
     "stress": "soft violet-blue to lavender",
     "physical": "cyan–teal to electric blue",
     "strength": "amber-gold to bronze",
     "cognitive": "neon green to lime-white",
     "charisma": "neon green to lime-white",
-    "armor": "any colors that articles of clothing might have, but tending toward steel grey to leather brown",
-    "loot": "use the description field to infer a color scheme for the item",
+    "armor": "steel grey to leather brown (realistic textile/leather tones)",
+    "loot": "infer from description; accent with metallics appropriate to the object",
     "circuit": "glowing circuitry motif, light grey background, neon blue and green accents",
     "weapons": "gunmetal grey with accents of electric cyan and molten red-orange",
     "corporate": "gunmetal and chrome with cold blue-white highlights",
@@ -39,113 +40,133 @@ EFFECT_PALETTE = {
     "street": "scratched chrome with graffiti teal and orange",
     "antique": "aged bronze and iron with faint amber and smoke-blue glow",
     "stealth": "matte black and charcoal with subtle purple or cyan pulse lines",
-    "cybernetic": "metallic organ implants integrated visibly into human skin; glow accents matching enhancement type",
-    "programs": "black/graphite vector iconography with cyan circuit lines (for SVG glyphs)",
-
-    # Domain
-    "domain-bullet": "gunmetal and graphite base with fiery orange to ember-red glow and cyan tracer accents",
-    "domain-maker": "titanium grey and steel blue base with amber-gold and teal glows, accented by warm white plasma highlights",
-    "domain-make": "titanium grey + steel blue with amber-gold forge glow and teal circuitry accents",
-    "domain-circuit": "black/graphite vector iconography with cyan circuit lines (for SVG glyphs)",
-                      
-    # Classes
+    "cybernetic": "metallic organ implants integrated into skin; accent glow matches enhancement type",
+    "programs": "graphite/black vector iconography with cyan circuit lines (glyph-like, minimal)",
+    # Domains / classes (optional, use as styles or effects)
+    "domain-bullet": "gunmetal & graphite base, ember-red glow with cyan tracer accents",
+    "domain-maker": "titanium grey & steel blue, amber-gold + teal forge/circuit accents",
+    "domain-circuit": "graphite + cyan/teal circuitry on light grey",
     "class-netrunner": "graphite base with cyan/teal code glow and subtle violet accents",
-    "class-rigger": "steel/titanium base with teal (control links) and amber (power) highlights",
-    "class-streetsamurai": "gunmetal and black carbon fiber base with crimson and steel-blue accents, faint amber weapon glow",
-
-    # Netrunner Subclasses
-    "subclass-ghost-in-the-machine": "cool cyan/teal and violet; human silhouette dissolving into circuits/data",
-    "subclass-wrecking-ball": "gunmetal with high-contrast red-orange + electric blue ‘breach’ energy",
-
-    # Rigger Subclasses
-    "subclass-jack-of-all-trades": "titanium/steel-blue with balanced teal/amber utility glows (multi-drone toolkit)",
-    "subclass-speed-racer": "graphite/carbon with teal/amber speed trails; hints of magenta for motion blur",
-
-    # Street Samurai Subclasses
-    "subclass-bodyguard": "matte black and brushed silver with crimson-gold defensive highlights; strong, grounded presence",
-    "subclass-mercenary": "dark steel with burnt orange and neon red combat glows; tactical, ruthless, efficient",
-
+    "class-rigger": "steel/titanium with teal (control links) and amber (power) highlights",
+    "class-streetsamurai": "gunmetal & carbon fiber with crimson and steel-blue accents",
 }
-# map common aliases (case/space-insensitive)
+
+# -----------------------------
+# Style presets (chosen by CSV 'style' column)
+# -----------------------------
+STYLE_PRESETS: Dict[str, str] = {
+    # Generic buckets
+    "item": (
+        "cyberpunk item icon, semi-realistic rendering, metallic/glass materials, "
+        "clean silhouette, soft reflections, subtle vignette, NO text or labels, "
+        "light grey background, consistent luminance"
+    ),
+    "weapon": (
+        "cyberpunk weapon icon, semi-realistic rendering, gunmetal/graphite materials, "
+        "clean silhouette, subtle reflections, medium grey background, consistent luminance; "
+        "imply energy/power with restrained glows"
+    ),
+    "program": (
+        "minimalist glyph-like icon (software/program), vector feel, crisp edges, "
+        "graphite/black base with neon circuitry accents, light grey background, no text"
+    ),
+    "cybernetic": (
+        "graphic, semi-abstract cybernetics panel; minimal human depiction (silhouette or partial overlay), "
+        "clean light-grey background, crisp edges, layered shapes, glowing accent lines, vector-like clarity; "
+        "no photoreal face, no busy HUD/text"
+    ),
+    "ice": (
+        "Cybermancy style: semi-abstract cyberpunk concept art of Intrusion Countermeasures Electronics (ICE). "
+        "minimalist glyph-like icon (software/program), vector feel, crisp edges, "
+        "pulses of neon blue and white light, and fractal lattice patterns implying code and control. "
+        "black/graphite with cyan/teal circuits; clean vector on a dark background"
+        "Rendered as a semi-abstract icon on a dark background, metallic and glasslike materials, consistent with Cybermancy item icons. "
+        "Do not include text, borders, or characters—focus on abstract technological form and energy."
+    ),
+    # Optional specific “tones” you can use directly in CSV
+    "class-netrunner": "netrunner emblem; graphite base, cyan/teal code glow, subtle violet; clean, iconic on light grey",
+    "class-rigger": "rigger emblem; steel/titanium, teal control links + amber power highlights; iconic on light grey",
+    "class-streetsamurai": "street samurai emblem; carbon fiber + gunmetal, crimson/steel-blue accents; iconic on light grey",
+    "domain-circuit": "domain icon; black/graphite with cyan/teal circuits; clean vector on light grey",
+    "domain-bullet": "domain icon; gunmetal/graphite with ember red + cyan tracers; clean vector on light grey",
+    "domain-maker": "domain icon; titanium/steel-blue with amber/teal forge/circuit glows; light grey"
+}
+
+# Column aliases (CSV headers can vary)
 NAME_ALIASES = {"name","card_name","title","item","card"}
 DESC_ALIASES = {"description","card_description","card_effect","effect_text","text","blurb"}
 EFFECT_ALIASES = {"effect","domain","type","category"}
 IMG_ALIASES = {"img","image","filename","file","icon"}
-ORGAN_ALIASES = {"organ"}
+STYLE_ALIASES = {"style","visual_style","art_style"}
+ORGAN_ALIASES = {"organ","body_part","cyber_organ"}
 
-#STYLE = (
-#    "Semi-realistic cyberpunk character emblem.",
-#    "Subclass images should borrow motifs from their class images.",
-#    "If the primary entity in the image is a character (netrunner, rigger, or street-samuri),The resulting image should not look like a robot, but should clearly be human, or at least human adjacent",
-#    "If the primary entity in the image is a drone, can look like a typical drone",
-#    "Larger canvas for detail (e.g. 800×800 px).",
-#    "High-fidelity materials: carbon fiber, alloy plating, glass, neon.",
-#    "Dynamic lighting: key + rim, warm/cool color contrast.",
-#    "Minimal background: soft vignette, light grey field.",
-#    "Readable at reduced scale, but richer detail than item icons.",
-#    "No text, no lettering, no UI framing.",
-#    "Clean edge discipline: no clutter beyond silhouette."
-#)
-STYLE = (
-    "cyberpunk item icon, semi-realistic rendering, metallic/glass materials, "
-    "clean silhouette, soft reflections, subtle vignette, NO text or labels, "
-    "light grey background, consistent luminance"
-)
-#STYLE = (
-#    "cyberpunk weapon icon, semi-realistic rendering, gunmetal and graphite materials,"
-#    "clean silhouette, subtle reflections, light grey background, consistent luminance,"
-#    "with glowing accents of electric cyan and molten red-orange to imply energy and power."
-#)
-# --- Updated Cybernetic Visual Style ---
-CYBERNETICS_STYLE = (
-    "Graphic, semi-abstract cyberpunk poster/diagram. Minimal human depiction; if any, use silhouette or partial "
-    "anatomical overlay. Clean light-grey background. Crisp edges, layered shapes, glowing accents, vector-like clarity. "
-    "No photoreal face, no full portrait, no UI chrome. Emphasize symbolism over anatomy."
-    "avoid: photorealistic face, full human portrait, boring front-facing male, repetitive body patches, muddy lighting, "
-    "avoid: busy HUD UI, text labels, cluttered background"
-)
-
+# Organ → prompt focus (cybernetics only)
 ORGAN_FOCUS = {
-    "eye": "close-up of the face, one eye cybernetic",
-    "arm": "upper torso with cybernetic arm extended",
-    "legs": "mid-body or full-body with cybernetic limbs visible",
-    "spinal": "rear three-quarter angle showing spinal plating",
-    "skin": "mid torso portrait showing synthetic skin texture",
+    "eye": "close-up portrait; one cybernetic eye prominently integrated",
+    "arm": "upper torso with cybernetic arm extended in a dynamic pose",
+    "hand": "close-up of cybernetic hand with splayed fingers",
+    "legs": "mid or full-body with cybernetic legs visible",
+    "spinal": "rear three-quarter angle showing spinal interface plating",
+    "skin": "mid-torso showing synthetic skin seams and glow-lines",
     "vocal chords": "neck/throat close-up with visible vocal emitters",
-    "chakra": "skull/face close-up with visible chakra points highlighted",
-    "bones": "cross section view of the body with the bones showing the cybernetic enhancements",
-    "nervous system": "cross section view of the body with the nervous system highlighted and showing the cybernetic enhancement",
-    "hand": "close-up of the hand with the finger splayed",
-    "brain": "skull/face close-up with cross-section of the brain visible showing the cybernetic enhancement"
+    "bones": "cutaway showing reinforced skeletal elements",
+    "nervous system": "cutaway with neural pathways illuminated",
+    "brain": "skull close-up with cross-section of implanted cortex hardware"
 }
 
-def norm(s): return s.strip().lower().replace(" ", "") if isinstance(s, str) else ""
+def norm(s:str) -> str:
+    return s.strip().lower().replace(" ","") if isinstance(s,str) else ""
 
-# --- Updated prompt builder ---
-def build_prompt(name: str, description: str, effect: str, organ: str) -> str:
-    effect_key = (effect or "").lower().strip()
-    organ_focus = ORGAN_FOCUS.get(organ, "Depict the item in isolation as a product render.")
-    palette = EFFECT_PALETTE.get(effect_key, "cyan–teal to electric blue")
-    name_lower = name.lower()
+def find_col(columns: List[str], preferred: str, aliases: set) -> str:
+    cols_norm = {norm(c): c for c in columns}
+    if preferred and norm(preferred) in cols_norm:
+        return cols_norm[norm(preferred)]
+    for a in aliases:
+        if a in cols_norm:
+            return cols_norm[a]
+    return ""
 
-    # If the name or effect indicates a cybernetic body mod, switch to portrait prompt
-    if effect == 'cybernetic':
-        style_text = CYBERNETICS_STYLE
+def slugify_safe(s: str) -> str:
+    return slugify(s or "").strip("-") or "untitled"
+
+def select_style_text(style_token: str) -> str:
+    token = (style_token or "").strip().lower()
+    if token in STYLE_PRESETS:
+        return STYLE_PRESETS[token]
+    # allow passing effect-like keys as styles too (e.g., "class-netrunner", "domain-circuit")
+    if token in EFFECT_PALETTE:
+        return f"icon styled for '{token}'; " + EFFECT_PALETTE[token] + "; light grey background; clean silhouette"
+    # fallback
+    return STYLE_PRESETS["item"]
+
+def select_palette_text(effect_token: str) -> str:
+    key = (effect_token or "").strip().lower()
+    return EFFECT_PALETTE.get(key, "cyan–teal to electric blue accents on a light grey background")
+
+def build_prompt(name: str, description: str, effect: str, organ: str, style_token: str) -> str:
+    """Compose the final prompt using row style + effect palette. Cybernetics get organ focus."""
+    style_text = select_style_text(style_token)
+    palette = select_palette_text(effect)
+    organ_key = (organ or "").strip().lower()
+    organ_focus = ORGAN_FOCUS.get(organ_key, "Depict the subject in isolation as a product render.")
+
+    # Cybernetics use different guidance
+    if (style_token or "").strip().lower() == "cybernetic" or (effect or "").strip().lower() == "cybernetic":
         focus_phrase = (
-            "Depict the augmentation clearly on a human subject. "
-            "Make the replaced organ or body region the visual focal point. "
-            "Include realistic anatomical integration—cabling, seams, glowlines, and alloy under skin."
-            f"Show the '{organ_focus}' in the resulting image"
+            "Depict the augmentation on a human subject (silhouette/partial overlay), "
+            "with realistic anatomical integration: seams, cabling, alloy under skin. "
+            f"Focal guidance: {organ_focus}."
         )
     else:
-        # fallback to the icon style for items or general tech
-        style_text = STYLE
-        focus_phrase = "Depict the item in isolation as a product render."
+        focus_phrase = "Depict the subject in isolation as a premium product render."
 
     return (
-        f"Generate an image for '{name}', described as: {description}. "
-        f"{focus_phrase} Color scheme: {palette}. "
-        f"Style: {style_text}"
+        f"Generate an image for '{name}'. "
+        f"Description: {description} "
+        f"Style: {style_text}. "
+        f"Color & glow accents guided by palette: {palette}. "
+        f"{focus_phrase} "
+        "Readable at 400×400 icon scale; high-fidelity materials and edges."
     )
 
 def b64png_to_webp(b64_png: str, out_path: Path) -> None:
@@ -153,58 +174,40 @@ def b64png_to_webp(b64_png: str, out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path, "WEBP", method=6, quality=95)
 
-def find_col(columns, preferred, aliases):
-    """Return the column name to use: prefer --*-key, else best alias match."""
-    cols_norm = {norm(c): c for c in columns}
-    # prefer the exact provided key
-    if preferred and norm(preferred) in cols_norm:
-        return cols_norm[norm(preferred)]
-    # try aliases
-    for a in aliases:
-        if a in cols_norm:
-            return cols_norm[a]
-    return None
-
-def load_items(path: Path, name_key: str, desc_key: str, effect_key: str, img_key: str, organ_key: str):
-    # JSON path?
-    if path.suffix.lower() in {".json"}:
+def load_items(path: Path, name_key: str, desc_key: str, effect_key: str, img_key: str, style_key: str, organ_key: str) -> List[Dict[str,str]]:
+    # JSON input
+    if path.suffix.lower() == ".json":
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         if isinstance(data, dict) and "items" in data and isinstance(data["items"], list):
             data = data["items"]
         if not isinstance(data, list):
             raise ValueError("Input JSON must be a list or an object with an 'items' list.")
-        # ensure fields exist (empty if missing)
         items = []
         for obj in data:
             if isinstance(obj, dict):
                 items.append({
-                    name_key: str(obj.get(name_key, "")).strip(),
-                    desc_key: str(obj.get(desc_key, "")).strip(),
+                    name_key:   str(obj.get(name_key, "")).strip(),
+                    desc_key:   str(obj.get(desc_key, "")).strip(),
                     effect_key: str(obj.get(effect_key, "")).strip(),
-                    img_key: str(obj.get(img_key, "")).strip(),
-                    organ_key: str(obj.get(organ_key, "")).strip(),
+                    img_key:    str(obj.get(img_key, "")).strip(),
+                    style_key:  str(obj.get(style_key, "")).strip(),
+                    organ_key:  str(obj.get(organ_key, "")).strip(),
                 })
         return items
 
-    # CSV path?
-    if path.suffix.lower() in {".csv"}:
+    # CSV input
+    if path.suffix.lower() == ".csv":
         with path.open("r", encoding="utf-8-sig", newline="") as f:
             reader = csv.DictReader(f)
             cols = reader.fieldnames or []
-            # resolve columns (prefer explicit keys passed on CLI; else aliases)
             name_col   = find_col(cols, name_key,   NAME_ALIASES)
             desc_col   = find_col(cols, desc_key,   DESC_ALIASES)
             effect_col = find_col(cols, effect_key, EFFECT_ALIASES)
             img_col    = find_col(cols, img_key,    IMG_ALIASES)
-            organ_col  = find_col(cols, organ_key,    ORGAN_ALIASES)
-
-            if not name_col:
-                raise ValueError(f"Could not resolve name column. Passed '{name_key}', available: {cols}")
-            if not desc_col:
-                raise ValueError(f"Could not resolve description column. Passed '{desc_key}', available: {cols}")
-            if not effect_col:
-                raise ValueError(f"Could not resolve effect column. Passed '{effect_key}', available: {cols}")
-            # img is optional; if missing, we'll slugify the name later
+            style_col  = find_col(cols, style_key,  STYLE_ALIASES)
+            organ_col  = find_col(cols, organ_key,  ORGAN_ALIASES)
+            if not name_col or not desc_col or not effect_col:
+                raise ValueError(f"Missing required columns. Found: {cols}")
             items = []
             for row in reader:
                 items.append({
@@ -212,40 +215,42 @@ def load_items(path: Path, name_key: str, desc_key: str, effect_key: str, img_ke
                     desc_key:   str(row.get(desc_col, "")).strip(),
                     effect_key: str(row.get(effect_col, "")).strip(),
                     img_key:    str(row.get(img_col, "")).strip() if img_col else "",
+                    style_key:  str(row.get(style_col, "")).strip(),
                     organ_key:  str(row.get(organ_col, "")).strip(),
                 })
             return items
 
-    raise ValueError(f"Unsupported input type: {path.suffix} (use .json or .csv)")
+    raise ValueError(f"Unsupported input: {path.suffix} (use .json or .csv)")
 
 def main():
-    parser = argparse.ArgumentParser(description="Batch-generate Cybermancy item icons via OpenAI Images API.")
-    parser.add_argument("--input", "-i", required=True, type=Path, help="Path to input JSON file.")
+    parser = argparse.ArgumentParser(description="Batch-generate Cybermancy icons via OpenAI Images API (per-row styles).")
+    parser.add_argument("--input", "-i", required=True, type=Path, help="Path to input CSV or JSON.")
     parser.add_argument("--outdir", "-o", required=True, type=Path, help="Output directory for .webp files.")
-    parser.add_argument("--model", default="gpt-image-1-mini", help="OpenAI image model (e.g., gpt-image-1 or gpt-image-1-mini).")
-    parser.add_argument("--size", default="1024x1024", help="Image size, e.g., Supported values are: '1024x1024', '1024x1536', '1536x1024', and 'auto'.")
-    parser.add_argument("--delay", type=float, default=1.0, help="Delay (s) between requests to avoid rate limits.")
-    parser.add_argument("--max-items", type=int, default=0, help="Optional cap on number of items to render (0 = all).")
-    parser.add_argument("--seed", type=int, default=None, help="Optional generation seed if supported.")
-    parser.add_argument("--overwrite", action="store_true", help="Overwrite existing output files.")
-    parser.add_argument("--name-key", default="name", help="Key for item name in JSON.")
-    parser.add_argument("--desc-key", default="description", help="Key for item description in JSON.")
-    parser.add_argument("--effect-key", default="effect", help="Key for item effect in JSON.")
-    parser.add_argument("--organ-key", default="organ", help="Key for the organ that is replaced with a cybernetic.")
-    parser.add_argument("--img-key", default="img", help="Key for image filename in JSON.")
-    parser.add_argument("--log-level", default="INFO", help="Logging level (DEBUG, INFO, WARNING, ERROR).")
+    parser.add_argument("--model", default="gpt-image-1-mini", help="Image model.")
+    parser.add_argument("--size", default="1024x1024", help="Image size (e.g., 1024x1024).")
+    parser.add_argument("--delay", type=float, default=1.0, help="Delay between requests.")
+    parser.add_argument("--max-items", type=int, default=0, help="0 = all.")
+    parser.add_argument("--seed", type=int, default=None, help="Optional seed.")
+    parser.add_argument("--overwrite", action="store_true", help="Overwrite existing outputs.")
+    # column keys
+    parser.add_argument("--name-key",  default="name")
+    parser.add_argument("--desc-key",  default="description")
+    parser.add_argument("--effect-key",default="effect")
+    parser.add_argument("--img-key",   default="img")
+    parser.add_argument("--style-key", default="style")
+    parser.add_argument("--organ-key", default="organ")
+    parser.add_argument("--log-level", default="INFO")
     args = parser.parse_args()
 
     logging.basicConfig(level=args.log_level.upper(), format="%(levelname)s: %(message)s")
-
     load_dotenv()
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise SystemExit("Missing OPENAI_API_KEY (set in environment or .env)")
+        raise SystemExit("Missing OPENAI_API_KEY")
 
     client = OpenAI(api_key=api_key)
 
-    items = load_items(args.input, args.name_key, args.desc_key, args.effect_key, args.img_key, args.organ_key)
+    items = load_items(args.input, args.name_key, args.desc_key, args.effect_key, args.img_key, args.style_key, args.organ_key)
     if args.max_items and args.max_items > 0:
         items = items[:args.max_items]
 
@@ -254,31 +259,27 @@ def main():
 
     generated = 0
     for idx, item in enumerate(items, 1):
-        name = item[args.name_key]
-        desc = item[args.desc_key]
-        effect = item[args.effect_key]
-        organ = item[args.organ_key]
-        img_name = item.get(args.img_key, "").strip()
+        name   = item.get(args.name_key, "")
+        desc   = item.get(args.desc_key, "")
+        effect = item.get(args.effect_key, "")
+        style  = item.get(args.style_key, "")
+        organ  = item.get(args.organ_key, "")
+        img_in = (item.get(args.img_key, "") or "").strip()
 
-        prompt = build_prompt(name, desc, effect, organ)
-        print(prompt)
+        prompt = build_prompt(name, desc, effect, organ, style)
 
-        # use img field if present, otherwise slugify name
-        fname = slugify(img_name) if img_name else slugify(name)
-        if not fname.lower().endswith(".webp"):
-            fname += ".webp"
+        fname = slugify_safe(img_in or name)
+        if not fname.lower().endswith(".webp"): fname += ".webp"
         out_path = args.outdir / fname
 
         if out_path.exists() and not args.overwrite:
-            logging.info(f"[{idx}/{len(items)}] SKIP exists: {fname}")
+            logging.info(f"[{idx}/{len(items)}] SKIP exists: {out_path.name}")
             continue
 
         try:
-            kwargs = dict(model=args.model, prompt=prompt, size=args.size)
-            if args.seed is not None:
-                kwargs["seed"] = args.seed
-
-            resp = client.images.generate(**kwargs)
+            req = dict(model=args.model, prompt=prompt, size=args.size)
+            if args.seed is not None: req["seed"] = args.seed
+            resp = client.images.generate(**req)
             b64 = resp.data[0].b64_json
             b64png_to_webp(b64, out_path)
             logging.info(f"[{idx}/{len(items)}] WROTE {out_path.name}")
@@ -287,8 +288,7 @@ def main():
         except Exception as e:
             logging.error(f"[{idx}/{len(items)}] FAILED {name}: {e}")
 
-    logging.info(f"Done. Generated {generated} file(s) into: {args.outdir}")
-
+    logging.info(f"Done. Generated {generated} files into: {args.outdir}")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,33 @@
+{
+  "name": "Gauss Coil Retrofit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/gauss-coil-retrofit.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">+1 range tier and +1 armor penetration. Critical: pierce through to behind target. Slot: Receiver / Power.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172767756,
+    "modifiedTime": 1762172767756,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "vFGOD8bSCbzzI65Z",
+  "sort": 0,
+  "_key": "!items!vFGOD8bSCbzzI65Z"
+}

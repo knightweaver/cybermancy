@@ -1,0 +1,38 @@
+{
+  "name": "Flying Drone",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/flying-drone.webp",
+  "system": {
+    "description": "<i>The sky hums with your genius.</i><p class=\"Card-Feature\">Your <b>Primary Drone</b> gains flight, +4 Evasion, and may carry 3 weapons.",
+    "level": 5,
+    "domain": "maker",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Flying Drone": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The sky hums with your genius.</i><p class=\"Card-Feature\">Your <b>Primary Drone</b> gains flight, +4 Evasion, and may carry 3 weapons.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Flying Drone",
+        "img": "modules/cybermancy/assets/icons/domains/maker/flying-drone.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,84 @@
+{
+  "name": "Trick Shot",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/trick-shot.webp",
+  "system": {
+    "description": "<i>Style points count double.</i><p class=\"Card-Feature\">Spotlight an Action to put a token on this card.  Spotlight an Action to discard tokens for a specific effect depending on the number of tokens discard: </p><p> 1: Attack at Advantage </p><p> 2: Make 3 Attacks, each at +2 </p><p> 3: Automatically hit and d10+3 additional damage </p><p> Describe the cinematic effect of your shot. GM discretion</p>",
+    "level": 3,
+    "domain": "bullet",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Trick Shot": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Style points count double.</i><p class=\"Card-Feature\">Spotlight an Action to put a token on this card.  Spotlight an Action to discard tokens for a specific effect depending on the number of tokens discard: <p> 1: Attack at Advantage <p> 2: Make 3 Attacks, each at +2 <p> 3: Automatically hit and d10+3 additional damage <p> Describe the cinematic effect of your shot. GM discretion",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Trick Shot",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/trick-shot.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "OrRlazNWlRmOSB4K",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null
+  },
+  "effects": [],
+  "folder": "OycTPAJaZDKCQiMQ",
+  "_id": "qINgOM9BqTRT9nHX",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761621480135,
+    "modifiedTime": 1761621480135,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!qINgOM9BqTRT9nHX"
+}

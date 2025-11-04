@@ -1,0 +1,66 @@
+{
+  "name": "Parallel Synapse Array",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/parallel-synapse-array.webp",
+  "system": {
+    "description": "<i>Unleash hidden strength with a whisper.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)</p>",
+    "actions": {
+      "Parallel Synapse Array": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Unleash hidden strength with a whisper.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Parallel Synapse Array",
+        "img": "modules/cybermancy/assets/icons/cybernetics/parallel-synapse-array.webp",
+        "range": "",
+        "_id": "IdE6b7Bg7tU9HsgM"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121468854,
+    "modifiedTime": 1762121507886,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "MJl7ui8OGcIr44Pt",
+  "sort": 300000,
+  "_key": "!items!MJl7ui8OGcIr44Pt"
+}

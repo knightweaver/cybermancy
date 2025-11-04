@@ -1,0 +1,42 @@
+{
+  "name": "Motion Prediction Gyro",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/motion-prediction-gyro.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Swift salvation in chrome elegance.\"</i><br><br><p class=\"Card-Feature\">As a Reaction, <strong>Mark 1 Stress</strong> to gain +2 on an Agility saving throw",
+    "actions": {
+      "Motion Prediction Gyro": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "reaction",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Motion Prediction Gyro",
+        "img": "modules/cybermancy/assets/icons/cybernetics/motion-prediction-gyro.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Cyberarm™ Widow Spine",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-widow-spine.webp",
+  "system": {
+    "description": "<i>\"Grapple destiny; ensnare fate's embrace.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an attack roll against a creature of your size or less who is within Very Close. On a success, pull them to within Melee range of you and give them the <i>Restrained</i> condition.  GM must spotlight that creature and spend 1 Fear to remove the condition.<br /><br />Requires Cyberarm™ base unit</p>",
+    "actions": {
+      "Cyberarm™ Widow Spine": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Grapple destiny; ensnare fate's embrace.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an attack roll against a creature of your size or less who is within Very Close. On a success, pull them to within Melee range of you and give them the <i>Restrained</i> condition.  GM must spotlight that creature and spend 1 Fear to remove the condition.<br><br>Requires Cyberarm™ base unit",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Cyberarm™ Widow Spine",
+        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-widow-spine.webp",
+        "range": "",
+        "_id": "32rnrc2EXsjxnDqE"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "c4tzMLc9mBHW8KiD",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121294705,
+    "modifiedTime": 1762121325709,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "WinK8cPj79sxd7lp",
+  "sort": 2900000,
+  "_key": "!items!WinK8cPj79sxd7lp"
+}

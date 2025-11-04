@@ -1,0 +1,52 @@
+{
+  "name": "Speed racer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/speed-racer.webp",
+  "system": {
+    "description": "You don’t chase speed — you are speed.You were born in motion — one hand on the wheel, the other on the stick-shift, chasing the horizon long before you could spell your own name. Speed isn’t just something you crave; it’s the only language your pulse understands.Whether it’s a ground car screaming through rain-slick megacity streets or a drone streaking between skyscrapers, you build machines that move. Fast. Faster than physics says they should. You tune engines by instinct, shape airflow with intuition, and measure time in milliseconds.You’ve never met a governor you didn’t bypass or a safety limit you didn’t test to destruction. Some call it obsession, others call it madness — you just call it Tuesday.For you, control is freedom, and motion is life. Every race, every chase, every high-G turn is a moment of pure clarity. The world blurs, the noise fades, and there’s only you, the machine, and the perfect line ahead.",
+    "actions": {
+      "Speed racer": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You don’t chase speed — you are speed.You were born in motion — one hand on the wheel, the other on the stick-shift, chasing the horizon long before you could spell your own name. Speed isn’t just something you crave; it’s the only language your pulse understands.Whether it’s a ground car screaming through rain-slick megacity streets or a drone streaking between skyscrapers, you build machines that move. Fast. Faster than physics says they should. You tune engines by instinct, shape airflow with intuition, and measure time in milliseconds.You’ve never met a governor you didn’t bypass or a safety limit you didn’t test to destruction. Some call it obsession, others call it madness — you just call it Tuesday.For you, control is freedom, and motion is life. Every race, every chase, every high-G turn is a moment of pure clarity. The world blurs, the noise fades, and there’s only you, the machine, and the perfect line ahead.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Speed racer",
+        "img": "modules/cybermancy/assets/icons/subclasses/speed-racer.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Ballistic Servo Sight",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/ballistic-servo-sight.webp",
+  "tier": 2,
+  "system": {
+    "description": "<p class=\"Card-Feature\">Allow your gun to be fired 1 range increment further than normal, up to a max range of Very Long"
+  },
+  "effects": []
+}

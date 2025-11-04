@@ -1,0 +1,65 @@
+{
+  "name": "Power Boost",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/power-boost.webp",
+  "system": {
+    "description": "<i>Overclocked aggression.</i><p class=\"Card-Feature\">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack with advantage; add dH extra damage on success depending on your Tier (1:d4, 2:d6, 3:d8, 4:d10)",
+    "level": 4,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Power Boost": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>Overclocked aggression.</i><p class=\"Card-Feature\">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack with advantage; add dH extra damage on success depending on your Tier (1:d4, 2:d6, 3:d8, 4:d10)",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Power Boost",
+        "img": "modules/cybermancy/assets/icons/domains/maker/power-boost.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

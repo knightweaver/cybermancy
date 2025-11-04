@@ -1,0 +1,46 @@
+{
+  "name": "Improvise Equipment",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/maker/improvise-equipment.webp",
+  "system": {
+    "description": "<i>If you can imagine it, you can build it.</i><p class=\"Card-Feature\">Once per rest, <strong>Mark 2 Stress</strong> to create a device you need. Describe construction and function (GM discretion).",
+    "level": 4,
+    "domain": "maker",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Improvise Equipment": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>If you can imagine it, you can build it.</i><p class=\"Card-Feature\">Once per rest, <strong>Mark 2 Stress</strong> to create a device you need. Describe construction and function (GM discretion).",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Improvise Equipment",
+        "img": "modules/cybermancy/assets/icons/domains/maker/improvise-equipment.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

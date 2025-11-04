@@ -1,0 +1,65 @@
+{
+  "name": "Suppressing Fire",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/suppressing-fire.webp",
+  "system": {
+    "description": "<i>The air itself becomes hostile.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> and target one creature; all creatures within Very Close of it take -2 to actions and evasion.",
+    "level": 2,
+    "domain": "bullet",
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Suppressing Fire": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<i>The air itself becomes hostile.</i><p class=\"Card-Feature\"><strong>Mark 2 Stress</strong> and target one creature; all creatures within Very Close of it take -2 to actions and evasion.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 2,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Suppressing Fire",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/suppressing-fire.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

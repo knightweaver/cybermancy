@@ -1,0 +1,52 @@
+{
+  "name": "Boom baby",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/boom-baby.webp",
+  "system": {
+    "description": "Detonate any Device you Control within Very Far.  All targets within Very Close of the targeted Device take d8+2 damage.",
+    "actions": {
+      "Boom baby": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Detonate any Device you Control within Very Far.  All targets within Very Close of the targeted Device take d8+2 damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Boom baby",
+        "img": "modules/cybermancy/assets/icons/subclasses/boom-baby.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

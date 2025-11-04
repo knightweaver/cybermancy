@@ -1,0 +1,33 @@
+{
+  "name": "Bayonette",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/mods/monofilament-edge-adapter.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Add +d4 damage to Melee attacks made with this gun</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762172767674,
+    "modifiedTime": 1762172767674,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "AYOWsCwUWa12OICF",
+  "sort": 0,
+  "_key": "!items!AYOWsCwUWa12OICF"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Matrix mind",
+  "type": "domainCard",
+  "img": "modules/cybermancy/assets/icons/domains/circuit/matrix-mind.webp",
+  "system": {
+    "description": "<i>\"It's full of stars… !\"</i><p class=\"Card-Feature\">When 4 or more domain cards in your loadout  are from Circuit, gain the following effects: +1 to your Spellcasting (Hacking) rolls, once per rest you can switch the result of your Hope and Fear dice",
+    "level": 7,
+    "domain": "circuit",
+    "recallCost": 2,
+    "type": "ability",
+    "inVault": false,
+    "actions": {
+      "Matrix mind": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"It's full of stars… !\"</i><p class=\"Card-Feature\">When 4 or more domain cards in your loadout  are from Circuit, gain the following effects: +1 to your Spellcasting (Hacking) rolls, once per rest you can switch the result of your Hope and Fear dice",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Matrix mind",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/matrix-mind.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}

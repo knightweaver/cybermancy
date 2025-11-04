@@ -1,0 +1,52 @@
+{
+  "name": "Driving expert",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/driving-expert.webp",
+  "system": {
+    "description": "All Driving checks are +1.",
+    "actions": {
+      "Driving expert": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "All Driving checks are +1.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Driving expert",
+        "img": "modules/cybermancy/assets/icons/subclasses/driving-expert.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Hacking Insight",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/hacking-insight.webp",
+  "system": {
+    "description": "Spend 3 Hope to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.",
+    "actions": {
+      "Hacking Insight": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Hacking Insight",
+        "img": "modules/cybermancy/assets/icons/subclasses/hacking-insight.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

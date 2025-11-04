@@ -1,0 +1,42 @@
+{
+  "name": "Wakizashi™ Base Unit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-base-unit.webp",
+  "tier": 1,
+  "system": {
+    "description": "<i>\"Unlock potential; wield hope's edge.\"</i><br><br><p class=\"Card-Feature\">Wakizashi™ base unit - enables other Wakizashi-related cybernetics and abilities. <br><br>Once per scene, <strong>Spend 1 Hope</strong> for advantage on an attack with your secondary weapon.",
+    "actions": {
+      "Wakizashi™ Base Unit": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "hope",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Wakizashi™ Base Unit",
+        "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-base-unit.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": []
+}
