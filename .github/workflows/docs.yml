@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write   # <-- REQUIRED so the action can push to gh-pages
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -19,25 +22,36 @@ jobs:
 
       - name: Install mkdocs + plugins
         run: |
-          pip install mkdocs-material mkdocs-include-markdown-plugin
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material mkdocs-include-markdown-plugin
 
       - name: Build Player site
-        run: |
-          mkdocs -f mkdocs.player.yml build
+        run: mkdocs build --config-file mkdocs.player.yml
 
       - name: Build GM site
+        run: mkdocs build --config-file mkdocs.gm.yml
+
+      - name: List build output (debug)
         run: |
-          mkdocs -f mkdocs.gm.yml build
+          echo "== Top level =="
+          ls -la
+          echo "== _site tree (first 3 levels) =="
+          find _site -maxdepth 3 -type f -print | sort
 
-      # At this point, we have:
-      #   _site/player/  and  _site/gm/
+      - name: Upload built site as artifact (debug)
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-site
+          path: _site
 
-      - name: Deploy both to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _site
-          # keep_files false is fine because we publish both subfolders together
-          # The final URLs will be:
-          #   https://knightweaver.github.io/cybermancy/player/
-          #   https://knightweaver.github.io/cybermancy/gm/
+          publish_branch: gh-pages
+          # create an orphan branch automatically if needed
+          force_orphan: true
+          # ensure static hosting works without Jekyll processing
+          enable_jekyll: false
+          commit_message: "Deploy docs from ${{ github.sha }}"
