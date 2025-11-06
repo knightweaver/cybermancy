@@ -10,7 +10,7 @@ Below is a sample item rendered with the canonical Cybermancy layout. Replace wi
 
 <!-- LEFT COLUMN -->
 <div markdown>
-<img src="../../assets/icons/weapons/monofilament-whip.webp" alt="Monofilament Whip" class="item-image">
+<img src="cybermancy/assets/icons/weapons/whip-monofilament.webp" alt="Monofilament Whip" class="item-image">
 
 ### Monofilament Whip
 <div class="item-subtitle">Weapon • Rare • Bullet Domain</div>
