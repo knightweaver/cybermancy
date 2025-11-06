@@ -1,0 +1,23 @@
+<div class="feature" markdown="1">
+<img src="../../assets/icons/features/interference.webp" alt="Interference" class="item-image">
+
+# Interference
+<div class="item-subtitle">Feature • Common</div>
+
+<div class="badges">
+  
+  
+</div>
+
+## Effect
+
+
+---
+
+## Description
+&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 3 Hope&lt;/strong&gt; to disrupt electronics within Close. Set a d4 to a value of 4 and decrement each time you take a Reaction to have one of the following effects:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;-2 to an enemy’s attack with electronic weapons (which are most weapons in Cybermancy),&lt;/li&gt;&lt;li&gt;-2 to Evasion for one drone or device within Close. This effect cannot target a non-synthetic entity or construct (even a cybernetically enhanced one).&lt;/li&gt;&lt;li&gt;-2 to a Reaction roll for a creature within Close.&lt;/li&gt;&lt;/ul&gt;
+
+<div class="meta" markdown="1">
+**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.interference`
+</div>
+</div>

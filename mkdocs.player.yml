@@ -18,9 +18,13 @@ markdown_extensions:
       permalink: true
 extra_css:
   - styles/items.css
+extra_javascript:
+  - js/table-filter.js
 plugins:
   - search
   - include-markdown
+  - macros:
+      module_name: includes/my-macros
 nav:
   - Home: index.md
   - World:

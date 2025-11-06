@@ -18,6 +18,8 @@ markdown_extensions:
       permalink: true
 extra_css:
   - styles/items.css
+extra_javascript:
+  - js/table-filter.js
 plugins:
   - search
   - include-markdown
