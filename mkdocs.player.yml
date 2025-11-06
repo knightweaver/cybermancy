@@ -11,17 +11,19 @@ theme:
     - content.code.copy
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
   - footnotes
   - toc:
       permalink: true
+extra_css:
+  - styles/items.css
 plugins:
   - search
   - include-markdown
 nav:
   - Home: index.md
   - World:
-      - The Council (player): world/player-visible-info-on-the-council.md
-      - The Cabal (player): world/player-visible-info-on-the-cabal.md
       - Timeline (player): world/player-visible-info-on-timeline.md
   - Items:
       - Ammo: items/ammo.md

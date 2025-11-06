@@ -11,9 +11,13 @@ theme:
     - content.code.copy
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
   - footnotes
   - toc:
       permalink: true
+extra_css:
+  - styles/items.css
 plugins:
   - search
   - include-markdown
