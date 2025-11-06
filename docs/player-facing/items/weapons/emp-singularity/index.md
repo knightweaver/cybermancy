@@ -1,22 +1,13 @@
 <div class="item" markdown="1">
-
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
 <img src="../../../assets/icons/weapons/emp-singularity.webp" alt="EMP Singularity" class="item-image">
 
 ### EMP Singularity
-<div class="item-subtitle">Weapon • Common • —</div>
 
 <div class="item-flavor">
-**
-</div>
-
-<div class="badges">
-  <span class="badge">Weapons</span>
-  
-  
-  
+*A massive EMP charge that disables all systems across multiple networks simultaneously within Very Far range*
 </div>
 </div>
 
@@ -26,31 +17,27 @@
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
   <tbody>
-    <tr><td>Category</td><td>Weapons</td></tr>
-    <tr><td>Damage</td><td>—</td></tr>
-    <tr><td>Range</td><td>—</td></tr>
-    <tr><td>Hands</td><td>—</td></tr>
-    <tr><td>Reload/Charges</td><td>—</td></tr>
-    <tr><td>Requirements</td><td>—</td></tr>
+    <tr><td>Damage</td><td>d20</td></tr>
+    <tr><td>Range</td><td>far</td></tr>
+    <tr><td>Hands</td><td>oneHanded</td></tr>
   </tbody>
 </table>
 
-#### Effects
-- *(Map rules/effects here if provided in JSON.)*
+#### Actions
+—
 
-#### Usage
-- *(Notes on reload/drawbacks/synergies.)*
+#### Effects
+—
+
+#### Weapon Features
+—
 
 </div>
 </div>
 
 ---
 
-#### Description
-A massive EMP charge that disables all systems across multiple networks simultaneously within Very Far range
-
 <div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.weapons.emp-singularity`
+**UUID:** `Compendium.cybermancy.weapons.emp-singularity`
 </div>
-
 </div>

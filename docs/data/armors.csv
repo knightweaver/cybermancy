@@ -1,40 +1,40 @@
-name,slug,category,rarity,domain
-Advanced Slash-Resistant Jacket,advanced-slash-resistant-jacket,,,
-Assault Carapace,assault-carapace,,,
-Auto-Heal Laminate,auto-heal-laminate,,,
-Bare Bones,bare-bones,,,
-Bellamoi Fine Armor,bellamoi-fine-armor,,,
-Caster’s Conduit Harness,caster-s-conduit-harness,,,
-CeramSteel Chest Rig,ceramsteel-chest-rig,,,
-Composite Riot Carapace,composite-riot-carapace,,,
-Double-Buffer Plating,double-buffer-plating,,,
-Elundrian Chain Mail,elundrian-chain-mail,,,
-Emberguard Mantle,emberguard-mantle,,,
-Enhanced Riot Carapace,enhanced-riot-carapace,,,
-Failsafe Exo-Plate,failsafe-exo-plate,,,
-Ghoststep Weave,ghoststep-weave,,,
-Hope Bank Vest,hope-bank-vest,,,
-Impact-Padded Street Vest,impact-padded-street-vest,,,
-KevFlex Jacket,kevflex-jacket,,,
-KevFlex Jacket Mk II,kevflex-jacket-mk-ii,,,
-KevFlex Trench,kevflex-trench,,,
-Kinetic-Only Bulwark,kinetic-only-bulwark,,,
-Kinetic Shift Harness,kinetic-shift-harness,,,
-Legendary Assault Carapace,legendary-assault-carapace,,,
-Legendary Gel Suit,legendary-gel-suit,,,
-Legendary KevFlex Trench,legendary-kevflex-trench,,,
-Legendary Polymer Coat,legendary-polymer-coat,,,
-Monett's Cloak,monett-s-cloak,,,
-Pain Route Harness,pain-route-harness,,,
-Razor-Stud Carapace,razor-stud-carapace,,,
-Reinforced Street Vest,reinforced-street-vest,,,
-Savior Polymer Aegis,savior-polymer-aegis,,,
-Slash-Resistant Polymer Coat,slash-resistant-polymer-coat,,,
-Slash-Resistant Polymer Jacket,slash-resistant-polymer-jacket,,,
-Tactical Gel Suit,tactical-gel-suit,,,
+name,slug,baseScore,armorFeatures,baseThresholds
+Advanced Slash-Resistant Jacket,advanced-slash-resistant-jacket,5,"[{'value': 'heavy', 'effectIds': ['JHupzYULxdQzFzuj'], 'actionIds': []}]","{'major': 11, 'severe': 24}"
+Assault Carapace,assault-carapace,6,"[{'value': 'veryheavy', 'effectIds': ['awdHgEaM54G3emOU'], 'actionIds': []}]","{'major': 15, 'severe': 35}"
+Auto-Heal Laminate,auto-heal-laminate,4,"[{'value': 'resilient', 'effectIds': [], 'actionIds': ['IzM88FIxQ35P5VB2']}]","{'major': 9, 'severe': 21}"
+Bare Bones,bare-bones,3,[],"{'major': 9, 'severe': 19}"
+Bellamoi Fine Armor,bellamoi-fine-armor,5,"[{'value': 'gilded', 'effectIds': ['Hy0sNtFS1JAXxgwC'], 'actionIds': []}]","{'major': 11, 'severe': 27}"
+Caster’s Conduit Harness,caster-s-conduit-harness,5,"[{'value': 'channeling', 'effectIds': ['8bwf1Ri3jYkjphEv'], 'actionIds': []}]","{'major': 13, 'severe': 36}"
+CeramSteel Chest Rig,ceramsteel-chest-rig,4,"[{'value': 'reinforced', 'effectIds': ['P3aCN8PQgPXP4C9M'], 'actionIds': []}]","{'major': 9, 'severe': 20}"
+Composite Riot Carapace,composite-riot-carapace,4,"[{'value': 'veryheavy', 'effectIds': ['mfKMW9SX3Mnos1nY'], 'actionIds': []}]","{'major': 8, 'severe': 17}"
+Double-Buffer Plating,double-buffer-plating,4,"[{'value': 'fortified', 'effectIds': ['QIefVb73cm9gYju8'], 'actionIds': []}]","{'major': 15, 'severe': 40}"
+Elundrian Chain Mail,elundrian-chain-mail,4,"[{'value': 'warded', 'effectIds': ['xGxqTCO8MjNq5Cw6'], 'actionIds': []}]","{'major': 9, 'severe': 21}"
+Emberguard Mantle,emberguard-mantle,6,"[{'value': 'burning', 'effectIds': [], 'actionIds': ['L8mHf4A8SylyxsMH']}]","{'major': 13, 'severe': 36}"
+Enhanced Riot Carapace,enhanced-riot-carapace,5,"[{'value': 'veryheavy', 'effectIds': ['wstJ1aKKtmXgCwxB'], 'actionIds': []}]","{'major': 13, 'severe': 28}"
+Failsafe Exo-Plate,failsafe-exo-plate,5,"[{'value': 'impenetrable', 'effectIds': [], 'actionIds': ['J1MCpcfXByKaSSgx']}]","{'major': 11, 'severe': 27}"
+Ghoststep Weave,ghoststep-weave,5,"[{'value': 'quiet', 'effectIds': [], 'actionIds': ['Ch6IhuPewBeseGez']}]","{'major': 8, 'severe': 18}"
+Hope Bank Vest,hope-bank-vest,5,"[{'value': 'hopeful', 'effectIds': [], 'actionIds': ['QRTnCYxJfuJHdnyV']}]","{'major': 11, 'severe': 23}"
+Impact-Padded Street Vest,impact-padded-street-vest,3,"[{'value': 'flexible', 'effectIds': ['v1FNEsypRF5W6vVc'], 'actionIds': []}]","{'major': 5, 'severe': 11}"
+KevFlex Jacket,kevflex-jacket,3,[],"{'major': 6, 'severe': 13}"
+KevFlex Jacket Mk II,kevflex-jacket-mk-ii,4,[],"{'major': 9, 'severe': 20}"
+KevFlex Trench,kevflex-trench,5,[],"{'major': 11, 'severe': 27}"
+Kinetic-Only Bulwark,kinetic-only-bulwark,6,"[{'value': 'physical', 'effectIds': ['s8KtTIngTjnOlaTP'], 'actionIds': []}]","{'major': 16, 'severe': 39}"
+Kinetic Shift Harness,kinetic-shift-harness,4,"[{'value': 'shifting', 'effectIds': [], 'actionIds': ['Nn33zCIcWe6LQMDH']}]","{'major': 9, 'severe': 20}"
+Legendary Assault Carapace,legendary-assault-carapace,7,"[{'value': 'veryheavy', 'effectIds': ['zvzkRX2Uevemmbz4'], 'actionIds': []}]","{'major': 17, 'severe': 44}"
+Legendary Gel Suit,legendary-gel-suit,6,"[{'value': 'flexible', 'effectIds': ['3AUNxBoj7mp1ziJQ'], 'actionIds': []}]","{'major': 11, 'severe': 32}"
+Legendary KevFlex Trench,legendary-kevflex-trench,6,[],"{'major': 13, 'severe': 36}"
+Legendary Polymer Coat,legendary-polymer-coat,7,"[{'value': 'heavy', 'effectIds': ['8Oa6Y375X8UpcPph'], 'actionIds': []}]","{'major': 15, 'severe': 40}"
+Monett's Cloak,monett-s-cloak,6,"[{'value': 'magical', 'effectIds': ['3n4O7PyAWMEFdr5p'], 'actionIds': []}]","{'major': 16, 'severe': 39}"
+Pain Route Harness,pain-route-harness,6,"[{'value': 'painful', 'effectIds': [], 'actionIds': ['37KLF2bim9nRdPTU']}]","{'major': 17, 'severe': 43}"
+Razor-Stud Carapace,razor-stud-carapace,5,"[{'value': 'sharp', 'effectIds': ['V8CcTcVAIxHq8KNd'], 'actionIds': []}]","{'major': 10, 'severe': 25}"
+Reinforced Street Vest,reinforced-street-vest,4,"[{'value': 'flexible', 'effectIds': ['BFwU3ErPaajUSMUz'], 'actionIds': []}]","{'major': 7, 'severe': 16}"
+Savior Polymer Aegis,savior-polymer-aegis,8,"[{'value': 'difficult', 'effectIds': ['rkrqlwqtR9REgRx7'], 'actionIds': []}]","{'major': 18, 'severe': 48}"
+Slash-Resistant Polymer Coat,slash-resistant-polymer-coat,6,"[{'value': 'heavy', 'effectIds': ['qlzHOAnpBYzosQxK'], 'actionIds': []}]","{'major': 13, 'severe': 31}"
+Slash-Resistant Polymer Jacket,slash-resistant-polymer-jacket,4,"[{'value': 'heavy', 'effectIds': ['ZfO5NjpqEIzZVlPq'], 'actionIds': []}]","{'major': 7, 'severe': 15}"
+Tactical Gel Suit,tactical-gel-suit,5,"[{'value': 'flexible', 'effectIds': ['Fq9Q93IHCchhfSss'], 'actionIds': []}]","{'major': 9, 'severe': 23}"
 Tier 1,tier-1,,,
 Tier 2,tier-2,,,
 Tier 3,tier-3,,,
 Tier 4,tier-4,,,
-Timeslip Silks,timeslip-silks,,,
-Truthlight Carapace,truthlight-carapace,,,
+Timeslip Silks,timeslip-silks,7,"[{'value': 'timeslowing', 'effectIds': [], 'actionIds': ['8PD5JQuS05IA6HJT']}]","{'major': 13, 'severe': 36}"
+Truthlight Carapace,truthlight-carapace,6,"[{'value': 'truthseeking', 'effectIds': [], 'actionIds': ['sY3W5JYspN5Du5ag']}]","{'major': 13, 'severe': 36}"

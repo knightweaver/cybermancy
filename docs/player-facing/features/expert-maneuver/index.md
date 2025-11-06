@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/expert-maneuver.webp" alt="Expert maneuver" class="item-image">
+    <img src="../../assets/icons/features/expert-maneuver.webp" alt="Expert maneuver" class="item-image">
 
-# Expert maneuver
-<div class="item-subtitle">Feature • Common</div>
+    # Expert maneuver
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    &lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 3 Hope&lt;/strong&gt; to negate any Driving Environment Event.&lt;/p&gt;
 
----
-
-## Description
-&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 3 Hope&lt;/strong&gt; to negate any Driving Environment Event.&lt;/p&gt;
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.expert-maneuver`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.expert-maneuver`
+    </div>
+    </div>
+    

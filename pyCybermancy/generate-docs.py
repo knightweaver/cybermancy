@@ -53,11 +53,446 @@ def read_json(p: Path) -> Dict[str, Any]:
         return {}
 
 def md_escape(s: str) -> str:
-    return (s or "").replace("<", "&lt;").replace(">", "&gt;")
+    return (str(s) or "").replace("<", "&lt;").replace(">", "&gt;")
 
 def titleize(s: str) -> str:
     s = (s or "").strip()
     return s[:1].upper() + s[1:] if s else s
+
+def _fmt_number(n) -> str:
+    """Format numeric bonus cleanly (8.0 -> 8)."""
+    if n is None:
+        return ""
+    if isinstance(n, (int,)):
+        return str(n)
+    if isinstance(n, float):
+        return str(int(n)) if n.is_integer() else str(n)
+    return str(n)
+
+def summarize_attack(attack: Dict[str, Any]) -> Dict[str, str]:
+    """
+    Turn a Foundry/Daggerheart attack node into a concise summary.
+    Returns dict with keys: damage, damageType, range.
+    """
+    if not isinstance(attack, dict):
+        return {"damage": "—", "damageType": "—", "range": "—"}
+
+    rng = attack.get("range") or "—"
+
+    parts = (attack.get("damage") or {}).get("parts") or []
+    if not parts or not isinstance(parts, list):
+        return {"damage": "—", "damageType": "—", "range": rng}
+
+    p0 = parts[0] or {}
+    val = p0.get("value") or {}
+    dice = val.get("dice")  # e.g., "d10"
+    bonus = val.get("bonus")  # e.g., 8 (may be None)
+
+    # Build "d10+8", "d6", "+2", or "—" if empty
+    damage_bits = []
+    if dice:
+        damage_bits.append(str(dice))
+    if bonus is not None and bonus != 0:
+        # add + or - appropriately
+        sign = "+" if float(bonus) >= 0 else "-"
+        damage_bits.append(f"{sign}{_fmt_number(abs(float(bonus)))}")
+
+    damage = "".join(damage_bits) if damage_bits else "—"
+
+    type_list = p0.get("type") or []
+    damage_type = type_list[0] if isinstance(type_list, list) and type_list else "—"
+
+    return {"damage": damage, "damageType": str(damage_type), "range": rng}
+
+from typing import Any, Dict, List, Optional
+
+# ---------- tiny utils ----------
+def _coalesce(*vals):
+    for v in vals:
+        if v not in (None, "", [], {}):
+            return v
+    return None
+
+def _join_nonempty(parts: List[str], sep: str = " "):
+    return sep.join([p for p in parts if p and str(p).strip()])
+
+def _fmt_number(n) -> str:
+    if n is None:
+        return ""
+    if isinstance(n, int):
+        return str(n)
+    if isinstance(n, float):
+        return str(int(n)) if n.is_integer() else str(n)
+    return str(n)
+
+def _fmt_target(target: Optional[Dict[str, Any]]) -> str:
+    if not isinstance(target, dict):
+        return "—"
+    ttype = target.get("type") or "—"
+    amt = target.get("amount")
+    return f"{ttype}{f' ({amt})' if amt not in (None, '') else ''}"
+
+def _fmt_roll(roll: Optional[Dict[str, Any]]) -> str:
+    if not isinstance(roll, dict):
+        return "—"
+    trait = roll.get("trait") or "—"
+    rtype  = roll.get("type") or "—"
+    adv = roll.get("advState") or "neutral"
+    dr = roll.get("diceRolling") or {}
+    dice  = dr.get("dice") or "—"
+    mult  = dr.get("multiplier") or None   # e.g., "prof"
+    fmult = dr.get("flatMultiplier") or None
+    mult_str = ""
+    if mult and fmult not in (None, 1):
+        mult_str = f"{mult}×{_fmt_number(fmult)}"
+    elif mult:
+        mult_str = f"{mult}"
+
+    dice_part = _join_nonempty([dice, mult_str], sep="·") if (dice != "—" or mult_str) else "—"
+    return f"{trait} {rtype}; dice {dice_part}; adv {adv}"
+
+def _fmt_damage_block(damage: Optional[Dict[str, Any]]) -> str:
+    """
+    Summarize a Daggerheart-like damage node with 'parts' as in your attack.
+    Returns e.g. 'd10+8 physical' or '—'.
+    """
+    if not isinstance(damage, dict):
+        return "—"
+    parts = damage.get("parts") or []
+    if not parts:
+        return "—"
+
+    out = []
+    for p in parts:
+        if not isinstance(p, dict):
+            continue
+        val = p.get("value") or {}
+        dice = val.get("dice")
+        bonus = val.get("bonus")
+        seg = []
+        if dice:
+            seg.append(str(dice))
+        if bonus not in (None, 0, "0"):
+            sign = "+" if float(bonus) >= 0 else "-"
+            seg.append(f"{sign}{_fmt_number(abs(float(bonus)))}")
+        seg_txt = "".join(seg) if seg else "—"
+
+        t_list = p.get("type") or []
+        dtype = t_list[0] if isinstance(t_list, list) and t_list else None
+        out.append(_join_nonempty([seg_txt, dtype or ""], sep=" "))
+    return ", ".join(out) if out else "—"
+
+def _fmt_uses(uses: Optional[Dict[str, Any]]) -> str:
+    if not isinstance(uses, dict):
+        return "—"
+    val = uses.get("value")
+    mx = uses.get("max")
+    rec = uses.get("recovery")
+    cos = "consumeOnSuccess" in uses and bool(uses.get("consumeOnSuccess"))
+    pieces = []
+    if mx is not None:
+        pieces.append(f"{_fmt_number(val)}/{_fmt_number(mx)}")
+    elif val is not None:
+        pieces.append(_fmt_number(val))
+    if rec:
+        pieces.append(f"recovers: {rec}")
+    if cos:
+        pieces.append("consume on success")
+    return _join_nonempty(pieces, sep="; ") or "—"
+
+def _fmt_cost(cost: Any) -> str:
+    """
+    Cost is often a list of objects; try to render something readable.
+    Fallbacks to '—' if nothing sensible is present.
+    """
+    if isinstance(cost, list) and cost:
+        parts = []
+        for c in cost:
+            if not isinstance(c, dict):
+                continue
+            ctype = c.get("type") or c.get("name") or "cost"
+            amt = c.get("amount") or c.get("value")
+            parts.append(f"{ctype}{f' {_fmt_number(amt)}' if amt not in (None, '') else ''}")
+        return ", ".join([p for p in parts if p]) or "—"
+    if isinstance(cost, dict) and cost:
+        return ", ".join([f"{k}:{v}" for k, v in cost.items()])
+    return "—"
+
+# ---------- ACTIONS ----------
+def summarize_actions(actions_node: Any) -> List[Dict[str, str]]:
+    """
+    Turn system.actions (array) into a list of normalized dicts:
+    keys: name, type, range, target, roll, damage, cost, uses, save, description, summary
+    """
+    results: List[Dict[str, str]] = []
+    if not isinstance(actions_node, list):
+        return results
+
+    for a in actions_node:
+        if not isinstance(a, dict):
+            continue
+
+        name = a.get("name") or "Unnamed Action"
+        a_type = _coalesce(a.get("actionType"), a.get("type"), "action")
+
+        rng = a.get("range") or "—"
+        target = _fmt_target(a.get("target"))
+        roll = _fmt_roll(a.get("roll"))
+        damage = _fmt_damage_block(a.get("damage"))
+        cost = _fmt_cost(a.get("cost"))
+        uses = _fmt_uses(a.get("uses"))
+        save = "—"
+        if isinstance(a.get("save"), dict):
+            sv = a["save"]
+            sv_trait = sv.get("trait")
+            sv_diff = sv.get("difficulty")
+            sv_mod  = sv.get("damageMod") or "none"
+            save = _join_nonempty([
+                sv_trait or "—",
+                f"DC {sv_diff}" if sv_diff not in (None, "") else None,
+                f"mod {sv_mod}"
+            ], sep="; ")
+
+        desc = (a.get("description") or "").strip()
+        if len(desc) > 180:
+            desc = desc[:177].rstrip() + "…"
+
+        summary = _join_nonempty([
+            f"{name} [{a_type}]",
+            f"range {rng}",
+            f"target {target}",
+            f"roll {roll}",
+            f"damage {damage}" if damage != "—" else None,
+            f"save {save}" if save != "—" else None,
+            f"cost {cost}" if cost != "—" else None,
+            f"uses {uses}" if uses != "—" else None
+        ], sep=" — ")
+
+        results.append({
+            "name": name,
+            "type": a_type,
+            "range": rng,
+            "target": target,
+            "roll": roll,
+            "damage": damage,
+            "cost": cost,
+            "uses": uses,
+            "save": save,
+            "description": desc,
+            "summary": summary
+        })
+    return results
+
+# ---------- EFFECTS ----------
+def _fmt_effect_duration(dur: Any) -> str:
+    """
+    Foundry ActiveEffect-like durations vary; try several common patterns.
+    """
+    if not isinstance(dur, dict):
+        return "—"
+    # Foundry style fields
+    seconds = dur.get("seconds")
+    rounds  = dur.get("rounds")
+    turns   = dur.get("turns")
+    start_round = dur.get("startRound")
+    start_turn  = dur.get("startTurn")
+    sustained   = dur.get("sustained")  # custom, if present
+
+    parts = []
+    if seconds:
+        parts.append(f"{_fmt_number(seconds)}s")
+    if rounds:
+        parts.append(f"{_fmt_number(rounds)} rounds")
+    if turns:
+        parts.append(f"{_fmt_number(turns)} turns")
+    if sustained:
+        parts.append("sustained")
+
+    # add anchors if available
+    anchors = []
+    if start_round not in (None, ""):
+        anchors.append(f"startR {start_round}")
+    if start_turn not in (None, ""):
+        anchors.append(f"startT {start_turn}")
+    if anchors:
+        parts.append(f"({', '.join(anchors)})")
+
+    return _join_nonempty(parts, sep=", ") or "—"
+
+def _fmt_effect_changes(changes: Any) -> str:
+    """
+    Compact renderer for ActiveEffect-style changes: {key, mode, value}
+    """
+    if not isinstance(changes, list) or not changes:
+        return "—"
+    out = []
+    for ch in changes:
+        if not isinstance(ch, dict):
+            continue
+        key = ch.get("key") or "—"
+        mode = ch.get("mode")
+        val = ch.get("value")
+        # Show mode if present; many Daggerheart mods only need key/value
+        if mode not in (None, ""):
+            out.append(f"{key} ({mode}) = {val}")
+        else:
+            out.append(f"{key} = {val}")
+    return "; ".join(out) if out else "—"
+
+def summarize_effects(effects_node: Any) -> List[Dict[str, str]]:
+    """
+    Turn system.effects (array) into a list of normalized dicts:
+    keys: name, changes, duration, transfer, disabled, description, summary
+    """
+    results: List[Dict[str, str]] = []
+    if not isinstance(effects_node, list):
+        return results
+
+    for eff in effects_node:
+        if not isinstance(eff, dict):
+            continue
+
+        name = eff.get("name") or "Unnamed Effect"
+        desc = (eff.get("description") or eff.get("flags", {}).get("core", {}).get("statusId") or "").strip()
+        if len(desc) > 180:
+            desc = desc[:177].rstrip() + "…"
+
+        changes = _fmt_effect_changes(_coalesce(eff.get("changes"),
+                                               eff.get("system", {}).get("changes")))
+        duration = _fmt_effect_duration(eff.get("duration"))
+        transfer = "yes" if bool(eff.get("transfer")) else "no" if eff.get("transfer") is not None else "—"
+        disabled = "yes" if bool(eff.get("disabled")) else "no" if eff.get("disabled") is not None else "—"
+
+        summary = _join_nonempty([
+            name,
+            f"changes: {changes}" if changes != "—" else None,
+            f"duration: {duration}" if duration != "—" else None,
+            f"transfer: {transfer}" if transfer != "—" else None,
+            f"disabled: {disabled}" if disabled != "—" else None
+        ], sep=" — ")
+
+        results.append({
+            "name": name,
+            "changes": changes,
+            "duration": duration,
+            "transfer": transfer,
+            "disabled": disabled,
+            "description": desc,
+            "summary": summary
+        })
+    return results
+
+# ---------- tiny extras ----------
+def _fmt_tags(tags: Any) -> str:
+    if isinstance(tags, (list, tuple)):
+        return ", ".join(str(t) for t in tags if t not in (None, "", [])) or "—"
+    if isinstance(tags, str) and tags.strip():
+        return tags
+    return "—"
+
+def _shorten(text: str, n: int = 180) -> str:
+    text = (text or "").strip()
+    return (text[: n-3].rstrip() + "…") if len(text) > n else text
+
+def _fmt_requires(req: Any) -> str:
+    """Render a variety of 'requires' shapes."""
+    if not req:
+        return "—"
+    if isinstance(req, str):
+        return req
+    if isinstance(req, dict):
+        bits = []
+        for k in ("trait", "skill", "feature", "domain", "level", "tier", "hands", "proficiency"):
+            v = req.get(k)
+            if v not in (None, "", []):
+                bits.append(f"{k}: {v}")
+        return ", ".join(bits) if bits else "—"
+    if isinstance(req, list):
+        return "; ".join(_fmt_requires(x) for x in req if x) or "—"
+    return str(req)
+
+def _fmt_state(flags: Dict[str, Any]) -> str:
+    """Common boolean flags → compact badges."""
+    if not isinstance(flags, dict):
+        return "—"
+    badges = []
+    if flags.get("passive") is True:
+        badges.append("passive")
+    if flags.get("active") is True:
+        badges.append("active")
+    if flags.get("stacking") is True:
+        badges.append("stacking")
+    if flags.get("inherent") is True:
+        badges.append("inherent")
+    if flags.get("unique") is True:
+        badges.append("unique")
+    return ", ".join(badges) if badges else "—"
+
+# ---------- FEATURE SUMMARIZERS ----------
+def _summarize_features_generic(features_node: Any, default_kind: str) -> List[Dict[str, str]]:
+    """
+    Normalize weapon/armor feature arrays into:
+    name, kind, tags, changes, uses, cost, requires, state, description, summary
+    """
+    out: List[Dict[str, str]] = []
+    if not isinstance(features_node, list):
+        return out
+
+    for f in features_node:
+        if not isinstance(f, dict):
+            continue
+
+        name = f.get("name") or "Unnamed Feature"
+        kind = _coalesce(f.get("type"), f.get("kind"), default_kind)
+        desc = _shorten(_coalesce(f.get("rules"), f.get("description"), ""))
+
+        tags = _fmt_tags(_coalesce(f.get("tags"), f.get("labels")))
+        changes = _fmt_effect_changes(_coalesce(f.get("changes"),
+                                               f.get("system", {}).get("changes"),
+                                               f.get("mods")))
+        uses = _fmt_uses(f.get("uses"))
+        cost = _fmt_cost(f.get("cost"))
+        requires = _fmt_requires(_coalesce(f.get("requires"), f.get("prerequisites"), f.get("req")))
+        state = _fmt_state({
+            "passive": f.get("passive"),
+            "active": f.get("active"),
+            "stacking": f.get("stacking"),
+            "inherent": f.get("inherent"),
+            "unique": f.get("unique"),
+        })
+
+        summary_bits = [
+            f"{name} [{kind}]",
+            f"tags {tags}" if tags != "—" else None,
+            f"changes {changes}" if changes != "—" else None,
+            f"uses {uses}" if uses != "—" else None,
+            f"cost {cost}" if cost != "—" else None,
+            f"requires {requires}" if requires != "—" else None,
+            f"{state}" if state != "—" else None,
+        ]
+        summary = " — ".join([b for b in summary_bits if b])
+
+        out.append({
+            "name": name,
+            "kind": str(kind),
+            "tags": tags,
+            "changes": changes,
+            "uses": uses,
+            "cost": cost,
+            "requires": requires,
+            "state": state,
+            "description": desc,
+            "summary": summary or name
+        })
+    return out
+
+def summarize_weapon_features(weapon_features_node: Any) -> List[Dict[str, str]]:
+    """Wrapper specialized for weapon features."""
+    return _summarize_features_generic(weapon_features_node, default_kind="weapon-feature")
+
+def summarize_armor_features(armor_features_node: Any) -> List[Dict[str, str]]:
+    """Wrapper specialized for armor features."""
+    return _summarize_features_generic(armor_features_node, default_kind="armor-feature")
 
 # ---------------------------- Templates --------------------------------------
 # Each template gets values from a per-type "context" dict assembled in the loop.
@@ -66,24 +501,43 @@ def titleize(s: str) -> str:
 TEMPLATES: Dict[str, str] = {
     # Generic item page template ---------------------------------------------
     "item_default": """<div class="item" markdown="1">
+    <div class="grid item-grid" markdown="1">
 
+    <div markdown="1">
+    <img src="{image_rel}" alt="{name}" class="item-image">
+    ### {name}
+    <div class="item-flavor">
+    *{description}*
+    </div>
+    </div>
+
+    <div markdown="1">
+    #### Actions
+    {actions_flat}
+
+    #### Effects
+    {effects_flat}
+    </div>
+
+    </div>
+
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
+    </div>
+    </div>
+    """,
+
+    # Weapon (item) --------------------------------------------------------
+    "weapon": """<div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
 <img src="{image_rel}" alt="{name}" class="item-image">
 
 ### {name}
-<div class="item-subtitle">{type_title} • {rarity} • {domain}</div>
 
 <div class="item-flavor">
-*{flavor}*
-</div>
-
-<div class="badges">
-  <span class="badge">{category}</span>
-  {badge_domain}
-  {badge_weight}
-  {badge_cost}
+*{description}*
 </div>
 </div>
 
@@ -93,81 +547,108 @@ TEMPLATES: Dict[str, str] = {
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
   <tbody>
-    <tr><td>Category</td><td>{category}</td></tr>
     <tr><td>Damage</td><td>{damage}</td></tr>
     <tr><td>Range</td><td>{range}</td></tr>
     <tr><td>Hands</td><td>{hands}</td></tr>
-    <tr><td>Reload/Charges</td><td>{reload}</td></tr>
-    <tr><td>Requirements</td><td>{requirements}</td></tr>
   </tbody>
 </table>
 
-#### Effects
-- *(Map rules/effects here if provided in JSON.)*
+#### Actions
+{actions_flat}
 
-#### Usage
-- *(Notes on reload/drawbacks/synergies.)*
+#### Effects
+{effects_flat}
+
+#### Weapon Features
+{weapon_features_flat}
 
 </div>
 </div>
 
 ---
 
-#### Description
-{description}
-
 <div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
+**UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
 </div>
-
 </div>
 """,
+
+    # Armor (item) --------------------------------------------------------
+    "armor": """<div class="item" markdown="1">
+    <div class="grid item-grid" markdown="1">
+
+    <div markdown="1">
+    <img src="{image_rel}" alt="{name}" class="item-image">
+
+    ### {name}
+
+    <div class="item-flavor">
+    *{description}*
+    </div>
+    </div>
+
+    <div markdown="1">
+
+    #### Stats
+    <table class="stat-table">
+      <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Base Score</td><td>{baseScore}</td></tr>
+        <tr><td>Thresholds</td><td>{baseThresholds}</td></tr>
+      </tbody>
+    </table>
+
+    #### Actions
+    {actions_flat}
+
+    #### Effects
+    {effects_flat}
+
+    #### Armor Features
+    {armor_features_flat}
+
+    </div>
+    </div>
+
+    ---
+
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
+    </div>
+    </div>
+    """,
 
     # Classes (system) --------------------------------------------------------
     "class": """<div class="class" markdown="1">
-<img src="{image_rel}" alt="{name}" class="item-image">
+    <img src="{image_rel}" alt="{name}" class="item-image">
 
-# {name}
-<div class="item-subtitle">Class • {rarity}</div>
+    # {name}
 
-<div class="badges">
-  {badge_role}
-  {badge_domain}
-</div>
+    ## At a Glance
+    - **Domains:** {domains_list}
+    - **Hit Points:** {hitPoints}
+    - **Evasion:** {evasion}
 
-## Overview
-{summary}
+    ## Features
+    {features_md}
 
-## Playstyle
-{playstyle}
+    ---
 
-## Starting Features
-{starting_features_md}
+    ## Description
+    {description}
 
----
-
-## Description
-{description}
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.{slug}`
-</div>
-</div>
-""",
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.{slug}`
+    </div>
+    </div>
+    """,
 
     # Subclasses (system) -----------------------------------------------------
     "subclass": """<div class="subclass" markdown="1">
 <img src="{image_rel}" alt="{name}" class="item-image">
 
 # {name}
-<div class="item-subtitle">Subclass • {parent_class}</div>
-
-<div class="badges">
-  {badge_domain}
-</div>
-
-## Concept
-{summary}
+<div class="item-subtitle">Subclass</div>
 
 ## Features
 {features_md}
@@ -185,53 +666,47 @@ TEMPLATES: Dict[str, str] = {
 
     # Domains (system) --------------------------------------------------------
     "domain": """<div class="domain" markdown="1">
-<img src="{image_rel}" alt="{name}" class="item-image">
+    <img src="{image_rel}" alt="{name}" class="item-image">
 
-# {name} Domain
-<div class="item-subtitle">{theme}</div>
+    # {name}
+    - **Type:** {type}
+    - **Level:** {level}
+    - **Domain:** {domain}
+    - **Recall Cost:** {recallCost}
 
-## Tenets
-{tenets_md}
+    ## Actions
+    {actions_flat}
 
-## Domain Moves / Boons
-{moves_md}
+    ---
 
----
+    ## Description
+    {description}
 
-## Description
-{description}
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.{slug}`
-</div>
-</div>
-""",
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.{slug}`
+    </div>
+    </div>
+    """,
 
     # Features (system) -------------------------------------------------------
     "feature": """<div class="feature" markdown="1">
-<img src="{image_rel}" alt="{name}" class="item-image">
+    <img src="{image_rel}" alt="{name}" class="item-image">
 
-# {name}
-<div class="item-subtitle">Feature • {rarity}</div>
+    # {name}
 
-<div class="badges">
-  {badge_domain}
-  {badge_level}
-</div>
+    ## Actions
+    {actions_flat}
 
-## Effect
-{effect_text}
+    ---
 
----
+    ## Description
+    {description}
 
-## Description
-{description}
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.{slug}`
-</div>
-</div>
-"""
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.{slug}`
+    </div>
+    </div>
+    """,
 }
 
 # ---------------------------- Configuration ----------------------------------
@@ -247,16 +722,11 @@ TEMPLATES: Dict[str, str] = {
 
 DEFAULT_ITEM_FIELD_MAP = {
     "name": "name",
-    "category": "system.category",
-    "damage": "system.damage",
-    "range": "system.range",
-    "rarity": "system.rarity",
-    "domain": "system.domain",
-    "hands": "system.hands",
-    "reload": "system.reload",
-    "requirements": "system.requirements",
-    "flavor": "system.flavor",
+    "type": "type",
     "description": "system.description",
+    "tier": "system.tier",
+    "actions": "system.actions",
+    "effects": "system.effects",
     "img": "img"
 }
 
@@ -265,9 +735,14 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "weapons": {
         "kind": "items",
         "src_subdir": "weapons",
-        "csv_fields": ["name","slug","category","damage","range","rarity","domain"],
-        "field_map": DEFAULT_ITEM_FIELD_MAP,
-        "template": "item_default",
+        "csv_fields": ["name","slug","description","tier","atk_summary","hands","weapon_feats","actions_flat"],
+        "field_map": DEFAULT_ITEM_FIELD_MAP | {
+            # example extra fields you might have in cyberware
+            "attack": "system.attack",
+            "hands": "system.burden",
+            "weaponFeatures": "system.weaponFeatures"
+        },
+        "template": "weapon",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
         "comp_key": "weapons",
         "out_dir_name": lambda audience, key: f"{audience}/items/{key}"
@@ -275,9 +750,14 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "armors": {
         "kind": "items",
         "src_subdir": "armors",
-        "csv_fields": ["name","slug","category","rarity","domain"],
-        "field_map": DEFAULT_ITEM_FIELD_MAP,
-        "template": "item_default",
+        "csv_fields": ["name","slug","baseScore","armorFeatures","baseThresholds"],
+        "field_map": DEFAULT_ITEM_FIELD_MAP | {
+            # example extra fields you might have in cyberware
+            "baseScore": "system.baseScore",
+            "armorFeatures": "system.armorFeatures",
+            "baseThresholds": "system.baseThresholds"
+        },
+        "template": "armor",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
         "comp_key": "armors",
         "out_dir_name": lambda audience, key: f"{audience}/items/{key}"
@@ -285,7 +765,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "ammo": {
         "kind": "items",
         "src_subdir": "ammo",
-        "csv_fields": ["name","slug","category","rarity","domain"],
+        "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
         "template": "item_default",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
@@ -295,7 +775,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "consumables": {
         "kind": "items",
         "src_subdir": "consumables",
-        "csv_fields": ["name","slug","category","rarity","domain"],
+        "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
         "template": "item_default",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
@@ -305,12 +785,8 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "cybernetics": {
         "kind": "items",
         "src_subdir": "cybernetics",
-        "csv_fields": ["name","slug","category","rarity","domain"],
-        "field_map": DEFAULT_ITEM_FIELD_MAP | {
-            # example extra fields you might have in cyberware
-            "slot": "system.slot",
-            "essence": "system.essence"
-        },
+        "csv_fields": ["name","slug","description","tier","actions"],
+        "field_map": DEFAULT_ITEM_FIELD_MAP,
         "template": "item_default",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
         "comp_key": "cybernetics",
@@ -319,7 +795,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "drones-devices": {
         "kind": "items",
         "src_subdir": "drones-devices",
-        "csv_fields": ["name","slug","category","rarity","domain"],
+        "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
         "template": "item_default",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
@@ -329,7 +805,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "mods": {
         "kind": "items",
         "src_subdir": "mods",
-        "csv_fields": ["name","slug","category","rarity","domain"],
+        "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
         "template": "item_default",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
@@ -339,7 +815,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "loot": {
         "kind": "items",
         "src_subdir": "loot",
-        "csv_fields": ["name","slug","category","rarity","domain"],
+        "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
         "template": "item_default",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
@@ -351,15 +827,15 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "classes": {
         "kind": "system",
         "src_subdir": "classes",
-        "csv_fields": ["name","slug","rarity","role","domain"],
+        "csv_fields": ["name","slug","domains","hitPoints","evasion", "features", "subclasses"],
         "field_map": {
             "name": "name",
-            "rarity": "system.rarity",
-            "role": "system.role",
-            "domain": "system.domain",
-            "summary": "system.summary",
-            "playstyle": "system.playstyle",
-            "starting_features": "system.startingFeatures",
+            "type": "type",
+            "domains": "system.domains",
+            "hitPoints": "system.hitPoints",
+            "evasion": "system.evasion",
+            "features": "system.features",
+            "subclasses": "system.subclasses",
             "description": "system.description",
             "img": "img"
         },
@@ -371,12 +847,10 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "subclasses": {
         "kind": "system",
         "src_subdir": "subclasses",
-        "csv_fields": ["name","slug","parent_class","domain"],
+        "csv_fields": ["name","slug","description","spellcastingTrait","features"],
         "field_map": {
             "name": "name",
-            "parent_class": "system.parentClass",
-            "domain": "system.domain",
-            "summary": "system.summary",
+            "spellcastingTrait": "system.spellcastingTrait",
             "features": "system.features",
             "description": "system.description",
             "img": "img"
@@ -389,12 +863,14 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "domains": {
         "kind": "system",
         "src_subdir": "domains",
-        "csv_fields": ["name","slug","theme"],
+        "csv_fields": ["name","slug","domain","type","description","level","recallCost","actions"],
         "field_map": {
             "name": "name",
-            "theme": "system.theme",
-            "tenets": "system.tenets",
-            "moves": "system.moves",
+            "type": "system.type",
+            "level": "system.level",
+            "domain": "system.domain",
+            "recallCost": "system.recallCost",
+            "actions": "system.actions",
             "description": "system.description",
             "img": "img"
         },
@@ -406,13 +882,10 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "features": {
         "kind": "system",
         "src_subdir": "features",
-        "csv_fields": ["name","slug","rarity","level","domain"],
+        "csv_fields": ["name","slug","description","actions"],
         "field_map": {
             "name": "name",
-            "rarity": "system.rarity",
-            "level": "system.level",
-            "domain": "system.domain",
-            "effect_text": "system.effect",
+            "actions": "system.actions",
             "description": "system.description",
             "img": "img"
         },
@@ -461,6 +934,8 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
     out_dir = docs_root / out_dir_rel
     ensure_dir(out_dir)
 
+    detail_dir = ""
+
     count = 0
     for p in sorted(src_dir.rglob("*.json")):
         obj = read_json(p)
@@ -470,13 +945,18 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
         slug = slugify(name)
 
         # Common basics
-        img_hint = get_in(obj, field_map.get("img", "img"))
-        rarity = get_in(obj, field_map.get("rarity", "system.rarity"))
-        domain = get_in(obj, field_map.get("domain", "system.domain"))
-        category = get_in(obj, field_map.get("category", "system.category"))
+        img_ref = get_in(obj, field_map.get("img", "img"))
         description = get_in(obj, field_map.get("description", "system.description"))
+        type = get_in(obj, field_map.get("type", "type"))
+        tier = get_in(obj, field_map.get("tier", "system.tier"))
 
-        # CSV row (columns per config)
+        actions_node = get_in(obj, field_map.get("actions", "system.actions"), [])
+        effects_node = get_in(obj, field_map.get("effects", "system.effects"), [])
+
+        action_summaries = summarize_actions(actions_node)  # List[dict]
+        effect_summaries = summarize_effects(effects_node)  # List[dict]
+
+    # CSV row (columns per config)
         csv_row = {"name": name, "slug": slug}
         for col in cfg["csv_fields"]:
             if col in ("name","slug"):  # already set
@@ -488,42 +968,60 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
         # Per-type context
         ctx: Dict[str, Any] = {
             "name": md_escape(name),
+            #"image_rel": md_escape(img_ref),
+            "image_rel": md_escape(cfg["image_rel"](audience, type_key, slug)),
             "slug": slug,
-            "rarity": md_escape(rarity or "Common"),
-            "domain": md_escape(domain or "—"),
-            "category": md_escape(category or titleize(type_key)),
+            "type": md_escape(type or "Common"),
+            "tier": md_escape(str(tier) or "—"),
             "description": md_escape(description or "(No description yet.)"),
             "comp_key": cfg.get("comp_key", type_key),
             "type_title": titleize(type_key[:-1]) if type_key.endswith("s") else titleize(type_key),
+            "actions": action_summaries,
+            "effects": effect_summaries,
+            "actions_flat": "\n".join(f"- {a['summary']}" for a in action_summaries) or "—",
+            "effects_flat": "\n".join(f"- {e['summary']}" for e in effect_summaries) or "—"
         }
+
+        detail_dir = docs_root / out_dir_rel / slug
+        ensure_dir(detail_dir)
 
         # Item-specific enrichments
         if kind == "items":
-            damage = get_in(obj, field_map.get("damage",""))
-            rng = get_in(obj, field_map.get("range",""))
-            hands = get_in(obj, field_map.get("hands",""))
-            reload_ = get_in(obj, field_map.get("reload",""))
-            requirements = get_in(obj, field_map.get("requirements",""))
-            flavor = get_in(obj, field_map.get("flavor",""))
+            # Prefer computed values from the attack node when present.
+            attack_node = get_in(obj, field_map.get("attack", "system.attack"), {})
+            atk_summary = summarize_attack(attack_node) if attack_node else {"damage": "—", "damageType": "—",
+                                                                             "range": "—"}
+
+            damage = atk_summary["damage"]
+            rng = atk_summary["range"]
+            damage_type = atk_summary["damageType"]  # available for future use
+
+            weapon_features_node = get_in(obj, field_map.get("weaponFeatures", "system.weaponFeatures"), [])
+            armor_features_node = get_in(obj, field_map.get("armorFeatures", "system.armorFeatures"), [])
+
+            weapon_feats = summarize_weapon_features(weapon_features_node)
+            armor_feats = summarize_armor_features(armor_features_node)
+            hands = get_in(obj, field_map.get("hands", ""))
+            baseScore = get_in(obj, field_map.get("baseScore", ""))
+            baseThresholds = get_in(obj, field_map.get("baseThresholds", ""))
+
+            # If this type’s CSV schema expects damage/range, put the computed values in the row
+            if "damage" in cfg["csv_fields"]:
+                rows[-1]["damage"] = damage
+            if "range" in cfg["csv_fields"]:
+                rows[-1]["range"] = rng
 
             ctx.update({
                 "damage": md_escape(damage or "—"),
                 "range": md_escape(rng or "—"),
                 "hands": md_escape(hands or "—"),
-                "reload": md_escape(reload_ or "—"),
-                "requirements": md_escape(requirements or "—"),
-                "flavor": md_escape(flavor or ""),
-                "badge_domain": f'<span class="badge tag">{md_escape(domain)}</span>' if domain else "",
-                "badge_weight": "",
-                "badge_cost": ""
+                "baseScore": md_escape(baseScore or "—"),
+                "baseThresholds": md_escape(baseThresholds or "—"),
+                "weapon_features_list": weapon_feats,
+                "armor_features_list": armor_feats,
+                "weapon_features_flat": "\n".join(f"- {x['summary']}" for x in weapon_feats) or "—",
+                "armor_features_flat": "\n".join(f"- {x['summary']}" for x in armor_feats) or "—"
             })
-
-            # Image relative to detail page (under docs/<audience>/items/<type>/<slug>/index.md)
-            image_rel = cfg["image_rel"](audience, type_key, slug)
-
-            detail_dir = docs_root / out_dir_rel / slug
-            ensure_dir(detail_dir)
-            ctx["image_rel"] = image_rel
 
         # System types enrichments
         else:
@@ -534,30 +1032,19 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
             ctx["image_rel"] = image_rel
 
             if type_key == "classes":
-                ctx["badge_role"] = f'<span class="badge">{md_escape(get_in(obj, field_map["role"]))}</span>' if get_in(obj, field_map["role"]) else ""
-                ctx["badge_domain"] = f'<span class="badge tag">{md_escape(domain)}</span>' if domain else ""
-                ctx["summary"] = md_escape(get_in(obj, field_map["summary"], ""))
-                ctx["playstyle"] = md_escape(get_in(obj, field_map["playstyle"], ""))
-                starts = get_in(obj, field_map["starting_features"], [])
-                ctx["starting_features_md"] = list_to_md_bullets(starts)
-
-            elif type_key == "subclasses":
-                ctx["parent_class"] = md_escape(get_in(obj, field_map["parent_class"], ""))
-                ctx["badge_domain"] = f'<span class="badge tag">{md_escape(domain)}</span>' if domain else ""
+                ctx["domains_list"] = ", ".join(get_in(obj, field_map["domains"], []) or [])
+                ctx["hitPoints"] = md_escape(get_in(obj, field_map["hitPoints"], ""))
+                ctx["evasion"] = md_escape(get_in(obj, field_map["evasion"], ""))
                 features = get_in(obj, field_map["features"], [])
                 ctx["features_md"] = features_to_md(features)
-                ctx["summary"] = md_escape(get_in(obj, field_map["summary"], ""))
-
+            elif type_key == "subclasses":
+                features = get_in(obj, field_map["features"], [])
+                ctx["features_md"] = features_to_md(features)
             elif type_key == "domains":
-                ctx["theme"] = md_escape(get_in(obj, field_map["theme"], ""))
-                ctx["tenets_md"] = list_to_md_bullets(get_in(obj, field_map["tenets"], []))
-                ctx["moves_md"]  = features_to_md(get_in(obj, field_map["moves"], []))
-
-            elif type_key == "features":
-                level = get_in(obj, field_map["level"], "")
-                ctx["badge_domain"] = f'<span class="badge tag">{md_escape(domain)}</span>' if domain else ""
-                ctx["badge_level"] = f'<span class="badge">Level {md_escape(str(level))}</span>' if level != "" else ""
-                ctx["effect_text"] = md_escape(get_in(obj, field_map["effect_text"], ""))
+                ctx["level"] = md_escape(get_in(obj, field_map["level"], ""))
+                ctx["domain"] = list_to_md_bullets(get_in(obj, field_map["domain"], []))
+                ctx["recallCost"]  = features_to_md(get_in(obj, field_map["recallCost"], []))
+            # elif type_key == "features":
 
         # Render and write
         page_md = render_template(template_key, ctx)

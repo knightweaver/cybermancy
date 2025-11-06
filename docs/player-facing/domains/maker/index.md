@@ -1,21 +1,22 @@
 <div class="domain" markdown="1">
-<img src="../../assets/icons/domains/maker.webp" alt="Maker" class="item-image">
+    <img src="../../assets/icons/domains/maker.webp" alt="Maker" class="item-image">
 
-# Maker Domain
-<div class="item-subtitle"></div>
+    # Maker
+    - **Type:** Common
+    - **Level:** 
+    - **Domain:** 
+    - **Recall Cost:** 
 
-## Tenets
+    ## Actions
+    —
 
+    ---
 
-## Domain Moves / Boons
+    ## Description
+    (No description yet.)
 
-
----
-
-## Description
-(No description yet.)
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.maker`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.maker`
+    </div>
+    </div>
+    

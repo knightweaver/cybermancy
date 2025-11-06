@@ -1,21 +1,21 @@
-name,slug,category,rarity,domain
-Adaptive Ballistics Computer,adaptive-ballistics-computer,,,
-Aim assist,aim-assist,,,
-Armor-Piercing Slug Rail,armor-piercing-slug-rail,,,
-Ballistic Enhancement Barrel,ballistic-enhancement-barrel,,,
-Ballistic Servo Sight,ballistic-servo-sight,,,
-Bayonette,bayonette,,,
-Caseless High-Cap Mag,caseless-high-cap-mag,,,
-Flash-Diverter (Strobe Muzzle),flash-diverter-strobe-muzzle,,,
-Foldable stock,foldable-stock,,,
-Gauss Coil Retrofit,gauss-coil-retrofit,,,
-Gyro-Stabilizer,gyro-stabilizer,,,
-Holo-Displacer Camo,holo-displacer-camo,,,
-Laser sight,laser-sight,,,
-Reactive Ammo Loader,reactive-ammo-loader,,,
-Reactive Shrapnel Shells,reactive-shrapnel-shells,,,
-Shock Damping Frame,shock-damping-frame,,,
-Smart Safety Override,smart-safety-override,,,
-SmartLink Mod,smartlink-mod,,,
-Subsonic Suppressor,subsonic-suppressor,,,
-Telescopic sight,telescopic-sight,,,
+name,slug,description,tier,actions
+Adaptive Ballistics Computer,adaptive-ballistics-computer,"<p class=""Card-Feature"">Once per scene, <strong>Spend 1 Hope</strong> to attack with advantage</p>",,{}
+Aim assist,aim-assist,"<p class=""Card-Feature"">Add +1 to all damage from this gun</p>",,{}
+Armor-Piercing Slug Rail,armor-piercing-slug-rail,"<p class=""Card-Feature"">When resolving a successful attack with this weapon, if it is loaded with Armor piercing rounds, the target must mark 2 Stress to mark 1 Armor Slot</p>",,{}
+Ballistic Enhancement Barrel,ballistic-enhancement-barrel,"<p class=""Card-Feature"">Increase the die increment whenever this weapon is fired (e.g. from a d4 to a d6).  If a Critical Failure is rolled while firing a weapon with this mod, the creature holding the weapon must Mark 2 Hit Points of damage and the weapon is destroyed.</p>",,{}
+Ballistic Servo Sight,ballistic-servo-sight,"<p class=""Card-Feature"">Allow your gun to be fired 1 range increment further than normal, up to a max range of Very Long</p>",,{}
+Bayonette,bayonette,"<p class=""Card-Feature"">Add +d4 damage to Melee attacks made with this gun</p>",,{}
+Caseless High-Cap Mag,caseless-high-cap-mag,"<p class=""Card-Feature"">Once per scene, when you are required to make a Reload action, you may perform that Reload as a free action</p>",,{}
+Flash-Diverter (Strobe Muzzle),flash-diverter-strobe-muzzle,"<p class=""Card-Feature"">All enemies within Very Close must make an Instinct saving throw or be Shaken and have a -2 on their next attack action.</p>",,{}
+Foldable stock,foldable-stock,"<p class=""Card-Feature"">When attached to a rifle, allows the gun to be concealed more easily.  -2 on a Perceive check for the prescence of the gun to be detected.</p>",,{}
+Gauss Coil Retrofit,gauss-coil-retrofit,"<p class=""Card-Feature"">+1 range tier and +1 armor penetration. Critical: pierce through to behind target. Slot: Receiver / Power.</p>",,{}
+Gyro-Stabilizer,gyro-stabilizer,"<p class=""Card-Feature"">Once per scene, as a reaction, <strong>Spend 1 Hope</strong> to reroll one failed Agility or Finesse based attack.</p>",,{}
+Holo-Displacer Camo,holo-displacer-camo,"<p class=""Card-Feature"">Once per Scene, force one attacker to roll at Disadvantage. Critical: decoy draws fire. Slot: External / Electronics.</p>",,{}
+Laser sight,laser-sight,"<p class=""Card-Feature"">+1 on all attack rolls with this gun.</p>",,{}
+Reactive Ammo Loader,reactive-ammo-loader,"<p class=""Card-Feature"">Once per scene, perform the Reload action as a free action.</p>",,{}
+Reactive Shrapnel Shells,reactive-shrapnel-shells,"<p class=""Card-Feature"">On hit, minor AoE splash. Critical: heavy AoE; creates hazard zone. Slot: Ammo.</p>",,{}
+Shock Damping Frame,shock-damping-frame,"<p class=""Card-Feature"">Whenever you make an attack with this gun, you may <strong>Spend 1 Hope</strong> to make a second attack at -2</p>",,{}
+Smart Safety Override,smart-safety-override,"<p class=""Card-Feature"">Once per long rest, as a Reaction, <strong>Spend 1 Hope</strong> to make an attack on a creature targeting you before they make their attack</p>",,{}
+SmartLink Mod,smartlink-mod,"<p class=""Card-Feature"">This mod can be applied to just about any weapon (GM's discretion) to allow that weapon to become compatible with the SmartLink™ cybernetic system.</p>",,{}
+Subsonic Suppressor,subsonic-suppressor,"<p class=""Card-Feature"">Attacks harder to detect; all enemies attempting to Perceive your attack roll at Disadvantage</p>",,{}
+Telescopic sight,telescopic-sight,"<p class=""Card-Feature"">Reduce a range increment by 1 when target creatures at the limit of your gun's range</p>",,{}

@@ -2,14 +2,7 @@
 <img src="../../assets/icons/subclasses/jack-of-all-trades.webp" alt="Jack of All Trades" class="item-image">
 
 # Jack of All Trades
-<div class="item-subtitle">Subclass • </div>
-
-<div class="badges">
-  
-</div>
-
-## Concept
-
+<div class="item-subtitle">Subclass</div>
 
 ## Features
 - **** — 

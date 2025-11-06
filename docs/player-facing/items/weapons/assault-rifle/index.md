@@ -1,22 +1,13 @@
 <div class="item" markdown="1">
-
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
 <img src="../../../assets/icons/weapons/assault-rifle.webp" alt="Assault Rifle" class="item-image">
 
 ### Assault Rifle
-<div class="item-subtitle">Weapon • Common • —</div>
 
 <div class="item-flavor">
-**
-</div>
-
-<div class="badges">
-  <span class="badge">Weapons</span>
-  
-  
-  
+*The runner’s staple: reliable, lethal, and adaptable across every corporate warzone on Earth.*
 </div>
 </div>
 
@@ -26,31 +17,27 @@
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
   <tbody>
-    <tr><td>Category</td><td>Weapons</td></tr>
-    <tr><td>Damage</td><td>—</td></tr>
-    <tr><td>Range</td><td>—</td></tr>
-    <tr><td>Hands</td><td>—</td></tr>
-    <tr><td>Reload/Charges</td><td>—</td></tr>
-    <tr><td>Requirements</td><td>—</td></tr>
+    <tr><td>Damage</td><td>d8+3</td></tr>
+    <tr><td>Range</td><td>far</td></tr>
+    <tr><td>Hands</td><td>twoHanded</td></tr>
   </tbody>
 </table>
 
-#### Effects
-- *(Map rules/effects here if provided in JSON.)*
+#### Actions
+—
 
-#### Usage
-- *(Notes on reload/drawbacks/synergies.)*
+#### Effects
+—
+
+#### Weapon Features
+—
 
 </div>
 </div>
 
 ---
 
-#### Description
-The runner’s staple: reliable, lethal, and adaptable across every corporate warzone on Earth.
-
 <div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.weapons.assault-rifle`
+**UUID:** `Compendium.cybermancy.weapons.assault-rifle`
 </div>
-
 </div>

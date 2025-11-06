@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/intrinsic-features.webp" alt="Intrinsic Features" class="item-image">
+    <img src="../../assets/icons/features/intrinsic-features.webp" alt="Intrinsic Features" class="item-image">
 
-# Intrinsic Features
-<div class="item-subtitle">Feature • Common</div>
+    # Intrinsic Features
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    (No description yet.)
 
----
-
-## Description
-(No description yet.)
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.intrinsic-features`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.intrinsic-features`
+    </div>
+    </div>
+    

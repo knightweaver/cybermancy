@@ -2,14 +2,7 @@
 <img src="../../assets/icons/subclasses/ghost-in-the-machine.webp" alt="Ghost in the Machine" class="item-image">
 
 # Ghost in the Machine
-<div class="item-subtitle">Subclass • </div>
-
-<div class="badges">
-  
-</div>
-
-## Concept
-
+<div class="item-subtitle">Subclass</div>
 
 ## Features
 - **** — 

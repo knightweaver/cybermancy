@@ -1,1 +1,0 @@
-# Cybermancy — Player Guide

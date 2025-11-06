@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/you-re-in-my-sights.webp" alt="You’re in my sights" class="item-image">
+    <img src="../../assets/icons/features/you-re-in-my-sights.webp" alt="You’re in my sights" class="item-image">
 
-# You’re in my sights
-<div class="item-subtitle">Feature • Common</div>
+    # You’re in my sights
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    &lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to make an adversary within Very Close your Primary Target. If that adversary attempts to leave Very Close range, you may move with them automatically on their Action. +2 to all your attacks and damage against that Primary Focus&lt;/p&gt;
 
----
-
-## Description
-&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to make an adversary within Very Close your Primary Target. If that adversary attempts to leave Very Close range, you may move with them automatically on their Action. +2 to all your attacks and damage against that Primary Focus&lt;/p&gt;
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.you-re-in-my-sights`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.you-re-in-my-sights`
+    </div>
+    </div>
+    

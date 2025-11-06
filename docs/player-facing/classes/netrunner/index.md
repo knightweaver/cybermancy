@@ -1,29 +1,27 @@
 <div class="class" markdown="1">
-<img src="../../assets/icons/classes/netrunner.webp" alt="Netrunner" class="item-image">
+    <img src="../../assets/icons/classes/netrunner.webp" alt="Netrunner" class="item-image">
 
-# Netrunner
-<div class="item-subtitle">Class • Common</div>
+    # Netrunner
 
-<div class="badges">
-  
-  
-</div>
+    ## At a Glance
+    - **Domains:** midnight, circuit
+    - **Hit Points:** 6
+    - **Evasion:** 10
 
-## Overview
+    ## Features
+    - **** — 
+- **** — 
+- **** — 
+- **** — 
+- **** — 
 
+    ---
 
-## Playstyle
+    ## Description
+    &lt;p&gt;You move through systems like smoke—quiet, graceful, inevitable. The code bends to your touch, never realizing it’s been rewritten until it’s already yours. Corporate vaults crumble behind polite smiles and phantom keystrokes, and somewhere an IT director feels their career dissolving with the data. But the real thrill isn’t just in the silicon. You know the human mind runs on softer code—fear, pride, loneliness—and you can rewrite that too. Machines are simple; people are the exquisite challenge.&lt;/p&gt;
 
-
-## Starting Features
-
-
----
-
-## Description
-&lt;p&gt;You move through systems like smoke—quiet, graceful, inevitable. The code bends to your touch, never realizing it’s been rewritten until it’s already yours. Corporate vaults crumble behind polite smiles and phantom keystrokes, and somewhere an IT director feels their career dissolving with the data. But the real thrill isn’t just in the silicon. You know the human mind runs on softer code—fear, pride, loneliness—and you can rewrite that too. Machines are simple; people are the exquisite challenge.&lt;/p&gt;
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.netrunner`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.netrunner`
+    </div>
+    </div>
+    

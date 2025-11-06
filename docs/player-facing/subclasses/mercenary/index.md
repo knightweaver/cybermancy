@@ -2,14 +2,7 @@
 <img src="../../assets/icons/subclasses/mercenary.webp" alt="Mercenary" class="item-image">
 
 # Mercenary
-<div class="item-subtitle">Subclass • </div>
-
-<div class="badges">
-  
-</div>
-
-## Concept
-
+<div class="item-subtitle">Subclass</div>
 
 ## Features
 - **** — 

@@ -1,22 +1,13 @@
 <div class="item" markdown="1">
-
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
 <img src="../../../assets/icons/weapons/sniper-rifle.webp" alt="Sniper Rifle" class="item-image">
 
 ### Sniper Rifle
-<div class="item-subtitle">Weapon • Common • —</div>
 
 <div class="item-flavor">
-**
-</div>
-
-<div class="badges">
-  <span class="badge">Weapons</span>
-  
-  
-  
+*Precision weapon built for the patient killer — silent, steady, and unerring over long distances.*
 </div>
 </div>
 
@@ -26,31 +17,27 @@
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
   <tbody>
-    <tr><td>Category</td><td>Weapons</td></tr>
-    <tr><td>Damage</td><td>—</td></tr>
-    <tr><td>Range</td><td>—</td></tr>
-    <tr><td>Hands</td><td>—</td></tr>
-    <tr><td>Reload/Charges</td><td>—</td></tr>
-    <tr><td>Requirements</td><td>—</td></tr>
+    <tr><td>Damage</td><td>d8+4</td></tr>
+    <tr><td>Range</td><td>veryFar</td></tr>
+    <tr><td>Hands</td><td>twoHanded</td></tr>
   </tbody>
 </table>
 
-#### Effects
-- *(Map rules/effects here if provided in JSON.)*
+#### Actions
+—
 
-#### Usage
-- *(Notes on reload/drawbacks/synergies.)*
+#### Effects
+—
+
+#### Weapon Features
+—
 
 </div>
 </div>
 
 ---
 
-#### Description
-Precision weapon built for the patient killer — silent, steady, and unerring over long distances.
-
 <div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.weapons.sniper-rifle`
+**UUID:** `Compendium.cybermancy.weapons.sniper-rifle`
 </div>
-
 </div>

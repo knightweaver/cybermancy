@@ -1,56 +1,26 @@
 <div class="item" markdown="1">
+    <div class="grid item-grid" markdown="1">
 
-<div class="grid item-grid" markdown="1">
+    <div markdown="1">
+    <img src="../../../assets/icons/loot/arc-empty-chest-module.webp" alt="Arc Empty Chest Module" class="item-image">
+    ### Arc Empty Chest Module
+    <div class="item-flavor">
+    *This magical chest appears empty. When you speak a specific trigger word or action and open the chest, you can see the items stored within it. black-market tech favored by runners and fixers*
+    </div>
+    </div>
 
-<div markdown="1">
-<img src="../../../assets/icons/loot/arc-empty-chest-module.webp" alt="Arc Empty Chest Module" class="item-image">
+    <div markdown="1">
+    #### Actions
+    —
 
-### Arc Empty Chest Module
-<div class="item-subtitle">Loot • Common • —</div>
+    #### Effects
+    —
+    </div>
 
-<div class="item-flavor">
-**
-</div>
+    </div>
 
-<div class="badges">
-  <span class="badge">Loot</span>
-  
-  
-  
-</div>
-</div>
-
-<div markdown="1">
-
-#### Stats
-<table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
-  <tbody>
-    <tr><td>Category</td><td>Loot</td></tr>
-    <tr><td>Damage</td><td>—</td></tr>
-    <tr><td>Range</td><td>—</td></tr>
-    <tr><td>Hands</td><td>—</td></tr>
-    <tr><td>Reload/Charges</td><td>—</td></tr>
-    <tr><td>Requirements</td><td>—</td></tr>
-  </tbody>
-</table>
-
-#### Effects
-- *(Map rules/effects here if provided in JSON.)*
-
-#### Usage
-- *(Notes on reload/drawbacks/synergies.)*
-
-</div>
-</div>
-
----
-
-#### Description
-This magical chest appears empty. When you speak a specific trigger word or action and open the chest, you can see the items stored within it. black-market tech favored by runners and fixers
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.loot.arc-empty-chest-module`
-</div>
-
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.loot.arc-empty-chest-module`
+    </div>
+    </div>
+    

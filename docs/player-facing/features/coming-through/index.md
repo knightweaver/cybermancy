@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/coming-through.webp" alt="Coming through" class="item-image">
+    <img src="../../assets/icons/features/coming-through.webp" alt="Coming through" class="item-image">
 
-# Coming through
-<div class="item-subtitle">Feature • Common</div>
+    # Coming through
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    &lt;p class="Card-Feature"&gt;Once per rest, &lt;strong&gt;Mark 1 Stress&lt;/strong&gt; per ICE on a Device you are attempting to Control. Make a &lt;strong&gt;Spellcasting (Hacking)&lt;/strong&gt; roll against each ICE at +2. Any ICE you succeed against are removed from the Device. Raise the System Alert by 1 for each ICE you fail against. You cannot stop rolling until all the ICE have been rolled against.&lt;/p&gt;
 
----
-
-## Description
-&lt;p class="Card-Feature"&gt;Once per rest, &lt;strong&gt;Mark 1 Stress&lt;/strong&gt; per ICE on a Device you are attempting to Control. Make a &lt;strong&gt;Spellcasting (Hacking)&lt;/strong&gt; roll against each ICE at +2. Any ICE you succeed against are removed from the Device. Raise the System Alert by 1 for each ICE you fail against. You cannot stop rolling until all the ICE have been rolled against.&lt;/p&gt;
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.coming-through`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.coming-through`
+    </div>
+    </div>
+    

@@ -1,21 +1,22 @@
 <div class="domain" markdown="1">
-<img src="../../assets/icons/domains/quick-reload.webp" alt="Quick Reload" class="item-image">
+    <img src="../../assets/icons/domains/quick-reload.webp" alt="Quick Reload" class="item-image">
 
-# Quick Reload Domain
-<div class="item-subtitle"></div>
+    # Quick Reload
+    - **Type:** ability
+    - **Level:** 1
+    - **Domain:** - bullet
+    - **Recall Cost:** 1
 
-## Tenets
+    ## Actions
+    —
 
+    ---
 
-## Domain Moves / Boons
+    ## Description
+    &lt;i&gt;Reloading is for amateurs.&lt;/i&gt;&lt;p class="Card-Feature"&gt;Swap ammunition types without spending an action.&lt;/p&gt;
 
-
----
-
-## Description
-&lt;i&gt;Reloading is for amateurs.&lt;/i&gt;&lt;p class="Card-Feature"&gt;Swap ammunition types without spending an action.&lt;/p&gt;
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.quick-reload`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.quick-reload`
+    </div>
+    </div>
+    

@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/class-and-subclass-features.webp" alt="Class and Subclass Features" class="item-image">
+    <img src="../../assets/icons/features/class-and-subclass-features.webp" alt="Class and Subclass Features" class="item-image">
 
-# Class and Subclass Features
-<div class="item-subtitle">Feature • Common</div>
+    # Class and Subclass Features
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    (No description yet.)
 
----
-
-## Description
-(No description yet.)
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.class-and-subclass-features`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.class-and-subclass-features`
+    </div>
+    </div>
+    

@@ -1,56 +1,43 @@
 <div class="item" markdown="1">
+    <div class="grid item-grid" markdown="1">
 
-<div class="grid item-grid" markdown="1">
+    <div markdown="1">
+    <img src="../../../assets/icons/armors/kinetic-only-bulwark.webp" alt="Kinetic-Only Bulwark" class="item-image">
 
-<div markdown="1">
-<img src="../../../assets/icons/armors/kinetic-only-bulwark.webp" alt="Kinetic-Only Bulwark" class="item-image">
+    ### Kinetic-Only Bulwark
 
-### Kinetic-Only Bulwark
-<div class="item-subtitle">Armor • Common • —</div>
+    <div class="item-flavor">
+    *Optimized to blunt physical force; don’t expect it to help against witchware or weird grids.*
+    </div>
+    </div>
 
-<div class="item-flavor">
-**
-</div>
+    <div markdown="1">
 
-<div class="badges">
-  <span class="badge">Armors</span>
-  
-  
-  
-</div>
-</div>
+    #### Stats
+    <table class="stat-table">
+      <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Base Score</td><td>6</td></tr>
+        <tr><td>Thresholds</td><td>{'major': 16, 'severe': 39}</td></tr>
+      </tbody>
+    </table>
 
-<div markdown="1">
+    #### Actions
+    —
 
-#### Stats
-<table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
-  <tbody>
-    <tr><td>Category</td><td>Armors</td></tr>
-    <tr><td>Damage</td><td>—</td></tr>
-    <tr><td>Range</td><td>—</td></tr>
-    <tr><td>Hands</td><td>—</td></tr>
-    <tr><td>Reload/Charges</td><td>—</td></tr>
-    <tr><td>Requirements</td><td>—</td></tr>
-  </tbody>
-</table>
+    #### Effects
+    —
 
-#### Effects
-- *(Map rules/effects here if provided in JSON.)*
+    #### Armor Features
+    - Unnamed Feature [armor-feature]
 
-#### Usage
-- *(Notes on reload/drawbacks/synergies.)*
+    </div>
+    </div>
 
-</div>
-</div>
+    ---
 
----
-
-#### Description
-Optimized to blunt physical force; don’t expect it to help against witchware or weird grids.
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.armors.kinetic-only-bulwark`
-</div>
-
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.armors.kinetic-only-bulwark`
+    </div>
+    </div>
+    

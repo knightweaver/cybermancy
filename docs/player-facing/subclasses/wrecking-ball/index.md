@@ -2,14 +2,7 @@
 <img src="../../assets/icons/subclasses/wrecking-ball.webp" alt="Wrecking Ball" class="item-image">
 
 # Wrecking Ball
-<div class="item-subtitle">Subclass • </div>
-
-<div class="badges">
-  
-</div>
-
-## Concept
-
+<div class="item-subtitle">Subclass</div>
 
 ## Features
 - **** — 

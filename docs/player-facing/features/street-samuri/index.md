@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/street-samuri.webp" alt="Street Samuri" class="item-image">
+    <img src="../../assets/icons/features/street-samuri.webp" alt="Street Samuri" class="item-image">
 
-# Street Samuri
-<div class="item-subtitle">Feature • Common</div>
+    # Street Samuri
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    (No description yet.)
 
----
-
-## Description
-(No description yet.)
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.street-samuri`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.street-samuri`
+    </div>
+    </div>
+    

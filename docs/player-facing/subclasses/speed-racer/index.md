@@ -2,14 +2,7 @@
 <img src="../../assets/icons/subclasses/speed-racer.webp" alt="Speed Racer" class="item-image">
 
 # Speed Racer
-<div class="item-subtitle">Subclass • </div>
-
-<div class="badges">
-  
-</div>
-
-## Concept
-
+<div class="item-subtitle">Subclass</div>
 
 ## Features
 - **** — 

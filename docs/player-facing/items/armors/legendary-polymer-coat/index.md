@@ -1,56 +1,43 @@
 <div class="item" markdown="1">
+    <div class="grid item-grid" markdown="1">
 
-<div class="grid item-grid" markdown="1">
+    <div markdown="1">
+    <img src="../../../assets/icons/armors/legendary-polymer-coat.webp" alt="Legendary Polymer Coat" class="item-image">
 
-<div markdown="1">
-<img src="../../../assets/icons/armors/legendary-polymer-coat.webp" alt="Legendary Polymer Coat" class="item-image">
+    ### Legendary Polymer Coat
 
-### Legendary Polymer Coat
-<div class="item-subtitle">Armor • Common • —</div>
+    <div class="item-flavor">
+    *Masterwork polymer-link coat—cutter-proof and photogenic.*
+    </div>
+    </div>
 
-<div class="item-flavor">
-**
-</div>
+    <div markdown="1">
 
-<div class="badges">
-  <span class="badge">Armors</span>
-  
-  
-  
-</div>
-</div>
+    #### Stats
+    <table class="stat-table">
+      <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Base Score</td><td>7</td></tr>
+        <tr><td>Thresholds</td><td>{'major': 15, 'severe': 40}</td></tr>
+      </tbody>
+    </table>
 
-<div markdown="1">
+    #### Actions
+    —
 
-#### Stats
-<table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
-  <tbody>
-    <tr><td>Category</td><td>Armors</td></tr>
-    <tr><td>Damage</td><td>—</td></tr>
-    <tr><td>Range</td><td>—</td></tr>
-    <tr><td>Hands</td><td>—</td></tr>
-    <tr><td>Reload/Charges</td><td>—</td></tr>
-    <tr><td>Requirements</td><td>—</td></tr>
-  </tbody>
-</table>
+    #### Effects
+    —
 
-#### Effects
-- *(Map rules/effects here if provided in JSON.)*
+    #### Armor Features
+    - Unnamed Feature [armor-feature]
 
-#### Usage
-- *(Notes on reload/drawbacks/synergies.)*
+    </div>
+    </div>
 
-</div>
-</div>
+    ---
 
----
-
-#### Description
-Masterwork polymer-link coat—cutter-proof and photogenic.
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.armors.legendary-polymer-coat`
-</div>
-
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.armors.legendary-polymer-coat`
+    </div>
+    </div>
+    

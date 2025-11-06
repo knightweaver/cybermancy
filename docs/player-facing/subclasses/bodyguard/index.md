@@ -2,14 +2,7 @@
 <img src="../../assets/icons/subclasses/bodyguard.webp" alt="Bodyguard" class="item-image">
 
 # Bodyguard
-<div class="item-subtitle">Subclass • </div>
-
-<div class="badges">
-  
-</div>
-
-## Concept
-
+<div class="item-subtitle">Subclass</div>
 
 ## Features
 - **** — 

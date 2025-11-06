@@ -23,12 +23,12 @@ extra_javascript:
 plugins:
   - search
   - include-markdown
-  - macros:
-      module_name: docs/includes/my-macros
+  - macros
 nav:
   - Home: index.md
   - World:
       - Timeline (player): world/player-visible-info-on-timeline.md
+      - test: test.md
   - Items:
       - Ammo: items/ammo.md
       - Armors: items/armors.md

@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/i-ve-driven-this-before.webp" alt="I’ve driven this before" class="item-image">
+    <img src="../../assets/icons/features/i-ve-driven-this-before.webp" alt="I’ve driven this before" class="item-image">
 
-# I’ve driven this before
-<div class="item-subtitle">Feature • Common</div>
+    # I’ve driven this before
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    +2 on any Driving check, regardless of what you are driving.
 
----
-
-## Description
-+2 on any Driving check, regardless of what you are driving.
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.i-ve-driven-this-before`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.i-ve-driven-this-before`
+    </div>
+    </div>
+    

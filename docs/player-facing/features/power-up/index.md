@@ -1,23 +1,18 @@
 <div class="feature" markdown="1">
-<img src="../../assets/icons/features/power-up.webp" alt="Power Up" class="item-image">
+    <img src="../../assets/icons/features/power-up.webp" alt="Power Up" class="item-image">
 
-# Power Up
-<div class="item-subtitle">Feature • Common</div>
+    # Power Up
 
-<div class="badges">
-  
-  
-</div>
+    ## Actions
+    —
 
-## Effect
+    ---
 
+    ## Description
+    &lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 3 Hope&lt;/strong&gt; when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.&lt;/p&gt;
 
----
-
-## Description
-&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 3 Hope&lt;/strong&gt; when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.&lt;/p&gt;
-
-<div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.power-up`
-</div>
-</div>
+    <div class="meta" markdown="1">
+    **UUID:** `Compendium.cybermancy.system.power-up`
+    </div>
+    </div>
+    
