@@ -24,7 +24,7 @@ plugins:
   - search
   - include-markdown
   - macros:
-      module_name: includes/my-macros
+      module_name: docs/includes/my-macros
 nav:
   - Home: index.md
   - World:

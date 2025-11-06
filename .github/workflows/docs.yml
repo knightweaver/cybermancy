@@ -23,7 +23,7 @@ jobs:
       - name: Install mkdocs + plugins
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material mkdocs-include-markdown-plugin
+          pip install mkdocs mkdocs-material mkdocs-include-markdown-plugin mkdocs-macros-plugin 
 
       - name: Build Player site
         run: mkdocs build --config-file mkdocs.player.yml
