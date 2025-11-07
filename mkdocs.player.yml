@@ -23,7 +23,8 @@ extra_javascript:
 plugins:
   - search
   - include-markdown
-  - macros
+  - macros:
+      module_name: docs/include/load-csv
 nav:
   - Home: index.md
   - World:
