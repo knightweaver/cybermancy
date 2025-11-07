@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Trick Shot**<br>* Automatically hit and d10+3 additional damage  Describe the cinematic effect of your shot. GM discretion*</div>
 
     ---
 

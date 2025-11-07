@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Wakizashi™ Servo Wrist Reinforcement**<br>*"Flesh meets metal; unleash hidden power."After a successful attack with your secondary weapon, Mark 1 Stress to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  Requires the Wakizashi™ Base Unit.*</div>
 
     #### Effects
     —

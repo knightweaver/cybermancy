@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Nanite Medigel Reservoir**<br>*Double your renewal, embrace pure vitality.Once per long rest, when you heal a Hit Point, you may heal and additional Hit Point*</div>
 
     #### Effects
     —

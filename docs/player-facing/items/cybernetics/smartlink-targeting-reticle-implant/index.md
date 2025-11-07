@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**SmartLink™ Targeting Reticle Implant**<br>*Precision unleashed; elevate your aim.When firing a SmartLink™ enabled weapon, +1 Attack.  Requires the SmartLink™ CPU implant*</div>
 
     #### Effects
     —

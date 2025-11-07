@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/light-semi-auto-pistol.webp" alt="Light Semi-auto pistol" class="item-image">
-
 ### Light Semi-auto pistol
 
+<img src="../../../assets/icons/weapons/light-semi-auto-pistol.webp" alt="Light Semi-auto pistol" class="item-image">
+
 <div class="item-flavor">
-*&lt;p&gt;A small, light-weight semi-automatic pistol. Cheap but not high quality&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Concealable in a pocket&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;-1 to hit&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Centa cred ($100's)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Close range&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;*
+&lt;p&gt;A small, light-weight semi-automatic pistol. Cheap but not high quality&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Concealable in a pocket&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;-1 to hit&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Centa cred ($100's)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Close range&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
 </div>
 </div>
 
@@ -15,25 +15,28 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d6</td></tr>
-    <tr><td>Range</td><td>close</td></tr>
-    <tr><td>Hands</td><td>oneHanded</td></tr>
+    <tr><td>Tier</td><td align="right">1</td></tr>
+    <tr><td>Trait</td><td align="right">Agility</td></tr>
+    <tr><td>Range</td><td align="right">Close</td></tr>
+    <tr><td>Burden</td><td align="right">One Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d6</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
 —
 
 #### Effects
-—
+- <div markdown='1'>**Inaccurate**<br>**</div>
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

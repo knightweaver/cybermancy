@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Quick Change**<br>*The right tool for the wrong moment.Once per Scene, Mark 1 Stress to replace one module on your Primary Drone instantly.*</div>
 
     ---
 

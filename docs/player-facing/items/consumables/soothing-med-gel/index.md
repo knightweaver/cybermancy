@@ -11,7 +11,9 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Clear Hit Points**<br>*You can consume this moss during a rest to clear 1d10 HP.*</div>
+
+- <div markdown='1'>**Clear Stress**<br>*You can consume this moss during a rest to clear 1d10 Stress.*</div>
 
     #### Effects
     —

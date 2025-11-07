@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Emotive Pulse Regulator**<br>*Hope's shield, a warrior's silent sanctuary.Once per scene, Spend 1 Hope to prevent Marking up to 1 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>
 
     #### Effects
     —

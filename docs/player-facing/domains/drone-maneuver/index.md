@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Drone Maneuver**<br>*Dodge by remote instinct.As a Reaction, Mark 1 Stress to give your Primary Drone +2 Evasion for one attack before results are determined.*</div>
 
     ---
 

@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Intimidation**<br>*Fear is the first bullet.With a visible gun, make Presence rolls at  +d4.  Once per Scene, Spend 1 Hope to re-roll a Presence roll.*</div>
 
     ---
 

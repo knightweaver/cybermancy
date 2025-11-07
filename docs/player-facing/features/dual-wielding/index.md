@@ -4,7 +4,9 @@
     # Dual wielding
 
     ## Actions
-    —
+    - <div markdown='1'>**Dual wielding**<br>*If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 2 Hope to make an attack with each against different targets. =*</div>
+
+- <div markdown='1'>**Dual wielding**<br>*If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 3 Hope to make an attack with each against different targets. =*</div>
 
     ---
 

@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Air Support**<br>* You have +2 to your attacks and all allies have +1 to their attacks*</div>
 
     ---
 

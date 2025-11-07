@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/fragmentation-grenade.webp" alt="Fragmentation Grenade" class="item-image">
-
 ### Fragmentation Grenade
 
+<img src="../../../assets/icons/weapons/fragmentation-grenade.webp" alt="Fragmentation Grenade" class="item-image">
+
 <div class="item-flavor">
-*A high-yield fragmentation device scattering lethal shrapnel in every direction.*
+A high-yield fragmentation device scattering lethal shrapnel in every direction.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d12</td></tr>
-    <tr><td>Range</td><td>far</td></tr>
-    <tr><td>Hands</td><td>oneHanded</td></tr>
+    <tr><td>Tier</td><td align="right">1</td></tr>
+    <tr><td>Trait</td><td align="right">Finesse</td></tr>
+    <tr><td>Range</td><td align="right">Far</td></tr>
+    <tr><td>Burden</td><td align="right">One Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d12</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**Explosive**<br>*On Hope win, half damage to all in Close range.*</div>
+
+- <div markdown='1'>**Critical Effect:  Shrapnel Storm**<br>*All enemies in area take full damage and mark 1 Stress.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

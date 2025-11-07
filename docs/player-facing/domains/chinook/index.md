@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Chinook**<br>*Airlift on demand.While active, your Primary Drone can carry you and one ally. While equipped, it may only carry one weapon and has -2 Evasion.*</div>
 
     ---
 

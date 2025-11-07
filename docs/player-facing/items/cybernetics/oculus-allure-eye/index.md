@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Oculus™ Allure Eye**<br>*"Illuminate desire, captivate with a gaze."Spend 1 Hope to gain +2 on a Charm roll so long at the target creature can see your eyes. Requires Oculus ™ base unit.*</div>
 
     #### Effects
     —

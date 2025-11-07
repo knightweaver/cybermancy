@@ -4,7 +4,7 @@
     # Lock on
 
     ## Actions
-    —
+    - <div markdown='1'>**Locked On**<br>*Bullseye marks the spot!*</div>
 
     ---
 

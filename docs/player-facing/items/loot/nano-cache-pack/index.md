@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Blow Sand**<br>**</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Bag of Ficklesand**<br>**</div>
     </div>
 
     </div>

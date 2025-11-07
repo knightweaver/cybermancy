@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Snapshot**<br>*Faster than the spotlight.Once per Scene, as a Reaction, Spend 1 Hope when the GM spotlights an opponent to make a single ranged attack.*</div>
 
     ---
 

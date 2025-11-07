@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Meditative Reflex Chip**<br>* elite stress liberation device.Gain an additional downtime action that can only be used to clear one Stress mark.*</div>
 
     #### Effects
     —

@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Flying Drone**<br>*The sky hums with your genius.Your Primary Drone gains flight, +4 Evasion, and may carry 3 weapons.*</div>
 
     ---
 

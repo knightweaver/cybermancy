@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Elite Nanite Trauma Mesh**<br>*"Defy Fate, Preserve with Precision."Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Severe Wound*</div>
 
     #### Effects
     —

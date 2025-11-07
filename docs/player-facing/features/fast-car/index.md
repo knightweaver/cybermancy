@@ -4,7 +4,7 @@
     # Fast car
 
     ## Actions
-    —
+    - <div markdown='1'>**Fast car**<br>*You start with a car that grants you +1 on all Driving checks (when you are driving that car)*</div>
 
     ---
 

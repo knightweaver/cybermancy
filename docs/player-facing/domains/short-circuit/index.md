@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Short Circuit**<br>*“Sometimes the best fix is a hard crash.”Once per rest, target any mechanical Adversaries (Drones, robots, etc.) within Far and make a Spellcasting roll against the Adversaries's Difficulty.  On a success, the target loses its next round and takes d8+2 damage*</div>
 
     ---
 

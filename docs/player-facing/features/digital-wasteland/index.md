@@ -4,7 +4,9 @@
     # Digital wasteland
 
     ## Actions
-    —
+    - <div markdown='1'>**Digital wasteland**<br>*o	+6 on all Control rollso	You cannot make Analyze or Infiltration rollso	+d6 on all damage effects*</div>
+
+- <div markdown='1'>**Digital wasteland**<br>*+6 on all Control rollsYou cannot make Analyze or Infiltration rolls+d6 on all damage effects*</div>
 
     ---
 

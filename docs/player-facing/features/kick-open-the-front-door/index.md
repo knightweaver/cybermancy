@@ -4,7 +4,7 @@
     # Kick open the front door
 
     ## Actions
-    —
+    - <div markdown='1'>**Kick open the front door**<br>*o	Succeed with Hope -  gain Control (access to all actions) and don’t raise the System alert level.o	Succeed with Fear – gain Control (access to all actions) and raise the System alert level 1 step.o	Fail with Hope or Fear – don’t gain ontrol and raise the System alert level 2 steps.*</div>
 
     ---
 

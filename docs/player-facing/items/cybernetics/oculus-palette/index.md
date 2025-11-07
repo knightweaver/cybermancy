@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Oculus™ Palette**<br>*"Shift your gaze, shape your truth."Change your eye's appearance at will. Spend 1 Hope to gain +2 on a Deceive roll. Requires Oculus ™ base unit.*</div>
 
     #### Effects
     —

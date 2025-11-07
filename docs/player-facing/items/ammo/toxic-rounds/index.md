@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Toxic Rounds**<br>*Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress in addition to any Hit Points marked when taking damage.*</div>
 
     #### Effects
     —

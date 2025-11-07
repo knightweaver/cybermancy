@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Smartwire Reflex**<br>*“You’re half machine — might as well let it drive.”Once per Scene, you may reroll one failed Agility, Spellcasting or Finesse roll as your implants auto-correct your motion.*</div>
 
     ---
 

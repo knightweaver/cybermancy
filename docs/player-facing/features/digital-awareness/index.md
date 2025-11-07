@@ -4,7 +4,13 @@
     # Digital Awareness
 
     ## Actions
-    —
+    - <div markdown='1'>**Digital Awareness**<br>*You can take an Action to become aware of any digital signal within Very Close.  Spend 1 Hope to extend the range to within Close.  Mark 1 Stress to extend the range to within Far.  This alerts you to the devices’ presence, type, and whether they are hardened or unharden-*</div>
+
+- <div markdown='1'>**Digital Awareness - Very Close**<br>*Spotlight an Action to become aware of any digital signal within Very Close.*</div>
+
+- <div markdown='1'>**Digital Awareness - Cloase**<br>*Spend 1 Hope to extend the range to within Close.*</div>
+
+- <div markdown='1'>**Digital Awareness - Far**<br>*Mark 1 Stress to extend the range to within Far. This alerts you to the devices’ presence, type, and whether they are hardened or unharden-*</div>
 
     ---
 

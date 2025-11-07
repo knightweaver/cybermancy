@@ -4,7 +4,9 @@
     # Calm in the storm
 
     ## Actions
-    —
+    - <div markdown='1'>**Calm in the storm**<br>*All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.*</div>
+
+- <div markdown='1'>**Calm in the storm**<br>*All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.*</div>
 
     ---
 

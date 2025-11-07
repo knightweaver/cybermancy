@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Quick Hack**<br>*“For when you don’t have time to be subtle… or alive.”Once per Scene, when you trigger an ICE countermeasure or trace feature, you can Mark 1 Stress to use your Reaction against the Device difficulty to avoid the effect, or Mark 2 Stress to avoid it without a roll.*</div>
 
     ---
 

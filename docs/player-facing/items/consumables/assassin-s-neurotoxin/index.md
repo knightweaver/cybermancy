@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*After you drink this tea, you instantly kill your target when you critically succeed on an attack. If you don’t critically succeed on an attack before your next long rest, you die.*</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Death Tea**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
     </div>
 
     </div>

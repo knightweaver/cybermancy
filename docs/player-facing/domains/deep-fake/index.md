@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Deep fake**<br>*“The universe called — it wants its encryption key back.”Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.*</div>
 
     ---
 

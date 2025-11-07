@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Synchronized Uplink**<br>*“When the team shares your mind, chaos becomes choreography.”At the beginning of the session, place a number of tokens on this card equal to your Spellcasting Trait.  Make a Spellcasting roll and target any creature you can see or detect within Very Far; on a success, send them a transmission (e.g. "they ran down the hall!").  They will believe the information and act accordingly ... usually*</div>
 
     ---
 

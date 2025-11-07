@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Data-Spike Rounds**<br>*Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round*</div>
 
     #### Effects
     —

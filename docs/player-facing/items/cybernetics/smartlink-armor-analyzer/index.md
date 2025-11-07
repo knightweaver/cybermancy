@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**SmartLink™ Armor Analyzer**<br>*"Unleash precision; amplify destruction's whisper."When firing a SmartLink™ enabled weapon, Spend 1 Hope after a successful attack for +2 on all damage die rolled.  Requires the SmartLink™ CPU implant*</div>
 
     #### Effects
     —

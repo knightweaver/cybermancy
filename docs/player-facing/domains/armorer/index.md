@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Armorer**<br>*Armor is just skin for machines.During downtime, Spend 1 Hope to repair up to 3 armor slots for yourself or an ally.*</div>
 
     ---
 

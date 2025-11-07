@@ -4,7 +4,9 @@
     # Primary Drone upgrade - Evasion 12
 
     ## Actions
-    —
+    - <div markdown='1'>**Primary Drone upgrade**<br>*choose an additional upgrade for your Primary Drone*</div>
+
+- <div markdown='1'>**Primary Drone upgrade - Evasion 12**<br>*Your drone goes faster! - Evasion is 12*</div>
 
     ---
 

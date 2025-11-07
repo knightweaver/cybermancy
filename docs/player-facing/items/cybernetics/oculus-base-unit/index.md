@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Oculus™ Base Unit**<br>*"See, capture, upgrade—vision redefined."Your eyes have been replaced with Oculus™ granting the ability to photograph and video record.  This base unit is required for several upgrades.*</div>
 
     #### Effects
     —

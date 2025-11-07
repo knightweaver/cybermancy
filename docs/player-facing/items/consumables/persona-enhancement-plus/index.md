@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your Presence until your next rest.*</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Major Charm Potion**<br>**</div>
     </div>
 
     </div>

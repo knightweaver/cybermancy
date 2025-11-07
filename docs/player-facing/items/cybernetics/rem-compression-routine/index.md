@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**REM Compression Routine**<br>*"Crave rest? Double the dream."During a long rest, gain one additional short rest downtime action*</div>
 
     #### Effects
     —

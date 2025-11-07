@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Neuro-Spinal Load Balancer**<br>*"Fortify Essence; transmute fear to vapor."Spend 1 Hope to Mark 2 Armor slots and entirely prevent the damage from 1 attack*</div>
 
     #### Effects
     —

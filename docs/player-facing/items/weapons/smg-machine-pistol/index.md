@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/smg-machine-pistol.webp" alt="SMG (Machine Pistol)" class="item-image">
-
 ### SMG (Machine Pistol)
 
+<img src="../../../assets/icons/weapons/smg-machine-pistol.webp" alt="SMG (Machine Pistol)" class="item-image">
+
 <div class="item-flavor">
-*Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, and unforgiving.*
+Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, and unforgiving.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d6+3</td></tr>
-    <tr><td>Range</td><td>close</td></tr>
-    <tr><td>Hands</td><td>twoHanded</td></tr>
+    <tr><td>Tier</td><td align="right">1</td></tr>
+    <tr><td>Trait</td><td align="right">Agility</td></tr>
+    <tr><td>Range</td><td align="right">Close</td></tr>
+    <tr><td>Burden</td><td align="right">Two Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d6+3</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**Burst Fire**<br>*Mark 1 Stress to attack an additional target in Close range.*</div>
+
+- <div markdown='1'>**Critical Effect:  Spray Down**<br>*Hit all targets in Very Close range with collateral fire.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

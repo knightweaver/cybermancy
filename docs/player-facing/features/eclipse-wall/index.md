@@ -4,7 +4,9 @@
     # Eclipse Wall
 
     ## Actions
-    —
+    - <div markdown='1'>**Eclipse Wall**<br>*The world outside goes silent—you’re inside the machine now.Cuts external connections; you are alone until it drops.*</div>
+
+- <div markdown='1'>**Consuming Digital Veil**<br>*The world outside goes silent—you’re inside the machine now.The cognitive dissonance created by interacting with this ICE results in -2 on Evasion until you break this subroutine or disengage from the Device.*</div>
 
     ---
 

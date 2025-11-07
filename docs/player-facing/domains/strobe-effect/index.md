@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Strobe Effect**<br>*“Flash ’em, crash ’em, and walk out glowing.”Spend 1 Hope to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The creature must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.*</div>
 
     ---
 

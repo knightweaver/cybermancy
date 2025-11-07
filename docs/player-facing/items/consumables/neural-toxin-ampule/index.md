@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Consume**<br>*A creature who consumes this poison takes 8d10 direct magic damage.*</div>
 
     #### Effects
     —

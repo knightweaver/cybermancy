@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Modular Hardpoint Interface**<br>*"Enhance potential, expand your digital domain."Increase the number of Domain Cards in your load out by 1 permenantly.*</div>
 
     #### Effects
     —

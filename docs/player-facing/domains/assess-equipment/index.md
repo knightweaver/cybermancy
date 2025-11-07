@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Assess Equipment**<br>*Every circuit tells a secret.Spend 1 Hope after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.*</div>
 
     ---
 

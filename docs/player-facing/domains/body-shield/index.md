@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Body Shield**<br>*Pragmatism over pity.Once per Scene, Mark 1 Stress and grab a creature of your size or smaller within Very Close. Gain +2 Evasion until next your next Action.*</div>
 
     ---
 

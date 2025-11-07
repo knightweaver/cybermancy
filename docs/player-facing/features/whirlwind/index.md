@@ -4,7 +4,9 @@
     # Whirlwind
 
     ## Actions
-    —
+    - <div markdown='1'>**Whirlwind**<br>*Once per Scene, If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 4 Hope to make 2 attacks with each against different targets (4 targets total – if there are not enough targets, you cannot use this ability).*</div>
+
+- <div markdown='1'>**Whirlwind**<br>*Once per Scene, if you are wielding a melee weapon and gun (both of which must be one-handed), Spend 4 Hope to make 2 attacks with each against different targets (4 targets total – if there are not enough targets, you cannot use this ability).*</div>
 
     ---
 

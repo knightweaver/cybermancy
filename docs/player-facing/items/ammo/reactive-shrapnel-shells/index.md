@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Reactive Shrapnel Shells**<br>*Take a Reload action to apply this ammo to a shotgun (only shotgun compatible) and place 4 tokens on this card.  All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.*</div>
 
     #### Effects
     —

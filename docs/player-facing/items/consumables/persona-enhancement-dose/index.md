@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Presence Roll.*</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Charm Potion**<br>**</div>
     </div>
 
     </div>

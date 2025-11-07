@@ -4,7 +4,9 @@
     # Become one with the Matrix
 
     ## Actions
-    —
+    - <div markdown='1'>**Become one with the Matrix**<br>*o	+6 on all Analyze rollso	+4 on all Infiltration rollso	+2 on all Control rollso	+d4 on all damage effectso	Cybernetic devices can be targeted as if they were regular devices.*</div>
+
+- <div markdown='1'>**Become one with the Matrix**<br>*+6 on all Analyze rolls+4 on all Infiltration rolls+2 on all Control rolls+d4 on all damage effectsCybernetic devices can be targeted as if they were regular devices.Tick down the die by 1 for each Action you take.*</div>
 
     ---
 

@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*You can drink this blood to disappear from where you are and immediately reappear at a point you can see within Very Far range.*</div>
 
     #### Effects
     —

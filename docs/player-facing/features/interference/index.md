@@ -4,7 +4,9 @@
     # Interference
 
     ## Actions
-    —
+    - <div markdown='1'>**Interference**<br>*o*</div>
+
+- <div markdown='1'>**Interference**<br>*-2 to an enemy’s attack with electronic weapons (which are most weapons in Cybermancy),-2 to Evasion for one drone or device within Close. This effect cannot target a non-synthetic entity or construct (even a cybernetically enhanced one).-2 to a Reaction roll for a creature within Close.*</div>
 
     ---
 

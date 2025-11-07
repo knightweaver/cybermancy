@@ -4,7 +4,9 @@
     # Primary Drone
 
     ## Actions
-    —
+    - <div markdown='1'>**Primary Drone**<br>*The Primary Drone is quite similar to the Ranger Companion, but with a few differences.  Take the Decker Primary Drone sheet and fill it out*</div>
+
+- <div markdown='1'>**Primary Drone**<br>* 7/11*</div>
 
     ---
 

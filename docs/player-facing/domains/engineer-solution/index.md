@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Engineer Solution**<br>*Innovation given form.With one day of prep, you can construct nearly any practical device needed (GM discretion).*</div>
 
     ---
 

@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Matrix mind**<br>* +1 to your Spellcasting (Hacking) rolls, once per rest you can switch the result of your Hope and Fear dice*</div>
 
     ---
 

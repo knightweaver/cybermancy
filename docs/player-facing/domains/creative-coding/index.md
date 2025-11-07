@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Creative coding**<br>*“If at first you don’t succeed, reboot and lie about it.”Once per long rest, add a new Digital Feature to a Device that it didn't originally have (GM's discretion)*</div>
 
     ---
 

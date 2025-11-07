@@ -4,7 +4,7 @@
     # Sleaze Gate
 
     ## Actions
-    —
+    - <div markdown='1'>**Sleaze Gate**<br>*The easiest path is always the one that bites.Appears as a friendly backdoor but injects trackers on use.*</div>
 
     ---
 

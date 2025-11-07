@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Cyberware Malfunction**<br>*“Every brain’s got a port — some just need a gentle knock.”Your Digital Awareness can now detect cybernetics within individuals.  Spend 2 Hope and make a Spellcasting roll against their Difficulty, to do d10+3 damage*</div>
 
     ---
 

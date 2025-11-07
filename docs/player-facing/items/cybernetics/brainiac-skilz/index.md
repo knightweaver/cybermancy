@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Brainiac™ Skilz**<br>*"Unlock hidden worlds with neural flair."Gain 1 Experience slot and fill it in with a new Experience (GM discretion).  As a downtime activity, spend 1 Mega to change the Experience Requires Brainiac™ Base Unit.*</div>
 
     #### Effects
     —

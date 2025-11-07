@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Ricochet**<br>*Bullets obey geometry, not walls.Spend 1 Hope to Attack at -2 a target with the Hidden condition by virtue of being behind cover.*</div>
 
     ---
 

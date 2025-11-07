@@ -14,7 +14,7 @@
     —
 
     #### Effects
-    —
+    - <div markdown='1'>**Charging Quiver**<br>**</div>
     </div>
 
     </div>

@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Improvised Weapon**<br>*The world is your arsenal.Mark 2 Stress spend at least 1 minute to create a d6 melee weapon.*</div>
 
     ---
 

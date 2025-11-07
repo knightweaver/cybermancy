@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Subdermal Nanoweave MkI**<br>* a heartbeat fortified.+1 Hit Point*</div>
 
     #### Effects
     —

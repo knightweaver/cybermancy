@@ -4,7 +4,7 @@
     # Overseer Protocol
 
     ## Actions
-    —
+    - <div markdown='1'>**Overseer Protocol**<br>*You feel the CEO’s signature pulsing in every file.Forces compliance mode; all hacking penalties are doubled until root is restored.*</div>
 
     ---
 

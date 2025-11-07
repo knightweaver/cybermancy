@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Assess Weapon**<br>*Every gun tells a story.Identify the weapon type and potential weaknesses or modifications of one visible gun within Far*</div>
 
     ---
 

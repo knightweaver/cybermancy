@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Drone Swarm**<br>*You are never outnumbered.Once per long rest, place tokens on this card equal to your proficiency level.  As a Reaction, spend 1 token to have one of the following effects to 1 target creatures Harass. (-1 all rolls), Suppress (-1 evasion), Assist (+1 evasion). Discard all remaining tokens at the end of the Scene.*</div>
 
     ---
 

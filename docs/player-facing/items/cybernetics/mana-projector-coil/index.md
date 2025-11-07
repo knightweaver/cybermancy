@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Mana Projector Coil**<br>*"Unveil horizons, empower your reach."Spend 2 Hope to increase the range of one Spell you are casting*</div>
 
     #### Effects
     —

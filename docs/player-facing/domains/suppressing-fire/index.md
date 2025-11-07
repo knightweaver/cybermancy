@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Suppressing Fire**<br>*The air itself becomes hostile.Mark 2 Stress and target one creature; all creatures within Very Close of it take -2 to actions and evasion.*</div>
 
     ---
 

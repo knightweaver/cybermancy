@@ -4,7 +4,9 @@
     # Quick reflexes
 
     ## Actions
-    —
+    - <div markdown='1'>**Quick reflexes**<br>*As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, Mark 1 Stress to make an Attack on the would-be attacker first.*</div>
+
+- <div markdown='1'>**Quick reflexes**<br>*As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, Mark 1 Stress to make an Attack on the would-be attacker first.*</div>
 
     ---
 

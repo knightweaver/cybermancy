@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Deep search**<br>*“The Grid whispers, if you know how to listen.”Spend 2 Hope to know something about an creature.  As the GM up to 3 yes/no questions.*</div>
 
     ---
 

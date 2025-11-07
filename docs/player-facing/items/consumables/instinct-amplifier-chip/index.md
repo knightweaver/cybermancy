@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Instinct Roll.*</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Attune Potion**<br>**</div>
     </div>
 
     </div>

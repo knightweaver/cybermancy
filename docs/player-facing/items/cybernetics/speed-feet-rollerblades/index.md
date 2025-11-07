@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Speed Feet rollerblades**<br>*Glide seamlessly, strike swiftly with precision.Your feet have been replaced with cybernetics that have retractable wheels.  Spend 1 Hope to move within Far and still make an attack, your Evasion is -1 until your next action.*</div>
 
     #### Effects
     —

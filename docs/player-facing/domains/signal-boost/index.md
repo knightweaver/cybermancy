@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Signal Boost**<br>*“Sometimes all you need is a better connection.”Once per Scene, you can reroute local energy or data flow. Choose one ally within Close range; they gain +1 to their next roll that involves technology or reflexes.*</div>
 
     ---
 

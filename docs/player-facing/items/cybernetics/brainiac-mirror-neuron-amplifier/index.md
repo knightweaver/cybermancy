@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Brainiac™ Mirror Neuron Amplifier**<br>*"Trade hope for unwavering charisma surge."Spend 1 Hope to gain +2 on a Prescence Roll or Saving Throw*</div>
 
     #### Effects
     —

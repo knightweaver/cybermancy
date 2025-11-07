@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Cybernetics syndrome**<br>* 1) Visual hallucinations, 2) Audio hallucinations, 3) Mark 1 Stress to give them disadvantage on their next Action, 4) -4 Evasion until they take an Action to remove the effect.*</div>
 
     ---
 

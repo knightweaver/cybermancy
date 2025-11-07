@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Multitalented**<br>*Expertise knows no boundaries.You may add one Domain card from Circuit, Codex, or Bullet to your loadout of Level 4 or less.*</div>
 
     ---
 

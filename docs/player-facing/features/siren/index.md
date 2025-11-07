@@ -4,7 +4,7 @@
     # Siren
 
     ## Actions
-    —
+    - <div markdown='1'>**Siren**<br>* ‘Come home.’Generates perfect voices and prompts to lure you deeper into the system.*</div>
 
     ---
 

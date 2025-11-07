@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Knee Slide**<br>*The floor is your runway.Spend 3 Hope to move up to Far in a straight line; Attack all creatures passed. Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.*</div>
 
     ---
 

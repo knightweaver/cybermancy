@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/smartpistol-omega.webp" alt="Smartpistol Omega" class="item-image">
-
 ### Smartpistol Omega
 
+<img src="../../../assets/icons/weapons/smartpistol-omega.webp" alt="Smartpistol Omega" class="item-image">
+
 <div class="item-flavor">
-*An AI-driven sidearm that learns its wielder’s habits and compensates perfectly in combat.*
+An AI-driven sidearm that learns its wielder’s habits and compensates perfectly in combat.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d10+10</td></tr>
-    <tr><td>Range</td><td>far</td></tr>
-    <tr><td>Hands</td><td>oneHanded</td></tr>
+    <tr><td>Tier</td><td align="right">4</td></tr>
+    <tr><td>Trait</td><td align="right">Finesse</td></tr>
+    <tr><td>Range</td><td align="right">Far</td></tr>
+    <tr><td>Burden</td><td align="right">One Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d10+10</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**AI Assist**<br>*Advantage on all ranged rolls.*</div>
+
+- <div markdown='1'>**Critical Effect:  Neural Kill**<br>*Bullet bypasses physical armor; deals Stress + HP.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

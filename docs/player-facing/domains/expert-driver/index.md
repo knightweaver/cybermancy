@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Expert Driver**<br>*Speed racer's got nothing on you!All Driving checks are +2.  Each time you are Spotlighted while Driving, you may also take an Attack Action.*</div>
 
     ---
 

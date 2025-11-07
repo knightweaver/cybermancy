@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Marksman**<br>*One bullet, one breath.Spend 1 Hope to attack with advantage and deal +d4 damage.*</div>
 
     ---
 

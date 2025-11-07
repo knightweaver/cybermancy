@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Etheric Dampening Core**<br>*Become impervious to arcane whispers.-2 to all sources of Magical damage*</div>
 
     #### Effects
     —

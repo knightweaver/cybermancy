@@ -11,7 +11,13 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Cyberarm™ Monowhip**<br>* slice worlds seamlessly."Hidden fingertip spool that deploys a monomolecular whip.  Melee weapon, d8, with Lethal Edge and Slice in Two effects*</div>
+
+- <div markdown='1'>**Cyberarm™ Monowhip**<br>* slice worlds seamlessly."Hidden fingertip spool that deploys a monomolecular whip.  Melee weapon, d8, with Lethal Edge and Slice in Two effects*</div>
+
+- <div markdown='1'>**Lethal Edge**<br>*On a Hope win, deal Severe damage if the Fear die shows 8-12.*</div>
+
+- <div markdown='1'>**Critical Effect:  Slice in Two**<br>*Sever or disable a limb, item, or piece of cover.*</div>
 
     #### Effects
     —

@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Wakizashi™ Dual-Targeting Suite**<br>*Unlock despair's edge, amplify hope.Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current attack roll with your secondary weapon*</div>
 
     #### Effects
     —

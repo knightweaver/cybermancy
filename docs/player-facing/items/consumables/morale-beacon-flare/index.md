@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Use**<br>*c]*</div>
 
     #### Effects
     —

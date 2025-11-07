@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/improved-shock-baton.webp" alt="Improved Shock Baton" class="item-image">
-
 ### Improved Shock Baton
 
+<img src="../../../assets/icons/weapons/improved-shock-baton.webp" alt="Improved Shock Baton" class="item-image">
+
 <div class="item-flavor">
-*Upgraded battery coils deliver chained electrical arcs between multiple nearby targets.*
+Upgraded battery coils deliver chained electrical arcs between multiple nearby targets.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d8+3</td></tr>
-    <tr><td>Range</td><td>close</td></tr>
-    <tr><td>Hands</td><td>oneHanded</td></tr>
+    <tr><td>Tier</td><td align="right">2</td></tr>
+    <tr><td>Trait</td><td align="right">Agility</td></tr>
+    <tr><td>Range</td><td align="right">Close</td></tr>
+    <tr><td>Burden</td><td align="right">One Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d8+3</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**Arc Charge**<br>*Spend 1 Stress to arc lightning to another Very Close target.*</div>
+
+- <div markdown='1'>**Critical Effect:  Overload**<br>*Targets nervous system locks up; they drop gear.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

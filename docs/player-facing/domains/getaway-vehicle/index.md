@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Getaway Vehicle**<br>*Drive fast, live smarter.You own a vehicle large enough for your team - describe the vehicle on your character sheet. While driving this vehicle, gain +2 to Driving checks. On a critical roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion), and adjust your Chase Die by and additional -1 to +1*</div>
 
     ---
 

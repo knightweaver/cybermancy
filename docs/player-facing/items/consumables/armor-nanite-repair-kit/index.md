@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Stitch**<br>*You can use this stitcher to spend any number of Hope and clear that many Armor Slots.*</div>
 
     #### Effects
     —

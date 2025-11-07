@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Neural Sync**<br>*“Two heads, one neural network.”Spend 1 Hope to instantly share sensory data with one ally within Far range. You both gain +1 to rolls using shared perception for one Scene.*</div>
 
     ---
 

@@ -4,7 +4,9 @@
     # Hacking Insight
 
     ## Actions
-    —
+    - <div markdown='1'>**Hacking Insight**<br>*Spend 3 Hope to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.*</div>
+
+- <div markdown='1'>**Hacking Insight**<br>*Spend 3 Hope to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.*</div>
 
     ---
 

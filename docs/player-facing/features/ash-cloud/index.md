@@ -4,7 +4,7 @@
     # Ash Cloud
 
     ## Actions
-    —
+    - <div markdown='1'>**Ash Cloud**<br>*You move blind through data smoke and security ghosts.Obscures architecture; hack rolls suffer -1 until cleared.*</div>
 
     ---
 

@@ -4,7 +4,7 @@
     # Mirror Maze
 
     ## Actions
-    —
+    - <div markdown='1'>**Mirror Maze**<br>*You’re not lost in code—the code is lost in you.Spawns fake nodes and recursive logins; wastes time and Hope.*</div>
 
     ---
 

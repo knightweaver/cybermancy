@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**SkillJack Neural Matrix**<br>*Elevate potential; risk-draped enhancement awaits.Once per scene, Spend 2 Hope to increase your Proficiency level for 1 action or reaction*</div>
 
     #### Effects
     —

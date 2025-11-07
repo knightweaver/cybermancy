@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Caracal Ears**<br>*Whispers unveiled, secrets echo endlessly.Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.*</div>
 
     #### Effects
     —

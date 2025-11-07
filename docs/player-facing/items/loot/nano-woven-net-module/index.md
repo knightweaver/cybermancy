@@ -11,10 +11,12 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Throw**<br>**</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Woven Net**<br>**</div>
+
+- <div markdown='1'>**Woven Net**<br>**</div>
     </div>
 
     </div>

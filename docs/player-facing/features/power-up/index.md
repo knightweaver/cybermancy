@@ -4,7 +4,9 @@
     # Power Up
 
     ## Actions
-    —
+    - <div markdown='1'>**Power Up**<br>*Spend 3 Hope when your Primary Drone succeeds on an Attack to have your Primary Drone attack two additional adversaries within Far.*</div>
+
+- <div markdown='1'>**Power Up**<br>*Spend 3 Hope when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.*</div>
 
     ---
 

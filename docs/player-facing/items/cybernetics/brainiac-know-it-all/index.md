@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Brainiac™ Know-it-all**<br>*Unlock brilliance; trade despair for genius.Spend 1 Hope to gain +2 on a Knowledge Roll or Saving Throw.  Requires Brainiac™ Base Unit.*</div>
 
     #### Effects
     —

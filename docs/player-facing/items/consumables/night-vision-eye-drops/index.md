@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*When you drink the contents of this vial, you can see in total darkness until your next rest.*</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Vial of Moondrip**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
     </div>
 
     </div>

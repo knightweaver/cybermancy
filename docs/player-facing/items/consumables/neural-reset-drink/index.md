@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*You can drink this potion to choose one additional downtime move.*</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Potion of Stability**<br>**</div>
     </div>
 
     </div>

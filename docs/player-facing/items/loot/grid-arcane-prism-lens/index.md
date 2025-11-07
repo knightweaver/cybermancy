@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Activate**<br>**</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Arcane Prism**<br>**</div>
     </div>
 
     </div>

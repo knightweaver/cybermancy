@@ -69,6 +69,22 @@ def _fmt_number(n) -> str:
         return str(int(n)) if n.is_integer() else str(n)
     return str(n)
 
+def prettify_camel(s: str) -> str:
+    """
+    Convert camelCase or PascalCase into spaced, title-cased words.
+    Examples:
+        "oneHanded"  -> "One Handed"
+        "strength"   -> "Strength"
+        "UltraHeavyArmor" -> "Ultra Heavy Armor"
+    """
+    if not s:
+        return ""
+    # Insert a space before any capital letter preceded by a lowercase letter or number
+    s = re.sub(r'(?<=[a-z0-9])([A-Z])', r' \1', s)
+    # Handle acronyms or all-caps chunks more gracefully
+    s = re.sub(r'([A-Z]+)([A-Z][a-z])', r'\1 \2', s)
+    return s.strip().title()
+
 def summarize_attack(attack: Dict[str, Any]) -> Dict[str, str]:
     """
     Turn a Foundry/Daggerheart attack node into a concise summary.
@@ -77,11 +93,14 @@ def summarize_attack(attack: Dict[str, Any]) -> Dict[str, str]:
     if not isinstance(attack, dict):
         return {"damage": "—", "damageType": "—", "range": "—"}
 
-    rng = attack.get("range") or "—"
+    rng = prettify_camel(attack.get("range")) or "—"
+
+    roll = attack.get("roll")
+    trait = roll.get("trait")
 
     parts = (attack.get("damage") or {}).get("parts") or []
     if not parts or not isinstance(parts, list):
-        return {"damage": "—", "damageType": "—", "range": rng}
+        return {"damage": "—", "damageType": "—", "range": rng, "trait": trait}
 
     p0 = parts[0] or {}
     val = p0.get("value") or {}
@@ -102,7 +121,7 @@ def summarize_attack(attack: Dict[str, Any]) -> Dict[str, str]:
     type_list = p0.get("type") or []
     damage_type = type_list[0] if isinstance(type_list, list) and type_list else "—"
 
-    return {"damage": damage, "damageType": str(damage_type), "range": rng}
+    return {"damage": damage, "damageType": str(damage_type), "range": rng, "trait": trait}
 
 from typing import Any, Dict, List, Optional
 
@@ -221,67 +240,92 @@ def _fmt_cost(cost: Any) -> str:
 # ---------- ACTIONS ----------
 def summarize_actions(actions_node: Any) -> List[Dict[str, str]]:
     """
-    Turn system.actions (array) into a list of normalized dicts:
-    keys: name, type, range, target, roll, damage, cost, uses, save, description, summary
+    Turn system.actions into a list of normalized dicts.
+    Accepts either:
+      - array of action objects, or
+      - object map: { "Action Name": { ...action... }, ... }
+    Returns list with keys:
+      name, type, range, target, roll, damage, cost, uses, save, description, summary
     """
     results: List[Dict[str, str]] = []
-    if not isinstance(actions_node, list):
+    if not actions_node:
         return results
 
-    for a in actions_node:
+    # Normalize shape
+    if isinstance(actions_node, dict):
+        iterable = actions_node.values()
+    elif isinstance(actions_node, list):
+        iterable = actions_node
+    else:
+        # Unknown format, fail soft
+        return results
+
+    for a in iterable:
         if not isinstance(a, dict):
             continue
 
         name = a.get("name") or "Unnamed Action"
         a_type = _coalesce(a.get("actionType"), a.get("type"), "action")
 
-        rng = a.get("range") or "—"
+        rng = prettify_camel(a.get("range")) or "—"
         target = _fmt_target(a.get("target"))
         roll = _fmt_roll(a.get("roll"))
         damage = _fmt_damage_block(a.get("damage"))
         cost = _fmt_cost(a.get("cost"))
         uses = _fmt_uses(a.get("uses"))
+
         save = "—"
         if isinstance(a.get("save"), dict):
             sv = a["save"]
             sv_trait = sv.get("trait")
             sv_diff = sv.get("difficulty")
             sv_mod  = sv.get("damageMod") or "none"
-            save = _join_nonempty([
-                sv_trait or "—",
-                f"DC {sv_diff}" if sv_diff not in (None, "") else None,
-                f"mod {sv_mod}"
-            ], sep="; ")
+            save = _join_nonempty(
+                [
+                    sv_trait or "—",
+                    f"DC {sv_diff}" if sv_diff not in (None, "") else None,
+                    f"mod {sv_mod}",
+                ],
+                sep="; ",
+            )
 
-        desc = (a.get("description") or "").strip()
-        if len(desc) > 180:
-            desc = desc[:177].rstrip() + "…"
+        desc = strip_html(a.get("description") or "").strip().split(":")
+        desc = desc[len(desc) - 1] if len(desc) > 1 else desc[0]
 
-        summary = _join_nonempty([
-            f"{name} [{a_type}]",
-            f"range {rng}",
-            f"target {target}",
-            f"roll {roll}",
-            f"damage {damage}" if damage != "—" else None,
-            f"save {save}" if save != "—" else None,
-            f"cost {cost}" if cost != "—" else None,
-            f"uses {uses}" if uses != "—" else None
-        ], sep=" — ")
+        summary = _join_nonempty(
+            [
+                f"{name} [{a_type}]",
+                f"range {rng}",
+                f"target {target}",
+                f"roll {roll}",
+                f"damage {damage}" if damage != "—" else None,
+                f"save {save}" if save != "—" else None,
+                f"cost {cost}" if cost != "—" else None,
+                f"uses {uses}" if uses != "—" else None,
+            ],
+            sep=" — ",
+        )
 
-        results.append({
-            "name": name,
-            "type": a_type,
-            "range": rng,
-            "target": target,
-            "roll": roll,
-            "damage": damage,
-            "cost": cost,
-            "uses": uses,
-            "save": save,
-            "description": desc,
-            "summary": summary
-        })
+        results.append(
+            {
+                "name": name,
+                "type": a_type,
+                "range": rng,
+                "target": target,
+                "roll": roll,
+                "damage": damage,
+                "cost": cost,
+                "uses": uses,
+                "save": save,
+                "description": desc,
+                "summary": summary,
+            }
+        )
+
     return results
+
+def strip_html(text: str) -> str:
+    return re.sub(r"<[^>]+>", "", text)
 
 # ---------- EFFECTS ----------
 def _fmt_effect_duration(dur: Any) -> str:
@@ -390,7 +434,7 @@ def _fmt_tags(tags: Any) -> str:
         return tags
     return "—"
 
-def _shorten(text: str, n: int = 180) -> str:
+def _shorten(text: str, n: int = 2000) -> str:
     text = (text or "").strip()
     return (text[: n-3].rstrip() + "…") if len(text) > n else text
 
@@ -402,7 +446,7 @@ def _fmt_requires(req: Any) -> str:
         return req
     if isinstance(req, dict):
         bits = []
-        for k in ("trait", "skill", "feature", "domain", "level", "tier", "hands", "proficiency"):
+        for k in ("trait", "skill", "feature", "domain", "level", "tier", "burden", "proficiency"):
             v = req.get(k)
             if v not in (None, "", []):
                 bits.append(f"{k}: {v}")
@@ -442,45 +486,21 @@ def _summarize_features_generic(features_node: Any, default_kind: str) -> List[D
         if not isinstance(f, dict):
             continue
 
-        name = f.get("name") or "Unnamed Feature"
+        name = _coalesce(f.get("name"), f.get("value")) or "Unnamed Feature"
         kind = _coalesce(f.get("type"), f.get("kind"), default_kind)
-        desc = _shorten(_coalesce(f.get("rules"), f.get("description"), ""))
-
-        tags = _fmt_tags(_coalesce(f.get("tags"), f.get("labels")))
-        changes = _fmt_effect_changes(_coalesce(f.get("changes"),
-                                               f.get("system", {}).get("changes"),
-                                               f.get("mods")))
-        uses = _fmt_uses(f.get("uses"))
-        cost = _fmt_cost(f.get("cost"))
-        requires = _fmt_requires(_coalesce(f.get("requires"), f.get("prerequisites"), f.get("req")))
-        state = _fmt_state({
-            "passive": f.get("passive"),
-            "active": f.get("active"),
-            "stacking": f.get("stacking"),
-            "inherent": f.get("inherent"),
-            "unique": f.get("unique"),
-        })
+        desc = _coalesce(f.get("description"), "")
+        #uses = _fmt_uses(f.get("uses"))
+        #cost = _fmt_cost(f.get("cost"))
 
         summary_bits = [
             f"{name} [{kind}]",
-            f"tags {tags}" if tags != "—" else None,
-            f"changes {changes}" if changes != "—" else None,
-            f"uses {uses}" if uses != "—" else None,
-            f"cost {cost}" if cost != "—" else None,
-            f"requires {requires}" if requires != "—" else None,
-            f"{state}" if state != "—" else None,
+            f"{desc}"
         ]
         summary = " — ".join([b for b in summary_bits if b])
 
         out.append({
-            "name": name,
+            "name": prettify_camel(name),
             "kind": str(kind),
-            "tags": tags,
-            "changes": changes,
-            "uses": uses,
-            "cost": cost,
-            "requires": requires,
-            "state": state,
             "description": desc,
             "summary": summary or name
         })
@@ -529,12 +549,60 @@ TEMPLATES: Dict[str, str] = {
 
     # Weapon (item) --------------------------------------------------------
     "weapon": """<div class="item" markdown="1">
+    
+<div class="grid item-grid" markdown="1">
+<div markdown="1">
+### {name}
+
+<img src="{image_rel}" alt="{name}" class="item-image">
+
+<div class="item-flavor">
+{description}
+</div>
+</div>
+
+<div markdown="1">
+
+#### Stats
+<table class="stat-table">
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Tier</td><td align="right">{tier}</td></tr>
+    <tr><td>Trait</td><td align="right">{trait}</td></tr>
+    <tr><td>Range</td><td align="right">{range}</td></tr>
+    <tr><td>Burden</td><td align="right">{burden}</td></tr>
+    <tr><td>Damage</td><td align="right">{damage}</td></tr>
+  </tbody>
+</table>
+
+</div>
+</div>
+#### Actions
+{actions_flat}
+
+#### Effects
+{effects_flat}
+
+#### Weapon Features
+{weapon_features_flat}
+{weapon_features_list}
+
+
+---
+
+<div class="meta" markdown="1">
+**UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
+</div>
+</div>
+""",
+
+    # Armor (item) --------------------------------------------------------
+    "armor": """<div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-<img src="{image_rel}" alt="{name}" class="item-image">
-
 ### {name}
+<img src="{image_rel}" alt="{name}" class="item-image">
 
 <div class="item-flavor">
 *{description}*
@@ -547,11 +615,14 @@ TEMPLATES: Dict[str, str] = {
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>{damage}</td></tr>
-    <tr><td>Range</td><td>{range}</td></tr>
-    <tr><td>Hands</td><td>{hands}</td></tr>
+    <tr><td>Tier</td><td align="right">{tier}</td></tr>
+    <tr><td>Base Score</td><td align="right">{baseScore}</td></tr>
+    <tr><td>Thresholds</td><td align="right">{majorThreshold} / {severeThreshold}</td></tr>
   </tbody>
 </table>
+
+</div>
+</div>
 
 #### Actions
 {actions_flat}
@@ -559,11 +630,8 @@ TEMPLATES: Dict[str, str] = {
 #### Effects
 {effects_flat}
 
-#### Weapon Features
-{weapon_features_flat}
-
-</div>
-</div>
+#### Armor Features
+{armor_features_flat}
 
 ---
 
@@ -572,51 +640,6 @@ TEMPLATES: Dict[str, str] = {
 </div>
 </div>
 """,
-
-    # Armor (item) --------------------------------------------------------
-    "armor": """<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
-
-    <div markdown="1">
-    <img src="{image_rel}" alt="{name}" class="item-image">
-
-    ### {name}
-
-    <div class="item-flavor">
-    *{description}*
-    </div>
-    </div>
-
-    <div markdown="1">
-
-    #### Stats
-    <table class="stat-table">
-      <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
-      <tbody>
-        <tr><td>Base Score</td><td>{baseScore}</td></tr>
-        <tr><td>Thresholds</td><td>{baseThresholds}</td></tr>
-      </tbody>
-    </table>
-
-    #### Actions
-    {actions_flat}
-
-    #### Effects
-    {effects_flat}
-
-    #### Armor Features
-    {armor_features_flat}
-
-    </div>
-    </div>
-
-    ---
-
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
-    </div>
-    </div>
-    """,
 
     # Classes (system) --------------------------------------------------------
     "class": """<div class="class" markdown="1">
@@ -726,7 +749,7 @@ DEFAULT_ITEM_FIELD_MAP = {
     "description": "system.description",
     "tier": "system.tier",
     "actions": "system.actions",
-    "effects": "system.effects",
+    "effects": "effects",
     "img": "img"
 }
 
@@ -735,12 +758,14 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "weapons": {
         "kind": "items",
         "src_subdir": "weapons",
-        "csv_fields": ["name","slug","description","tier","atk_summary","hands","weapon_feats","actions_flat"],
+        "csv_fields": ["name","slug","description","tier","trait","range","burden","damage","weapon_feats","actions_flat"],
         "field_map": DEFAULT_ITEM_FIELD_MAP | {
             # example extra fields you might have in cyberware
             "attack": "system.attack",
-            "hands": "system.burden",
-            "weaponFeatures": "system.weaponFeatures"
+            "burden": "system.burden",
+            "weaponFeatures": "system.weaponFeatures",
+            "trait": "system.attack.roll.trait",
+            "range": "system.attack.range"
         },
         "template": "weapon",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
@@ -750,7 +775,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     "armors": {
         "kind": "items",
         "src_subdir": "armors",
-        "csv_fields": ["name","slug","baseScore","armorFeatures","baseThresholds"],
+        "csv_fields": ["name","slug","description","tier","baseScore","majorThreshold","severeThreshold","armor_features_flat"],
         "field_map": DEFAULT_ITEM_FIELD_MAP | {
             # example extra fields you might have in cyberware
             "baseScore": "system.baseScore",
@@ -978,8 +1003,8 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
             "type_title": titleize(type_key[:-1]) if type_key.endswith("s") else titleize(type_key),
             "actions": action_summaries,
             "effects": effect_summaries,
-            "actions_flat": "\n".join(f"- {a['summary']}" for a in action_summaries) or "—",
-            "effects_flat": "\n".join(f"- {e['summary']}" for e in effect_summaries) or "—"
+            "actions_flat": "\n\n".join(f"- <div markdown='1'>**{a['name']}**<br>*{a['description']}*</div>" for a in action_summaries) or "—",
+            "effects_flat": "\n\n".join(f"- <div markdown='1'>**{e['name']}**<br>*{e['description']}*</div>" for e in effect_summaries) or "—"
         }
 
         detail_dir = docs_root / out_dir_rel / slug
@@ -990,18 +1015,19 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
             # Prefer computed values from the attack node when present.
             attack_node = get_in(obj, field_map.get("attack", "system.attack"), {})
             atk_summary = summarize_attack(attack_node) if attack_node else {"damage": "—", "damageType": "—",
-                                                                             "range": "—"}
+                                                                             "range": "—", "trait": "—"}
 
             damage = atk_summary["damage"]
             rng = atk_summary["range"]
-            damage_type = atk_summary["damageType"]  # available for future use
+            damage_type = prettify_camel(atk_summary["damageType"])
+            trait = prettify_camel(atk_summary["trait"]) # available for future use
 
             weapon_features_node = get_in(obj, field_map.get("weaponFeatures", "system.weaponFeatures"), [])
             armor_features_node = get_in(obj, field_map.get("armorFeatures", "system.armorFeatures"), [])
 
             weapon_feats = summarize_weapon_features(weapon_features_node)
             armor_feats = summarize_armor_features(armor_features_node)
-            hands = get_in(obj, field_map.get("hands", ""))
+            burden = prettify_camel(get_in(obj, field_map.get("burden", "")))
             baseScore = get_in(obj, field_map.get("baseScore", ""))
             baseThresholds = get_in(obj, field_map.get("baseThresholds", ""))
 
@@ -1010,17 +1036,26 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
                 rows[-1]["damage"] = damage
             if "range" in cfg["csv_fields"]:
                 rows[-1]["range"] = rng
+            if "trait" in cfg["csv_fields"]:
+                rows[-1]["trait"] = trait
+            if "majorThreshold" in cfg["csv_fields"]:
+                rows[-1]["majorThreshold"] = baseThresholds.get("major", "—") if baseThresholds else "—"
+            if "severeThreshold" in cfg["csv_fields"]:
+                rows[-1]["severeThreshold"] = baseThresholds.get("severe", "—") if baseThresholds else "—"
 
             ctx.update({
                 "damage": md_escape(damage or "—"),
                 "range": md_escape(rng or "—"),
-                "hands": md_escape(hands or "—"),
+                "trait": md_escape(trait or "—"),
+                "burden": md_escape(burden or "—"),
                 "baseScore": md_escape(baseScore or "—"),
                 "baseThresholds": md_escape(baseThresholds or "—"),
+                "majorThreshold": md_escape(baseThresholds.get("major", "—") if baseThresholds else "—"),
+                "severeThreshold": md_escape(baseThresholds.get("severe", "—") if baseThresholds else "—"),
                 "weapon_features_list": weapon_feats,
                 "armor_features_list": armor_feats,
-                "weapon_features_flat": "\n".join(f"- {x['summary']}" for x in weapon_feats) or "—",
-                "armor_features_flat": "\n".join(f"- {x['summary']}" for x in armor_feats) or "—"
+                "weapon_features_flat": "\n".join(f"- <div markdown='1'>**{x['name']}**<br>*{x['description']}*</div>" for x in weapon_feats) or "—",
+                "armor_features_flat": "\n".join(f"- <div markdown='1'>**{x['name']}**<br>*{x['description']}*</div>" for x in armor_feats) or "—"
             })
 
         # System types enrichments
@@ -1053,6 +1088,22 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
 
     # CSV index
     if rows:
+        # --- Sort rows by Tier (if present) then by Name ---
+        tier_present = "tier" in CONFIG[type_key]["csv_fields"]
+        if tier_present:
+            def tier_sort_value(v):
+                t = v.get("tier")
+                try:
+                    # Handle numeric tiers if they are strings
+                    return int(t)
+                except (TypeError, ValueError):
+                    # None or non-numeric values sort last
+                    return 9999
+            rows.sort(key=lambda r: (tier_sort_value(r), str(r.get("name", "")).lower()))
+        else:
+            rows.sort(key=lambda r: str(r.get("name", "")).lower())
+        # ---------------------------------------------------
+
         csv_path = data_root / f"{type_key}.csv"
         ensure_dir(csv_path.parent)
         with csv_path.open("w", newline="", encoding="utf-8") as f:

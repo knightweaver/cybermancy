@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Fixer**<br>*You know who to call.You have a contact for materials. Non-weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.*</div>
 
     ---
 

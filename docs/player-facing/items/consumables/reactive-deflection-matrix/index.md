@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Use**<br>*When you take damage, you can spend a Hope to negate that damage, after which the mirror shatters.*</div>
 
     #### Effects
     —

@@ -4,7 +4,9 @@
     # Reboot
 
     ## Actions
-    —
+    - <div markdown='1'>**Reboot**<br>*Spend 3 Hope to restore a failed digital device (cybernetic, drone,*</div>
+
+- <div markdown='1'>**Reboot**<br>*Spend 3 Hope to restore a Device, Cybernetic implant, or Drone. If the target item has Hit Points, it is returned to 1 Hit Point.*</div>
 
     ---
 

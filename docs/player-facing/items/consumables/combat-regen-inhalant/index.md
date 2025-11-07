@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Imbibe**<br>*Mark a Stress and clear a HP.*</div>
 
     #### Effects
     —

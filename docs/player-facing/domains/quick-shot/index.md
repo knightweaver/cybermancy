@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Quick Shot**<br>*Two shots, one heartbeat.After a successful attack on a target, Spend 1 Hope to apply the damage to a second target within Very Close range.*</div>
 
     ---
 

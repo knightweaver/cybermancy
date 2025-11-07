@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Field Experience**<br>* +1 on next Hack action, +1 on Evasion as a Reaction, Gain 1 Hope, Clear 1 Stress*</div>
 
     ---
 

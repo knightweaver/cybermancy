@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Improvised Mod**<br>*Improvise, adapt, overclock.Once per long rest, Spend 2 Hope to add a temporary extra mod to your Primary Drone for the current scene.  At the end of the Scene, remove 1 mod.*</div>
 
     ---
 

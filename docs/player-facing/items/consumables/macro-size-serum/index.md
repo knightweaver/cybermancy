@@ -11,10 +11,10 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Drink**<br>*You can drink this potion to double your size until you choose to drop this form or your next rest. While in this form, you have a +2 bonus to Strength and a +1 bonus to your Proficiency.*</div>
 
     #### Effects
-    —
+    - <div markdown='1'>**Growing Potion**<br>**</div>
     </div>
 
     </div>

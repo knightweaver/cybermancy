@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Pistol Whip**<br>*Sometimes subtlety isn’t loaded.Make an Attack at Melee range with your gun at +2, then move to Close*</div>
 
     ---
 

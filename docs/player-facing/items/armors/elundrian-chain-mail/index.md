@@ -1,43 +1,42 @@
 <div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="grid item-grid" markdown="1">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/armors/elundrian-chain-mail.webp" alt="Elundrian Chain Mail" class="item-image">
+<div markdown="1">
+### Elundrian Chain Mail
+<img src="../../../assets/icons/armors/elundrian-chain-mail.webp" alt="Elundrian Chain Mail" class="item-image">
 
-    ### Elundrian Chain Mail
+<div class="item-flavor">
+*(No description yet.)*
+</div>
+</div>
 
-    <div class="item-flavor">
-    *(No description yet.)*
-    </div>
-    </div>
+<div markdown="1">
 
-    <div markdown="1">
+#### Stats
+<table class="stat-table">
+  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Tier</td><td align="right">2</td></tr>
+    <tr><td>Base Score</td><td align="right">4</td></tr>
+    <tr><td>Thresholds</td><td align="right">9 / 21</td></tr>
+  </tbody>
+</table>
 
-    #### Stats
-    <table class="stat-table">
-      <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
-      <tbody>
-        <tr><td>Base Score</td><td>4</td></tr>
-        <tr><td>Thresholds</td><td>{'major': 9, 'severe': 21}</td></tr>
-      </tbody>
-    </table>
+</div>
+</div>
 
-    #### Actions
-    —
+#### Actions
+—
 
-    #### Effects
-    —
+#### Effects
+- <div markdown='1'>**Warded**<br>*You reduce incoming magic damage by your Armor Score before applying it to your damage thresholds.*</div>
 
-    #### Armor Features
-    - Unnamed Feature [armor-feature]
+#### Armor Features
+- <div markdown='1'>**Warded**<br>*None*</div>
 
-    </div>
-    </div>
+---
 
-    ---
-
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.armors.elundrian-chain-mail`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+**UUID:** `Compendium.cybermancy.armors.elundrian-chain-mail`
+</div>
+</div>

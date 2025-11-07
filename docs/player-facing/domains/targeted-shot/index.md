@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Targeted Shot**<br>*Precision is compassion—end it cleanly.Once per rest, Mark 1 Stress to make an Attack targeting a specific limb, device mod, weapon, etc. on a creature at -2 on the Attack roll.  On a successful attack roll, disable a targeted component for the Scene*</div>
 
     ---
 

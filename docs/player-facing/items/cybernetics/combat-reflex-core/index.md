@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Combat Reflex Core**<br>*"Forge your wrath; precision unfolds."+2 to all Attacks made by a Melee weapon.*</div>
 
     #### Effects
     —

@@ -4,7 +4,9 @@
     # Two foci
 
     ## Actions
-    —
+    - <div markdown='1'>**Two foci**<br>*you are able to have 2 allies as your Primary Foci for your Protection assignment feature.*</div>
+
+- <div markdown='1'>**Two foci**<br>*You are able to have 2 allies as your Primary Foci for your Protection assignment feature.*</div>
 
     ---
 

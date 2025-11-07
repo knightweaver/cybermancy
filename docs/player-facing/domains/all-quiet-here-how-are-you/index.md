@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**All quiet here, how are you?**<br>*“If at first you don’t succeed, reboot and lie about it.”Mark Stress (up to your Proficiency) to lower the System Alert one level per Stress marked.*</div>
 
     ---
 

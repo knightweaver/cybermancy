@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Gyroscopic Stabilizer Frame**<br>*"Precision reborn; risk is your muse."Once per scene, as a Reaction, Mark 1 Stress to reroll 1 Agility ablity or saving throw*</div>
 
     #### Effects
     —

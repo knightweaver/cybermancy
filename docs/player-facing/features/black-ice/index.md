@@ -4,7 +4,7 @@
     # Black ICE
 
     ## Actions
-    —
+    - <div markdown='1'>**Black ICE**<br>*It doesn’t defend the system—it defends itself.Deals direct neural damage (Stress or HP) on failed hack attempts.*</div>
 
     ---
 

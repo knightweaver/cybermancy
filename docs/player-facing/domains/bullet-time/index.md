@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Bullet Time**<br>*You’re never where they’re aiming.Once per rest, Spend 2 Hope to gain +4 to evasion against one chosen target until your next action.*</div>
 
     ---
 

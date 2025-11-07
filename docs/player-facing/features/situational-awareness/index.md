@@ -4,7 +4,9 @@
     # Situational awareness
 
     ## Actions
-    —
+    - <div markdown='1'>**Situational awareness**<br>*Spend 1 Hope and make an Instinct roll (13).  On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).*</div>
+
+- <div markdown='1'>**Situational awareness**<br>*Spend 1 Hope and make an Instinct roll (13). On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).*</div>
 
     ---
 

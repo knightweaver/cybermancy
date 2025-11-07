@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Sniper Shot**<br>*Stillness is your superpower.If you have a scope mod on your gun, Spend 1 Hope to gain +2 to attack (in addition to the +1 bonus provided by the scope).*</div>
 
     ---
 

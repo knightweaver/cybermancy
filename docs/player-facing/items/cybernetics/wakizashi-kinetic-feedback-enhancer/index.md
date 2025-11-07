@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Wakizashi™ Kinetic Feedback Enhancer**<br>*Hope-fueled fury, precision scars victory.After a successful attack with your secondary weapon, Spend 1 Hope for +2 on all damage die rolled. Requires the Wakizashi™ Base Unit.*</div>
 
     #### Effects
     —

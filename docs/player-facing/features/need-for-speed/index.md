@@ -4,7 +4,9 @@
     # Need for speed
 
     ## Actions
-    —
+    - <div markdown='1'>**Need for speed**<br>*Spend 3 Hope to make 2 Drive checks whenever you are Spotlighted during a Chase.*</div>
+
+- <div markdown='1'>**Need for speed**<br>*Spend 3 Hope to make 2 Drive checks whenever you are Spotlighted during a Chase.*</div>
 
     ---
 

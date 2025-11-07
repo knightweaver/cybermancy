@@ -4,7 +4,9 @@
     # Joined at the hip
 
     ## Actions
-    —
+    - <div markdown='1'>**Joined at the hip**<br>*One per long rest if you and your Primary Drone are within Close of each other, when damage from an attack would Mark either of your last Hit Point, you or your Primary Drone can move to the other’s side and Mark the Hit Point instead.*</div>
+
+- <div markdown='1'>**Joined at the hip**<br>*One per long rest, if you and your Primary Drone are within Close of each other, when damage from an attack would Mark either of your last Hit Point, you or your Primary Drone can move to the other’s side and Mark the Hit Point instead.*</div>
 
     ---
 

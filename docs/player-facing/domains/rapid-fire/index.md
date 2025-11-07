@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Rapid Fire**<br>*The sound of inevitability.Each time you make an Attack with a gun, you may attack 2 different targets within Close of eachother.  Each shot is at -2*</div>
 
     ---
 

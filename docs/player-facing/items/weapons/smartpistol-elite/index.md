@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/smartpistol-elite.webp" alt="Smartpistol Elite" class="item-image">
-
 ### Smartpistol Elite
 
+<img src="../../../assets/icons/weapons/smartpistol-elite.webp" alt="Smartpistol Elite" class="item-image">
+
 <div class="item-flavor">
-*High-end model linked directly to neural networks for predictive targeting.*
+High-end model linked directly to neural networks for predictive targeting.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d8+6</td></tr>
-    <tr><td>Range</td><td>far</td></tr>
-    <tr><td>Hands</td><td>oneHanded</td></tr>
+    <tr><td>Tier</td><td align="right">3</td></tr>
+    <tr><td>Trait</td><td align="right">Finesse</td></tr>
+    <tr><td>Range</td><td align="right">Far</td></tr>
+    <tr><td>Burden</td><td align="right">One Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d8+6</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**Autotarget**<br>*Always ignore cover.*</div>
+
+- <div markdown='1'>**Critical Effect:  One-Shot Kill**<br>*Severe damage ignoring all armor.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

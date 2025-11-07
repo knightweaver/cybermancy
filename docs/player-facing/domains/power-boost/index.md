@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Power Boost**<br>*d10)*</div>
 
     ---
 

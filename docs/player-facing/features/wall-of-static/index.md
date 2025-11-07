@@ -4,7 +4,7 @@
     # Wall of Static
 
     ## Actions
-    —
+    - <div markdown='1'>**Zap**<br>*The wall sent feedback down the line*</div>
 
     ---
 

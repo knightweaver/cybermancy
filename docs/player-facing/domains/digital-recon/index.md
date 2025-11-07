@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Digital Recon**<br>*“Your paranoia finally pays dividends.”Before entering an Environment, make a Spellcasting (Hacking) roll (13), to gain information about the security stance of the target (what Tier levels of ICE are used, how many levels to the security, what System Alert responses are possible, etc.).  On a failure, all Devices in the Enviroment have a Difficulty +1.*</div>
 
     ---
 

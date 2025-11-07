@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Explosive Detonation**<br>*Precision demolition by proxy.At the start of the Session, place tokens on this card equal to your proficiency level.  Take an Action to Spend one token to detonate an explosion within Far range. Target takes d8+2 damage; all others within Very Close of the target take d6. Mark 2 Stress to refresh this card with tokens*</div>
 
     ---
 

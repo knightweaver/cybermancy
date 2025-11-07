@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Sonic Rounds**<br>*Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit must make an Instinct saving throw (12) are stunned and cannot act until the GM spends 1 Fear to remove the effect.*</div>
 
     #### Effects
     —

@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Chemical hazard sensor**<br>*Inhale secrets; exhale mastery.Once per scene, Spend 1 Hope to monitor your environment for chemicals of all types.  Like a massively improved sense of smell*</div>
 
     #### Effects
     —

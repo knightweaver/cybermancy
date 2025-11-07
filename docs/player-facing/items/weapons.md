@@ -9,9 +9,10 @@ Type to filter:
       <th>Name</th>
       <th>Description</th>
       <th>Tier</th>
-      <th>attack</th>
-      <th>Hands</th>
-      <th>Actions</th>
+      <th>Trait</th>
+      <th>Range</th>
+      <th>Burden</th>
+      <th>Damage</th>
     </tr>
   </thead>
   <tbody>
@@ -20,9 +21,10 @@ Type to filter:
       <td><a href="./{{ w.slug }}/">{{ w.name }}</a></td>
       <td>{{ w.description }}</td>
       <td>{{ w.tier }}</td>
-      <td>{{ w.attack }}</td>
-      <td>{{ w.hands }}</td>
-      <td>{{ w.actions }}</td>
+      <td>{{ w.trait }}</td>
+      <td>{{ w.range }}</td>
+      <td>{{ w.burden }}</td>
+      <td>{{ w.damage }}</td>
     </tr>
 {% endfor %}
   </tbody>

@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Quick Reload**<br>*Reloading is for amateurs.Swap ammunition types without spending an action.*</div>
 
     ---
 

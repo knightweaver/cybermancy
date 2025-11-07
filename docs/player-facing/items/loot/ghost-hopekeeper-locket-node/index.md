@@ -11,7 +11,9 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Imbue**<br>**</div>
+
+- <div markdown='1'>**Use**<br>**</div>
 
     #### Effects
     —

@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/orbital-sniper-rifle.webp" alt="Orbital Sniper Rifle" class="item-image">
-
 ### Orbital Sniper Rifle
 
+<img src="../../../assets/icons/weapons/orbital-sniper-rifle.webp" alt="Orbital Sniper Rifle" class="item-image">
+
 <div class="item-flavor">
-*A satellite-linked rifle capable of marking and calling down orbital strikes.*
+A satellite-linked rifle capable of marking and calling down orbital strikes.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d12+12</td></tr>
-    <tr><td>Range</td><td>veryFar</td></tr>
-    <tr><td>Hands</td><td>twoHanded</td></tr>
+    <tr><td>Tier</td><td align="right">4</td></tr>
+    <tr><td>Trait</td><td align="right">Finesse</td></tr>
+    <tr><td>Range</td><td align="right">Very Far</td></tr>
+    <tr><td>Burden</td><td align="right">Two Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d12+12</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**Satellite Link**<br>*Call in orbital fire once per rest.*</div>
+
+- <div markdown='1'>**Critical Effect:  Heavens Lance**<br>*Obliterate target zone, GM narrates consequences.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

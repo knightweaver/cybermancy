@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Patch Job**<br>*Duct tape, hope, and brilliance.Once per rest, Mark 1 Stress to restore 2 HP to your Primary Drone.*</div>
 
     ---
 

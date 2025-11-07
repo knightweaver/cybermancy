@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Use**<br>*This honey can be used to glue two objects together permanently.*</div>
 
     #### Effects
     —

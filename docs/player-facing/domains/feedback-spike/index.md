@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Feedback Spike**<br>*“Return to sender.”As a Reaction, Spend 1 Hope when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.*</div>
 
     ---
 

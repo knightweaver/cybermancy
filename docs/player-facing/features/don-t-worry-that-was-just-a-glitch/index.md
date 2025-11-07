@@ -4,7 +4,9 @@
     # Don't worry, that was just a glitch
 
     ## Actions
-    —
+    - <div markdown='1'>**Don't worry, that was just a glitch**<br>*Reduce the System Alert level by 1 or the System counter by 2.*</div>
+
+- <div markdown='1'>**Don't worry, that was just a glitch**<br>*Once per Scene, Mark 1 Stress to reduce the System Alert level by 1.*</div>
 
     ---
 

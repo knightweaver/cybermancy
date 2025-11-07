@@ -4,7 +4,7 @@
     # Kraken ICE
 
     ## Actions
-    —
+    - <div markdown='1'>**Kraken ICE**<br>*Your drone pivots its gun toward you and waits.Attempts to seize control of your cyberware or drones for one Scene.*</div>
 
     ---
 

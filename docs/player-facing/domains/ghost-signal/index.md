@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Ghost Signal**<br>*“Sometimes your best ally is a flickering echo of bad code.”Target 1 weapon within Far, Spend 1 Hope and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.*</div>
 
     ---
 

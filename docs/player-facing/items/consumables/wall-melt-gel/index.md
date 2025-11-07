@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Use**<br>*This paste eats away walls and other surfaces in bright flashes.*</div>
 
     #### Effects
     —

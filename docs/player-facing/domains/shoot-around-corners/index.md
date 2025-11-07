@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Shoot Around Corners**<br>*Geometry is your ally.Hit a target around a 45° corner with disadvantage.*</div>
 
     ---
 

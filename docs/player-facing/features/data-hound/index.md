@@ -4,7 +4,7 @@
     # Data Hound
 
     ## Actions
-    —
+    - <div markdown='1'>**Data Hound**<br>*A blinking icon follows you across subnets—and it’s learning.Marks and traces your signature, alerting other nodes as you move.*</div>
 
     ---
 

@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Gunsmith**<br>*Your tools are extensions of your will.Gain +1 mod slot for each firearm you own.*</div>
 
     ---
 

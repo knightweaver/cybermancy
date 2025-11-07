@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Predictive Motion Processor**<br>*Unleash precision beyond mortal reach.Spend 1 Hope to gain +2 on an attack roll*</div>
 
     #### Effects
     —

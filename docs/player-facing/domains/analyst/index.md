@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Analyst**<br>*Knowledge is the best weapon.Once per session, Spend 2 Hope to ask the GM 3 yes/no questions about a material, structure, or device.*</div>
 
     ---
 

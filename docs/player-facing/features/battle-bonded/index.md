@@ -4,7 +4,9 @@
     # Battle-bonded
 
     ## Actions
-    —
+    - <div markdown='1'>**Battle-bonded**<br>*when you and your Primary Drone are within Very Close, Spend 1 Hope to give you both +2 Evasion for 1 adversary’s attack*</div>
+
+- <div markdown='1'>**Battle-bonded**<br>*when you and your Primary Drone are within Very Close, Spend 1 Hope to give you both +2 Evasion for 1 adversary’s attack*</div>
 
     ---
 

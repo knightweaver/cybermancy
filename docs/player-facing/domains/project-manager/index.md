@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Project Manager**<br>*Leadership through logistics.Once per rest, Spend 1 Hope before a Group Action to grant +2 to the roll.*</div>
 
     ---
 

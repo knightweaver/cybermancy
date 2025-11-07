@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Patience Young Padawan**<br>*“Turns out, rushing a hack only impresses the ICE.”If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.*</div>
 
     ---
 

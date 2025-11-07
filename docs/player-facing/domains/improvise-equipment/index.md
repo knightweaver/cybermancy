@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Improvise Equipment**<br>*If you can imagine it, you can build it.Once per rest, Mark 2 Stress to create a device you need. Describe construction and function (GM discretion).*</div>
 
     ---
 

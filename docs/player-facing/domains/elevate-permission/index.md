@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Elevate Permission**<br>*“Because root access is a state of mind.”Spend 1 Hopeto escalate your access level on a Device you are Hacking from Infiltration to Control.*</div>
 
     ---
 

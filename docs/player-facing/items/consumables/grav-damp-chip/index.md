@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Use**<br>*You can use this bone to control your falling speed for a number of minutes equal to your level.*</div>
 
     #### Effects
     —

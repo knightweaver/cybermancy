@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**SmartLink™ Weapon Mount**<br>*"Precision reborn, elevate your lethal art."+3 to all Attacks made by a SmartLink™ weapon. Requires SmartLink™ CPU implant*</div>
 
     #### Effects
     —

@@ -4,7 +4,7 @@
     # Neural Ripper
 
     ## Actions
-    —
+    - <div markdown='1'>**Neural Ripper**<br>*It burns your nerves before you even see it.Targets wetware directly; roll physical defense or mark HP instead of Stress.*</div>
 
     ---
 

@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Drone Control**<br>*Precision through proxies.As an Action, Spend 1 Hope for your Primary Drone to attack at +2.*</div>
 
     ---
 

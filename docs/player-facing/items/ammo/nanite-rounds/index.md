@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Nanite Rounds**<br>*Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit cannot receive healing effects until the GM spends 1 Fear to remove this affect.*</div>
 
     #### Effects
     —

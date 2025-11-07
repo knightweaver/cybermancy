@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/emp-cascade.webp" alt="EMP Cascade" class="item-image">
-
 ### EMP Cascade
 
+<img src="../../../assets/icons/weapons/emp-cascade.webp" alt="EMP Cascade" class="item-image">
+
 <div class="item-flavor">
-*A cascading EMP charge that disables all systems across multiple networks simultaneously.*
+A cascading EMP charge that disables all systems across multiple networks simultaneously.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d12</td></tr>
-    <tr><td>Range</td><td>far</td></tr>
-    <tr><td>Hands</td><td>oneHanded</td></tr>
+    <tr><td>Tier</td><td align="right">3</td></tr>
+    <tr><td>Trait</td><td align="right">Finesse</td></tr>
+    <tr><td>Range</td><td align="right">Far</td></tr>
+    <tr><td>Burden</td><td align="right">One Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d12</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**System Overload**<br>*Devices take 2 rounds to recover.*</div>
+
+- <div markdown='1'>**Critical Effect:  Matrix Burnout**<br>*Deckers hit take HP damage directly.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

@@ -4,7 +4,7 @@
     # Brainstorm
 
     ## Actions
-    —
+    - <div markdown='1'>**Brainstorm**<br>*Every sound becomes light. Every color screams.On first contact, floods your neural link with raw sensory data; roll Fear or mark Stress.*</div>
 
     ---
 

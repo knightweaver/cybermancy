@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**SmartLink™ Targeting Core**<br>*"Precision Perfected, Lethality Enhanced."When firing a SmartLink™ enabled weapon, +2 Attack.  Requires the SmartLink™ CPU implant*</div>
 
     #### Effects
     —

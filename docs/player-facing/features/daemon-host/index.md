@@ -4,7 +4,7 @@
     # Daemon Host
 
     ## Actions
-    —
+    - <div markdown='1'>**Daemon Host**<br>*It speaks your syntax and calls you by your old handle.Spawns a self-aware daemon that hunts you across systems until destroyed or appeased.*</div>
 
     ---
 

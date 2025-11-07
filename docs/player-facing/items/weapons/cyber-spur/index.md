@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/cyber-spur.webp" alt="Cyber Spur" class="item-image">
-
 ### Cyber Spur
 
+<img src="../../../assets/icons/weapons/cyber-spur.webp" alt="Cyber Spur" class="item-image">
+
 <div class="item-flavor">
-*A retractable blade hidden in the user’s forearm, perfect for sudden, lethal strikes in close quarters.*
+A retractable blade hidden in the user’s forearm, perfect for sudden, lethal strikes in close quarters.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d8</td></tr>
-    <tr><td>Range</td><td>melee</td></tr>
-    <tr><td>Hands</td><td>oneHanded</td></tr>
+    <tr><td>Tier</td><td align="right">1</td></tr>
+    <tr><td>Trait</td><td align="right">Strength</td></tr>
+    <tr><td>Range</td><td align="right">Melee</td></tr>
+    <tr><td>Burden</td><td align="right">One Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d8</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**Concealed**<br>*Can be hidden; gain advantage on your first attack each scene.*</div>
+
+- <div markdown='1'>**Critical Effect:  Ambush Kill**<br>*If striking from surprise, escalate Fear consequences for target.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
-- Unnamed Feature [weapon-feature]
+- <div markdown='1'>**Retractable**<br>*None*</div>
+[{'name': 'Retractable', 'kind': 'weapon-feature', 'description': None, 'summary': 'retractable [weapon-feature] — None'}]
 
-</div>
-</div>
 
 ---
 

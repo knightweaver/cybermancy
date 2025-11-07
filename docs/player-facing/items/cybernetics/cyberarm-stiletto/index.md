@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Cyberarm™ Stiletto**<br>*Swift steel triumph; your closest ally.Melee range weapon, d6+1 with the Quick feature.*</div>
 
     #### Effects
     —

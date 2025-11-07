@@ -4,7 +4,7 @@
     # Lethal Combo
 
     ## Actions
-    —
+    - <div markdown='1'>**Lethal Combo**<br>*Mark 1 StressMark 1 Stress for you and your Primary Drone both to take an action during a Spotlight*</div>
 
     ---
 

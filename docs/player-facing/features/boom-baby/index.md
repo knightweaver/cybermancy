@@ -4,7 +4,9 @@
     # Boom baby
 
     ## Actions
-    —
+    - <div markdown='1'>**Boom baby**<br>*Detonate any Device you Control within Very Far.  All targets within Very Close of the targeted Device take d8+2 damage.*</div>
+
+- <div markdown='1'>**Boom baby**<br>*vc]*</div>
 
     ---
 

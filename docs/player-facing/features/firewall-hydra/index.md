@@ -4,7 +4,7 @@
     # Firewall Hydra
 
     ## Actions
-    —
+    - <div markdown='1'>**Firewall Hydra**<br>*Cut off one head—wake three daemons.Bypassing one layer spawns two new subroutines.*</div>
 
     ---
 

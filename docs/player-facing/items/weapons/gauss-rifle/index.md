@@ -1,13 +1,13 @@
 <div class="item" markdown="1">
+    
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
-<img src="../../../assets/icons/weapons/gauss-rifle.webp" alt="Gauss Rifle" class="item-image">
-
 ### Gauss Rifle
 
+<img src="../../../assets/icons/weapons/gauss-rifle.webp" alt="Gauss Rifle" class="item-image">
+
 <div class="item-flavor">
-*Magnetic accelerator weapon firing hyper-velocity projectiles that punch through anything solid.*
+Magnetic accelerator weapon firing hyper-velocity projectiles that punch through anything solid.
 </div>
 </div>
 
@@ -15,25 +15,30 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
-    <tr><td>Damage</td><td>d12+12</td></tr>
-    <tr><td>Range</td><td>far</td></tr>
-    <tr><td>Hands</td><td>twoHanded</td></tr>
+    <tr><td>Tier</td><td align="right">4</td></tr>
+    <tr><td>Trait</td><td align="right">Strength</td></tr>
+    <tr><td>Range</td><td align="right">Far</td></tr>
+    <tr><td>Burden</td><td align="right">Two Handed</td></tr>
+    <tr><td>Damage</td><td align="right">d12+12</td></tr>
   </tbody>
 </table>
 
+</div>
+</div>
 #### Actions
-—
+- <div markdown='1'>**Rail Shot**<br>*Spend Stress to deal double damage dice.*</div>
+
+- <div markdown='1'>**Critical Effect:  Hyper-Pierce**<br>*Shot tears through multiple enemies/vehicles in a line.*</div>
 
 #### Effects
 —
 
 #### Weapon Features
 —
+[]
 
-</div>
-</div>
 
 ---
 

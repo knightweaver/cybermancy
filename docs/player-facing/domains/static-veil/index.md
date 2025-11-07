@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Static Veil**<br>*“The perfect invisibility cloak smells faintly of ozone.”Spend 1 Hope to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, creatures roll with Disadvantage to detect you or your team.*</div>
 
     ---
 

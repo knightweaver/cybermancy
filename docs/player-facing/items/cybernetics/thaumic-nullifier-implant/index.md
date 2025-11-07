@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Thaumic Nullifier Implant**<br>*Hope-crafted aegis against magical harm.Once per long rest, Spend 3 Hope to place 3 tokens on this card.  As a Reaction, you can remove one token to negate a source of Magical damage.*</div>
 
     #### Effects
     —

@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Wake**<br>*You can drink this potion to fall asleep for a full night’s rest. You clear all Stress upon waking.*</div>
 
     #### Effects
     —

@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Cyberarm™ Digital Uplink**<br>*"Embrace fusion; hack reality's core."You always have a digital link and storage device with you (does not take a slot in your Kit).  Spend 1 Hope to gain +2 on a Spellcasting (Hacking) attempt on a device within Melee range. Requires Cyberarm™ base unit*</div>
 
     #### Effects
     —

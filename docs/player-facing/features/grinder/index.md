@@ -4,7 +4,7 @@
     # Grinder
 
     ## Actions
-    —
+    - <div markdown='1'>**Grinder**<br>*The system eats your focus one grain at a time.Erodes Hope or reduces Stress recovery for the rest of the Scene.*</div>
 
     ---
 

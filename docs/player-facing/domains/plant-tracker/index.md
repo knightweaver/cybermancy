@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Plant Tracker**<br>*They can run, but they can’t hide.Mark 2 Stress to plant a tracker on a creature or device within Very Close. Roll Finesse vs target’s difficulty to avoid detection.*</div>
 
     ---
 

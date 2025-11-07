@@ -11,7 +11,9 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Cyberarm™  Combat Limbs**<br>*Edge precision, unrivaled force, definitive impact.+1 to all Attacks made by a Melee weapon that does physical damage. Requires Cyberarm™ base unit*</div>
+
+- <div markdown='1'>**Cyberarm™  Combat Limbs**<br>*Edge precision, unrivaled force, definitive impact.+1 to all Attacks made by a Melee weapon that does physical damage. Requires Cyberarm™ base unit*</div>
 
     #### Effects
     —

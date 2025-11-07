@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Myomer Muscle Weave**<br>*Forge destiny with unyielding cybernetic might.Spend 1 Hope to gain +2 on a Strength roll or saving throw.*</div>
 
     #### Effects
     —

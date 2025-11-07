@@ -8,7 +8,7 @@
     - **Recall Cost:** 
 
     ## Actions
-    —
+    - <div markdown='1'>**Situational Awareness**<br>*Nothing moves without you noticing.Spend 1 Hope; make a Perception check at +3 to detect all armed entities within Far.*</div>
 
     ---
 

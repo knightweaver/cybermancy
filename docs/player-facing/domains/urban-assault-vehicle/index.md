@@ -8,7 +8,7 @@
     - **Recall Cost:** 1
 
     ## Actions
-    —
+    - <div markdown='1'>**Urban Assault Vehicle**<br>*War van supremacy.You own a large, heavily equipped vehicle large enough for your team plus 4 extra creatures - describe the vehicle on your character sheet. While driving this vehicle, gain +4 to Driving checks. On a critical success of a Driving roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion).*</div>
 
     ---
 

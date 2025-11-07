@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Cyberarm™ Widow Spine**<br>*"Grapple destiny; ensnare fate's embrace."Spend 1 Hope and make an attack roll against a creature of your size or less who is within Very Close. On a success, pull them to within Melee range of you and give them the Restrained condition.  GM must spotlight that creature and spend 1 Fear to remove the condition.Requires Cyberarm™ base unit*</div>
 
     #### Effects
     —

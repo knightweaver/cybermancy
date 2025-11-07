@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Burst Fire**<br>*Suppression by saturation.Mark 2 StressAttack up to your Proficiency number of targets within Far range in a 45 degree cone.  Make 1 Attack roll at +2 against the first target.  Subtract 2 from that value for the second target and subtract 2 more for each subsequent target.  (So, 1 roll of the Destiny dice, but the value is applied to all targets, starting at +2 and going down by 2 for each target after the first. Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.*</div>
 
     ---
 

@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Brainiac™ Drone Control**<br>*"" - Master minds, bend drones, limitlessly near.You have an advanced Brainiac unit implant with enough power to function as a rigger drone control module, but it isn't as powerful as a normal regger drone control unitand has shorter range.  You may control any of your drones within Close and at -2 on your rolls.   Requires Brainiac™ Base Unit.*</div>
 
     #### Effects
     —

@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Brainiac™ CPU Implant**<br>*Unlock brilliance, master every challenge.Brainiac™ base unit - enables other Brainiac-related cybernetics and abilities. Once per long rest, Spend 1 Hope for advantage on an Knowlege roll or saving throw - the Knowledge roll must be on a topic that your character could reasonably be proficient with (does not grant new knowledge)*</div>
 
     #### Effects
     —

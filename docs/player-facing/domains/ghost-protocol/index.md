@@ -8,7 +8,7 @@
     - **Recall Cost:** 2
 
     ## Actions
-    —
+    - <div markdown='1'>**Ghost Protocol**<br>*“Being off the grid never felt so literal.”Spend 1 Hope to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or creatures targeting you have a -2 to hit.*</div>
 
     ---
 

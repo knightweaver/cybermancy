@@ -11,7 +11,7 @@
 
     <div markdown="1">
     #### Actions
-    —
+    - <div markdown='1'>**Cognitive Filter Array**<br>*Stress for clarity; mind transcends chaos.Once per rest, Mark 1 Stress to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence*</div>
 
     #### Effects
     —
