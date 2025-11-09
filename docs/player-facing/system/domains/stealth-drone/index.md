@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/stealth-drone.webp" alt="Stealth Drone" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/stealth-drone.webp" alt="Stealth Drone" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Your eyes are everywhere.</i><p class="Card-Feature">Once per Scene, <strong>Spend 1 Hope</strong> to launch a tiny <b>Stealth Drone</b> within Very Far.  The drone provide audio within Very Close and visual signal.  When you take an Action, you can reposition the drone anywhere within Very Far.  creatures within Very Close can take an action to make an <b>Instinct</b> roll (Difficulty 15) to detect the drone, and if detected destroy the drone.</p>
 </div>

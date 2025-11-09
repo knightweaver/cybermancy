@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/ricochet.webp" alt="Ricochet" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/ricochet.webp" alt="Ricochet" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Bullets obey geometry, not walls.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to Attack at -2 a target with the Hidden condition by virtue of being behind cover.</p>
 </div>

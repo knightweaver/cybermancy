@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/quick-reload.webp" alt="Quick Reload" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/quick-reload.webp" alt="Quick Reload" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Reloading is for amateurs.</i><p class="Card-Feature">Swap ammunition types without spending an action.</p>
 </div>

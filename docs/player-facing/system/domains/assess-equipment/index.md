@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/assess-equipment.webp" alt="Assess Equipment" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/assess-equipment.webp" alt="Assess Equipment" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Every circuit tells a secret.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.</p>
 </div>

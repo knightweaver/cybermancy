@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/quick-shot.webp" alt="Quick Shot" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/quick-shot.webp" alt="Quick Shot" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Two shots, one heartbeat.</i><p class="Card-Feature">After a successful attack on a target, <strong>Spend 1 Hope</strong> to apply the damage to a second target within Very Close range.</p>
 </div>

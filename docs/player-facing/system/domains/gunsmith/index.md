@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/gunsmith.webp" alt="Gunsmith" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/gunsmith.webp" alt="Gunsmith" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Your tools are extensions of your will.</i><p class="Card-Feature">Gain +1 mod slot for each firearm you own.</p>
 </div>

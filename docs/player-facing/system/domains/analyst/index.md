@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/analyst.webp" alt="Analyst" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/analyst.webp" alt="Analyst" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Knowledge is the best weapon.</i><p class="Card-Feature">Once per session, <strong>Spend 2 Hope</strong> to ask the GM 3 yes/no questions about a material, structure, or device.</p>
 </div>

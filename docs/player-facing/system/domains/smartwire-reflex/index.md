@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/smartwire-reflex.webp" alt="Smartwire Reflex" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/smartwire-reflex.webp" alt="Smartwire Reflex" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“You’re half machine — might as well let it drive.”</i><p class="Card-Feature">Once per Scene, you may reroll one failed Agility, Spellcasting or Finesse roll as your implants auto-correct your motion.</p>
 </div>

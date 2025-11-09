@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/targeted-shot.webp" alt="Targeted Shot" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/targeted-shot.webp" alt="Targeted Shot" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Precision is compassion—end it cleanly.</i><p class="Card-Feature">Once per rest, <strong>Mark 1 Stress</strong> to make an Attack targeting a specific limb, device mod, weapon, etc. on a creature at -2 on the Attack roll.  On a successful attack roll, disable a targeted component for the Scene</p>
 </div>

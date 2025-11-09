@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/feedback-spike.webp" alt="Feedback Spike" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/feedback-spike.webp" alt="Feedback Spike" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Return to sender.”</i><p class="Card-Feature">As a Reaction, <strong>Spend 1 Hope</strong> when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.</p>
 </div>

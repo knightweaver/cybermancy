@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/matrix-mind.webp" alt="Matrix mind" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/matrix-mind.webp" alt="Matrix mind" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>"It's full of stars… !"</i><p class="Card-Feature">When 4 or more domain cards in your loadout  are from Circuit, gain the following effects: +1 to your Spellcasting (Hacking) rolls, once per rest you can switch the result of your Hope and Fear dice</p>
 </div>

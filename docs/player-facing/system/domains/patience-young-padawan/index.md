@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/patience-young-padawan.webp" alt="Patience Young Padawan" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/patience-young-padawan.webp" alt="Patience Young Padawan" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Turns out, rushing a hack only impresses the ICE.”</i><p class="Card-Feature">If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.</p>
 </div>

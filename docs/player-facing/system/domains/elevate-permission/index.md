@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/elevate-permission.webp" alt="Elevate Permission" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/elevate-permission.webp" alt="Elevate Permission" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Because root access is a state of mind.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.</p>
 </div>

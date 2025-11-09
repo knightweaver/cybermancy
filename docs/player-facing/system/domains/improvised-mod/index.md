@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/improvised-mod.webp" alt="Improvised Mod" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/improvised-mod.webp" alt="Improvised Mod" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Improvise, adapt, overclock.</i><p class="Card-Feature">Once per long rest, <strong>Spend 2 Hope</strong> to add a temporary extra mod to your <b>Primary Drone</b> for the current scene.  At the end of the Scene, remove 1 mod.</p>
 </div>

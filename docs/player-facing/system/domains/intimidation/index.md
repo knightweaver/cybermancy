@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/intimidation.webp" alt="Intimidation" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/intimidation.webp" alt="Intimidation" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Fear is the first bullet.</i><p class="Card-Feature">With a visible gun, make Presence rolls at  +d4.  Once per Scene, <strong>Spend 1 Hope</strong> to re-roll a Presence roll.</p>
 </div>

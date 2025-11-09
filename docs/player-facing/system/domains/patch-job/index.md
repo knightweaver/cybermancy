@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/patch-job.webp" alt="Patch Job" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/patch-job.webp" alt="Patch Job" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Duct tape, hope, and brilliance.</i><p class="Card-Feature">Once per rest, <strong>Mark 1 Stress</strong> to restore 2 HP to your <b>Primary Drone</b>.</p>
 </div>

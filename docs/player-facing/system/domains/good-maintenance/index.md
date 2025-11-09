@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/good-maintenance.webp" alt="Good Maintenance" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/good-maintenance.webp" alt="Good Maintenance" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>A well-oiled machine never quits.</i><p class="Card-Feature">Your weapons and <b>Primary Drone</b> cannot malfunction except through magical effects.</p>
 </div>

@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/shoot-around-corners.webp" alt="Shoot Around Corners" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/shoot-around-corners.webp" alt="Shoot Around Corners" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Geometry is your ally.</i><p class="Card-Feature">Hit a target around a 45° corner with disadvantage.</p>
 </div>

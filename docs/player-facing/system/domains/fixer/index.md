@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/fixer.webp" alt="Fixer" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/fixer.webp" alt="Fixer" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>You know who to call.</i><p class="Card-Feature">You have a contact for materials. Non-weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.</p>
 </div>

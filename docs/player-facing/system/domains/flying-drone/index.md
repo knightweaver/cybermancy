@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/flying-drone.webp" alt="Flying Drone" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/flying-drone.webp" alt="Flying Drone" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>The sky hums with your genius.</i><p class="Card-Feature">Your <b>Primary Drone</b> gains flight, +4 Evasion, and may carry 3 weapons.</p>
 </div>

@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/situational-awareness.webp" alt="Situational Awareness" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/situational-awareness.webp" alt="Situational Awareness" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Nothing moves without you noticing.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong>; make a Perception check at +3 to detect all armed entities within Far.</p>
 </div>

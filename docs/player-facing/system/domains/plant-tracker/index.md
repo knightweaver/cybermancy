@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/plant-tracker.webp" alt="Plant Tracker" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/plant-tracker.webp" alt="Plant Tracker" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>They can run, but they can’t hide.</i><p class="Card-Feature"><strong>Mark 2 Stress</strong> to plant a tracker on a creature or device within Very Close. Roll Finesse vs target’s difficulty to avoid detection.</p>
 </div>

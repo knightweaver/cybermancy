@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/power-boost.webp" alt="Power Boost" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/power-boost.webp" alt="Power Boost" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Overclocked aggression.</i><p class="Card-Feature">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack with advantage; add dH extra damage on success depending on your Tier (1:d4, 2:d6, 3:d8, 4:d10)</p>
 </div>

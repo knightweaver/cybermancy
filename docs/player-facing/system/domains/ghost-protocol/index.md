@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/ghost-protocol.webp" alt="Ghost Protocol" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/ghost-protocol.webp" alt="Ghost Protocol" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Being off the grid never felt so literal.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or creatures targeting you have a -2 to hit.</p>
 </div>

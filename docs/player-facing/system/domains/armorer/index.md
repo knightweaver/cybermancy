@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/armorer.webp" alt="Armorer" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/armorer.webp" alt="Armorer" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Armor is just skin for machines.</i><p class="Card-Feature">During downtime, <strong>Spend 1 Hope</strong> to repair up to 3 armor slots for yourself or an ally.</p>
 </div>

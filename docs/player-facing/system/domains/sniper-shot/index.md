@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/sniper-shot.webp" alt="Sniper Shot" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/sniper-shot.webp" alt="Sniper Shot" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Stillness is your superpower.</i><p class="Card-Feature">If you have a scope mod on your gun, <strong>Spend 1 Hope</strong> to gain +2 to attack (in addition to the +1 bonus provided by the scope).</p>
 </div>

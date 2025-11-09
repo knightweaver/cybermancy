@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/bullet-time.webp" alt="Bullet Time" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/bullet-time.webp" alt="Bullet Time" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>You’re never where they’re aiming.</i><p class="Card-Feature">Once per rest, Spend 2 Hope to gain +4 to evasion against one chosen target until your next action.</p>
 </div>

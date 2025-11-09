@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/getaway-vehicle.webp" alt="Getaway Vehicle" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/getaway-vehicle.webp" alt="Getaway Vehicle" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Drive fast, live smarter.</i><p class="Card-Feature">You own a vehicle large enough for your team - describe the vehicle on your character sheet. While driving this vehicle, gain +2 to Driving checks. On a critical roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion), and adjust your Chase Die by and additional -1 to +1</p>
 </div>

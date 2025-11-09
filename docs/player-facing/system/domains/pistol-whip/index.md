@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/pistol-whip.webp" alt="Pistol Whip" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/pistol-whip.webp" alt="Pistol Whip" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Sometimes subtlety isn’t loaded.</i><p class="Card-Feature">Make an Attack at Melee range with your gun at +2, then move to Close</p>
 </div>

@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/assess-weapon.webp" alt="Assess Weapon" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/assess-weapon.webp" alt="Assess Weapon" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Every gun tells a story.</i><p class="Card-Feature">Identify the weapon type and potential weaknesses or modifications of one visible gun within Far</p>
 </div>

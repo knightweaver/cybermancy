@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/static-veil.webp" alt="Static Veil" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/static-veil.webp" alt="Static Veil" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“The perfect invisibility cloak smells faintly of ozone.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, creatures roll with Disadvantage to detect you or your team.</p>
 </div>

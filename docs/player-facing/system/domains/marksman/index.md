@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/marksman.webp" alt="Marksman" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/marksman.webp" alt="Marksman" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>One bullet, one breath.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to attack with advantage and deal +d4 damage.</p>
 </div>

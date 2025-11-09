@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/short-circuit.webp" alt="Short Circuit" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/short-circuit.webp" alt="Short Circuit" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Sometimes the best fix is a hard crash.”</i><p class="Card-Feature">Once per rest, target any mechanical Adversaries (Drones, robots, etc.) within Far and make a Spellcasting roll against the Adversaries's Difficulty.  On a success, the target loses its next round and takes d8+2 damage</p>
 </div>

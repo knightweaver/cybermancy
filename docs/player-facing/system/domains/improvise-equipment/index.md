@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/improvise-equipment.webp" alt="Improvise Equipment" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/improvise-equipment.webp" alt="Improvise Equipment" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>If you can imagine it, you can build it.</i><p class="Card-Feature">Once per rest, <strong>Mark 2 Stress</strong> to create a device you need. Describe construction and function (GM discretion).</p>
 </div>

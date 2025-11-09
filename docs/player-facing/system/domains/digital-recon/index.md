@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/digital-recon.webp" alt="Digital Recon" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/digital-recon.webp" alt="Digital Recon" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Your paranoia finally pays dividends.”</i><p class="Card-Feature">Before entering an Environment, make a Spellcasting (Hacking) roll (13), to gain information about the security stance of the target (what Tier levels of ICE are used, how many levels to the security, what System Alert responses are possible, etc.).  On a failure, all Devices in the Enviroment have a Difficulty +1.</p>
 </div>

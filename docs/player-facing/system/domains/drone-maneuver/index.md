@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/drone-maneuver.webp" alt="Drone Maneuver" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/drone-maneuver.webp" alt="Drone Maneuver" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Dodge by remote instinct.</i><p class="Card-Feature">As a Reaction, <strong>Mark 1 Stress</strong> to give your <b>Primary Drone</b> +2 Evasion for one attack before results are determined.</p>
 </div>

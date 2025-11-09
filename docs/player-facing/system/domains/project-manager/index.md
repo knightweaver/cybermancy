@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/project-manager.webp" alt="Project Manager" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/project-manager.webp" alt="Project Manager" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Leadership through logistics.</i><p class="Card-Feature">Once per rest, <strong>Spend 1 Hope</strong> before a Group Action to grant +2 to the roll.</p>
 </div>

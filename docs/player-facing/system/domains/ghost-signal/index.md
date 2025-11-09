@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/ghost-signal.webp" alt="Ghost Signal" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/ghost-signal.webp" alt="Ghost Signal" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Sometimes your best ally is a flickering echo of bad code.”</i><p class="Card-Feature">Target 1 weapon within Far, <strong>Spend 1 Hope</strong> and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.</p>
 </div>

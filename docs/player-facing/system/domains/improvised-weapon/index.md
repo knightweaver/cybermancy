@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/improvised-weapon.webp" alt="Improvised Weapon" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/improvised-weapon.webp" alt="Improvised Weapon" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>The world is your arsenal.</i><p class="Card-Feature"><strong>Mark 2 Stress</strong> spend at least 1 minute to create a d6 melee weapon.</p>
 </div>

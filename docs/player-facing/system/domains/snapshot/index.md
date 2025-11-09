@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/snapshot.webp" alt="Snapshot" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/snapshot.webp" alt="Snapshot" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Faster than the spotlight.</i><p class="Card-Feature">Once per Scene, as a Reaction, <strong>Spend 1 Hope</strong> when the GM spotlights an opponent to make a single ranged attack.</p>
 </div>

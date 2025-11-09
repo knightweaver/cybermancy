@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/body-shield.webp" alt="Body Shield" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/body-shield.webp" alt="Body Shield" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Pragmatism over pity.</i><p class="Card-Feature">Once per Scene, <strong>Mark 1 Stress</strong> and grab a creature of your size or smaller within Very Close. Gain +2 Evasion until next your next Action.</p>
 </div>

@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/engineer-solution.webp" alt="Engineer Solution" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/engineer-solution.webp" alt="Engineer Solution" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Innovation given form.</i><p class="Card-Feature">With one day of prep, you can construct nearly any practical device needed (GM discretion).</p>
 </div>

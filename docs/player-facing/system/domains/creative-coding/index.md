@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/creative-coding.webp" alt="Creative coding" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/creative-coding.webp" alt="Creative coding" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“If at first you don’t succeed, reboot and lie about it.”</i><p class="Card-Feature">Once per long rest, add a new Digital Feature to a Device that it didn't originally have (GM's discretion)</p>
 </div>

@@ -1269,12 +1269,12 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
                 features = get_in(obj, field_map["features"], [])
                 ctx["features_md"] = features_to_md(features, feature_map)
             elif type_key == "domains":
-                domain = prettify_camel(get_in(obj, field_map.get("domain", "system.domain" )))
+                domain = get_in(obj, field_map.get("domain", "system.domain" ))
                 ctx["level"] = md_escape(get_in(obj, field_map["level"], ""))
                 ctx["domain"] = prettify_camel(md_escape(get_in(obj, field_map["domain"], [])))
                 ctx["recallCost"]  = md_escape(get_in(obj, field_map["recallCost"], ""))
                 if "domain" in cfg["csv_fields"]:
-                    rows[-1]["domain"] = domain
+                    rows[-1]["domain"] = prettify_camel(domain)
 
             # elif type_key == "features":
 

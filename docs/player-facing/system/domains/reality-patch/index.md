@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/reality-patch.webp" alt="Reality Patch" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/reality-patch.webp" alt="Reality Patch" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“If you can code it, you can unbreak it.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.</p>
 </div>

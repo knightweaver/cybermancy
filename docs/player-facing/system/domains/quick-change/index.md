@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/quick-change.webp" alt="Quick Change" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/quick-change.webp" alt="Quick Change" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>The right tool for the wrong moment.</i><p class="Card-Feature">Once per Scene, <strong>Mark 1 Stress</strong> to replace one module on your <b>Primary Drone</b> instantly.</p>
 </div>

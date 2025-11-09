@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/multitalented.webp" alt="Multitalented" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/multitalented.webp" alt="Multitalented" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Expertise knows no boundaries.</i><p class="Card-Feature">You may add one Domain card from Circuit, Codex, or Bullet to your loadout of Level 4 or less.</p>
 </div>

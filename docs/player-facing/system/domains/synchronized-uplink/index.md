@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/synchronized-uplink.webp" alt="Synchronized Uplink" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/synchronized-uplink.webp" alt="Synchronized Uplink" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“When the team shares your mind, chaos becomes choreography.”</i><p class="Card-Feature">At the beginning of the session, place a number of tokens on this card equal to your Spellcasting Trait.  Make a Spellcasting roll and target any creature you can see or detect within Very Far; on a success, send them a transmission (e.g. "they ran down the hall!").  They will believe the information and act accordingly ... usually</p>
 </div>

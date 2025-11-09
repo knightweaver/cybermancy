@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/all-quiet-here-how-are-you.webp" alt="All quiet here, how are you?" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/all-quiet-here-how-are-you.webp" alt="All quiet here, how are you?" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“If at first you don’t succeed, reboot and lie about it.”</i><p class="Card-Feature">Mark Stress (up to your Proficiency) to lower the System Alert one level per Stress marked.</p>
 </div>

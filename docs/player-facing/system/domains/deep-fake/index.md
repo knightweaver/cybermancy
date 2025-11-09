@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/deep-fake.webp" alt="Deep fake" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/deep-fake.webp" alt="Deep fake" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“The universe called — it wants its encryption key back.”</i><p class="Card-Feature">Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.</p>
 </div>

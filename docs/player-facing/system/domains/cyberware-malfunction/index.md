@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/cyberware-malfunction.webp" alt="Cyberware Malfunction" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/cyberware-malfunction.webp" alt="Cyberware Malfunction" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Every brain’s got a port — some just need a gentle knock.”</i><p class="Card-Feature">Your Digital Awareness can now detect cybernetics within individuals.  <strong>Spend 2 Hope</strong> and make a Spellcasting roll against their Difficulty, to do d10+3 damage</p>
 </div>

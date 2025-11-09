@@ -3,7 +3,7 @@
 ## Circuit
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Circuit/strobe-effect.webp" alt="Strobe Effect" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/circuit/strobe-effect.webp" alt="Strobe Effect" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>“Flash ’em, crash ’em, and walk out glowing.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The creature must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.</p>
 </div>

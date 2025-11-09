@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/knee-slide.webp" alt="Knee Slide" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/knee-slide.webp" alt="Knee Slide" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>The floor is your runway.</i><p class="Card-Feature"><strong>Spend 3 Hope</strong> to move up to Far in a straight line; Attack all creatures passed. Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.</p>
 </div>

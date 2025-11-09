@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/expert-driver.webp" alt="Expert Driver" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/expert-driver.webp" alt="Expert Driver" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Speed racer's got nothing on you!</i><p class="Card-Feature">All Driving checks are +2.  Each time you are Spotlighted while Driving, you may also take an Attack Action.</p>
 </div>

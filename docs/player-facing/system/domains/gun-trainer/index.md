@@ -3,7 +3,7 @@
 ## Bullet
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Bullet/gun-trainer.webp" alt="Gun Trainer" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/bullet/gun-trainer.webp" alt="Gun Trainer" class="item-image" style="width:300px; height:auto;">
 ## Description
 <p><em>You teach death politely.</em></p><p class="Card-Feature">As a downtime action you train each of your allies to better use their guns. Give each ally a <strong>Bullet die</strong> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10). They may use this <strong>Bullet die</strong> in the same way as your Class or Subclass</p>
 </div>

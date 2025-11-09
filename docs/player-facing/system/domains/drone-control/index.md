@@ -3,7 +3,7 @@
 ## Maker
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-<img src="../../../assets/icons/domains/Maker/drone-control.webp" alt="Drone Control" class="item-image" style="width:300px; height:auto;">
+<img src="../../../assets/icons/domains/maker/drone-control.webp" alt="Drone Control" class="item-image" style="width:300px; height:auto;">
 ## Description
 <i>Precision through proxies.</i><p class="Card-Feature">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack at +2.</p>
 </div>
