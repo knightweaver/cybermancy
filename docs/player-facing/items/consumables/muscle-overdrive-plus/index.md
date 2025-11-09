@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Muscle Overdrive Plus
+<img src="../../../assets/icons/consumables/muscle-overdrive-plus.webp" alt="Muscle Overdrive Plus" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/muscle-overdrive-plus.webp" alt="Muscle Overdrive Plus" class="item-image">
-    ### Muscle Overdrive Plus
-    <div class="item-flavor">
-    *Advanced muscle stim that grants +1 Strength until your next rest.*
-    </div>
-    </div>
+*Advanced muscle stim that grants +1 Strength until your next rest.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your Strength until your next rest.*</div>
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Major Bolster Potion**<br>**</div>
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your Strength until your next rest.*</div>
 
-    </div>
+#### Effects
+- <div markdown='1'>**Major Bolster Potion**<br>**</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.muscle-overdrive-plus`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.muscle-overdrive-plus`
+</div>
+</div>

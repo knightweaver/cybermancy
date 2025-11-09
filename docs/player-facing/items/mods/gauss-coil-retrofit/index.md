@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Gauss Coil Retrofit
+<img src="../../../assets/icons/mods/gauss-coil-retrofit.webp" alt="Gauss Coil Retrofit" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/gauss-coil-retrofit.webp" alt="Gauss Coil Retrofit" class="item-image">
-    ### Gauss Coil Retrofit
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;+1 range tier and +1 armor penetration. Critical: pierce through to behind target. Slot: Receiver / Power.&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">+1 range tier and +1 armor penetration. Critical: pierce through to behind target. Slot: Receiver / Power.</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.gauss-coil-retrofit`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.gauss-coil-retrofit`
+</div>
+</div>

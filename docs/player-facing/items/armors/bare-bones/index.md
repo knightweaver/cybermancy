@@ -2,11 +2,11 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Bare Bones
-<img src="../../../assets/icons/armors/bare-bones.webp" alt="Bare Bones" class="item-image">
+# Bare Bones
+<img src="../../../assets/icons/armors/bare-bones.webp" alt="Bare Bones" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-*&lt;p&gt;&lt;/p&gt;&lt;p class="Body-Foundation"&gt;When you choose not to equip armor, you have a base Armor Score of 3 + your Strength and use the following as your base damage thresholds:&lt;/p&gt;&lt;ul&gt;&lt;li class="vertical-card-list-found"&gt;&lt;em&gt;&lt;strong&gt;Tier 1:&lt;/strong&gt;&lt;/em&gt; 9/19&lt;/li&gt;&lt;li class="vertical-card-list-found"&gt;&lt;em&gt;&lt;strong&gt;Tier 2:&lt;/strong&gt;&lt;/em&gt; 11/24&lt;/li&gt;&lt;li class="vertical-card-list-found"&gt;&lt;em&gt;&lt;strong&gt;Tier 3:&lt;/strong&gt;&lt;/em&gt; 13/31&lt;/li&gt;&lt;li class="vertical-card-list-found"&gt;&lt;em&gt;&lt;strong&gt;Tier 4:&lt;/strong&gt;&lt;/em&gt; 15/38&lt;/li&gt;&lt;/ul&gt;*
+*<p></p><p class="Body-Foundation">When you choose not to equip armor, you have a base Armor Score of 3 + your Strength and use the following as your base damage thresholds:</p><ul><li class="vertical-card-list-found"><em><strong>Tier 1:</strong></em> 9/19</li><li class="vertical-card-list-found"><em><strong>Tier 2:</strong></em> 11/24</li><li class="vertical-card-list-found"><em><strong>Tier 3:</strong></em> 13/31</li><li class="vertical-card-list-found"><em><strong>Tier 4:</strong></em> 15/38</li></ul>*
 </div>
 </div>
 
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 1
+<br>
 **UUID:** `Compendium.cybermancy.armors.bare-bones`
 </div>
 </div>

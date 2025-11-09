@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Improved Vibro-Knife
+# Improved Vibro-Knife
 
-<img src="../../../assets/icons/weapons/improved-vibro-knife.webp" alt="Improved Vibro-Knife" class="item-image">
+<img src="../../../assets/icons/weapons/improved-vibro-knife.webp" alt="Improved Vibro-Knife" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Precision-tuned vibration edge allows for armor penetration and silent, efficient kills.
@@ -15,7 +15,7 @@ Precision-tuned vibration edge allows for armor penetration and silent, efficien
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">2</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -44,5 +44,7 @@ Precision-tuned vibration edge allows for armor penetration and silent, efficien
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.improved-vibro-knife`
+weapons/Tier 2
+<br>
 </div>
 </div>

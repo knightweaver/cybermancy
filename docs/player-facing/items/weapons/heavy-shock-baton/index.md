@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Heavy Shock Baton
+# Heavy Shock Baton
 
-<img src="../../../assets/icons/weapons/heavy-shock-baton.webp" alt="Heavy Shock Baton" class="item-image">
+<img src="../../../assets/icons/weapons/heavy-shock-baton.webp" alt="Heavy Shock Baton" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Industrial security baton capable of stunning cybernetic brutes and armored enforcers alike.
@@ -15,7 +15,7 @@ Industrial security baton capable of stunning cybernetic brutes and armored enfo
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">3</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Industrial security baton capable of stunning cybernetic brutes and armored enfo
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.heavy-shock-baton`
+weapons/Tier 3
+<br>
 </div>
 </div>

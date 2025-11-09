@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Compact SMG
+# Compact SMG
 
-<img src="../../../assets/icons/weapons/compact-smg.webp" alt="Compact SMG" class="item-image">
+<img src="../../../assets/icons/weapons/compact-smg.webp" alt="Compact SMG" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A miniaturized submachine gun favored by covert teams — concealable but vicious in a firefight.
@@ -15,7 +15,7 @@ A miniaturized submachine gun favored by covert teams — concealable but viciou
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">2</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -44,5 +44,7 @@ A miniaturized submachine gun favored by covert teams — concealable but viciou
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.compact-smg`
+weapons/Tier 2
+<br>
 </div>
 </div>

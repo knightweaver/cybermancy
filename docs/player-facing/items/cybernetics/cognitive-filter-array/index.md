@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Cognitive Filter Array
+<img src="../../../assets/icons/cybernetics/cognitive-filter-array.webp" alt="Cognitive Filter Array" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/cognitive-filter-array.webp" alt="Cognitive Filter Array" class="item-image">
-    ### Cognitive Filter Array
-    <div class="item-flavor">
-    *&lt;i&gt;Stress for clarity; mind transcends chaos.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per rest, &lt;strong&gt;Mark 1 Stress&lt;/strong&gt; to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Stress for clarity; mind transcends chaos.</i><br /><br /><p class="Card-Feature">Once per rest, <strong>Mark 1 Stress</strong> to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Cognitive Filter Array**<br>*Stress for clarity; mind transcends chaos.Once per rest, Mark 1 Stress to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Cognitive Filter Array**<br>*Stress for clarity; mind transcends chaos.Once per rest, Mark 1 Stress to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.cognitive-filter-array`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.cognitive-filter-array`
+</div>
+</div>

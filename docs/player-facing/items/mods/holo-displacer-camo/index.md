@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Holo-Displacer Camo
+<img src="../../../assets/icons/mods/holo-displacer-camo.webp" alt="Holo-Displacer Camo" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/holo-displacer-camo.webp" alt="Holo-Displacer Camo" class="item-image">
-    ### Holo-Displacer Camo
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;Once per Scene, force one attacker to roll at Disadvantage. Critical: decoy draws fire. Slot: External / Electronics.&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">Once per Scene, force one attacker to roll at Disadvantage. Critical: decoy draws fire. Slot: External / Electronics.</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.holo-displacer-camo`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.holo-displacer-camo`
+</div>
+</div>

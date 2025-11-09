@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Mirror Circuit Ring
+<img src="../../../assets/icons/loot/mirror-circuit-ring.webp" alt="Mirror Circuit Ring" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/mirror-circuit-ring.webp" alt="Mirror Circuit Ring" class="item-image">
-    ### Mirror Circuit Ring
-    <div class="item-flavor">
-    *Once per session, when the GM spends a Fear, you can spend 4 Hope to cancel the effects of that spent Fear. cryptographic sigils route through subdermal coils*
-    </div>
-    </div>
+*Once per session, when the GM spends a Fear, you can spend 4 Hope to cancel the effects of that spent Fear. cryptographic sigils route through subdermal coils*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Use**<br>**</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Use**<br>**</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.mirror-circuit-ring`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.mirror-circuit-ring`
+</div>
+</div>

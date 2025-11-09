@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Caster’s Conduit Harness
-<img src="../../../assets/icons/armors/caster-s-conduit-harness.webp" alt="Caster’s Conduit Harness" class="item-image">
+# Caster’s Conduit Harness
+<img src="../../../assets/icons/armors/caster-s-conduit-harness.webp" alt="Caster’s Conduit Harness" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Latticed conduits that route arcane surge cleanly—focus in, cast true.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.caster-s-conduit-harness`
 </div>
 </div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Instinct Amplifier Plus
+<img src="../../../assets/icons/consumables/instinct-amplifier-plus.webp" alt="Instinct Amplifier Plus" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/instinct-amplifier-plus.webp" alt="Instinct Amplifier Plus" class="item-image">
-    ### Instinct Amplifier Plus
-    <div class="item-flavor">
-    *Refined AI-tuned patch that grants +1 Instinct until next rest.*
-    </div>
-    </div>
+*Refined AI-tuned patch that grants +1 Instinct until next rest.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your Instinct until your next rest.*</div>
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Major Attune Potion**<br>**</div>
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your Instinct until your next rest.*</div>
 
-    </div>
+#### Effects
+- <div markdown='1'>**Major Attune Potion**<br>**</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.instinct-amplifier-plus`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.instinct-amplifier-plus`
+</div>
+</div>

@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Throwing Knives
+# Throwing Knives
 
-<img src="../../../assets/icons/weapons/throwing-knives.webp" alt="Throwing Knives" class="item-image">
+<img src="../../../assets/icons/weapons/throwing-knives.webp" alt="Throwing Knives" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Balanced steel blades designed for silent takedowns or distraction in the shadows.
@@ -15,7 +15,7 @@ Balanced steel blades designed for silent takedowns or distraction in the shadow
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -44,5 +44,7 @@ Balanced steel blades designed for silent takedowns or distraction in the shadow
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.throwing-knives`
+weapons/Tier 1
+<br>
 </div>
 </div>

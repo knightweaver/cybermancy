@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Combat Reflex Core
+<img src="../../../assets/icons/cybernetics/combat-reflex-core.webp" alt="Combat Reflex Core" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/combat-reflex-core.webp" alt="Combat Reflex Core" class="item-image">
-    ### Combat Reflex Core
-    <div class="item-flavor">
-    *&lt;i&gt;"Forge your wrath; precision unfolds."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;+2 to all Attacks made by a Melee weapon.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Forge your wrath; precision unfolds."</i><br /><br /><p class="Card-Feature">+2 to all Attacks made by a Melee weapon.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Combat Reflex Core**<br>*"Forge your wrath; precision unfolds."+2 to all Attacks made by a Melee weapon.*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Combat Reflex Core**<br>*"Forge your wrath; precision unfolds."+2 to all Attacks made by a Melee weapon.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.combat-reflex-core`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.combat-reflex-core`
+</div>
+</div>

@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Assault Rifle
+# Assault Rifle
 
-<img src="../../../assets/icons/weapons/assault-rifle.webp" alt="Assault Rifle" class="item-image">
+<img src="../../../assets/icons/weapons/assault-rifle.webp" alt="Assault Rifle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 The runner’s staple: reliable, lethal, and adaptable across every corporate warzone on Earth.
@@ -15,7 +15,7 @@ The runner’s staple: reliable, lethal, and adaptable across every corporate wa
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ The runner’s staple: reliable, lethal, and adaptable across every corporate wa
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.assault-rifle`
+weapons/Tier 1
+<br>
 </div>
 </div>

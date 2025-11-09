@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Riot Shotgun
+# Riot Shotgun
 
-<img src="../../../assets/icons/weapons/riot-shotgun.webp" alt="Riot Shotgun" class="item-image">
+<img src="../../../assets/icons/weapons/riot-shotgun.webp" alt="Riot Shotgun" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Crowd-control platform launching high-impact kinetic or shock shells to suppress hostiles.
@@ -15,7 +15,7 @@ Crowd-control platform launching high-impact kinetic or shock shells to suppress
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">3</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Crowd-control platform launching high-impact kinetic or shock shells to suppress
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.riot-shotgun`
+weapons/Tier 3
+<br>
 </div>
 </div>

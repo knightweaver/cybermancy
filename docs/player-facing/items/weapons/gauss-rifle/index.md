@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Gauss Rifle
+# Gauss Rifle
 
-<img src="../../../assets/icons/weapons/gauss-rifle.webp" alt="Gauss Rifle" class="item-image">
+<img src="../../../assets/icons/weapons/gauss-rifle.webp" alt="Gauss Rifle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Magnetic accelerator weapon firing hyper-velocity projectiles that punch through anything solid.
@@ -15,7 +15,7 @@ Magnetic accelerator weapon firing hyper-velocity projectiles that punch through
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Magnetic accelerator weapon firing hyper-velocity projectiles that punch through
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.gauss-rifle`
+weapons/Tier 4
+<br>
 </div>
 </div>

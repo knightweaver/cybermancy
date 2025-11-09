@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Plasma Shotgun
+# Plasma Shotgun
 
-<img src="../../../assets/icons/weapons/plasma-shotgun.webp" alt="Plasma Shotgun" class="item-image">
+<img src="../../../assets/icons/weapons/plasma-shotgun.webp" alt="Plasma Shotgun" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Fires superheated plasma shells that vaporize targets and ignite the surrounding area.
@@ -15,7 +15,7 @@ Fires superheated plasma shells that vaporize targets and ignite the surrounding
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Fires superheated plasma shells that vaporize targets and ignite the surrounding
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.plasma-shotgun`
+weapons/Tier 4
+<br>
 </div>
 </div>

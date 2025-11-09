@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Cognitive Overclock Node
+<img src="../../../assets/icons/cybernetics/cognitive-overclock-node.webp" alt="Cognitive Overclock Node" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/cognitive-overclock-node.webp" alt="Cognitive Overclock Node" class="item-image">
-    ### Cognitive Overclock Node
-    <div class="item-flavor">
-    *&lt;i&gt;"Hope-fueled edge, perfection's clandestine spark."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per long rest, &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain advantage on an action (of any type)&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Hope-fueled edge, perfection's clandestine spark."</i><br /><br /><p class="Card-Feature">Once per long rest, <strong>Spend 1 Hope</strong> to gain advantage on an action (of any type)</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Cognitive Overclock Node**<br>*"Hope-fueled edge, perfection's clandestine spark."Once per long rest, Spend 1 Hope to gain advantage on an action (of any type)*</div>
+### **Tier: 2**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Cognitive Overclock Node**<br>*"Hope-fueled edge, perfection's clandestine spark."Once per long rest, Spend 1 Hope to gain advantage on an action (of any type)*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.cognitive-overclock-node`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 2
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.cognitive-overclock-node`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Adv. Nanite Trauma Mesh
+<img src="../../../assets/icons/cybernetics/adv-nanite-trauma-mesh.webp" alt="Adv. Nanite Trauma Mesh" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/adv-nanite-trauma-mesh.webp" alt="Adv. Nanite Trauma Mesh" class="item-image">
-    ### Adv. Nanite Trauma Mesh
-    <div class="item-flavor">
-    *&lt;i&gt;"Defy destruction with hidden resilience."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Major Wound&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Defy destruction with hidden resilience."</i><br /><br /><p class="Card-Feature">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Major Wound</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Unnamed Action**<br>**</div>
+### **Tier: 2**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Unnamed Action**<br>**</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.adv-nanite-trauma-mesh`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 2
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.adv-nanite-trauma-mesh`
+</div>
+</div>

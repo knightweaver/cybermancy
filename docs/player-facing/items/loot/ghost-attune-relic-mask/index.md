@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Ghost Attune Relic Mask
+<img src="../../../assets/icons/loot/ghost-attune-relic-mask.webp" alt="Ghost Attune Relic Mask" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/ghost-attune-relic-mask.webp" alt="Ghost Attune Relic Mask" class="item-image">
-    ### Ghost Attune Relic Mask
-    <div class="item-flavor">
-    *You gain a +1 bonus to your Instinct. You can only carry one relic. black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*You gain a +1 bonus to your Instinct. You can only carry one relic. black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Attune Relic**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+- <div markdown='1'>**Attune Relic**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.ghost-attune-relic-mask`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.ghost-attune-relic-mask`
+</div>
+</div>

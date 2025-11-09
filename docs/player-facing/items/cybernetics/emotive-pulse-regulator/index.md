@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Emotive Pulse Regulator
+<img src="../../../assets/icons/cybernetics/emotive-pulse-regulator.webp" alt="Emotive Pulse Regulator" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/emotive-pulse-regulator.webp" alt="Emotive Pulse Regulator" class="item-image">
-    ### Emotive Pulse Regulator
-    <div class="item-flavor">
-    *&lt;i&gt;Hope's shield, a warrior's silent sanctuary.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per scene, &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to prevent Marking up to 1 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Hope's shield, a warrior's silent sanctuary.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 1 Hope</strong> to prevent Marking up to 1 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Emotive Pulse Regulator**<br>*Hope's shield, a warrior's silent sanctuary.Once per scene, Spend 1 Hope to prevent Marking up to 1 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Emotive Pulse Regulator**<br>*Hope's shield, a warrior's silent sanctuary.Once per scene, Spend 1 Hope to prevent Marking up to 1 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.emotive-pulse-regulator`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.emotive-pulse-regulator`
+</div>
+</div>

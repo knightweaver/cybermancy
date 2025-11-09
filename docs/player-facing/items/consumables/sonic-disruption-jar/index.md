@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Sonic Disruption Jar
+<img src="../../../assets/icons/consumables/sonic-disruption-jar.webp" alt="Sonic Disruption Jar" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/sonic-disruption-jar.webp" alt="Sonic Disruption Jar" class="item-image">
-    ### Sonic Disruption Jar
-    <div class="item-flavor">
-    *Releases a cacophony of ghostly feedback. All within Far range take 6d8 sonic damage.*
-    </div>
-    </div>
+*Releases a cacophony of ghostly feedback. All within Far range take 6d8 sonic damage.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Open**<br>*f]*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Open**<br>*f]*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.sonic-disruption-jar`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.sonic-disruption-jar`
+</div>
+</div>

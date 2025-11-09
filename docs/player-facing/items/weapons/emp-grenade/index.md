@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### EMP Grenade
+# EMP Grenade
 
-<img src="../../../assets/icons/weapons/emp-grenade.webp" alt="EMP Grenade" class="item-image">
+<img src="../../../assets/icons/weapons/emp-grenade.webp" alt="EMP Grenade" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Pulse emitter that fries circuits, drones, and cyberware with a single electromagnetic burst.
@@ -15,7 +15,7 @@ Pulse emitter that fries circuits, drones, and cyberware with a single electroma
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ Pulse emitter that fries circuits, drones, and cyberware with a single electroma
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.emp-grenade`
+weapons/Tier 1
+<br>
 </div>
 </div>

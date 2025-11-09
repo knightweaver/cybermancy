@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Ballistic Servo Sight
+<img src="../../../assets/icons/mods/ballistic-servo-sight.webp" alt="Ballistic Servo Sight" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/ballistic-servo-sight.webp" alt="Ballistic Servo Sight" class="item-image">
-    ### Ballistic Servo Sight
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;Allow your gun to be fired 1 range increment further than normal, up to a max range of Very Long&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">Allow your gun to be fired 1 range increment further than normal, up to a max range of Very Long</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.ballistic-servo-sight`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.ballistic-servo-sight`
+</div>
+</div>

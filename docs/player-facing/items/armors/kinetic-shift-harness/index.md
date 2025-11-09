@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Kinetic Shift Harness
-<img src="../../../assets/icons/armors/kinetic-shift-harness.webp" alt="Kinetic Shift Harness" class="item-image">
+# Kinetic Shift Harness
+<img src="../../../assets/icons/armors/kinetic-shift-harness.webp" alt="Kinetic Shift Harness" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Micro-actuators twitch armor segments just before impact, deflecting strikes at the last millisecond.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.kinetic-shift-harness`
 </div>
 </div>

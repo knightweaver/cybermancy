@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Cyberarm™ Stiletto
+<img src="../../../assets/icons/cybernetics/cyberarm-stiletto.webp" alt="Cyberarm™ Stiletto" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/cyberarm-stiletto.webp" alt="Cyberarm™ Stiletto" class="item-image">
-    ### Cyberarm™ Stiletto
-    <div class="item-flavor">
-    *&lt;i&gt;Swift steel triumph; your closest ally.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Melee range weapon, d6+1 with the Quick feature.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Swift steel triumph; your closest ally.</i><br /><br /><p class="Card-Feature">Melee range weapon, d6+1 with the Quick feature.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Cyberarm™ Stiletto**<br>*Swift steel triumph; your closest ally.Melee range weapon, d6+1 with the Quick feature.*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Cyberarm™ Stiletto**<br>*Swift steel triumph; your closest ally.Melee range weapon, d6+1 with the Quick feature.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.cyberarm-stiletto`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.cyberarm-stiletto`
+</div>
+</div>

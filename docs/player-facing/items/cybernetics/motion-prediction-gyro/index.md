@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Motion Prediction Gyro
+<img src="../../../assets/icons/cybernetics/motion-prediction-gyro.webp" alt="Motion Prediction Gyro" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/motion-prediction-gyro.webp" alt="Motion Prediction Gyro" class="item-image">
-    ### Motion Prediction Gyro
-    <div class="item-flavor">
-    *&lt;i&gt;"Swift salvation in chrome elegance."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;As a Reaction, &lt;strong&gt;Mark 1 Stress&lt;/strong&gt; to gain +2 on an Agility saving throw&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Swift salvation in chrome elegance."</i><br /><br /><p class="Card-Feature">As a Reaction, <strong>Mark 1 Stress</strong> to gain +2 on an Agility saving throw</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Motion Prediction Gyro**<br>*"Swift salvation in chrome elegance."As a Reaction, Mark 1 Stress to gain +2 on an Agility saving throw*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Motion Prediction Gyro**<br>*"Swift salvation in chrome elegance."As a Reaction, Mark 1 Stress to gain +2 on an Agility saving throw*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.motion-prediction-gyro`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.motion-prediction-gyro`
+</div>
+</div>

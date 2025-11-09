@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Nerve-Lattice Fingertips
+<img src="../../../assets/icons/cybernetics/nerve-lattice-fingertips.webp" alt="Nerve-Lattice Fingertips" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/nerve-lattice-fingertips.webp" alt="Nerve-Lattice Fingertips" class="item-image">
-    ### Nerve-Lattice Fingertips
-    <div class="item-flavor">
-    *&lt;i&gt;"Empower precision, barter with destiny."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain +2 on a Finesse roll or saving throw&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Empower precision, barter with destiny."</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on a Finesse roll or saving throw</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Nerve-Lattice Fingertips**<br>*"Empower precision, barter with destiny."Spend 1 Hope to gain +2 on a Finesse roll or saving throw*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Nerve-Lattice Fingertips**<br>*"Empower precision, barter with destiny."Spend 1 Hope to gain +2 on a Finesse roll or saving throw*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.nerve-lattice-fingertips`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.nerve-lattice-fingertips`
+</div>
+</div>

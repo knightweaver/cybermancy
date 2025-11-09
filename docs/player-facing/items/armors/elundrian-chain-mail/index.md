@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Elundrian Chain Mail
-<img src="../../../assets/icons/armors/elundrian-chain-mail.webp" alt="Elundrian Chain Mail" class="item-image">
+# Elundrian Chain Mail
+<img src="../../../assets/icons/armors/elundrian-chain-mail.webp" alt="Elundrian Chain Mail" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *(No description yet.)*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.elundrian-chain-mail`
 </div>
 </div>

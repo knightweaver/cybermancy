@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Respirator Gel
+<img src="../../../assets/icons/consumables/respirator-gel.webp" alt="Respirator Gel" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/respirator-gel.webp" alt="Respirator Gel" class="item-image">
-    ### Respirator Gel
-    <div class="item-flavor">
-    *A bio-gel that filters oxygen from water through skin membranes. Breathe underwater minutes equal to your level.*
-    </div>
-    </div>
+*A bio-gel that filters oxygen from water through skin membranes. Breathe underwater minutes equal to your level.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Apply**<br>*You can apply this salve to your neck to breathe underwater for a number of minutes equal to your level.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Apply**<br>*You can apply this salve to your neck to breathe underwater for a number of minutes equal to your level.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.respirator-gel`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.respirator-gel`
+</div>
+</div>

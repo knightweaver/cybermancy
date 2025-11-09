@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Ghoststep Weave
-<img src="../../../assets/icons/armors/ghoststep-weave.webp" alt="Ghoststep Weave" class="item-image">
+# Ghoststep Weave
+<img src="../../../assets/icons/armors/ghoststep-weave.webp" alt="Ghoststep Weave" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Sound-dampened cloth and frictionless seams—made for slipping past guards and cameras alike.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.ghoststep-weave`
 </div>
 </div>

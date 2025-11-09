@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Anti-Materiel Sniper
+# Anti-Materiel Sniper
 
-<img src="../../../assets/icons/weapons/anti-materiel-sniper.webp" alt="Anti-Materiel Sniper" class="item-image">
+<img src="../../../assets/icons/weapons/anti-materiel-sniper.webp" alt="Anti-Materiel Sniper" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Long-range rail weapon capable of puncturing vehicles, mechs, and even bunkers.
@@ -15,7 +15,7 @@ Long-range rail weapon capable of puncturing vehicles, mechs, and even bunkers.
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">3</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ Long-range rail weapon capable of puncturing vehicles, mechs, and even bunkers.
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.anti-materiel-sniper`
+weapons/Tier 3
+<br>
 </div>
 </div>

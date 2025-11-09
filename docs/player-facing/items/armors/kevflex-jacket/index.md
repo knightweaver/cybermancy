@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### KevFlex Jacket
-<img src="../../../assets/icons/armors/kevflex-jacket.webp" alt="KevFlex Jacket" class="item-image">
+# KevFlex Jacket
+<img src="../../../assets/icons/armors/kevflex-jacket.webp" alt="KevFlex Jacket" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Lightweight synthetic leather threaded with flexible Kevlar weave—keeps you quick without feeling naked.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 1
+<br>
 **UUID:** `Compendium.cybermancy.armors.kevflex-jacket`
 </div>
 </div>

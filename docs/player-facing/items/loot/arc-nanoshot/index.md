@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Arc Nanoshot
+<img src="../../../assets/icons/loot/arc-nanoshot.webp" alt="Arc Nanoshot" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/arc-nanoshot.webp" alt="Arc Nanoshot" class="item-image">
-    ### Arc Nanoshot
-    <div class="item-flavor">
-    *As a downtime move, you can use the bone of a creature to craft a Minor Stamina Potion. nanite payload delivers fast onset effects*
-    </div>
-    </div>
+*As a downtime move, you can use the bone of a creature to craft a Minor Stamina Potion. nanite payload delivers fast onset effects*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.arc-nanoshot`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.arc-nanoshot`
+</div>
+</div>

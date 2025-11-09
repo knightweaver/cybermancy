@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Brainiac™ CPU Implant
+<img src="../../../assets/icons/cybernetics/brainiac-cpu-implant.webp" alt="Brainiac™ CPU Implant" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/brainiac-cpu-implant.webp" alt="Brainiac™ CPU Implant" class="item-image">
-    ### Brainiac™ CPU Implant
-    <div class="item-flavor">
-    *&lt;i&gt;Unlock brilliance, master every challenge.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Brainiac™ base unit - enables other Brainiac-related cybernetics and abilities. &lt;br /&gt;&lt;br /&gt;Once per long rest, &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; for advantage on an Knowlege roll or saving throw - the Knowledge roll must be on a topic that your character could reasonably be proficient with (does not grant new knowledge)&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Unlock brilliance, master every challenge.</i><br /><br /><p class="Card-Feature">Brainiac™ base unit - enables other Brainiac-related cybernetics and abilities. <br /><br />Once per long rest, <strong>Spend 1 Hope</strong> for advantage on an Knowlege roll or saving throw - the Knowledge roll must be on a topic that your character could reasonably be proficient with (does not grant new knowledge)</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Brainiac™ CPU Implant**<br>*Unlock brilliance, master every challenge.Brainiac™ base unit - enables other Brainiac-related cybernetics and abilities. Once per long rest, Spend 1 Hope for advantage on an Knowlege roll or saving throw - the Knowledge roll must be on a topic that your character could reasonably be proficient with (does not grant new knowledge)*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Brainiac™ CPU Implant**<br>*Unlock brilliance, master every challenge.Brainiac™ base unit - enables other Brainiac-related cybernetics and abilities. Once per long rest, Spend 1 Hope for advantage on an Knowlege roll or saving throw - the Knowledge roll must be on a topic that your character could reasonably be proficient with (does not grant new knowledge)*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.brainiac-cpu-implant`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.brainiac-cpu-implant`
+</div>
+</div>

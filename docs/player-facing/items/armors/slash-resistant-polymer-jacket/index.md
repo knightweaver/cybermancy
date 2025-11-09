@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Slash-Resistant Polymer Jacket
-<img src="../../../assets/icons/armors/slash-resistant-polymer-jacket.webp" alt="Slash-Resistant Polymer Jacket" class="item-image">
+# Slash-Resistant Polymer Jacket
+<img src="../../../assets/icons/armors/slash-resistant-polymer-jacket.webp" alt="Slash-Resistant Polymer Jacket" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Medium-weight body armor woven from advanced polymer rings designed to resist slashes and punctures—perfect for Megatropolis alleys.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 1
+<br>
 **UUID:** `Compendium.cybermancy.armors.slash-resistant-polymer-jacket`
 </div>
 </div>

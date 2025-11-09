@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Caracal Ears
+<img src="../../../assets/icons/cybernetics/caracal-ears.webp" alt="Caracal Ears" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/caracal-ears.webp" alt="Caracal Ears" class="item-image">
-    ### Caracal Ears
-    <div class="item-flavor">
-    *&lt;i&gt;Whispers unveiled, secrets echo endlessly.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Whispers unveiled, secrets echo endlessly.</i><br /><br /><p class="Card-Feature">Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Caracal Ears**<br>*Whispers unveiled, secrets echo endlessly.Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Caracal Ears**<br>*Whispers unveiled, secrets echo endlessly.Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.caracal-ears`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.caracal-ears`
+</div>
+</div>

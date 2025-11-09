@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Agility Booster Nanoshot
+<img src="../../../assets/icons/consumables/agility-booster-nanoshot.webp" alt="Agility Booster Nanoshot" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/agility-booster-nanoshot.webp" alt="Agility Booster Nanoshot" class="item-image">
-    ### Agility Booster Nanoshot
-    <div class="item-flavor">
-    *A fast-acting nanite injection that heightens reflex loops and micro-muscle response. +1 bonus to your next Agility roll.*
-    </div>
-    </div>
+*A fast-acting nanite injection that heightens reflex loops and micro-muscle response. +1 bonus to your next Agility roll.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Agility Roll.*</div>
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Stride Potion**<br>**</div>
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Agility Roll.*</div>
 
-    </div>
+#### Effects
+- <div markdown='1'>**Stride Potion**<br>**</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.agility-booster-nanoshot`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.agility-booster-nanoshot`
+</div>
+</div>

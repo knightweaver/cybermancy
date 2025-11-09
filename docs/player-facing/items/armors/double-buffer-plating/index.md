@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Double-Buffer Plating
-<img src="../../../assets/icons/armors/double-buffer-plating.webp" alt="Double-Buffer Plating" class="item-image">
+# Double-Buffer Plating
+<img src="../../../assets/icons/armors/double-buffer-plating.webp" alt="Double-Buffer Plating" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Overbuilt dampers that soak two steps of hurt every time you brace.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.double-buffer-plating`
 </div>
 </div>

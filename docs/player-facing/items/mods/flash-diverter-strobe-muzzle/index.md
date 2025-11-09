@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Flash-Diverter (Strobe Muzzle)
+<img src="../../../assets/icons/mods/flash-diverter-strobe-muzzle.webp" alt="Flash-Diverter (Strobe Muzzle)" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/flash-diverter-strobe-muzzle.webp" alt="Flash-Diverter (Strobe Muzzle)" class="item-image">
-    ### Flash-Diverter (Strobe Muzzle)
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;All enemies within Very Close must make an Instinct saving throw or be Shaken and have a -2 on their next attack action.&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">All enemies within Very Close must make an Instinct saving throw or be Shaken and have a -2 on their next attack action.</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.flash-diverter-strobe-muzzle`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.flash-diverter-strobe-muzzle`
+</div>
+</div>

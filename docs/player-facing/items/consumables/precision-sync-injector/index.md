@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Precision Sync Injector
+<img src="../../../assets/icons/consumables/precision-sync-injector.webp" alt="Precision Sync Injector" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/precision-sync-injector.webp" alt="Precision Sync Injector" class="item-image">
-    ### Precision Sync Injector
-    <div class="item-flavor">
-    *A neural alignment serum that steadies fine-motor control. +1 bonus to your next Finesse roll.*
-    </div>
-    </div>
+*A neural alignment serum that steadies fine-motor control. +1 bonus to your next Finesse roll.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Finesse Roll.*</div>
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Control Potion**<br>**</div>
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Finesse Roll.*</div>
 
-    </div>
+#### Effects
+- <div markdown='1'>**Control Potion**<br>**</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.precision-sync-injector`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.precision-sync-injector`
+</div>
+</div>

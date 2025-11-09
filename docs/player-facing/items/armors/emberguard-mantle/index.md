@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Emberguard Mantle
-<img src="../../../assets/icons/armors/emberguard-mantle.webp" alt="Emberguard Mantle" class="item-image">
+# Emberguard Mantle
+<img src="../../../assets/icons/armors/emberguard-mantle.webp" alt="Emberguard Mantle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Heat-reactive panels flare with plasma warnings; anyone who swings in close gets a nasty surprise.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.emberguard-mantle`
 </div>
 </div>

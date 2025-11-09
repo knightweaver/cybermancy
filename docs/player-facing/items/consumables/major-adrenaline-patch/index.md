@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Major Adrenaline Patch
+<img src="../../../assets/icons/consumables/major-adrenaline-patch.webp" alt="Major Adrenaline Patch" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/major-adrenaline-patch.webp" alt="Major Adrenaline Patch" class="item-image">
-    ### Major Adrenaline Patch
-    <div class="item-flavor">
-    *Upgraded patch clearing 1d4+2 Stress.*
-    </div>
-    </div>
+*Upgraded patch clearing 1d4+2 Stress.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*Clear 1d4+2 Stress.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*Clear 1d4+2 Stress.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.major-adrenaline-patch`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.major-adrenaline-patch`
+</div>
+</div>

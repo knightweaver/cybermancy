@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Neural Firewall
+<img src="../../../assets/icons/cybernetics/neural-firewall.webp" alt="Neural Firewall" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/neural-firewall.webp" alt="Neural Firewall" class="item-image">
-    ### Neural Firewall
-    <div class="item-flavor">
-    *&lt;i&gt;Turn despair to dust with hidden grace.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per scene, Spend 1, 2, or 3 Hope to prevent Marking up to 1, 2, or 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Turn despair to dust with hidden grace.</i><br /><br /><p class="Card-Feature">Once per scene, Spend 1, 2, or 3 Hope to prevent Marking up to 1, 2, or 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Neural Firewall**<br>*Turn despair to dust with hidden grace.Once per scene, Spend 1, 2, or 3 Hope to prevent Marking up to 1, 2, or 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>
+### **Tier: 4**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Neural Firewall**<br>*Turn despair to dust with hidden grace.Once per scene, Spend 1, 2, or 3 Hope to prevent Marking up to 1, 2, or 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.neural-firewall`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 4
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.neural-firewall`
+</div>
+</div>

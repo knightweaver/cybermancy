@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Bellamoi Fine Armor
-<img src="../../../assets/icons/armors/bellamoi-fine-armor.webp" alt="Bellamoi Fine Armor" class="item-image">
+# Bellamoi Fine Armor
+<img src="../../../assets/icons/armors/bellamoi-fine-armor.webp" alt="Bellamoi Fine Armor" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *(No description yet.)*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.bellamoi-fine-armor`
 </div>
 </div>

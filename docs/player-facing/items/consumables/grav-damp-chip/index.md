@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Grav-Damp Chip
+<img src="../../../assets/icons/consumables/grav-damp-chip.webp" alt="Grav-Damp Chip" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/grav-damp-chip.webp" alt="Grav-Damp Chip" class="item-image">
-    ### Grav-Damp Chip
-    <div class="item-flavor">
-    *A spinal implant chip that reduces gravitational pull, letting you fall slowly for minutes equal to your level.*
-    </div>
-    </div>
+*A spinal implant chip that reduces gravitational pull, letting you fall slowly for minutes equal to your level.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Use**<br>*You can use this bone to control your falling speed for a number of minutes equal to your level.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Use**<br>*You can use this bone to control your falling speed for a number of minutes equal to your level.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.grav-damp-chip`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.grav-damp-chip`
+</div>
+</div>

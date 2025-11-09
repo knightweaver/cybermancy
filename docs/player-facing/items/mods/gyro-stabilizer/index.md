@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Gyro-Stabilizer
+<img src="../../../assets/icons/mods/gyro-stabilizer.webp" alt="Gyro-Stabilizer" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/gyro-stabilizer.webp" alt="Gyro-Stabilizer" class="item-image">
-    ### Gyro-Stabilizer
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;Once per scene, as a reaction, &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to reroll one failed Agility or Finesse based attack.&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">Once per scene, as a reaction, <strong>Spend 1 Hope</strong> to reroll one failed Agility or Finesse based attack.</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.gyro-stabilizer`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.gyro-stabilizer`
+</div>
+</div>

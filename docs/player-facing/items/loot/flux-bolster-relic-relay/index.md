@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Flux Bolster Relic Relay
+<img src="../../../assets/icons/loot/flux-bolster-relic-relay.webp" alt="Flux Bolster Relic Relay" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/flux-bolster-relic-relay.webp" alt="Flux Bolster Relic Relay" class="item-image">
-    ### Flux Bolster Relic Relay
-    <div class="item-flavor">
-    *You gain a +1 bonus to your Strength. You can only carry one relic. black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*You gain a +1 bonus to your Strength. You can only carry one relic. black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Bolster Relic**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+- <div markdown='1'>**Bolster Relic**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.flux-bolster-relic-relay`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.flux-bolster-relic-relay`
+</div>
+</div>

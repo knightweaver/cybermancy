@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Timeslip Silks
-<img src="../../../assets/icons/armors/timeslip-silks.webp" alt="Timeslip Silks" class="item-image">
+# Timeslip Silks
+<img src="../../../assets/icons/armors/timeslip-silks.webp" alt="Timeslip Silks" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Exotic silks with micro-time skew—edge reality for a moment when the shot is coming.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.timeslip-silks`
 </div>
 </div>

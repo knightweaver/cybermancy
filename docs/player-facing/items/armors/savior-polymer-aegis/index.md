@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Savior Polymer Aegis
-<img src="../../../assets/icons/armors/savior-polymer-aegis.webp" alt="Savior Polymer Aegis" class="item-image">
+# Savior Polymer Aegis
+<img src="../../../assets/icons/armors/savior-polymer-aegis.webp" alt="Savior Polymer Aegis" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Last-stand jacket that trades comfort, grace, and everything else for brutal survivability.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.savior-polymer-aegis`
 </div>
 </div>

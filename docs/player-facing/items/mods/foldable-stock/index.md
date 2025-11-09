@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Foldable stock
+<img src="../../../assets/icons/mods/foldable-stock.webp" alt="Foldable stock" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/foldable-stock.webp" alt="Foldable stock" class="item-image">
-    ### Foldable stock
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;When attached to a rifle, allows the gun to be concealed more easily.  -2 on a Perceive check for the prescence of the gun to be detected.&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">When attached to a rifle, allows the gun to be concealed more easily.  -2 on a Perceive check for the prescence of the gun to be detected.</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.foldable-stock`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.foldable-stock`
+</div>
+</div>

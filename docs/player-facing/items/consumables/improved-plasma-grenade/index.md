@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Improved Plasma Grenade
+<img src="../../../assets/icons/consumables/improved-plasma-grenade.webp" alt="Improved Plasma Grenade" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/improved-plasma-grenade.webp" alt="Improved Plasma Grenade" class="item-image">
-    ### Improved Plasma Grenade
-    <div class="item-flavor">
-    *An upgraded plasma charge with doubled output. Deals 2d20 plasma damage within Far range.*
-    </div>
-    </div>
+*An upgraded plasma charge with doubled output. Deals 2d20 plasma damage within Far range.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Throw**<br>*You can make a Finesse Roll to throw this shard at a group of adversaries within Far range. Targets you succeed against take 2d20 magic damage.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Throw**<br>*You can make a Finesse Roll to throw this shard at a group of adversaries within Far range. Targets you succeed against take 2d20 magic damage.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.improved-plasma-grenade`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.improved-plasma-grenade`
+</div>
+</div>

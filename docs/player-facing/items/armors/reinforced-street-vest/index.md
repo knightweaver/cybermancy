@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Reinforced Street Vest
-<img src="../../../assets/icons/armors/reinforced-street-vest.webp" alt="Reinforced Street Vest" class="item-image">
+# Reinforced Street Vest
+<img src="../../../assets/icons/armors/reinforced-street-vest.webp" alt="Reinforced Street Vest" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Up-armored padding with denser gels and better dispersion. Looks cheap, works miracles.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.reinforced-street-vest`
 </div>
 </div>

@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Fragmentation Grenade
+# Fragmentation Grenade
 
-<img src="../../../assets/icons/weapons/fragmentation-grenade.webp" alt="Fragmentation Grenade" class="item-image">
+<img src="../../../assets/icons/weapons/fragmentation-grenade.webp" alt="Fragmentation Grenade" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A high-yield fragmentation device scattering lethal shrapnel in every direction.
@@ -15,7 +15,7 @@ A high-yield fragmentation device scattering lethal shrapnel in every direction.
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ A high-yield fragmentation device scattering lethal shrapnel in every direction.
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.fragmentation-grenade`
+weapons/Tier 1
+<br>
 </div>
 </div>

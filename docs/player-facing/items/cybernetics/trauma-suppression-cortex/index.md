@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Trauma Suppression Cortex
+<img src="../../../assets/icons/cybernetics/trauma-suppression-cortex.webp" alt="Trauma Suppression Cortex" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/trauma-suppression-cortex.webp" alt="Trauma Suppression Cortex" class="item-image">
-    ### Trauma Suppression Cortex
-    <div class="item-flavor">
-    *&lt;i&gt;Hope's Shield: Defy damage, embrace resilience.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per scene, &lt;strong&gt;Spend 3 Hope&lt;/strong&gt; to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Hope's Shield: Defy damage, embrace resilience.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 3 Hope</strong> to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Trauma Suppression Cortex**<br>* Defy damage, embrace resilience.Once per scene, Spend 3 Hope to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Trauma Suppression Cortex**<br>* Defy damage, embrace resilience.Once per scene, Spend 3 Hope to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.trauma-suppression-cortex`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.trauma-suppression-cortex`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Assassin’s Neurotoxin
+<img src="../../../assets/icons/consumables/assassin-s-neurotoxin.webp" alt="Assassin’s Neurotoxin" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/assassin-s-neurotoxin.webp" alt="Assassin’s Neurotoxin" class="item-image">
-    ### Assassin’s Neurotoxin
-    <div class="item-flavor">
-    *A lethal nanopoison: if you crit before your next long rest, your target dies. Fail—and so do you.*
-    </div>
-    </div>
+*A lethal nanopoison: if you crit before your next long rest, your target dies. Fail—and so do you.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*After you drink this tea, you instantly kill your target when you critically succeed on an attack. If you don’t critically succeed on an attack before your next long rest, you die.*</div>
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Death Tea**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*After you drink this tea, you instantly kill your target when you critically succeed on an attack. If you don’t critically succeed on an attack before your next long rest, you die.*</div>
 
-    </div>
+#### Effects
+- <div markdown='1'>**Death Tea**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.assassin-s-neurotoxin`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.assassin-s-neurotoxin`
+</div>
+</div>

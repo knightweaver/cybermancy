@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Modular Hardpoint Interface
+<img src="../../../assets/icons/cybernetics/modular-hardpoint-interface.webp" alt="Modular Hardpoint Interface" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/modular-hardpoint-interface.webp" alt="Modular Hardpoint Interface" class="item-image">
-    ### Modular Hardpoint Interface
-    <div class="item-flavor">
-    *&lt;i&gt;"Enhance potential, expand your digital domain."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Increase the number of Domain Cards in your load out by 1 permenantly.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Enhance potential, expand your digital domain."</i><br /><br /><p class="Card-Feature">Increase the number of Domain Cards in your load out by 1 permenantly.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Modular Hardpoint Interface**<br>*"Enhance potential, expand your digital domain."Increase the number of Domain Cards in your load out by 1 permenantly.*</div>
+### **Tier: 4**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Modular Hardpoint Interface**<br>*"Enhance potential, expand your digital domain."Increase the number of Domain Cards in your load out by 1 permenantly.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.modular-hardpoint-interface`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 4
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.modular-hardpoint-interface`
+</div>
+</div>

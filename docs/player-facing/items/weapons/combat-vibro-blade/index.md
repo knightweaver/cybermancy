@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Combat Vibro-Blade
+# Combat Vibro-Blade
 
-<img src="../../../assets/icons/weapons/combat-vibro-blade.webp" alt="Combat Vibro-Blade" class="item-image">
+<img src="../../../assets/icons/weapons/combat-vibro-blade.webp" alt="Combat Vibro-Blade" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Balanced for extended melee, this knife hums with a subsonic pulse designed for battlefield chaos.
@@ -15,7 +15,7 @@ Balanced for extended melee, this knife hums with a subsonic pulse designed for 
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">3</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -44,5 +44,7 @@ Balanced for extended melee, this knife hums with a subsonic pulse designed for 
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.combat-vibro-blade`
+weapons/Tier 3
+<br>
 </div>
 </div>

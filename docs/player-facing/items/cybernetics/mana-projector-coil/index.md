@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Mana Projector Coil
+<img src="../../../assets/icons/cybernetics/mana-projector-coil.webp" alt="Mana Projector Coil" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/mana-projector-coil.webp" alt="Mana Projector Coil" class="item-image">
-    ### Mana Projector Coil
-    <div class="item-flavor">
-    *&lt;i&gt;"Unveil horizons, empower your reach."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 2 Hope&lt;/strong&gt; to increase the range of one Spell you are casting&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Unveil horizons, empower your reach."</i><br /><br /><p class="Card-Feature"><strong>Spend 2 Hope</strong> to increase the range of one Spell you are casting</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Mana Projector Coil**<br>*"Unveil horizons, empower your reach."Spend 2 Hope to increase the range of one Spell you are casting*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Mana Projector Coil**<br>*"Unveil horizons, empower your reach."Spend 2 Hope to increase the range of one Spell you are casting*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.mana-projector-coil`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.mana-projector-coil`
+</div>
+</div>

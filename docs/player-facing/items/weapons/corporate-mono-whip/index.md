@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Corporate Mono-Whip
+# Corporate Mono-Whip
 
-<img src="../../../assets/icons/weapons/corporate-mono-whip.webp" alt="Corporate Mono-Whip" class="item-image">
+<img src="../../../assets/icons/weapons/corporate-mono-whip.webp" alt="Corporate Mono-Whip" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A high-grade monofilament weapon issued to elite corp assassins — silent, perfect, final.
@@ -15,7 +15,7 @@ A high-grade monofilament weapon issued to elite corp assassins — silent, perf
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">3</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ A high-grade monofilament weapon issued to elite corp assassins — silent, perf
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.corporate-mono-whip`
+weapons/Tier 3
+<br>
 </div>
 </div>

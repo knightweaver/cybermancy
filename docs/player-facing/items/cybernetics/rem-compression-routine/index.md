@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# REM Compression Routine
+<img src="../../../assets/icons/cybernetics/rem-compression-routine.webp" alt="REM Compression Routine" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/rem-compression-routine.webp" alt="REM Compression Routine" class="item-image">
-    ### REM Compression Routine
-    <div class="item-flavor">
-    *&lt;i&gt;"Crave rest? Double the dream."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;During a long rest, gain one additional short rest downtime action&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Crave rest? Double the dream."</i><br /><br /><p class="Card-Feature">During a long rest, gain one additional short rest downtime action</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**REM Compression Routine**<br>*"Crave rest? Double the dream."During a long rest, gain one additional short rest downtime action*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**REM Compression Routine**<br>*"Crave rest? Double the dream."During a long rest, gain one additional short rest downtime action*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.rem-compression-routine`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.rem-compression-routine`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Opti Honing Relic Patch
+<img src="../../../assets/icons/loot/opti-honing-relic-patch.webp" alt="Opti Honing Relic Patch" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/opti-honing-relic-patch.webp" alt="Opti Honing Relic Patch" class="item-image">
-    ### Opti Honing Relic Patch
-    <div class="item-flavor">
-    *You gain a +1 bonus to an Experience of your choice. You can only carry one relic. black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*You gain a +1 bonus to an Experience of your choice. You can only carry one relic. black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.opti-honing-relic-patch`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.opti-honing-relic-patch`
+</div>
+</div>

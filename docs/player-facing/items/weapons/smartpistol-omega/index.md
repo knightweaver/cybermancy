@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Smartpistol Omega
+# Smartpistol Omega
 
-<img src="../../../assets/icons/weapons/smartpistol-omega.webp" alt="Smartpistol Omega" class="item-image">
+<img src="../../../assets/icons/weapons/smartpistol-omega.webp" alt="Smartpistol Omega" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 An AI-driven sidearm that learns its wielder’s habits and compensates perfectly in combat.
@@ -15,7 +15,7 @@ An AI-driven sidearm that learns its wielder’s habits and compensates perfectl
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ An AI-driven sidearm that learns its wielder’s habits and compensates perfectl
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.smartpistol-omega`
+weapons/Tier 4
+<br>
 </div>
 </div>

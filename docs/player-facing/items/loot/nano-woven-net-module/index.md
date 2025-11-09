@@ -1,28 +1,22 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Nano Woven Net Module
+<img src="../../../assets/icons/loot/nano-woven-net-module.webp" alt="Nano Woven Net Module" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/nano-woven-net-module.webp" alt="Nano Woven Net Module" class="item-image">
-    ### Nano Woven Net Module
-    <div class="item-flavor">
-    *You can make a Finesse Roll using this net to trap a small creature. A trapped target can break free with a successful Attack Roll (16). black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*You can make a Finesse Roll using this net to trap a small creature. A trapped target can break free with a successful Attack Roll (16). black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Throw**<br>**</div>
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Woven Net**<br>**</div>
+#### Actions
+- <div markdown='1'>**Throw**<br>**</div>
+
+#### Effects
+- <div markdown='1'>**Woven Net**<br>**</div>
 
 - <div markdown='1'>**Woven Net**<br>**</div>
-    </div>
 
-    </div>
-
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.nano-woven-net-module`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.nano-woven-net-module`
+</div>
+</div>

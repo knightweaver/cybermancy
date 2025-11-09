@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### EMP Singularity
+# EMP Singularity
 
-<img src="../../../assets/icons/weapons/emp-singularity.webp" alt="EMP Singularity" class="item-image">
+<img src="../../../assets/icons/weapons/emp-singularity.webp" alt="EMP Singularity" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A massive EMP charge that disables all systems across multiple networks simultaneously within Very Far range
@@ -15,7 +15,7 @@ A massive EMP charge that disables all systems across multiple networks simultan
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ A massive EMP charge that disables all systems across multiple networks simultan
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.emp-singularity`
+weapons/Tier 4
+<br>
 </div>
 </div>

@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Hope Bank Vest
-<img src="../../../assets/icons/armors/hope-bank-vest.webp" alt="Hope Bank Vest" class="item-image">
+# Hope Bank Vest
+<img src="../../../assets/icons/armors/hope-bank-vest.webp" alt="Hope Bank Vest" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Embedded charge cells let you spend armor power instead of precious morale in tight spots.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.hope-bank-vest`
 </div>
 </div>

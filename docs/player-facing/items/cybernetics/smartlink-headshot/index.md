@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# SmartLink™ Headshot
+<img src="../../../assets/icons/cybernetics/smartlink-headshot.webp" alt="SmartLink™ Headshot" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/smartlink-headshot.webp" alt="SmartLink™ Headshot" class="item-image">
-    ### SmartLink™ Headshot
-    <div class="item-flavor">
-    *&lt;i&gt;"Unleash precision, elevate impact."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;When firing a SmartLink™ enabled weapon, &lt;strong&gt;Mark 1 Stress&lt;/strong&gt; to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  &lt;br /&gt;&lt;br /&gt;Requires the SmartLink™ CPU implant&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Unleash precision, elevate impact."</i><br /><br /><p class="Card-Feature">When firing a SmartLink™ enabled weapon, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  <br /><br />Requires the SmartLink™ CPU implant</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**SmartLink™ Headshot**<br>*"Unleash precision, elevate impact."When firing a SmartLink™ enabled weapon, Mark 1 Stress to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  Requires the SmartLink™ CPU implant*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**SmartLink™ Headshot**<br>*"Unleash precision, elevate impact."When firing a SmartLink™ enabled weapon, Mark 1 Stress to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  Requires the SmartLink™ CPU implant*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.smartlink-headshot`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.smartlink-headshot`
+</div>
+</div>

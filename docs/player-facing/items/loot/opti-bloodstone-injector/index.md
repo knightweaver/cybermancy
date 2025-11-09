@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Opti Bloodstone Injector
+<img src="../../../assets/icons/loot/opti-bloodstone-injector.webp" alt="Opti Bloodstone Injector" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/opti-bloodstone-injector.webp" alt="Opti Bloodstone Injector" class="item-image">
-    ### Opti Bloodstone Injector
-    <div class="item-flavor">
-    *You can attach this stone to a weapon that doesn’t already have a feature. The weapon gains the following feature. ***Brutal:*** When you roll the maximum value on a damage die, roll an additional damage die. stores resonance data and telemetry snapshots*
-    </div>
-    </div>
+*You can attach this stone to a weapon that doesn’t already have a feature. The weapon gains the following feature. ***Brutal:*** When you roll the maximum value on a damage die, roll an additional damage die. stores resonance data and telemetry snapshots*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.opti-bloodstone-injector`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.opti-bloodstone-injector`
+</div>
+</div>

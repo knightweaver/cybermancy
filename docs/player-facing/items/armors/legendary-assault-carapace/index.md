@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Legendary Assault Carapace
-<img src="../../../assets/icons/armors/legendary-assault-carapace.webp" alt="Legendary Assault Carapace" class="item-image">
+# Legendary Assault Carapace
+<img src="../../../assets/icons/armors/legendary-assault-carapace.webp" alt="Legendary Assault Carapace" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Black-ops composite suit meant to take a rocket and keep you upright.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.legendary-assault-carapace`
 </div>
 </div>

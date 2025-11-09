@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Improved Cyber Spur
+# Improved Cyber Spur
 
-<img src="../../../assets/icons/weapons/improved-cyber-spur.webp" alt="Improved Cyber Spur" class="item-image">
+<img src="../../../assets/icons/weapons/improved-cyber-spur.webp" alt="Improved Cyber Spur" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Enhanced retractable spurs forged from titanium alloy, near undetectable by security scanners.
@@ -15,7 +15,7 @@ Enhanced retractable spurs forged from titanium alloy, near undetectable by secu
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">2</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Enhanced retractable spurs forged from titanium alloy, near undetectable by secu
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.improved-cyber-spur`
+weapons/Tier 2
+<br>
 </div>
 </div>

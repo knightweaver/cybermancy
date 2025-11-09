@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Wakizashi™ Neural Balancer
+<img src="../../../assets/icons/cybernetics/wakizashi-neural-balancer.webp" alt="Wakizashi™ Neural Balancer" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/wakizashi-neural-balancer.webp" alt="Wakizashi™ Neural Balancer" class="item-image">
-    ### Wakizashi™ Neural Balancer
-    <div class="item-flavor">
-    *&lt;i&gt;Unlock hidden potential with Hope's precision.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain +2 on any attack roll with your secondary weapon.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Unlock hidden potential with Hope's precision.</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on any attack roll with your secondary weapon.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Wakizashi™ Neural Balancer**<br>*Unlock hidden potential with Hope's precision.Spend 1 Hope to gain +2 on any attack roll with your secondary weapon.*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Wakizashi™ Neural Balancer**<br>*Unlock hidden potential with Hope's precision.Spend 1 Hope to gain +2 on any attack roll with your secondary weapon.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.wakizashi-neural-balancer`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.wakizashi-neural-balancer`
+</div>
+</div>

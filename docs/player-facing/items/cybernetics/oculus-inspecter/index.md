@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Oculus™ Inspecter
+<img src="../../../assets/icons/cybernetics/oculus-inspecter.webp" alt="Oculus™ Inspecter" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/oculus-inspecter.webp" alt="Oculus™ Inspecter" class="item-image">
-    ### Oculus™ Inspecter
-    <div class="item-flavor">
-    *&lt;i&gt;"Eyes unveil secrets, but Hope pays."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain +2 on a Sense roll so long as you can see the creature's face and eyes.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Eyes unveil secrets, but Hope pays."</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on a Sense roll so long as you can see the creature's face and eyes.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Oculus™ Inspecter**<br>*"Eyes unveil secrets, but Hope pays."Spend 1 Hope to gain +2 on a Sense roll so long as you can see the creature's face and eyes.*</div>
+### **Tier: 2**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Oculus™ Inspecter**<br>*"Eyes unveil secrets, but Hope pays."Spend 1 Hope to gain +2 on a Sense roll so long as you can see the creature's face and eyes.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.oculus-inspecter`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 2
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.oculus-inspecter`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Kinetic Leg Booster
+<img src="../../../assets/icons/consumables/kinetic-leg-booster.webp" alt="Kinetic Leg Booster" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/kinetic-leg-booster.webp" alt="Kinetic Leg Booster" class="item-image">
-    ### Kinetic Leg Booster
-    <div class="item-flavor">
-    *A leg-mounted actuator charge that launches you up to Far range once without rolling.*
-    </div>
-    </div>
+*A leg-mounted actuator charge that launches you up to Far range once without rolling.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Eat**<br>*Eat this root to leap up to Far range once without needing to roll.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Eat**<br>*Eat this root to leap up to Far range once without needing to roll.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.kinetic-leg-booster`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.kinetic-leg-booster`
+</div>
+</div>

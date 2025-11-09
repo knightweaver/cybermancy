@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Composite Riot Carapace
-<img src="../../../assets/icons/armors/composite-riot-carapace.webp" alt="Composite Riot Carapace" class="item-image">
+# Composite Riot Carapace
+<img src="../../../assets/icons/armors/composite-riot-carapace.webp" alt="Composite Riot Carapace" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Full-coverage composite plating over impact mesh. Heavy, loud, and built to walk through riots.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 1
+<br>
 **UUID:** `Compendium.cybermancy.armors.composite-riot-carapace`
 </div>
 </div>

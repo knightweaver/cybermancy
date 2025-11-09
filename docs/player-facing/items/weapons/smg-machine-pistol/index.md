@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### SMG (Machine Pistol)
+# SMG (Machine Pistol)
 
-<img src="../../../assets/icons/weapons/smg-machine-pistol.webp" alt="SMG (Machine Pistol)" class="item-image">
+<img src="../../../assets/icons/weapons/smg-machine-pistol.webp" alt="SMG (Machine Pistol)" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, and unforgiving.
@@ -15,7 +15,7 @@ Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, 
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -44,5 +44,7 @@ Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, 
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.smg-machine-pistol`
+weapons/Tier 1
+<br>
 </div>
 </div>

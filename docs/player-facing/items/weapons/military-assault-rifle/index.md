@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Military Assault Rifle
+# Military Assault Rifle
 
-<img src="../../../assets/icons/weapons/military-assault-rifle.webp" alt="Military Assault Rifle" class="item-image">
+<img src="../../../assets/icons/weapons/military-assault-rifle.webp" alt="Military Assault Rifle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Hardened composite frame with select-fire and tactical uplink for squad-level coordination.
@@ -15,7 +15,7 @@ Hardened composite frame with select-fire and tactical uplink for squad-level co
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">2</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Hardened composite frame with select-fire and tactical uplink for squad-level co
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.military-assault-rifle`
+weapons/Tier 2
+<br>
 </div>
 </div>

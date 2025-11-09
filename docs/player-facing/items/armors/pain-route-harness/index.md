@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Pain Route Harness
-<img src="../../../assets/icons/armors/pain-route-harness.webp" alt="Pain Route Harness" class="item-image">
+# Pain Route Harness
+<img src="../../../assets/icons/armors/pain-route-harness.webp" alt="Pain Route Harness" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Routes shock into your nervous system—hurts like hell, but the armor holds.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.pain-route-harness`
 </div>
 </div>

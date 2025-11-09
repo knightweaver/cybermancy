@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Neuro-Spinal Load Balancer
+<img src="../../../assets/icons/cybernetics/neuro-spinal-load-balancer.webp" alt="Neuro-Spinal Load Balancer" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/neuro-spinal-load-balancer.webp" alt="Neuro-Spinal Load Balancer" class="item-image">
-    ### Neuro-Spinal Load Balancer
-    <div class="item-flavor">
-    *&lt;i&gt;"Fortify Essence; transmute fear to vapor."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to Mark 2 Armor slots and entirely prevent the damage from 1 attack&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Fortify Essence; transmute fear to vapor."</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to Mark 2 Armor slots and entirely prevent the damage from 1 attack</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Neuro-Spinal Load Balancer**<br>*"Fortify Essence; transmute fear to vapor."Spend 1 Hope to Mark 2 Armor slots and entirely prevent the damage from 1 attack*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Neuro-Spinal Load Balancer**<br>*"Fortify Essence; transmute fear to vapor."Spend 1 Hope to Mark 2 Armor slots and entirely prevent the damage from 1 attack*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.neuro-spinal-load-balancer`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.neuro-spinal-load-balancer`
+</div>
+</div>

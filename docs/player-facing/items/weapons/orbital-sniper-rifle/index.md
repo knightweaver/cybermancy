@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Orbital Sniper Rifle
+# Orbital Sniper Rifle
 
-<img src="../../../assets/icons/weapons/orbital-sniper-rifle.webp" alt="Orbital Sniper Rifle" class="item-image">
+<img src="../../../assets/icons/weapons/orbital-sniper-rifle.webp" alt="Orbital Sniper Rifle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A satellite-linked rifle capable of marking and calling down orbital strikes.
@@ -15,7 +15,7 @@ A satellite-linked rifle capable of marking and calling down orbital strikes.
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ A satellite-linked rifle capable of marking and calling down orbital strikes.
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.orbital-sniper-rifle`
+weapons/Tier 4
+<br>
 </div>
 </div>

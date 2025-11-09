@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Chrome Data Gem
+<img src="../../../assets/icons/loot/chrome-data-gem.webp" alt="Chrome Data Gem" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/chrome-data-gem.webp" alt="Chrome Data Gem" class="item-image">
-    ### Chrome Data Gem
-    <div class="item-flavor">
-    *You can attach this gem to a weapon, allowing you to use your Knowledge when making an attack with that weapon. stores resonance data and telemetry snapshots*
-    </div>
-    </div>
+*You can attach this gem to a weapon, allowing you to use your Knowledge when making an attack with that weapon. stores resonance data and telemetry snapshots*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.chrome-data-gem`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.chrome-data-gem`
+</div>
+</div>

@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Advanced Slash-Resistant Jacket
-<img src="../../../assets/icons/armors/advanced-slash-resistant-jacket.webp" alt="Advanced Slash-Resistant Jacket" class="item-image">
+# Advanced Slash-Resistant Jacket
+<img src="../../../assets/icons/armors/advanced-slash-resistant-jacket.webp" alt="Advanced Slash-Resistant Jacket" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Polymer-link weave with ceramic micro-scales; shrugs off knives and claws.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.advanced-slash-resistant-jacket`
 </div>
 </div>

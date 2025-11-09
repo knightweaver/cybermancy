@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Cyber Spur
+# Cyber Spur
 
-<img src="../../../assets/icons/weapons/cyber-spur.webp" alt="Cyber Spur" class="item-image">
+<img src="../../../assets/icons/weapons/cyber-spur.webp" alt="Cyber Spur" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A retractable blade hidden in the user’s forearm, perfect for sudden, lethal strikes in close quarters.
@@ -15,7 +15,7 @@ A retractable blade hidden in the user’s forearm, perfect for sudden, lethal s
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ A retractable blade hidden in the user’s forearm, perfect for sudden, lethal s
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.cyber-spur`
+weapons/Tier 1
+<br>
 </div>
 </div>

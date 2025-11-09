@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### KevFlex Trench
-<img src="../../../assets/icons/armors/kevflex-trench.webp" alt="KevFlex Trench" class="item-image">
+# KevFlex Trench
+<img src="../../../assets/icons/armors/kevflex-trench.webp" alt="KevFlex Trench" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Long-cut coat with segmented Kevlar—style and survivability in one package.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.kevflex-trench`
 </div>
 </div>

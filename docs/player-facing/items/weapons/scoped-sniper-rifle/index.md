@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Scoped Sniper Rifle
+# Scoped Sniper Rifle
 
-<img src="../../../assets/icons/weapons/scoped-sniper-rifle.webp" alt="Scoped Sniper Rifle" class="item-image">
+<img src="../../../assets/icons/weapons/scoped-sniper-rifle.webp" alt="Scoped Sniper Rifle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Enhanced optics suite allows bullet trajectory correction and real-time target telemetry.
@@ -15,7 +15,7 @@ Enhanced optics suite allows bullet trajectory correction and real-time target t
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">2</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ Enhanced optics suite allows bullet trajectory correction and real-time target t
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.scoped-sniper-rifle`
+weapons/Tier 2
+<br>
 </div>
 </div>

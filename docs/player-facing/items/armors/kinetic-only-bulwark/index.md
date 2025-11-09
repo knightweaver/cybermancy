@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Kinetic-Only Bulwark
-<img src="../../../assets/icons/armors/kinetic-only-bulwark.webp" alt="Kinetic-Only Bulwark" class="item-image">
+# Kinetic-Only Bulwark
+<img src="../../../assets/icons/armors/kinetic-only-bulwark.webp" alt="Kinetic-Only Bulwark" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Optimized to blunt physical force; don’t expect it to help against witchware or weird grids.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.kinetic-only-bulwark`
 </div>
 </div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Wall-Melt Gel
+<img src="../../../assets/icons/consumables/wall-melt-gel.webp" alt="Wall-Melt Gel" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/wall-melt-gel.webp" alt="Wall-Melt Gel" class="item-image">
-    ### Wall-Melt Gel
-    <div class="item-flavor">
-    *An industrial solvent that dissolves barriers in bright flashes—stand clear.*
-    </div>
-    </div>
+*An industrial solvent that dissolves barriers in bright flashes—stand clear.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Use**<br>*This paste eats away walls and other surfaces in bright flashes.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Use**<br>*This paste eats away walls and other surfaces in bright flashes.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.wall-melt-gel`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.wall-melt-gel`
+</div>
+</div>

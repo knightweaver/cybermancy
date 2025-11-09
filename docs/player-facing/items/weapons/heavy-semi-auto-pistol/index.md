@@ -2,12 +2,12 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Heavy Semi-auto pistol
+# Heavy Semi-auto pistol
 
-<img src="../../../assets/icons/weapons/heavy-semi-auto-pistol.webp" alt="Heavy Semi-auto pistol" class="item-image">
+<img src="../../../assets/icons/weapons/heavy-semi-auto-pistol.webp" alt="Heavy Semi-auto pistol" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-&lt;p&gt;A small, light-weight semi-automatic pistol. Cheap but with only 1 Mod slots&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Concealable in a jacket / armpit holster&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Centa cred ($100's)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Close range&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+<p>A small, light-weight semi-automatic pistol. Cheap but with only 1 Mod slots</p><p></p><ul><li><p>Concealable in a jacket / armpit holster</p></li><li><p>Centa cred ($100's)</p></li><li><p>Close range</p></li></ul>
 </div>
 </div>
 
@@ -15,7 +15,7 @@
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -42,5 +42,7 @@
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.heavy-semi-auto-pistol`
+weapons/Tier 1
+<br>
 </div>
 </div>

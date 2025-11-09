@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Reactive Shrapnel Shells
+<img src="../../../assets/icons/mods/reactive-shrapnel-shells.webp" alt="Reactive Shrapnel Shells" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/reactive-shrapnel-shells.webp" alt="Reactive Shrapnel Shells" class="item-image">
-    ### Reactive Shrapnel Shells
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;On hit, minor AoE splash. Critical: heavy AoE; creates hazard zone. Slot: Ammo.&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">On hit, minor AoE splash. Critical: heavy AoE; creates hazard zone. Slot: Ammo.</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.reactive-shrapnel-shells`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.reactive-shrapnel-shells`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Oculus™ Palette
+<img src="../../../assets/icons/cybernetics/oculus-palette.webp" alt="Oculus™ Palette" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/oculus-palette.webp" alt="Oculus™ Palette" class="item-image">
-    ### Oculus™ Palette
-    <div class="item-flavor">
-    *&lt;i&gt;"Shift your gaze, shape your truth."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Change your eye's appearance at will. &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain +2 on a Deceive roll. &lt;br /&gt;&lt;br /&gt;Requires Oculus ™ base unit.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Shift your gaze, shape your truth."</i><br /><br /><p class="Card-Feature">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br /><br />Requires Oculus ™ base unit.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Oculus™ Palette**<br>*"Shift your gaze, shape your truth."Change your eye's appearance at will. Spend 1 Hope to gain +2 on a Deceive roll. Requires Oculus ™ base unit.*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Oculus™ Palette**<br>*"Shift your gaze, shape your truth."Change your eye's appearance at will. Spend 1 Hope to gain +2 on a Deceive roll. Requires Oculus ™ base unit.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.oculus-palette`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.oculus-palette`
+</div>
+</div>

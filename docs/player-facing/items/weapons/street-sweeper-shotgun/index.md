@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Street Sweeper Shotgun
+# Street Sweeper Shotgun
 
-<img src="../../../assets/icons/weapons/street-sweeper-shotgun.webp" alt="Street Sweeper Shotgun" class="item-image">
+<img src="../../../assets/icons/weapons/street-sweeper-shotgun.webp" alt="Street Sweeper Shotgun" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.
@@ -15,7 +15,7 @@ Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">2</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.street-sweeper-shotgun`
+weapons/Tier 2
+<br>
 </div>
 </div>

@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Sniper Rifle
+# Sniper Rifle
 
-<img src="../../../assets/icons/weapons/sniper-rifle.webp" alt="Sniper Rifle" class="item-image">
+<img src="../../../assets/icons/weapons/sniper-rifle.webp" alt="Sniper Rifle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Precision weapon built for the patient killer — silent, steady, and unerring over long distances.
@@ -15,7 +15,7 @@ Precision weapon built for the patient killer — silent, steady, and unerring o
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ Precision weapon built for the patient killer — silent, steady, and unerring o
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.sniper-rifle`
+weapons/Tier 1
+<br>
 </div>
 </div>

@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Auto-Heal Laminate
-<img src="../../../assets/icons/armors/auto-heal-laminate.webp" alt="Auto-Heal Laminate" class="item-image">
+# Auto-Heal Laminate
+<img src="../../../assets/icons/armors/auto-heal-laminate.webp" alt="Auto-Heal Laminate" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Self-tightening fibers that cinch when stressed, buying you precious seconds before a breach.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.auto-heal-laminate`
 </div>
 </div>

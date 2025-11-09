@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Improved Shock Baton
+# Improved Shock Baton
 
-<img src="../../../assets/icons/weapons/improved-shock-baton.webp" alt="Improved Shock Baton" class="item-image">
+<img src="../../../assets/icons/weapons/improved-shock-baton.webp" alt="Improved Shock Baton" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Upgraded battery coils deliver chained electrical arcs between multiple nearby targets.
@@ -15,7 +15,7 @@ Upgraded battery coils deliver chained electrical arcs between multiple nearby t
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">2</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -44,5 +44,7 @@ Upgraded battery coils deliver chained electrical arcs between multiple nearby t
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.improved-shock-baton`
+weapons/Tier 2
+<br>
 </div>
 </div>

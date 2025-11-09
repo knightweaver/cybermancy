@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Chrome Fire Jar Beacon
+<img src="../../../assets/icons/loot/chrome-fire-jar-beacon.webp" alt="Chrome Fire Jar Beacon" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/chrome-fire-jar-beacon.webp" alt="Chrome Fire Jar Beacon" class="item-image">
-    ### Chrome Fire Jar Beacon
-    <div class="item-flavor">
-    *You can pour out the strange liquid contents of this jar to instantly produce fire. The contents regenerate when you take a long rest. black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*You can pour out the strange liquid contents of this jar to instantly produce fire. The contents regenerate when you take a long rest. black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Pour**<br>**</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Pour**<br>**</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.chrome-fire-jar-beacon`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.chrome-fire-jar-beacon`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Feline Feet Mk.I
+<img src="../../../assets/icons/cybernetics/feline-feet-mk-i.webp" alt="Feline Feet Mk.I" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/feline-feet-mk-i.webp" alt="Feline Feet Mk.I" class="item-image">
-    ### Feline Feet Mk.I
-    <div class="item-flavor">
-    *&lt;i&gt;Leap beyond limits with feline finesse.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Before rolling an Agility check for an action or reaction, &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain +2 on that roll. You can only have 1 Feline Feet enhancement, but they can be upgraded.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Leap beyond limits with feline finesse.</i><br /><br /><p class="Card-Feature">Before rolling an Agility check for an action or reaction, <strong>Spend 1 Hope</strong> to gain +2 on that roll. You can only have 1 Feline Feet enhancement, but they can be upgraded.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Unnamed Action**<br>**</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Unnamed Action**<br>**</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.feline-feet-mk-i`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.feline-feet-mk-i`
+</div>
+</div>

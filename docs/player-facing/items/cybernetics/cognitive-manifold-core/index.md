@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Cognitive Manifold Core
+<img src="../../../assets/icons/cybernetics/cognitive-manifold-core.webp" alt="Cognitive Manifold Core" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/cognitive-manifold-core.webp" alt="Cognitive Manifold Core" class="item-image">
-    ### Cognitive Manifold Core
-    <div class="item-flavor">
-    *&lt;i&gt;"Unleash hope, transcend limits."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per scene, &lt;strong&gt;Mark 1 Stress&lt;/strong&gt; to increase your Hope die to d20 for the current Spellcasting Roll&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Unleash hope, transcend limits."</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Spellcasting Roll</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Cognitive Manifold Core**<br>*"Unleash hope, transcend limits."Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current Spellcasting Roll*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Cognitive Manifold Core**<br>*"Unleash hope, transcend limits."Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current Spellcasting Roll*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.cognitive-manifold-core`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.cognitive-manifold-core`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Regenerative Stemware
+<img src="../../../assets/icons/cybernetics/regenerative-stemware.webp" alt="Regenerative Stemware" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/regenerative-stemware.webp" alt="Regenerative Stemware" class="item-image">
-    ### Regenerative Stemware
-    <div class="item-flavor">
-    *&lt;i&gt;"Restore, rejuvenate: your timeless touchpoint."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Gain an additional short rest downtime action that can only be used to heal a Hit Point&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Restore, rejuvenate: your timeless touchpoint."</i><br /><br /><p class="Card-Feature">Gain an additional short rest downtime action that can only be used to heal a Hit Point</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Regenerative Stemware**<br>* your timeless touchpoint."Gain an additional short rest downtime action that can only be used to heal a Hit Point*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Regenerative Stemware**<br>* your timeless touchpoint."Gain an additional short rest downtime action that can only be used to heal a Hit Point*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.regenerative-stemware`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.regenerative-stemware`
+</div>
+</div>

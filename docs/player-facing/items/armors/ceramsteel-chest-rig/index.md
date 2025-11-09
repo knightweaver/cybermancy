@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### CeramSteel Chest Rig
-<img src="../../../assets/icons/armors/ceramsteel-chest-rig.webp" alt="CeramSteel Chest Rig" class="item-image">
+# CeramSteel Chest Rig
+<img src="../../../assets/icons/armors/ceramsteel-chest-rig.webp" alt="CeramSteel Chest Rig" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Ceramic-steel sandwich paneling that hardens under impact—your torso becomes a problem for bullets.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 2
+<br>
 **UUID:** `Compendium.cybermancy.armors.ceramsteel-chest-rig`
 </div>
 </div>

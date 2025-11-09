@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Subdermal weave Mk.IV
+<img src="../../../assets/icons/cybernetics/subdermal-weave-mk-iv.webp" alt="Subdermal weave Mk.IV" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/subdermal-weave-mk-iv.webp" alt="Subdermal weave Mk.IV" class="item-image">
-    ### Subdermal weave Mk.IV
-    <div class="item-flavor">
-    *&lt;i&gt;"Master the battlefield with unyielding resilience."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Gain +4/+4 to Major / Severe damage thresholds. You can only have 1 Subdermal weave enhancement, but they can be upgraded.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Master the battlefield with unyielding resilience."</i><br /><br /><p class="Card-Feature">Gain +4/+4 to Major / Severe damage thresholds. You can only have 1 Subdermal weave enhancement, but they can be upgraded.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Unnamed Action**<br>**</div>
+### **Tier: 4**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Unnamed Action**<br>**</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.subdermal-weave-mk-iv`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 4
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.subdermal-weave-mk-iv`
+</div>
+</div>

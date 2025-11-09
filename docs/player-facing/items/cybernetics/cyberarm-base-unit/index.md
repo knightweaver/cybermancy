@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Cyberarm™ Base Unit
+<img src="../../../assets/icons/cybernetics/cyberarm-base-unit.webp" alt="Cyberarm™ Base Unit" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/cyberarm-base-unit.webp" alt="Cyberarm™ Base Unit" class="item-image">
-    ### Cyberarm™ Base Unit
-    <div class="item-flavor">
-    *&lt;i&gt;Unleash untamed might with mechanical grace.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Cyberarm™ base unit - enables other Cyberarm-related cybernetics.  &lt;br /&gt;&lt;br /&gt; Once per long rest, &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; for advantage on a Strength roll or saving throw&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Unleash untamed might with mechanical grace.</i><br /><br /><p class="Card-Feature">Cyberarm™ base unit - enables other Cyberarm-related cybernetics.  <br /><br /> Once per long rest, <strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Cyberarm™ Base Unit**<br>*Unleash untamed might with mechanical grace.Cyberarm™ base unit - enables other Cyberarm-related cybernetics.   Once per long rest, Spend 1 Hope for advantage on a Strength roll or saving throw*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Cyberarm™ Base Unit**<br>*Unleash untamed might with mechanical grace.Cyberarm™ base unit - enables other Cyberarm-related cybernetics.   Once per long rest, Spend 1 Hope for advantage on a Strength roll or saving throw*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.cyberarm-base-unit`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.cyberarm-base-unit`
+</div>
+</div>

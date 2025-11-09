@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Legendary KevFlex Trench
-<img src="../../../assets/icons/armors/legendary-kevflex-trench.webp" alt="Legendary KevFlex Trench" class="item-image">
+# Legendary KevFlex Trench
+<img src="../../../assets/icons/armors/legendary-kevflex-trench.webp" alt="Legendary KevFlex Trench" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *A couture armored trench with next-gen weave and embedded countermeasures.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.legendary-kevflex-trench`
 </div>
 </div>

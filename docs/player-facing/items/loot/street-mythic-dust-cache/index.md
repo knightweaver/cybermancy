@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Street Mythic Dust Cache
+<img src="../../../assets/icons/loot/street-mythic-dust-cache.webp" alt="Street Mythic Dust Cache" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/street-mythic-dust-cache.webp" alt="Street Mythic Dust Cache" class="item-image">
-    ### Street Mythic Dust Cache
-    <div class="item-flavor">
-    *As a downtime move, you can use a handful of fine gold dust to craft Mythic Dust. black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*As a downtime move, you can use a handful of fine gold dust to craft Mythic Dust. black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.street-mythic-dust-cache`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.street-mythic-dust-cache`
+</div>
+</div>

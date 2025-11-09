@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# SkillJack Neural Matrix
+<img src="../../../assets/icons/cybernetics/skilljack-neural-matrix.webp" alt="SkillJack Neural Matrix" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/skilljack-neural-matrix.webp" alt="SkillJack Neural Matrix" class="item-image">
-    ### SkillJack Neural Matrix
-    <div class="item-flavor">
-    *&lt;i&gt;Elevate potential; risk-draped enhancement awaits.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per scene, &lt;strong&gt;Spend 2 Hope&lt;/strong&gt; to increase your Proficiency level for 1 action or reaction&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Elevate potential; risk-draped enhancement awaits.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 2 Hope</strong> to increase your Proficiency level for 1 action or reaction</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**SkillJack Neural Matrix**<br>*Elevate potential; risk-draped enhancement awaits.Once per scene, Spend 2 Hope to increase your Proficiency level for 1 action or reaction*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**SkillJack Neural Matrix**<br>*Elevate potential; risk-draped enhancement awaits.Once per scene, Spend 2 Hope to increase your Proficiency level for 1 action or reaction*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.skilljack-neural-matrix`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.skilljack-neural-matrix`
+</div>
+</div>

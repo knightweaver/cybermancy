@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Shock Baton
+# Shock Baton
 
-<img src="../../../assets/icons/weapons/shock-baton.webp" alt="Shock Baton" class="item-image">
+<img src="../../../assets/icons/weapons/shock-baton.webp" alt="Shock Baton" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A polymer club fitted with a high-voltage capacitor, used by corp security and riot control alike.
@@ -15,7 +15,7 @@ A polymer club fitted with a high-voltage capacitor, used by corp security and r
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ A polymer club fitted with a high-voltage capacitor, used by corp security and r
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.shock-baton`
+weapons/Tier 1
+<br>
 </div>
 </div>

@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Vibro-Knife
+# Vibro-Knife
 
-<img src="../../../assets/icons/weapons/vibro-knife.webp" alt="Vibro-Knife" class="item-image">
+<img src="../../../assets/icons/weapons/vibro-knife.webp" alt="Vibro-Knife" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 A short combat blade that hums at ultrasonic speed, capable of piercing armor with surgical precision.
@@ -15,7 +15,7 @@ A short combat blade that hums at ultrasonic speed, capable of piercing armor wi
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Agility</td></tr>
@@ -44,5 +44,7 @@ A short combat blade that hums at ultrasonic speed, capable of piercing armor wi
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.vibro-knife`
+weapons/Tier 1
+<br>
 </div>
 </div>

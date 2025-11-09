@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# DreamWeaver Chip
+<img src="../../../assets/icons/cybernetics/dreamweaver-chip.webp" alt="DreamWeaver Chip" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/dreamweaver-chip.webp" alt="DreamWeaver Chip" class="item-image">
-    ### DreamWeaver Chip
-    <div class="item-flavor">
-    *&lt;i&gt;"Dream deeper, recharge beyond limits."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Gain one additional long rest downtime action&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Dream deeper, recharge beyond limits."</i><br /><br /><p class="Card-Feature">Gain one additional long rest downtime action</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**DreamWeaver Chip**<br>*"Dream deeper, recharge beyond limits."Gain one additional long rest downtime action*</div>
+### **Tier: 3**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**DreamWeaver Chip**<br>*"Dream deeper, recharge beyond limits."Gain one additional long rest downtime action*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.dreamweaver-chip`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 3
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.dreamweaver-chip`
+</div>
+</div>

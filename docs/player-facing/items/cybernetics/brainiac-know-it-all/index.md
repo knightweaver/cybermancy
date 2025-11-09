@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Brainiac™ Know-it-all
+<img src="../../../assets/icons/cybernetics/brainiac-know-it-all.webp" alt="Brainiac™ Know-it-all" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/brainiac-know-it-all.webp" alt="Brainiac™ Know-it-all" class="item-image">
-    ### Brainiac™ Know-it-all
-    <div class="item-flavor">
-    *&lt;i&gt;Unlock brilliance; trade despair for genius.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain +2 on a Knowledge Roll or Saving Throw. &lt;br /&gt;&lt;br /&gt; Requires Brainiac™ Base Unit.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Unlock brilliance; trade despair for genius.</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on a Knowledge Roll or Saving Throw. <br /><br /> Requires Brainiac™ Base Unit.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Brainiac™ Know-it-all**<br>*Unlock brilliance; trade despair for genius.Spend 1 Hope to gain +2 on a Knowledge Roll or Saving Throw.  Requires Brainiac™ Base Unit.*</div>
+### **Tier: 2**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Brainiac™ Know-it-all**<br>*Unlock brilliance; trade despair for genius.Spend 1 Hope to gain +2 on a Knowledge Roll or Saving Throw.  Requires Brainiac™ Base Unit.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.brainiac-know-it-all`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 2
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.brainiac-know-it-all`
+</div>
+</div>

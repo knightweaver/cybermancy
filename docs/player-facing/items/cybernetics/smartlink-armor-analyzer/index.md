@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# SmartLink™ Armor Analyzer
+<img src="../../../assets/icons/cybernetics/smartlink-armor-analyzer.webp" alt="SmartLink™ Armor Analyzer" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/smartlink-armor-analyzer.webp" alt="SmartLink™ Armor Analyzer" class="item-image">
-    ### SmartLink™ Armor Analyzer
-    <div class="item-flavor">
-    *&lt;i&gt;"Unleash precision; amplify destruction's whisper."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;When firing a SmartLink™ enabled weapon, &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; after a successful attack for +2 on all damage die rolled.  &lt;br /&gt;&lt;br /&gt;Requires the SmartLink™ CPU implant&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Unleash precision; amplify destruction's whisper."</i><br /><br /><p class="Card-Feature">When firing a SmartLink™ enabled weapon, <strong>Spend 1 Hope</strong> after a successful attack for +2 on all damage die rolled.  <br /><br />Requires the SmartLink™ CPU implant</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**SmartLink™ Armor Analyzer**<br>*"Unleash precision; amplify destruction's whisper."When firing a SmartLink™ enabled weapon, Spend 1 Hope after a successful attack for +2 on all damage die rolled.  Requires the SmartLink™ CPU implant*</div>
+### **Tier: 2**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**SmartLink™ Armor Analyzer**<br>*"Unleash precision; amplify destruction's whisper."When firing a SmartLink™ enabled weapon, Spend 1 Hope after a successful attack for +2 on all damage die rolled.  Requires the SmartLink™ CPU implant*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.smartlink-armor-analyzer`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 2
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.smartlink-armor-analyzer`
+</div>
+</div>

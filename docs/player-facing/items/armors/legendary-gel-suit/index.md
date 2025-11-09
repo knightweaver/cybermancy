@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Legendary Gel Suit
-<img src="../../../assets/icons/armors/legendary-gel-suit.webp" alt="Legendary Gel Suit" class="item-image">
+# Legendary Gel Suit
+<img src="../../../assets/icons/armors/legendary-gel-suit.webp" alt="Legendary Gel Suit" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Top-shelf military gel plates with memory response—light, flexible, absurdly tough.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.legendary-gel-suit`
 </div>
 </div>

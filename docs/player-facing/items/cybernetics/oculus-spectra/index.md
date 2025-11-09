@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Oculus™ Spectra
+<img src="../../../assets/icons/cybernetics/oculus-spectra.webp" alt="Oculus™ Spectra" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/oculus-spectra.webp" alt="Oculus™ Spectra" class="item-image">
-    ### Oculus™ Spectra
-    <div class="item-flavor">
-    *&lt;i&gt;"Pierce veils of light unseen before."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Gain the ability to see in infrared and ultraviolet spectra. &lt;br /&gt;&lt;br /&gt;Requires Oculus ™ base unit.&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Pierce veils of light unseen before."</i><br /><br /><p class="Card-Feature">Gain the ability to see in infrared and ultraviolet spectra. <br /><br />Requires Oculus ™ base unit.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Oculus™ Spectra**<br>*"Pierce veils of light unseen before."Gain the ability to see in infrared and ultraviolet spectra. Requires Oculus ™ base unit.*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Oculus™ Spectra**<br>*"Pierce veils of light unseen before."Gain the ability to see in infrared and ultraviolet spectra. Requires Oculus ™ base unit.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.oculus-spectra`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.oculus-spectra`
+</div>
+</div>

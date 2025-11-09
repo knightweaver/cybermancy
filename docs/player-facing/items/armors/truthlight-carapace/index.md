@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Truthlight Carapace
-<img src="../../../assets/icons/armors/truthlight-carapace.webp" alt="Truthlight Carapace" class="item-image">
+# Truthlight Carapace
+<img src="../../../assets/icons/armors/truthlight-carapace.webp" alt="Truthlight Carapace" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Embedded truth-sensors flare when lies hit the air—corp meetings just got interesting.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 4
+<br>
 **UUID:** `Compendium.cybermancy.armors.truthlight-carapace`
 </div>
 </div>

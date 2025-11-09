@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Adrenal Surge Regulator
+<img src="../../../assets/icons/cybernetics/adrenal-surge-regulator.webp" alt="Adrenal Surge Regulator" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/adrenal-surge-regulator.webp" alt="Adrenal Surge Regulator" class="item-image">
-    ### Adrenal Surge Regulator
-    <div class="item-flavor">
-    *&lt;i&gt;"Ascend with Hope, embrace limitless potential."&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per scene, &lt;strong&gt;Mark 1 Stress&lt;/strong&gt; to increase your Hope die to d20 for the current Reaction Roll&lt;/p&gt;*
-    </div>
-    </div>
+*<i>"Ascend with Hope, embrace limitless potential."</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Reaction Roll</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Adrenal Surge Regulator**<br>*"Ascend with Hope, embrace limitless potential."Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current Reaction Roll*</div>
+### **Tier: 2**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Adrenal Surge Regulator**<br>*"Ascend with Hope, embrace limitless potential."Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current Reaction Roll*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.adrenal-surge-regulator`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 2
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.adrenal-surge-regulator`
+</div>
+</div>

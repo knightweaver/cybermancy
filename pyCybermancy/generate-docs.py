@@ -135,15 +135,6 @@ def _coalesce(*vals):
 def _join_nonempty(parts: List[str], sep: str = " "):
     return sep.join([p for p in parts if p and str(p).strip()])
 
-def _fmt_number(n) -> str:
-    if n is None:
-        return ""
-    if isinstance(n, int):
-        return str(n)
-    if isinstance(n, float):
-        return str(int(n)) if n.is_integer() else str(n)
-    return str(n)
-
 def _fmt_target(target: Optional[Dict[str, Any]]) -> str:
     if not isinstance(target, dict):
         return "—"
@@ -438,40 +429,6 @@ def _shorten(text: str, n: int = 2000) -> str:
     text = (text or "").strip()
     return (text[: n-3].rstrip() + "…") if len(text) > n else text
 
-def _fmt_requires(req: Any) -> str:
-    """Render a variety of 'requires' shapes."""
-    if not req:
-        return "—"
-    if isinstance(req, str):
-        return req
-    if isinstance(req, dict):
-        bits = []
-        for k in ("trait", "skill", "feature", "domain", "level", "tier", "burden", "proficiency"):
-            v = req.get(k)
-            if v not in (None, "", []):
-                bits.append(f"{k}: {v}")
-        return ", ".join(bits) if bits else "—"
-    if isinstance(req, list):
-        return "; ".join(_fmt_requires(x) for x in req if x) or "—"
-    return str(req)
-
-def _fmt_state(flags: Dict[str, Any]) -> str:
-    """Common boolean flags → compact badges."""
-    if not isinstance(flags, dict):
-        return "—"
-    badges = []
-    if flags.get("passive") is True:
-        badges.append("passive")
-    if flags.get("active") is True:
-        badges.append("active")
-    if flags.get("stacking") is True:
-        badges.append("stacking")
-    if flags.get("inherent") is True:
-        badges.append("inherent")
-    if flags.get("unique") is True:
-        badges.append("unique")
-    return ", ".join(badges) if badges else "—"
-
 # ---------- FEATURE SUMMARIZERS ----------
 def _summarize_features_generic(features_node: Any, default_kind: str) -> List[Dict[str, str]]:
     """
@@ -514,47 +471,97 @@ def summarize_armor_features(armor_features_node: Any) -> List[Dict[str, str]]:
     """Wrapper specialized for armor features."""
     return _summarize_features_generic(armor_features_node, default_kind="armor-feature")
 
+def resolve_folder_path(folder_id: str,
+                        folder_map: dict,
+                        type_key: str,
+                        sep: str = "/") -> str:
+    """
+    Given a Foundry `folder` id on an object, walk `folder_map` upward to build a full path.
+
+    Assumptions:
+    - `folder_map` is: { folder_id: { "name": <str>, "parent_folder": <str or None> }, ... }
+    - Top-level parent is a compendium id not present in folder_map.
+      In that case, we stop and use `type_key` as the root segment.
+
+    Returns:
+        e.g. "weapons/Heavy/Assault Rifles"
+        or just "weapons" if no valid chain is found.
+    """
+    if not folder_id:
+        return type_key
+
+    parts = []
+    seen = set()
+    current = folder_id
+
+    while current:
+        if current in seen:
+            # cycle guard; bail out to avoid infinite loop
+            break
+        seen.add(current)
+
+        meta = folder_map.get(current)
+        if not meta:
+            # We've hit a parent that isn't in folder_map:
+            # treat this as the compendium root (assumed == type_key)
+            parts.append(type_key)
+            break
+
+        name = meta.get("name")
+        if name:
+            parts.append(str(name))
+
+        parent = meta.get("parent_folder")
+        if not parent or parent == current:
+            # No further parent: anchor at compendium/type_key
+            parts.append(type_key)
+            break
+
+        current = parent
+
+    if not parts:
+        return type_key
+
+    # We collected from leaf up; reverse to get root → leaf
+    return sep.join(reversed(parts))
+
+
 # ---------------------------- Templates --------------------------------------
 # Each template gets values from a per-type "context" dict assembled in the loop.
 # Keep these minimal; type-specific sections can be added as needed.
 
 TEMPLATES: Dict[str, str] = {
     # Generic item page template ---------------------------------------------
-    "item_default": """<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+    "item_default": """<div class="default" markdown="1">
+# {name}
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="{image_rel}" alt="{name}" class="item-image">
-    ### {name}
-    <div class="item-flavor">
-    *{description}*
-    </div>
-    </div>
+*{description}*
 
-    <div markdown="1">
-    #### Actions
-    {actions_flat}
+### **Tier: {tier}**
 
-    #### Effects
-    {effects_flat}
-    </div>
+#### Actions
+{actions_flat}
 
-    </div>
+#### Effects
+{effects_flat}
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
-    </div>
-    </div>
-    """,
+<div class="meta" markdown="1">
+{folder_path}
+<br>
+**UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
+</div>
+</div>
+""",
 
     # Weapon (item) --------------------------------------------------------
     "weapon": """<div class="item" markdown="1">
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### {name}
+# {name}
 
-<img src="{image_rel}" alt="{name}" class="item-image">
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 {description}
@@ -565,7 +572,7 @@ TEMPLATES: Dict[str, str] = {
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">{tier}</td></tr>
     <tr><td>Trait</td><td align="right">{trait}</td></tr>
@@ -592,6 +599,8 @@ TEMPLATES: Dict[str, str] = {
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
+{folder_path}
+<br>
 </div>
 </div>
 """,
@@ -601,8 +610,8 @@ TEMPLATES: Dict[str, str] = {
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### {name}
-<img src="{image_rel}" alt="{name}" class="item-image">
+# {name}
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *{description}*
@@ -636,6 +645,8 @@ TEMPLATES: Dict[str, str] = {
 ---
 
 <div class="meta" markdown="1">
+{folder_path}
+<br>
 **UUID:** `Compendium.cybermancy.{comp_key}.{slug}`
 </div>
 </div>
@@ -643,34 +654,42 @@ TEMPLATES: Dict[str, str] = {
 
     # Classes (system) --------------------------------------------------------
     "class": """<div class="class" markdown="1">
-    <img src="{image_rel}" alt="{name}" class="item-image">
+# {name}
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
 
-    # {name}
+## Description
+*{description}*
 
-    ## At a Glance
-    - **Domains:** {domains_list}
-    - **Hit Points:** {hitPoints}
-    - **Evasion:** {evasion}
+## At a Glance
+- **Domains:** {domains_list}
+- **Hit Points:** {hitPoints}
+- **Evasion:** {evasion}
 
-    ## Features
-    {features_md}
+## Subclasses
+{subclasses_md}
 
-    ---
+## Features
+{features_md}
 
-    ## Description
-    {description}
+---
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.system.{slug}`
-    </div>
-    </div>
-    """,
+<div class="meta" markdown="1">
+**UUID:** `Compendium.cybermancy.system.{slug}`
+{folder_path}
+<br>
+</div>
+</div>
+""",
 
     # Subclasses (system) -----------------------------------------------------
     "subclass": """<div class="subclass" markdown="1">
-<img src="{image_rel}" alt="{name}" class="item-image">
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
 
 # {name}
+
+## Description
+*{description}*
+
 <div class="item-subtitle">Subclass</div>
 
 ## Features
@@ -678,58 +697,68 @@ TEMPLATES: Dict[str, str] = {
 
 ---
 
-## Description
-{description}
-
 <div class="meta" markdown="1">
-**Source:** *(fill in)* • **UUID:** `Compendium.cybermancy.system.{slug}`
+**UUID:** `Compendium.cybermancy.system.{slug}`
+{folder_path}
+<br>
 </div>
 </div>
 """,
 
     # Domains (system) --------------------------------------------------------
     "domain": """<div class="domain" markdown="1">
-    <img src="{image_rel}" alt="{name}" class="item-image">
+# {name}
+## {domain}
+<div class="grid item-grid" markdown="1">
+<div markdown="1">
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
+## Description
+{description}
+</div>
 
-    # {name}
-    - **Type:** {type}
-    - **Level:** {level}
-    - **Domain:** {domain}
-    - **Recall Cost:** {recallCost}
+<div markdown="1">
+<table class="stat-table">
+  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <tbody>
+    <tr><td>Type</td><td align="right">{type}</td></tr>
+    <tr><td>Level</td><td align="right">{level}</td></tr>
+    <tr><td>Recall Cost</td><td align="right">{recallCost}</td></tr>
+  </tbody>
+</table>
+</div>
+</div>
+## Actions
+{actions_flat}
 
-    ## Actions
-    {actions_flat}
+---
 
-    ---
-
-    ## Description
-    {description}
-
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.system.{slug}`
-    </div>
-    </div>
-    """,
+<div class="meta" markdown="1">
+{folder_path}
+<br>
+**UUID:** `Compendium.cybermancy.system.{slug}`
+</div>
+</div>
+""",
 
     # Features (system) -------------------------------------------------------
     "feature": """<div class="feature" markdown="1">
-    <img src="{image_rel}" alt="{name}" class="item-image">
+# {name}
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
+## Description
+*{description}*
 
-    # {name}
+## Actions
+{actions_flat}
 
-    ## Actions
-    {actions_flat}
+---
 
-    ---
-
-    ## Description
-    {description}
-
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.system.{slug}`
-    </div>
-    </div>
-    """,
+<div class="meta" markdown="1">
+{folder_path}
+<br>
+**UUID:** `Compendium.cybermancy.system.{slug}`
+</div>
+</div>
+""",
 }
 
 # ---------------------------- Configuration ----------------------------------
@@ -745,6 +774,9 @@ TEMPLATES: Dict[str, str] = {
 
 DEFAULT_ITEM_FIELD_MAP = {
     "name": "name",
+    "id": "_id",
+    "key": "_key",
+    "folder": "folder",
     "type": "type",
     "description": "system.description",
     "tier": "system.tier",
@@ -754,9 +786,29 @@ DEFAULT_ITEM_FIELD_MAP = {
 }
 
 CONFIG: Dict[str, Dict[str, Any]] = {
+    # ---------------- Features - read these first ----------------
+    "features": {
+        "kind": "system",
+        "src_subdir": "features",
+        "csv_fields": ["name", "slug", "description"],
+        "field_map": {
+            "name": "name",
+            "id": "_id",
+            "key": "_key",
+            "folder": "folder",
+            "actions": "system.actions",
+            "description": "system.description",
+            "img": "img"
+        },
+        "template": "feature",
+        "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
+        "comp_key": "system",
+        "out_dir_name": lambda audience, key: f"{audience}/system/{key}"
+    },
     # ---------------- Items ----------------
     "weapons": {
         "kind": "items",
+        "id": "_id",
         "src_subdir": "weapons",
         "csv_fields": ["name","slug","description","tier","trait","range","burden","damage","weapon_feats","actions_flat"],
         "field_map": DEFAULT_ITEM_FIELD_MAP | {
@@ -774,6 +826,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "armors": {
         "kind": "items",
+        "id": "_id",
         "src_subdir": "armors",
         "csv_fields": ["name","slug","description","tier","baseScore","majorThreshold","severeThreshold","armor_features_flat"],
         "field_map": DEFAULT_ITEM_FIELD_MAP | {
@@ -849,12 +902,56 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
 
     # ---------------- System ----------------
+    "domains": {
+        "kind": "system",
+        "src_subdir": "domains",
+        "csv_fields": ["name","slug","domain","description","level","recallCost"],
+        "field_map": {
+            "name": "name",
+            "id": "_id",
+            "key": "_key",
+            "folder": "folder",
+            "type": "system.type",
+            "level": "system.level",
+            "domain": "system.domain",
+            "recallCost": "system.recallCost",
+            "actions": "system.actions",
+            "description": "system.description",
+            "img": "img"
+        },
+        "template": "domain",
+        "image_rel": lambda audience, key, slug, domain='': f"../../../assets/icons/{key}/{domain}/{slug}.webp",
+        "comp_key": "system",
+        "out_dir_name": lambda audience, key: f"{audience}/system/{key}"
+    },
+    "subclasses": {
+        "kind": "system",
+        "src_subdir": "subclasses",
+        "csv_fields": ["name", "slug", "description", "spellcastingTrait"],
+        "field_map": {
+            "name": "name",
+            "id": "_id",
+            "key": "_key",
+            "folder": "folder",
+            "spellcastingTrait": "system.spellcastingTrait",
+            "features": "system.features",
+            "description": "system.description",
+            "img": "img"
+        },
+        "template": "subclass",
+        "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
+        "comp_key": "system",
+        "out_dir_name": lambda audience, key: f"{audience}/system/{key}"
+    },
     "classes": {
         "kind": "system",
         "src_subdir": "classes",
-        "csv_fields": ["name","slug","domains","hitPoints","evasion", "features", "subclasses"],
+        "csv_fields": ["name", "slug", "description"],
         "field_map": {
             "name": "name",
+            "id": "_id",
+            "key": "_key",
+            "folder": "folder",
             "type": "type",
             "domains": "system.domains",
             "hitPoints": "system.hitPoints",
@@ -865,61 +962,13 @@ CONFIG: Dict[str, Dict[str, Any]] = {
             "img": "img"
         },
         "template": "class",
-        "image_rel": lambda audience, key, slug: f"../../assets/icons/{key}/{slug}.webp",
+        "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
         "comp_key": "system",
-        "out_dir_name": lambda audience, key: f"{audience}/{key}"
-    },
-    "subclasses": {
-        "kind": "system",
-        "src_subdir": "subclasses",
-        "csv_fields": ["name","slug","description","spellcastingTrait","features"],
-        "field_map": {
-            "name": "name",
-            "spellcastingTrait": "system.spellcastingTrait",
-            "features": "system.features",
-            "description": "system.description",
-            "img": "img"
-        },
-        "template": "subclass",
-        "image_rel": lambda audience, key, slug: f"../../assets/icons/{key}/{slug}.webp",
-        "comp_key": "system",
-        "out_dir_name": lambda audience, key: f"{audience}/{key}"
-    },
-    "domains": {
-        "kind": "system",
-        "src_subdir": "domains",
-        "csv_fields": ["name","slug","domain","type","description","level","recallCost","actions"],
-        "field_map": {
-            "name": "name",
-            "type": "system.type",
-            "level": "system.level",
-            "domain": "system.domain",
-            "recallCost": "system.recallCost",
-            "actions": "system.actions",
-            "description": "system.description",
-            "img": "img"
-        },
-        "template": "domain",
-        "image_rel": lambda audience, key, slug: f"../../assets/icons/{key}/{slug}.webp",
-        "comp_key": "system",
-        "out_dir_name": lambda audience, key: f"{audience}/{key}"
-    },
-    "features": {
-        "kind": "system",
-        "src_subdir": "features",
-        "csv_fields": ["name","slug","description","actions"],
-        "field_map": {
-            "name": "name",
-            "actions": "system.actions",
-            "description": "system.description",
-            "img": "img"
-        },
-        "template": "feature",
-        "image_rel": lambda audience, key, slug: f"../../assets/icons/{key}/{slug}.webp",
-        "comp_key": "system",
-        "out_dir_name": lambda audience, key: f"{audience}/{key}"
+        "out_dir_name": lambda audience, key: f"{audience}/system/{key}"
     }
 }
+
+# this dict is a holder for all the items processed by generate-docs, it permits the presentation of name and description when there are cross-referenced features like in classess
 
 # ---------------------------- Rendering helpers ------------------------------
 
@@ -934,18 +983,130 @@ def list_to_md_bullets(val) -> str:
         return "\n".join(f"- {md_escape(str(x))}" for x in val)
     return f"- {md_escape(str(val))}"
 
-def features_to_md(val) -> str:
+def features_to_md(val, feature_map=None) -> str:
+    """
+    Render features as markdown bullets.
+
+    Supports:
+    - list of { name, description }
+    - list of { type, item: 'Compendium...Item.<id>' } with lookup via feature_map
+    - dicts of id -> { name, description } (fallback)
+    - plain strings as last resort
+    """
     if not val:
         return ""
+
+    lines = []
+
+    # Case 1: list
     if isinstance(val, list):
-        return "\n".join(f"- **{md_escape(str(x.get('name','')))}** — {md_escape(str(x.get('text','')))}" for x in val)
+        for x in val:
+            if isinstance(x,
+                          str) and feature_map:  # at this point in the logic cascade, you have a subclasses so some of the next code assumes subclasses
+                feature_id = x.split(".")[-1]  # last segment is the id
+                meta = feature_map.get(feature_id)
+                if meta:
+                    fname = meta.get("name", "")
+                    fdesc = meta.get("description", "")
+                    ftype = meta.get("type") or ""
+                    fimg = meta.get("feature_image_rel") or ""
+                    type_prefix = f"_{md_escape(str(ftype).title())}_: " if ftype else ""
+                    href = meta.get("feature_href_rel", f"../subclasses/{slugify(fname)}/")
+                    lines.append(
+                        "- "
+                        f"<a href='{href}'>"
+                        f"<img src='{fimg}' alt='{md_escape(str(fname))}' "
+                        f"class='item-image' style='width:120px; height:auto;'>"
+                        f"</a><br> "
+                        f"<a href='{href}'><strong>{md_escape(str(fname))}</strong></a>"
+                        f" — {type_prefix}{str(fdesc)}"
+                    )
+                    continue  # handled this entry
+
+            # Foundry-style reference:
+            # { "type": "foundation", "item": "Compendium....Item.<id>" }
+            if isinstance(x, dict) and "item" in x and feature_map:
+                uuid = str(x.get("item", ""))
+                feature_id = uuid.split(".")[-1]  # last segment is the id
+                meta = feature_map.get(feature_id)
+                if meta:
+                    fname = meta.get("name", "")
+                    fdesc = meta.get("description", "")
+                    ftype = x.get("type") or meta.get("type") or ""
+                    fimg = meta.get("feature_image_rel") or ""
+                    type_prefix = f"_{md_escape(str(ftype).title())}_: " if ftype else ""
+                    href = meta.get("feature_href_rel", f"../features/{slugify(fname)}/")
+                    lines.append(
+                        "- "
+                        f"<a href='{href}'>"
+                        f"<img src='{fimg}' alt='{md_escape(str(fname))}' "
+                        f"class='item-image' style='width:120px; height:auto;'>"
+                        f"</a><br> "
+                        f"<a href='{href}'><strong>{md_escape(str(fname))}</strong></a>"
+                        f" — {type_prefix}{str(fdesc)}"
+                    )
+                    continue  # handled this entry
+
+            # Generic dict with name/description
+            if isinstance(x, dict):
+                name = x.get("name") or ""
+                desc = x.get("description") or x.get("text") or ""
+                if name or desc:
+                    if desc:
+                        lines.append(
+                            f"- **{md_escape(str(name))}** — {str(desc)}"
+                        )
+                    else:
+                        lines.append(f"- {md_escape(str(name))}")
+                    continue
+
+            # Fallback: primitive or unknown shape
+            try:
+                feature_id = x.split(".")[-1]  # last segment is the id
+                meta = feature_map.get(feature_id)
+                if meta:
+                    fname = meta.get("name", "")
+                    fdesc = meta.get("description", "")
+                    ftype = meta.get("type") or ""
+                    fimg = meta.get("feature_image_rel") or ""
+                    type_prefix = f"_{md_escape(str(ftype).title())}_: " if ftype else ""
+                    href = meta.get("feature_href_rel", f"../subclasses/{slugify(fname)}/")
+                    lines.append(
+                        "- "
+                        f"<a href='{href}'>"
+                        f"<img src='{fimg}' alt='{md_escape(str(fname))}' "
+                        f"class='item-image' style='width:120px; height:auto;'>"
+                        f"</a><br> "
+                        f"<a href='{href}'><strong>{md_escape(str(fname))}</strong></a>"
+                        f" — {type_prefix}{str(fdesc)}"
+                    )
+            except:
+                lines.append(f"- {md_escape(str(x))}")
+
+        return "\n".join(lines)
+
+    # Case 2: dict (e.g. id -> {name, description})
     if isinstance(val, dict):
-        return "\n".join(f"- **{md_escape(k)}** — {md_escape(str(v))}" for k, v in val.items())
+        for k, v in val.items():
+            if isinstance(v, dict):
+                name = v.get("name", k)
+                desc = v.get("description", v.get("text", ""))
+                if desc:
+                    lines.append(
+                        f"- **{md_escape(str(name))}** — {str(desc)}"
+                    )
+                else:
+                    lines.append(f"- {md_escape(str(name))}")
+            else:
+                lines.append(f"- **{md_escape(str(k))}** — {str(v)}")
+        return "\n".join(lines)
+
+    # Case 3: plain string / other
     return md_escape(str(val))
 
 # ---------------------------- Main -------------------------------------------
 
-def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, type_key: str):
+def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, type_key: str, feature_map: dict, folder_map: dict) -> List[str]:
     cfg = CONFIG[type_key]
     kind = cfg["kind"]
     src_dir = root / "src" / "packs" / kind / cfg["src_subdir"]
@@ -958,8 +1119,17 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
     out_dir_rel = cfg["out_dir_name"](audience, type_key)
     out_dir = docs_root / out_dir_rel
     ensure_dir(out_dir)
-
-    detail_dir = ""
+    # One pass through all the files to gather the Folders first
+    for p in sorted(src_dir.rglob("*.json")):
+        obj = read_json(p)
+        key = get_in(obj, field_map.get("key", "_key"))
+        folder = get_in(obj, field_map.get("folder", "folder"))
+        name = get_in(obj, field_map.get("name", "name"))
+        id = get_in(obj, field_map.get("id", "_id"))
+        if not name:
+            continue
+        if "folders" in key:
+            folder_map[id] = {"name": name, "parent_folder": folder}
 
     count = 0
     for p in sorted(src_dir.rglob("*.json")):
@@ -970,16 +1140,33 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
         slug = slugify(name)
 
         # Common basics
-        img_ref = get_in(obj, field_map.get("img", "img"))
+        #img_ref = get_in(obj, field_map.get("img", "img"))
         description = get_in(obj, field_map.get("description", "system.description"))
         type = get_in(obj, field_map.get("type", "type"))
+        id = get_in(obj, field_map.get("id", "_id"))
+        key = get_in(obj, field_map.get("key", "_key"))
         tier = get_in(obj, field_map.get("tier", "system.tier"))
+        folder = get_in(obj, field_map.get("folder", "folder"))
+        if not tier and isinstance(folder, str) and folder and folder_map[folder]["name"].lower().startswith("tier"):
+            tier = folder_map[folder]["name"].split()[1] if len(folder_map[folder]["name"].split()) > 1 else "Tier undefined"
+
+        # FEATURES: store all ids and name, desc tuples for later use by classes. Store all folders, so they can be stripped from the output and used to fill in Tier info
+        feature_map[id] = {"name": name,
+                           "description": description,
+                            "type": type,
+                           "feature_image_rel": md_escape(cfg["image_rel"](audience, type_key, slug)),
+                           "feature_href_rel": f"../../{type_key}/{slug}/",
+                           }
+        # FOLDERs - we gathered all the folders above, so this time we skip them.
+        if "folders" in key:
+            continue
 
         actions_node = get_in(obj, field_map.get("actions", "system.actions"), [])
         effects_node = get_in(obj, field_map.get("effects", "system.effects"), [])
 
         action_summaries = summarize_actions(actions_node)  # List[dict]
         effect_summaries = summarize_effects(effects_node)  # List[dict]
+        folder_path = resolve_folder_path(folder, folder_map, type_key)
 
     # CSV row (columns per config)
         csv_row = {"name": name, "slug": slug}
@@ -996,15 +1183,16 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
             #"image_rel": md_escape(img_ref),
             "image_rel": md_escape(cfg["image_rel"](audience, type_key, slug)),
             "slug": slug,
-            "type": md_escape(type or "Common"),
+            "type": prettify_camel(md_escape(type or "Common")),
             "tier": md_escape(str(tier) or "—"),
-            "description": md_escape(description or "(No description yet.)"),
+            "description": description or "(No description yet.)",
             "comp_key": cfg.get("comp_key", type_key),
             "type_title": titleize(type_key[:-1]) if type_key.endswith("s") else titleize(type_key),
             "actions": action_summaries,
             "effects": effect_summaries,
             "actions_flat": "\n\n".join(f"- <div markdown='1'>**{a['name']}**<br>*{a['description']}*</div>" for a in action_summaries) or "—",
-            "effects_flat": "\n\n".join(f"- <div markdown='1'>**{e['name']}**<br>*{e['description']}*</div>" for e in effect_summaries) or "—"
+            "effects_flat": "\n\n".join(f"- <div markdown='1'>**{e['name']}**<br>*{e['description']}*</div>" for e in effect_summaries) or "—",
+            "folder_path": folder_path
         }
 
         detail_dir = docs_root / out_dir_rel / slug
@@ -1042,6 +1230,10 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
                 rows[-1]["majorThreshold"] = baseThresholds.get("major", "—") if baseThresholds else "—"
             if "severeThreshold" in cfg["csv_fields"]:
                 rows[-1]["severeThreshold"] = baseThresholds.get("severe", "—") if baseThresholds else "—"
+            if "tier" in cfg["csv_fields"]:
+                rows[-1]["tier"] = tier
+            if "burden" in cfg["csv_fields"]:
+                rows[-1]["burden"] = burden
 
             ctx.update({
                 "damage": md_escape(damage or "—"),
@@ -1060,36 +1252,49 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
 
         # System types enrichments
         else:
-            # All system types write to docs/<audience>/<type>/<slug>/index.md
-            image_rel = cfg["image_rel"](audience, type_key, slug)
+
             detail_dir = docs_root / out_dir_rel / slug
             ensure_dir(detail_dir)
-            ctx["image_rel"] = image_rel
 
+            domain = ""
             if type_key == "classes":
-                ctx["domains_list"] = ", ".join(get_in(obj, field_map["domains"], []) or [])
+                ctx["domains_list"] = prettify_camel(", ".join(get_in(obj, field_map["domains"], [])) or [])
                 ctx["hitPoints"] = md_escape(get_in(obj, field_map["hitPoints"], ""))
                 ctx["evasion"] = md_escape(get_in(obj, field_map["evasion"], ""))
                 features = get_in(obj, field_map["features"], [])
-                ctx["features_md"] = features_to_md(features)
+                ctx["features_md"] = features_to_md(features, feature_map)
+                subclasses = get_in(obj, field_map["subclasses"], [])
+                ctx["subclasses_md"] = features_to_md(subclasses, feature_map)
             elif type_key == "subclasses":
                 features = get_in(obj, field_map["features"], [])
-                ctx["features_md"] = features_to_md(features)
+                ctx["features_md"] = features_to_md(features, feature_map)
             elif type_key == "domains":
+                domain = prettify_camel(get_in(obj, field_map.get("domain", "system.domain" )))
                 ctx["level"] = md_escape(get_in(obj, field_map["level"], ""))
-                ctx["domain"] = list_to_md_bullets(get_in(obj, field_map["domain"], []))
-                ctx["recallCost"]  = features_to_md(get_in(obj, field_map["recallCost"], []))
+                ctx["domain"] = prettify_camel(md_escape(get_in(obj, field_map["domain"], [])))
+                ctx["recallCost"]  = md_escape(get_in(obj, field_map["recallCost"], ""))
+                if "domain" in cfg["csv_fields"]:
+                    rows[-1]["domain"] = domain
+
             # elif type_key == "features":
 
+            # All system types write to docs/<audience>/<type>/<slug>/index.md except domains
+            if type_key == "domains":
+                image_rel = cfg["image_rel"](audience, type_key, slug, domain)
+            else:
+                image_rel = cfg["image_rel"](audience, type_key, slug)
+            ctx.update({"image_rel": image_rel})
         # Render and write
-        page_md = render_template(template_key, ctx)
-        (detail_dir / "index.md").write_text(page_md, encoding="utf-8")
-        count += 1
+        if id not in folder_map:
+            page_md = render_template(template_key, ctx)
+            (detail_dir / "index.md").write_text(page_md, encoding="utf-8")
+            count += 1
 
     # CSV index
     if rows:
         # --- Sort rows by Tier (if present) then by Name ---
         tier_present = "tier" in CONFIG[type_key]["csv_fields"]
+        domain_present = "domain" in CONFIG[type_key]["csv_fields"]
         if tier_present:
             def tier_sort_value(v):
                 t = v.get("tier")
@@ -1100,6 +1305,16 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
                     # None or non-numeric values sort last
                     return 9999
             rows.sort(key=lambda r: (tier_sort_value(r), str(r.get("name", "")).lower()))
+        elif domain_present:
+            def level_sort_value(v):
+                t = v.get("level")
+                try:
+                    # Handle numeric tiers if they are strings
+                    return int(t)
+                except (TypeError, ValueError):
+                    # None or non-numeric values sort last
+                    return 9999
+            rows.sort(key=lambda r: (str(r.get("domain", "")).lower(), level_sort_value(r)))
         else:
             rows.sort(key=lambda r: str(r.get("name", "")).lower())
         # ---------------------------------------------------
@@ -1130,6 +1345,8 @@ def main():
     data_root = docs_root / "data"
     ensure_dir(docs_root)
     ensure_dir(data_root)
+    feature_map = {}
+    folder_map = {}
 
     # Determine which types to run
     all_types = list(CONFIG.keys())
@@ -1140,7 +1357,7 @@ def main():
         if type_key not in CONFIG:
             print(f"[skip] Unknown type: {type_key}")
             continue
-        n, out_dir = process_type(root, docs_root, data_root, args.audience, type_key)
+        n, out_dir = process_type(root, docs_root, data_root, args.audience, type_key, feature_map, folder_map)
         if n:
             print(f"[ok] {type_key}: {n} pages -> {out_dir}")
             total += n

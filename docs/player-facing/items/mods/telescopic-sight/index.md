@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Telescopic sight
+<img src="../../../assets/icons/mods/telescopic-sight.webp" alt="Telescopic sight" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/telescopic-sight.webp" alt="Telescopic sight" class="item-image">
-    ### Telescopic sight
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;Reduce a range increment by 1 when target creatures at the limit of your gun's range&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">Reduce a range increment by 1 when target creatures at the limit of your gun's range</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.telescopic-sight`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.telescopic-sight`
+</div>
+</div>

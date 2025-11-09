@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Armor-Piercing Slug Rail
+<img src="../../../assets/icons/mods/armor-piercing-slug-rail.webp" alt="Armor-Piercing Slug Rail" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/armor-piercing-slug-rail.webp" alt="Armor-Piercing Slug Rail" class="item-image">
-    ### Armor-Piercing Slug Rail
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;When resolving a successful attack with this weapon, if it is loaded with Armor piercing rounds, the target must mark 2 Stress to mark 1 Armor Slot&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">When resolving a successful attack with this weapon, if it is loaded with Armor piercing rounds, the target must mark 2 Stress to mark 1 Armor Slot</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.armor-piercing-slug-rail`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.armor-piercing-slug-rail`
+</div>
+</div>

@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Tracker Rounds
+<img src="../../../assets/icons/ammo/tracker-rounds.webp" alt="Tracker Rounds" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/ammo/tracker-rounds.webp" alt="Tracker Rounds" class="item-image">
-    ### Tracker Rounds
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  &lt;br /&gt;&lt;br /&gt;Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Tracker Rounds**<br>*Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Tracker Rounds**<br>*Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.ammo.tracker-rounds`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+ammo
+<br>
+**UUID:** `Compendium.cybermancy.ammo.tracker-rounds`
+</div>
+</div>

@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Legendary Monofilament Whip
+# Legendary Monofilament Whip
 
-<img src="../../../assets/icons/weapons/legendary-monofilament-whip.webp" alt="Legendary Monofilament Whip" class="item-image">
+<img src="../../../assets/icons/weapons/legendary-monofilament-whip.webp" alt="Legendary Monofilament Whip" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 The apex of weaponized filaments, capable of cutting through armor, steel, or reality itself.
@@ -15,7 +15,7 @@ The apex of weaponized filaments, capable of cutting through armor, steel, or re
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ The apex of weaponized filaments, capable of cutting through armor, steel, or re
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.legendary-monofilament-whip`
+weapons/Tier 4
+<br>
 </div>
 </div>

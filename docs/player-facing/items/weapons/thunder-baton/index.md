@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Thunder Baton
+# Thunder Baton
 
-<img src="../../../assets/icons/weapons/thunder-baton.webp" alt="Thunder Baton" class="item-image">
+<img src="../../../assets/icons/weapons/thunder-baton.webp" alt="Thunder Baton" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Electrified shock weapon tuned for area suppression, discharging arcs of blinding light and sound.
@@ -15,7 +15,7 @@ Electrified shock weapon tuned for area suppression, discharging arcs of blindin
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Electrified shock weapon tuned for area suppression, discharging arcs of blindin
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.thunder-baton`
+weapons/Tier 4
+<br>
 </div>
 </div>

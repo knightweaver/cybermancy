@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Flux Speaking Orbs Key
+<img src="../../../assets/icons/loot/flux-speaking-orbs-key.webp" alt="Flux Speaking Orbs Key" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/flux-speaking-orbs-key.webp" alt="Flux Speaking Orbs Key" class="item-image">
-    ### Flux Speaking Orbs Key
-    <div class="item-flavor">
-    *This pair of orbs allows any creatures holding them to communicate with each other across any distance. stores resonance data and telemetry snapshots*
-    </div>
-    </div>
+*This pair of orbs allows any creatures holding them to communicate with each other across any distance. stores resonance data and telemetry snapshots*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.flux-speaking-orbs-key`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.flux-speaking-orbs-key`
+</div>
+</div>

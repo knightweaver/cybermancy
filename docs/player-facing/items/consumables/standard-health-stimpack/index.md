@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Standard Health Stimpack
+<img src="../../../assets/icons/consumables/standard-health-stimpack.webp" alt="Standard Health Stimpack" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/standard-health-stimpack.webp" alt="Standard Health Stimpack" class="item-image">
-    ### Standard Health Stimpack
-    <div class="item-flavor">
-    *A dual-dose medical injector that rebuilds soft tissue instantly. Restores 1d4+1 HP.*
-    </div>
-    </div>
+*A dual-dose medical injector that rebuilds soft tissue instantly. Restores 1d4+1 HP.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*Clear 1d4+1 HP.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*Clear 1d4+1 HP.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.standard-health-stimpack`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.standard-health-stimpack`
+</div>
+</div>

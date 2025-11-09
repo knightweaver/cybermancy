@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Synth Premium Bedroll Key
+<img src="../../../assets/icons/loot/synth-premium-bedroll-key.webp" alt="Synth Premium Bedroll Key" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/synth-premium-bedroll-key.webp" alt="Synth Premium Bedroll Key" class="item-image">
-    ### Synth Premium Bedroll Key
-    <div class="item-flavor">
-    *During downtime, you automatically clear a Stress. black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*During downtime, you automatically clear a Stress. black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Take a nap**<br>**</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Take a nap**<br>**</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.synth-premium-bedroll-key`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.synth-premium-bedroll-key`
+</div>
+</div>

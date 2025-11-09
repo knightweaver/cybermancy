@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Annihilation Grenade
+# Annihilation Grenade
 
-<img src="../../../assets/icons/weapons/annihilation-grenade.webp" alt="Annihilation Grenade" class="item-image">
+<img src="../../../assets/icons/weapons/annihilation-grenade.webp" alt="Annihilation Grenade" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Compact tactical nuke delivering utter destruction in a small, precise radius.
@@ -15,7 +15,7 @@ Compact tactical nuke delivering utter destruction in a small, precise radius.
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Finesse</td></tr>
@@ -44,5 +44,7 @@ Compact tactical nuke delivering utter destruction in a small, precise radius.
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.annihilation-grenade`
+weapons/Tier 4
+<br>
 </div>
 </div>

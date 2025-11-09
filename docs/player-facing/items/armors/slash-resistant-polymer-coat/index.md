@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Slash-Resistant Polymer Coat
-<img src="../../../assets/icons/armors/slash-resistant-polymer-coat.webp" alt="Slash-Resistant Polymer Coat" class="item-image">
+# Slash-Resistant Polymer Coat
+<img src="../../../assets/icons/armors/slash-resistant-polymer-coat.webp" alt="Slash-Resistant Polymer Coat" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Full-length polymer-link coat—blades skate, you keep walking.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.slash-resistant-polymer-coat`
 </div>
 </div>

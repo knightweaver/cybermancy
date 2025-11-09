@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Chrome Homing Compasses Beacon
+<img src="../../../assets/icons/loot/chrome-homing-compasses-beacon.webp" alt="Chrome Homing Compasses Beacon" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/chrome-homing-compasses-beacon.webp" alt="Chrome Homing Compasses Beacon" class="item-image">
-    ### Chrome Homing Compasses Beacon
-    <div class="item-flavor">
-    *These two compasses point toward each other no matter how far apart they are. black-market tech favored by runners and fixers*
-    </div>
-    </div>
+*These two compasses point toward each other no matter how far apart they are. black-market tech favored by runners and fixers*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.chrome-homing-compasses-beacon`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.chrome-homing-compasses-beacon`
+</div>
+</div>

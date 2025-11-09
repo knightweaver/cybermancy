@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Arc Greatstone Relay
+<img src="../../../assets/icons/loot/arc-greatstone-relay.webp" alt="Arc Greatstone Relay" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/loot/arc-greatstone-relay.webp" alt="Arc Greatstone Relay" class="item-image">
-    ### Arc Greatstone Relay
-    <div class="item-flavor">
-    *You can attach this stone to a weapon that doesn’t already have a feature. The weapon gains the following feature. ***Powerful:*** On a successful attack, roll an additional damage die and discard the lowest result. stores resonance data and telemetry snapshot*
-    </div>
-    </div>
+*You can attach this stone to a weapon that doesn’t already have a feature. The weapon gains the following feature. ***Powerful:*** On a successful attack, roll an additional damage die and discard the lowest result. stores resonance data and telemetry snapshot*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.loot.arc-greatstone-relay`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+loot
+<br>
+**UUID:** `Compendium.cybermancy.loot.arc-greatstone-relay`
+</div>
+</div>

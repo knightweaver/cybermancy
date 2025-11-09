@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Tactical Gel Suit
-<img src="../../../assets/icons/armors/tactical-gel-suit.webp" alt="Tactical Gel Suit" class="item-image">
+# Tactical Gel Suit
+<img src="../../../assets/icons/armors/tactical-gel-suit.webp" alt="Tactical Gel Suit" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Combat-grade gel padding bonded to compression mesh—soaks hits, keeps you moving.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.tactical-gel-suit`
 </div>
 </div>

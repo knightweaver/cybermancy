@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Phase-Shift Serum
+<img src="../../../assets/icons/consumables/phase-shift-serum.webp" alt="Phase-Shift Serum" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/phase-shift-serum.webp" alt="Phase-Shift Serum" class="item-image">
-    ### Phase-Shift Serum
-    <div class="item-flavor">
-    *A rare experimental serum that lets the user blink through space within very Far range.*
-    </div>
-    </div>
+*A rare experimental serum that lets the user blink through space within very Far range.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*You can drink this blood to disappear from where you are and immediately reappear at a point you can see within Very Far range.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*You can drink this blood to disappear from where you are and immediately reappear at a point you can see within Very Far range.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.phase-shift-serum`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.phase-shift-serum`
+</div>
+</div>

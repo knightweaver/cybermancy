@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Null-Field Generator
+<img src="../../../assets/icons/consumables/null-field-generator.webp" alt="Null-Field Generator" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/null-field-generator.webp" alt="Null-Field Generator" class="item-image">
-    ### Null-Field Generator
-    <div class="item-flavor">
-    *A portable field device that nullifies magic and digital resonance within Far range for one scene.*
-    </div>
-    </div>
+*A portable field device that nullifies magic and digital resonance within Far range for one scene.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Use**<br>*Mark a Stress to create a void that extends up to Far range. No magic can be cast inside the void, and creatures within the void are immune to magic damage.*</div>
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Use**<br>*Mark a Stress to create a void that extends up to Far range. No magic can be cast inside the void, and creatures within the void are immune to magic damage.*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.null-field-generator`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.null-field-generator`
+</div>
+</div>

@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Shotgun
+# Shotgun
 
-<img src="../../../assets/icons/weapons/shotgun.webp" alt="Shotgun" class="item-image">
+<img src="../../../assets/icons/weapons/shotgun.webp" alt="Shotgun" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Brutal close-range weapon that clears hallways with concussive thunder and devastating scatter.
@@ -15,7 +15,7 @@ Brutal close-range weapon that clears hallways with concussive thunder and devas
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">1</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Brutal close-range weapon that clears hallways with concussive thunder and devas
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.shotgun`
+weapons/Tier 1
+<br>
 </div>
 </div>

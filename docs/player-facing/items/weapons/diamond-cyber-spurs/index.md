@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Diamond Cyber Spurs
+# Diamond Cyber Spurs
 
-<img src="../../../assets/icons/weapons/diamond-cyber-spurs.webp" alt="Diamond Cyber Spurs" class="item-image">
+<img src="../../../assets/icons/weapons/diamond-cyber-spurs.webp" alt="Diamond Cyber Spurs" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Mirror-finish diamond-tipped spurs designed for surgical precision and absolute silence.
@@ -15,7 +15,7 @@ Mirror-finish diamond-tipped spurs designed for surgical precision and absolute 
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">4</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Mirror-finish diamond-tipped spurs designed for surgical precision and absolute 
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.diamond-cyber-spurs`
+weapons/Tier 4
+<br>
 </div>
 </div>

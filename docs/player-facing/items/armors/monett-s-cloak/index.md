@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Monett's Cloak
-<img src="../../../assets/icons/armors/monett-s-cloak.webp" alt="Monett's Cloak" class="item-image">
+# Monett's Cloak
+<img src="../../../assets/icons/armors/monett-s-cloak.webp" alt="Monett's Cloak" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *(No description yet.)*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.monett-s-cloak`
 </div>
 </div>

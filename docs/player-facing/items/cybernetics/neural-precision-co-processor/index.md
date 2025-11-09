@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Neural Precision Co-Processor
+<img src="../../../assets/icons/cybernetics/neural-precision-co-processor.webp" alt="Neural Precision Co-Processor" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/neural-precision-co-processor.webp" alt="Neural Precision Co-Processor" class="item-image">
-    ### Neural Precision Co-Processor
-    <div class="item-flavor">
-    *&lt;i&gt;Elevate thought; brilliance, a heartbeat away.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;Once per scene, &lt;strong&gt;Spend 2 Hope&lt;/strong&gt; to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Elevate thought; brilliance, a heartbeat away.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Neural Precision Co-Processor**<br>*Elevate thought; brilliance, a heartbeat away.Once per scene, Spend 2 Hope to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)*</div>
+### **Tier: 2**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Neural Precision Co-Processor**<br>*Elevate thought; brilliance, a heartbeat away.Once per scene, Spend 2 Hope to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.neural-precision-co-processor`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 2
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.neural-precision-co-processor`
+</div>
+</div>

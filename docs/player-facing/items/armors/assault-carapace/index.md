@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Assault Carapace
-<img src="../../../assets/icons/armors/assault-carapace.webp" alt="Assault Carapace" class="item-image">
+# Assault Carapace
+<img src="../../../assets/icons/armors/assault-carapace.webp" alt="Assault Carapace" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Assault-rated composite plating with shock collars and full-joint reinforcement. Try not to run.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.assault-carapace`
 </div>
 </div>

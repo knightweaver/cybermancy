@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Muscle Overdrive Serum
+<img src="../../../assets/icons/consumables/muscle-overdrive-serum.webp" alt="Muscle Overdrive Serum" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/consumables/muscle-overdrive-serum.webp" alt="Muscle Overdrive Serum" class="item-image">
-    ### Muscle Overdrive Serum
-    <div class="item-flavor">
-    *A strength-enhancing stim that floods the body with synthetic adrenaline. +1 bonus to your next Strength roll.*
-    </div>
-    </div>
+*A strength-enhancing stim that floods the body with synthetic adrenaline. +1 bonus to your next Strength roll.*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Strength Roll.*</div>
+### **Tier: —**
 
-    #### Effects
-    - <div markdown='1'>**Bolster Potion**<br>**</div>
-    </div>
+#### Actions
+- <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Strength Roll.*</div>
 
-    </div>
+#### Effects
+- <div markdown='1'>**Bolster Potion**<br>**</div>
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.consumables.muscle-overdrive-serum`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+consumables
+<br>
+**UUID:** `Compendium.cybermancy.consumables.muscle-overdrive-serum`
+</div>
+</div>

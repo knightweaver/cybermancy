@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Predictive Motion Processor
+<img src="../../../assets/icons/cybernetics/predictive-motion-processor.webp" alt="Predictive Motion Processor" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/cybernetics/predictive-motion-processor.webp" alt="Predictive Motion Processor" class="item-image">
-    ### Predictive Motion Processor
-    <div class="item-flavor">
-    *&lt;i&gt;Unleash precision beyond mortal reach.&lt;/i&gt;&lt;br /&gt;&lt;br /&gt;&lt;p class="Card-Feature"&gt;&lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to gain +2 on an attack roll&lt;/p&gt;*
-    </div>
-    </div>
+*<i>Unleash precision beyond mortal reach.</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on an attack roll</p>*
 
-    <div markdown="1">
-    #### Actions
-    - <div markdown='1'>**Predictive Motion Processor**<br>*Unleash precision beyond mortal reach.Spend 1 Hope to gain +2 on an attack roll*</div>
+### **Tier: 1**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+- <div markdown='1'>**Predictive Motion Processor**<br>*Unleash precision beyond mortal reach.Spend 1 Hope to gain +2 on an attack roll*</div>
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.cybernetics.predictive-motion-processor`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+cybernetics/Tier 1
+<br>
+**UUID:** `Compendium.cybermancy.cybernetics.predictive-motion-processor`
+</div>
+</div>

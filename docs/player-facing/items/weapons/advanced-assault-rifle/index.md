@@ -2,9 +2,9 @@
     
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
-### Advanced Assault Rifle
+# Advanced Assault Rifle
 
-<img src="../../../assets/icons/weapons/advanced-assault-rifle.webp" alt="Advanced Assault Rifle" class="item-image">
+<img src="../../../assets/icons/weapons/advanced-assault-rifle.webp" alt="Advanced Assault Rifle" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 Elite-issue firearm capable of sustained fire with minimal barrel drift.
@@ -15,7 +15,7 @@ Elite-issue firearm capable of sustained fire with minimal barrel drift.
 
 #### Stats
 <table class="stat-table">
-  <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>
+  <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
   <tbody>
     <tr><td>Tier</td><td align="right">3</td></tr>
     <tr><td>Trait</td><td align="right">Strength</td></tr>
@@ -44,5 +44,7 @@ Elite-issue firearm capable of sustained fire with minimal barrel drift.
 
 <div class="meta" markdown="1">
 **UUID:** `Compendium.cybermancy.weapons.advanced-assault-rifle`
+weapons/Tier 3
+<br>
 </div>
 </div>

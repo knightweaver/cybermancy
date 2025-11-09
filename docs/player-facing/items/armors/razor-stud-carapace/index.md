@@ -2,8 +2,8 @@
 <div class="grid item-grid" markdown="1">
 
 <div markdown="1">
-### Razor-Stud Carapace
-<img src="../../../assets/icons/armors/razor-stud-carapace.webp" alt="Razor-Stud Carapace" class="item-image">
+# Razor-Stud Carapace
+<img src="../../../assets/icons/armors/razor-stud-carapace.webp" alt="Razor-Stud Carapace" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
 *Barbs and razor-studs turn every clinch into a mistake—for them.*
@@ -37,6 +37,8 @@
 ---
 
 <div class="meta" markdown="1">
+armors/Tier 3
+<br>
 **UUID:** `Compendium.cybermancy.armors.razor-stud-carapace`
 </div>
 </div>

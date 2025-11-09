@@ -1,26 +1,20 @@
-<div class="item" markdown="1">
-    <div class="grid item-grid" markdown="1">
+<div class="default" markdown="1">
+# Shock Damping Frame
+<img src="../../../assets/icons/mods/shock-damping-frame.webp" alt="Shock Damping Frame" class="item-image" style="width:300px; height:auto;">
 
-    <div markdown="1">
-    <img src="../../../assets/icons/mods/shock-damping-frame.webp" alt="Shock Damping Frame" class="item-image">
-    ### Shock Damping Frame
-    <div class="item-flavor">
-    *&lt;p class="Card-Feature"&gt;Whenever you make an attack with this gun, you may &lt;strong&gt;Spend 1 Hope&lt;/strong&gt; to make a second attack at -2&lt;/p&gt;*
-    </div>
-    </div>
+*<p class="Card-Feature">Whenever you make an attack with this gun, you may <strong>Spend 1 Hope</strong> to make a second attack at -2</p>*
 
-    <div markdown="1">
-    #### Actions
-    —
+### **Tier: —**
 
-    #### Effects
-    —
-    </div>
+#### Actions
+—
 
-    </div>
+#### Effects
+—
 
-    <div class="meta" markdown="1">
-    **UUID:** `Compendium.cybermancy.mods.shock-damping-frame`
-    </div>
-    </div>
-    
+<div class="meta" markdown="1">
+mods
+<br>
+**UUID:** `Compendium.cybermancy.mods.shock-damping-frame`
+</div>
+</div>
