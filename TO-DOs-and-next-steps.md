@@ -7,11 +7,9 @@
 4. Learned lots about how the DH JSON is structured
 
 ## TO DOs:
- - Extract the Foundry folder path and include as part of the item listings
- - Extract the tier from the folders, if there is not tier value (e.g. cybernetics)
- - For class and subclass, populate those item listings with the image, name and description of the linked features - this will require building a feature dictionary with the ids and dynamically linking them in - not exactly sure how I'm going to do that... 
-
-
+ - Organize the corps and street rumors
+ - Figure out how / where to place the item load out levels onto the items
+ - Author the Cybermancer class - Codex and Circuits
  - Drone mods - should be in the same most as weapon mods, just load the object, description, and image then manually make the details as needed.
  - Build the first Adversaries and Environments by hand... 
  - ... which means, start writing the big picture story, so you know which to build first.

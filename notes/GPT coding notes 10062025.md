@@ -1,16 +1,33 @@
 
-# Project update and notes 10/19/2025
+# Project update and notes 11/9/2025
 
-This is my attempt to capture my brain dump of all the things I have learned in the past 2 weeks.
+At this point, I have almost all the compendia done, have sketched out the world background, and have a first cut at the corporations, the Council, and the Cabal.  Now it is time to start writing the story, the first encounter, the first mission and the first environments
 
-### TO DOs (10/189/2025)
- - Load directly to Compendia macro?
- - Update retitle_armors_and_zip.py to insert a bespoke stubbed out image name to the new icon
+### TO DOs (11/9/2025)
+
+ - Drone mods
+ - All items should have a "hide-ability" concept associated and indicates which Item Loadout they can be included in this will be a bit difficult to add post-hoc, but something to play around with.  This needs to be written up as a rules doc and should borrow from the Blades in the Dark "Item Loadout" concept.
+ - Common items
+ - Flashbacks - I love the idea from BitD, so write this up as a rule in Cybermancy as well, and the concept of Stress plays perfectly.
+ - Start to consolidate the initial World, NPC, Corp, Cabal, and Council notes into .md pages checked into Github (and hyperlinked)
+ - Write up the first mission (steal an item from a low-level corp facility - associated with one of the Council or Cabal projects - they will meet one of the 2 catalysts)
+ - Write up the first encounter (get the mission and rescue / protect the mission giver from a gang or corp drop-cop unit)
+ - Write up the first environment (the diner where the mission is given)
+ - Write up the first chase environment (get away from the gang with the mission giver)
+ - Ancestories changes in Cybermancy 
+ - Community changes in Cybermancy (and new ones if needed)
+
+### MVP release steps:
+
+ - Player-facing world history notes
+ - Player-facing corp notes
+ - Player-facing faction notes
+ - Player
 
 ## Key observations
 
 1. All Compendia content needs to be internally referenced, meaning they cannot be references to Items.  References to Other Compendia are acceptable, but make a dependency that needs to be recorded in the modules.json file.
-2. All things within Foundry VTT have an internally generated UUID that must come from Foundry, meaning all things must be created in Foundry or Imported through a Macro, then filed into Compendia (I wonder if there is a "Load directly to Compendia" option?)
+2. All things within Foundry VTT have an internally generated UUID that must come from Foundry, meaning all things must be created in Foundry or Imported through a Macro, then filed into Compendia (I wonder if there is a "Load directly to Compendia" option? - there is, but I'm not convinced that that is needed in the end)
 
 There are 3 patterns that are emerging from this work:
 

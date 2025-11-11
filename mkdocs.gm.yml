@@ -2,6 +2,7 @@ site_name: Cybermancy — GM Guide
 site_url: https://knightweaver.github.io/cybermancy/gm/
 docs_dir: docs/gm-facing
 site_dir: _site/gm
+use_directory_urls: true
 theme:
   name: material
   features:
@@ -26,7 +27,7 @@ plugins:
   - macros:
       module_name: docs/include/load-csv
 nav:
-  - Home: index.md
+  - Home: rex-ghostwire-mendez.md
   - World:
       - The Council: world/the-council.md
       - Council Projects: world/the-council-projects.md

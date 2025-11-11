@@ -27,9 +27,9 @@ plugins:
       module_name: docs/include/load-csv
 nav:
   - Home: index.md
+  - Cybermancy rules: rules/index.md
   - World:
-      - Timeline (player): world/player-visible-info-on-timeline.md
-      - test: test.md
+      - Timeline (player): index.md
   - Items:
       - Ammo: items/ammo.md
       - Armors: items/armors.md

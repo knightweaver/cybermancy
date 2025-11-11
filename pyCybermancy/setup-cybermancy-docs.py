@@ -46,7 +46,7 @@ def create_tree(base: Path) -> None:
 
     # docs/player-facing
     mkd(base / "docs" / "player-facing")
-    mkmd(base / "docs" / "player-facing" / "index.md", "Cybermancy — Player Guide")
+    mkmd(base / "docs" / "player-facing" / "rex-ghostwire-mendez.md", "Cybermancy — Player Guide")
 
     mkd(base / "docs" / "player-facing" / "world")
     mkmd(base / "docs" / "player-facing" / "world" / "player-visible-info-on-the-council.md",
@@ -66,7 +66,7 @@ def create_tree(base: Path) -> None:
 
     # docs/gm-facing
     mkd(base / "docs" / "gm-facing")
-    mkmd(base / "docs" / "gm-facing" / "index.md", "Cybermancy — GM Guide")
+    mkmd(base / "docs" / "gm-facing" / "rex-ghostwire-mendez.md", "Cybermancy — GM Guide")
 
     mkd(base / "docs" / "gm-facing" / "world")
     mkmd(base / "docs" / "gm-facing" / "world" / "the-council.md", "The Council")
