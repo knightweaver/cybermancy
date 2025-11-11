@@ -11,13 +11,15 @@
 | **Verdant Biomech**          | Chimera / Nyx         | Bio-purification & docility crops         | Sterilization breeds fertile ground for entropy |
 
 ---
-
+![dominion-systems.webp](../assets/icons/corps/dominion-systems.webp)
 ## 1. **Dominion Systems** (Weapons Conglomerate)
 
 **Council Domain:** Monopoly over armament, enforcement, and predictive warfare.
+
 **Covenant Arm:** *Project Ægis* — intent-mapping and pre-crime suppression.
 
 **Cabal Target Projects:** *Project Leviathan* and *Project Nyx* (mass possession and apocalyptic resonance).
+
 **Opposition Strategy:** Reality Stabilization Warfare.
 
 Dominion maintains literal *battlefield control over reality* through weaponized resonance dampeners — think psychic jammers that suppress both magic and emotion. When Cabal cults start hosting riot rituals or summoning Leviathan daemons, Dominion deploys *Purity Frames*: armored units carrying null-field emitters that erase magical fields and dreams alike.
@@ -31,12 +33,16 @@ Dominion infiltrates the Cabal’s chaos with *false prophets*—corporate-engin
 
 ---
 
+![neuracore-industries.webp](../assets/icons/corps/neuracore-industries.webp)
+
 ## 2. **Neuracore Industries** (Cybernetics and Neural Interface)
 
 **Council Domain:** Cybernetics, cognition, identity enforcement.
+
 **Covenant Arm:** *Project Anima* — global identity verification and implant control.
 
 **Cabal Target Projects:** *Project Chimera* (psychotropic empathy virus) and *Project Mirrorwake* (resurrection through data ghosts).
+
 **Opposition Strategy:** The Defense of the Self.
 
 Neuracore considers Cabal biology and consciousness tech an abomination — mutable selves are the ultimate threat to lawful identity. Their countermeasure: **Integrity Protocols**, firmware embedded in all legal implants that detect “neural signature drift” and automatically rewrite personality back to baseline.
@@ -50,12 +56,16 @@ They fund underground hacker groups to “liberate” illegal implants, using th
 
 ---
 
+![helion-dynamics.webp](../assets/icons/corps/helion-dynamics.webp)
+
 ## 3. **Helion Dynamics** (Energy and Climate Control)
 
 **Council Domain:** Global power grid and terraforming technology.
+
 **Covenant Arm:** *Project Echelon* — mana stabilization via global resonance regulators.
 
 **Cabal Target Projects:** *Project Cassandra* (data recursion swarm) and *Project Babel* (semantic corruption).
+
 **Opposition Strategy:** Energy as Law.
 
 Helion treats magic as an *energy leak* in the quantum lattice. Their entire R&D focuses on *mana sinks*—devices that re-route chaotic energy back into the grid, neutralizing supernatural anomalies.
@@ -69,12 +79,16 @@ Helion covertly runs *Operation Arkfire*—a black project using Cabal-derived c
 
 ---
 
+![omnitrine-communications.webp](../assets/icons/corps/omnitrine-communications.webp)
+
 ## 4. **OmniTrine Communications** (Data, AI, and Information Sovereignty)
 
 **Council Domain:** Global information control and cognitive hygiene.
+
 **Covenant Arm:** *Project Logos* — universal truth index and automated censorship.
 
 **Cabal Target Projects:** *Project Babel* (erasing consensus) and *Project Eidolon* (synthetic messiah creation).
+
 **Opposition Strategy:** Curation and Containment.
 
 OmniTrine maintains the *Last Truth Index* — a constantly updating, blockchain-authenticated history that automatically corrects deviations from the official narrative. Their AI editors crawl the web and rewrite falsehoods in real time.
@@ -88,12 +102,16 @@ They stage “controlled leaks” of false Cabal doctrines to lure disinformatio
 
 ---
 
+![verdant-biomech.webp](../assets/icons/corps/verdant-biomech.webp)
+
 ## 5. **Verdant Biomech** (Agriculture, Biosphere, and Foodchain Control)
 
 **Council Domain:** Genetic monopoly on the world’s food and ecosystem.
+
 **Covenant Arm:** *Project Eden* — biosecurity, terraforming, controlled evolution.
 
 **Cabal Target Projects:** *Project Chimera* and *Project Nyx* (biomagical transformation and mana-bomb rebirth).
+
 **Opposition Strategy:** Seeding Stability.
 
 Verdant’s scientists see the Cabal’s biotech and mana rituals as ecological corruption. They design **nanobot pollinators** that rewrite plant DNA to filter mana out of the biosphere—turning nature itself into a stabilizing firewall.

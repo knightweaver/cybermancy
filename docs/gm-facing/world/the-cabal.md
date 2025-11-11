@@ -31,7 +31,7 @@ These synchrony events are whispered about as **Threshold Breaches** — flashes
 
 ## THE ORIGINS OF THE CABAL
 
-### 1. **The Dragon: Aurum Rex (aka Dr. Aurelia Kincaid)**
+### 1. **The Dragon: Aurum Rex (aka Dr. Aurelia Vale)**
 
 **Archetype:** Wealth, charisma, the incarnate will to control.
 **Origin:** Born from the flesh of Prometheus itself.
@@ -39,13 +39,13 @@ These synchrony events are whispered about as **Threshold Breaches** — flashes
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 
-![dr-aurelia-kincaid.png](../assets/images/npcs/dr-aurelia-kincaid.png)
+![dr-aurelia-vale.png](../assets/images/npcs/dr-aurelia-vale.png)
 
 </div>
 
 <div class="item-flavor" markdown="1">
 
-Aurelia Kincaid was a geneticist and CEO of **Helios Biotech**, one of the human architects of Project Helios. During the Resonance, her lab was vaporized by the energy surge—yet she survived, *transfigured*. In her human form, she emerged with gold-tinted eyes and scales like translucent metal beneath her skin. She soon realized she could smell fear, greed, and truth.
+Aurelia Vale was a geneticist and CEO of **Helios Biotech**, one of the human architects of Project Helios. During the Resonance, her lab was vaporized by the energy surge—yet she survived, *transfigured*. In her human form, she emerged with gold-tinted eyes and scales like translucent metal beneath her skin. She soon realized she could smell fear, greed, and truth.
 
 </div>
 </div>
@@ -207,7 +207,7 @@ The convergence happened forty years ago in what survivors call **The Night of G
 
 Three signals emerged from the storm:
 
-* A biotech lab ship belonging to Aurelia Kincaid.
+* A biotech lab ship belonging to Aurelia Vale.
 * A datanet relay node hosting an emergent cluster of VAI subroutines.
 * A cult flotilla conducting summoning rituals to Abraxas.
 

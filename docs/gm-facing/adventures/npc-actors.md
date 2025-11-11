@@ -20,7 +20,7 @@
 
 ### The Cabal
 
-**![dr-aurelia-kincaid.png](../assets/images/npcs/dr-aurelia-kincaid.png)** - the dragon and head of Golden Doctrine
+**![dr-aurelia-vale.png](../assets/images/npcs/dr-aurelia-vale.png)** - the dragon and head of Golden Doctrine
 
 **![vai-volitional-autonomous-intelligence.png](../assets/images/npcs/vai-volitional-autonomous-intelligence.png)** - a sentient AI and head of Recursive Faith
 

@@ -40,6 +40,12 @@ Helion Dynamics powers the modern world—literally. The company’s atmospheric
 
 ---
 
+![helios-biotech.webp](../assets/icons/corps/helios-biotech.webp)
+### **Helios Biotech**
+Helios Biotech stands at the edge of evolution, merging biology and divinity through living technology. Their public vision—*“To perfect the human form and illuminate the mind”*—guides research into neural empathy networks, regenerative bioware, and consciousness-linked genetics. Patients describe the company’s implants as *“feeling alive.”* Helios claims they merely help humanity rise to meet its potential; their critics say they’re trying to grow gods in glass.
+
+---
+
 ![kirin-logistics.webp](../assets/icons/corps/kirin-logistics.webp)
 ### **Kirin Logistics**
 Kirin controls the arteries of the modern economy: autonomous freight convoys, smart ports, and orbital elevators. They market efficiency as morality—*“If everything moves, nothing collapses.”* Yet rumors persist that Kirin’s fleets carry more than goods. Entire dissident communities have vanished into sealed shipping containers bound for unknown destinations.
