@@ -1,7 +1,20 @@
 
 # **Rex “Ghostwire” Mendez**
 
-A retired **decker-turned-fixer** who’s been running shadows since before the Resonance settled. He’s the kind of man whose voice sounds like burnt synth-coffee and static, a rasp that’s half laugh and half warning. He’s too cynical to preach and too experienced to lie, but he still remembers what it felt like to believe that one job could change everything.
+<div class="grid item-grid" markdown="1">
+<div markdown="1">
+
+![rex-ghostwire-mendez.png](../../assets/images/npcs/rex-ghostwire-mendez.png)
+
+</div>
+
+<div class="item-flavor" markdown="1">
+
+Rex is pragmatic, jaded, and sharp as monofilament. He’s lived long enough to know that loyalty is rare, clean money is a myth, and nobody gets out without scars—physical or digital. But under the gravel, there’s a streak of reluctant idealism. He believes the world is rigged but not doomed, and he sees something in every new crew that reminds him of the fire he used to have. He’s not sentimental, but he’ll nudge rookies in the right direction if it means they might live long enough to learn the hard lessons for themselves.
+
+</div>
+</div>
+
 
 ### Personality
 

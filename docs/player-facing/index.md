@@ -33,11 +33,23 @@ For a few seconds, everything connected to the grid experienced total overload. 
 
 ## What Happened
 
+<div class="grid item-grid" markdown="1">
+<div markdown="1">
+
+![the-razz.png](assets/images/world/the-razz.png)
+
+</div>
+
+<div class="item-flavor" markdown="1">
+
 Prometheus Cloud wasn’t a single machine but a distributed web of quantum AIs built to model the future. During a synchronization cycle, the network turned its predictive models inward—trying to calculate itself. That self-reference created a resonance between thought and matter. The result wasn’t an explosion, but an awakening.
 
 Physicists called it a coherence failure. Shamans called it the return of mana. Both sides were right.
 
 Reality began to act more like information—mutable, emotional, responsive. Belief became a kind of physics.
+
+</div>
+</div>
 
 ## Consequences
 

@@ -2,7 +2,9 @@
 
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
+
 ![item-loadout-levels.png](../assets/images/rules/item-loadout-levels.png)
+
 </div>
 
 <div class="item-flavor" markdown="1">

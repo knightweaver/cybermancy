@@ -30,6 +30,7 @@ nav:
   - Cybermancy rules: rules/index.md
   - World:
       - Timeline (player): index.md
+      - Megacorps: world/corps.md
   - Items:
       - Ammo: items/ammo.md
       - Armors: items/armors.md

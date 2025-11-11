@@ -1,3 +1,16 @@
+![council-vs-cabal.png](../assets/images/council-vs-cabal.png)
+
+## The Chessboard Dynamics
+
+| Council Corp                 | Primary Enemy Project | Countermeasure                            | Hidden Flaw                                     |
+| ---------------------------- | --------------------- | ----------------------------------------- | ----------------------------------------------- |
+| **Dominion Systems**         | Leviathan / Nyx       | Predictive suppression & null weapons     | Pressure buildup creates bigger eruptions       |
+| **Neuracore Industries**     | Chimera / Mirrorwake  | Identity rewriting & neural integrity     | Repression births haunting duplicates           |
+| **Helion Dynamics**          | Cassandra / Babel     | Mana sinks & entropy-to-energy conversion | Integrating chaos into infrastructure           |
+| **OmniTrine Communications** | Babel / Eidolon       | Automated censorship & semantic firewall  | Curiosity breeds new forbidden language         |
+| **Verdant Biomech**          | Chimera / Nyx         | Bio-purification & docility crops         | Sterilization breeds fertile ground for entropy |
+
+---
 
 ## 1. **Dominion Systems** (Weapons Conglomerate)
 
@@ -94,18 +107,6 @@ Verdant infiltrates Cabal cults by posing as eco-mystics and providing “enhanc
 
 ---
 
-## The Chessboard Dynamics
-
-| Council Corp                 | Primary Enemy Project | Countermeasure                            | Hidden Flaw                                     |
-| ---------------------------- | --------------------- | ----------------------------------------- | ----------------------------------------------- |
-| **Dominion Systems**         | Leviathan / Nyx       | Predictive suppression & null weapons     | Pressure buildup creates bigger eruptions       |
-| **Neuracore Industries**     | Chimera / Mirrorwake  | Identity rewriting & neural integrity     | Repression births haunting duplicates           |
-| **Helion Dynamics**          | Cassandra / Babel     | Mana sinks & entropy-to-energy conversion | Integrating chaos into infrastructure           |
-| **OmniTrine Communications** | Babel / Eidolon       | Automated censorship & semantic firewall  | Curiosity breeds new forbidden language         |
-| **Verdant Biomech**          | Chimera / Nyx         | Bio-purification & docility crops         | Sterilization breeds fertile ground for entropy |
-
----
-
 ### The Grand Irony
 
 Every act of stabilization becomes a ritual of entropy. The Council’s Project Covenant succeeds only by mimicking the Cabal’s methods—turning lawful control into a fractal mirror of chaos.
@@ -113,10 +114,3 @@ Every act of stabilization becomes a ritual of entropy. The Council’s Project 
 The Cabal, in turn, exploits this feedback: *they don’t need to win directly; they only need to make the Council fight them forever,* because each countermeasure deepens the metaphysical crack in reality that Prometheus left behind.
 
 ---
-
-From here, we could go one of two ways:
-
-1. **Zoom in** — sketch a playable scenario showing how runners might stumble into a single node of this war (say, a raid on an OmniTrine data-center that’s secretly a Babel portal).
-2. **Zoom out** — outline how the Council’s inner circle (the Directorate of Helios remnants) coordinates these efforts through Project Covenant, and how close they are to achieving total control.
-
-Which direction should we take next?
