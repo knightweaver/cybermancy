@@ -1,0 +1,53 @@
+{
+  "name": "Disorientation",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/disorientation.webp",
+  "tier": "",
+  "system": {
+    "description": "Spend 2 Hope - all adversaries within Very Close are disoriented and gain -2 Evasion until the GM spends 2 Fear to end the effect.",
+    "actions": {
+      "Disorientation": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 2 Hope - all adversaries within Very Close are disoriented and gain -2 Evasion until the GM spends 2 Fear to end the effect.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Disorientation",
+        "img": "modules/cybermancy/assets/icons/subclasses/disorientation.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

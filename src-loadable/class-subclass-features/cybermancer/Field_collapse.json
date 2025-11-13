@@ -1,0 +1,53 @@
+{
+  "name": "Field collapse",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/field-collapse.webp",
+  "tier": "",
+  "system": {
+    "description": "Once per scene, cancel one magical effect.  Spend 1 Hope per Tier of the originating adversary.",
+    "actions": {
+      "Field collapse": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Once per scene, cancel one magical effect.  Spend 1 Hope per Tier of the originating adversary.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Field collapse",
+        "img": "modules/cybermancy/assets/icons/subclasses/field-collapse.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

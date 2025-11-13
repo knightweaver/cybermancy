@@ -1,0 +1,55 @@
+{
+  "name": "Mercenary",
+  "type": "subclass",
+  "_id": "28qGAor6NaOyAW3e",
+  "img": "modules/cybermancy/assets/icons/subclasses/mercenary.webp",
+  "system": {
+    "description": "<p><em>You don’t fight for free—but you always fight for something.</em></p><p><br /></p><p class=\"MsoNormal\">You are the weapon that other weapons dream of becoming. You’ve mastered every trigger, every blade, every angle of lethality that the modern world can manufacture. Guns, swords, drones, fists — it doesn’t matter. In your hands, everything becomes a tool of precision and inevitability.</p><p><br /></p><p class=\"MsoNormal\">You didn’t choose this life; you refined it. Maybe you came from the military, the corps’ private armies, or one of the syndicates where “promotion” is measured in blood. Maybe you just learned early that violence pays better than honesty. Either way, you’re a professional now — calm under fire, fluent in fear.</p><p><br /></p><p class=\"MsoNormal\">You don’t kill for fun. You kill for <em>order</em>. For <em>balance</em>. For the code you’ve written into your bones — the rules that keep you from becoming the monsters you hunt for a paycheck.</p><p><br /></p><p class=\"MsoNormal\">Every job starts with three questions: <em>Who’s paying? What’s the risk? And can you still look in the mirror afterward?</em></p><p><br /></p><p class=\"MsoNormal\">If the answers don’t matter anymore… maybe it’s time to hang up the gun.</p>",
+    "spellcastingTrait": null,
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.0TpmCYmq4DuYY1zV"
+      },
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.o2tkAfvH08pxGgHx"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.drKhLS2MGaCo4FyS"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.KrnWgiIIZGdVZjnT"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.eEk0FS9m8eRf3QFY"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.cybermancy.cybermancy-classes.Item.XWaW4nZ0dMha0NUi"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762206387297,
+    "modifiedTime": 1762658987719,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!28qGAor6NaOyAW3e"
+}

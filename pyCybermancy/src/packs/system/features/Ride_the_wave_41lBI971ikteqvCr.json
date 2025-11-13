@@ -1,0 +1,81 @@
+{
+  "name": "Ride the wave",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/ride-the-wave.webp",
+  "system": {
+    "description": "Spend 3 Hope to force an adversary within Far to re-roll a Spellcasting check of any type.",
+    "actions": {
+      "Ride the wave": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to force an adversary within Far to re-roll a Spellcasting check of any type.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ride the wave",
+        "img": "modules/cybermancy/assets/icons/subclasses/ride-the-wave.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "dNpJ3HXqAt7BFurQ",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "fIZM60pfK58qIj5P",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763004603961,
+    "modifiedTime": 1763004615115,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "41lBI971ikteqvCr",
+  "sort": 100000,
+  "_key": "!items!41lBI971ikteqvCr"
+}

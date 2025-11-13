@@ -1,0 +1,57 @@
+{
+  "name": "Grinder",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/grinder.webp",
+  "system": {
+    "description": "<i>The system eats your focus one grain at a time.</i><br /><br /><p class=\"Card-Feature\">Erodes Hope or reduces Stress recovery for the rest of the Scene.</p>",
+    "actions": {
+      "Grinder": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>The system eats your focus one grain at a time.</i><br><br><p class=\"Card-Feature\">Erodes Hope or reduces Stress recovery for the rest of the Scene.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Grinder",
+        "img": "modules/cybermancy/assets/icons/ice/grinder.webp",
+        "range": "",
+        "_id": "tl5kK9Fyuxk7ocVo"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "BImGuescyJIB1rRt",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762170911286,
+    "modifiedTime": 1762170990845,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "YmBHa1OdwmVEudlV",
+  "sort": 1300000,
+  "_key": "!items!YmBHa1OdwmVEudlV"
+}

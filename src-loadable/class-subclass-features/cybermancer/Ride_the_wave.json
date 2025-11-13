@@ -1,0 +1,53 @@
+{
+  "name": "Ride the wave",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/ride-the-wave.webp",
+  "tier": "",
+  "system": {
+    "description": "Spend 3 Hope to force an adversary within Far to re-roll a Spellcasting check of any type.",
+    "actions": {
+      "Ride the wave": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to force an adversary within Far to re-roll a Spellcasting check of any type.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Ride the wave",
+        "img": "modules/cybermancy/assets/icons/subclasses/ride-the-wave.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Resonant Overdrive",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/resonant-overdrive.webp",
+  "tier": "",
+  "system": {
+    "description": "Spend 1 Hope to amplify an ally’s next roll. That roll gains Advantage and deals +d4 damage.",
+    "actions": {
+      "Resonant Overdrive": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 1 Hope to amplify an ally’s next roll. That roll gains Advantage and deals +d4 damage.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Resonant Overdrive",
+        "img": "modules/cybermancy/assets/icons/subclasses/resonant-overdrive.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,137 @@
+{
+  "name": "Power Up",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.</p>",
+    "actions": {
+      "Power Up": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope when your Primary Drone succeeds on an Attack to have your Primary Drone attack two additional adversaries within Far.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Power Up",
+        "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "0w3A3L4xWkrwFfUZ",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "0w3A3L4xWkrwFfUZ": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "name": "Power Up",
+        "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+        "range": "far",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "0w3A3L4xWkrwFfUZ",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "oguBoQQVAvgjRfLI",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761536601102,
+    "modifiedTime": 1761611816878,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "ffAXnx3zpLBvR1ft",
+  "sort": 300000,
+  "_key": "!items!ffAXnx3zpLBvR1ft"
+}

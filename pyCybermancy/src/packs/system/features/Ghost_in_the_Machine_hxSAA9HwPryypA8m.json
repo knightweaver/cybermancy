@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "4yttrTVUhBpQJPXr",
+  "name": "Ghost in the Machine",
+  "color": null,
+  "sorting": "a",
+  "_id": "hxSAA9HwPryypA8m",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!hxSAA9HwPryypA8m"
+}

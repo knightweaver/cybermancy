@@ -1,0 +1,53 @@
+{
+  "name": "Schlieren patterns",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/schlieren-patterns.webp",
+  "tier": "",
+  "system": {
+    "description": "All allies within Close gain +1 Evasion.",
+    "actions": {
+      "Schlieren patterns": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "All allies within Close gain +1 Evasion.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Schlieren patterns",
+        "img": "modules/cybermancy/assets/icons/subclasses/schlieren-patterns.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Stillpoint",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/stillpoint.webp",
+  "tier": "",
+  "system": {
+    "description": "Spotlight an action to enter a quantum superposition state. While in Stillpoint, you cannot attack or move more than Very Close, but all allies within Very Close gain +2 Evasion and advantage on Reactions to spells, magical effects, and resonance-based effects from the Environment.  The state ends if you take damage or choose to release it.",
+    "actions": {
+      "Stillpoint": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spotlight an action to enter a quantum superposition state. While in Stillpoint, you cannot attack or move more than Very Close, but all allies within Very Close gain +2 Evasion and advantage on Reactions to spells, magical effects, and resonance-based effects from the Environment.  The state ends if you take damage or choose to release it.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Stillpoint",
+        "img": "modules/cybermancy/assets/icons/subclasses/stillpoint.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

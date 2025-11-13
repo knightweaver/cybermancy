@@ -1,0 +1,62 @@
+{
+  "name": "Lock on",
+  "type": "feature",
+  "img": "systems/shadowrun6-eden/icons/matrix-programs/Targeting.webp",
+  "system": {
+    "description": "",
+    "resource": null,
+    "actions": {
+      "F7pzitQmKLZFGcDG": {
+        "type": "effect",
+        "_id": "F7pzitQmKLZFGcDG",
+        "systemPath": "actions",
+        "description": "<p>Bullseye marks the spot!</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "ZQVMrmyXErbBCsl8",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Locked On",
+        "img": "systems/shadowrun6-eden/icons/matrix-programs/Targeting.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "OaALficfe2qlNdLU",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761014600867,
+    "modifiedTime": 1761014600867,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "wdLSa9Wy6FqU7YiD",
+  "sort": 0,
+  "_key": "!items!wdLSa9Wy6FqU7YiD"
+}

@@ -1,0 +1,79 @@
+{
+  "name": "Street Samuri",
+  "type": "class",
+  "_id": "XWaW4nZ0dMha0NUi",
+  "img": "modules/cybermancy/assets/icons/classes/street-samuri.webp",
+  "system": {
+    "description": "<p><em>Steel is honest. Flesh lies.</em></p><p></p><p>You walk the line between the old world’s honor and the new world’s circuitry.</p><p>Some call you a mercenary, some a relic — they’re both right. You move through the sprawl like a storm wrapped in human skin: clean, efficient, and devastatingly precise. The Street Samurai doesn’t talk about strength; they demonstrate it.</p><p></p><p>Your body is a weapon — sculpted, reforged, upgraded, and tuned past the edge of human tolerance. Every scar is a story, every implant a lesson bought in blood and chrome. You’ve seen what happens when code and conscience mix: it’s not pretty. That’s why you live by your own code — maybe ancient, maybe self-written, but always yours.</p><p></p><p>Corporations build armies; gangs build legends. You build reputation. You fight because someone has to — and because deep down, you still believe that mastery of the blade, the gun, or the body means something in a world that’s sold its soul to machines.</p><p></p><p>Some Street Samurai operate like ghosts, silent and unseen until the moment of violence. Others are thunder — explosive, unstoppable, and poetic in destruction. Neither path is wrong. Both are beautiful.</p><p>What weapon have you made an extension of yourself? What line will you never cross — and what happens when someone makes you?</p>",
+    "domains": [
+      "blade",
+      "bullet"
+    ],
+    "classItems": [],
+    "hitPoints": 7,
+    "evasion": 9,
+    "features": [
+      {
+        "type": "hope",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.9N9QiL1iLrKcCCeQ"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.fSZc93pK7PQNLTMA"
+      },
+      {
+        "type": "class",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.7Nw2zrVw7zvohZYj"
+      }
+    ],
+    "subclasses": [
+      "Compendium.cybermancy.cybermancy-subclasses.Item.28qGAor6NaOyAW3e",
+      "Compendium.cybermancy.cybermancy-subclasses.Item.WW4BuEHPcynmH9OS"
+    ],
+    "inventory": {
+      "take": [
+        "Compendium.cybermancy.cybermancy-loot.Item.zC0HbqFSTbGAiDQb"
+      ],
+      "choiceA": [
+        "Compendium.cybermancy.cybermancy-ammo.Item.B4GmWZESL7IGgFUa"
+      ],
+      "choiceB": [
+        "Compendium.cybermancy.cybermancy-loot.Item.323pAhbZgCt0f7YJ"
+      ]
+    },
+    "characterGuide": {
+      "suggestedTraits": {
+        "agility": 1,
+        "strength": 2,
+        "finesse": 1,
+        "instinct": 2,
+        "presence": 1,
+        "knowledge": 0
+      },
+      "suggestedPrimaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.41U5oyL5z2gAkerd",
+      "suggestedSecondaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.zXajmYeiCBqJPj9c",
+      "suggestedArmor": "Compendium.cybermancy.cybermancy-armors.Item.39yD0dkoCaBIjBbG"
+    },
+    "isMulticlass": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762658806819,
+    "modifiedTime": 1762659175416,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!XWaW4nZ0dMha0NUi"
+}

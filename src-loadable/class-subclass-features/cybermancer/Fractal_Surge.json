@@ -1,0 +1,53 @@
+{
+  "name": "Fractal Surge",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/fractal-surge.webp",
+  "tier": "",
+  "system": {
+    "description": "Once per scene, unleash a burst of raw probability.  \no\tAll Devices within Very Close gain -2 to their Hacking Difficulty \no\tAll adversary electronic systems gain Disadvantage on their attack rolls until the GM spends 1 Fear to end that effect.",
+    "actions": {
+      "Fractal Surge": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Once per scene, unleash a burst of raw probability.  \no\tAll Devices within Very Close gain -2 to their Hacking Difficulty \no\tAll adversary electronic systems gain Disadvantage on their attack rolls until the GM spends 1 Fear to end that effect.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Fractal Surge",
+        "img": "modules/cybermancy/assets/icons/subclasses/fractal-surge.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

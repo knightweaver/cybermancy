@@ -1,0 +1,128 @@
+{
+  "name": "Heavy Ordinance",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/heavy-ordinance.webp",
+  "system": {
+    "description": "You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.",
+    "actions": {
+      "Heavy Ordinance": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Heavy Ordinance",
+        "img": "modules/cybermancy/assets/icons/subclasses/heavy-ordinance.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "6D3oPcNybpL9F6ey",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "6D3oPcNybpL9F6ey": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.",
+        "chatDisplay": true,
+        "actionType": "passive",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Heavy Ordinance",
+        "img": "modules/cybermancy/assets/icons/subclasses/heavy-ordinance.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "6D3oPcNybpL9F6ey",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "9K4987oI9vPboRkA",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761535525350,
+    "modifiedTime": 1761615405690,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "eEk0FS9m8eRf3QFY",
+  "sort": 100000,
+  "_key": "!items!eEk0FS9m8eRf3QFY"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Reverb",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/reverb-.webp",
+  "tier": "",
+  "system": {
+    "description": "Mark 1 Stress to cause ALL (from yourself, allies, and adversaries) magical effects within Close to do +d4 damage for the remainder of the Scene",
+    "actions": {
+      "Reverb": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Mark 1 Stress to cause ALL (from yourself, allies, and adversaries) magical effects within Close to do +d4 damage for the remainder of the Scene",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reverb",
+        "img": "modules/cybermancy/assets/icons/subclasses/reverb-.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

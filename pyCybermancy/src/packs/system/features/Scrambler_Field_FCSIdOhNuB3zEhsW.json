@@ -1,0 +1,57 @@
+{
+  "name": "Scrambler Field",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/scrambler-field.webp",
+  "system": {
+    "description": "<i>Your interface can’t decide what’s real.</i><br /><br /><p class=\"Card-Feature\">Randomizes outputs—success and failure both become chaotic.</p>",
+    "actions": {
+      "Scrambler Field": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your interface can’t decide what’s real.</i><br><br><p class=\"Card-Feature\">Randomizes outputs—success and failure both become chaotic.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Scrambler Field",
+        "img": "modules/cybermancy/assets/icons/ice/scrambler-field.webp",
+        "range": "",
+        "_id": "oxYpc8b4YNJM9nM7"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "BImGuescyJIB1rRt",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762170911460,
+    "modifiedTime": 1762170990845,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "FCSIdOhNuB3zEhsW",
+  "sort": 700000,
+  "_key": "!items!FCSIdOhNuB3zEhsW"
+}

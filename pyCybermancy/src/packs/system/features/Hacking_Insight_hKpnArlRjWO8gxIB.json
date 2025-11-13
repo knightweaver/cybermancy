@@ -1,0 +1,137 @@
+{
+  "name": "Hacking Insight",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/hacking-insight.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.</p>",
+    "actions": {
+      "Hacking Insight": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Spend 3 Hope to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Hacking Insight",
+        "img": "modules/cybermancy/assets/icons/subclasses/hacking-insight.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "6QpTuQ5E2ozY08nM",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "6QpTuQ5E2ozY08nM": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Hacking Insight",
+        "img": "modules/cybermancy/assets/icons/subclasses/hacking-insight.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "6QpTuQ5E2ozY08nM",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "4yttrTVUhBpQJPXr",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761537030378,
+    "modifiedTime": 1761610627724,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "hKpnArlRjWO8gxIB",
+  "sort": 300000,
+  "_key": "!items!hKpnArlRjWO8gxIB"
+}

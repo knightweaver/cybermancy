@@ -1,0 +1,57 @@
+{
+  "name": "Siren",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/ice/siren.webp",
+  "system": {
+    "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br /><br /><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.</p>",
+    "actions": {
+      "Siren": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br><br><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Siren",
+        "img": "modules/cybermancy/assets/icons/ice/siren.webp",
+        "range": "",
+        "_id": "b6NEse2L26dcoLv7"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "BImGuescyJIB1rRt",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762170911502,
+    "modifiedTime": 1762170990845,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "VT5e3ytHmvjPbY1X",
+  "sort": 600000,
+  "_key": "!items!VT5e3ytHmvjPbY1X"
+}

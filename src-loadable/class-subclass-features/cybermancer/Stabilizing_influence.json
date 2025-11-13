@@ -1,0 +1,53 @@
+{
+  "name": "Stabilizing influence",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/stabilizing-influence.webp",
+  "tier": "",
+  "system": {
+    "description": "Once per long rest, give each ally a Stability die based on your Cybermancy Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4: d10).  They may use that Stability die to augment one Reaction check to oppose a magical effect.",
+    "actions": {
+      "Stabilizing influence": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Once per long rest, give each ally a Stability die based on your Cybermancy Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4: d10).  They may use that Stability die to augment one Reaction check to oppose a magical effect.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Stabilizing influence",
+        "img": "modules/cybermancy/assets/icons/subclasses/stabilizing-influence.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        }
+      }
+    }
+  },
+  "effects": []
+}

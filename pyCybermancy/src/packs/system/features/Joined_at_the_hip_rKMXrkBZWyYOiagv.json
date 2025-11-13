@@ -1,0 +1,128 @@
+{
+  "name": "Joined at the hip",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/joined-at-the-hip.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">One per long rest, if you and your Primary Drone are within Close of each other, when damage from an attack would Mark either of your last Hit Point, you or your Primary Drone can move to the other’s side and Mark the Hit Point instead.</p>",
+    "actions": {
+      "Joined at the hip": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "One per long rest if you and your Primary Drone are within Close of each other, when damage from an attack would Mark either of your last Hit Point, you or your Primary Drone can move to the other’s side and Mark the Hit Point instead.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Joined at the hip",
+        "img": "modules/cybermancy/assets/icons/subclasses/joined-at-the-hip.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "4CtNhPSr1IJ4OG2H",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "4CtNhPSr1IJ4OG2H": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">One per long rest, if you and your Primary Drone are within Close of each other, when damage from an attack would Mark either of your last Hit Point, you or your Primary Drone can move to the other’s side and Mark the Hit Point instead.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Joined at the hip",
+        "img": "modules/cybermancy/assets/icons/subclasses/joined-at-the-hip.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "4CtNhPSr1IJ4OG2H",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "iyutrVxyiXcSqPw9",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761536849443,
+    "modifiedTime": 1761612699609,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "rKMXrkBZWyYOiagv",
+  "sort": 0,
+  "_key": "!items!rKMXrkBZWyYOiagv"
+}

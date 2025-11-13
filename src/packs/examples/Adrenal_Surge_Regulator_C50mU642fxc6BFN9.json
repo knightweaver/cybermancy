@@ -1,0 +1,66 @@
+{
+  "name": "Adrenal Surge Regulator",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/cybernetics/adrenal-surge-regulator.webp",
+  "system": {
+    "description": "<i>\"Ascend with Hope, embrace limitless potential.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Reaction Roll</p>",
+    "actions": {
+      "Adrenal Surge Regulator": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<i>\"Ascend with Hope, embrace limitless potential.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Reaction Roll",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Adrenal Surge Regulator",
+        "img": "modules/cybermancy/assets/icons/cybernetics/adrenal-surge-regulator.webp",
+        "range": "",
+        "_id": "Qx63c59iBKIpr2uc"
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "GkiyW809vi3O2fmM",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1762121467350,
+    "modifiedTime": 1762121490159,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "C50mU642fxc6BFN9",
+  "sort": 100000,
+  "_key": "!items!C50mU642fxc6BFN9"
+}
