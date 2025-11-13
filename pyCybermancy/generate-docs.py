@@ -13,8 +13,8 @@ Default layout:
     system: <repo-root>/src/packs/system/<type>/**/*.json
 - Writes CSV to:  <repo-root>/docs/data/<type>.csv
 - Writes pages to:
-    items:  <repo-root>/docs/<audience>/items/<type>/<slug>/rex-ghostwire-mendez.md
-    system: <repo-root>/docs/<audience>/<type>/<slug>/rex-ghostwire-mendez.md
+    items:  <repo-root>/docs/<audience>/items/<type>/<slug>/index.md
+    system: <repo-root>/docs/<audience>/<type>/<slug>/index.md
 
 Usage:
   python generate-docs.py --audience player-facing
@@ -1278,7 +1278,7 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
 
             # elif type_key == "features":
 
-            # All system types write to docs/<audience>/<type>/<slug>/rex-ghostwire-mendez.md except domains
+            # All system types write to docs/<audience>/<type>/<slug>/index.md except domains
             if type_key == "domains":
                 image_rel = cfg["image_rel"](audience, type_key, slug, domain)
             else:
@@ -1287,7 +1287,7 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
         # Render and write
         if id not in folder_map:
             page_md = render_template(template_key, ctx)
-            (detail_dir / "rex-ghostwire-mendez.md").write_text(page_md, encoding="utf-8")
+            (detail_dir / "index.md").write_text(page_md, encoding="utf-8")
             count += 1
 
     # CSV index

@@ -49,6 +49,9 @@ EFFECT_PALETTE: Dict[str, str] = {
     "class-netrunner": "graphite base with cyan/teal code glow and subtle violet accents",
     "class-rigger": "steel/titanium with teal (control links) and amber (power) highlights",
     "class-streetsamurai": "gunmetal & carbon fiber with crimson and steel-blue accents",
+    "class-cybermancer": "dark techno-mystic cyberpunk portrait, deep blue circuit-lattice lighting, glowing probability patterns, subtle distortion halos, semi-realistic rendering, sharp contrast, intricate line-work, luminous circuitry integrated into clothing and skin, cool color palette, digital-occult motifs",
+    "subclass-amplifier": "chaos-driven neon cyberpunk portrait, saturated magenta–violet energy arcs, unstable circuit patterns, glitch effects, expressive motion, overclocked lighting, high-contrast electric highlights, wild resonance flare motifs",
+    "subclass-dampener": "stabilized cyberpunk portrait, muted green–teal resonance rings, structured circuit geometry, controlled glow, calm expression, heavy shadow discipline, clean harmonic field effects, ordered and symmetrical energy patterns",
 }
 
 # -----------------------------
@@ -87,6 +90,9 @@ STYLE_PRESETS: Dict[str, str] = {
     "class-netrunner": "netrunner emblem; graphite base, cyan/teal code glow, subtle violet; clean, iconic on light grey",
     "class-rigger": "rigger emblem; steel/titanium, teal control links + amber power highlights; iconic on light grey",
     "class-streetsamurai": "street samurai emblem; carbon fiber + gunmetal, crimson/steel-blue accents; iconic on light grey",
+    "class-cybermancer": "dark techno-mystic cyberpunk portrait, deep blue circuit-lattice lighting, glowing probability patterns, subtle distortion halos, semi-realistic rendering, sharp contrast, intricate line-work, luminous circuitry integrated into clothing and skin, cool color palette, digital-occult motifs",
+    "subclass-amplifier": "chaos-driven neon cyberpunk portrait, saturated magenta–violet energy arcs, unstable circuit patterns, glitch effects, expressive motion, overclocked lighting, high-contrast electric highlights, wild resonance flare motifs",
+    "subclass-dampener": "stabilized cyberpunk portrait, muted green–teal resonance rings, structured circuit geometry, controlled glow, calm expression, heavy shadow discipline, clean harmonic field effects, ordered and symmetrical energy patterns",
     "domain-circuit": "domain icon; black/graphite with cyan/teal circuits; clean vector on light grey",
     "domain-bullet": "domain icon; gunmetal/graphite with ember red + cyan tracers; clean vector on light grey",
     "domain-maker": "domain icon; titanium/steel-blue with amber/teal forge/circuit glows; light grey"

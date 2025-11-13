@@ -12,7 +12,7 @@ Type to filter:
     </tr>
   </thead>
   <tbody>
-{% for w in load_csv('../data/drones-devices.csv') %}
+{% for w in load_csv('../data/drone-mods.csv') %}
     <tr>
       <td><a href="./{{ w.slug }}/">{{ w.name }}</a></td>
       <td>{{ w.description }}</td>
