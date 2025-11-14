@@ -32,7 +32,7 @@ Just drop that into the "Add Modules" and the current draft of Cybermancy should
 
 ## Manual chances necessary in Foundry VTT's Daggerheart system from founderyborne
 
-Because Cybermancy include 3 new Domains (and because I don't know a better way yet to do this), for the Cybermancy module to work in Daggerheart in Foundry VTT requires 2 manual changes to the Daggerheart system files.  They are both very minor changes and the instructions are here: [Daggerheart Module edits](daggerheart-module-edits.md)
+Because Cybermancy include 3 new Domains (and because I don't know a better way yet to do this), for the Cybermancy module to work in Daggerheart in Foundry VTT requires 2 manual changes to the Daggerheart system files.  They are both very minor changes and the instructions are here: [Daggerheart Module edits](./daggerheart-mods/daggerheart-module-edits.md)
 
 *** If a foundryborne developer reads this or any developer that can guide me on a better / more correct way to do this, I'd love to hear from you.  There are other tweaks to the Daggerheart system as implemented in Foundry VTT that I'd love to make, but I am more of a hacker than an actual developer!  ***
 
