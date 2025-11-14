@@ -85,6 +85,3 @@ Different abilities may be used for Drive checks if the player narrates how that
 
 Characters may use **Help an Ally** to support a Drive check in the same manner as any other skill test.
 
----
-
-This version is ready for direct inclusion in the README or as a standalone rules chapter. The environment structure and chase-clock interactions can be expanded further when you begin drafting example encounters.

@@ -26,3 +26,7 @@ Cybermancy’s hacking system is designed to support high-tempo narrative play. 
 ## Critical Fails
 
 Daggerheart does not include critical failures, but Cybermancy introduces an optional rule: matching duality dice with a total result below 10 count as a critical fumble (effective, a pair of 1's, 2's, 3's or 4's). While failure is not inherently enjoyable, the consequences of a dramatic misstep often create memorable and improvisational storytelling opportunities.
+
+### Added effect of Marking an Armor Slot
+
+I really like the concept of damage thresholds and Armor slots in Daggerheart, gut one aspect of that design that I dislike is how an Armor Slot is almost functionally equivalent to a hit point.  Cybermancy tweaks the rules such that when you mark an Armor Slot to prevent hit point damage, it has the additional effect of applying a -1/-1 to the Major and Severe damage thresholds.  The concept is that the armor has been slightly damaged by the hit it absorbed and thus provides a bit less protection until repaired.  I like this because it adds additional meaning to the decision about whether to mark an Armor Slot or a hit point, without leading to a "death spiral".
