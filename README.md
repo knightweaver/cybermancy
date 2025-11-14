@@ -52,7 +52,7 @@ Drawing from *Savage Worlds*, Cybermancy adopts a lightweight version of Bennies
 
 Flashbacks enable retroactive preparation, again inspired by *Blades in the Dark*. Characters may reveal prior planning—bribing a guard, hiding a weapon, forging credentials—without halting the current scene. This keeps the story focused on the action while preserving the importance of non-combat expertise.
 
-### [Driving and Chase Clocks](https://knightweaver.github.io/cybermancy/player/rules/driving-and-chase/)
+### [Driving and Chase Clocks](https://knightweaver.github.io/cybermancy/player/rules/driving-and-chases/)
 
 Cybermancy expands Daggerheart’s countdown clocks into a structured chase mechanic. By combining clocks with environmental effects, chases become dynamic sequences shaped by hazards, shifting terrain, and tactical decision-making.
 
@@ -60,7 +60,11 @@ Cybermancy expands Daggerheart’s countdown clocks into a structured chase mech
 
 Daggerheart does not include critical failures, but Cybermancy introduces an optional rule: matching duality dice with a total result below 10 count as a critical fumble. While failure is not inherently enjoyable, the consequences of a dramatic misstep often create memorable and improvisational storytelling opportunities.
 
-### [Netrunning](https://knightweaver.github.io/cybermancy/player/rules/driving-and-chase/)
+### Added effect of Marking an Armor Slot
+
+One of the very nice design concepts in Daggerheart is the concept of damage thresholds and Armor slots.  But one aspect of that design that I dislike is how an Armor Slot is so similar to a hit point.  Cybermancy tweaks the rules such that when you mark an Armor Slot to prevent hit point damage, it has the additional effect of applying a -1/-1 to the Major and Severe damage thresholds.  The concept is that the armor has been slightly damaged by the hit it absorbed and thus provides a bit less protection until repaired.  I like this because it adds additional meaning to the decision about whether to mark an Armor Slot or a hit point, without leading to a "death spiral".
+
+### [Netrunning](https://knightweaver.github.io/cybermancy/player/rules/netrunner-hacking/)
 
 Cybermancy includes a custom netrunning subsystem designed to stay consistent with Daggerheart’s narrative philosophy. Netrunning is fast, descriptive, and directly connected to the physical scene. Actions in the digital layer influence the meat-space environment, and vice versa. These rules are still in active playtesting, and community experimentation is welcome.
 
