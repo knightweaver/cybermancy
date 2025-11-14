@@ -1754,9 +1754,17 @@
                     "label": "Valor",
                     "description": "This is the domain of protection. Whether through attack or defense, those who choose this discipline channel formidable strength to protect their allies in battle. Valor offers great power to those who raise their shield in defense of others."
                 },
-				"hack": {
-                    "label": "Hack",
+				"circuit": {
+                    "label": "Circuit",
                     "description": "This is the domain of the Matrix.  Those who chose this domain surf the digital spaces that overlay and often control the physical world.  They use their digital mastery to control the battlefield, disable their enhanced opponents, and lay waste to the corporate data fortresses."
+                },
+				"maker": {
+                    "label": "Maker",
+                    "description": "This is the domain of the Makers."
+                },
+				"bullet": {
+                    "label": "Bullet",
+                    "description": "This is the domain of those that shoot bullets."
                 }
             },
             "Effect": {

@@ -717,11 +717,23 @@ const domains = {
         src: 'systems/daggerheart/assets/icons/domains/valor.svg',
         description: 'DAGGERHEART.GENERAL.Domain.valor.description'
     },
-    hack: {
-        id: 'hack',
-        label: 'DAGGERHEART.GENERAL.Domain.hack.label',
-        src: 'modules/cybermancy/assets/icons/domains/hack.svg',
-        description: 'DAGGERHEART.GENERAL.Domain.hack.description'
+    circuit: {
+        id: 'circuit',
+        label: 'DAGGERHEART.GENERAL.Domain.circuit.label',
+        src: 'modules/cybermancy/assets/icons/domains/circuit.svg',
+        description: 'DAGGERHEART.GENERAL.Domain.circuit.description'
+    },
+    maker: {
+        id: 'maker',
+        label: 'DAGGERHEART.GENERAL.Domain.maker.label',
+        src: 'modules/cybermancy/assets/icons/domains/maker.svg',
+        description: 'DAGGERHEART.GENERAL.Domain.maker.description'
+    },
+    bullet: {
+        id: 'bullet',
+        label: 'DAGGERHEART.GENERAL.Domain.bullet.label',
+        src: 'modules/cybermancy/assets/icons/domains/bullet.svg',
+        description: 'DAGGERHEART.GENERAL.Domain.bullet.description'
     }
 };
 
