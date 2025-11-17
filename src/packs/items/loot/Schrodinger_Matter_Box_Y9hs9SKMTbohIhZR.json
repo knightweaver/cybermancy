@@ -1,0 +1,80 @@
+{
+  "name": "Schrodinger Matter Box",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/quantum-box-of-chip.webp",
+  "system": {
+    "description": "Once per long rest, you can open this small box and roll a d12. On a result of 1–6, it’s empty. On a result of 7–10, it contains one random common consumable. On a result of 11–12, it contains two random common consumables. black-market tech favored by runners",
+    "quantity": 1,
+    "actions": {
+      "lt1iEma1OVUNZ77o": {
+        "type": "attack",
+        "_id": "lt1iEma1OVUNZ77o",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "roll": {
+          "type": "diceSet",
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "flat",
+            "flatMultiplier": 1,
+            "dice": "d12",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        },
+        "name": "Open",
+        "img": "icons/containers/boxes/crate-heavy-yellow.webp",
+        "range": ""
+      }
+    }
+  },
+  "effects": [],
+  "folder": "9ajkNgRajBmu8Jf3",
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925007108,
+    "modifiedTime": 1763304475380,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "Y9hs9SKMTbohIhZR",
+  "sort": 600000,
+  "_key": "!items!Y9hs9SKMTbohIhZR"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Neuro-muscular Telemetry - Prescence",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/arc-data-gem.webp",
+  "system": {
+    "description": "You can attach this gem to a weapon, allowing you to use your Presence when making an attack with that weapon. stores resonance data and telemetry snapshots",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": "IbwZr1arxefX1uzF",
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924943980,
+    "modifiedTime": 1763218713480,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "323pAhbZgCt0f7YJ",
+  "sort": 100000,
+  "_key": "!items!323pAhbZgCt0f7YJ"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Quantum Cache",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/quantum-cache-pack.webp",
+  "system": {
+    "description": "When you store items in this bag, they are kept in a pocket dimension that never runs out of space. You can retrieve an item at any time. black-market tech favored by runners and fixers",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": "9ajkNgRajBmu8Jf3",
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760925008197,
+    "modifiedTime": 1763304546318,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "PLqsWEd16MMGoCV6",
+  "sort": 150000,
+  "_key": "!items!PLqsWEd16MMGoCV6"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Adrenaline Patch Geneartor Mk.1",
+  "type": "loot",
+  "img": "modules/cybermancy/assets/icons/loot/arc-nanoshot.webp",
+  "system": {
+    "description": "<p>As a downtime move, you can craft a Minor Adrenaline Patch. nanite payload delivers fast onset effects</p>",
+    "quantity": 1,
+    "actions": {}
+  },
+  "effects": [],
+  "folder": "yn2JFZISuAvAhQmK",
+  "ownership": {
+    "default": 0,
+    "OFxauskoxcvVTVNA": 3,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760924950652,
+    "modifiedTime": 1763218529152,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "3hRVdJwunzn57oy4",
+  "sort": 100000,
+  "_key": "!items!3hRVdJwunzn57oy4"
+}
