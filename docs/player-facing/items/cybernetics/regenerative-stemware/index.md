@@ -4,7 +4,7 @@
 
 *<i>"Restore, rejuvenate: your timeless touchpoint."</i><br /><br /><p class="Card-Feature">Gain an additional short rest downtime action that can only be used to heal a Hit Point</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Regenerative Stemware**<br>* your timeless touchpoint."Gain an additional short rest downtime action that can only be used to heal a Hit Point*</div>

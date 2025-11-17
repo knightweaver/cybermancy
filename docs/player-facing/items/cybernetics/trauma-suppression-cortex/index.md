@@ -4,7 +4,7 @@
 
 *<i>Hope's Shield: Defy damage, embrace resilience.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 3 Hope</strong> to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Trauma Suppression Cortex**<br>* Defy damage, embrace resilience.Once per scene, Spend 3 Hope to prevent Marking up to 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)*</div>

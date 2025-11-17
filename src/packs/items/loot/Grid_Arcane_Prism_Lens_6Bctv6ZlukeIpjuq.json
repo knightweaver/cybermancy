@@ -3,7 +3,7 @@
   "type": "loot",
   "img": "modules/cybermancy/assets/icons/loot/grid-arcane-prism-lens.webp",
   "system": {
-    "description": "Position this prism in a location of your choosing and activate it. All allies within Close range of it gain a +1 bonus to their Spellcast Rolls. While activated, the prism can’t be moved. Once the prism is deactivated, it can’t be activated again until your n",
+    "description": "<p>Position this prism in a location of your choosing and activate it. All allies within Close range of it gain a +1 bonus to their Spellcast Rolls. While activated, the prism can’t be moved. Once the prism is deactivated, it can’t be activated again until your next long rest</p>",
     "quantity": 1,
     "actions": {
       "QgBDJh0laEvOB94w": {
@@ -87,7 +87,7 @@
       "_key": "!items.effects!6Bctv6ZlukeIpjuq.Ee3Z0PnyERiNFgjU"
     }
   ],
-  "folder": null,
+  "folder": "IbwZr1arxefX1uzF",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -102,10 +102,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760924981797,
-    "modifiedTime": 1760925007129,
+    "modifiedTime": 1763219125936,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "6Bctv6ZlukeIpjuq",
-  "sort": 300000,
+  "sort": 1500000,
   "_key": "!items!6Bctv6ZlukeIpjuq"
 }

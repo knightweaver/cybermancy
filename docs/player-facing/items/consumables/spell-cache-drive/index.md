@@ -4,7 +4,7 @@
 
 *A neural-linked data drive that lets you temporarily load and cast one stored spell, then offload it.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Use**<br>*You can use this stone to take a spell or grimoire from your vault, use it once, and return it to your vault.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.spell-cache-drive`
 </div>

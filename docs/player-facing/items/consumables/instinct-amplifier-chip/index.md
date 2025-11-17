@@ -4,7 +4,7 @@
 
 *A temporary neural patch that sharpens intuition and sensory prediction. +1 bonus to your next Instinct roll.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Instinct Roll.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Attune Potion**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.instinct-amplifier-chip`
 </div>

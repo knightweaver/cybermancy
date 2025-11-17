@@ -4,7 +4,7 @@
 
 *<i>"Defy destruction with hidden resilience."</i><br /><br /><p class="Card-Feature">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Major Wound</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Unnamed Action**<br>**</div>

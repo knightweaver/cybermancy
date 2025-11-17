@@ -759,7 +759,28 @@ TEMPLATES: Dict[str, str] = {
 </div>
 </div>
 """,
+
+    # Features (system) -------------------------------------------------------
+    "adversaries-features": """<div class="feature" markdown="1">
+# {name}
+<img src="{image_rel}" alt="{name}" class="item-image" style="width:300px; height:auto;">
+## Description
+*{description}*
+
+## Actions
+{actions_flat}
+
+---
+
+<div class="meta" markdown="1">
+{folder_path}
+<br>
+**UUID:** `Compendium.cybermancy.system.{slug}`
+</div>
+</div>
+"""
 }
+
 
 # ---------------------------- Configuration ----------------------------------
 # Each entry describes one output "type_key".
@@ -801,6 +822,24 @@ CONFIG: Dict[str, Dict[str, Any]] = {
             "img": "img"
         },
         "template": "feature",
+        "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
+        "comp_key": "system",
+        "out_dir_name": lambda audience, key: f"{audience}/system/{key}"
+    },
+    "adversaries-features": {
+        "kind": "system",
+        "src_subdir": "adversaries-features",
+        "csv_fields": ["name", "slug", "tier", "description"],
+        "field_map": {
+            "name": "name",
+            "id": "_id",
+            "key": "_key",
+            "folder": "folder",
+            "actions": "system.actions",
+            "description": "system.description",
+            "img": "img"
+        },
+        "template": "adversaries-features",
         "image_rel": lambda audience, key, slug: f"../../../assets/icons/{key}/{slug}.webp",
         "comp_key": "system",
         "out_dir_name": lambda audience, key: f"{audience}/system/{key}"
@@ -1147,8 +1186,10 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
         key = get_in(obj, field_map.get("key", "_key"))
         tier = get_in(obj, field_map.get("tier", "system.tier"))
         folder = get_in(obj, field_map.get("folder", "folder"))
-        if not tier and isinstance(folder, str) and folder and folder_map[folder]["name"].lower().startswith("tier"):
-            tier = folder_map[folder]["name"].split()[1] if len(folder_map[folder]["name"].split()) > 1 else "Tier undefined"
+        # Previously had this constraint:  and folder_map[folder]["name"].lower().startswith("tier")
+        if not tier and isinstance(folder, str) and folder:
+            # tier = folder_map[folder]["name"].split()[1] if len(folder_map[folder]["name"].split()) > 1 else "Tier undefined"
+            tier = folder_map[folder]["name"]
 
         # FEATURES: store all ids and name, desc tuples for later use by classes. Store all folders, so they can be stripped from the output and used to fill in Tier info
         feature_map[id] = {"name": name,
@@ -1176,6 +1217,8 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
             src = field_map.get(col, col)  # allow direct JSON col if mapped
             csv_row[col] = get_in(obj, src, "")
         rows.append(csv_row)
+        if "tier" in cfg["csv_fields"]:
+            rows[-1]["tier"] = tier
 
         # Per-type context
         ctx: Dict[str, Any] = {
@@ -1296,15 +1339,16 @@ def process_type(root: Path, docs_root: Path, data_root: Path, audience: str, ty
         tier_present = "tier" in CONFIG[type_key]["csv_fields"]
         domain_present = "domain" in CONFIG[type_key]["csv_fields"]
         if tier_present:
-            def tier_sort_value(v):
-                t = v.get("tier")
-                try:
-                    # Handle numeric tiers if they are strings
-                    return int(t)
-                except (TypeError, ValueError):
-                    # None or non-numeric values sort last
-                    return 9999
-            rows.sort(key=lambda r: (tier_sort_value(r), str(r.get("name", "")).lower()))
+            #def tier_sort_value(v):
+                #return v.get("tier")
+                #try:
+                #    # Handle numeric tiers if they are strings
+                #    return int(t)
+                #except (TypeError, ValueError):
+                #    # None or non-numeric values sort last
+                #    return 9999
+            #rows.sort(key=lambda r: (tier_sort_value(r), str(r.get("name", "")).lower()))
+            rows.sort(key=lambda r: (str(r.get("tier", "")).lower(), str(r.get("name", "")).lower()))
         elif domain_present:
             def level_sort_value(v):
                 t = v.get("level")

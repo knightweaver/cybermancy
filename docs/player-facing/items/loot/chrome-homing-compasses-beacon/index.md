@@ -4,7 +4,7 @@
 
 *These two compasses point toward each other no matter how far apart they are. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.chrome-homing-compasses-beacon`
 </div>

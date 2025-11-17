@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules\\cybermancy\\assets\\icons\\consumables\\arc-resonance-powder.webp",
   "system": {
-    "description": "Quantum dust that amplifies energy weapon output. Adds 1d12 to your next magic damage roll.",
+    "description": "<p>Quantum dust that amplifies magical output. Adds 1d12 to your next magic damage roll.</p>",
     "quantity": 1,
     "actions": {
       "oHph7e6VrOwPetbE": {
@@ -88,7 +88,7 @@
       "_key": "!items.effects!4Coow6vj5lit6Jvk.L68lFhuWdS3ppDxR"
     }
   ],
-  "folder": null,
+  "folder": "ncCK8SLlYXWB10E9",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -103,10 +103,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760924667092,
-    "modifiedTime": 1760924687084,
+    "modifiedTime": 1763216217390,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "4Coow6vj5lit6Jvk",
-  "sort": 2200000,
+  "sort": 100000,
   "_key": "!items!4Coow6vj5lit6Jvk"
 }

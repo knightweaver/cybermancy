@@ -4,7 +4,7 @@
 
 *When you would mark your last Stress, roll a d6. On a result of 5 or higher, don’t mark it. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Use**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.cipher-calming-pendant-lens`
 </div>

@@ -41,7 +41,7 @@
     }
   },
   "effects": [],
-  "folder": null,
+  "folder": "yn2JFZISuAvAhQmK",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -56,10 +56,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760925019477,
-    "modifiedTime": 1760925019477,
+    "modifiedTime": 1763305106729,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "YMbfjR8xNt6PfkO8",
-  "sort": 0,
+  "sort": 106250,
   "_key": "!items!YMbfjR8xNt6PfkO8"
 }

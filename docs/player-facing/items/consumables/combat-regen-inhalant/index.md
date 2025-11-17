@@ -4,7 +4,7 @@
 
 *A rapid-acting chemical cocktail—mark 1 Stress to clear 1 HP.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Imbibe**<br>*Mark a Stress and clear a HP.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.combat-regen-inhalant`
 </div>

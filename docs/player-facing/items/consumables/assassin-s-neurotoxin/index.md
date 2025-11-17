@@ -2,9 +2,9 @@
 # Assassin’s Neurotoxin
 <img src="../../../assets/icons/consumables/assassin-s-neurotoxin.webp" alt="Assassin’s Neurotoxin" class="item-image" style="width:300px; height:auto;">
 
-*A lethal nanopoison: if you crit before your next long rest, your target dies. Fail—and so do you.*
+*<p>A lethal nanopoison: if you crit before your next long rest, your target dies. </p>*
 
-### **Tier: —**
+### **Tier: Tier 4**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*After you drink this tea, you instantly kill your target when you critically succeed on an attack. If you don’t critically succeed on an attack before your next long rest, you die.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Death Tea**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 4
 <br>
 **UUID:** `Compendium.cybermancy.consumables.assassin-s-neurotoxin`
 </div>

@@ -4,7 +4,7 @@
 
 *<i>"Unleash precision; amplify destruction's whisper."</i><br /><br /><p class="Card-Feature">When firing a SmartLink™ enabled weapon, <strong>Spend 1 Hope</strong> after a successful attack for +2 on all damage die rolled.  <br /><br />Requires the SmartLink™ CPU implant</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**SmartLink™ Armor Analyzer**<br>*"Unleash precision; amplify destruction's whisper."When firing a SmartLink™ enabled weapon, Spend 1 Hope after a successful attack for +2 on all damage die rolled.  Requires the SmartLink™ CPU implant*</div>

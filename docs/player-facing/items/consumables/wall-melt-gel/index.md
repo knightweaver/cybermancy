@@ -4,7 +4,7 @@
 
 *An industrial solvent that dissolves barriers in bright flashes—stand clear.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Use**<br>*This paste eats away walls and other surfaces in bright flashes.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.wall-melt-gel`
 </div>

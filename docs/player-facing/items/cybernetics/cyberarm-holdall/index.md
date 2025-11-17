@@ -4,7 +4,7 @@
 
 *<i>"Secrets hidden beneath your seamless alloy."</i><br /><br /><p class="Card-Feature">You have a disguised compartment integrated into your Cyberarm unit that can hold a few small items (about 64 cm^2 of storage).  Impossible to detect without a physical search of the arm.<br /><br />Requires Cyberarm™ base unit</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Cyberarm™ Holdall**<br>*"Secrets hidden beneath your seamless alloy."You have a disguised compartment integrated into your Cyberarm unit that can hold a few small items (about 64 cm^2 of storage).  Impossible to detect without a physical search of the arm.Requires Cyberarm™ base unit*</div>

@@ -4,7 +4,7 @@
 
 *<i>Inhale secrets; exhale mastery.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 1 Hope</strong> to monitor your environment for chemicals of all types.  Like a massively improved sense of smell</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Chemical hazard sensor**<br>*Inhale secrets; exhale mastery.Once per scene, Spend 1 Hope to monitor your environment for chemicals of all types.  Like a massively improved sense of smell*</div>

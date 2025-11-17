@@ -4,7 +4,7 @@
 
 *Once per long rest, you can activate this ring after a successful attack against you to halve the damage. cryptographic sigils route through subdermal coils*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Activate**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.flux-circuit-ring`
 </div>

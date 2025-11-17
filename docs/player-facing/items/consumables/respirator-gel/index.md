@@ -4,7 +4,7 @@
 
 *A bio-gel that filters oxygen from water through skin membranes. Breathe underwater minutes equal to your level.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Apply**<br>*You can apply this salve to your neck to breathe underwater for a number of minutes equal to your level.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.respirator-gel`
 </div>

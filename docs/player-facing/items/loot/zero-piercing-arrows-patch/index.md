@@ -4,7 +4,7 @@
 
 *Three times per rest when you succeed on an attack with one of these arrows, you can add your Proficiency to the damage roll. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Use**<br>**</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Piercing Arrows**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.zero-piercing-arrows-patch`
 </div>

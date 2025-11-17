@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules\\cybermancy\\assets\\icons\\consumables\\morale-beacon-flare.webp",
   "system": {
-    "description": "A short-range beacon that boosts allied morale. Allies in Close range roll d6 when spending Hope; on a 6, Hope isn’t spent.",
+    "description": "<p>A short-range beacon that boosts allied morale, for the remainder of the Scene. Allies in Close range roll d6 when spending Hope; on a 6, Hope isn’t spent.</p>",
     "quantity": 1,
     "actions": {
       "hTF2K4uWcrUypLbs": {
@@ -33,7 +33,7 @@
     "consumeOnUse": true
   },
   "effects": [],
-  "folder": null,
+  "folder": "Wc8DT5zFVZPpyDNc",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -48,10 +48,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760924700444,
-    "modifiedTime": 1760924700444,
+    "modifiedTime": 1763217616776,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "LSnXpy19O5jssBSJ",
-  "sort": 0,
+  "sort": 106250,
   "_key": "!items!LSnXpy19O5jssBSJ"
 }

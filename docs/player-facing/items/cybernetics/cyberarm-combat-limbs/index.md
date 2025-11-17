@@ -4,7 +4,7 @@
 
 *<i>Edge precision, unrivaled force, definitive impact.</i><br /><br /><p class="Card-Feature">+1 to all Attacks made by a Melee weapon that does physical damage. <br /><br />Requires Cyberarm™ base unit</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Cyberarm™  Combat Limbs**<br>*Edge precision, unrivaled force, definitive impact.+1 to all Attacks made by a Melee weapon that does physical damage. Requires Cyberarm™ base unit*</div>

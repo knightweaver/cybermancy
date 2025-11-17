@@ -4,7 +4,7 @@
 
 *Once per long rest, you can spend 2 Hope to recall a domain card from your vault instead of paying its Recall Cost. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Use**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.cipher-shard-of-node`
 </div>

@@ -4,7 +4,7 @@
 
 *<i>"Embrace renewal; hope embedded within."</i><br /><br /><p class="Card-Feature">Once per rest, Gain 1 Hope</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Empathic Feedback Loop**<br>*"Embrace renewal; hope embedded within."Once per rest, Gain 1 Hope*</div>

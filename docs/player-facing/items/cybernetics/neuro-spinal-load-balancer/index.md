@@ -4,7 +4,7 @@
 
 *<i>"Fortify Essence; transmute fear to vapor."</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to Mark 2 Armor slots and entirely prevent the damage from 1 attack</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Neuro-Spinal Load Balancer**<br>*"Fortify Essence; transmute fear to vapor."Spend 1 Hope to Mark 2 Armor slots and entirely prevent the damage from 1 attack*</div>

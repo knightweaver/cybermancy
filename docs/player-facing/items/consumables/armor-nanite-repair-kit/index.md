@@ -4,7 +4,7 @@
 
 *A swarm of nanites that reknit damaged armor plating. Spend any amount of Hope to clear that many Armor Slots.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Stitch**<br>*You can use this stitcher to spend any number of Hope and clear that many Armor Slots.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.armor-nanite-repair-kit`
 </div>

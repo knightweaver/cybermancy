@@ -4,7 +4,7 @@
 
 *<i>Hope-fueled fury, precision scars victory.</i><br /><br /><p class="Card-Feature">After a successful attack with your secondary weapon, <strong>Spend 1 Hope</strong> for +2 on all damage die rolled. <br /><br />Requires the Wakizashi™ Base Unit.</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Wakizashi™ Kinetic Feedback Enhancer**<br>*Hope-fueled fury, precision scars victory.After a successful attack with your secondary weapon, Spend 1 Hope for +2 on all damage die rolled. Requires the Wakizashi™ Base Unit.*</div>

@@ -4,7 +4,7 @@
 
 *Releases a cacophony of ghostly feedback. All within Far range take 6d8 sonic damage.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Open**<br>*f]*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.sonic-disruption-jar`
 </div>

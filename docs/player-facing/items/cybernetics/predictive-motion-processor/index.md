@@ -4,7 +4,7 @@
 
 *<i>Unleash precision beyond mortal reach.</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on an attack roll</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Predictive Motion Processor**<br>*Unleash precision beyond mortal reach.Spend 1 Hope to gain +2 on an attack roll*</div>

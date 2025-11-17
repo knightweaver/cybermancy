@@ -4,7 +4,7 @@
 
 *A concentrated stim patch that resets stress pathways. Clears 1d4+1 Stress.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*Clear 1d4+1 Stress.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.standard-adrenaline-patch`
 </div>

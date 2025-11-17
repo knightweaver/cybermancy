@@ -4,7 +4,7 @@
 
 *Upon death, stores your last loadout data. An ally can absorb it, inheriting one of your cards before it dissolves.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Use**<br>*If you die while holding this stone, an ally can take a card from your loadout to place in their loadout or vault. After they take this knowledge, the stone crumbles.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.memory-transfer-crystal`
 </div>

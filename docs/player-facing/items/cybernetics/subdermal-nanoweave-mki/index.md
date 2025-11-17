@@ -4,7 +4,7 @@
 
 *<i>Shield your core: a heartbeat fortified.</i><br /><br /><p class="Card-Feature">+1 Hit Point</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Subdermal Nanoweave MkI**<br>* a heartbeat fortified.+1 Hit Point*</div>

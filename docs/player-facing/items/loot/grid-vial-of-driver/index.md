@@ -2,9 +2,9 @@
 # Grid Vial Of Driver
 <img src="../../../assets/icons/loot/grid-vial-of-driver.webp" alt="Grid Vial Of Driver" class="item-image" style="width:300px; height:auto;">
 
-*As a downtime move, you can mark a Stress to craft a Vial of Darksmoke. nanite payload delivers fast onset effects*
+*<p>As a downtime move, you can mark a Stress to craft Reactive Evasion Smoke. nanite payload delivers fast onset effects</p>*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.grid-vial-of-driver`
 </div>

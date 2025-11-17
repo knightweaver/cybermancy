@@ -4,7 +4,7 @@
 
 *A rest-time gel that clears 1d10 HP or 1d10 Stress when applied.*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Clear Hit Points**<br>*You can consume this moss during a rest to clear 1d10 HP.*</div>
@@ -15,7 +15,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.consumables.soothing-med-gel`
 </div>

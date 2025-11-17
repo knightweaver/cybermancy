@@ -4,7 +4,7 @@
 
 *You can attach this charm to a weapon with a Melee range. Three times per rest, you can activate the charm and attack a target within Close range. cryptographic sigils route through subdermal coils tuned for close-quarters in blackout zones*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Activate**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.ghost-luck-patch`
 </div>

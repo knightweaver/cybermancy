@@ -4,7 +4,7 @@
 
 *When you sculpt this ball of clay into a clay animal companion, it behaves as that animal. For example, a clay spider can spin clay webs, while a clay bird can fly. The clay companion retains memory and identity across different shapes, but they can adopt new*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.loot.ghost-clay-companion-relay`
 </div>

@@ -4,7 +4,7 @@
 
 *A dual-dose medical injector that rebuilds soft tissue instantly. Restores 1d4+1 HP.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*Clear 1d4+1 HP.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.standard-health-stimpack`
 </div>

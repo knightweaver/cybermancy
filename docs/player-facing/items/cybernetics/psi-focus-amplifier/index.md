@@ -4,7 +4,7 @@
 
 *<i>"Power surges—increase, unleash devastation."</i><br /><br /><p class="Card-Feature">After a successful Spellcasting roll that does damage, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Psi-Focus Amplifier**<br>*"Power surges—increase, unleash devastation."After a successful Spellcasting roll that does damage, Mark 1 Stress to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).*</div>

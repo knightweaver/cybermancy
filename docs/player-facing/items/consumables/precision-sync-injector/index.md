@@ -4,7 +4,7 @@
 
 *A neural alignment serum that steadies fine-motor control. +1 bonus to your next Finesse roll.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Finesse Roll.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Control Potion**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.precision-sync-injector`
 </div>

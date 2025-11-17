@@ -4,7 +4,7 @@
 
 *<i>"Master the battlefield with unyielding resilience."</i><br /><br /><p class="Card-Feature">Gain +4/+4 to Major / Severe damage thresholds. You can only have 1 Subdermal weave enhancement, but they can be upgraded.</p>*
 
-### **Tier: 4**
+### **Tier: Tier 4**
 
 #### Actions
 - <div markdown='1'>**Unnamed Action**<br>**</div>

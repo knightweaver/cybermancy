@@ -4,7 +4,7 @@
 
 *This magical chest appears empty. When you speak a specific trigger word or action and open the chest, you can see the items stored within it. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.arc-empty-chest-module`
 </div>

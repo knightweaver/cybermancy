@@ -4,7 +4,7 @@
 
 *A dual-compound resin that permanently bonds objects together.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Use**<br>*This honey can be used to glue two objects together permanently.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.industrial-adhesive-gel`
 </div>

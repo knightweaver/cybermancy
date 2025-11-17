@@ -4,7 +4,7 @@
 
 *<i>Swift steel triumph; your closest ally.</i><br /><br /><p class="Card-Feature">Melee range weapon, d6+1 with the Quick feature.</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Cyberarm™ Stiletto**<br>*Swift steel triumph; your closest ally.Melee range weapon, d6+1 with the Quick feature.*</div>

@@ -4,7 +4,7 @@
 
 *<i>"Precision reborn; risk is your muse."</i><br /><br /><p class="Card-Feature">Once per scene, as a Reaction, <strong>Mark 1 Stress</strong> to reroll 1 Agility ablity or saving throw</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Gyroscopic Stabilizer Frame**<br>*"Precision reborn; risk is your muse."Once per scene, as a Reaction, Mark 1 Stress to reroll 1 Agility ablity or saving throw*</div>

@@ -4,7 +4,7 @@
 
 *<i>"Whispering Echo: Amplify Charisma, Eclipse Despair."</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 1 Hope</strong> for advange on a Prescence Roll.  If you are a Bard, once per long-rest you may <strong>Spend 3 Hope</strong> to increase the size of your Bard Die (e.g. from d4 to d6) before giving Bardic Inspriration</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Vox Resonance Enhancer**<br>* Amplify Charisma, Eclipse Despair."Once per scene, Spend 1 Hope for advange on a Prescence Roll.  If you are a Bard, once per long-rest you may Spend 3 Hope to increase the size of your Bard Die (e.g. from d4 to d6) before giving Bardic Inspriration*</div>

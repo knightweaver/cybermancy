@@ -4,7 +4,7 @@
 
 *Activate this pebble-sized stone to memorize the appearance of someone you can see. Spend a Hope to magically recreate this guise on yourself as an illusion. stores resonance data and telemetry snapshots*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Create Illusion**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.arc-memory-stone`
 </div>

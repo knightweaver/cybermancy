@@ -4,7 +4,7 @@
 
 *A heavy plasma cell delivering 4d20 plasma damage within Far range.*
 
-### **Tier: —**
+### **Tier: Tier 4**
 
 #### Actions
 - <div markdown='1'>**Throw**<br>*You can make a Finesse Roll to throw this shard at a group of adversaries within Far range. Targets you succeed against take 4d20 magic damage.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 4
 <br>
 **UUID:** `Compendium.cybermancy.consumables.major-plasma-grenade`
 </div>

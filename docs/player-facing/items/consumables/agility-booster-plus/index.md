@@ -4,7 +4,7 @@
 
 *An enhanced nanoshot that grants +1 Agility until your next rest.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your Agility until your next rest.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Major Stride Potion**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.agility-booster-plus`
 </div>

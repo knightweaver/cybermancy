@@ -4,7 +4,7 @@
 
 *<i>"Unleash hope, transcend limits."</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Spellcasting Roll</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Cognitive Manifold Core**<br>*"Unleash hope, transcend limits."Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current Spellcasting Roll*</div>

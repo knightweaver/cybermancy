@@ -4,7 +4,7 @@
 
 *<i>Become impervious to arcane whispers.</i><br /><br /><p class="Card-Feature">-2 to all sources of Magical damage</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Etheric Dampening Core**<br>*Become impervious to arcane whispers.-2 to all sources of Magical damage*</div>

@@ -4,7 +4,7 @@
 
 *<i>"Elegantly Enhance Destruction: Your Power Multiplied."</i><br /><br /><p class="Card-Feature"><strong>Mark 1 Stress</strong> to add +2 damage per die rolled to any attack that does magical damage</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Etheric Amplifier**<br>* Your Power Multiplied."Mark 1 Stress to add +2 damage per die rolled to any attack that does magical damage*</div>

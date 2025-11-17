@@ -4,7 +4,7 @@
 
 *When you use this key to open a locked door, you gain advantage on the Finesse Roll. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Use Key**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.arc-intrusion-key`
 </div>

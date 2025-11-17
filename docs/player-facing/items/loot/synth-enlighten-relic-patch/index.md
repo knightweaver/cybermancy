@@ -4,7 +4,7 @@
 
 *You gain a +1 bonus to your Knowledge. You can only carry one relic. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Enlighten Relic**<br>*<p><span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:4…*</div>
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.loot.synth-enlighten-relic-patch`
 </div>

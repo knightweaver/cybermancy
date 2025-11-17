@@ -4,7 +4,7 @@
 
 *<i>Ascend reactions, thrive with precision.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 1 Hope</strong> to gain +2 on the current Reaction Roll</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Tactical Subcortex**<br>*Ascend reactions, thrive with precision.Once per scene, Spend 1 Hope to gain +2 on the current Reaction Roll*</div>

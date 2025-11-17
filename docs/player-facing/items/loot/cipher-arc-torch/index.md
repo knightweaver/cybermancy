@@ -4,7 +4,7 @@
 
 *You can light this magic torch at will. The flame’s light fills a much larger space than it should, enough to illuminate a cave bright as day. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.cipher-arc-torch`
 </div>

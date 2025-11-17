@@ -4,7 +4,7 @@
 
 *<i>"Flesh meets metal; unleash hidden power."</i><br /><br /><p class="Card-Feature">After a successful attack with your secondary weapon, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  <br /><br />Requires the Wakizashi™ Base Unit.</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Wakizashi™ Servo Wrist Reinforcement**<br>*"Flesh meets metal; unleash hidden power."After a successful attack with your secondary weapon, Mark 1 Stress to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  Requires the Wakizashi™ Base Unit.*</div>

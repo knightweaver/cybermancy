@@ -3,12 +3,12 @@
   "type": "loot",
   "img": "modules/cybermancy/assets/icons/loot/grid-vial-of-driver.webp",
   "system": {
-    "description": "As a downtime move, you can mark a Stress to craft a Vial of Darksmoke. nanite payload delivers fast onset effects",
+    "description": "<p>As a downtime move, you can mark a Stress to craft Reactive Evasion Smoke. nanite payload delivers fast onset effects</p>",
     "quantity": 1,
     "actions": {}
   },
   "effects": [],
-  "folder": null,
+  "folder": "IbwZr1arxefX1uzF",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -23,10 +23,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760924983684,
-    "modifiedTime": 1760925007129,
+    "modifiedTime": 1763219207562,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "L7KfQYsQ3dhzUeS5",
-  "sort": 500000,
+  "sort": 1600000,
   "_key": "!items!L7KfQYsQ3dhzUeS5"
 }

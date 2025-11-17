@@ -4,7 +4,7 @@
 
 *High-capacity stimpack restoring 1d4+2 HP.*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*Clear 1d4+2 HP.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.consumables.major-health-stimpack`
 </div>

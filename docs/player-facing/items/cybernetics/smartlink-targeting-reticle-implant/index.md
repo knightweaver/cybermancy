@@ -4,7 +4,7 @@
 
 *<i>Precision unleashed; elevate your aim.</i><br /><br /><p class="Card-Feature">When firing a SmartLink™ enabled weapon, +1 Attack.  <br /><br />Requires the SmartLink™ CPU implant</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**SmartLink™ Targeting Reticle Implant**<br>*Precision unleashed; elevate your aim.When firing a SmartLink™ enabled weapon, +1 Attack.  Requires the SmartLink™ CPU implant*</div>

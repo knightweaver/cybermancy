@@ -4,7 +4,7 @@
 
 *<i>"Shift your gaze, shape your truth."</i><br /><br /><p class="Card-Feature">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br /><br />Requires Oculus ™ base unit.</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Oculus™ Palette**<br>*"Shift your gaze, shape your truth."Change your eye's appearance at will. Spend 1 Hope to gain +2 on a Deceive roll. Requires Oculus ™ base unit.*</div>

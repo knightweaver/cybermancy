@@ -4,7 +4,7 @@
 
 *<i>"Endure the storm, woven to withstand."</i><br /><br /><p class="Card-Feature">Gain +2/+2 to Major / Severe damage thresholds. You can only have 1 Subdermal weave enhancement, but they can be upgraded.</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Unnamed Action**<br>**</div>

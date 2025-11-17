@@ -4,7 +4,7 @@
 
 *<i>Ethereal serenity, engineered for your mind.</i><br /><br /><p class="Card-Feature">Once per rest, Recover 1 Stress</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Cortisol Modulator**<br>*Ethereal serenity, engineered for your mind.Once per rest, Recover 1 Stress*</div>

@@ -4,7 +4,7 @@
 
 *<i>Forged elegance, lethal precision.</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Claws**<br>*Forged elegance, lethal precision.Spend 1 Hope to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage*</div>

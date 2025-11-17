@@ -4,7 +4,7 @@
 
 *An upgraded plasma charge with doubled output. Deals 2d20 plasma damage within Far range.*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Throw**<br>*You can make a Finesse Roll to throw this shard at a group of adversaries within Far range. Targets you succeed against take 2d20 magic damage.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.consumables.improved-plasma-grenade`
 </div>

@@ -4,7 +4,7 @@
 
 *<i>Elevate potential; risk-draped enhancement awaits.</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 2 Hope</strong> to increase your Proficiency level for 1 action or reaction</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**SkillJack Neural Matrix**<br>*Elevate potential; risk-draped enhancement awaits.Once per scene, Spend 2 Hope to increase your Proficiency level for 1 action or reaction*</div>

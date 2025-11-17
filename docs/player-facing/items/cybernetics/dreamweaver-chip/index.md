@@ -4,7 +4,7 @@
 
 *<i>"Dream deeper, recharge beyond limits."</i><br /><br /><p class="Card-Feature">Gain one additional long rest downtime action</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**DreamWeaver Chip**<br>*"Dream deeper, recharge beyond limits."Gain one additional long rest downtime action*</div>

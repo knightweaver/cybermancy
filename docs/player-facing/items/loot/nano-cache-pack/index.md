@@ -4,7 +4,7 @@
 
 *You can convince this small bag of sand to be much heavier or lighter with a successful Presence Roll (10). Additionally, on a successful Finesse Roll (10), you can blow a bit of sand into a target’s face to make them temporarily **Vulnerable**. black-market t*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Blow Sand**<br>**</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Bag of Ficklesand**<br>**</div>
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.nano-cache-pack`
 </div>

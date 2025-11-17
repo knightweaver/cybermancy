@@ -79,7 +79,7 @@
     "consumeOnUse": true
   },
   "effects": [],
-  "folder": null,
+  "folder": "Wc8DT5zFVZPpyDNc",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -94,10 +94,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760924699388,
-    "modifiedTime": 1760924699388,
+    "modifiedTime": 1763217426719,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "LwbsmYUgf18plvfD",
-  "sort": 0,
+  "sort": 112500,
   "_key": "!items!LwbsmYUgf18plvfD"
 }

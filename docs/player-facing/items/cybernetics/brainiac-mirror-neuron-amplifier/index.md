@@ -4,7 +4,7 @@
 
 *<i>"Trade hope for unwavering charisma surge."</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on a Prescence Roll or Saving Throw</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Brainiac™ Mirror Neuron Amplifier**<br>*"Trade hope for unwavering charisma surge."Spend 1 Hope to gain +2 on a Prescence Roll or Saving Throw*</div>

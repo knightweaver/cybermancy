@@ -4,7 +4,7 @@
 
 *A pair of dissolving nootropic strips that flood the mind with clarity. Gain 2 Hope.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Eat**<br>*You can eat these paired leaves to immediately gain 2 Hope.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.focus-amp-tabs`
 </div>

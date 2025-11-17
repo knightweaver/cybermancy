@@ -4,7 +4,7 @@
 
 *An injectable charisma mod that boosts confidence and pheromonal output. +1 bonus to your next Presence roll.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Presence Roll.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Charm Potion**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.persona-enhancement-dose`
 </div>

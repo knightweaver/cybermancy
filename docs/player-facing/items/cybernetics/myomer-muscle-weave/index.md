@@ -4,7 +4,7 @@
 
 *<i>Forge destiny with unyielding cybernetic might.</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on a Strength roll or saving throw.</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Myomer Muscle Weave**<br>*Forge destiny with unyielding cybernetic might.Spend 1 Hope to gain +2 on a Strength roll or saving throw.*</div>

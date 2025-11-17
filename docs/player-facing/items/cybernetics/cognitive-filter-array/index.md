@@ -4,7 +4,7 @@
 
 *<i>Stress for clarity; mind transcends chaos.</i><br /><br /><p class="Card-Feature">Once per rest, <strong>Mark 1 Stress</strong> to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Cognitive Filter Array**<br>*Stress for clarity; mind transcends chaos.Once per rest, Mark 1 Stress to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence*</div>

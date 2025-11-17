@@ -4,7 +4,7 @@
 
 *<i>"Defy Fate, Preserve with Precision."</i><br /><br /><p class="Card-Feature">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Severe Wound</p>*
 
-### **Tier: 4**
+### **Tier: Tier 4**
 
 #### Actions
 - <div markdown='1'>**Elite Nanite Trauma Mesh**<br>*"Defy Fate, Preserve with Precision."Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Severe Wound*</div>

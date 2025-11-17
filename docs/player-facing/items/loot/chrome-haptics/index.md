@@ -4,7 +4,7 @@
 
 *You can climb up vertical surfaces and across ceilings. blends with urban spectra and sensor noise*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.loot.chrome-haptics`
 </div>

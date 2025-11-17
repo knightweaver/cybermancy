@@ -4,7 +4,7 @@
 
 *A compact medical injector loaded with clotting foam and nanite tissue repair. Restores 1d4 HP.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*Clear 1d4 HP.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.minor-health-stimpack`
 </div>

@@ -4,7 +4,7 @@
 
 *<i>"Hope's shield: armor's unseen embrace."</i><br /><br /><p class="Card-Feature">Once per scene, <strong>Spend 1 Hope</strong> to prevent 2 Hit Points of damage when marking an Armor Slot</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Reactive Gel Layer**<br>* armor's unseen embrace."Once per scene, Spend 1 Hope to prevent 2 Hit Points of damage when marking an Armor Slot*</div>

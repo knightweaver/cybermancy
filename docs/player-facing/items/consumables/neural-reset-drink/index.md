@@ -4,7 +4,7 @@
 
 *A calming electrolyte-nootropic blend that restores mental balance. Choose one additional downtime move.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You can drink this potion to choose one additional downtime move.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Potion of Stability**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.neural-reset-drink`
 </div>

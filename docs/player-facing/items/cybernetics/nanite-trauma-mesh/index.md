@@ -4,7 +4,7 @@
 
 *<i>Escape harm's grasp; rewrite fate.</i><br /><br /><p class="Card-Feature">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Nanite Trauma Mesh**<br>*Escape harm's grasp; rewrite fate.Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound*</div>

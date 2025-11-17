@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules\\cybermancy\\assets\\icons\\consumables\\neural-toxin-ampule.webp",
   "system": {
-    "description": "A potent injectable that delivers 2d10 direct neural damage to a victim.",
+    "description": "<p>Make a Melee attack.  On a success, inject this potent toxin that delivers 2d10 direct neural damage to a victim.</p>",
     "quantity": 1,
     "actions": {
       "F8CUhhCuZMnXVCrw": {
@@ -66,7 +66,7 @@
     "consumeOnUse": true
   },
   "effects": [],
-  "folder": null,
+  "folder": "Wc8DT5zFVZPpyDNc",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -81,10 +81,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760924705557,
-    "modifiedTime": 1760924705557,
+    "modifiedTime": 1763217785007,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "GAcn7ARPea8EAU2t",
-  "sort": 0,
+  "sort": 100782,
   "_key": "!items!GAcn7ARPea8EAU2t"
 }

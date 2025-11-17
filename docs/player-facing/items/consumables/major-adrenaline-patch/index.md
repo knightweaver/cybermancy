@@ -4,7 +4,7 @@
 
 *Upgraded patch clearing 1d4+2 Stress.*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*Clear 1d4+2 Stress.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.consumables.major-adrenaline-patch`
 </div>

@@ -4,7 +4,7 @@
 
 *While falling, you can mark a Stress to deploy this small parachute and glide safely to the ground. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Mark Stress**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.black-glider-beacon`
 </div>

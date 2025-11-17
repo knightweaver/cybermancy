@@ -4,7 +4,7 @@
 
 *<i>"Unleash the steel within; crush with precision."</i><br /><br /><p class="Card-Feature">After a successful attack roll with a melee weapon that does physical damage, <strong>Spend 1 Hope</strong> per proficiency level to add +d8 of damage. You can only have 1 Gorilla Arms enhancement, but they can be upgraded.</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Unnamed Action**<br>**</div>

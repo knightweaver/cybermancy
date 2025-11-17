@@ -4,7 +4,7 @@
 
 *A sedative capsule inducing full rest and clearing all Stress on waking.*
 
-### **Tier: —**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Wake**<br>*You can drink this potion to fall asleep for a full night’s rest. You clear all Stress upon waking.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 3
 <br>
 **UUID:** `Compendium.cybermancy.consumables.deep-sleep-capsule`
 </div>

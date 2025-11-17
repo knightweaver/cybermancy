@@ -4,7 +4,7 @@
 
 *While you carry this pendant, your weapons with a Melee range that deal physical damage have a gossamer sheen and can attack targets within Very Close range. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.chrome-flickerfly-pendant-driver`
 </div>

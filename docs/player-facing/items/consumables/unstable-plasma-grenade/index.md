@@ -4,7 +4,7 @@
 
 *A volatile micro-fusion cell that can be hurled at a target cluster. On hit, deals 1d20 plasma damage within Far range.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Throw**<br>*You can make a Finesse Roll to throw this shard at a group of adversaries within Far range. Targets you succeed against take 1d20 magic damage.*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.unstable-plasma-grenade`
 </div>

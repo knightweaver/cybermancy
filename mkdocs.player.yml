@@ -32,6 +32,8 @@ nav:
       - Timeline (player): index.md
       - Megacorps: world/corps.md
       - Communities: world/communities.md
+      - Locations: world/locations.md
+      - Known NPCs: world/npcs.md
   - Items:
       - Ammo: items/ammo.md
       - Armors: items/armors.md

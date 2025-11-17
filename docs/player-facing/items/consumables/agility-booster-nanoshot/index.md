@@ -4,7 +4,7 @@
 
 *A fast-acting nanite injection that heightens reflex loops and micro-muscle response. +1 bonus to your next Agility roll.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Agility Roll.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Stride Potion**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.agility-booster-nanoshot`
 </div>

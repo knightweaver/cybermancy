@@ -4,7 +4,7 @@
 
 *<i>"Eyes unveil secrets, but Hope pays."</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on a Sense roll so long as you can see the creature's face and eyes.</p>*
 
-### **Tier: 2**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Oculus™ Inspecter**<br>*"Eyes unveil secrets, but Hope pays."Spend 1 Hope to gain +2 on a Sense roll so long as you can see the creature's face and eyes.*</div>

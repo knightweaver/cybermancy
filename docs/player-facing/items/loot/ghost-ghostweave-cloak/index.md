@@ -4,7 +4,7 @@
 
 *A creature with a Spellcast trait wearing this cloak can adjust its color, texture, and size at will. blends with urban spectra and sensor noise*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.ghost-ghostweave-cloak`
 </div>

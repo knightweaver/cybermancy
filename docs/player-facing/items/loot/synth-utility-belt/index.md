@@ -4,7 +4,7 @@
 
 *Once per session, you can spend 5 Hope to lead a Tag Team Roll with three PCs instead of two. blends with urban spectra and sensor noise*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Use**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.synth-utility-belt`
 </div>

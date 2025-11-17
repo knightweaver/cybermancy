@@ -4,7 +4,7 @@
 
 *You can attach this stone to a weapon that doesn’t already have a feature. The weapon gains the following feature. ***Powerful:*** On a successful attack, roll an additional damage die and discard the lowest result. stores resonance data and telemetry snapshot*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.arc-greatstone-relay`
 </div>

@@ -4,7 +4,7 @@
 
 *A miniaturized satellite uplink calling down a storm of kinetic rods. Deals 8d20 physical damage within Very Far range.*
 
-### **Tier: —**
+### **Tier: Tier 4**
 
 #### Actions
 - <div markdown='1'>**Use**<br>*vf]*</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 4
 <br>
 **UUID:** `Compendium.cybermancy.consumables.orbital-strike-beacon`
 </div>

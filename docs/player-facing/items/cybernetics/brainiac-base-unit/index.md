@@ -4,7 +4,7 @@
 
 *<i>"Amplify intellect, unlock future potential."</i><br /><br /><p class="Card-Feature">Brainiac™ Base Unit - includes embedded comms unit and allows other Brainiac modules to be installed</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Brainiac™ Base Unit**<br>*"Amplify intellect, unlock future potential."Brainiac™ Base Unit - includes embedded comms unit and allows other Brainiac modules to be installed*</div>

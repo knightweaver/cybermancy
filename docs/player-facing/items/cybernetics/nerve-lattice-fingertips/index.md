@@ -4,7 +4,7 @@
 
 *<i>"Empower precision, barter with destiny."</i><br /><br /><p class="Card-Feature"><strong>Spend 1 Hope</strong> to gain +2 on a Finesse roll or saving throw</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Nerve-Lattice Fingertips**<br>*"Empower precision, barter with destiny."Spend 1 Hope to gain +2 on a Finesse roll or saving throw*</div>

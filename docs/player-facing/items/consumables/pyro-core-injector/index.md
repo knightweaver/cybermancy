@@ -4,7 +4,7 @@
 
 *An internal reactor shot that lets you exhale plasma fire. Make an Instinct roll; targets in front take 2d20 physical damage.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>**</div>
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.pyro-core-injector`
 </div>

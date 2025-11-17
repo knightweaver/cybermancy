@@ -4,7 +4,7 @@
 
 *<i>"Unveil horizons, empower your reach."</i><br /><br /><p class="Card-Feature"><strong>Spend 2 Hope</strong> to increase the range of one Spell you are casting</p>*
 
-### **Tier: 1**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Mana Projector Coil**<br>*"Unveil horizons, empower your reach."Spend 2 Hope to increase the range of one Spell you are casting*</div>

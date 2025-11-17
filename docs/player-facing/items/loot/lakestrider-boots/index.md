@@ -4,7 +4,7 @@
 
 *<p>You can walk on the surface of water as if it were soft ground.</p>*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.lakestrider-boots`
 </div>

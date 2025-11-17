@@ -31,6 +31,8 @@ Current Configuration: {
 ```
 Unpack a specific compendia (note how the package path maps to the compendia configuration in the modules.json file, "packs/system/classes.db" in this example:
  - `fvtt package unpack -n "system/classes" --outputDirectory "src/packs/system/classes"`
+ - `fvtt package unpack -n "items/consumables" --outputDirectory "src/packs/items/consumables"`
+ - `fvtt package unpack -n "items/loot" --outputDirectory "src/packs/items/loot`
 
 ---
 ## `generate-docs.py`
@@ -116,6 +118,14 @@ options:
 ```
 ---
 
+## `batch-image-generation-simple-prompt-file.py`
+
+Rather than constructing the prompt dynamically on the fly, sometimes it is better and more controllable to do the prompt engineering in ChatGPT directly, then generate a csv file with name and prompt to run in this script
+
+usage: batch-image-generation-simple-prompt-file.py [-h] -i INPUT -o OUTDIR [--model MODEL] [--size SIZE] [--format {webp,png,jpg,jpeg}] [--delay DELAY] [--overwrite] [--max-items MAX_ITEMS] [--log-level LOG_LEVEL]
+batch-image-generation-simple-prompt-file.py: error: the following arguments are required: -i/--input, -o/--outdir
+
+---
 ## `feature-descriptor-to-loadable.py`
 
 Builds loadable JSON for Daggerheart/Cybermancy Features and Domain Cards.
@@ -146,6 +156,16 @@ options:
   ```
 
 #### NOTE: check out the cybermancy-items.xlsx file to see how the sheets are built.
+
+---
+
+## Local image browser `image-browser.mjs`
+
+One of the constant frustrations I have had is looking for just the right image for a creature, item or feature among the 20k+ images in my Foundry folders.  This is a simple utility function that take a folder, recursively descends through that folder structure and assembles a complete list of image files.
+
+The act of clicking on an image places that path on the clipboard.
+
+`node scripts/image-browser.mjs E:\FoundryVTT\Data\systems\`
 
 ---
 

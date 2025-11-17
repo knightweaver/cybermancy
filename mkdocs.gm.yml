@@ -40,6 +40,9 @@ nav:
       - Adversaries: adventures/adversaries.md
       - NPC Actors: adventures/npc-actors.md
       - Environments: adventures/environments.md
+  - System:
+      - Adversary Features: system/adversaries-features.md
+      - Visual Canon: meta/visual-canon.md
   - Meta:
       - ETL Pipeline: meta/etl-pipeline.md
       - Visual Canon: meta/visual-canon.md

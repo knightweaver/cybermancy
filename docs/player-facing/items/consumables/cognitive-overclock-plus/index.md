@@ -4,7 +4,7 @@
 
 *Advanced nootropic granting +1 Knowledge until next rest.*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your Knowledge until your next rest.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Major Enlighten Potion**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.consumables.cognitive-overclock-plus`
 </div>

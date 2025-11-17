@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/neural-toxin-ampule.webp",
   "system": {
-    "description": "A lethal nanopoison: if you crit before your next long rest, your target dies. Fail—and so do you.",
+    "description": "<p>A lethal nanopoison: if you crit before your next long rest, your target dies. </p>",
     "quantity": 1,
     "actions": {
       "U7da5R4pgVkEQJVj": {
@@ -81,7 +81,7 @@
       "_key": "!items.effects!039OjrPdDyUaqFNg.IqlpqsgurXsUEQhs"
     }
   ],
-  "folder": null,
+  "folder": "Oxa1ca4wQjaKnxuf",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -96,10 +96,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760924746805,
-    "modifiedTime": 1760924770200,
+    "modifiedTime": 1763216277861,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "039OjrPdDyUaqFNg",
-  "sort": 0,
+  "sort": 100000,
   "_key": "!items!039OjrPdDyUaqFNg"
 }

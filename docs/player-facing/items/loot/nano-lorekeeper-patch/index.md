@@ -4,7 +4,7 @@
 
 *You can store the name and details of up to three hostile creatures inside this book. You gain a +1 bonus to action rolls against those creatures. black-market tech favored by runners and fixers*
 
-### **Tier: —**
+### **Tier: Tier 2**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 2
 <br>
 **UUID:** `Compendium.cybermancy.loot.nano-lorekeeper-patch`
 </div>

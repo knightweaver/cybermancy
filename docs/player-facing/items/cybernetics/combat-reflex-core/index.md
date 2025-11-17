@@ -4,7 +4,7 @@
 
 *<i>"Forge your wrath; precision unfolds."</i><br /><br /><p class="Card-Feature">+2 to all Attacks made by a Melee weapon.</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Combat Reflex Core**<br>*"Forge your wrath; precision unfolds."+2 to all Attacks made by a Melee weapon.*</div>

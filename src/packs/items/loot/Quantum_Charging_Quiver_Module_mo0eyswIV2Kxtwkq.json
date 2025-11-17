@@ -64,7 +64,7 @@
       "_key": "!items.effects!mo0eyswIV2Kxtwkq.0zebbOsyjkm9IqE6"
     }
   ],
-  "folder": null,
+  "folder": "IbwZr1arxefX1uzF",
   "ownership": {
     "default": 0,
     "OFxauskoxcvVTVNA": 3,
@@ -79,10 +79,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1760925009236,
-    "modifiedTime": 1760925009236,
+    "modifiedTime": 1763304568910,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_id": "mo0eyswIV2Kxtwkq",
-  "sort": 0,
+  "sort": 150000,
   "_key": "!items!mo0eyswIV2Kxtwkq"
 }

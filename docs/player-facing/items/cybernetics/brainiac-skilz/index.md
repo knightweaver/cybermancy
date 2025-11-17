@@ -4,7 +4,7 @@
 
 *<i>"Unlock hidden worlds with neural flair."</i><br /><br /><p class="Card-Feature">Gain 1 Experience slot and fill it in with a new Experience (GM discretion).  As a downtime activity, spend 1 Mega to change the Experience<br /><br /> Requires Brainiac™ Base Unit.</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**Brainiac™ Skilz**<br>*"Unlock hidden worlds with neural flair."Gain 1 Experience slot and fill it in with a new Experience (GM discretion).  As a downtime activity, spend 1 Mega to change the Experience Requires Brainiac™ Base Unit.*</div>

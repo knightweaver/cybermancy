@@ -4,7 +4,7 @@
 
 *<i>"Precision reborn, elevate your lethal art."</i><br /><br /><p class="Card-Feature">+3 to all Attacks made by a SmartLink™ weapon. <br /><br />Requires SmartLink™ CPU implant</p>*
 
-### **Tier: 3**
+### **Tier: Tier 3**
 
 #### Actions
 - <div markdown='1'>**SmartLink™ Weapon Mount**<br>*"Precision reborn, elevate your lethal art."+3 to all Attacks made by a SmartLink™ weapon. Requires SmartLink™ CPU implant*</div>

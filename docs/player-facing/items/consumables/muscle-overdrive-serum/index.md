@@ -4,7 +4,7 @@
 
 *A strength-enhancing stim that floods the body with synthetic adrenaline. +1 bonus to your next Strength roll.*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 - <div markdown='1'>**Drink**<br>*You gain a +1 bonus to your next Strength Roll.*</div>
@@ -13,7 +13,7 @@
 - <div markdown='1'>**Bolster Potion**<br>**</div>
 
 <div class="meta" markdown="1">
-consumables
+consumables/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.consumables.muscle-overdrive-serum`
 </div>

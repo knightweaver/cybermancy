@@ -4,7 +4,7 @@
 
 *This pair of orbs allows any creatures holding them to communicate with each other across any distance. stores resonance data and telemetry snapshots*
 
-### **Tier: —**
+### **Tier: Tier 1**
 
 #### Actions
 —
@@ -13,7 +13,7 @@
 —
 
 <div class="meta" markdown="1">
-loot
+loot/Tier 1
 <br>
 **UUID:** `Compendium.cybermancy.loot.flux-speaking-orbs-key`
 </div>
