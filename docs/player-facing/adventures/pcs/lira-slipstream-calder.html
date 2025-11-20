@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Character Sheet – Lira “Slipstream” Calder</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 1rem;
+    }
+    .character-sheet {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+    .sheet-header {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    .char-portrait {
+      width: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #eee;
+    }
+    .identity h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.6rem;
+    }
+    .identity .tags {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.25rem;
+    }
+    .identity .meta {
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr;
+      gap: 1rem;
+    }
+    .box {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+    }
+    .box h2 {
+      font-size: 1rem;
+      margin: 0 0 0.35rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.25rem;
+    }
+    .traits-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .traits-table th,
+    .traits-table td {
+      border: 1px solid #ddd;
+      padding: 0.2rem 0.4rem;
+      text-align: center;
+    }
+    .traits-table th {
+      background: #f0f0f0;
+    }
+    .list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+    .list li {
+      margin-bottom: 0.25rem;
+    }
+    .section {
+      margin-top: 1rem;
+    }
+    .section h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.35rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    .subsection-title {
+      font-weight: 600;
+      margin-top: 0.5rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    table.simple {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    table.simple th,
+    table.simple td {
+      border: 1px solid #ddd;
+      padding: 0.25rem 0.35rem;
+    }
+    table.simple th {
+      background: #c42929;
+      text-align: left;
+    }
+    .bio {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+<div class="character-sheet">
+
+  <!-- HEADER -->
+  <div class="sheet-header">
+    <img class="char-portrait" src="../../assets/images/npcs/lira-slipstream-calder.png" alt="Lira “Slipstream” Calder portrait" />
+
+    <div class="identity">
+      <h1>Lira “Slipstream” Calder</h1>
+
+      <div class="tags">
+        Heritage: Human • Community: Loreborne
+      </div>
+
+      <div class="tags">
+        Class: Rigger • Subclass: Speed Racer
+      </div>
+
+      <div class="meta">
+        Level 1 • Proficiency: +1
+        • Evasion: 0 • Armor: 0
+      </div>
+
+      <div class="meta">
+        HP: 0 / 0
+        • Stress: 0 / 7
+        • Hope: 2 / 6
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CORE TRAITS -->
+  <div class="grid-2">
+    <div class="box">
+      <h2>Traits</h2>
+      <table class="traits-table">
+        <tr>
+          <th>Strength</th>
+          <th>Agility</th>
+          <th>Finesse</th>
+          <th>Instinct</th>
+          <th>Presence</th>
+          <th>Knowledge</th>
+        </tr>
+        <tr>
+          <td>-1</td>
+          <td>1</td>
+          <td>2</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h2>Defense & Resources</h2>
+
+      <div>
+        Major Threshold: 0 • Severe: 0
+      </div>
+
+      <div style="margin-top:0.25rem;">
+        Resistances:<br />
+        Physical: — • Magical: —
+      </div>
+
+      <div style="margin-top:0.5rem;">
+        Gold:
+        0 coins •
+        1 handfuls •
+        0 bags •
+        0 chests
+      </div>
+    </div>
+  </div>
+
+
+  <!-- EXPERIENCES -->
+  <div class="section">
+    <h2>Experiences</h2>
+    <ul class="list">
+      
+      <li><strong>Tight Squeeze</strong> (2): “Beat an OmniTrine pursuit team through a drainage tunnel not rated for vehicles.”
+
+Applicable when you are physically contrainted, whether in your person or in your vehicle</li>
+      
+      <li><strong>Effective Tinker</strong> (2): “Held a crippled drone aloft by manually balancing four failing rotors during evac.”
+
+Applicable when things aren't quite right or intact</li>
+      
+    </ul>
+  </div>
+
+
+  <!-- FEATURES -->
+  <div class="section">
+    <h2>Features</h2>
+
+    
+      <div class="subsection-title">Ancestry</div>
+      <ul class="list">
+        
+        <li>
+          <strong>High Stamina</strong> – <p>Gain an additional Stress slot at character creation.</p>
+        </li>
+        
+        <li>
+          <strong>Adaptability</strong> – <p>When you fail a roll that utilized one of your Experiences, you can <strong>mark a Stress</strong> to reroll.</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Community</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Well-Read</strong> – <p>You have advantage on rolls that involve the history, culture, or politics of a prominent person or place.</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Class</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Power Up</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.</p>
+        </li>
+        
+        <li>
+          <strong>Driving expert</strong> – <p class="Card-Feature">All Driving checks are +1.</p>
+        </li>
+        
+        <li>
+          <strong>Primary Drone</strong> – <p class="Card-Feature">The Primary Drone is quite similar to the Ranger Companion, but with a few differences. Take the Decker Primary Drone sheet and fill it out. <br /></p><ul><li>Level 1: Evasion 10, Thresholds: 5/9, HP 3, Stress 2, Armor 1, Attack: Melee, d6, 2 Mod slots (no experiences)</li><li><p>Higher-levels: Same set of leveling up options as the Ranger, but these additional ones:</p><ul><li>+1 Mod slot (can be taken 2x)</li><li>Hard to kill: +1 HP (can be taken 3x)</li><li>Tougher: Thresholds: 7/11</li></ul></li></ul>
+        </li>
+        
+        <li>
+          <strong>The right drone for the job</strong> – <p class="Card-Feature">Once per long rest, change 1 mod on your Primary Drone</p>
+        </li>
+        
+        <li>
+          <strong>Drone control</strong> – <p class="Card-Feature"><strong>Mark 1 Stress</strong> to target 1 drone within Far and make a Knowledge check against the drone’s Difficulty. On success, you may immediately use that drone to perform an Action. The drone remains under your control until the GM Spends 1 Fear.</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Subclass</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Primary Drone upgrade - Evasion 12</strong> – <p class="Card-Feature">Your Primary Drone is almost as fast as you! Its Evasion is 12</p>
+        </li>
+        
+        <li>
+          <strong>Fast car</strong> – You start with a car that grants you +1 on all Driving checks (when you are driving that car)
+        </li>
+        
+        <li>
+          <strong>Inspired Driving</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> to convert a Driving failure into a Driving success.</p>
+        </li>
+        
+        <li>
+          <strong>Need for speed</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> to make 2 Drive checks whenever you are Spotlighted during a Chase.</p>
+        </li>
+        
+        <li>
+          <strong>Primary Drone</strong> – <p class="Card-Feature">The Primary Drone is quite similar to the Ranger Companion, but with a few differences. Take the Decker Primary Drone sheet and fill it out. <br /></p><ul><li>Level 1: Evasion 10, Thresholds: 5/9, HP 3, Stress 2, Armor 1, Attack: Melee, d6, 2 Mod slots (no experiences)</li><li><p>Higher-levels: Same set of leveling up options as the Ranger, but these additional ones:</p><ul><li>+1 Mod slot (can be taken 2x)</li><li>Hard to kill: +1 HP (can be taken 3x)</li><li>Tougher: Thresholds: 7/11</li></ul></li></ul>
+        </li>
+        
+        <li>
+          <strong>I’ve driven this before</strong> – +2 on any Driving check, regardless of what you are driving.
+        </li>
+        
+        <li>
+          <strong>Expert maneuver</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> to negate any Driving Environment Event.</p>
+        </li>
+        
+      </ul>
+    
+  </div>
+
+
+  <!-- DOMAINS -->
+  <div class="section">
+    <h2>Domain Abilities</h2>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Domain</th>
+          <th>Level</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>Deft Maneuvers</td>
+          <td>bone</td>
+          <td>1</td>
+          <td><p class="Body-Foundation">Once per rest,<strong> mark a Stress</strong> to sprint anywhere within Far range without making an Agility Roll to get there.</p><p class="Body-Foundation">If you end this movement within Melee range of an adversary and immediately make an attack against them, gain a +1 bonus to the attack roll.</p></td>
+        </tr>
+        
+        <tr>
+          <td>Drone Control</td>
+          <td>maker</td>
+          <td>1</td>
+          <td><i>Precision through proxies.</i><p class="Card-Feature">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack at +2.</p></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- WEAPONS -->
+  <div class="section">
+    <h2>Weapons</h2>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Equipped</th>
+          <th>Trait & Range</th>
+          <th>Damage</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+        <tr>
+          <td>Heavy Semi-auto pistol</td>
+          <td>Yes</td>
+          <td>agility • close</td>
+          <td>d8 (physical)</td>
+          <td>
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- ARMOR & GEAR -->
+  <div class="section">
+    <h2>Armor & Gear</h2>
+
+    <div class="subsection-title">Armor</div>
+    <ul class="list">
+      
+      <li>
+        <strong>Slash-Resistant Polymer Jacket</strong>
+        (Equipped: Yes)<br />
+        Base: 4 • Major 7 • Severe 15<br />
+        Medium-weight body armor woven from advanced polymer rings designed to resist slashes and punctures—perfect for Megatropolis alleys.
+      </li>
+      
+    </ul>
+
+    <div class="subsection-title">Consumables</div>
+    <ul class="list">
+      
+      <li>
+        <strong>Armor Nanite Repair Kit</strong> (x1)<br />
+        A swarm of nanites that reknit damaged armor plating. Spend any amount of Hope to clear that many Armor Slots.
+      </li>
+      
+    </ul>
+
+    <div class="subsection-title">Other Gear</div>
+    <ul class="list">
+      
+      <li>
+        <strong>Synth Premium Bedroll Key</strong> (x1)<br />
+        During downtime, you automatically clear a Stress. black-market tech favored by runners and fixers
+      </li>
+      
+    </ul>
+  </div>
+
+
+  <!-- BIOGRAPHY -->
+  <div class="section">
+    <h2>Background</h2>
+    <div class="bio">
+      <p>Background and motivation:<br data-start="58" data-end="61" />Undercity courier turned contract rigger. Lira grew up threading drones and micro-skiffs through the maintenance arteries beneath OmniTrine’s transit grid. After a corporate interdiction squad seized her crew’s rigs for “routing violations,” she committed to staying independent and outrunning anyone who tries to cage her.</p><p></p><p data-start="386" data-end="647">Something she knows and is excited by:<br data-start="424" data-end="427" />She tracks vehicle telemetry instinctively. Torque curves, thrust-vector jitter, and power-train lag are signals she reads as quickly as speech. Any machine with wheels, rotors, or jets is a system she wants to optimize.</p><p data-start="649" data-end="841"></p><p data-start="843" data-end="1035">Why she started shadowrunning:<br data-start="873" data-end="876" />Shadowrunning pays better than courier work and keeps her surrounded by machines she can push to their limits. Corps no longer dictate her speed or her routes.</p><p data-start="1037" data-end="1310" data-is-last-node data-is-only-node></p><p data-start="1037" data-end="1310" data-is-last-node data-is-only-node>Why she joined this team:<br data-start="1062" data-end="1065" />They needed a precision driver with autonomous support rigs, and she needed muscle who could keep heat off her when she’s piloting. The exchange is efficient: they survive extraction windows, and she gets room to race without corporate shackles.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
