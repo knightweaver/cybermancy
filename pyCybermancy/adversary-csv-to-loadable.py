@@ -9,56 +9,13 @@ Supported input formats
 - CSV (recommended)
 - JSON array/object
 
-Column guidance (case-insensitive; hyphens/underscores ignored):
-  Core actor fields
-    - name, img, description
-    - tier (number, default 1)
-    - adversaryType / system.type (standard | elite | horde | etc., default "standard")
-    - difficulty (number, default 1)
-    - motivesAndTactics (string)
-    - notes (HTML/text)
-
-  Resources
-    - hp / hitPoints (value+max) or hpValue / hpMax
-    - stress (value+max) or stressValue / stressMax
-    - hordeHp (number, horde-only)
-    - damageThreshold.major / damageThreshold.severe (numbers)
-
-  Base attack (single attack block stored in system.attack)
-    - attack.name (default "Attack")
-    - attack.range (melee|close|far|veryFar|etc.)
-    - attack.description (HTML/text)
-    - attack.img (falls back to actor img)
-    - attack.target.type, attack.target.amount
-    - attack.roll.type, attack.roll.trait, attack.roll.difficulty, attack.roll.bonus, attack.roll.advState
-    - attack.damage (e.g., "d8+2")
-    - attack.damage.type (comma separated list)
-    - attack.damage.applyTo (hitPoints|stress|custom)
-
-  Additional actions (action1.*, action2.*, ... -> stored under system.actions)
-    - action<N>.name (required to emit an action)
-    - action<N>.type (attack|effect; default effect)
-    - action<N>.description
-    - action<N>.img (fallback actor img)
-    - action<N>.range
-    - action<N>.target.type, action<N>.target.amount
-    - action<N>.roll.* (same shape as attack.roll.*)
-    - action<N>.damage / action<N>.damage.type / action<N>.damage.applyTo
-    - action<N>.actionType (action|reaction|passive; default action)
-    - action<N>.cost (JSON or "stress:1, hope:2")
-    - action<N>.uses.value / uses.max / uses.recovery / uses.consumeOnSuccess
-
-  Experiences (optional; stored as keyed objects under system.experiences)
-    - experience1.name, experience1.value, experience1.description
-    - experience2.name, ... (any positive integer suffix)
-
 Unknown columns are ignored. Values are coerced to numbers/bools/JSON when possible.
 """
 
 from __future__ import annotations
 import argparse, csv, json, re
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Tuple, Optional
 
 # ---------------- Utils ----------------
 _TOP_LEVEL_FIELDS = {"name", "img", "type"}
@@ -88,7 +45,7 @@ def _coerce_scalar(x: Any) -> Any:
     if low == "true":
         return True
     if low == "false":
-        return False
+        return  False
     if low in {"null", "none"}:
         return None
     if (s.startswith("{") and s.endswith("}")) or (s.startswith("[") and s.endswith("]")) or (
@@ -141,13 +98,24 @@ def _get(row: Dict[str, Any], *aliases: str, default=None):
     return default
 
 
-def _parse_damage_str(s: Any) -> Dict[str, Any]:
-    m = re.match(r"^\s*([A-Za-z0-9]*\d*d\d+)(?:\s*([+\-])\s*(\d+))?\s*$", str(s or ""))
+def _parse_damage_str(s: Any) -> Tuple[int, str, int]:
+    """
+    Parse strings like '1d6+1', '2d8-3', 'd10', etc.
+    Returns (num_dice, die, bonus).
+    """
+    text = str(s or "").strip()
+    m = re.match(r"^(\d*)d(\d+)(?:\s*([+-])\s*(\d+))?$", text, re.IGNORECASE)
     if not m:
-        return {"dice": "d6", "bonus": 0}
-    dice = m.group(1)
-    bonus = (-1 if m.group(2) == "-" else 1) * int(m.group(3)) if m.group(3) else 0
-    return {"dice": dice, "bonus": bonus}
+        return (1, "d6", 0)
+
+    diceNumber = int(m.group(1)) if m.group(1) else 1
+    die = f"d{m.group(2)}"
+    bonus = 0
+    if m.group(3) and m.group(4):
+        sign = -1 if m.group(3) == "-" else 1
+        bonus = sign * int(m.group(4))
+
+    return (diceNumber, die, bonus)
 
 
 def _parse_cost(s: Any) -> List[Dict[str, Any]]:
@@ -155,7 +123,7 @@ def _parse_cost(s: Any) -> List[Dict[str, Any]]:
         return s
     if isinstance(s, dict):
         return [
-            {"key": k, "value": v, "keyIsID": False, "scalable": False, "step": None, "consumeOnSuccess": False}
+            {"key": k, "value": v, "keyIsID":  False, "scalable":  False, "step": None, "consumeOnSuccess":  False}
             for k, v in s.items()
         ]
     txt = str(s or "").strip()
@@ -170,10 +138,10 @@ def _parse_cost(s: Any) -> List[Dict[str, Any]]:
             {
                 "key": m.group(1),
                 "value": int(m.group(2)),
-                "keyIsID": False,
-                "scalable": False,
+                "keyIsID":  False,
+                "scalable":  False,
                 "step": None,
-                "consumeOnSuccess": False,
+                "consumeOnSuccess":  False,
             }
         )
     return out
@@ -184,112 +152,6 @@ def _sanitize_filename(s: str) -> str:
     s = re.sub(r"[^\w.\- ]+", "_", s)
     s = re.sub(r"\s+", "_", s)
     return s or "unnamed"
-
-
-# ---------------- Action helpers ----------------
-
-def build_action(row: Dict[str, Any], prefix: str, fallback_img: str, *, default_name: str = "", default_kind: str = "effect") -> Optional[Dict[str, Any]]:
-    """Create an action dict from prefixed columns (e.g., action1.name, attack.name)."""
-    name = _get(row, f"{prefix}name") or default_name
-    if not name:
-        return None
-
-    kind = (_get(row, f"{prefix}type") or default_kind).strip().lower()
-    if kind not in {"attack", "effect"}:
-        kind = default_kind
-
-    actionType = (_get(row, f"{prefix}actionType") or "action").strip().lower()
-    if actionType not in {"action", "reaction", "passive"}:
-        actionType = "action"
-
-    dmg_str = _get(row, f"{prefix}damage")
-    dmg_type = _get(row, f"{prefix}damage.type", f"{prefix}damagetype")
-    dmg_apply = _get(row, f"{prefix}damage.applyTo", f"{prefix}applyto") or "hitPoints"
-    dmg = _parse_damage_str(dmg_str) if dmg_str else None
-    types: List[str] = []
-    if isinstance(dmg_type, list):
-        types = [str(x) for x in dmg_type]
-    elif isinstance(dmg_type, str) and dmg_type.strip():
-        types = [t.strip() for t in dmg_type.split(",") if t.strip()]
-
-    save_trait = _get(row, f"{prefix}save.trait")
-    save_diff = _get(row, f"{prefix}save.difficulty")
-    save_mod = (_get(row, f"{prefix}save.damageMod") or "none") if (save_trait or save_diff) else "none"
-
-    useDefault = _get(row, f"{prefix}roll.useDefault")
-    roll = {
-        "type": _get(row, f"{prefix}roll.type"),
-        "trait": _get(row, f"{prefix}roll.trait"),
-        "difficulty": _get(row, f"{prefix}roll.difficulty"),
-        "bonus": _get(row, f"{prefix}roll.bonus"),
-        "advState": _get(row, f"{prefix}roll.advState") or "neutral",
-        "diceRolling": {"multiplier": "prof", "flatMultiplier": 1, "dice": "d6", "compare": None, "treshold": None},
-        "useDefault": bool(useDefault) if isinstance(useDefault, bool) else False,
-    }
-
-    action = {
-        "type": kind,
-        "systemPath": "actions",
-        "description": _get(row, f"{prefix}description") or "",
-        "chatDisplay": True,
-        "actionType": actionType,
-        "cost": _parse_cost(_get(row, f"{prefix}cost")),
-        "uses": {
-            "value": _get(row, f"{prefix}uses.value"),
-            "max": _get(row, f"{prefix}uses.max") or "",
-            "recovery": _get(row, f"{prefix}uses.recovery"),
-            "consumeOnSuccess": bool(_get(row, f"{prefix}uses.consumeOnSuccess"))
-            if isinstance(_get(row, f"{prefix}uses.consumeOnSuccess"), bool)
-            else False,
-        },
-        "effects": [],
-        "target": {
-            "type": _get(row, f"{prefix}target.type") or "any",
-            "amount": _get(row, f"{prefix}target.amount"),
-        },
-        "name": str(name),
-        "img": _get(row, f"{prefix}img") or fallback_img or "icons/skills/melee/blood-slash-foam-red.webp",
-        "range": _get(row, f"{prefix}range") or "",
-    }
-
-    if kind == "attack":
-        parts = []
-        if dmg:
-            parts.append(
-                {
-                    "value": {
-                        "custom": {"enabled": False, "formula": ""},
-                        "multiplier": "prof",
-                        "dice": dmg["dice"],
-                        "bonus": dmg["bonus"],
-                        "flatMultiplier": 1,
-                    },
-                    "applyTo": dmg_apply,
-                    "type": types or ["physical"],
-                    "base": False,
-                    "resultBased": False,
-                    "valueAlt": {
-                        "multiplier": "prof",
-                        "flatMultiplier": 1,
-                        "dice": "d6",
-                        "bonus": None,
-                        "custom": {"enabled": False, "formula": ""},
-                    },
-                }
-            )
-        action["damage"] = {"parts": parts, "includeBase": False}
-        action["roll"] = roll
-        if save_trait or save_diff:
-            sd = None
-            try:
-                if isinstance(save_diff, (int, float)):
-                    sd = int(save_diff)
-                elif isinstance(save_diff, str) and save_diff.isdigit():
-                    sd = int(save_diff)
-            except Exception:
-                sd = None
-            action["save"] = {"trait": save_trait or None, "difficulty": sd, "damageMod": save_mod}
-    return action
 
 
 # ---------------- Row -> Actor ----------------
@@ -304,99 +166,280 @@ def _parse_int(val: Any, default: int) -> int:
 
 
 def build_actor_from_row(row: Dict[str, Any]) -> Dict[str, Any]:
+
+    # 	attack attack-name	attack-description	attack-damage	attack-range	attack-img	experience-name	experience-bonus
+
     name = _get(row, "name") or ""
     img = _get(row, "img") or ""
+    systemType = _get(row, "systemType") or "standard"
+    notes = _get(row, "notes") or ""
+    description = _get(row, "description") or ""
+    motivesAndTactics = _get(row, "motivesAndTactics") or ""
+    attackName = _get(row, "attackName") or ""
+    attackDamage = _get(row, "attackDamage") or "d6"
+    (attackDamageDieNumber, attackDamageDie, attackDamageBonus) = _parse_damage_str(attackDamage)
+    attackRange = _get(row, "attackRange") or "melee"
+    attackImg = _get(row, "attackImg") or ""
+    experienceName = _get(row, "experienceName") or ""
+    attackDescription = _get(row, "attackDescription") or ""
 
-    hp_val = _parse_int(_get(row, "hp", "hitPoints", "hpValue", "hpCurrent"), 0)
-    hp_max = _parse_int(_get(row, "hpmax", "hitpointsmax", "hp", "hitPoints"), hp_val)
-    stress_val = _parse_int(_get(row, "stress", "stressValue"), 0)
-    stress_max = _parse_int(_get(row, "stressmax", "stressMax", "stress"), stress_val)
+    hitPoints = _parse_int(_get(row, "hp", "hitPoints"), 1)
+    stress = _parse_int(_get(row, "stress"), 1)
+    tier = _parse_int(_get(row, "tier"), 1)
+    difficulty = _parse_int(_get(row, "difficulty"), 8)
+    majorThreshold = _parse_int(_get(row, "majorThreshold"), 2)
+    severeThreshold = _parse_int(_get(row, "severeThreshold"), 4)
+    attackBonus = _parse_int(_get(row, "attackBonus"), 0)
+    experienceBonus = _parse_int(_get(row, "experienceBonus"), 2)
+    experiences = {}
+    if experienceName:
+        experiences[experienceName] = {
+            "name": experienceName,
+            "value": experienceBonus,
+            "description": ""
+        }
 
     actor: Dict[str, Any] = {
-        "name": name,
-        "type": "adversary",
-        "img": img,
-        "system": {
-            "description": _get(row, "description") or "",
-            "tier": _parse_int(_get(row, "tier"), 1),
-            "type": _get(row, "adversaryType", "system.type") or "standard",
-            "motivesAndTactics": _get(row, "motivesAndTactics") or "",
-            "notes": _get(row, "notes") or "",
-            "difficulty": _parse_int(_get(row, "difficulty"), 1),
-            "hordeHp": _parse_int(_get(row, "hordeHp"), 1),
-            "damageThresholds": {
-                "major": _parse_int(_get(row, "damageThreshold.major", "majorThreshold"), 0),
-                "severe": _parse_int(_get(row, "damageThreshold.severe", "severeThreshold"), 0),
-            },
-            "resources": {
-                "hitPoints": {"value": hp_val, "max": hp_max, "temp": 0, "min": 0},
-                "stress": {"value": stress_val, "max": stress_max, "temp": 0, "min": 0},
-            },
-            "attack": None,  # populated below
-            "actions": {},
-            "experiences": {},
-            "bonuses": {
-                "roll": {
-                    "attack": {"bonus": _parse_int(_get(row, "bonus.attackRoll", "attackBonus"), 0)},
-                    "action": {"bonus": _parse_int(_get(row, "bonus.actionRoll", "actionBonus"), 0)},
-                    "reaction": {"bonus": _parse_int(_get(row, "bonus.reactionRoll", "reactionBonus"), 0)},
-                },
-                "damage": {
-                    "physical": {"bonus": _parse_int(_get(row, "bonus.physicalDamage", "physicalBonus"), 0)},
-                    "magical": {"bonus": _parse_int(_get(row, "bonus.magicalDamage", "magicalBonus"), 0)},
-                },
-            },
+      "name": name,
+      "type": "adversary",
+      "img": f"modules/cybermancy/assets/icons/adversaries/{img}.webp",
+      "system": {
+        "description": description,
+        "resistance": {
+          "physical": {
+            "resistance":  False,
+            "immunity":  False,
+            "reduction": 0
+          },
+          "magical": {
+            "resistance":  False,
+            "immunity":  False,
+            "reduction": 0
+          }
         },
-        "items": [],
-        "effects": [],
+        "tier": tier,
+        "type": systemType,
+        "notes": notes,
+        "difficulty": difficulty,
+        "hordeHp": 1,
+        "damageThresholds": {
+          "major": majorThreshold,
+          "severe": severeThreshold,
+        },
+        "resources": {
+          "hitPoints": {
+            "value": 0,
+            "max": hitPoints,
+            "isReversed": True
+          },
+          "stress": {
+            "value": 0,
+            "max": stress,
+            "isReversed": True
+          }
+        },
+        "attack": {
+          "name": attackName,
+          "img": f"modules/cybermancy/assets/icons/attacks/{attackImg}.webp",
+          "systemPath": "attack",
+          "chatDisplay":  False,
+          "type": "attack",
+          "range": attackRange,
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "type": "attack",
+            "trait": None,
+            "difficulty": None,
+            "bonus": attackBonus,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": attackDamageDie,
+              "compare":  None,
+              "treshold":  None
+            },
+            "useDefault":  False
+          },
+          "damage": {
+            "parts": [
+              {
+                "value": {
+                  "custom": {
+                    "enabled":  False,
+                    "formula": ""
+                  },
+                  "flatMultiplier": attackDamageDieNumber,
+                  "dice": attackDamageDie,
+                  "bonus": attackDamageBonus,
+                  "multiplier": "flat"
+                },
+                "applyTo": "hitPoints",
+                "type": [
+                  "physical"
+                ],
+                "resultBased":  False,
+                "valueAlt": {
+                  "multiplier": "prof",
+                  "flatMultiplier": attackDamageDieNumber,
+                  "dice": attackDamageDie,
+                  "bonus":  attackDamageBonus,
+                  "custom": {
+                    "enabled":  False,
+                    "formula": ""
+                  }
+                },
+                "base":  False
+              }
+            ],
+            "includeBase":  False
+          },
+          "description": attackDescription,
+          "actionType": "action",
+          "cost": [],
+          "uses": {
+            "value":  None,
+            "max":  None,
+            "recovery":  None,
+            "consumeOnSuccess":  False
+          },
+          "effects": [],
+          "save": {
+            "trait":  None,
+            "difficulty":  None,
+            "damageMod": "none"
+          }
+        },
+        "experiences": experiences,
+        "bonuses": {
+          "roll": {
+            "attack": {
+              "bonus": 0,
+              "dice": []
+            },
+            "action": {
+              "bonus": 0,
+              "dice": []
+            },
+            "reaction": {
+              "bonus": 0,
+              "dice": []
+            }
+          },
+          "damage": {
+            "physical": {
+              "bonus": 0,
+              "dice": []
+            },
+            "magical": {
+              "bonus": 0,
+              "dice": []
+            }
+          }
+        },
+        "motivesAndTactics": motivesAndTactics,
+      },
+      "prototypeToken": {
+        "name": name,
+        "displayName": 30,
+        "actorLink":  False,
+        "width": 1,
+        "height": 1,
+        "texture": {
+          "src": f"modules/cybermancy/assets/icons/adversaries/{img}.webp",
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "offsetX": 0,
+          "offsetY": 0,
+          "fit": "contain",
+          "scaleX": 1,
+          "scaleY": 1,
+          "rotation": 0,
+          "tint": "#ffffff",
+          "alphaThreshold": 0.75
+        },
+        "lockRotation":  False,
+        "rotation": 0,
+        "alpha": 1,
+        "disposition": -1,
+        "displayBars": 20,
+        "bar1": {
+          "attribute": "resources.hitPoints"
+        },
+        "bar2": {
+          "attribute": "resources.stress"
+        },
+        "light": {
+          "negative":  False,
+          "priority": 0,
+          "alpha": 0.5,
+          "angle": 360,
+          "bright": 0,
+          "color":  None,
+          "coloration": 1,
+          "dim": 0,
+          "attenuation": 0.5,
+          "luminosity": 0.5,
+          "saturation": 0,
+          "contrast": 0,
+          "shadows": 0,
+          "animation": {
+            "type":  None,
+            "speed": 5,
+            "intensity": 5,
+            "reverse":  False
+          },
+          "darkness": {
+            "min": 0,
+            "max": 1
+          }
+        },
+        "sight": {
+          "enabled":  False,
+          "range": 0,
+          "angle": 360,
+          "visionMode": "basic",
+          "color":  None,
+          "attenuation": 0.1,
+          "brightness": 0,
+          "saturation": 0,
+          "contrast": 0
+        },
+        "detectionModes": [],
+        "occludable": {
+          "radius": 0
+        },
+        "ring": {
+          "enabled":  False,
+          "colors": {
+            "ring":  None,
+            "background":  None
+          },
+          "effects": 1,
+          "subject": {
+            "scale": 1,
+            "texture":  None
+          }
+        },
+        "turnMarker": {
+          "mode": 1,
+          "animation":  None,
+          "src":  None,
+          "disposition":  False
+        },
+        "movementAction":  None,
+        "flags": {},
+        "randomImg":  False,
+        "appendNumber":  False,
+        "prependAdjective":  False
+      },
+      "effects": [],
+      "flags": {}
     }
 
-    # Attack block (system.attack expects systemPath "attack")
-    attack_action = build_action(row, "attack.", img, default_name="Attack", default_kind="attack")
-    if attack_action:
-        attack_action["systemPath"] = "attack"
-        attack_action.setdefault("chatDisplay", False)
-        actor["system"]["attack"] = attack_action
-    else:
-        actor["system"]["attack"] = {
-            "name": "Attack",
-            "img": img or "icons/skills/melee/blood-slash-foam-red.webp",
-            "systemPath": "attack",
-            "type": "attack",
-            "range": "melee",
-            "target": {"type": "any", "amount": 1},
-            "roll": {"type": "attack"},
-            "damage": {"parts": [{"type": ["physical"], "value": {"multiplier": "flat"}}]},
-            "chatDisplay": False,
-        }
-
-    # Additional actions (action1.*, action2.*, ...)
-    action_indices = set()
-    for key in row.keys():
-        m = re.match(r"action(\d+)\.name", _norm(key))
-        if m:
-            action_indices.add(int(m.group(1)))
-    for idx in sorted(action_indices):
-        prefix = f"action{idx}."
-        act = build_action(row, prefix, img, default_name="", default_kind="effect")
-        if act:
-            actor["system"]["actions"][act["name"]] = act
-
-    # Experiences (experience1.*, experience2.*, ...)
-    exp_indices = set()
-    for key in row.keys():
-        m = re.match(r"experience(\d+)\.name", _norm(key))
-        if m:
-            exp_indices.add(int(m.group(1)))
-    for idx in sorted(exp_indices):
-        name_key = _get(row, f"experience{idx}.name")
-        if not name_key:
-            continue
-        actor["system"]["experiences"][str(name_key)] = {
-            "name": name_key,
-            "value": _parse_int(_get(row, f"experience{idx}.value"), 1),
-            "description": _get(row, f"experience{idx}.description") or "",
-        }
 
     return actor
 
@@ -433,7 +476,7 @@ def main():
                 n += 1
             out_path = out_dir_p / f"{_sanitize_filename(str(fname_base))}#{n}.json"
 
-        out_path.write_text(json.dumps(actor, indent=2, ensure_ascii=False), encoding="utf-8")
+        out_path.write_text(json.dumps(actor, indent=2, ensure_ascii= False), encoding="utf-8")
         written += 1
 
     print(f"Wrote {written} file(s) to {out_dir}")

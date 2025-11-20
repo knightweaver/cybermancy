@@ -1,0 +1,3015 @@
+{
+  "folder": "YRULFcdtjKLU7xJZ",
+  "name": "Lira “Slipstream” Calder",
+  "type": "character",
+  "img": "modules/cybermancy/assets/images/npcs/lira-slipstream-calder.png",
+  "system": {
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 0,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 7,
+        "isReversed": true
+      },
+      "hope": {
+        "value": 2,
+        "max": 6,
+        "isReversed": false
+      }
+    },
+    "traits": {
+      "agility": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "strength": {
+        "value": -1,
+        "tierMarked": false
+      },
+      "finesse": {
+        "value": 2,
+        "tierMarked": false
+      },
+      "instinct": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "presence": {
+        "value": 0,
+        "tierMarked": false
+      },
+      "knowledge": {
+        "value": 0,
+        "tierMarked": false
+      }
+    },
+    "proficiency": 1,
+    "evasion": 0,
+    "armorScore": 0,
+    "damageThresholds": {
+      "severe": 0,
+      "major": 0
+    },
+    "experiences": {
+      "87CRYmytqGcozmuO": {
+        "name": "Tight Squeeze",
+        "value": 2,
+        "core": true,
+        "description": "“Beat an OmniTrine pursuit team through a drainage tunnel not rated for vehicles.”\n\nApplicable when you are physically contrainted, whether in your person or in your vehicle"
+      },
+      "g60WwCJszkPGxHXE": {
+        "name": "Effective Tinker",
+        "value": 2,
+        "core": true,
+        "description": "“Held a crippled drone aloft by manually balancing four failing rotors during evac.”\n\nApplicable when things aren't quite right or intact"
+      }
+    },
+    "gold": {
+      "coins": 0,
+      "handfuls": 1,
+      "bags": 0,
+      "chests": 0
+    },
+    "scars": {},
+    "biography": {
+      "background": "<p>Background and motivation:<br data-start=\"58\" data-end=\"61\" />Undercity courier turned contract rigger. Lira grew up threading drones and micro-skiffs through the maintenance arteries beneath OmniTrine’s transit grid. After a corporate interdiction squad seized her crew’s rigs for “routing violations,” she committed to staying independent and outrunning anyone who tries to cage her.</p><p></p><p data-start=\"386\" data-end=\"647\">Something she knows and is excited by:<br data-start=\"424\" data-end=\"427\" />She tracks vehicle telemetry instinctively. Torque curves, thrust-vector jitter, and power-train lag are signals she reads as quickly as speech. Any machine with wheels, rotors, or jets is a system she wants to optimize.</p><p data-start=\"649\" data-end=\"841\"></p><p data-start=\"843\" data-end=\"1035\">Why she started shadowrunning:<br data-start=\"873\" data-end=\"876\" />Shadowrunning pays better than courier work and keeps her surrounded by machines she can push to their limits. Corps no longer dictate her speed or her routes.</p><p data-start=\"1037\" data-end=\"1310\" data-is-last-node data-is-only-node></p><p data-start=\"1037\" data-end=\"1310\" data-is-last-node data-is-only-node>Why she joined this team:<br data-start=\"1062\" data-end=\"1065\" />They needed a precision driver with autonomous support rigs, and she needed muscle who could keep heat off her when she’s piloting. The exchange is efficient: they survive extraction windows, and she gets room to race without corporate shackles.</p>",
+      "connections": "",
+      "characteristics": {
+        "pronouns": "",
+        "age": "",
+        "faith": ""
+      }
+    },
+    "attack": {
+      "name": "DAGGERHEART.GENERAL.unarmedAttack",
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "_id": "1NYD9ibkuU2gNlzG",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": "strength",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "type": [
+              "physical"
+            ],
+            "value": {
+              "custom": {
+                "enabled": true,
+                "formula": "@profd4"
+              },
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null
+            },
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "description": "",
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "advantageSources": [],
+    "disadvantageSources": [],
+    "levelData": {
+      "level": {
+        "current": 1,
+        "changed": 1,
+        "bonuses": {}
+      },
+      "levelups": {}
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "spellcast": {
+          "bonus": 0,
+          "dice": []
+        },
+        "trait": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        },
+        "primaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        },
+        "secondaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "primaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        },
+        "secondaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "healing": {
+        "bonus": 0,
+        "dice": []
+      },
+      "range": {
+        "weapon": 0,
+        "spell": 0,
+        "other": 0
+      },
+      "rally": [],
+      "rest": {
+        "shortRest": {
+          "shortMoves": 0,
+          "longMoves": 0
+        },
+        "longRest": {
+          "shortMoves": 0,
+          "longMoves": 0
+        }
+      },
+      "maxLoadout": 0
+    },
+    "companion": null,
+    "rules": {
+      "damageReduction": {
+        "maxArmorMarked": {
+          "value": 1,
+          "stressExtra": 0
+        },
+        "stressDamageReduction": {
+          "severe": {},
+          "major": {},
+          "minor": {},
+          "any": {}
+        },
+        "increasePerArmorMark": 1,
+        "magical": false,
+        "physical": false,
+        "thresholdImmunities": {
+          "minor": false
+        },
+        "disabledArmor": false
+      },
+      "attack": {
+        "damage": {
+          "diceIndex": 0,
+          "bonus": 0
+        },
+        "roll": {
+          "trait": null
+        }
+      },
+      "runeWard": false,
+      "burden": {
+        "ignore": false
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Lira “Slipstream” Calder",
+    "displayName": 30,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "modules/cybermancy/assets/tokens/npcs/lira-slipstream-calder.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": true,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "folder": "dSAccOl5ccgXPyje",
+      "name": "High Stamina",
+      "type": "feature",
+      "_id": "XpPNV57BZyQLjW1N",
+      "img": "icons/magic/control/buff-flight-wings-runes-purple-orange.webp",
+      "system": {
+        "description": "<p>Gain an additional Stress slot at character creation.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "identifier": "primary"
+      },
+      "effects": [
+        {
+          "name": "High Stamina",
+          "type": "base",
+          "_id": "Xl3TsKUJcl6vi1ly",
+          "img": "icons/magic/control/buff-flight-wings-runes-purple-orange.webp",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "changes": [
+            {
+              "key": "system.resources.stress.max",
+              "mode": 2,
+              "value": "1",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": 1,
+            "startTurn": 0
+          },
+          "description": "<p>Gain an additional Stress slot at character creation.</p>",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.daggerheart.ancestries.Item.HMXNJZ7ynzajR2KT",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061177,
+        "modifiedTime": 1763484061177,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "dSAccOl5ccgXPyje",
+      "name": "Adaptability",
+      "type": "feature",
+      "_id": "4vGqy5WwXBvw02WS",
+      "img": "icons/magic/control/silhouette-hold-change-blue.webp",
+      "system": {
+        "description": "<p>When you fail a roll that utilized one of your Experiences, you can <strong>mark a Stress</strong> to reroll.</p>",
+        "resource": null,
+        "actions": {
+          "D7EE2L2Y96nfrfTW": {
+            "type": "effect",
+            "_id": "D7EE2L2Y96nfrfTW",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Mark Stress",
+            "img": "icons/magic/control/silhouette-hold-change-blue.webp",
+            "range": ""
+          }
+        },
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "identifier": "secondary"
+      },
+      "effects": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.daggerheart.ancestries.Item.BNofV1UC4ZbdFTkb",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061177,
+        "modifiedTime": 1763484061177,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Human",
+      "type": "ancestry",
+      "img": "icons/skills/social/diplomacy-handshake-yellow.webp",
+      "system": {
+        "description": "<p>Humans are most easily recognized by their dexterous hands, rounded ears, and bodies built for endurance.<br /><br /></p><p>Their average height ranges from just under 5 feet to about 6 ½ feet. They have a wide variety of builds, with some being quite broad, others lithe, and many inhabiting the spectrum in between. Humans are physically adaptable and adjust to harsh climates with relative ease. In general, humans live to an age of about 100, with their bodies changing dramatically between their youngest and oldest years.</p><p></p>",
+        "features": [
+          {
+            "type": "primary",
+            "item": "Compendium.daggerheart.ancestries.Item.HMXNJZ7ynzajR2KT"
+          },
+          {
+            "type": "secondary",
+            "item": "Compendium.daggerheart.ancestries.Item.BNofV1UC4ZbdFTkb"
+          }
+        ]
+      },
+      "sort": 3400000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061189,
+        "modifiedTime": 1763484061189,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "vDNsNRLcJZMLUbb6",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "KA1VSGslxkbvVeMp",
+      "name": "Well-Read",
+      "type": "feature",
+      "_id": "1DDpt5rnPcNO04nE",
+      "img": "icons/sundries/books/book-open-brown.webp",
+      "system": {
+        "description": "<p>You have advantage on rolls that involve the history, culture, or politics of a prominent person or place.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "community",
+        "multiclassOrigin": false
+      },
+      "effects": [
+        {
+          "name": "Well-Read",
+          "type": "base",
+          "_id": "RwhxYOAAKKlYZiz0",
+          "img": "icons/sundries/books/book-open-brown.webp",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "changes": [
+            {
+              "key": "system.advantageSources",
+              "mode": 2,
+              "value": "History, culture, or politics of a prominent person or place",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": 1,
+            "startTurn": 0
+          },
+          "description": "",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.daggerheart.communities.Item.JBZJmywisJg5X3tH",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061226,
+        "modifiedTime": 1763484061226,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Loreborne",
+      "type": "community",
+      "img": "icons/sundries/scrolls/scroll-writing-brown-gold.webp",
+      "system": {
+        "description": "<p>Being part of a loreborne community means you’re from a society that favors strong academic or political prowess.<br /><br /></p><p class=\"green Body-Styles_Body\">Loreborne communities highly value knowledge, frequently in the form of historical preservation, political advancement, scientific study, skill development, or lore and mythology compilation. Most members of these communities research in institutions built in bastions of civilization, while some eclectic few thrive in gathering information from the natural world. Some may be isolationists, operating in smaller enclaves, schools, or guilds and following their own unique ethos. Others still wield their knowledge on a larger scale, making deft political maneuvers across governmental landscapes.</p>\n<p class=\"green Body-Styles_Body\"><em>Loreborne are often direct, eloquent, inquisitive, patient, rhapsodic, and witty.</em></p><p></p>",
+        "features": [
+          "Compendium.daggerheart.communities.Item.JBZJmywisJg5X3tH"
+        ]
+      },
+      "sort": 3400000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061236,
+        "modifiedTime": 1763484061236,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "kAOajzHNKXXWYJvt",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Power Up",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.</p>",
+        "actions": {
+          "Power Up": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Spend 3 Hope when your Primary Drone succeeds on an Attack to have your Primary Drone attack two additional adversaries within Far.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Power Up",
+            "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "0w3A3L4xWkrwFfUZ",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "0w3A3L4xWkrwFfUZ": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> when your Primary Drone succeeds on an Attack to have your Primary Drone attack one additional adversaries within Far.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": 1
+            },
+            "name": "Power Up",
+            "img": "modules/cybermancy/assets/icons/subclasses/power-up.webp",
+            "range": "far",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "0w3A3L4xWkrwFfUZ",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "hope"
+      },
+      "effects": [],
+      "folder": "oguBoQQVAvgjRfLI",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.ffAXnx3zpLBvR1ft",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061329,
+        "modifiedTime": 1763484061329,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "yYEgcp11tOxLJPWB",
+      "sort": 300000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Driving expert",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/driving-expert.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">All Driving checks are +1.</p>",
+        "actions": {
+          "Driving expert": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "All Driving checks are +1.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Driving expert",
+            "img": "modules/cybermancy/assets/icons/subclasses/driving-expert.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "uHMyYJiWWYRi0zhJ",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "uHMyYJiWWYRi0zhJ": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">All Driving checks are +1.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [
+              {
+                "_id": "KOIxywZVnxdjZEEr",
+                "onSave": false
+              }
+            ],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Driving expert",
+            "img": "modules/cybermancy/assets/icons/subclasses/driving-expert.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "uHMyYJiWWYRi0zhJ",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "class"
+      },
+      "effects": [
+        {
+          "name": "Driving expert",
+          "img": "modules/cybermancy/assets/icons/subclasses/driving-expert.webp",
+          "origin": "Compendium.cybermancy.cybermancy-features.Item.TvJE1WbFZuaHoO87",
+          "transfer": false,
+          "_id": "KOIxywZVnxdjZEEr",
+          "type": "base",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "changes": [],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "tint": "#ffffff",
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "folder": "oguBoQQVAvgjRfLI",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.TvJE1WbFZuaHoO87",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061329,
+        "modifiedTime": 1763484061329,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "Zm70q0xVBW6ez14C",
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Primary Drone",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/primary-drone.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">The Primary Drone is quite similar to the Ranger Companion, but with a few differences. Take the Decker Primary Drone sheet and fill it out. <br /></p><ul><li>Level 1: Evasion 10, Thresholds: 5/9, HP 3, Stress 2, Armor 1, Attack: Melee, d6, 2 Mod slots (no experiences)</li><li><p>Higher-levels: Same set of leveling up options as the Ranger, but these additional ones:</p><ul><li>+1 Mod slot (can be taken 2x)</li><li>Hard to kill: +1 HP (can be taken 3x)</li><li>Tougher: Thresholds: 7/11</li></ul></li></ul>",
+        "actions": {
+          "Primary Drone": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "The Primary Drone is quite similar to the Ranger Companion, but with a few differences.  Take the Decker Primary Drone sheet and fill it out",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Primary Drone",
+            "img": "modules/cybermancy/assets/icons/subclasses/primary-drone.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "trdO74fYGGgpiCJu",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "trdO74fYGGgpiCJu": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">The Primary Drone is quite similar to the Ranger Companion, but with a few differences. Take the Decker Primary Drone sheet and fill it out. <br></p><ul><li>Level 1: Evasion 10, Thresholds: 5/9, HP 3, Stress 2, Armor 1, Attack: Melee, d6, 2 Mod slots (no experiences)</li><li><p>Higher-levels: Same set of leveling up options as the Ranger, but these additional ones:</p><ul><li>+1 Mod slot (can be taken 2x)</li><li>Hard to kill: +1 HP (can be taken 3x)</li><li>Tougher: Thresholds: 7/11</li></ul></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Primary Drone",
+            "img": "modules/cybermancy/assets/icons/subclasses/primary-drone.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "trdO74fYGGgpiCJu",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "class"
+      },
+      "effects": [],
+      "folder": "oguBoQQVAvgjRfLI",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.KfUgMjV6BpELeeB1",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061329,
+        "modifiedTime": 1763484061329,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "2inje5QIZ5z5qGiT",
+      "sort": 400000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "The right drone for the job",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">Once per long rest, change 1 mod on your Primary Drone</p>",
+        "actions": {
+          "The right drone for the job": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Once per long rest, change 1 mod on your Primary Drone",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "The right drone for the job",
+            "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "Ow0Xakan1kBHIDmL",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "Ow0Xakan1kBHIDmL": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">Once per long rest, change 1 mod on your Primary Drone</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "longRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "The right drone for the job",
+            "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "Ow0Xakan1kBHIDmL",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "class"
+      },
+      "effects": [],
+      "folder": "oguBoQQVAvgjRfLI",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.esfieah1fapNqzew",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061329,
+        "modifiedTime": 1763484061329,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "wRzP1Vnf5VxoetvS",
+      "sort": 200000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Drone control",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/drone-control.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> to target 1 drone within Far and make a Knowledge check against the drone’s Difficulty. On success, you may immediately use that drone to perform an Action. The drone remains under your control until the GM Spends 1 Fear.</p>",
+        "actions": {
+          "Drone control": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Mark 1 Stress to target 1 drone within Far and make a Knowledge check against the drone’s Difficulty.   On success, you may immediately use that drone to perform an Action.  The drone remains under your control until the GM Spends 1 Fear.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Drone control",
+            "img": "modules/cybermancy/assets/icons/subclasses/drone-control.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "shGLbUXlfrbm2ZHJ",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "shGLbUXlfrbm2ZHJ": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> to target 1 drone within Far and make a Knowledge check against the drone’s Difficulty. On success, you may immediately use that drone to perform an Action. The drone remains under your control until the GM Spends 1 Fear.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Drone control",
+            "img": "modules/cybermancy/assets/icons/subclasses/drone-control.webp",
+            "range": "far",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "shGLbUXlfrbm2ZHJ",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "class"
+      },
+      "effects": [],
+      "folder": "oguBoQQVAvgjRfLI",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.6K48iU82ZrsfmGVB",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061329,
+        "modifiedTime": 1763484061329,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "QDOJiIPDCUWcW7Vw",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Rigger",
+      "type": "class",
+      "img": "modules/cybermancy/assets/icons/classes/rigger.webp",
+      "system": {
+        "description": "<p><em>You don’t just build machines—you raise them.</em></p><p><br /></p><p class=\"MsoNormal\">The Rigger is the Maker, the Tinkerer, the Engineer—the soul who sees the world not as it is, but as it could be with the right parts and enough time on the bench. Every Rigger has a workshop somewhere: for some, it’s a pristine cathedral of tools and precision, where every wrench gleams under fluorescent light and nothing is ever out of place. For others, it’s organized chaos—wires draped like ivy, half-built drones humming in the dark, and a workbench only they can navigate.</p><p><br /></p><p class=\"MsoNormal\">Every Rigger starts by asking one question: what kind of builder are you? And what does your workshop say about you?</p><p><br /></p><p class=\"MsoNormal\">Most Riggers keep a “day job” that funds their obsession—a cover story that keeps the corporate auditors from asking why so many unregistered servos, capacitors, and prototype AIs keep showing up on their expense reports. Maybe you’re a licensed mechanic, maybe a tech salvager, maybe you just “repair” things that don’t technically belong to you.</p><p><br /></p><p class=\"MsoNormal\">At the heart of every Rigger’s identity is their <strong>Primary Drone</strong>—their masterpiece, companion, and canvas. It’s never finished. It grows, evolves, and mutates with each new breakthrough or bad idea. Some are elegant—chrome-winged and graceful as birds. Others are ugly, heavy, loud, and perfect.</p><p><br /></p><p class=\"MsoNormal\"><em><strong>What does your drone look like? What purpose—or personality—did you design into it? And when the fight starts, who’s really piloting who?</strong></em></p>",
+        "domains": [
+          "maker",
+          "bone"
+        ],
+        "classItems": [],
+        "hitPoints": 6,
+        "evasion": 11,
+        "features": [
+          {
+            "type": "hope",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.ffAXnx3zpLBvR1ft"
+          },
+          {
+            "type": "class",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.TvJE1WbFZuaHoO87"
+          },
+          {
+            "type": "class",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.KfUgMjV6BpELeeB1"
+          },
+          {
+            "type": "class",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.esfieah1fapNqzew"
+          },
+          {
+            "type": "class",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.6K48iU82ZrsfmGVB"
+          }
+        ],
+        "subclasses": [
+          "Compendium.cybermancy.cybermancy-subclasses.Item.WydcKdOMoGrShfTF",
+          "Compendium.cybermancy.cybermancy-subclasses.Item.6msj9R1XSoQMjJVa"
+        ],
+        "inventory": {
+          "take": [
+            "Compendium.cybermancy.cybermancy-loot.Item.zC0HbqFSTbGAiDQb"
+          ],
+          "choiceA": [
+            "Compendium.cybermancy.cybermancy-consumables.Item.64t3TW7DExxehUMb"
+          ],
+          "choiceB": [
+            "Compendium.cybermancy.cybermancy-loot.Item.3hRVdJwunzn57oy4"
+          ]
+        },
+        "characterGuide": {
+          "suggestedTraits": {
+            "agility": 0,
+            "strength": 1,
+            "finesse": 1,
+            "instinct": 2,
+            "presence": 0,
+            "knowledge": 2
+          },
+          "suggestedPrimaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.E0RC00ZjLnDyztBz",
+          "suggestedSecondaryWeapon": null,
+          "suggestedArmor": "Compendium.cybermancy.cybermancy-armors.Item.jNm0ZlXoAZta9aUm"
+        },
+        "isMulticlass": false
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061351,
+        "modifiedTime": 1763484061351,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "Ap59GDk2pWZcdP1i",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Primary Drone upgrade - Evasion 12",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/primary-drone-upgrade.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">Your Primary Drone is almost as fast as you! Its Evasion is 12</p>",
+        "actions": {
+          "Primary Drone upgrade": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "choose an additional upgrade for your Primary Drone",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Primary Drone upgrade",
+            "img": "modules/cybermancy/assets/icons/subclasses/primary-drone-upgrade.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "NMR93fNP7YKtKn24",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "NMR93fNP7YKtKn24": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p>Your drone goes faster! - Evasion is 12</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Primary Drone upgrade - Evasion 12",
+            "img": "modules/cybermancy/assets/icons/subclasses/primary-drone-upgrade.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "NMR93fNP7YKtKn24",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "foundation"
+      },
+      "effects": [
+        {
+          "name": "Evasion 1",
+          "type": "base",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "_id": "t12etVy2jXMep1Lp",
+          "img": "icons/magic/life/heart-cross-blue.webp",
+          "changes": [
+            {
+              "key": "system.evasion",
+              "mode": 5,
+              "value": "12",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": 1,
+            "startTurn": 0
+          },
+          "description": "",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "folder": "6zdDBjuDR9rMqEZp",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.K3sDmmwIWMuIoYDG",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061568,
+        "modifiedTime": 1763484061568,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "zVA65Ivz5mrcUJzM",
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Fast car",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/fast-car.webp",
+      "system": {
+        "description": "You start with a car that grants you +1 on all Driving checks (when you are driving that car)",
+        "actions": {
+          "Fast car": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "You start with a car that grants you +1 on all Driving checks (when you are driving that car)",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Fast car",
+            "img": "modules/cybermancy/assets/icons/subclasses/fast-car.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "zTAAALnD7eoryL47",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "foundation"
+      },
+      "effects": [],
+      "folder": "6zdDBjuDR9rMqEZp",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.IQ3k8b7LjD1aA9xr",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061568,
+        "modifiedTime": 1763484061568,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "m0kHvgtdkTImrqNa",
+      "sort": 300000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Inspired Driving",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/inspired-driving.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to convert a Driving failure into a Driving success.</p>",
+        "actions": {
+          "Inspired Driving": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Spend 3 Hope to convert a Driving failure into a Driving success.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Inspired Driving",
+            "img": "modules/cybermancy/assets/icons/subclasses/inspired-driving.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "eV408UF4Mfk1hUdB",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "eV408UF4Mfk1hUdB": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong></p><p> to convert a Driving failure into a Driving success. to convert a Driving failure into a Driving success.</p><p></p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Inspired Driving",
+            "img": "modules/cybermancy/assets/icons/subclasses/inspired-driving.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "eV408UF4Mfk1hUdB",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "foundation"
+      },
+      "effects": [],
+      "folder": "6zdDBjuDR9rMqEZp",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.LZQ2OzAying27rrO",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061568,
+        "modifiedTime": 1763484061568,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "lRXR7QTKz6tT0cgg",
+      "sort": 200000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Need for speed",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/need-for-speed.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to make 2 Drive checks whenever you are Spotlighted during a Chase.</p>",
+        "actions": {
+          "Need for speed": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Spend 3 Hope to make 2 Drive checks whenever you are Spotlighted during a Chase.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Need for speed",
+            "img": "modules/cybermancy/assets/icons/subclasses/need-for-speed.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "tQ06Hy2Osva6ZhD5",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "tQ06Hy2Osva6ZhD5": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to make 2 Drive checks whenever you are Spotlighted during a Chase.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Need for speed",
+            "img": "modules/cybermancy/assets/icons/subclasses/need-for-speed.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "tQ06Hy2Osva6ZhD5",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "specialization"
+      },
+      "effects": [],
+      "folder": "6zdDBjuDR9rMqEZp",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.9sLrb2BwPaCkjFGH",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061568,
+        "modifiedTime": 1763484061568,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "IQWqSzHiZtdvgXPc",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Primary Drone",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/primary-drone.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">The Primary Drone is quite similar to the Ranger Companion, but with a few differences. Take the Decker Primary Drone sheet and fill it out. <br /></p><ul><li>Level 1: Evasion 10, Thresholds: 5/9, HP 3, Stress 2, Armor 1, Attack: Melee, d6, 2 Mod slots (no experiences)</li><li><p>Higher-levels: Same set of leveling up options as the Ranger, but these additional ones:</p><ul><li>+1 Mod slot (can be taken 2x)</li><li>Hard to kill: +1 HP (can be taken 3x)</li><li>Tougher: Thresholds: 7/11</li></ul></li></ul>",
+        "actions": {
+          "Primary Drone": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "The Primary Drone is quite similar to the Ranger Companion, but with a few differences.  Take the Decker Primary Drone sheet and fill it out",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Primary Drone",
+            "img": "modules/cybermancy/assets/icons/subclasses/primary-drone.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "trdO74fYGGgpiCJu",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "trdO74fYGGgpiCJu": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">The Primary Drone is quite similar to the Ranger Companion, but with a few differences. Take the Decker Primary Drone sheet and fill it out. <br></p><ul><li>Level 1: Evasion 10, Thresholds: 5/9, HP 3, Stress 2, Armor 1, Attack: Melee, d6, 2 Mod slots (no experiences)</li><li><p>Higher-levels: Same set of leveling up options as the Ranger, but these additional ones:</p><ul><li>+1 Mod slot (can be taken 2x)</li><li>Hard to kill: +1 HP (can be taken 3x)</li><li>Tougher: Thresholds: 7/11</li></ul></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Primary Drone",
+            "img": "modules/cybermancy/assets/icons/subclasses/primary-drone.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "trdO74fYGGgpiCJu",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "specialization"
+      },
+      "effects": [],
+      "folder": "oguBoQQVAvgjRfLI",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.KfUgMjV6BpELeeB1",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061568,
+        "modifiedTime": 1763484061568,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "GCzj35xY9LgAf4Dv",
+      "sort": 400000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "I’ve driven this before",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/ive-driven-this-before.webp",
+      "system": {
+        "description": "+2 on any Driving check, regardless of what you are driving.",
+        "actions": {
+          "I’ve driven this before": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "+2 on any Driving check, regardless of what you are driving.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "I’ve driven this before",
+            "img": "modules/cybermancy/assets/icons/subclasses/i’ve-driven-this-before.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "bv6c5lyVGM8Kk5lN",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "bv6c5lyVGM8Kk5lN": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "+2 on any Driving check, regardless of what you are driving.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "I’ve driven this before",
+            "img": "modules/cybermancy/assets/icons/subclasses/ive-driven-this-before.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "bv6c5lyVGM8Kk5lN",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "mastery"
+      },
+      "effects": [],
+      "folder": "6zdDBjuDR9rMqEZp",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.C4W2GRrGcTClyv3M",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061568,
+        "modifiedTime": 1763484061568,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "8o2VYIOMaIYOuIVQ",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Expert maneuver",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/expert-maneuver.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to negate any Driving Environment Event.</p>",
+        "actions": {
+          "Expert maneuver": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Spend 3 Hope to negate any Driving Environment Event.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Expert maneuver",
+            "img": "modules/cybermancy/assets/icons/subclasses/expert-maneuver.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "dlqGLQiMCC2b2LNB",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "dlqGLQiMCC2b2LNB": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to negate any Driving Environment Event.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Expert maneuver",
+            "img": "modules/cybermancy/assets/icons/subclasses/expert-maneuver.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "dlqGLQiMCC2b2LNB",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "mastery"
+      },
+      "effects": [],
+      "folder": "6zdDBjuDR9rMqEZp",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.YdEMClXXDAw80PZM",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061568,
+        "modifiedTime": 1763484061568,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "nmSBO065oQGzFeGg",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Speed Racer",
+      "type": "subclass",
+      "img": "modules/cybermancy/assets/icons/subclasses/speed-racer.webp",
+      "system": {
+        "description": "<p>You don’t chase speed — you <em data-start=\"325\" data-end=\"330\">are</em> speed.</p><p></p><p><br /></p><p data-start=\"341\" data-end=\"625\">You were born with one hand on the throttle and the other flipping physics the bird. The city’s your racetrack, the skyline your scoreboard. The world slows down when you floor it — neon lines stretch into eternity, tires sing your name, and every corner is a dare you can’t resist.</p><p></p><p><br /></p><p data-start=\"627\" data-end=\"878\">You don’t just drive; you <em data-start=\"653\" data-end=\"672\">command momentum.</em> Every turn, every drift, every impossible leap is choreography between machine and madness. The dashboard’s your altar, the engine’s your heartbeat, and the smell of burning synth-rubber is your incense.</p><p></p><p><br /></p><p data-start=\"880\" data-end=\"1105\">Safety is for people who still think death is permanent. You tune your ride like a symphony — stripping weight, rewriting firmware, bending the limits of torque and reason until your machine hums in harmony with your pulse.</p><p></p><p><br /></p><p data-start=\"1107\" data-end=\"1254\">Others measure distance in meters. You measure it in milliseconds. You’re not here to win races. You’re here to <strong data-start=\"1219\" data-end=\"1254\">rewrite the definition of fast.</strong></p>",
+        "spellcastingTrait": "agility",
+        "features": [
+          {
+            "type": "foundation",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.K3sDmmwIWMuIoYDG"
+          },
+          {
+            "type": "foundation",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.IQ3k8b7LjD1aA9xr"
+          },
+          {
+            "type": "foundation",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.LZQ2OzAying27rrO"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.9sLrb2BwPaCkjFGH"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.KfUgMjV6BpELeeB1"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.C4W2GRrGcTClyv3M"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.YdEMClXXDAw80PZM"
+          }
+        ],
+        "featureState": 1,
+        "isMulticlass": false,
+        "linkedClass": "Compendium.cybermancy.cybermancy-classes.Item.G8khPip0W22RIZU9"
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061591,
+        "modifiedTime": 1763484061591,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "95B7lqmrmurkQc3W",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Deft Maneuvers",
+      "type": "domainCard",
+      "img": "systems/daggerheart/assets/icons/domains/domain-card/bone.png",
+      "system": {
+        "description": "<p class=\"Body-Foundation\">Once per rest,<strong> mark a Stress</strong> to sprint anywhere within Far range without making an Agility Roll to get there.</p><p class=\"Body-Foundation\">If you end this movement within Melee range of an adversary and immediately make an attack against them, gain a +1 bonus to the attack roll.</p>",
+        "domain": "bone",
+        "recallCost": 0,
+        "level": 1,
+        "type": "ability",
+        "actions": {
+          "AKexQGjS5HwPTo19": {
+            "type": "effect",
+            "_id": "AKexQGjS5HwPTo19",
+            "systemPath": "actions",
+            "description": "<p class=\"Body-Foundation\">Once per rest,<strong> mark a Stress</strong> to sprint anywhere within Far range without making an Agility Roll to get there.</p><p class=\"Body-Foundation\">If you end this movement within Melee range of an adversary and immediately make an attack against them, gain a +1 bonus to the attack roll.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "shortRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [
+              {
+                "_id": "gEDGcbsgWY2D2nOo",
+                "onSave": false
+              }
+            ],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Mark Stress",
+            "img": "icons/skills/movement/arrow-upward-yellow.webp",
+            "range": ""
+          }
+        },
+        "resource": null,
+        "inVault": false
+      },
+      "sort": 3400000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061624,
+        "modifiedTime": 1763484061624,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [
+        {
+          "name": "Deft Maneuvers",
+          "img": "icons/skills/movement/arrow-upward-yellow.webp",
+          "origin": "Compendium.daggerheart.domains.Item.dc4rAXlv95srZUct",
+          "transfer": true,
+          "_id": "gEDGcbsgWY2D2nOo",
+          "type": "base",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "changes": [
+            {
+              "key": "system.bonuses.roll.attack.bonus",
+              "mode": 2,
+              "value": "1",
+              "priority": null
+            }
+          ],
+          "disabled": true,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": 1,
+            "startTurn": 0
+          },
+          "description": "<p>If you end this movement within Melee range of an adversary and immediately make an attack against them, gain a +1 bonus to the attack roll.</p>",
+          "tint": "#ffffff",
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "_id": "0EmUaUUVhBeVcBW1",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Drone Control",
+      "type": "domainCard",
+      "img": "modules/cybermancy/assets/icons/domains/maker/drone-control.webp",
+      "system": {
+        "description": "<i>Precision through proxies.</i><p class=\"Card-Feature\">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack at +2.</p>",
+        "level": 1,
+        "domain": "maker",
+        "recallCost": 1,
+        "type": "ability",
+        "inVault": false,
+        "actions": {
+          "Drone Control": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<i>Precision through proxies.</i><p class=\"Card-Feature\">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack at +2.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "key": "hope",
+                "value": 1,
+                "keyIsID": false,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Drone Control",
+            "img": "modules/cybermancy/assets/icons/domains/maker/drone-control.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "eJm7OoyTdkfQjONX",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061624,
+        "modifiedTime": 1763484061624,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "Vhd1OX2ZIL4yGAcM",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Slash-Resistant Polymer Jacket",
+      "type": "armor",
+      "img": "modules/cybermancy/assets/icons/armors/slash-resistant-polymer-jacket.webp",
+      "system": {
+        "description": "Medium-weight body armor woven from advanced polymer rings designed to resist slashes and punctures—perfect for Megatropolis alleys.",
+        "actions": {},
+        "attached": [],
+        "tier": 1,
+        "equipped": true,
+        "baseScore": 4,
+        "armorFeatures": [
+          {
+            "value": "heavy",
+            "effectIds": [
+              "ZfO5NjpqEIzZVlPq"
+            ],
+            "actionIds": []
+          }
+        ],
+        "marks": {
+          "value": 0
+        },
+        "baseThresholds": {
+          "major": 7,
+          "severe": 15
+        }
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061663,
+        "modifiedTime": 1763484083625,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [
+        {
+          "name": "Heavy",
+          "description": "-1 to Evasion",
+          "img": "icons/commodities/metal/ingot-worn-iron.webp",
+          "changes": [
+            {
+              "key": "system.evasion",
+              "mode": 2,
+              "value": "-1"
+            }
+          ],
+          "_id": "ZfO5NjpqEIzZVlPq",
+          "type": "base",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "disabled": false,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "startRound": 1,
+            "startTurn": 0
+          },
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "_id": "m3uppgJpUNszgDEA",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Heavy Semi-auto pistol",
+      "type": "weapon",
+      "img": "modules/cybermancy/assets/icons/weapons/smartpistol.webp",
+      "system": {
+        "description": "<p>A small, light-weight semi-automatic pistol. Cheap but with only 1 Mod slots</p><p></p><ul><li><p>Concealable in a jacket / armpit holster</p></li><li><p>Centa cred ($100's)</p></li><li><p>Close range</p></li></ul>",
+        "actions": {},
+        "attached": [],
+        "tier": 1,
+        "equipped": true,
+        "secondary": false,
+        "burden": "oneHanded",
+        "weaponFeatures": [],
+        "attack": {
+          "name": "Attack",
+          "img": "icons/skills/melee/blood-slash-foam-red.webp",
+          "_id": "VNKPjoOsdwmPxGf5",
+          "systemPath": "attack",
+          "type": "attack",
+          "range": "close",
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "trait": "agility",
+            "type": "attack",
+            "difficulty": null,
+            "bonus": null,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "compare": null,
+              "treshold": null
+            },
+            "useDefault": false
+          },
+          "damage": {
+            "parts": [
+              {
+                "value": {
+                  "dice": "d8",
+                  "bonus": null,
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "type": [
+                  "physical"
+                ],
+                "applyTo": "hitPoints",
+                "resultBased": false,
+                "valueAlt": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "bonus": null,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "base": false
+              }
+            ],
+            "includeBase": false
+          },
+          "description": "",
+          "chatDisplay": true,
+          "actionType": "action",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": null,
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "save": {
+            "trait": null,
+            "difficulty": null,
+            "damageMod": "none"
+          }
+        },
+        "rules": {
+          "attack": {
+            "roll": {
+              "trait": null
+            }
+          }
+        }
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061705,
+        "modifiedTime": 1763484186223,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "mehfo0QnsufwPBrw",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Armor Nanite Repair Kit",
+      "type": "consumable",
+      "img": "modules\\cybermancy\\assets\\icons\\consumables\\armor-nanite-repair-kit.webp",
+      "system": {
+        "description": "A swarm of nanites that reknit damaged armor plating. Spend any amount of Hope to clear that many Armor Slots.",
+        "quantity": 1,
+        "actions": {
+          "htoGx8qrv8trds81": {
+            "type": "effect",
+            "_id": "htoGx8qrv8trds81",
+            "systemPath": "actions",
+            "description": "<p>You can use this stitcher to spend any number of Hope and clear that many Armor Slots.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": true,
+                "key": "hope",
+                "value": 1,
+                "step": 1,
+                "keyIsID": false,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Stitch",
+            "img": "icons/skills/trades/textiles-stitching-leather-brown.webp",
+            "range": ""
+          }
+        },
+        "consumeOnUse": true
+      },
+      "sort": 1800000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061763,
+        "modifiedTime": 1763484061763,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "aw5DFUovPDXJFVMB",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Synth Premium Bedroll Key",
+      "type": "loot",
+      "img": "modules/cybermancy/assets/icons/loot/synth-premium-bedroll-key.webp",
+      "system": {
+        "description": "During downtime, you automatically clear a Stress. black-market tech favored by runners and fixers",
+        "quantity": 1,
+        "actions": {
+          "Xe0zhVbSzZLgX1nC": {
+            "type": "healing",
+            "_id": "Xe0zhVbSzZLgX1nC",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": null,
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": "above",
+                "treshold": 1
+              },
+              "useDefault": false
+            },
+            "name": "Take a nap",
+            "img": "icons/sundries/survival/bedroll-blue-red.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            }
+          }
+        }
+      },
+      "sort": 112500,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763484061823,
+        "modifiedTime": 1763484061823,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "Txk9LWl1vF7RVs3U",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "cybermancer",
+      "uuid": "Actor.Jcw5pNk73EZyizcF",
+      "coreVersion": "13.350",
+      "systemId": "daggerheart",
+      "systemVersion": "1.1.2"
+    },
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763483372417,
+    "modifiedTime": 1763497629334,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

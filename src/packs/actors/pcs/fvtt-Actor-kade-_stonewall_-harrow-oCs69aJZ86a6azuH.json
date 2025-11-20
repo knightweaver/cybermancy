@@ -1,0 +1,2709 @@
+{
+  "folder": "YRULFcdtjKLU7xJZ",
+  "name": "Kade “Stonewall” Harrow",
+  "type": "character",
+  "img": "modules/cybermancy/assets/images/npcs/kade-stonewall-harrow.png",
+  "system": {
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 0,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 5,
+        "isReversed": true
+      },
+      "hope": {
+        "value": 2,
+        "max": 6,
+        "isReversed": false
+      }
+    },
+    "traits": {
+      "agility": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "strength": {
+        "value": 2,
+        "tierMarked": false
+      },
+      "finesse": {
+        "value": 0,
+        "tierMarked": false
+      },
+      "instinct": {
+        "value": 1,
+        "tierMarked": false
+      },
+      "presence": {
+        "value": 0,
+        "tierMarked": false
+      },
+      "knowledge": {
+        "value": -1,
+        "tierMarked": false
+      }
+    },
+    "proficiency": 1,
+    "evasion": 0,
+    "armorScore": 0,
+    "damageThresholds": {
+      "severe": 0,
+      "major": 0
+    },
+    "experiences": {
+      "iRP8WhFCJfUJOgo3": {
+        "name": "Calming prescence",
+        "value": 2,
+        "core": true,
+        "description": "You are the harbor in the storm, whether that is in a chaotic situation or in tense social negotiations"
+      },
+      "FJfIBcRPfq2dZ9nv": {
+        "name": "Escape with protected",
+        "value": 2,
+        "core": true,
+        "description": "“Pulled three researchers out of a collapsing black-lab after a containment breach.”\n\nApplies in scenes in which you are trying to get others out of danger"
+      }
+    },
+    "gold": {
+      "coins": 0,
+      "handfuls": 1,
+      "bags": 0,
+      "chests": 0
+    },
+    "scars": {},
+    "biography": {
+      "background": "<p>Background and motivation:</p><p><br data-start=\"57\" data-end=\"60\" />Former executive-protection specialist for Helion Dynamics. Kade spent a decade shielding board members and senior engineers during hostile acquisitions and lab extractions. After refusing to falsify an incident report that would have pinned a civilian death on a junior colleague, he was terminated, blacklisted, and quietly threatened. His motivation is simple: keep people alive. The corporate world taught him how cheaply they value human bodies; he intends to push back one life at a time.</p><p></p><p data-start=\"556\" data-end=\"818\"></p><p data-start=\"556\" data-end=\"818\">Something he knows and is excited by:<br data-start=\"593\" data-end=\"596\" /></p><p data-start=\"556\" data-end=\"818\">He has an encyclopedic grasp of threat geometry—angles, cover vectors, and the physics of bullets in motion. He treats it like a living puzzle and genuinely enjoys optimizing a battlefield so his allies walk out breathing.</p><p data-start=\"989\" data-end=\"1244\"></p><p data-start=\"989\" data-end=\"1244\">Why he started shadowrunning:<br data-start=\"1018\" data-end=\"1021\" /></p><p data-start=\"989\" data-end=\"1244\">Shadowrunning is the only space where he can apply his protection instincts without corporate interference. The pay is clean enough, the work is honest in its own crooked way, and the targets of violence usually deserve it.</p><p data-start=\"1246\" data-end=\"1585\"></p><p data-start=\"1246\" data-end=\"1585\">Why he joined this team:<br data-start=\"1270\" data-end=\"1273\" /></p><p data-start=\"1246\" data-end=\"1585\">He recognized the team’s lack of hard defensive discipline. They had talent but no one who understood structured risk, suppression timing, or how to anchor a breach. Kade saw an opportunity to keep them alive—and in return they offered him something he hadn’t had in years: autonomy, and people worth protecting.</p><p data-start=\"1587\" data-end=\"1743\" data-is-last-node data-is-only-node></p>",
+      "connections": "",
+      "characteristics": {
+        "pronouns": "",
+        "age": "",
+        "faith": ""
+      }
+    },
+    "attack": {
+      "name": "DAGGERHEART.GENERAL.unarmedAttack",
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "_id": "1NYD9ibkuU2gNlzG",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": "strength",
+        "difficulty": null,
+        "bonus": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "type": [
+              "physical"
+            ],
+            "value": {
+              "custom": {
+                "enabled": true,
+                "formula": "@profd4"
+              },
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null
+            },
+            "applyTo": "hitPoints",
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false
+      },
+      "description": "",
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "advantageSources": [],
+    "disadvantageSources": [],
+    "levelData": {
+      "level": {
+        "current": 1,
+        "changed": 1,
+        "bonuses": {}
+      },
+      "levelups": {}
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "spellcast": {
+          "bonus": 0,
+          "dice": []
+        },
+        "trait": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        },
+        "primaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        },
+        "secondaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "primaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        },
+        "secondaryWeapon": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "healing": {
+        "bonus": 0,
+        "dice": []
+      },
+      "range": {
+        "weapon": 0,
+        "spell": 0,
+        "other": 0
+      },
+      "rally": [],
+      "rest": {
+        "shortRest": {
+          "shortMoves": 0,
+          "longMoves": 0
+        },
+        "longRest": {
+          "shortMoves": 0,
+          "longMoves": 0
+        }
+      },
+      "maxLoadout": 0
+    },
+    "companion": null,
+    "rules": {
+      "damageReduction": {
+        "maxArmorMarked": {
+          "value": 1,
+          "stressExtra": 0
+        },
+        "stressDamageReduction": {
+          "severe": {},
+          "major": {},
+          "minor": {},
+          "any": {}
+        },
+        "increasePerArmorMark": 1,
+        "magical": false,
+        "physical": false,
+        "thresholdImmunities": {
+          "minor": false
+        },
+        "disabledArmor": false
+      },
+      "attack": {
+        "damage": {
+          "diceIndex": 0,
+          "bonus": 0
+        },
+        "roll": {
+          "trait": null
+        }
+      },
+      "runeWard": false,
+      "burden": {
+        "ignore": false
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Kade “Stonewall” Harrow",
+    "displayName": 30,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "modules/cybermancy/assets/tokens/npcs/kade-stonewall-harrow.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": true,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 0,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "folder": "dSAccOl5ccgXPyje",
+      "name": "Increased Fortitude",
+      "type": "feature",
+      "_id": "cVdShoISsYWxygYF",
+      "img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+      "system": {
+        "description": "<p><strong>Spend 3 Hope</strong> to halve incoming physical damage.</p>",
+        "resource": null,
+        "actions": {
+          "pFPbjyexOPx5gog6": {
+            "type": "effect",
+            "_id": "pFPbjyexOPx5gog6",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Spend Hope",
+            "img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+            "range": ""
+          }
+        },
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "identifier": "secondary"
+      },
+      "effects": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.daggerheart.ancestries.Item.0RN0baBxh95GT1cm",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807431,
+        "modifiedTime": 1763481807431,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "dSAccOl5ccgXPyje",
+      "name": "Thick Skin",
+      "type": "feature",
+      "_id": "ffoC5ZFHNq9Ev4B7",
+      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-orange.webp",
+      "system": {
+        "description": "<p>When you take Minor damage, you can <strong>mark 2 Stress</strong> instead of marking a Hit Point.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": "ancestry",
+        "multiclassOrigin": false,
+        "identifier": "primary"
+      },
+      "effects": [
+        {
+          "name": "Thick Skin",
+          "type": "base",
+          "_id": "4Lc40mNnRInTKMC5",
+          "img": "icons/magic/defensive/shield-barrier-glowing-triangle-orange.webp",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "changes": [
+            {
+              "key": "system.rules.damageReduction.stressDamageReduction.minor.cost",
+              "mode": 5,
+              "value": "2",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": 1,
+            "startTurn": 0
+          },
+          "description": "<p><span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">When you take Minor damage, you can </span><span style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:rgb(93, 20, 43) rgba(0, 0, 0, 0);color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">mark 2 Stress</span><span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\"> instead of marking a Hit Point.</span></p>",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.daggerheart.ancestries.Item.S0Ww7pYOSREt8qKg",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807431,
+        "modifiedTime": 1763481807431,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Dwarf",
+      "type": "ancestry",
+      "img": "icons/equipment/head/helm-norman-engraved.webp",
+      "system": {
+        "description": "<p>Dwarves are most easily recognized as short humanoids with square frames, dense musculature, and thick hair.<br /><br /></p><p>Their average height ranges from 4 to 5 ½ feet, and they are often broad in proportion to their stature. Their skin and nails contain a high amount of keratin, making them naturally resilient. This allows dwarves to embed gemstones into their bodies and decorate themselves with tattoos or piercings. Their hair grows thickly—usually on their heads, but some dwarves have thick hair across their bodies as well. Dwarves of all genders can grow facial hair, which they often style in elaborate arrangements. Typically, dwarves live up to 250 years of age, maintaining their muscle mass well into later life.</p><p></p>",
+        "features": [
+          {
+            "type": "primary",
+            "item": "Compendium.daggerheart.ancestries.Item.S0Ww7pYOSREt8qKg"
+          },
+          {
+            "type": "secondary",
+            "item": "Compendium.daggerheart.ancestries.Item.0RN0baBxh95GT1cm"
+          }
+        ]
+      },
+      "sort": 3400000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807448,
+        "modifiedTime": 1763481807448,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "9rcKH9jxSKpkMBLH",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "KA1VSGslxkbvVeMp",
+      "name": "Dedicated",
+      "type": "feature",
+      "_id": "Y8A0NHxjqVxfmurl",
+      "img": "icons/environment/people/cleric-orange.webp",
+      "system": {
+        "description": "<p>Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you’re embodying one of these principles through your current action, you can roll a d20 as your Hope Die</p>",
+        "resource": null,
+        "actions": {
+          "ZBVqSlsDUKf8uGrI": {
+            "type": "effect",
+            "_id": "ZBVqSlsDUKf8uGrI",
+            "systemPath": "actions",
+            "description": "<p>Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you’re embodying one of these principles through your current action, you can roll a d20 as your Hope Die</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "shortRest",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Use",
+            "img": "icons/environment/people/cleric-orange.webp",
+            "range": ""
+          }
+        },
+        "originItemType": "community",
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.daggerheart.communities.Item.7aXWdH3gzaYREK0X",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807509,
+        "modifiedTime": 1763481807509,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Orderborne",
+      "type": "community",
+      "img": "icons/environment/people/infantry-army.webp",
+      "system": {
+        "description": "<p>Being part of an orderborne community means you’re from a collective that focuses on discipline or faith, and you uphold a set of principles that reflect your experience there.<br /><br /></p><p class=\"green Body-Styles_Body\">Orderborne are frequently some of the most powerful among the surrounding communities. By aligning the members of their society around a common value or goal, such as a god, doctrine, ethos, or even a shared business or trade, the ruling bodies of these enclaves are able to mobilize larger populations with less effort. While orderborne communities take a variety of forms—some even profoundly pacifistic—perhaps the most feared are those that structure themselves around military prowess. In such a case, it’s not uncommon for orderborne to provide soldiers for hire to other cities or countries.</p>\n<p class=\"green Body-Styles_Body\"><em>Orderborne are often ambitious, benevolent, pensive, prudent, sardonic, and stoic.</em></p><p></p>",
+        "features": [
+          "Compendium.daggerheart.communities.Item.7aXWdH3gzaYREK0X"
+        ]
+      },
+      "sort": 3400000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807525,
+        "modifiedTime": 1763481807525,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "8iZX40gITWA5ffSW",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Focused aggression",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/focused-aggression.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.</p>",
+        "actions": {
+          "Focused aggression": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Spend 3 Hope to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Focused aggression",
+            "img": "modules/cybermancy/assets/icons/subclasses/focused-aggression.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "mA1Beu6Trvx1nizm",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "mA1Beu6Trvx1nizm": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Focused aggression",
+            "img": "modules/cybermancy/assets/icons/subclasses/focused-aggression.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "mA1Beu6Trvx1nizm",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "hope"
+      },
+      "effects": [],
+      "folder": "LOH78bJGWhb0hLT4",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.9N9QiL1iLrKcCCeQ",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807585,
+        "modifiedTime": 1763481807585,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "frHBgcXLvDHy6V6z",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Quick reflexes",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/quick-reflexes.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, <strong>Mark 1 Stress</strong> to make an Attack on the would-be attacker first.</p>",
+        "actions": {
+          "Quick reflexes": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, Mark 1 Stress to make an Attack on the would-be attacker first.",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Quick reflexes",
+            "img": "modules/cybermancy/assets/icons/subclasses/quick-reflexes.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "YiVgGQtkzAlV1F5X",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "YiVgGQtkzAlV1F5X": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, <strong>Mark 1 Stress</strong> to make an Attack on the would-be attacker first.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Quick reflexes",
+            "img": "modules/cybermancy/assets/icons/subclasses/quick-reflexes.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "YiVgGQtkzAlV1F5X",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "class"
+      },
+      "effects": [],
+      "folder": "LOH78bJGWhb0hLT4",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.fSZc93pK7PQNLTMA",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807585,
+        "modifiedTime": 1763481807585,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "an8BIqqZcf8b2nCf",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Dual wielding",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/dual-wielding.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">If you are wielding a Melee weapon and gun (both of which must be one-handed), <strong>Spend 3 Hope</strong> to make an attack with each against different targets. =</p>",
+        "actions": {
+          "Dual wielding": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "If you are wielding a Melee weapon and gun (both of which must be one-handed), Spend 2 Hope to make an attack with each against different targets. =",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Dual wielding",
+            "img": "modules/cybermancy/assets/icons/subclasses/dual-wielding.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "gYdr4Iz8yfI5NdPc",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "gYdr4Iz8yfI5NdPc": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">If you are wielding a Melee weapon and gun (both of which must be one-handed), <strong>Spend 3 Hope</strong> to make an attack with each against different targets. =</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 3,
+                "keyIsID": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Dual wielding",
+            "img": "modules/cybermancy/assets/icons/subclasses/dual-wielding.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "gYdr4Iz8yfI5NdPc",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "class",
+        "multiclassOrigin": false,
+        "identifier": "class"
+      },
+      "effects": [],
+      "folder": "LOH78bJGWhb0hLT4",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.7Nw2zrVw7zvohZYj",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807585,
+        "modifiedTime": 1763481807585,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "aEVjOmiaB2fDbKjK",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Street Samuri",
+      "type": "class",
+      "img": "modules/cybermancy/assets/icons/classes/street-samuri.webp",
+      "system": {
+        "description": "<p><em>Steel is honest. Flesh lies.</em></p><p></p><p>You walk the line between the old world’s honor and the new world’s circuitry.</p><p>Some call you a mercenary, some a relic — they’re both right. You move through the sprawl like a storm wrapped in human skin: clean, efficient, and devastatingly precise. The Street Samurai doesn’t talk about strength; they demonstrate it.</p><p></p><p>Your body is a weapon — sculpted, reforged, upgraded, and tuned past the edge of human tolerance. Every scar is a story, every implant a lesson bought in blood and chrome. You’ve seen what happens when code and conscience mix: it’s not pretty. That’s why you live by your own code — maybe ancient, maybe self-written, but always yours.</p><p></p><p>Corporations build armies; gangs build legends. You build reputation. You fight because someone has to — and because deep down, you still believe that mastery of the blade, the gun, or the body means something in a world that’s sold its soul to machines.</p><p></p><p>Some Street Samurai operate like ghosts, silent and unseen until the moment of violence. Others are thunder — explosive, unstoppable, and poetic in destruction. Neither path is wrong. Both are beautiful.</p><p>What weapon have you made an extension of yourself? What line will you never cross — and what happens when someone makes you?</p>",
+        "domains": [
+          "blade",
+          "bullet"
+        ],
+        "classItems": [],
+        "hitPoints": 7,
+        "evasion": 9,
+        "features": [
+          {
+            "type": "hope",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.9N9QiL1iLrKcCCeQ"
+          },
+          {
+            "type": "class",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.fSZc93pK7PQNLTMA"
+          },
+          {
+            "type": "class",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.7Nw2zrVw7zvohZYj"
+          }
+        ],
+        "subclasses": [
+          "Compendium.cybermancy.cybermancy-subclasses.Item.28qGAor6NaOyAW3e",
+          "Compendium.cybermancy.cybermancy-subclasses.Item.WW4BuEHPcynmH9OS"
+        ],
+        "inventory": {
+          "take": [
+            "Compendium.cybermancy.cybermancy-loot.Item.zC0HbqFSTbGAiDQb"
+          ],
+          "choiceA": [
+            "Compendium.cybermancy.cybermancy-ammo.Item.B4GmWZESL7IGgFUa"
+          ],
+          "choiceB": [
+            "Compendium.cybermancy.cybermancy-loot.Item.323pAhbZgCt0f7YJ"
+          ]
+        },
+        "characterGuide": {
+          "suggestedTraits": {
+            "agility": 1,
+            "strength": 2,
+            "finesse": 1,
+            "instinct": 2,
+            "presence": 1,
+            "knowledge": 0
+          },
+          "suggestedPrimaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.41U5oyL5z2gAkerd",
+          "suggestedSecondaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.zXajmYeiCBqJPj9c",
+          "suggestedArmor": "Compendium.cybermancy.cybermancy-armors.Item.39yD0dkoCaBIjBbG"
+        },
+        "isMulticlass": false
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807597,
+        "modifiedTime": 1763481807597,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "xfXvCTnJ0U08WuGP",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Protection assignment",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/protection-assignment.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">At the beginning of a Scene, designate 1 ally as your Primary Focus. If they are within Very Close of you, they get +2 Evasion. <br /><strong>Mark 1 Stress</strong> to change which ally is your focus.</p>",
+        "actions": {
+          "Protection assignment": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "At the beginning of a Scene, designate 1 ally as your Primary Focus.  If they are within Very Close of you, they get +2 Evasion.  Mark 1 Stress to change which ally is your focus.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Protection assignment",
+            "img": "modules/cybermancy/assets/icons/subclasses/protection-assignment.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "s6q49xRwDS2VBp9w",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "s6q49xRwDS2VBp9w": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">At the beginning of a Scene, designate 1 ally as your Primary Focus. If they are within Very Close of you, they get +2 Evasion. <br><strong>Mark 1 Stress</strong> to change which ally is your focus.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Protection assignment",
+            "img": "modules/cybermancy/assets/icons/subclasses/protection-assignment.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "s6q49xRwDS2VBp9w",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "foundation"
+      },
+      "effects": [],
+      "folder": "0vjuCPBtaGC6yT9n",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.cSSs8dogKbmO0TmV",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807760,
+        "modifiedTime": 1763481807760,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "H9vduvLoSIvmb1Uo",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Situational awareness",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an Instinct roll (13). On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).</p>",
+        "actions": {
+          "Situational awareness": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "Spend 1 Hope and make an Instinct roll (13).  On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Situational awareness",
+            "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "XkK1b1cTs0wuw026",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "XkK1b1cTs0wuw026": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an Instinct roll (13). On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "keyIsID": false,
+                "key": "hope",
+                "value": 1,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Situational awareness",
+            "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": "trait",
+              "trait": "instinct",
+              "difficulty": 13,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "XkK1b1cTs0wuw026",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "foundation"
+      },
+      "effects": [],
+      "folder": "0vjuCPBtaGC6yT9n",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.4nEtDOwDjKMnxOLc",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807760,
+        "modifiedTime": 1763481807760,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "XuZRUafuO98BKTbK",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Get behind me",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/get-behind-me.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">Once per Scene, as a Reaction, when an adversary makes a successful attack on an ally within Close, move immediately to position your token within Melee of your ally and between the adversary and the ally (moving one of them if necessary). The attack is now successful on you instead of your ally.</p>",
+        "actions": {
+          "Get behind me": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "As a Reaction, when an adversary makes a successful attack on an ally within Close, move immediately to position your token within Melee of your ally and between the adversary and the ally (moving one of them if necessary).  The attack is now successful on you instead of your ally.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Get behind me",
+            "img": "modules/cybermancy/assets/icons/subclasses/get-behind-me.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "nhDEgYWEONO7CMOj",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "nhDEgYWEONO7CMOj": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">Once per Scene, as a Reaction, when an adversary makes a successful attack on an ally within Close, move immediately to position your token within Melee of your ally and between the adversary and the ally (moving one of them if necessary). The attack is now successful on you instead of your ally.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "1",
+              "recovery": "scene",
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Get behind me",
+            "img": "modules/cybermancy/assets/icons/subclasses/get-behind-me.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "nhDEgYWEONO7CMOj",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "specialization"
+      },
+      "effects": [],
+      "folder": "0vjuCPBtaGC6yT9n",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.UY8dBhoKW1vNbdlX",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807760,
+        "modifiedTime": 1763481807760,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "rjplMwZjGcJBHyFT",
+      "sort": 200000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Two foci",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/two-foci.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">You are able to have 2 allies as your Primary Foci for your Protection assignment feature.</p>",
+        "actions": {
+          "Two foci": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "you are able to have 2 allies as your Primary Foci for your Protection assignment feature.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Two foci",
+            "img": "modules/cybermancy/assets/icons/subclasses/two-foci.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "PUpAUu7cTLRjLe7L",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "PUpAUu7cTLRjLe7L": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">You are able to have 2 allies as your Primary Foci for your Protection assignment feature.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Two foci",
+            "img": "modules/cybermancy/assets/icons/subclasses/two-foci.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "PUpAUu7cTLRjLe7L",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "specialization"
+      },
+      "effects": [],
+      "folder": "0vjuCPBtaGC6yT9n",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.7YON7vlnAMKXrxcV",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807760,
+        "modifiedTime": 1763481807760,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "JFm0wbGl6mmfgsdJ",
+      "sort": 400000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Sphere of control",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/sphere-of-control.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">When you Spotlight an Action to Attack, you can attack any adversary within Melee of all allies within Very Close of you.</p>",
+        "actions": {
+          "Sphere of control": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "When you attack, you can attack any adversary within Melee of all allies within Very Close of you.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Sphere of control",
+            "img": "modules/cybermancy/assets/icons/subclasses/sphere-of-control.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "h1vZzRSGZ9O4pd30",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "h1vZzRSGZ9O4pd30": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">When you Spotlight an Action to Attack, you can attack any adversary within Melee of all allies within Very Close of you.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Sphere of control",
+            "img": "modules/cybermancy/assets/icons/subclasses/sphere-of-control.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "h1vZzRSGZ9O4pd30",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "mastery"
+      },
+      "effects": [],
+      "folder": "0vjuCPBtaGC6yT9n",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.MPrbYDhBgYgA5sbJ",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807760,
+        "modifiedTime": 1763481807760,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "n9jkQA83DUPtakwn",
+      "sort": 300000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Calm in the storm",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+      "system": {
+        "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+        "actions": {
+          "Calm in the storm": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Calm in the storm",
+            "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "iqR8RG8XNc9rjPV4",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          },
+          "iqR8RG8XNc9rjPV4": {
+            "type": "attack",
+            "systemPath": "actions",
+            "description": "All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Calm in the storm",
+            "img": "modules/cybermancy/assets/icons/subclasses/calm-in-the-storm.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            },
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "_id": "iqR8RG8XNc9rjPV4",
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            }
+          }
+        },
+        "resource": null,
+        "originItemType": "subclass",
+        "multiclassOrigin": false,
+        "identifier": "mastery"
+      },
+      "effects": [],
+      "folder": "0vjuCPBtaGC6yT9n",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.M95nJ2fPznYleDMn",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807760,
+        "modifiedTime": 1763481807760,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "prlYVCQuzhrBy546",
+      "sort": 100000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Bodyguard",
+      "type": "subclass",
+      "img": "modules/cybermancy/assets/icons/subclasses/bodyguard.webp",
+      "system": {
+        "description": "<p>Your loyalty is your armor. Your purpose is protection.</p><p><br /></p><p data-start=\"2318\" data-end=\"2536\">You stand between chaos and the one who hired you — a wall of muscle, will, and immaculate reflexes. You’re not just a shield; you’re the counterattack that happens before anyone even realizes they’ve made a mistake.</p><p><br /></p><p data-start=\"2538\" data-end=\"2731\">You read rooms like battlegrounds. You count exits without looking. You memorize heartbeats. The people you protect might never know how close they came to dying — and that’s how you like it.</p><p><br /></p><p data-start=\"2733\" data-end=\"2925\">You don’t protect because you’re paid to. You protect because it gives you meaning. In a city that sells everything, loyalty’s the one currency that still has value — and yours is priceless.</p><p><br /></p><p data-start=\"2927\" data-end=\"3008\">When the bullets start flying, you don’t dive for cover.<br data-start=\"2983\" data-end=\"2986\" />You <em data-start=\"2990\" data-end=\"2995\">are</em> the cover.</p>",
+        "spellcastingTrait": "strength",
+        "features": [
+          {
+            "type": "foundation",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.cSSs8dogKbmO0TmV"
+          },
+          {
+            "type": "foundation",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.4nEtDOwDjKMnxOLc"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.UY8dBhoKW1vNbdlX"
+          },
+          {
+            "type": "specialization",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.7YON7vlnAMKXrxcV"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.MPrbYDhBgYgA5sbJ"
+          },
+          {
+            "type": "mastery",
+            "item": "Compendium.cybermancy.cybermancy-features.Item.M95nJ2fPznYleDMn"
+          }
+        ],
+        "featureState": 1,
+        "isMulticlass": false,
+        "linkedClass": "Compendium.cybermancy.cybermancy-classes.Item.XWaW4nZ0dMha0NUi"
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807781,
+        "modifiedTime": 1763481807781,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "ZfB3eveMp3mFudGP",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Whirlwind",
+      "type": "domainCard",
+      "img": "systems/daggerheart/assets/icons/domains/domain-card/blade.png",
+      "system": {
+        "description": "<p class=\"Body-Foundation\">When you make a successful attack against a target within Very Close range, you can <strong>spend a Hope</strong> to use the attack against all other targets within Very Close range. All additional adversaries you succeed against with this ability take half damage.</p><p>@Template[type:emanation|range:vc]</p>",
+        "domain": "blade",
+        "recallCost": 0,
+        "level": 1,
+        "type": "ability",
+        "actions": {
+          "g9X0wRuCtAYzF576": {
+            "type": "effect",
+            "_id": "g9X0wRuCtAYzF576",
+            "systemPath": "actions",
+            "description": "<p class=\"Body-Foundation\">When you make a successful attack against a target within Very Close range, you can <strong>spend a Hope</strong> to use the attack against all other targets within Very Close range. All additional adversaries you succeed against with this ability take half damage.</p><p>@Template[type:emanation|range:vc]</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "keyIsID": false,
+                "key": "hope",
+                "value": 1,
+                "scalable": false,
+                "step": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Spend a Hope",
+            "img": "icons/magic/control/buff-flight-wings-runes-purple-orange.webp",
+            "range": ""
+          }
+        },
+        "resource": null,
+        "inVault": false
+      },
+      "sort": 3400000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807818,
+        "modifiedTime": 1763484501351,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "pTUgg6K9Q0wUfLQt",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Gun Trainer",
+      "type": "domainCard",
+      "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+      "system": {
+        "description": "<p><em>You teach death politely.</em></p><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns. Give each ally a <strong>Bullet die</strong> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10). They may use this <strong>Bullet die</strong> in the same way as your Class or Subclass</p>",
+        "level": 1,
+        "domain": "bullet",
+        "recallCost": 2,
+        "type": "ability",
+        "inVault": false,
+        "actions": {
+          "Gun Trainer": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<i>You teach death politely.</i><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may use this <b>Bullet die</b> in the same way as your Class or Subclass",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Gun Trainer",
+            "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+            "range": "",
+            "_id": "GErrc3LJXoclSTrj"
+          },
+          "GErrc3LJXoclSTrj": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<i>You teach death politely.</i><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may use this <b>Bullet die</b> in the same way as your Class or Subclass",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [
+              {
+                "_id": "SAKo8otXpbMBPXpW",
+                "onSave": false
+              }
+            ],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Gun Trainer",
+            "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+            "range": "",
+            "_id": "GErrc3LJXoclSTrj"
+          }
+        },
+        "resource": null
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807818,
+        "modifiedTime": 1763481807818,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [
+        {
+          "name": "Gun Trainer",
+          "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
+          "origin": "Compendium.cybermancy.cybermancy-domains.Item.KgZuwV3bl2KWRqpE",
+          "transfer": false,
+          "_id": "SAKo8otXpbMBPXpW",
+          "type": "base",
+          "system": {
+            "rangeDependence": {
+              "enabled": false,
+              "type": "withinRange",
+              "target": "hostile",
+              "range": "melee"
+            }
+          },
+          "changes": [],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "tint": "#ffffff",
+          "statuses": [],
+          "sort": 0,
+          "flags": {},
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.350",
+            "systemId": "daggerheart",
+            "systemVersion": "1.1.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "_id": "RoZETCGnyTg6lIvH",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "KevFlex Jacket",
+      "type": "armor",
+      "img": "modules/cybermancy/assets/icons/armors/kevflex-jacket.webp",
+      "system": {
+        "description": "Lightweight synthetic leather threaded with flexible Kevlar weave—keeps you quick without feeling naked.",
+        "actions": {},
+        "attached": [],
+        "tier": 1,
+        "equipped": true,
+        "baseScore": 3,
+        "armorFeatures": [],
+        "marks": {
+          "value": 0
+        },
+        "baseThresholds": {
+          "major": 6,
+          "severe": 13
+        }
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807849,
+        "modifiedTime": 1763484544079,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "wzQzwF2VuwVND98E",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Smartpistol",
+      "type": "weapon",
+      "img": "modules/cybermancy/assets/icons/weapons/smartpistol-mk-ii.webp",
+      "system": {
+        "description": "Compact sidearm with digital targeting and auto-adjust systems, favored by professional runners.",
+        "tier": 1,
+        "equipped": true,
+        "secondary": false,
+        "burden": "oneHanded",
+        "attack": {
+          "name": "Attack",
+          "img": "modules/cybermancy/assets/icons/weapons/smartpistol.webp",
+          "systemPath": "attack",
+          "type": "attack",
+          "range": "far",
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "trait": "finesse",
+            "type": "attack",
+            "difficulty": null,
+            "bonus": null,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "compare": null,
+              "treshold": null
+            },
+            "useDefault": false
+          },
+          "damage": {
+            "parts": [
+              {
+                "value": {
+                  "dice": "d6",
+                  "bonus": 2,
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "type": [
+                  "physical"
+                ],
+                "applyTo": "hitPoints",
+                "resultBased": false,
+                "valueAlt": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "bonus": null,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "base": false
+              }
+            ],
+            "includeBase": false
+          },
+          "chatDisplay": true,
+          "actionType": "action",
+          "_id": "2qucI1jR6qv12PF4",
+          "description": "",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": null,
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "save": {
+            "trait": null,
+            "difficulty": null,
+            "damageMod": "none"
+          }
+        },
+        "actions": {
+          "Smartlink": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per scene, reroll one attack die if linked to cyberware/gear.</span></p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Smartlink",
+            "img": "modules/cybermancy/assets/icons/features/smartlink.webp",
+            "range": "",
+            "_id": "ONMAUQxkkn7ED8Cf"
+          },
+          "Pinpoint": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Pinpoint:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Crit ignores cover; disable weapon/armor.</span></p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Critical Effect:  Pinpoint",
+            "img": "modules/cybermancy/assets/icons/features/pinpoint.webp",
+            "range": "",
+            "_id": "F6gY2LnDGxLt39Xy"
+          }
+        },
+        "attached": [],
+        "weaponFeatures": [],
+        "rules": {
+          "attack": {
+            "roll": {
+              "trait": null
+            }
+          }
+        }
+      },
+      "sort": 800000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807883,
+        "modifiedTime": 1763484542631,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "AN0LKIK8ooVYFyQq",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Vibro-Knife",
+      "type": "weapon",
+      "img": "modules/cybermancy/assets/icons/weapons/vibro-knife.webp",
+      "system": {
+        "description": "A short combat blade that hums at ultrasonic speed, capable of piercing armor with surgical precision.",
+        "tier": 1,
+        "equipped": false,
+        "secondary": true,
+        "burden": "oneHanded",
+        "attack": {
+          "name": "Attack",
+          "img": "modules/cybermancy/assets/icons/weapons/vibro-knife.webp",
+          "systemPath": "attack",
+          "type": "attack",
+          "range": "melee",
+          "target": {
+            "type": "any",
+            "amount": 1
+          },
+          "roll": {
+            "trait": "agility",
+            "type": "attack",
+            "difficulty": null,
+            "bonus": null,
+            "advState": "neutral",
+            "diceRolling": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "compare": null,
+              "treshold": null
+            },
+            "useDefault": false
+          },
+          "damage": {
+            "parts": [
+              {
+                "value": {
+                  "dice": "d8",
+                  "bonus": 2,
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "type": [
+                  "physical"
+                ],
+                "applyTo": "hitPoints",
+                "resultBased": false,
+                "valueAlt": {
+                  "multiplier": "prof",
+                  "flatMultiplier": 1,
+                  "dice": "d6",
+                  "bonus": null,
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  }
+                },
+                "base": false
+              }
+            ],
+            "includeBase": false
+          },
+          "chatDisplay": true,
+          "actionType": "action",
+          "_id": "RWTh1RLCiLzodzIB",
+          "description": "",
+          "cost": [],
+          "uses": {
+            "value": null,
+            "max": null,
+            "recovery": null,
+            "consumeOnSuccess": false
+          },
+          "effects": [],
+          "save": {
+            "trait": null,
+            "difficulty": null,
+            "damageMod": "none"
+          }
+        },
+        "actions": {
+          "Piercing": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Piercing:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Ignores armor on a Hope critical.</span></p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Piercing",
+            "img": "modules/cybermancy/assets/icons/features/piercing.webp",
+            "range": "",
+            "_id": "F63q81RcMJGMYyN4"
+          },
+          "Silent Kill": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Silent Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Disable one target silently with no alert escalation.</span></p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Critical Effect:  Silent Kill",
+            "img": "modules/cybermancy/assets/icons/features/silent-kill.webp",
+            "range": "",
+            "_id": "0vb68GdtBxI89mDe"
+          }
+        },
+        "attached": [],
+        "weaponFeatures": [],
+        "rules": {
+          "attack": {
+            "roll": {
+              "trait": null
+            }
+          }
+        }
+      },
+      "sort": 150000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807912,
+        "modifiedTime": 1763481807912,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "TV4iZvlIl7tsytcn",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Armor Piercing Rounds",
+      "type": "consumable",
+      "img": "modules/cybermancy/assets/icons/consumables/ammo/armor-piercing-rounds.webp",
+      "system": {
+        "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.</p>",
+        "actions": {
+          "Armor Piercing Rounds": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Armor Piercing Rounds",
+            "img": "modules/cybermancy/assets/icons/consumables/ammo/armor-piercing-rounds.webp",
+            "range": "",
+            "_id": "5HYkGFeoLTbDPLz4"
+          }
+        },
+        "quantity": 1,
+        "consumeOnUse": false
+      },
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807947,
+        "modifiedTime": 1763481807947,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "FHgE1q6L5sMil8Na",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Neuro-muscular Telemetry - Prescence",
+      "type": "loot",
+      "img": "modules/cybermancy/assets/icons/loot/arc-data-gem.webp",
+      "system": {
+        "description": "You can attach this gem to a weapon, allowing you to use your Presence when making an attack with that weapon. stores resonance data and telemetry snapshots",
+        "quantity": 1,
+        "actions": {}
+      },
+      "sort": 100000,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481807993,
+        "modifiedTime": 1763481807993,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "PQ448bNnPbtz0ih7",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Synth Premium Bedroll Key",
+      "type": "loot",
+      "img": "modules/cybermancy/assets/icons/loot/synth-premium-bedroll-key.webp",
+      "system": {
+        "description": "During downtime, you automatically clear a Stress. black-market tech favored by runners and fixers",
+        "quantity": 1,
+        "actions": {
+          "Xe0zhVbSzZLgX1nC": {
+            "type": "healing",
+            "_id": "Xe0zhVbSzZLgX1nC",
+            "systemPath": "actions",
+            "description": "",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": null,
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": "above",
+                "treshold": 1
+              },
+              "useDefault": false
+            },
+            "name": "Take a nap",
+            "img": "icons/sundries/survival/bedroll-blue-red.webp",
+            "range": "",
+            "damage": {
+              "parts": [],
+              "includeBase": false
+            }
+          }
+        }
+      },
+      "sort": 112500,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.350",
+        "systemId": "daggerheart",
+        "systemVersion": "1.1.2",
+        "createdTime": 1763481808046,
+        "modifiedTime": 1763481808046,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "effects": [],
+      "_id": "cy2dc5A9ErSE46lU",
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "cybermancer",
+      "uuid": "Actor.oCs69aJZ86a6azuH",
+      "coreVersion": "13.350",
+      "systemId": "daggerheart",
+      "systemVersion": "1.1.2"
+    },
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763481348879,
+    "modifiedTime": 1763515949062,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,5 +1,6 @@
 /**
- * validate-and-load-folder.fixed.js (folder fix)
+ * validate-and-load-folder.fixed.js (folder + Actor support)
+ * - Supports Items and Actors (e.g., adversaries).
  * - Ensures domainCard compendium/world folder paths reuse shared folders:
  *   <domain>/<level> with many cards inside each level folder.
  */
@@ -8,6 +9,16 @@
   const isObj = (v) => v && typeof v === "object" && !Array.isArray(v);
   const isStr = (v) => typeof v === "string" || v instanceof String;
   const isBool = (v) => typeof v === "boolean";
+
+  function guessDocumentKind(doc) {
+    if (!doc) return "Item";
+    if (doc.documentType === "Actor") return "Actor";
+    if (doc.documentType === "Item") return "Item";
+    const t = String(doc.type ?? "").toLowerCase();
+    const actorTypes = new Set(["character", "pc", "npc", "adversary", "creature"]);
+    if (actorTypes.has(t)) return "Actor";
+    return "Item";
+  }
 
   function normalizeDoc(doc) {
     const inv = doc?.system?.inVault;
@@ -26,13 +37,23 @@
     return errors;
   }
 
+  function basicActorChecks(doc) {
+    const errors = [];
+    if (!isStr(doc?.name) || !doc.name.trim()) errors.push(`actor: "name" (string) is required.`);
+    if (!isStr(doc?.type)) errors.push(`actor: "type" (string) is required.`);
+    if (!isObj(doc?.system)) errors.push(`actor: "system" (object) is required.`);
+    return errors;
+  }
+
   function validateActionList(actions, ctx = "feature") {
     const errors = [];
     const warnings = [];
+
     if (!Array.isArray(actions)) {
-      errors.push(`${ctx}: "system.actions" must be an array of action objects.`);
+      warnings.push(`${ctx}: "system.actions" is not an array; skipping detailed action validation.`);
       return { errors, warnings };
     }
+
     if (!actions.length) warnings.push(`${ctx}: "system.actions" is empty.`);
     for (let i = 0; i < actions.length; i++) {
       const a = actions[i];
@@ -62,6 +83,23 @@
     const errors = [];
     const warnings = [];
 
+    const kind = guessDocumentKind(doc);
+
+    if (kind === "Actor") {
+      const baseErrs = basicActorChecks(doc);
+      errors.push(...baseErrs);
+      if (baseErrs.length) return { errors, warnings };
+
+      const subtype = doc.type;
+      // Light-touch validation: check actions if present
+      if ("actions" in (doc.system || {})) {
+        const { errors: e2, warnings: w2 } = validateActionList(doc.system.actions, `actor(${subtype})`);
+        errors.push(...e2); warnings.push(...w2);
+      }
+      return { errors, warnings };
+    }
+
+    // Item path (existing behavior)
     const baseErrs = basicItemChecks(doc);
     errors.push(...baseErrs);
     if (baseErrs.length) return { errors, warnings };
@@ -164,37 +202,49 @@
     return folder;
   }
 
-  async function loadIntoCompendium(packName, itemData) {
+  async function loadIntoCompendium(packName, docData) {
     const pack = game.packs.get(packName);
     if (!pack) throw new Error(`Compendium not found: ${packName}`);
-    const ItemCls = game.items.documentClass;
 
-    // Reuse shared <domain>/<level> path for domainCard
-    if (itemData?.type === "domainCard") {
-      const domainName = String(itemData?.system?.domain ?? "Unknown").trim() || "Unknown";
-      const levelName = String(itemData?.system?.level ?? "0");
+    const kind = guessDocumentKind(docData);
+    const DocCls = pack.documentClass
+      ?? (kind === "Actor" ? game.actors.documentClass : game.items.documentClass);
+
+    // Reuse shared <domain>/<level> path for domainCard items
+    const isDomainCard = (kind === "Item" && docData?.type === "domainCard");
+    if (isDomainCard) {
+      const domainName = String(docData?.system?.domain ?? "Unknown").trim() || "Unknown";
+      const levelName = String(docData?.system?.level ?? "0");
       const compFolder = await ensureCompendiumFolderPath(pack, [domainName, levelName]);
-      if (compFolder?.id) itemData.folder = compFolder.id;
+      if (compFolder?.id) docData.folder = compFolder.id;
     }
 
-    const doc = new ItemCls(itemData);
+    const doc = new DocCls(docData);
     const created = await pack.importDocument(doc);
 
     // If folder assignment failed pre-import, try after
-    if (created && itemData?.type === "domainCard" && !created.folder && itemData.folder) {
-      try { await created.update({ folder: itemData.folder }); } catch (e) { console.warn(`Assign compendium folder failed: ${created.name}`, e); }
+    if (created && isDomainCard && !created.folder && docData.folder) {
+      try { await created.update({ folder: docData.folder }); } catch (e) { console.warn(`Assign compendium folder failed: ${created.name}`, e); }
     }
     return created;
   }
 
-  async function createInWorld(itemData) {
-    if (itemData?.type === "domainCard") {
-      const domainName = String(itemData?.system?.domain ?? "Unknown").trim() || "Unknown";
-      const levelName = String(itemData?.system?.level ?? "0");
-      const folder = await ensureWorldFolderPath([domainName, levelName], "Item");
-      itemData.folder = folder?.id ?? null;
+  async function createInWorld(docData) {
+    const kind = guessDocumentKind(docData);
+
+    if (kind === "Actor") {
+      // No special foldering rules yet; drop in root or user-managed folders.
+      return await Actor.create(docData, { renderSheet: false });
     }
-    return await Item.create(itemData, { renderSheet: false });
+
+    // Item path
+    if (docData?.type === "domainCard") {
+      const domainName = String(docData?.system?.domain ?? "Unknown").trim() || "Unknown";
+      const levelName = String(docData?.system?.level ?? "0");
+      const folder = await ensureWorldFolderPath([domainName, levelName], "Item");
+      docData.folder = folder?.id ?? null;
+    }
+    return await Item.create(docData, { renderSheet: false });
   }
 
   async function run({ folder, pack, dryRun = true, toWorld = false } = {}) {
@@ -243,9 +293,9 @@
   }
 
   async function openDialogAndRun() {
-    const itemPacks = Array.from(game.packs).filter(p => p.documentName === "Item");
+    const packs = Array.from(game.packs).filter(p => ["Item", "Actor"].includes(p.documentName));
     const packOptions = ['<option value="">(Validate Only)</option>']
-      .concat(itemPacks.map(p => `<option value="${p.collection}">${p.title} — ${p.collection}</option>`))
+      .concat(packs.map(p => `<option value="${p.collection}">${p.title} — ${p.collection} [${p.documentName}]</option>`))
       .join("");
 
     const content = `
