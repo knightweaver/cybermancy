@@ -1,0 +1,10 @@
+{
+  "name": "Night vision",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/night-vision.webp",
+  "tier": 1,
+  "system": {
+    "description": "Allows your Primary Drone to see in total darkness up to Close and low-light up to Very Far."
+  },
+  "effects": []
+}

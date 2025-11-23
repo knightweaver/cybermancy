@@ -1,0 +1,10 @@
+{
+  "name": "Extra armor",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/extra-armor.webp",
+  "tier": 2,
+  "system": {
+    "description": "+1 Armor, +2 / +2 to Major and Severe damage thresholds, -1 Evasion"
+  },
+  "effects": []
+}

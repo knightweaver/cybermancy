@@ -1,0 +1,10 @@
+{
+  "name": "Signal jammer",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/signal-jammer.webp",
+  "tier": 2,
+  "system": {
+    "description": "Your Primary Drone gains a signal jammer such that all comms (ally and adversary) within Close are effectively jammed.  All other drones within Very Close can no longer receive signal or commands."
+  },
+  "effects": []
+}

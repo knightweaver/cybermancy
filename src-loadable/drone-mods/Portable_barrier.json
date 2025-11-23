@@ -1,0 +1,10 @@
+{
+  "name": "Portable barrier",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/portable-barrier.webp",
+  "tier": 2,
+  "system": {
+    "description": "Your Primary Drone gains the ability to deploy a linear barrier.  Any creature can gain the Hidden condition by crouching down behind the barrier, but the drone may now gain the Hidden condition from its own portable barrier."
+  },
+  "effects": []
+}

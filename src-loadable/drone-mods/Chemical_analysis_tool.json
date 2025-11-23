@@ -1,0 +1,10 @@
+{
+  "name": "Chemical analysis tool",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/chemical-analysis-tool.webp",
+  "tier": 1,
+  "system": {
+    "description": "Your Primary Drone gains the ability to constantly monitor environment within Close for any chemical hazards and can detect explosives as well."
+  },
+  "effects": []
+}

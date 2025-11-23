@@ -1,0 +1,10 @@
+{
+  "name": "Extra weapon",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/extra-weapon.webp",
+  "tier": 2,
+  "system": {
+    "description": "Your Primary Drone gains an extra attack, d6+2"
+  },
+  "effects": []
+}

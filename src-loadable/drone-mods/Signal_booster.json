@@ -1,0 +1,10 @@
+{
+  "name": "Signal booster",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/signal-booster.webp",
+  "tier": 2,
+  "system": {
+    "description": "Your Primary Drone can now operate anywhere within the Scene and is invulnerable to signal jamming if within Close of you."
+  },
+  "effects": []
+}

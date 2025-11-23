@@ -1,0 +1,10 @@
+{
+  "name": "Storage locker",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/storage-locker.webp",
+  "tier": 1,
+  "system": {
+    "description": "Your Primary Drone  gains an internal modular cargo bay with secure locking and temperature stabilization. Supports mission-specific payloads, evidence retention, and concealment; access controlled via cryptographic key."
+  },
+  "effects": []
+}

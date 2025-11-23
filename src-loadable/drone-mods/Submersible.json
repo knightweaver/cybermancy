@@ -1,0 +1,10 @@
+{
+  "name": "Submersible",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/submersible.webp",
+  "tier": 1,
+  "system": {
+    "description": "Your Primary Drone gains a watertight hull and sealed propulsion package enabling limited underwater operation. Supports shallow submersion, periscope comms, and buoyancy control; not rated for deep-sea pressures."
+  },
+  "effects": []
+}

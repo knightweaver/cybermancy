@@ -1,0 +1,10 @@
+{
+  "name": "Rocket launcher",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/rocket-launcher.webp",
+  "tier": 3,
+  "system": {
+    "description": "Place 1 token on this card and remove 1 rocket from your inventory (must be acquired or built during a long rest).  Your Primary Drone now has the ability to launch that rocket as an attack action."
+  },
+  "effects": []
+}

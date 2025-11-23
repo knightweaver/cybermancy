@@ -1,0 +1,10 @@
+{
+  "name": "Grenade",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/grenade.webp",
+  "tier": 2,
+  "system": {
+    "description": "Place a token on this card and remove 1 grenade from your inventory.  Your Primary Drone now has the ability to launch that grenade as an attack action ."
+  },
+  "effects": []
+}

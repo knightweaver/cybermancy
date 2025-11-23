@@ -120,7 +120,7 @@ options:
 
 ## `batch-image-generation-simple-prompt-file.py`
 
-Rather than constructing the prompt dynamically on the fly, sometimes it is better and more controllable to do the prompt engineering in ChatGPT directly, then generate a csv file with name and prompt to run in this script
+Rather than constructing the prompt dynamically on the fly, sometimes it is better and more controllable to do the prompt engineering in ChatGPT directly, then generate a csv file with name and prompt to run in this scrip
 
 usage: batch-image-generation-simple-prompt-file.py [-h] -i INPUT -o OUTDIR [--model MODEL] [--size SIZE] [--format {webp,png,jpg,jpeg}] [--delay DELAY] [--overwrite] [--max-items MAX_ITEMS] [--log-level LOG_LEVEL]
 batch-image-generation-simple-prompt-file.py: error: the following arguments are required: -i/--input, -o/--outdir
