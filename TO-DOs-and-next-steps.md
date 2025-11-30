@@ -2,16 +2,9 @@
 
 ## TO DOs for the one-shot:
  - Figure out how / where to place the item load out levels onto the items
- - Transfer and modify the Ancestories and Communities
- - Review and load the additional recommended modules
- - Assign the characters to players and set-up a test scene for them to play with
- - See if you can create a script to make a printable character sheet
- - 
 
 ## TO DOs for the campaign:
  - Organize street rumors
- - Reach out to the Frag Maps artist and offer to help build that compendium pack?
- - Reach out to DH / Foundryborne and see if the have advice / help about how to proceed efficiently.
 
 ## Lots of progress has been made:
 1. Python scripts for generating images is working well and updated to take style (theme) and many effects palettes to generate images.

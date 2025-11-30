@@ -72,6 +72,18 @@ Mkdocs-Material is the general open source package and approach that is used to 
 
 ---
 
+## `generate-character-pages.py`
+
+Takes a folder of JSON exports from Foundry VTT for Player Character Actors and generates an HTML file that can be placed in the docs directory and wired into the player docs pages.
+
+> 
+
+```
+usage: generate-character-pages.py [-h] [--template-dir TEMPLATE_DIR] [--template TEMPLATE] [--output-dir OUTPUT_DIR] input
+generate-character-pages.py: error: the following arguments are required: input
+```
+---
+
 ## `batch-image-generation-on-OpenAI.py`
 
 Generates Cybermancy item icons using the OpenAI image API.  Generally usage is to generate a .csv file with the following headers
@@ -264,18 +276,6 @@ options:
                         Output folder for transformed JSON files.
 
 ```
----
-
-## `setup-cybermancy-docs.py`
-
-Bootstraps the full Cybermancy documentation directory structure.  Just a utility script to create all the folders needed by the Mkdocs-Material approach to the documentation.
-
-- **Creates**:
-  - `src/packs/{items,system,adventure}`
-  - `docs/{player-facing,gm-facing}`
-  - Markdown index stubs for all sections
-- **Usage**: Run once per new repo
-
 ---
 
 ## `convert-descriptors-to-loadable.py`
