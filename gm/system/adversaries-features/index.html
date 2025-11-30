@@ -1,0 +1,3490 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://knightweaver.github.io/cybermancy/gm/system/adversaries-features/">
+      
+      
+        <link rel="prev" href="../../adventures/environments/">
+      
+      
+        <link rel="next" href="../../meta/visual-canon/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Adversary Features - Cybermancy — GM Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/items.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cybermancy — GM Guide" class="md-header__button md-logo" aria-label="Cybermancy — GM Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cybermancy — GM Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adversary Features
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cybermancy — GM Guide" class="md-nav__button md-logo" aria-label="Cybermancy — GM Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cybermancy — GM Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    World
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/project-helios-remnants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Helios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/the-council/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Council
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/the-council-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Council Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/the-cabal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Cabal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/the-cabal-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cabal Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/the-chessboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Chessboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/timeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adventures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Adventures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/adversaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adversaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/npc-actors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NPC Actors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adversary Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/visual-canon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Canon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Meta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/etl-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ETL Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/visual-canon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Canon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h1>
+<p>Type to filter:
+<input id="filter" placeholder="Filter by name, category, domain, rarity" /></p>
+<table id="adversaries-features-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><a href="./adrenaline-burst/">Adrenaline Burst</a></td>
+      <td>Bruiser</td>
+      <td><p>Once per scene, spend a Fear to clear 2 HP and 2 Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./anger-unrelenting/">Anger Unrelenting</a></td>
+      <td>Bruiser</td>
+      <td><p>The Demon’s attacks deal direct damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./battering-ram/">Battering Ram</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress</strong> to have the Brawler charge at an inanimate object within Close range they could feasibly smash (such as a wall, cart, or market stand) and destroy it. All targets within Very Close range of the object must succeed on an Agility Reaction Roll or take <strong>2d4+3</strong> physical damage from the shrapnel.</p><p>@Template[type:circle|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./battle-lust/">Battle Lust</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Spend a Fear</strong> to boil the blood of all PCs within Far range. They use a d20 as their Fear Die until the end of the scene.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./bite/">Bite</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against a target within Melee range. On a success, deal <strong>3d4+10</strong> physical damage and the target is <em>Restrained</em> until they break free with a successful Strength Roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./blood-and-souls/">Blood and Souls</a></td>
+      <td>Bruiser</td>
+      <td><p>Countdown (Loop 6). Activate the first time an attack is made within sight of the Demon. It ticks down when a PC takes a violent action. When it triggers, summon [[/r 1d4]]@UUID[Compendium.daggerheart.adversaries.Actor.3tqCjDwJAQ7JKqMb]{Minor Demons}, who appear at Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./blood-in-the-water/">Blood in the Water</a></td>
+      <td>Bruiser</td>
+      <td><p>When a creature within Close range of the Shark marks HP from another creature’s attack, you can <strong>mark a Stress</strong> to immediately spotlight the Shark, moving them into Melee range of the target and making a standard attack.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./bloody-reprisal/">Bloody Reprisal</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Brawler marks 2 or more HP from an attack within Very Close range, you can make a standard attack against the attacker. On a success, the Brawler deals <strong>2d6+15</strong> physical damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./box-in/">Box In</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress</strong> to choose a target within Very Close range to focus on. That target has disadvantage on attack rolls when they’re within Very Close range of the Sentinel. The Sentinel can only focus on one target at a time.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./chaotic-form/">Chaotic Form</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Abomination attacks, roll <strong>2d4</strong> and use the result as their attack modifi er.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./charging-bull/">Charging Bull</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress</strong> to charge through a group within Close range and make an attack against all targets in the Minotaur’s path. Targets the Minotaur succeeds against take <strong>2d6+8</strong> physical damage and are knocked back to Very Far range. If a target is knocked into a solid object or another creature, they take an extra <strong>1d6</strong> damage (combine the damage).</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./clear-the-decks/">Clear the Decks</a></td>
+      <td>Bruiser</td>
+      <td><p>Make an attack against a target within Very Close range. On a success, <strong>mark a Stress</strong> to move into Melee range of the target, dealing <strong>3d4</strong> physical damage and knocking the target back to Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./crushing-blows/">Crushing Blows</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Elemental makes a successful attack, the target must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./cut-to-the-bone/">Cut to the Bone</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against all targets within Very Close range. Targets the Knight succeeds against take <strong>1d8+2</strong> physical damage and must mark a Stress.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./dig-two-graves/">Dig Two Graves</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Knight is defeated, they make an attack against a target within Very Close range (prioritizing the creature who killed them). On a success, the target takes <strong>1d4+8</strong> physical damage and loses <strong>1d4</strong> Hope.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./disorienting-presence/">Disorienting Presence</a></td>
+      <td>Bruiser</td>
+      <td><p>When a target takes damage from the Abomination, they must make an Instinct Reaction Roll. On a failure, they gain disadvantage on their next action roll and you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./double-strike/">Double Strike</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress</strong> to make a standard attack against two targets within Melee range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./fearsome-presence/">Fearsome Presence</a></td>
+      <td>Bruiser</td>
+      <td><p>PCs can’t spend Hope to use features against the Zombie.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./goading-strike/">Goading Strike</a></td>
+      <td>Bruiser</td>
+      <td><p>Make a standard attack against a target. On a success, <strong>mark a Stress</strong> to Taunt the target until their next successful attack. The next time the Taunted target attacks, they have disadvantage against targets other than the Weaponmaster.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./gore/">Gore</a></td>
+      <td>Bruiser</td>
+      <td><p>Make an attack against a target within Very Close range, moving the Minotaur into Melee range of them. On a success, deal <strong>2d8</strong> direct physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./grab-and-drag/">Grab and Drag</a></td>
+      <td>Bruiser</td>
+      <td><p>Make an attack against a target within Close range. On a success, <strong>spend a Fear</strong> to pull them into Melee range, deal <strong>1d6+2</strong> physical damage, and <em>Restrain</em> them until the Defender takes Severe damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ground-slam/">Ground Slam</a></td>
+      <td>Bruiser</td>
+      <td><p>Slam the ground, knocking all targets within Very Close range back to Far range. Each target knocked back this way must mark a Stress.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hold-them-down/">Hold Them Down</a></td>
+      <td>Bruiser</td>
+      <td><p>Make an attack against a target within Melee range. On a success, the target takes no damage but is Restrained and <em>Vulnerable</em>. The target can break free, clearing both conditions, with a successful Strength Roll or is freed automatically if the Kneebreaker takes Major or greater damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./i-ve-got-em/">I've Got 'Em</a></td>
+      <td>Bruiser</td>
+      <td><p>Creatures <em>Restrained</em> by the Kneebreaker take double damage from attacks by other adversaries.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./immovable-object/">Immovable Object</a></td>
+      <td>Bruiser</td>
+      <td><p>An attack that would move the Elemental moves them two fewer ranges (for example, Far becomes Very Close). When the Elemental takes physical damage, reduce it by 7.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./kinetic-slam/">Kinetic Slam</a></td>
+      <td>Bruiser</td>
+      <td><p>Targets who take damage from the Sentinel’s standard attack are knocked back to Very Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./mana-bolt/">Mana Bolt</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Spend a Fear</strong> to lob explosive magic at a point within Far range. All targets within Very Close range of that point must make an Agility Reaction Roll. Targets who fail take <strong>2d8+20</strong> magic damage and are knocked back to Close range. Targets who succeed take half damage and aren’t knocked back.</p><p>@Template[type:circle|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Elemental makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Sentinel makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Brawler makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Bear makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Weaponmaster makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Scorpion makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./overwhelming-force/">Overwhelming Force</a></td>
+      <td>Bruiser</td>
+      <td><p>Targets who mark HP from the Bear’s standard attack are knocked back to Very Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./perfect-strike/">Perfect Strike</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress </strong>to make a standard attack against all targets within Very Close range. Targets the Zombie succeeds against are <em>Vulnerable</em> until their next rest.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./reality-quake/">Reality Quake</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Spend a Fear</strong> to rattle the edges of reality within Far range of the Abomination. All targets within that area must succeed on a Knowledge Reaction Roll or become Unstuck from reality until the end of the scene. When an Unstuck target spends Hope or marks Armor Slots, HP, or Stress, they must double the amount spent or marked.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rend-asunder/">Rend Asunder</a></td>
+      <td>Bruiser</td>
+      <td><p>Make a standard attack with advantage against a target the Zombie has <em>Restrained</em>. On a success, the attack deals direct damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rending-bite/">Rending Bite</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Shark makes a successful attack, the target must mark an Armor Slot without receiving its benefits (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./retalliation/">Retalliation</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Demon takes damage from an attack within Close range, you can <strong>mark a Stress</strong> to make a standard attack against the attacker.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rip-and-tear/">Rip and Tear</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Zombies makes a successful standard attack, you can <strong>mark a Stress</strong> to temporarily Restrain the target and force them to mark 2 Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rockslide/">Rockslide</a></td>
+      <td>Bruiser</td>
+      <td><p><strong>Mark a Stress</strong> to create a rockslide that buries the land in front of Elemental within Close range with rockfall. All targets in this area must make an Agility Reaction Roll (19). Targets who fail take <strong>2d12+5</strong> physical damage and become Vulnerable until their next roll with Hope. Targets who succeed take half damage.</p><p>@Template[type:inFront|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./skilled-opportunist/">Skilled Opportunist</a></td>
+      <td>Bruiser</td>
+      <td><p>When another adversary deals damage to a target within Very Close range of the Zombie, you can <strong>spend a Fear</strong> to add the Zombie’s standard attack damage to the damage roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./slow/">Slow</a></td>
+      <td>Bruiser</td>
+      <td><p>When you spotlight the Zombie and they don’t have a token on their stat block, they can’t act yet. Place a token on their stat block and describe what they’re preparing to do. When you spotlight the Zombie and they have a token on their stat block, clear the token and they can act.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./swashbuckler/">Swashbuckler</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Tough marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying/">Terrifying</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Knight makes a successful attack, all PCs within Close range lose a Hope and you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying/">Terrifying</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Zombie makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./unreal-form/">Unreal Form</a></td>
+      <td>Bruiser</td>
+      <td><p>When the Abomination takes damage, reduce it by <strong>1d20</strong>. If the Abomination marks 1 or fewer Hit Points from a successful attack against them, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./venomous-stinger/">Venomous Stinger</a></td>
+      <td>Bruiser</td>
+      <td><p>Make an attack against a target within Very Close range. On a success, <strong>spend a Fear</strong> to deal <strong>1d4+4</strong> physical damage and Poison them until their next rest or they succeed on a Knowledge Roll (16). While Poisoned, the target must roll a <strong>d6</strong> before they make an action roll. On a result of 4 or lower, they must mark a Stress. </p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./bloodsucker/">Bloodsucker</a></td>
+      <td>Horde</td>
+      <td><p>When the Mosquitoes’ attack causes a target to mark HP, you can <strong>mark a Stress</strong> to force the target to mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./crush/">Crush</a></td>
+      <td>Horde</td>
+      <td><p><strong>Mark a Stress</strong> to deal <strong>2d6+8</strong> direct physical damage to a target with 3 or more bramble tokens.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./dreadhowl/">Dreadhowl</a></td>
+      <td>Horde</td>
+      <td><p><strong>Mark a Stress</strong> to make all targets within Very Close range lose a Hope. If a target is not able to lose a Hope, they must instead mark 2 Stress.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./encumber/">Encumber</a></td>
+      <td>Horde</td>
+      <td><p>When the Swarm succeeds on an attack, give the target a bramble token. If a target has any bramble tokens, they are Restrained. If a target has 3 or more bramble tokens, they are also Vulnerable. All bramble tokens can be removed by succeeding on a Finesse Roll (12 + the number of bramble tokens) or dealing Major or greater damage to the Swarm. If bramble tokens are removed from a target using a Finesse Roll, a number of Tangle Bramble Minions spawn within Melee range equal to the number of tokens removed.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./flying/">Flying</a></td>
+      <td>Horde</td>
+      <td><p>While flying, the Mosquitoes have a +2 bonus to their Difficulty.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./focused-volley/">Focused Volley</a></td>
+      <td>Horde</td>
+      <td><p><strong>Spend a Fear</strong> to target a point within Far range. Make an attack with advantage against all targets within Close range of that point. Targets the Squadron succeeds against take <strong>1d10+4</strong> physical damage.</p><p>@Template[type:circle|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-1d4-1/">Horde (1d4+1)</a></td>
+      <td>Horde</td>
+      <td><p>When the Raiders have marked half or more of their HP, their standard attack deals <strong>1d4+1</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-1d4-1/">Horde (1d4+1)</a></td>
+      <td>Horde</td>
+      <td><p>When the Mosquitoes have marked half or more of their HP, their standard attack deals <strong>1d4+1</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-1d4-1/">Horde (1d4+1)</a></td>
+      <td>Horde</td>
+      <td><p>When the Raiders have marked half or more of their HP, their standard attack deals <strong>1d4+1</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-1d4-2/">Horde (1d4+2)</a></td>
+      <td>Horde</td>
+      <td><p>When the Zombies have marked half or more of their HP, their standard attack deals <strong>1d4+2</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-1d4-2/">Horde (1d4+2)</a></td>
+      <td>Horde</td>
+      <td><p>When the Zombies have marked half or more of their HP, their standard attack deals <strong>1d4+2</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-1d6-3/">Horde (1d6+3)</a></td>
+      <td>Horde</td>
+      <td><p>When the Squadron has marked half or more of their HP, their standard attack deals <strong>1d6+3</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-2d4-1/">Horde (2d4+1)</a></td>
+      <td>Horde</td>
+      <td><p>When the Eels have marked half or more of their HP, their standard attack deals <strong>2d4+1</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-2d4-1/">Horde (2d4+1)</a></td>
+      <td>Horde</td>
+      <td><p>When the Eels have marked half or more of their HP, their standard attack deals <strong>2d4+1</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horde-2d6-5/">Horde (2d6+5)</a></td>
+      <td>Horde</td>
+      <td><p>When the Legion has marked half or more of their HP, their standard attack deals <strong>2d6+5</strong> physical damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./in-your-face/">In Your Face</a></td>
+      <td>Horde</td>
+      <td><p>All targets within Melee range have disadvantage on attacks against targets other than the Swarm.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./overwhelm/">Overwhelm</a></td>
+      <td>Horde</td>
+      <td><p>When the Zombies mark HP from an attack within Melee range, you can <strong>mark a Stress</strong> to make a standard attack against the attacker.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./paralyzing-shock/">Paralyzing Shock</a></td>
+      <td>Horde</td>
+      <td><p><strong>Mark a Stress</strong> to make a standard attack against all targets within Very Close range. You gain a Fear for each target that marks HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Horde</td>
+      <td><p>The Legion can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./supressing-fire/">Supressing Fire</a></td>
+      <td>Horde</td>
+      <td><p><strong>Mark a Stress</strong> to target a point within Far range. Until the next roll with Fear, a creature who moves within Close range of that point must make an Agility Reaction Roll. On a failure, they take <strong>2d6+3</strong> physical damage. On a success, they take half damage.</p><p>@Template[type:circle|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./unyielding/">Unyielding</a></td>
+      <td>Horde</td>
+      <td><p>The Legion has resistance to physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./arcane-steel/">Arcane Steel</a></td>
+      <td>Leader</td>
+      <td><p>Damage dealt by the Spellblade’s standard attack is considered both physical and magic.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./beam-of-decay/">Beam Of Decay</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark 2 Stress</strong> to cause all targets within Far range to make a Strength Reaction Roll. Targets who fail take <strong>2d20+12</strong> magic damage and you gain a Fear. Targets who succeed take half damage. A target who marks 2 or more HP must also <strong>mark 2 Stress</strong> and becomes <em>Vulnerable</em> until they roll with Hope.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./bramble-patch/">Bramble Patch</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to target a point within Far range. Create a patch of thorns that covers an area within Close range of that point. All targets within that area take <strong>2d6+2</strong> physical damage when they act. A target must succeed on a Finesse Roll or deal more than 20 damage to the Dryad with an attack to leave the area.</p><p>@Template[type:circle|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./cavalry-charge/">Cavalry Charge</a></td>
+      <td>Leader</td>
+      <td><p>If the Knight is mounted, move up to Far range and make a standard attack against a target. On a success, deal <strong>2d8+4</strong> physical damage and the target must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./chevalier/">Chevalier</a></td>
+      <td>Leader</td>
+      <td><p>While the Knight is on a mount, they gain a +2 bonus to their Difficulty. When they take Severe damage, they’re knocked from their mount and lose this benefit until they’re next spotlighted.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./coup-de-grace/">Coup de Grace</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to make an attack against a Vulnerable target within Close range. On a success, deal <strong>2d6+12</strong> physical damage and the target must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./dance-of-death/">Dance Of Death</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to spotlight <strong>1d4</strong> allies. Attacks they make while spotlighted in this way deal half damage, or full damage if you spend a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./deadly-companion/">Deadly Companion</a></td>
+      <td>Leader</td>
+      <td><p>Twice per scene, summon a Bear, Dire Wolf, or similar Tier 1 animal adversary under the Beastmaster’s control. The adversary appears at Close range and is immediately spotlighted.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./deathlock/">Deathlock</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to curse a target within Very Close range with a necrotic Deathlock until the end of the scene. Attacks made by the Hunter against a Deathlocked target deal direct damage. The Hunter can only maintain one Deathlock at a time.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./double-or-nothing/">Double or Nothing</a></td>
+      <td>Leader</td>
+      <td><p>When a PC within Far range fails a roll, they can choose to reroll their Fear Die and take the new result. If they still fail, they mark 2 Stress and the Demon clears a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./fallen-hounds/">Fallen Hounds</a></td>
+      <td>Leader</td>
+      <td><p>Once per scene, when the SecretKeeper marks 2 or more HP, you can <strong>mark a Stress</strong> to summon a @UUID[Compendium.daggerheart.adversaries.Actor.NoRZ1PqB8N5wcIw0]{Demonic Hound Pack}, which appears at Close range and is immediately spotlighted.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./feed-on-followers/">Feed on Followers</a></td>
+      <td>Leader</td>
+      <td><p>When the Vampire is within Melee range of an ally, they can cause the ally to mark a HP. The Vampire then clears a HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./for-the-realm/">For the Realm!</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to spotlight <strong>[[/r 1d4+1]]</strong> allies. Attacks they make while spotlighted in this way deal half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ghost/">Ghost</a></td>
+      <td>Leader</td>
+      <td><p>The Captain has resistance to physical damage. <strong>Mark a Stress</strong> to move up to Close range through solid objects.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./god-rays/">God Rays</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to reflect a sliver of divinity as a searing beam of light that hits up to twenty targets within Very Far range. Targets must make a Presence Reaction Roll, with disadvantage if they are marked Guilty. Targets who fail take <strong>4d6+12</strong> magic damage. Targets who succeed take half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./grow-saplings/">Grow Saplings</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to grow three @UUID[Compendium.daggerheart.adversaries.Actor.o63nS0k3wHu6EgKP]{Treant Sapling Minions}, who appear at Close range and immediately take the spotlight.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./heavily-armored/">Heavily Armored</a></td>
+      <td>Leader</td>
+      <td><p> When the Knight takes physical damage, reduce it by 3.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hold-fast/">Hold Fast</a></td>
+      <td>Leader</td>
+      <td><p>When the Captain’s Spectral allies are forced to make a reaction roll, you can <strong>mark a Stress</strong> to give those allies a +2 bonus to the roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./inevitable-death/">Inevitable Death</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to spotlight <strong>1d4</strong> allies. Attacks they make while spotlighted in this way deal half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./judgement/">Judgement</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to make a target Guilty in the eyes of the Seraph’s god until the Seraph is defeated. While Guilty, the target doesn’t gain Hope on a result with Hope. When the Seraph succeeds on a standard attack against a Guilty target, they deal Severe damage instead of their standard damage. The Seraph can only mark one target at a time.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./lifesuck/">Lifesuck</a></td>
+      <td>Leader</td>
+      <td><p>When the Vampire is spotlighted, roll a <strong>d8</strong>. On a result of 6 or higher, all targets within Very Close range must mark a HP.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./look-into-my-eyes/">Look into My Eyes</a></td>
+      <td>Leader</td>
+      <td><p>A creature who moves into Melee range of the Vampire must make an Instinct Reaction Roll. On a failure, you gain <strong>[[/r 1d4]]</strong> Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Leader</td>
+      <td><p>When the Spellblade makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Leader</td>
+      <td><p>When the Head Guard makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Leader</td>
+      <td><p>When the Captain makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Leader</td>
+      <td><p>When the Captain makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Leader</td>
+      <td><p>When the Lieutenant makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Leader</td>
+      <td><p>When the Dryad makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Leader</td>
+      <td><p> When the Assassin makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./more-where-that-came-from/">More Where That Came From</a></td>
+      <td>Leader</td>
+      <td><p>Summon three Jagged Knife Lackeys, who appear at Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./move-as-a-unit/">Move as a Unit</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend 2 Fear</strong> to spotlight up to fi ve allies within Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./no-quarter/">No Quarter</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target who has three or more Pirates within Melee range of them. The Captain leads the Pirates in hurling threats and promises of a watery grave. The target must make a Presence Reaction Roll. On a failure, the target marks <strong>1d4+1</strong> Stress. On a success, they must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./not-today-my-dears/">Not Today, My Dears</a></td>
+      <td>Leader</td>
+      <td><p>When the Necromancer has marked 7 or more of their HP, you can <strong>spend a Fear</strong> to have them teleport away to a safe location to recover. A PC who succeeds on an Instinct Roll can trace the teleportation magic to their destination.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./on-my-signal/">On My Signal</a></td>
+      <td>Leader</td>
+      <td><p>Countdown (5). When the Head Guard is in the spotlight for the fi rst time, activate the countdown. It ticks down when a PC makes an attack roll. When it triggers, all Archer Guards within Far range make a standard attack with advantage against the nearest target within their range. If any attacks succeed on the same target, combine their damage.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./open-the-gates-of-death/">Open the Gates of Death</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to summon a @UUID[Compendium.daggerheart.adversaries.Actor.YhJrP7rTBiRdX5Fp]{Zombie Legion}, which appears at Close range and immediately takes the spotlight.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./our-master-s-will/">Our Master's Will</a></td>
+      <td>Leader</td>
+      <td><p>When you spotlight an ally within Far range, <strong>mark a Stress</strong> to gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./pinning-strike/">Pinning Strike</a></td>
+      <td>Leader</td>
+      <td><p>Make a standard attack against a target. On a success, you can <strong>mark a Stress</strong> to pin them to a nearby surface. The pinned target is <em>Restrained</em> until they break free with a successful Finesse or Strength Roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rally-guards/">Rally Guards</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend 2 Fear</strong> to spotlight the Head Guard and up to <strong>2d4</strong> allies within Far range.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rampage/">Rampage</a></td>
+      <td>Leader</td>
+      <td><p>Countdown (Loop 1d6). When the Hunter is in the spotlight for the fi rst time, activate the countdown. When it triggers, move the Hunter in a straight line to a point within Far range and make an attack against all targets in their path. Targets the Hunter succeeds against take <strong>2d8+2</strong> physical damage.</p><p>@Template[type:ray|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./reinforcements/">Reinforcements</a></td>
+      <td>Leader</td>
+      <td><p>Once per scene, <strong>mark a Stress</strong> to summon a Pirate Raiders Horde, which appears at Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-3/">Relentless (3)</a></td>
+      <td>Leader</td>
+      <td><p>The Seraph can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./seize-your-moment/">Seize Your Moment</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend 2 Fear</strong> to spotlight <strong>1d4</strong> allies. Attacks they make while spotlighted in this way deal half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./strike-as-one/">Strike as One</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to spotlight a number of other Assassins equal to the Assassin’s unmarked Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./summoning-ritual/">Summoning Ritual</a></td>
+      <td>Leader</td>
+      <td><p>Countdown (6). When the Secret-Keeper is in the spotlight for the first time, activate the countdown. When they mark HP, tick down this countdown by the number of HP marked. When it triggers, summon a @UUID[Compendium.daggerheart.adversaries.Actor.3tqCjDwJAQ7JKqMb]{Minor Demon} who appears at Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./supressing-blast/">Supressing Blast</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> and target a group within Far range. All targets must succeed on an Agility Reaction Roll or take <strong>1d8+2</strong> magic damage. You gain a Fear for each target who marked HP from this attack.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./swashbuckler/">Swashbuckler</a></td>
+      <td>Leader</td>
+      <td><p>When the Captain marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./swashbuckler/">Swashbuckler</a></td>
+      <td>Leader</td>
+      <td><p>When the Captain marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./tactician/">Tactician</a></td>
+      <td>Leader</td>
+      <td><p>When you spotlight the Lieutenant, <strong>mark a Stress</strong> to also spotlight two allies within Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying/">Terrifying</a></td>
+      <td>Leader</td>
+      <td><p>When the Vampire makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying/">Terrifying</a></td>
+      <td>Leader</td>
+      <td><p>When the Demon makes a successful attack, all PCs within Far range must lose a Hope and you gain a Fear.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying/">Terrifying</a></td>
+      <td>Leader</td>
+      <td><p>When the Hunter makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./the-hunt-is-on/">The Hunt Is On</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend 2 Fear</strong> to summon [[/r 1d4]] @UUID[Compendium.daggerheart.adversaries.Actor.WWyUp6Mxl1S3KYUG]{Vampires}, who appear at Far range and immediately take the spotlight.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./the-root-of-villainy/">The Root of Villainy</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to spotlight two other Demons within Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./the-subtle-blade/">The Subtle Blade</a></td>
+      <td>Leader</td>
+      <td><p>When the Assassin successfully makes a standard attack against a <em>Vulnerable</em> target, you can <strong>spend a Fear</strong> to deal Severe damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./thorny-cage/">Thorny Cage</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend a Fear</strong> to form a cage around a target within Very Close range and Restrain them until they’re freed with a successful Strength Roll. When a creature makes an action roll against the cage, they must mark a Stress. </p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./two-as-one/">Two as One</a></td>
+      <td>Leader</td>
+      <td><p>When the Beastmaster is spotlighted, you can also spotlight a Tier 1 animal adversary currently under their control.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./unending-battle/">Unending Battle</a></td>
+      <td>Leader</td>
+      <td><p><strong>Spend 2 Fear</strong> to return up to [[/r 1d4+1]] defeated Spectral allies to the battle at the points where they first appeared (with no marked HP or Stress).</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./unparalleled-skill/">Unparalleled Skill</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to deal the Demon’s standard attack damage to a target within Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./voice-of-the-forest/">Voice of the Forest</a></td>
+      <td>Leader</td>
+      <td><p><strong>Mark a Stress</strong> to spotlight <strong>1d4</strong> allies within range of a target they can attack without moving. On a success, their attacks deal half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./we-are-all-one/">We Are All One</a></td>
+      <td>Leader</td>
+      <td><p>When an ally dies within Close range, you can spend a Fear to clear 2 HP and 2 Stress as the fallen ally’s life force is returned to the forest.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./we-are-one/">We Are One</a></td>
+      <td>Leader</td>
+      <td><p>Once per scene, <strong>spend a Fear</strong> to spotlight all other adversaries within Far range. Attacks they make while spotlighted in this way deal half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./won-t-see-it-coming/">Won't See it Coming</a></td>
+      <td>Leader</td>
+      <td><p> The Assassin deals direct damage while they’re <em>Hidden</em>.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./you-pale-in-comparison/">You Pale in Comparison</a></td>
+      <td>Leader</td>
+      <td><p>When a PC fails a roll within Close range of the Demon, they must mark a Stress.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./your-life-is-mine/">Your Life Is Mine</a></td>
+      <td>Leader</td>
+      <td><p>Countdown (Loop 2d6). When the Necromancer has marked 6 or more of their HP, activate the countdown. When it triggers, deal <strong>2d10+6</strong> direct magic damage to a target within Close range. The Necromancer then <strong>clears a number of Stress or HP</strong> equal to the number of HP marked by the target from this attack.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./aura-of-doom/">Aura of Doom</a></td>
+      <td>Minion</td>
+      <td><p>When a PC marks HP from an attack by the Shock Troop, they lose a Hope.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./divine-flight/">Divine Flight</a></td>
+      <td>Minion</td>
+      <td><p>While the Soldier is flying, <strong>spend a Fear</strong> to move up to Far range instead of Close range before taking an action.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./divine-flight/">Divine Flight</a></td>
+      <td>Minion</td>
+      <td><p>While the Soldier is flying, <strong>spend a Fear</strong> to move up to Far range instead of Close range before taking an action.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./drain-and-multiply/">Drain and Multiply</a></td>
+      <td>Minion</td>
+      <td><p>When an attack from the Bramble causes a target to mark HP and there are three or more Tangle Bramble Minions within Close range, you can combine the Minions into a @UUID[Compendium.daggerheart.adversaries.Actor.PKSXFuaIHUCoH63A]{Tangle Bramble Swarm Horde}. The Horde’s HP is equal to the number of Minions combined.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Outer Realm Thralls within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 11 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Rotted Zombies within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 2 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Apprentice Assassins within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 4 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Giant Recruits within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 5 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Treant Saplings within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 8 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Conscripts within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 6 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Elemental Sparks within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 5 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Dredges within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 1 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Sellswords within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 3 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Hallowed Soldiers within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 10 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Minor Treants within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 4 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Jagged Knife Lackeys within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 2 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Tangle Brambles within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 2 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Fallen Shock Troops within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 12 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Cult Initiates within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 5 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./group-attack/">Group Attack</a></td>
+      <td>Minion</td>
+      <td><p><strong>Spend a Fear</strong> to choose a target and spotlight all Outer Realm Thralls within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 11 physical damage each. Combine this damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-12/">Minion (12)</a></td>
+      <td>Minion</td>
+      <td><p>The Shock Troop is defeated when they take any damage. For every 12 damage a PC deals to the Shock Troop, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-13/">Minion (13)</a></td>
+      <td>Minion</td>
+      <td><p>The Thrall is defeated when they take any damage. For every 13 damage a PC deals to the Thrall, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-13/">Minion (13)</a></td>
+      <td>Minion</td>
+      <td><p>The Thrall is defeated when they take any damage. For every 13 damage a PC deals to the Thrall, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-3/">Minion (3)</a></td>
+      <td>Minion</td>
+      <td><p>The Zombie is defeated when they take any damage. For every 3 damage a PC deals to the Zombie, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-3/">Minion (3)</a></td>
+      <td>Minion</td>
+      <td><p>The Lackey is defeated when they take any damage. For every 3 damage a PC deals to the Lackey, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-3/">Minion (3)</a></td>
+      <td>Minion</td>
+      <td><p>The Zombie is defeated when they take any damage. For every 3 damage a PC deals to the Zombie, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-4/">Minion (4)</a></td>
+      <td>Minion</td>
+      <td><p>The Bramble is defeated when they take any damage. For every 4 damage a PC deals to the Tangle Bramble, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-4/">Minion (4)</a></td>
+      <td>Minion</td>
+      <td><p>The Dredge is defeated when they take any damage. For every 4 damage a PC deals to the Dredge, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-4/">Minion (4)</a></td>
+      <td>Minion</td>
+      <td><p>The Bramble is defeated when they take any damage. For every 4 damage a PC deals to the Tangle Bramble, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-5/">Minion (5)</a></td>
+      <td>Minion</td>
+      <td><p>The Treant is defeated when they take any damage. For every 5 damage a PC deals to the Treant, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-6/">Minion (6)</a></td>
+      <td>Minion</td>
+      <td><p>The Assassin is defeated when they take any damage. For every 6 damage a PC deals to the Assassin, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-6/">Minion (6)</a></td>
+      <td>Minion</td>
+      <td><p>The Assassin is defeated when they take any damage. For every 6 damage a PC deals to the Assassin, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-6/">Minion (6)</a></td>
+      <td>Minion</td>
+      <td><p>The Conscript is defeated when they take any damage. For every 6 damage a PC deals to the Conscript, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-6/">Minion (6)</a></td>
+      <td>Minion</td>
+      <td><p>The Initiate is defeated when they take any damage. For every 6 damage a PC deals to the Initiate, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-7/">Minion (7)</a></td>
+      <td>Minion</td>
+      <td><p>The Recruit is defeated when they take any damage. For every 7 damage a PC deals to the Recruit, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./minion-9/">Minion (9)</a></td>
+      <td>Minion</td>
+      <td><p>The Elemental is defeated when they take any damage. For every 9 damage a PC deals to the Elemental, defeat an additional Minion within range the attack would succeed against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./arcane-artillery/">Arcane Artillery</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Spend a Fear</strong> to unleash a precise hail of magical blasts. All targets in the scene must make an Agility Reaction Roll. Targets who fail take <strong>2d12</strong> magic damage. Targets who succeed take half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./battle-teleport/">Battle Teleport</a></td>
+      <td>Ranged</td>
+      <td><p>Before or after making a standard attack, you can <strong>mark a Stress</strong> to teleport to a location within Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./concentrate-fire/">Concentrate Fire</a></td>
+      <td>Ranged</td>
+      <td><p>When another adversary deals damage to a target within Far range of the Turret, you can <strong>mark a Stress</strong> to add the Turret’s standard attack damage to the damage roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./deadly-shot/">Deadly Shot</a></td>
+      <td>Ranged</td>
+      <td><p>Make an attack against a Vulnerable target within Far range. On a success, <strong>mark a Stress</strong> to deal <strong>3d4+8</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./detonation/">Detonation</a></td>
+      <td>Ranged</td>
+      <td><p>When the Turret is destroyed, they explode. All targets within Close range must make an Agility Reaction Roll. Targets who fail take <strong>3d20</strong> physical damage. Targets who succeed take half damage.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./divine-volley/">Divine Volley</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Mark a Stress</strong> to make a standard attack against up to three targets.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./eruption/">Eruption</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Spend a Fear</strong> and choose a point within Far range. A Very Close area around that point erupts into impassable terrain. All targets within that area must make an Agility Reaction Roll (14). Targets who fail take <strong>2d10</strong> physical damage and are thrown out of the area. Targets who succeed take half damage and aren’t moved.</p><p>@Template[type:circle|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ghost/">Ghost</a></td>
+      <td>Ranged</td>
+      <td><p>The Archer has resistance to physical damage. <strong>Mark a Stress</strong> to move up to Close range through solid objects.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hobbling-shot/">Hobbling Shot</a></td>
+      <td>Ranged</td>
+      <td><p>Make an attack against a target within Far range. On a success, <strong>mark a Stress</strong> to deal <strong>1d12+3</strong> physical damage. If the target marks HP from this attack, they have disadvantage on Agility Rolls until they clear at least 1 HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./levitation/">Levitation</a></td>
+      <td>Ranged</td>
+      <td><p>The Skull levitates several feet off the ground and can’t be <em>Restrained</em>.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./magic-burst/">Magic Burst</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against all targets within Close range. Targets the Skull succeeds against take <strong>2d6+4</strong> magic damage.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./mark-target/">Mark Target</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Spend a Fear</strong> to Mark a target within Far range until the Turret is destroyed or the Marked target becomes Hidden. While the target is Marked, their Evasion is halved.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./my-turn/">My Turn</a></td>
+      <td>Ranged</td>
+      <td><p>When the Demon marks HP from an attack, <strong>spend a number of Fear equal to the HP marked by the Demon</strong> to cause the attacker to mark the same number of HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./opportunist/">Opportunist</a></td>
+      <td>Ranged</td>
+      <td><p>When two or more adversaries are within Very Close range of a creature, all damage the Archer deals to that creature is doubled.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./pick-your-target/">Pick Your Target</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Spend a Fear</strong> to make an attack within Far range against a PC who is within Very Close range of at least two other PCs. On a success, the target takes <strong>2d8+12</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./punish-the-guilty/">Punish the Guilty</a></td>
+      <td>Ranged</td>
+      <td><p>The Archer deals double damage to targets marked Guilty by a High Seraph.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./refresh-warding-sphere/">Refresh Warding Sphere</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Mark a Stress</strong> to refresh the Wizard’s “Warding Sphere” reaction.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rivalry/">Rivalry</a></td>
+      <td>Ranged</td>
+      <td><p>When a creature within Close range takes damage from a different adversary, you can <strong>mark a Stress</strong> to add a <strong>d4</strong> to the damage roll.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./siphon-magic/">Siphon Magic</a></td>
+      <td>Ranged</td>
+      <td><p><strong>Spend a Fear</strong> to make an attack against a PC with a Spellcast trait within Very Close range. On a success, the target marks <strong>1d4</strong> Stress and the Skull clears that many Stress. Additionally, on a success, the Skull can immediately be spotlighted again.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./slow-firing/">Slow Firing</a></td>
+      <td>Ranged</td>
+      <td><p>When you spotlight the Turret and they don’t have a token on their stat block, they can’t make a standard attack. Place a token on their stat block and describe what they’re preparing to do. When you spotlight the Turret and they have a token on their stat block, clear the token and they can attack.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./unprotected-mind/">Unprotected Mind</a></td>
+      <td>Ranged</td>
+      <td><p> The Demon’s standard attack deals direct damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./warding-sphere/">Warding Sphere</a></td>
+      <td>Ranged</td>
+      <td><p>When the Wizard takes damage from an attack within Close range, deal <strong>2d6</strong> magic damage to the attacker. This reaction can’t be used again until the Wizard refreshes it with their “Refresh Warding Sphere” action.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./wards/">Wards</a></td>
+      <td>Ranged</td>
+      <td><p> The Skull is resistant to magic damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./what-s-yours-is-mine/">What's Yours Is Mine</a></td>
+      <td>Ranged</td>
+      <td><p>When a PC takes Severe damage within Very Close range of the Demon, you can <strong>spend a Fear</strong> to cause the target to make a Finesse Reaction Roll. On a failure, the Demon seizes one item or consumable of their choice from the target’s inventory.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./acidic-form/">Acidic Form</a></td>
+      <td>Skulk</td>
+      <td><p>When the Ooze makes a successful attack, the target must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./acidic-form/">Acidic Form</a></td>
+      <td>Skulk</td>
+      <td><p>When the Ooze makes a successful attack, the target must mark an Armor Slot without receiving its benefits (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./acidic-form/">Acidic Form</a></td>
+      <td>Skulk</td>
+      <td><p>When the Ooze makes a successful attack, the target must mark an Armor Slot without receiving its benefits (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./assassin-poisoner/">Assassin Poisoner</a></td>
+      <td>Skulk</td>
+      <td><p>The Assassin has advantage on attacks if they are <em>Hidden</em>.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./avalance-roar/">Avalance Roar</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Spend a Fear</strong> to roar while within a cave and cause a cave-in. All targets within Close range must succeed on an Agility Reaction Roll (14) or take <strong>2d10</strong> physical damage. The rubble can be cleared with a Progress Countdown (8).</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./backstab/">Backstab</a></td>
+      <td>Skulk</td>
+      <td><p>When the Shadow succeeds on a standard attack that has advantage, they deal 1d6+6 physical damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./burning/">Burning</a></td>
+      <td>Skulk</td>
+      <td><p>When a creature within Melee range deals damage to the Ooze, they take <strong>1d6</strong> direct magic damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./captive-audience/">Captive Audience</a></td>
+      <td>Skulk</td>
+      <td><p>If the Siren makes a standard attack against a target Entranced by their song, the attack deals <strong>2d10+1</strong> damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./cloaked/">Cloaked</a></td>
+      <td>Skulk</td>
+      <td><p>Become <em>Hidden</em> until after the Shadow’s next attack. Attacks made while Hidden from this feature have advantage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./creeping-fire/">Creeping Fire</a></td>
+      <td>Skulk</td>
+      <td><p>The Ooze can only move within Very Close range as their normal movement. They light any flammable object they touch on fi re.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./deadly-dive/">Deadly Dive</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Mark a Stress</strong> to attack a target within Far range. On a success, deal <strong>2d10+2</strong> physical damage and knock the target over, making them <em>Vulnerable</em> until they next act.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./deadly-drop/">Deadly Drop</a></td>
+      <td>Skulk</td>
+      <td><p>While flying, the Eagle can drop a Restrained target they are holding. When dropped, the target is no longer Restrained but starts falling. If their fall isn’t prevented during the PCs’ next action, the target takes <strong>2d20</strong> physical damage when they land.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./depths-of-despair/">Depths of Despair</a></td>
+      <td>Skulk</td>
+      <td><p>The Demon deals double damage to PCs with 0 Hope.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./enchanting-song/">Enchanting Song</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Spend a Fear</strong> to sing a song that affects all targets within Close range. Targets must succeed on an Instinct Reaction Roll or become Entranced until they mark 2 Stress. Other Sirens within Close range of the target can <strong>mark a Stress</strong> to each add a +1 bonus to the Difficulty of the reaction roll. While Entranced, a target can’t act and is <em>Vulnerable</em>.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./envelop/">Envelop</a></td>
+      <td>Skulk</td>
+      <td><p>Make an attack against a target within Melee range. On a success, the Ooze Envelops them and the target must mark 2 Stress. While Enveloped, the target must mark an additional Stress every time they make an action roll. When the Ooze takes Severe damage, all Enveloped targets are freed and the condition is cleared.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./envelop/">Envelop</a></td>
+      <td>Skulk</td>
+      <td><p>Make an attack against a target within Melee range. On a success, the Ooze Envelops them and the target must mark 2 Stress. While Enveloped, the target must mark an additional Stress every time they make an action roll. When the Ooze takes Severe damage, all Enveloped targets are freed and the condition is cleared.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./escape-plan/">Escape Plan</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Mark a Stress</strong> to reveal a snare trap set anywhere on the battlefi eld by the Thief. All targets within Very Close range of the trap must succeed on an Agility Reaction Roll (13) or be pulled off  their feet and suspended upside down. A target is Restrained and Vulnerable until they break free, ending both conditions, with a successful Finesse or Strength Roll (13).</p><p>@Template[type:rect|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./flight/">Flight</a></td>
+      <td>Skulk</td>
+      <td><p>While flying, the Eagle gains a +3 bonus to their Difficulty.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./flying/">Flying</a></td>
+      <td>Skulk</td>
+      <td><p>While flying, the Bat gains a +3 bonus to their Difficulty.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./fumigation/">Fumigation</a></td>
+      <td>Skulk</td>
+      <td><p>Drop a smoke bomb that fi lls the air within Close range with smoke, Dizzying all targets in this area. Dizzied targets have disadvantage on their next action roll, then clear the condition.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./grindletooth-venom/">Grindletooth Venom</a></td>
+      <td>Skulk</td>
+      <td><p>Targets who mark HP from the Assassin’s attacks are Vulnerable until they clear a HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./guardian/">Guardian</a></td>
+      <td>Skulk</td>
+      <td><p>When an allied Vampire marks HP, you can <strong>mark a Stress</strong> to fly into Melee range of the attacker and make an attack with advantage against them. On a success, deal <strong>2d6+2</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hobbling-strike/">Hobbling Strike</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against a target within Melee range. On a success, deal <strong>3d4+10</strong> direct physical damage and make them <em>Vulnerable</em> until they clear at least 1 HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ignite/">Ignite</a></td>
+      <td>Skulk</td>
+      <td><p>Make an attack against a target within Very Close range. On a success, the target takes <strong>1d8</strong> magic damage and is Ignited until they’re extinguished with a successful Finesse Roll (14). While Ignited, the target takes <strong>1d4</strong> magic damage when they make an action roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Skulk</td>
+      <td><p>When the Stonewraith makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Skulk</td>
+      <td><p>When the Demon makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./pack-tactics/">Pack tactics</a></td>
+      <td>Skulk</td>
+      <td><p>If the Wolf makes a successful standard attack and another Dire Wolf is within Melee range of the target, deal <strong>1d6+5</strong> physical damage instead of their standard damage and you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./pick-off-the-straggler/">Pick Off the Straggler</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Mark a Stress</strong> to cause a target within Melee range to make an Instinct Reaction Roll. On a failure, the target must mark 2 Stress and is teleported with the Fang to a shadow within Far range, making them temporarily Vulnerable. On a success, the target must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./quick-hands/">Quick Hands</a></td>
+      <td>Skulk</td>
+      <td><p>Make an attack against a target within Melee range. On a success, deal <strong>1d8+2</strong> physical damage and the Thief steals one item or consumable from the target’s inventory.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rocky-ambush/">Rocky Ambush</a></td>
+      <td>Skulk</td>
+      <td><p>While <em>Hidden</em>, <strong>mark a Stress</strong> to leap into Melee range with a target within Very Close range. The target must succeed on an Agility or Instinct Reaction Roll (15) or take <strong>2d8</strong> physical damage and become temporarily Restrained.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./screech/">Screech</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Mark a Stress</strong> to send a high-pitch screech out toward all targets in front of the Bat within Far range. Those targets must mark <strong>1d4</strong> Stress.</p><p>@Template[type:inFront|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shadow-s-embrace/">Shadow's Embrace</a></td>
+      <td>Skulk</td>
+      <td><p>The Fang can climb and walk on vertical surfaces. <strong>Mark a Stress</strong> to move from one shadow to another within Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./slow/">Slow</a></td>
+      <td>Skulk</td>
+      <td><p>When you spotlight the Ooze and they don’t have a token on their stat block, they can’t act yet. Place a token on their stat block and describe what they’re preparing to do. When you spotlight the Ooze and they have a token on their stat block, clear the token and they can act.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./slow/">Slow</a></td>
+      <td>Skulk</td>
+      <td><p>When you spotlight the Ooze and they don’t have a token on their stat block, they can’t act yet. Place a token on their stat block and describe what they’re preparing to do. When you spotlight the Ooze and they have a token on their stat block, clear the token and they can act.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./slow/">Slow</a></td>
+      <td>Skulk</td>
+      <td><p>When you spotlight the Ooze and they don’t have a token on their stat block, they can’t act yet. Place a token on their stat block and describe what they’re preparing to do. When you spotlight the Ooze and they have a token on their stat block, clear the token and they can act.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./split/">Split</a></td>
+      <td>Skulk</td>
+      <td><p>When the Ooze has 4 or more HP marked, you can <strong>spend a Fear</strong> to split them into two @UUID[Compendium.daggerheart.adversaries.Actor.SHXedd9zZPVfUgUa]{Green Oozes}(with no marked HP or Stress). Immediately spotlight both of them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./split/">Split</a></td>
+      <td>Skulk</td>
+      <td><p>When the Ooze has 4 or more HP marked, you can <strong>spend a Fear</strong> to split them into two @UUID[Compendium.daggerheart.adversaries.Actor.SHXedd9zZPVfUgUa]{Green Oozes}(with no marked HP or Stress). Immediately spotlight both of them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./split/">Split</a></td>
+      <td>Skulk</td>
+      <td><p>When the Ooze has 3 or more HP marked, you can <strong>spend a Fear</strong> to split them into two @UUID[Compendium.daggerheart.adversaries.Actor.1fkLQXVtmILqfJ44]{Tiny Red Oozes} (with no marked HP or Stress). Immediately spotlight both of them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./stonestrider/">Stonestrider</a></td>
+      <td>Skulk</td>
+      <td><p>The Stonewraith can move through stone and earth as easily as air. While within stone or earth, they are Hidden and immune to all damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./take-off/">Take Off</a></td>
+      <td>Skulk</td>
+      <td><p>Make an attack against a target within Very Close range. On a success, deal <strong>2d4+3</strong> physical damage and the target must succeed on an Agility Reaction Roll or become temporarily Restrained within the Eagle’s massive talons. If the target is Restrained, the Eagle immediately lifts into the air to Very Far range above the battlefi eld while holding them. </p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./your-friends-will-fail-you/">Your Friends Will Fail You</a></td>
+      <td>Skulk</td>
+      <td><p>When a PC fails with Fear, you can <strong>mark a Stress</strong> to cause all other PCs within Close range to lose a Hope.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./your-struggle-is-pointless/">Your Struggle is Pointless</a></td>
+      <td>Skulk</td>
+      <td><p><strong>Spend a Fear</strong> to weigh down the spirits of all PCs within Far range. All targets affected replace their Hope Die with a <strong>d8</strong> until they roll a success with Hope or their next rest.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./bend-ears/">Bend Ears</a></td>
+      <td>Social</td>
+      <td><p><strong>Mark a Stress</strong> to influence an NPC within Melee range with whispered words. That target’s opinion on one matter shifts toward the Advisor’s preference unless it is in direct opposition to the target’s motives.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./casus-belli/">Casus Belli</a></td>
+      <td>Social</td>
+      <td><p>Long-Term Countdown (8). <strong>Spend a Fear</strong> to activate after the Monarch’s desire for war is first revealed. When it triggers, the Monarch has a reason to rally the nation to war and the support to act on that reason. You gain [[/r 1d4]]<strong> </strong>Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./crownsguard/">Crownsguard</a></td>
+      <td>Social</td>
+      <td><p>Once per scene, <strong>mark a Stress</strong> to summon six Tier 3 Minions, who appear at Close range to enforce the Monarch’s will.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./devastating-retort/">Devastating Retort</a></td>
+      <td>Social</td>
+      <td><p>A PC who rolls less than 17 on an action roll targeting the Advisor must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./everyone-has-a-price/">Everyone Has a Price</a></td>
+      <td>Social</td>
+      <td><p><strong>Spend a Fear</strong> to offer a target a dangerous bargain for something they want or need. If used on a PC, they must make a Presence Reaction Roll (17). On a failure, they must mark 2 Stress or take the deal.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./execute-them/">Execute Them</a></td>
+      <td>Social</td>
+      <td><p><strong>Spend a Fear</strong> per PC in the party to have the group condemned for crimes real or imagined. A PC who succeeds on a Presence Roll can demand trial by combat or another special form of trial.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./exile/">Exile</a></td>
+      <td>Social</td>
+      <td><p><strong>Spend a Fear</strong> and target a PC. The Noble proclaims that the target and their allies are exiled from the noble’s territory. While exiled, the target and their allies have disadvantage during social situations within the Noble’s domain.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./fly-on-the-wall/">Fly on the Wall</a></td>
+      <td>Social</td>
+      <td><p>When a PC or group is discussing something sensitive, you can <strong>mark a Stress</strong> to reveal that the Spy is present in the scene, observing them. If the Spy escapes the scene to report their findings, you gain <strong>1d4</strong> Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./gathering-secrets/">Gathering Secrets</a></td>
+      <td>Social</td>
+      <td><p><strong>Spend a Fear</strong> to describe how the Spy knows a secret about a PC in the scene.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./guards-seize-them/">Guards, Seize Them!</a></td>
+      <td>Social</td>
+      <td><p>Once per scene, <strong>mark a Stress</strong> to summon <strong>1d4</strong> @UUID[Compendium.daggerheart.adversaries.Actor.B4LZcGuBAHzyVdzy]{Bladed Guards}, who appear at Far range to enforce the Noble’s will.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./mockery/">Mockery</a></td>
+      <td>Social</td>
+      <td><p><strong>Mark a Stress</strong> to say something mocking and force a target within Close range to make a Presence Reaction Roll (14) to see if they can save face. On a failure, the target must mark 2 Stress and is Vulnerable until the scene ends.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./my-land-my-rules/">My Land, My Rules</a></td>
+      <td>Social</td>
+      <td><p> All social actions made against the Noble on their land have disadvantage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./preferential-treatment/">Preferential Treatment</a></td>
+      <td>Social</td>
+      <td><p>A PC who succeeds on a Presence Roll against the Merchant gains a discount on purchases. A PC who fails on a Presence Roll against the Merchant must pay more and has disadvantage on future Presence Rolls against the Merchant.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./scapegoat/">Scapegoat</a></td>
+      <td>Social</td>
+      <td><p><strong>Spend a Fear</strong> to convince a crowd or notable individual that one person or group is responsible for some problem facing the target. The target becomes hostile to the scapegoat until convinced of their innocence with a successful Presence Roll (17).</p><p>[[/dr trait=presence difficulty=17]]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./scapegoat/">Scapegoat</a></td>
+      <td>Social</td>
+      <td><p><strong>Spend a Fear</strong> to convince a crowd or notable individual that one person or group is responsible for some problem facing the target. The target becomes hostile to the scapegoat until convinced of their innocence with a successful Presence Roll (17).</p><p>[[/dr trait=presence difficulty=17]]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./searing-glance/">Searing Glance</a></td>
+      <td>Social</td>
+      <td><p>When a PC within Close range makes a Presence Roll, you can <strong>mark a Stress</strong> to cast a gaze toward the aftermath. On the target’s failure, they must mark 2 Stress and are <em>Vulnerable</em> until the scene ends or they succeed on a social action against the Courtesan. On the target’s success, they must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./the-best-muscle-money-can-buy/">The Best Muscle Money Can Buy</a></td>
+      <td>Social</td>
+      <td><p>Once per scene, <strong>mark a Stress</strong> to summon 1d4+1 Tier 1 adversaries, who appear at Far range, to enforce the Baron’s will.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./the-runaround/">The Runaround</a></td>
+      <td>Social</td>
+      <td><p>When a PC rolls a 14 or lower on a Presence Roll made against the Merchant, they must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./acid-bath/">Acid Bath</a></td>
+      <td>Solo</td>
+      <td><p>When the Burrower takes Severe damage, all creatures within Close range are bathed in their acidic blood, taking <strong>1d10</strong> physical damage. This splash covers the ground within Very Close range with blood, and all creatures other than the Burrower who move through it take <strong>1d6</strong> physical damage.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./all-must-fall/">All Must fall</a></td>
+      <td>Solo</td>
+      <td><p>When a PC rolls a failure with Fear while within Close range of the Demon, they lose a Hope.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./all-consuming-rage/">All-Consuming Rage</a></td>
+      <td>Solo</td>
+      <td><p>Countdown (Decreasing 8). When the Realm-Breaker is in the spotlight for the first time, activate the countdown.</p><p>When it triggers, create a torrent of incarnate rage that rends flesh from bone. All targets within Far range must make a Presence Reaction Roll. Targets who fail take <strong>2d6+10</strong> direct magic damage. Targets who succeed take half damage. For each HP marked from this damage, summon a @UUID[Compendium.daggerheart.adversaries.Actor.OsLG2BjaEdTZUJU9]{Fallen Shock Troop} within Very Close range of the target who marked that HP. If the countdown ever decreases its maximum value to 0, the Realm-Breaker marks their remaining HP and all targets within Far range must mark all remaining HP and make a death move.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./another-for-the-pile/">Another for the Pile</a></td>
+      <td>Solo</td>
+      <td><p>When the Zombie is within Very Close range of a corpse, they can incorporate it into themselves, clearing a HP and a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./apocalyptic-thrasing/">Apocalyptic Thrasing</a></td>
+      <td>Solo</td>
+      <td><p>Countdown (1d12). <strong>Spend a Fear</strong> to activate. It ticks down when a PC rolls with Fear.</p><p>When it triggers, the Ashen Tyrant thrashes about, causing environmental damage (such as an earthquake, avalanche, or collapsing walls). All targets within Far range must make a Strength Reaction Roll. Targets who fail take 2d10+10 physical damage and are Restrained by the rubble until they break free with a successful Strength Roll. Targets who succeed take half damage. If the Ashen Tyrant is defeated while this countdown is active, trigger the countdown immediately as the destruction caused by their death throes.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./arcane-form/">Arcane Form</a></td>
+      <td>Solo</td>
+      <td><p>The Elemental is resistant to magic damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ashen-cloud/">Ashen Cloud</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to smash the ground and kick up ash within Far range. While within the ash cloud, a target has disadvantage on action rolls. The ash cloud clears the next time an adversary is spotlighted.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ashen-vengeance/">Ashen Vengeance</a></td>
+      <td>Solo</td>
+      <td><p>When the Molten Scourge marks their last HP, replace them with the @UUID[Compendium.daggerheart.adversaries.Actor.pMuXGCSOQaxpi5tb]{Ashen Tyrant} and immediately spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ashes-to-ashes/">Ashes to Ashes</a></td>
+      <td>Solo</td>
+      <td><p>When a PC rolls a failure while within Close range of the Ashen Tyrant, they lose a Hope and you gain a Fear. If the PC can’t lose a Hope, they must mark a HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./avalance/">Avalance</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to have the Dragon unleash a huge downfall of snow and ice, covering all other creatures within Far range. All targets within this area must succeed on an Instinct Reaction Roll or be buried in snow and rocks, becoming <em>Vulnerable</em> until they dig themselves out from the debris. For each PC that fails the reaction roll, you gain a Fear.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./avalanche-tail/">Avalanche Tail</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against all targets within Close range. Targets the Obsidian Predator succeeds against take <strong>4d6+4</strong> physical damage and are knocked.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./blizzard-breath/">Blizzard Breath</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend 2 Fear</strong> to release an icy whorl in front of the Dragon within Close range. All targets in this area must make an Agility Reaction Roll. Targets who fail take <strong>4d6+5</strong> magic damage and are Restrained by ice until they break free with a successful Strength Roll. Targets who succeed must mark 2 Stress or take half damage.</p><p>@Template[type:inFront|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./boiling-blast/">Boiling Blast</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to spew a line of boiling water at any number of targets in a line up to Far range. All targets must succeed on an Agility Reaction Roll or take <strong>4d6+9</strong> physical damage. If a target marks an Armor Slot to reduce the damage, they must also mark a Stress.</p><p>@Template[type:ray|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./bone-breaker/">Bone Breaker</a></td>
+      <td>Solo</td>
+      <td><p>The Ogre’s attacks deal direct damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./circle-of-defilement/">Circle of Defilement</a></td>
+      <td>Solo</td>
+      <td><p>Countdown (1d8). When the Undefeated Champion is in the spotlight for the fi rst time, activate the countdown. When it triggers, activate a magical circle covering an area within Far range of the Champion. A target within that area is Vulnerable until they leave the circle. The circle can be removed by dealing Severe damage to the Undefeated Champion.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./consume-kindling/">Consume Kindling</a></td>
+      <td>Solo</td>
+      <td><p>Three times per scene, when the Elemental moves onto objects that are highly flammable, consume them to clear a HP or a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./cornered/">Cornered</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> instead of spending a Fear to spotlight the Ashen Tyrant.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./cracked-scales/">Cracked Scales</a></td>
+      <td>Solo</td>
+      <td><p>When the Molten Scourge takes damage, roll a number of d6s equal to HP marked. For each result of 4 or higher, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./crown-of-serpents/">Crown of Serpents</a></td>
+      <td>Solo</td>
+      <td><p>Make an attack roll against a target within Melee range using the Gorgon’s protective snakes. On a success, mark a Stress to deal <strong>2d10+4</strong> physical damage and the target must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./death-quake/">Death Quake</a></td>
+      <td>Solo</td>
+      <td><p>When the Box marks their last HP, the magic powering them ruptures in an explosion of force. All targets within Close range must succeed on an Instinct Reaction Roll or take <strong>2d8+1</strong> magic damage</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./death-quake/">Death Quake</a></td>
+      <td>Solo</td>
+      <td><p>When the Box marks their last HP, the magic powering them ruptures in an explosion of force. All targets within Close range must succeed on an Instinct Reaction Roll or take <strong>2d8+1</strong> magic damage</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./desperate-rampage/">Desperate Rampage</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against all targets within Close range. Targets the Ashen Tyrant succeeds against take <strong>2d20+2</strong> physical damage, are knocked back to Close range of where they were, and must mark a Stress.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./destructible/">Destructible</a></td>
+      <td>Solo</td>
+      <td><p>When the Zombie takes Major or greater damage, they mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./dive-bomb/">Dive-Bomb</a></td>
+      <td>Solo</td>
+      <td><p>If the Obsidian Predator is flying, mark a <strong>Stress</strong> to choose a point within Far range. Move to that point and make an attack against all targets within Very Close range. Targets the Obsidian Predator succeeds against take <strong>2d10+6</strong> physical damage and must mark a Stress and lose a Hope.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./doombringer/">Doombringer</a></td>
+      <td>Solo</td>
+      <td><p>When a target marks HP from an attack by the Realm-Breaker, all PCs within Far range of the target must lose a Hope.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./doombringer/">Doombringer</a></td>
+      <td>Solo</td>
+      <td><p>When a target marks HP from an attack by the Realm-Breaker, all PCs within Far range of the target must lose a Hope.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./earth-eruption/">Earth Eruption</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to have the Burrower burst out of the ground. All creatures within Very Close range must succeed on an Agility Reaction Roll or be knocked over, making them Vulnerable until they next act.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./endless-legions/">Endless Legions</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to summon a number of @UUID[Compendium.daggerheart.adversaries.Actor.OsLG2BjaEdTZUJU9]{Fallen Shock Troops} equal to twice the number of PCs. The Shock Troops appear at Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./erupting-rage/">Erupting Rage</a></td>
+      <td>Solo</td>
+      <td><p>When the Obsidian Predator marks their last HP, replace them with the @UUID[Compendium.daggerheart.adversaries.Actor.eArAPuB38CNR0ZIM]{Molten Scourge} and immediately spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./eruption/">Eruption</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to erupt lava from beneath the Molten Scourge’s scales, filling the area within Very Close range with molten lava. All targets in that area must succeed on an Agility Reaction Roll or take <strong>4d6+6</strong> physical damage and be knocked back to Close range. This area remains lava. When a creature other than the Molten Scourge enters that area or acts while inside of it, they must mark 6 HP.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./explosion/">Explosion</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to erupt in a fi ery explosion. Make an attack against all targets within Close range. Targets the Elemental succeeds against take <strong>1d8</strong> magic damage and are knocked back to Far range.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./faltering-armor/">Faltering Armor</a></td>
+      <td>Solo</td>
+      <td><p>When the Undefeated Champion takes damage, reduce it by <strong>1d10</strong>.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./fire-jets/">Fire Jets</a></td>
+      <td>Solo</td>
+      <td><p>The Box shoots into the air, spinning and releasing jets of flame. Make an attack against all targets within Close range. Targets the Box succeeds against take <strong>2d8</strong> physical damage.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./firespite-plate-armor/">Firespite Plate Armor</a></td>
+      <td>Solo</td>
+      <td><p>When the Realm-Breaker takes damage, reduce it by <strong>2d10</strong>.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./flailing-limbs/">Flailing Limbs</a></td>
+      <td>Solo</td>
+      <td><p>When the Zombie makes a standard attack, they can attack all targets within Very Close range.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./flying/">Flying</a></td>
+      <td>Solo</td>
+      <td><p> While flying, the Obsidian Predator gains a +3 bonus to their Difficulty.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./frozen-scales/">Frozen Scales</a></td>
+      <td>Solo</td>
+      <td><p>When a creature makes a successful attack against the Dragon from within Very Close range, they must mark a Stress and become Chilled until their next rest or they clear a Stress. While they are Chilled, they have disadvantage on attack rolls.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./grapple-and-drown/">Grapple and Drown</a></td>
+      <td>Solo</td>
+      <td><p>Make an attack roll against a target within Close range. On a success, <strong>mark a Stress</strong> to grab them with a tentacle and drag them beneath the water. The target is <em>Restrained</em> and <em>Vulnerable</em> until they break free with a successful Strength Roll or the Kraken takes Major or greater damage. While <em>Restrained</em> and <em>Vulnerable</em> in this way, a target must mark a Stress when they make an action roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hail-of-boulders/">Hail of Boulders</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to pick up heavy objects and throw them at all targets in front of the Ogre within Far range. Make an attack against these targets. Targets the Ogre succeeds against take <strong>1d10+2</strong> physical damage. If they succeed against more than one target, you gain a Fear.</p><p>@Template[type:inFront|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hallucinatory-breath/">Hallucinatory Breath</a></td>
+      <td>Solo</td>
+      <td><p>Countdown (Loop 1d6). When the Flickerfly takes damage for the first time, activate the countdown. When it triggers, the Flickerfly breathes hallucinatory gas on all targets in front of them up to Far range. Targets must make an Instinct Reaction Roll or be tormented by fearful hallucinations. Targets whose fears are known to the Flickerfl y have disadvantage on this roll. Targets who fail lose 2 Hope and take <strong>3d8+3</strong> direct magic damage.</p><p>@Template[type:inFront|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hallucinatory-breath/">Hallucinatory Breath</a></td>
+      <td>Solo</td>
+      <td><p>Countdown (Loop 1d6). When the Flickerfly takes damage for the first time, activate the countdown. When it triggers, the Flickerfly breathes hallucinatory gas on all targets in front of them up to Far range. Targets must make an Instinct Reaction Roll or be tormented by fearful hallucinations. Targets whose fears are known to the Flickerfl y have disadvantage on this roll. Targets who fail lose 2 Hope and take <strong>3d8+3</strong> direct magic damage.</p><p>@Template[type:inFront|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./hellfire/">Hellfire</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to rain down hellfire within Far range. All targets within the area must make an Agility Reaction Roll. Targets who fail take <strong>1d20+3</strong> magic damage. Targets who succeed take half damage.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./i-have-never-known-defeat/">I Have Never Known Defeat</a></td>
+      <td>Solo</td>
+      <td><p>When the Realm-Breaker marks their last HP, replace them with the @UUID[Compendium.daggerheart.adversaries.Actor.RXkZTwBRi4dJ3JE5]{Fallen Warlord: Undefeated Champion} and immediately spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./injured-wings/">Injured Wings</a></td>
+      <td>Solo</td>
+      <td><p>While flying, the Ashen Tyrant gains a +1 bonus to their Difficulty.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./lava-splash/">Lava Splash</a></td>
+      <td>Solo</td>
+      <td><p>When the Molten Scourge takes Severe damage from an attack within Very Close range, molten blood gushes from the wound and deals <strong>2d10+4</strong> direct physical damage to the attacker.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./magical-reflection/">Magical Reflection</a></td>
+      <td>Solo</td>
+      <td><p>When the Elemental takes damage from an attack within Close range, deal an amount of damage to the attacker equal to half the damage they dealt.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./magical-weakness/">Magical Weakness</a></td>
+      <td>Solo</td>
+      <td><p>When the Hydra takes magic damage, they become Dazed until the next roll with Fear. While Dazed, they can’t use their Regeneration action but are immune to magic damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./mana-beam/">Mana Beam</a></td>
+      <td>Solo</td>
+      <td><p>The Box fires a searing beam. Make an attack against a target within Far range. On a success, deal <strong>2d10+2</strong> magic damage. </p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./many-tentacles/">Many Tentacles</a></td>
+      <td>Solo</td>
+      <td><p>While the Kraken has 7 or fewer marked HP, they can make their standard attack against two targets within range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./many-headed-menace/">Many-Headed Menace</a></td>
+      <td>Solo</td>
+      <td><p>The Hydra begins with three heads and can have up to five. When the Hydra takes Major or greater damage, they lose a head.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./mind-dance/">Mind Dance</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to create a magically dazzling display that grapples the minds of nearby foes. All targets within Close range must make an Instinct Reaction Roll. For each target who failed, you gain a Fear and the Flickerfl y learns one of the target’s fears.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./mind-dance/">Mind Dance</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to create a magically dazzling display that grapples the minds of nearby foes. All targets within Close range must make an Instinct Reaction Roll. For each target who failed, you gain a Fear and the Flickerfl y learns one of the target’s fears.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p>When the Elemental makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p>When the Gorgon makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p>When the Demon makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p> When the Kraken makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p>When the Undefeated Champion makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p>When the Elemental makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p>When the Dragon makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./momentum/">Momentum</a></td>
+      <td>Solo</td>
+      <td><p> When the Elemental makes a successful attack against a PC, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./never-misses/">Never Misses</a></td>
+      <td>Solo</td>
+      <td><p>When the Flickerfly makes an attack, the target’s Evasion is halved against the attack.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./no-hope/">No Hope</a></td>
+      <td>Solo</td>
+      <td><p>When a PC rolls with Fear while within Far range of the Dragon, they lose a Hope.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./obsidian-scales/">Obsidian Scales</a></td>
+      <td>Solo</td>
+      <td><p>The Obsidian Predator is resistant to physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ominous-knowledge/">Ominous Knowledge</a></td>
+      <td>Solo</td>
+      <td><p>When the Oracle sees a mortal creature, they instantly know one of their personal nightmares.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./overcharge/">Overcharge</a></td>
+      <td>Solo</td>
+      <td><p>Before rolling damage for the Box’s attack, you can <strong>mark a Stress</strong> to add a <strong>d6</strong> to the damage roll. Additionally, you gain a Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./overload/">Overload</a></td>
+      <td>Solo</td>
+      <td><p>Before rolling damage for the Construct’s attack, you can <strong>mark a Stress</strong> to gain a +10 bonus to the damage roll. The Construct can then take the spotlight again.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./peerless-accuracy/">Peerless Accuracy</a></td>
+      <td>Solo</td>
+      <td><p>Before the Flickerfly makes an attack, roll a d6. On a result of 4 or higher, the target’s Evasion is halved against this attack.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./petrifying-gaze/">Petrifying Gaze</a></td>
+      <td>Solo</td>
+      <td><p>When the Gorgon takes damage from an attack within Close range, you can <strong>spend a Fear</strong> to force the attacker to make an Instinct Reaction Roll. On a failure, they begin to turn to stone, marking a HP and starting a Petrification Countdown (4). This countdown ticks down when the Gorgon is attacked. When it triggers, the target must make a death move. If the Gorgon is defeated, all petrification countdowns end.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./pronounce-fate/">Pronounce Fate</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to present a target within Far range with a vision of their personal nightmare. The target must make a Knowledge Reaction Roll. On a failure, they lose all Hope and take <strong>2d20+4</strong> direct magic damage. On a success, they take half damage and lose a Hope.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./psionic-whine/">Psionic Whine</a></td>
+      <td>Solo</td>
+      <td><p>The Box releases a cluster of mechanical bees whose buzz rattles mortal minds. All targets within Close range must succeed on a Presence Reaction Roll or take <strong>2d4+9</strong> direct magic damage.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ramp-up/">Ramp Up</a></td>
+      <td>Solo</td>
+      <td><p>You must <strong>spend a Fear</strong> to spotlight the Ogre. While spotlighted, they can make their standard attack against all targets within range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ramp-up/">Ramp Up</a></td>
+      <td>Solo</td>
+      <td><p>You must <strong>spend a Fear</strong> to spotlight the Ogre. While spotlighted, they can make their standard attack against all targets within range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rampaging-fury/">Rampaging Fury</a></td>
+      <td>Solo</td>
+      <td><p>When the Ogre marks 2 or more HP, they can rampage. Move the Ogre to a point within Close range and deal <strong>2d6+3</strong> direct physical damage to all targets in their path.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./randomized-tactics/">Randomized Tactics</a></td>
+      <td>Solo</td>
+      <td><p>Mark a Stress and roll a <strong>d6</strong>. The Box uses the corresponding move:</p><ol><li><p><strong>Mana Beam</strong></p></li><li><p><strong>Fire Jets</strong></p></li><li><p><strong>Trample</strong></p></li><li><p><strong>Shocking Gas</strong></p></li><li><p><strong>Stunning Clap</strong></p></li><li><p><strong>Psionic Whine</strong></p></li></ol></td>
+    </tr>
+
+    <tr>
+      <td><a href="./reaper/">Reaper</a></td>
+      <td>Solo</td>
+      <td><p>Before rolling damage for the Demon’s attack, you can <strong>mark a Stress</strong> to gain a bonus to the damage roll equal to the Demon’s current number of marked HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./regeneration/">Regeneration</a></td>
+      <td>Solo</td>
+      <td><p>If the Hydra has any marked HP, <strong>spend a Fear</strong> to clear a HP and grow two heads.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Solo</td>
+      <td><p>The Box can be spotlighted up to two times times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Solo</td>
+      <td><p>The Elemental can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Solo</td>
+      <td><p>The Realm-Breaker can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Solo</td>
+      <td><p>The Construct can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Solo</td>
+      <td><p>The Demon can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Solo</td>
+      <td><p>The Box can be spotlighted up to two times times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-2/">Relentless (2)</a></td>
+      <td>Solo</td>
+      <td><p>The Gorgon can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-3/">Relentless (3)</a></td>
+      <td>Solo</td>
+      <td><p>The Molten Scourge can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-3/">Relentless (3)</a></td>
+      <td>Solo</td>
+      <td><p>The Kraken can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-3/">Relentless (3)</a></td>
+      <td>Solo</td>
+      <td><p>The Flickerfly can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-3/">Relentless (3)</a></td>
+      <td>Solo</td>
+      <td><p>The Burrower can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-3/">Relentless (3)</a></td>
+      <td>Solo</td>
+      <td><p>The Molten Scourge can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-3/">Relentless (3)</a></td>
+      <td>Solo</td>
+      <td><p>The Dragon can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-4/">Relentless (4)</a></td>
+      <td>Solo</td>
+      <td><p>The Flickerfly can be spotlighted up to four times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-4/">Relentless (4)</a></td>
+      <td>Solo</td>
+      <td><p>The Flickerfly can be spotlighted up to four times per GM turn. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./relentless-x/">Relentless (X)</a></td>
+      <td>Solo</td>
+      <td><p>The Hydra can be spotlighted X times per GM turn, where X is the Hydra’s number of heads. Spend Fear as usual to spotlight them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./remake-reality/">Remake Reality</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to transform the area within Very Close range into a different biome. All targets within this area take <strong>2d6+3</strong> direct magic damage.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./rend-and-crush/">Rend and Crush</a></td>
+      <td>Solo</td>
+      <td><p>If a target damaged by the Dragon doesn’t mark an Armor Slot to reduce the damage, they must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./scorched-earth/">Scorched Earth</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to choose a point within Far range. The ground within Very Close range of that point immediately bursts into fl ames. All creatures within this area must make an Agility Reaction Roll. Targets who fail take <strong>2d8</strong> magic damage from the fl ames. Targets who succeed take half damage.</p><p>@Template[type:circle|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shattering-might/">Shattering Might</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against a target within Very Close range. On a success, the target takes <strong>4d8+1</strong> physical damage, loses a Hope, and is knocked back to Close range. The Molten Scourge clears a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shattering-strike/">Shattering Strike</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to make a standard attack against all targets within Very Close range. PCs the Champion succeeds against lose a number of Hope equal to the HP they marked from this attack.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shocking-gas/">Shocking Gas</a></td>
+      <td>Solo</td>
+      <td><p>The Box sprays out a silver gas sparking with lightning. All targets within Close range must succeed on a Finesse Reaction Roll or mark 3 Stress. </p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./sickening-flux/">Sickening Flux</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a HP</strong> to force all targets within Close range to mark a Stress and become <em>Vulnerable</em> until their next rest or they clear a HP.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./spit-acid/">Spit Acid</a></td>
+      <td>Solo</td>
+      <td><p>Make an attack against all targets in front of the Burrower within Close range. Targets the Burrower succeeds against take <strong>2d6</strong> physical damage and must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP and you gain a Fear.</p><p>@Template[type:inFront|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./stunning-clap/">Stunning Clap</a></td>
+      <td>Solo</td>
+      <td><p>The Box leaps and their sides clap, creating a small sonic boom. All targets within Very Close range must succeed on a Strength Reaction Roll or become <em>Vulnerable</em> until the cube is defeated.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./summon-tormentors/">Summon Tormentors</a></td>
+      <td>Solo</td>
+      <td><p>Once per day, <strong>spend 2 Fear</strong> to summon <strong>2d4</strong> Tier 2 or below Minions relevant to one of the PC’s personal nightmares. They appear at Close range relative to that PC.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./sunsear-arrows/">Sunsear Arrows</a></td>
+      <td>Solo</td>
+      <td><p>When the Gorgon makes a successful standard attack, the target Glows until the end of the scene and can’t become <em>Hidden</em>. Attack rolls made against a Glowing target have advantage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying/">Terrifying</a></td>
+      <td>Solo</td>
+      <td><p>When the Oracle makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying/">Terrifying</a></td>
+      <td>Solo</td>
+      <td><p>When the Oracle makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./terrifying-chorus/">Terrifying Chorus</a></td>
+      <td>Solo</td>
+      <td><p>All PCs within Far range lose 2 Hope.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./tormented-screams/">Tormented Screams</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to cause all PCs within Far range to make a Presence Reaction Roll (13). Targets who fail lose a Hope and you gain a Fear for each. Targets who succeed must mark a Stress.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./tormenting-lash/">Tormenting Lash</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to make a standard attack against all targets within Very Close range. When a target uses armor to reduce damage from this attack, they must mark 2 Armor Slots.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./trample/">Trample</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against all targets in the Construct’s path when they move. Targets the Construct succeeds against take <strong>1d8</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./trample/">Trample</a></td>
+      <td>Solo</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against all targets in the Construct’s path when they move. Targets the Construct succeeds against take <strong>1d8</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./uncanny-reflexes/">Uncanny Reflexes</a></td>
+      <td>Solo</td>
+      <td><p>When the Flickerfly takes damage from an attack within Close range, you can mark a Stress to take half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./vengeful-fate/">Vengeful Fate</a></td>
+      <td>Solo</td>
+      <td><p>When the Oracle marks HP from an attack within Very Close range, you can <strong>mark a Stress</strong> to knock the attacker back to Far range and deal <strong>2d10+4</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./volcanic-breath/">Volcanic Breath</a></td>
+      <td>Solo</td>
+      <td><p>When the Molten Scourge takes Major damage, roll a <strong>d10</strong>. On a result of 8 or higher, the Molten Scourge breathes a flow of lava in front of them within Far range. All targets in that area must make an Agility Reaction Roll. Targets who fail take <strong>2d10+4</strong> physical damage, mark <strong>1d4</strong> Stress, and are Vulnerable until they clear a Stress. Targets who succeed take half damage and must mark a Stress.</p><p>@Template[type:inFront|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./walls-closing-in/">Walls Closing In</a></td>
+      <td>Solo</td>
+      <td><p>When a creature rolls a failure while within Very Far range of the Oracle, they must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./weak-structure/">Weak Structure</a></td>
+      <td>Solo</td>
+      <td><p>When the Construct marks HP from physical damage, they must mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./whirlwind/">Whirlwind</a></td>
+      <td>Solo</td>
+      <td><p><strong>Spend a Fear</strong> to whirl, making an attack against all targets within Very Close range. Targets the Flickerfly succeeds against take <strong>3d8</strong> direct physical damage.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./armor-shredding-shards/">Armor-Shredding Shards</a></td>
+      <td>Standard</td>
+      <td><p>On a successful attack within Melee range against the Snake, the attacker must mark an Armor Slot without receiving its benefits (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./blade-of-the-forest/">Blade of the Forest</a></td>
+      <td>Standard</td>
+      <td><p><strong>Spend a Fear</strong> to make an attack against all targets within Very Close range. Targets the Knight succeeds against take physical damage equal to <strong>[[/r 3d4]]</strong> + the target’s Major threshold.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./blend-in/">Blend In</a></td>
+      <td>Standard</td>
+      <td><p>When the Soldier makes a successful attack, you can <strong>mark a Stress</strong> to become Hidden until the Soldier’s next attack or a PC succeeds on an Instinct Roll (14) to find them.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./climber/">Climber</a></td>
+      <td>Standard</td>
+      <td><p>The Bandit climbs just as easily as they run.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./detain/">Detain</a></td>
+      <td>Standard</td>
+      <td><p>Make an attack against a target within Very Close range. On a success, <strong>mark a Stress</strong> to Restrain the target until they break free with a successful attack, Finesse Roll, or Strength Roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./draining-bite/">Draining Bite</a></td>
+      <td>Standard</td>
+      <td><p>Make an attack against a target within Melee range. On a success, deal <strong>5d4</strong> physical damage. A target who marks HP from this attack loses a Hope and must mark a Stress. The Vampire then clears a HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./fall-back/">Fall Back</a></td>
+      <td>Standard</td>
+      <td><p>When a creature moves into Melee range to make an attack, you can <strong>mark a Stress</strong> before the attack roll to move anywhere within Close range and make an attack against that creature. On a success, deal <strong>1d10+2</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./forest-control/">Forest Control</a></td>
+      <td>Standard</td>
+      <td><p><strong>Spend a Fear</strong> to pull down a tree within Close range. A creature hit by the tree must succeed on an Agility Reaction Roll (15) or take <strong>1d10</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./from-above/">From Above</a></td>
+      <td>Standard</td>
+      <td><p>When the Bandit succeeds on a standard attack from above a target, they deal <strong>1d10+1</strong> physical damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./from-above/">From Above</a></td>
+      <td>Standard</td>
+      <td><p>When the Bandit succeeds on a standard attack from above a target, they deal <strong>1d10+1</strong> physical damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ghost/">Ghost</a></td>
+      <td>Standard</td>
+      <td><p>The Guardian has resistance to physical damage. <strong>Mark a Stress</strong> to move up to Close range through solid objects.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./ghost-blade/">Ghost Blade</a></td>
+      <td>Standard</td>
+      <td><p><strong>Spend a Fear</strong> to make an attack against a target within Very Close range. On a success, deal <strong>2d10+6</strong> physical damage and the target must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./horrifying/">Horrifying</a></td>
+      <td>Standard</td>
+      <td><p>Targets who mark HP from the Zombie’s attacks must also mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./lurching-lunge/">Lurching Lunge</a></td>
+      <td>Standard</td>
+      <td><p><strong>Mark a Stress</strong> to spotlight the Experiment as an additional GM move instead of spending Fear.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./maintain-distance/">Maintain Distance</a></td>
+      <td>Standard</td>
+      <td><p>After making a standard attack, the Harrier can move anywhere within Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./mistform/">Mistform</a></td>
+      <td>Standard</td>
+      <td><p>When the Vampire takes physical damage, you can <strong>spend a Fear</strong> to take half damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./only-bones/">Only Bones</a></td>
+      <td>Standard</td>
+      <td><p>The Warrior is resistant to physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./overwhelm/">Overwhelm</a></td>
+      <td>Standard</td>
+      <td><p>When a target the Experiment attacks has other adversaries within Very Close range, the Experiment deals double damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./overwhelm/">Overwhelm</a></td>
+      <td>Standard</td>
+      <td><p>When a target the Experiment attacks has other adversaries within Very Close range, the Experiment deals double damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./pack-tactics/">Pack tactics</a></td>
+      <td>Standard</td>
+      <td><p>If the Soldier makes a standard attack and another Sylvan Soldier is within Melee range of the target, deal <strong>1d8+5</strong> physical damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./reinforce/">Reinforce</a></td>
+      <td>Standard</td>
+      <td><p><strong>Mark a Stress</strong> to move into Melee range of an ally and make a standard attack against a target within Very Close range. On a success, deal <strong>2d10+2</strong> physical damage and the ally can clear a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shield-wall/">Shield Wall</a></td>
+      <td>Standard</td>
+      <td><p>A creature who tries to move within Very Close range of the Guard must succeed on an Agility Roll. If additional Bladed Guards are standing in a line alongside the f i rst, and each is within Melee range of another guard in the line, the Diffi  culty increases by the total number of guards in that line.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./spinning-serpent/">Spinning Serpent</a></td>
+      <td>Standard</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against all targets within Very Close range. Targets the Snake succeeds against take <strong>1d6+1</strong> physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./spitter/">Spitter</a></td>
+      <td>Standard</td>
+      <td><p><strong>Spend a Fear</strong> to introduce a <strong>d6</strong> Spitter Die. When the Snake is in the spotlight, roll this die. On a result of 5 or higher, all targets in front of the Snake within Far range must succeed on an Agility Reaction Roll or take <strong>1d4</strong> physical damage. The Snake can take the spotlight a second time this GM turn.</p><p>@Template[type:inFront|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./thorny-armor/">Thorny Armor</a></td>
+      <td>Standard</td>
+      <td><p>When the Knight takes damage from an attack within Melee range, you can <strong>mark a Stress</strong> to deal <strong>1d10+5</strong> physical damage to the attacker.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./too-many-to-handle/">Too Many to Handle</a></td>
+      <td>Standard</td>
+      <td><p>When the Zombie is within Melee range of a creature and at least one other Zombie is within Close range, all attacks against that creature have advantage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./unseen-strike/">Unseen Strike</a></td>
+      <td>Standard</td>
+      <td><p>If the Sniper is <em>Hidden</em> when they make a successful standard attack against a target, they deal <strong>1d10+4</strong> physical damage instead of their standard damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./vassal-s-loyalty/">Vassal's Loyalty</a></td>
+      <td>Standard</td>
+      <td><p>When the Soldier is within Very Close range of a knight or other noble who would take damage, you can mark a Stress to move into Melee range of them and take the damage instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./warped-fortitude/">Warped Fortitude</a></td>
+      <td>Standard</td>
+      <td><p>The Experiment is resistant to physical damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./won-t-stay-dead/">Won't Stay Dead</a></td>
+      <td>Standard</td>
+      <td><p>When the Warrior is defeated, you can spotlight them and roll a <strong>d6</strong>. On a result of 6, if there are other adversaries on the battlefi eld, the Warrior re-forms with no marked HP.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./blocking-shield/">Blocking Shield</a></td>
+      <td>Support</td>
+      <td><p>Creatures within Melee range of the Gaoler have disadvantage on attack rolls against them. Creatures trapped inside the Gaoler are immune to this feature.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./chaotic-flux/">Chaotic Flux</a></td>
+      <td>Support</td>
+      <td><p>Make an attack against up to three targets within Very Close range. <strong>Mark a Stress</strong> to deal <strong>2d6+3</strong> magic damage to targets the Hexer succeeded against.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./conflagration/">Conflagration</a></td>
+      <td>Support</td>
+      <td><p><strong>Spend a Fear</strong> to unleash an all-consuming f i restorm and make an attack against all targets within Close range. Targets the Sorcerer succeeds against take <strong>2d10+6</strong> direct magic damage.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./curse/">Curse</a></td>
+      <td>Support</td>
+      <td><p>Choose a target within Far range and temporarily Curse them. While the target is Cursed, you can <strong>mark a Stress</strong> when that target rolls with Hope to make the roll be with Fear instead.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./disgorge-realiy-flotsam/">Disgorge Realiy Flotsam</a></td>
+      <td>Support</td>
+      <td><p><strong>Mark a Stress</strong> to spew partially digested portions of consumed realities at all targets within Close range. Targets must succeed on a Knowledge Reaction Roll or mark 2 Stress.</p><p>@Template[type:emanation|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./drowning-embrace/">Drowning Embrace</a></td>
+      <td>Support</td>
+      <td><p><strong>Spend a Fear</strong> to make an attack against all targets within Very Close range. Targets the Elemental succeeds against become <em>Restrained</em> and <em>Vulnerable</em> as they begin drowning. A target can break free, ending both conditions, with a successful Strength or Instinct Roll.</p><p>@Template[type:emanation|range:vc]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./enervating-blast/">Enervating Blast</a></td>
+      <td>Support</td>
+      <td><p><strong>Spend a Fear</strong> to make a standard attack against a target within range. On a success, the target must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./fear-is-fuel/">Fear Is Fuel</a></td>
+      <td>Support</td>
+      <td><p> Twice per scene, when a PC rolls a failure with Fear, clear a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./high-tide/">High Tide</a></td>
+      <td>Support</td>
+      <td><p>When the Elemental makes a successful standard attack, you can <strong>mark a Stress</strong> to knock the target back to Close range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./lock-up/">Lock Up</a></td>
+      <td>Support</td>
+      <td><p><strong>Mark a Stress</strong> to make an attack against a target within Very Close range. On a success, the target is <em>Restrained</em> within the Gaoler until freed with a successful Strength Roll (18). While <em>Restrained</em>, the target can only attack the Gaoler. </p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./money-is-time/">Money Is Time</a></td>
+      <td>Support</td>
+      <td><p><strong>Spend 3 handfuls of gold (or a Fear)</strong> to spotlight [[/r 1d4+1]] allies.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./money-talks/">Money Talks</a></td>
+      <td>Support</td>
+      <td><p>Attacks against the Demon are made with disadvantage unless the attacker spends a handful of gold. This Demon starts with a number of handfuls equal to the number of PCs. When a target marks HP from the Demon’s standard attack, they can spend a handful of gold instead of marking HP (1 handful per HP). Add a handful of gold to the Demon for each handful of gold spent by PCs on this feature.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./nightmare-tableau/">Nightmare Tableau</a></td>
+      <td>Support</td>
+      <td><p><strong>Mark a Stress</strong> to trap a target within Far range in a powerful illusion of their worst fears. While trapped, the target is <em>Restrained</em> and <em>Vulnerable</em> until they break free, ending both conditions, with a successful Instinct Roll.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./number-must-go-up/">Number Must Go Up</a></td>
+      <td>Support</td>
+      <td><p>Add a bonus to the Demon’s attack rolls equal to the number of handfuls of gold they have.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shackles-of-guilt/">Shackles of Guilt</a></td>
+      <td>Support</td>
+      <td><p>Countdown (Loop 2d6). When the Sorcerer is in the spotlight for the first time, activate the countdown. When it triggers, all targets within Far range become Vulnerable and must mark a Stress as they relive their greatest regrets. A target can break free from their regret with a successful Presence or Strength Roll. When a PC fails to break free, they lose a Hope.</p><p>@Template[type:emanation|range:f]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shadow-shackles/">Shadow Shackles</a></td>
+      <td>Support</td>
+      <td><p><strong>Spend a Fear</strong> and choose a point within Far range. All targets within Close range of that point are <em>Restrained</em> in smoky chains until they break free with a successful Strength or Instinct Roll. A target Restrained by this feature must spend a Hope to make an action roll.</p><p>@Template[type:circle|range:c]</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./shroud-of-the-fallen/">Shroud of the Fallen</a></td>
+      <td>Support</td>
+      <td><p><strong>Mark a Stress</strong> to wrap an ally within Close range in a shroud of Protection until the Adept marks their last HP. While Protected, the target has resistance to all damage.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./slippery/">Slippery</a></td>
+      <td>Support</td>
+      <td><p>When the Sorcerer takes damage from an attack, they can teleport up to Far range.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./water-jet/">Water Jet</a></td>
+      <td>Support</td>
+      <td><p><strong>Mark a Stress</strong> to attack a target within Very Close range. On a success, deal <strong>2d4+7</strong> physical damage and the target’s next action has disadvantage. On a failure, the target must mark a Stress.</p></td>
+    </tr>
+
+    <tr>
+      <td><a href="./will-shattering-touch/">Will-Shattering Touch</a></td>
+      <td>Support</td>
+      <td><p>When a PC takes damage from the Corrupter, they lose a Hope.</p></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<hr />
+<blockquote>
+<p>Click any name to view full details.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.sections", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../js/table-filter.js"></script>
+      
+    
+  </body>
+</html>

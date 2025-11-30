@@ -1,0 +1,1412 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://knightweaver.github.io/cybermancy/player/world/corps/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../communities/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Megacorps - Cybermancy — Player Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/items.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#megacorps" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cybermancy — Player Guide" class="md-header__button md-logo" aria-label="Cybermancy — Player Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cybermancy — Player Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Megacorps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cybermancy — Player Guide" class="md-nav__button md-logo" aria-label="Cybermancy — Player Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cybermancy — Player Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybermancy rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    World
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Megacorps
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Megacorps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#astravail-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AstraVail Technologies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#black-helix-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Black Helix Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chimeragene-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChimeraGene Solutions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominion-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dominion Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helion-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helion Dynamics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helios-biotech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helios Biotech
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kirin-logistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kirin Logistics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neuracore-industries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Neuracore Industries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omnitrine-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OmniTrine Communications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verdant-biomech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verdant Biomech
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vesper-syndicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vesper Syndicate
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/pcs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PCs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/locations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Locations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/npcs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known NPCs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Items
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/ammo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ammo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/armors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Armors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/consumables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consumables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/cybernetics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybernetics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/drones-mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drones & Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/loot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/weapons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weapons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/tier-1-items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    All Tier 1 Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/domains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/subclasses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subclasses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#astravail-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AstraVail Technologies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#black-helix-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Black Helix Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chimeragene-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChimeraGene Solutions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dominion-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dominion Systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helion-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helion Dynamics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helios-biotech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Helios Biotech
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kirin-logistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kirin Logistics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neuracore-industries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Neuracore Industries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omnitrine-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OmniTrine Communications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verdant-biomech" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verdant Biomech
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vesper-syndicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vesper Syndicate
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="megacorps">Megacorps<a class="headerlink" href="#megacorps" title="Permanent link">&para;</a></h1>
+<p>In the aftermath of the Razz, the nation-states of the world fell into insolvency and chaos.  Oh, the still exist, they are just irrelevant.  The real power of the world is in the megacorps and below are some of the biggest, baddest corpos in the Cybermancy world today. </p>
+<hr />
+<p><img alt="astravail-technologies.webp" src="../../assets/icons/corps/astravail-technologies.webp" /></p>
+<h3 id="astravail-technologies"><strong>AstraVail Technologies</strong><a class="headerlink" href="#astravail-technologies" title="Permanent link">&para;</a></h3>
+<p>Aerospace innovators turned data smugglers, AstraVail builds the drones, satellites, and suborbital platforms that keep the global network running. Officially, they provide “logistics for the upper atmosphere.” Unofficially, their orbital relays double as black-market data vaults, renting secure bandwidth to clients who prefer their secrets stay above the law.</p>
+<blockquote>
+<p><em>“Used to be sky cowboys. Now they’re smugglers with badges. If you want your data to disappear, they’ll fly it into orbit and swear it never existed. Just don’t forget—AstraVail keeps a backup of everything. Insurance, they call it. Blackmail, I call it.”</em></p>
+</blockquote>
+<hr />
+<p><img alt="black-helix-security.webp" src="../../assets/icons/corps/black-helix-security.webp" /></p>
+<h3 id="black-helix-security"><strong>Black Helix Security</strong><a class="headerlink" href="#black-helix-security" title="Permanent link">&para;</a></h3>
+<p>Mercenary outfit turned privatized justice system. Black Helix contracts to governments, corps, and syndicates alike, deploying augmentation-enhanced operatives with loyalty hard-coded through neural implants. They brand themselves as <em>“law without politics.”</em> Their agents are everywhere—faceless, silent, efficient—and when the sirens fail, Black Helix arrives first.</p>
+<blockquote>
+<p><em>“Private cops with god complexes. Ex-mil augmented until they don’t blink anymore. Helix sells law by the bullet, and their clients pay by the body. When you see that black spiral patch, run or hide—doesn’t matter which. Either way, you’re already in someone’s jurisdiction.”</em></p>
+</blockquote>
+<hr />
+<p><img alt="chimeragene-solutions.webp" src="../../assets/icons/corps/chimeragene-solutions.webp" /></p>
+<h3 id="chimeragene-solutions"><strong>ChimeraGene Solutions</strong><a class="headerlink" href="#chimeragene-solutions" title="Permanent link">&para;</a></h3>
+<p>A boutique biotech firm catering to the body modification elite. Their designer genomes promise not just health, but identity—scales that shimmer, blood that glows, pheromones tuned for influence. ChimeraGene insists it doesn’t sell weapons, only <em>self-expression at the molecular level.</em> The line between art and augmentation grows thinner with every client.</p>
+<blockquote>
+<p><em>“They sell vanity as evolution. You pay enough, they’ll rewrite your DNA until you look like a myth or a nightmare. Half the corpo execs walking around with gills and chrome eyes? Chimera’s work. Pretty, sure—but you don’t know where that code came from, or what it’s whispering to your cells at night.”</em></p>
+</blockquote>
+<hr />
+<p><img alt="dominion-systems.webp" src="../../assets/icons/corps/dominion-systems.webp" /></p>
+<h3 id="dominion-systems"><strong>Dominion Systems</strong><a class="headerlink" href="#dominion-systems" title="Permanent link">&para;</a></h3>
+<p>The world’s foremost defense contractor and enforcer of global security standards, Dominion Systems supplies everything from urban peacekeeping drones to orbital deterrence platforms. Their public charter claims a single mission: <em>to predict and prevent conflict before it begins.</em> Dominion’s predictive systems are embedded across every major city, ensuring safety through foresight. Critics call it surveillance; Dominion calls it <em>peace through precision.</em></p>
+<hr />
+<p><img alt="helion-dynamics.webp" src="../../assets/icons/corps/helion-dynamics.webp" /></p>
+<h3 id="helion-dynamics"><strong>Helion Dynamics</strong><a class="headerlink" href="#helion-dynamics" title="Permanent link">&para;</a></h3>
+<p>Helion Dynamics powers the modern world—literally. The company’s atmospheric regulators, mana-reactors, and fusion grids supply most of the megacities with clean, stable energy. They claim to “stabilize tomorrow,” converting the unpredictable resonance storms left by the Event into usable power. To the public, Helion represents progress—humanity’s will harnessing the forces of nature.</p>
+<hr />
+<p><img alt="helios-biotech.webp" src="../../assets/icons/corps/helios-biotech.webp" /></p>
+<h3 id="helios-biotech"><strong>Helios Biotech</strong><a class="headerlink" href="#helios-biotech" title="Permanent link">&para;</a></h3>
+<p>Helios Biotech stands at the edge of evolution, merging biology and divinity through living technology. Their public vision—<em>“To perfect the human form and illuminate the mind”</em>—guides research into neural empathy networks, regenerative bioware, and consciousness-linked genetics. Patients describe the company’s implants as <em>“feeling alive.”</em> Helios claims they merely help humanity rise to meet its potential; their critics say they’re trying to grow gods in glass.</p>
+<hr />
+<p><img alt="kirin-logistics.webp" src="../../assets/icons/corps/kirin-logistics.webp" /></p>
+<h3 id="kirin-logistics"><strong>Kirin Logistics</strong><a class="headerlink" href="#kirin-logistics" title="Permanent link">&para;</a></h3>
+<p>Kirin controls the arteries of the modern economy: autonomous freight convoys, smart ports, and orbital elevators. They market efficiency as morality—<em>“If everything moves, nothing collapses.”</em> Yet rumors persist that Kirin’s fleets carry more than goods. Entire dissident communities have vanished into sealed shipping containers bound for unknown destinations.</p>
+<blockquote>
+<p><em>“You ever wonder how corps move contraband, prisoners, or experimental tech without a single customs ping? Kirin’s how. They run the grid like blood through veins—quiet, constant, and full of secrets. If you see a convoy with that red crane logo, step aside. Whatever’s in there isn’t meant for daylight.”</em></p>
+</blockquote>
+<hr />
+<p><img alt="neuracore-industries.webp" src="../../assets/icons/corps/neuracore-industries.webp" /></p>
+<h3 id="neuracore-industries"><strong>Neuracore Industries</strong><a class="headerlink" href="#neuracore-industries" title="Permanent link">&para;</a></h3>
+<p>Neuracore stands at the frontier of human potential. Specializing in cybernetics, cognitive implants, and neural harmonization technology, the company’s motto—<em>“One Mind, Perfected”</em>—reflects its goal to unify biology and machine into seamless continuity. Their implants promise longer life, better focus, and emotional equilibrium. In Neuracore’s words, <em>chaos is only an untreated signal.</em></p>
+<hr />
+<p><img alt="omnitrine-communications.webp" src="../../assets/icons/corps/omnitrine-communications.webp" /></p>
+<h3 id="omnitrine-communications"><strong>OmniTrine Communications</strong><a class="headerlink" href="#omnitrine-communications" title="Permanent link">&para;</a></h3>
+<p>Information is civilization’s nervous system, and OmniTrine is its architect. Their integrated data lattice connects everything from personal devices to planetary archives, filtering misinformation and curating truth in real time. Through advanced semantic AI, OmniTrine ensures communication remains pure, safe, and <em>authentic.</em> For most citizens, their words flow through OmniTrine before they ever reach another human ear.</p>
+<hr />
+<p><img alt="verdant-biomech.webp" src="../../assets/icons/corps/verdant-biomech.webp" /></p>
+<h3 id="verdant-biomech"><strong>Verdant Biomech</strong><a class="headerlink" href="#verdant-biomech" title="Permanent link">&para;</a></h3>
+<p>Verdant Biomech promises a sustainable future built from living machines. They design self-healing crops, adaptive nanobot pollinators, and atmospheric purifiers that restore balance to the Earth’s ravaged ecosystems. Verdant’s green infrastructure underpins every arcology garden and agricultural district. Their vision is simple and seductive: <em>a world where life maintains itself.</em></p>
+<hr />
+<p><img alt="vesper-syndicate.webp" src="../../assets/icons/corps/vesper-syndicate.webp" /></p>
+<h3 id="vesper-syndicate"><strong>Vesper Syndicate</strong><a class="headerlink" href="#vesper-syndicate" title="Permanent link">&para;</a></h3>
+<p>Publicly, Vesper is a nightlife and entertainment conglomerate—clubs, streaming channels, and virtual experience hubs. In practice, it’s the largest distributor of psychoactive neurofeeds on the continent. Their immersive environments blur sensation and simulation, keeping populations docile, euphoric, and permanently tuned in. <em>Escape responsibly</em>, their ads say.</p>
+<blockquote>
+<p><em>“They don’t need chains or guns—just playlists. Whole generations wired into synthetic bliss while the world burns outside. Every hour you spend dancing in their VR clubs is another tick on someone else’s profit counter. Vesper keeps the lights low and the dopamine high—makes you forget what freedom used to feel like.”</em></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.sections", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../js/table-filter.js"></script>
+      
+    
+  </body>
+</html>
