@@ -44,6 +44,7 @@ nav:
       - Loot: items/loot.md
       - Mods: items/mods.md
       - Weapons: items/weapons.md
+      - All Tier 1 Items: items/tier-1-items.md
   - System:
       - Classes: system/classes.md
       - Domains: system/domains.md
