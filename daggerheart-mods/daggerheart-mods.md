@@ -15,7 +15,7 @@ In order for the Cybermancy new Domains to appear, requires 2 small changes to D
                     "description": "This is the domain of those that shoot bullets."
                 }
 
-Added to the Domain list at line 1757
+Added to the Domain list at line 1866 (Daggerheart version 1.2.7)
 
 /build/daggerheart.js
 
@@ -38,4 +38,4 @@ Added to the Domain list at line 1757
         description: 'DAGGERHEART.GENERAL.Domain.bullet.description'
     }
 
-Added to the Domain list at line 720
+Added to the Domain list at line 830 (Daggerheart version 1.2.7)
