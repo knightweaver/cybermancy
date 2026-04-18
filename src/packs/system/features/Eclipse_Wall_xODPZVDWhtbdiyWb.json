@@ -3,7 +3,7 @@
   "type": "feature",
   "img": "modules/cybermancy/assets/icons/ice/eclipse-wall.webp",
   "system": {
-    "description": "<i>The world outside goes silent—you’re inside the machine now.</i><br /><br /><p class=\"Card-Feature\">Cuts external connections; you are alone until it drops.</p>",
+    "description": "<p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\"><em style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">The world outside goes silent—you’re inside the machine now.</em></span></p><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\"><br style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\" /></span><span class=\"Card-Feature\" style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">The cognitive dissonance created by interacting with this ICE results in -2 on Evasion until you break this subroutine or disengage from the Device.</span></p>",
     "actions": {
       "Eclipse Wall": {
         "type": "effect",
@@ -76,8 +76,8 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762170911159,
-    "modifiedTime": 1762171308324,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1763855628742,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "xODPZVDWhtbdiyWb",
   "sort": -100000,

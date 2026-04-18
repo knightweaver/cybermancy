@@ -3,7 +3,7 @@
   "type": "feature",
   "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
   "system": {
-    "description": "<i>It speaks your syntax and calls you by your old handle.</i><br /><br /><p class=\"Card-Feature\">Spawns a self-aware daemon that hunts you across systems until destroyed or appeased.</p>",
+    "description": "<p><em>It speaks your syntax and calls you by your old handle.</em><br /><br /></p><p class=\"Card-Feature\">Spawns a self-aware daemon that hounds and taunts across systems until removed.</p><p></p><p>The ICE attempts to install a daemon on your computer.  As a Reaction, make a Spellcasting (Hacking) roll against the Difficulty of this ICE to prevent this installation.</p><p></p><p>If the daemon is successfully installed, all subsequent Spellcasting (Hacking) checks are at -2.  To remove the daemon, requires a Short Rest downtime activity.</p><p></p><p>While running the daemon provides running commentary on the deficiencies of your coding, hair cut, and life choices in the voice of an Italian grandmother.</p>",
     "actions": {
       "Daemon Host": {
         "type": "effect",
@@ -27,14 +27,42 @@
         "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
         "range": "",
         "_id": "N9g4t1fzqwsVjNPZ"
+      },
+      "N9g4t1fzqwsVjNPZ": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p></p><p><em>It speaks your syntax and calls you by your old handle.</em><br></p><p class=\"Card-Feature\">Spawns a self-aware daemon that hounds and taunts across systems until removed.</p><p></p><p>The ICE attempts to install a daemon on your computer.  As a Reaction, make a Spellcasting (Hacking) roll against the Difficulty of this ICE to prevent this installation.</p><p></p><p>If the daemon is successfully installed, all subsequent Spellcasting (Hacking) checks are at -2.  To remove the daemon, requires a Short Rest downtime activity.</p><p></p><p>While running the daemon provides running commentary on the deficiencies of your coding, hair cut, and life choices in the voice of an Italian grandmother.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Daemon Host",
+        "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
+        "range": "",
+        "_id": "N9g4t1fzqwsVjNPZ"
       }
     },
-    "resource": null,
+    "resource": {
+      "type": "simple",
+      "value": 12,
+      "max": "",
+      "icon": "fa-solid fa-microchip"
+    },
     "originItemType": null,
     "multiclassOrigin": false
   },
   "effects": [],
-  "folder": "BImGuescyJIB1rRt",
+  "folder": "m8XcfCKsOStlflZD",
   "ownership": {
     "default": 0,
     "9AtfWssIybpdSZVY": 3
@@ -48,10 +76,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762170911081,
-    "modifiedTime": 1762170990845,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1763905093045,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "u7enSq3jJfBbOqCn",
-  "sort": 1800000,
+  "sort": 400000,
   "_key": "!items!u7enSq3jJfBbOqCn"
 }

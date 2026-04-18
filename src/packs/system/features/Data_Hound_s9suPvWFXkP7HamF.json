@@ -3,7 +3,7 @@
   "type": "feature",
   "img": "modules/cybermancy/assets/icons/ice/data-hound.webp",
   "system": {
-    "description": "<i>A blinking icon follows you across subnets—and it’s learning.</i><br /><br /><p class=\"Card-Feature\">Marks and traces your signature, alerting other nodes as you move.</p>",
+    "description": "<p><em>A blinking icon follows you across subnets—and it’s learning.</em><br /><br /></p><p class=\"Card-Feature\"><strong>Spend 1 Fear</strong> to create a copy of this ICE to another device within Close and increase the Difficulty of the cloned ICE by 1</p>",
     "actions": {
       "Data Hound": {
         "type": "effect",
@@ -34,7 +34,7 @@
     "multiclassOrigin": false
   },
   "effects": [],
-  "folder": "BImGuescyJIB1rRt",
+  "folder": "m8XcfCKsOStlflZD",
   "ownership": {
     "default": 0,
     "9AtfWssIybpdSZVY": 3
@@ -48,10 +48,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762170911125,
-    "modifiedTime": 1762170990845,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1763905315331,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "s9suPvWFXkP7HamF",
-  "sort": 1700000,
+  "sort": 500000,
   "_key": "!items!s9suPvWFXkP7HamF"
 }

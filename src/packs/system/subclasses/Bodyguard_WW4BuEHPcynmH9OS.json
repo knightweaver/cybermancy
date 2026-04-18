@@ -34,7 +34,7 @@
     ],
     "featureState": 1,
     "isMulticlass": false,
-    "linkedClass": null
+    "linkedClass": "Compendium.cybermancy.cybermancy-classes.Item.XWaW4nZ0dMha0NUi"
   },
   "effects": [],
   "folder": null,
@@ -52,7 +52,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762206247061,
-    "modifiedTime": 1762206370558,
+    "modifiedTime": 1762658989792,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_key": "!items!WW4BuEHPcynmH9OS"

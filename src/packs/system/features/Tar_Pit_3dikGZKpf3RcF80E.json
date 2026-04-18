@@ -27,14 +27,42 @@
         "img": "modules/cybermancy/assets/icons/ice/tar-pit.webp",
         "range": "",
         "_id": "h14JelH6TyDzSaVv"
+      },
+      "h14JelH6TyDzSaVv": {
+        "type": "effect",
+        "systemPath": "actions",
+        "description": "<p><em>Your thoughts drag like they’re knee-deep in code molasses.</em><br></p><p class=\"Card-Feature\">Locks your interface until you force-disconnect or spend Hope to break free.</p><p></p><p>Spend 1 Hope <strong>before</strong> attempting any hacking action.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Tar Pit",
+        "img": "modules/cybermancy/assets/icons/ice/tar-pit.webp",
+        "range": "",
+        "_id": "h14JelH6TyDzSaVv"
       }
     },
-    "resource": null,
+    "resource": {
+      "type": "simple",
+      "value": 12,
+      "max": "",
+      "icon": "fa-solid fa-microchip"
+    },
     "originItemType": null,
     "multiclassOrigin": false
   },
   "effects": [],
-  "folder": "BImGuescyJIB1rRt",
+  "folder": "m8XcfCKsOStlflZD",
   "ownership": {
     "default": 0,
     "9AtfWssIybpdSZVY": 3
@@ -48,10 +76,10 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762170911580,
-    "modifiedTime": 1762170990845,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1763856263779,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "3dikGZKpf3RcF80E",
-  "sort": 300000,
+  "sort": 200000,
   "_key": "!items!3dikGZKpf3RcF80E"
 }

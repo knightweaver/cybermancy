@@ -2,6 +2,7 @@
 
 ## TO DOs for the one-shot:
  - Figure out how / where to place the item load out levels onto the items
+ - Generate an Environment for each of the scenes, at least for the System Alert behaviors
 
 ## TO DOs for the campaign:
  - Organize street rumors

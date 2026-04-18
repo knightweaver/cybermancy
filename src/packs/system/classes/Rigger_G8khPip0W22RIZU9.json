@@ -52,11 +52,11 @@
     "characterGuide": {
       "suggestedTraits": {
         "agility": 0,
-        "strength": 1,
-        "finesse": 1,
-        "instinct": 2,
-        "presence": 0,
-        "knowledge": 2
+        "strength": 0,
+        "finesse": 2,
+        "instinct": 1,
+        "presence": -1,
+        "knowledge": 1
       },
       "suggestedPrimaryWeapon": "Compendium.cybermancy.cybermancy-weapons.Item.E0RC00ZjLnDyztBz",
       "suggestedSecondaryWeapon": null,
@@ -80,8 +80,8 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762206575478,
-    "modifiedTime": 1762207089892,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1763495136021,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!G8khPip0W22RIZU9"
 }

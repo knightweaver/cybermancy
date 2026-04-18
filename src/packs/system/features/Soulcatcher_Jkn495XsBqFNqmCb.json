@@ -29,7 +29,12 @@
         "_id": "CGHfBidJUjGudJsY"
       }
     },
-    "resource": null,
+    "resource": {
+      "type": "simple",
+      "value": 0,
+      "max": "",
+      "icon": "fa-solid fa-microchip"
+    },
     "originItemType": null,
     "multiclassOrigin": false
   },
@@ -48,8 +53,8 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762170911562,
-    "modifiedTime": 1762170990845,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1763905782658,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Jkn495XsBqFNqmCb",
   "sort": 400000,

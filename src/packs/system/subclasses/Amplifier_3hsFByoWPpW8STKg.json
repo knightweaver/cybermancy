@@ -2,7 +2,7 @@
   "name": "Amplifier",
   "type": "subclass",
   "_id": "3hsFByoWPpW8STKg",
-  "img": "modules/cybermancy/assets/icons/subclasses/Amplifier.png",
+  "img": "modules/cybermancy/assets/icons/subclasses/amplifier.webp",
   "system": {
     "description": "<p><em>You believe chaos is not the enemy—it’s the engine. The Prometheus Cloud didn’t destroy the old world; it evolved it. Every surge of entropy, every collapse of structure, is another chance to grow something new. You are the frequency that pushes the system beyond stability, into transformation.</em></p><p><br /></p><p class=\"MsoNormal\"><em>Amplifiers channel the Resonance into explosive expressions of energy and emotion. They heighten reality’s volatility, magnifying both danger and possibility. When you act, probability curves toward drama—fires burn brighter, shots hit harder, and coincidences pile up into fate.</em></p><p><br /></p><p class=\"MsoNormal\"><em><strong>Philosophy:</strong> Entropy is evolution. The world improves through destruction and rebirth.<br /><strong>Drive:</strong> Ignite transformation through chaos and connection.</em></p><p><br /></p><p class=\"MsoNormal\"><em><strong>Narrative Hook:</strong> Amplifiers often become cult icons, revolutionaries, or chaos-artists. They believe the Resonance is alive—and they’re its favorite instrument.</em></p>",
     "spellcastingTrait": "presence",
@@ -56,7 +56,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1763004386004,
-    "modifiedTime": 1763005027984,
+    "modifiedTime": 1763164759241,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_key": "!items!3hsFByoWPpW8STKg"

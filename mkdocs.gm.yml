@@ -39,6 +39,7 @@ nav:
   - Adventures:
       - Adversaries: adventures/adversaries.md
       - NPC Actors: adventures/npc-actors.md
+      - PC Actors: adventures/pc-actors.md
       - Environments: adventures/environments.md
   - System:
       - Adversary Features: system/adversaries-features.md

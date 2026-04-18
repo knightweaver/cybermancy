@@ -2,7 +2,7 @@
   "name": "Dampener",
   "type": "subclass",
   "_id": "xTPCKDgfdmOxe5q4",
-  "img": "modules/cybermancy/assets/icons/subclasses/Dampener.png",
+  "img": "modules/cybermancy/assets/icons/subclasses/dampener.webp",
   "system": {
     "description": "<p>To you, chaos is noise—meaningless vibration that hides the true signal. The Prometheus Cloud shattered the lattice of reality, but you can still sense its intended structure. You hear the hum of stability beneath the static and dedicate yourself to restoring it.</p><p><br /></p><p class=\"MsoNormal\">Dampeners manipulate the field to filter, balance, and silence uncontrolled probability. They stabilize allies, suppress dangerous phenomena, and bring calm where others only see confusion. But the more control they impose, the more they risk cutting themselves off from the living rhythm of the Resonance itself.</p><p><br /></p><p class=\"MsoNormal\"><strong>Philosophy:</strong> Stability is strength. Chaos without form is suffering.<br /><strong>Drive:</strong> Contain, heal, and preserve coherence.</p>",
     "spellcastingTrait": "presence",
@@ -52,7 +52,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1763004810540,
-    "modifiedTime": 1763005030817,
+    "modifiedTime": 1763164769735,
     "lastModifiedBy": "9AtfWssIybpdSZVY"
   },
   "_key": "!items!xTPCKDgfdmOxe5q4"
