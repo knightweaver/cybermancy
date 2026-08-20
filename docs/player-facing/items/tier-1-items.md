@@ -150,9 +150,9 @@
 
 ---
 
-### Drone Mods
+### Drones and Devices
 
-<table id="drone-mods-table">
+<table id="drones-devices-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -161,9 +161,9 @@
     </tr>
   </thead>
   <tbody>
-{% for w in load_csv('../data/drone-mods.csv') if w.tier == '1' or w.tier == 'Tier 1' %}
+{% for w in load_csv('../data/drones-devices.csv') if w.tier == '1' or w.tier == 'Tier 1' %}
     <tr>
-      <td><a href="../drone-mods/{{ w.slug }}/">{{ w.slug }}</a></td>
+      <td><a href="../drones-devices/{{ w.slug }}/">{{ w.slug }}</a></td>
       <td>{{ w.description }}</td>
       <td>{{ w.tier }}</td>
     </tr>
