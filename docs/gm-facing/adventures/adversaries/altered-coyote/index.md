@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Altered Coyote
-
+<img src="../../../assets/images/adversaries/altered-coyote.png" alt="Altered Coyote" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A lean Cascade coyote marked by subtle Abraxan ritual corruption, hunting with an eerie collective intelligence that makes a gathering pack far more dangerous than any individual animal.

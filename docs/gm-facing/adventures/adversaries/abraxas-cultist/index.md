@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Abraxas Cultist
-
+<img src="../../../assets/images/adversaries/abraxas-cultist.png" alt="Abraxas Cultist" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A recognizably ordinary Seattle resident whose clothing and manner still reflect their former life, but whose flesh bears ritual cuts, deliberate mutilations, and the spiraling mark of Abraxas.

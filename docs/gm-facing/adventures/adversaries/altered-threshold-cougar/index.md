@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Altered Threshold Cougar
-
+<img src="../../../assets/images/adversaries/altered-threshold-cougar.png" alt="Altered Threshold Cougar" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A ritual-warped mountain cougar whose outline never quite agrees with itself: forelimbs double during a strike, shadows pool around its body, and it can vanish from one patch of darkness to emerge from another.

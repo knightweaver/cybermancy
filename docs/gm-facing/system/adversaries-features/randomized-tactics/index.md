@@ -5,7 +5,19 @@
 *<p>Mark a Stress and roll a <strong>d6</strong>. The Box uses the corresponding move:</p><ol><li><p><strong>Mana Beam</strong></p></li><li><p><strong>Fire Jets</strong></p></li><li><p><strong>Trample</strong></p></li><li><p><strong>Shocking Gas</strong></p></li><li><p><strong>Stunning Clap</strong></p></li><li><p><strong>Psionic Whine</strong></p></li></ol>*
 
 ## Actions
-- <div markdown='1'>**Roll d6**<br>*Mana BeamFire JetsTrampleShocking GasStunning ClapPsionic Whine*</div>
+- <div markdown='1'>**Roll d6**<br>*
+
+Mana Beam
+
+Fire Jets
+
+Trample
+
+Shocking Gas
+
+Stunning Clap
+
+Psionic Whine*</div>
 
 ---
 

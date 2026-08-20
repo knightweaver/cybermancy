@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Mireborn Thrall Foreman
-
+<img src="../../../assets/images/adversaries/mireborn-thrall-enforcer.webp" alt="Mireborn Thrall Foreman" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A large corpse, decay-bloated and angry.

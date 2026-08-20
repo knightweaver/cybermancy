@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Abraxas modified Deer
-
+<img src="../../../assets/images/adversaries/abraxas-modified-deer.png" alt="Abraxas modified Deer" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A once-natural deer twisted by Abraxan ritual bleed, with blackened branching antlers, ember-lit eyes, and a violent compulsion to charge anything that shows fear.

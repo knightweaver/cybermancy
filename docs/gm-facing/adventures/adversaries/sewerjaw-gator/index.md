@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Sewerjaw Gator
-
+<img src="../../../assets/images/adversaries/sewerjaw-gator.png" alt="Sewerjaw Gator" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A mutated sewer alligator that ambushes prey in Seattle's underground drainage network.

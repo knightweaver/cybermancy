@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Pierjaw Crab
-
+<img src="../../../assets/images/adversaries/pierjaw-crab.webp" alt="Pierjaw Crab" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 Huge resonance-mutated crustaceans used by Bella as living shock troops.

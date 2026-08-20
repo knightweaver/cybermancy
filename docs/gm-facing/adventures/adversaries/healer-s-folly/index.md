@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Healer's Folly
-
+<img src="../../../assets/images/adversaries/healers-folly.png" alt="Healer's Folly" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A lush mountain shrub crowned by an enormous spectacular flower. Its nectar is restorative, but four powerful vines defend the bloom.

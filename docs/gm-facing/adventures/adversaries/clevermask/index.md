@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Clevermask
-
+<img src="../../../assets/images/adversaries/clevermask.png" alt="Clevermask" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 An ordinary-looking Cascade raccoon whose bright eyes and precise forepaw gestures reveal startling intelligence. It is curious rather than hostile and flees from violence.

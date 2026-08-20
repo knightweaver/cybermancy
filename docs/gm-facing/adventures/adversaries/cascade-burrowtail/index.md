@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Cascade Burrowtail
-
+<img src="../../../assets/images/adversaries/cascade-burrowtail.png" alt="Cascade Burrowtail" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A fluffy, curious Cascade squirrel or chipmunk whose harmless appearance hides backward-hooked teeth and a horrific instinct to burrow into living flesh.

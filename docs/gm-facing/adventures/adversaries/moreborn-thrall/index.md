@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Moreborn Thrall
-
+<img src="../../../assets/images/adversaries/mireborn-thrall-group.webp" alt="Moreborn Thrall" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 Dock workers whose minds have been overwritten by Bella's influence. They move and fight with eerie coordination.

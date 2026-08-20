@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Raz Eels
-
+<img src="../../../assets/images/adversaries/raz-eel-pack.webp" alt="Raz Eels" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 Resonance-mutated electric eels drawn to strong emotions and psychic disturbances.

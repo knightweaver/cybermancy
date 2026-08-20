@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Liminal Research Drone
-
+<img src="../../../assets/images/adversaries/liminal-research-drone.png" alt="Liminal Research Drone" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 Former laboratory assistants transformed into silent coordinated servants of the Prometheus Shard.

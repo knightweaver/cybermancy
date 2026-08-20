@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Abraxas Cult Leader
-
+<img src="../../../assets/images/adversaries/abraxas-cult-leader.png" alt="Abraxas Cult Leader" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A hulking troll-like hierophant transformed by prolonged communion with Abraxas. Massive tusk-like fangs jut from a wide mouth, ritual scars crawl across their flesh, and violence sends them into visible ecstasy.

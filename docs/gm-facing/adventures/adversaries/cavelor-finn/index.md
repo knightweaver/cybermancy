@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Cavelor Finn
-
+<img src="../../../assets/images/adversaries/cavelor-finn.png" alt="Cavelor Finn" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A lean half-elf assassin who treats observation as the real job and violence as an optional conclusion. Finn works from prepared hides with suppressed weapons, custom toxins, and multiple escape routes, refusing any fight that becomes fair.

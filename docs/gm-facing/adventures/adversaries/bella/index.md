@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Bella
-
+<img src="../../../assets/images/adversaries/bella-in-transport-tank.webp" alt="Bella" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 (No description yet.)

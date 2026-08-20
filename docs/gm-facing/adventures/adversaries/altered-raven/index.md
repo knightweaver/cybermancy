@@ -1,6 +1,6 @@
 <div class="adversary" markdown="1">
 # Altered Raven
-
+<img src="../../../assets/images/adversaries/altered-raven.png" alt="Altered Raven" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor" markdown="1">
 A Pacific Northwest raven warped by Abraxan ritual bleed, its black feathers traced with faint ember-red spiral corruption and its calls carrying impossible echoes of human voices.
