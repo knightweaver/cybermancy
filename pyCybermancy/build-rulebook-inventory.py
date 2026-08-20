@@ -32,8 +32,8 @@ from pathlib import Path
 from typing import Iterable
 from urllib.parse import unquote, urlparse
 
-SCRIPT_VERSION = "0.2.1"
-SCHEMA_VERSION = "cybermancy-rulebook-inventory-v0.2.1"
+SCRIPT_VERSION = "0.2.2"
+SCHEMA_VERSION = "cybermancy-rulebook-inventory-v0.2.2"
 GENERATOR = "pyCybermancy/generate-docs.py"
 
 DEFAULT_EXCLUDED_DIRS = {
@@ -131,6 +131,9 @@ class InventoryItem:
     nav_paths: list[str] = field(default_factory=list)
     size_bytes: int = 0
     sha256: str = ""
+    foundry_record_type: str = ""
+    organizational: bool = False
+    known_exceptions: list[str] = field(default_factory=list)
     review_flags: list[str] = field(default_factory=list)
 
 
@@ -173,6 +176,47 @@ def extract_headings(text: str) -> list[dict]:
         {"level": len(m.group(1)), "text": clean_heading(m.group(2))}
         for m in RE_HEADING.finditer(text)
     ]
+
+
+def is_foundry_folder_obj(obj: object) -> bool:
+    """Return True for Foundry VTT folder records unpacked into JSON.
+
+    Foundry pack-folder records use a canonical `_key` beginning with
+    `!folders!`. Their other fields can resemble Item records, so `_key`
+    is the reliable discriminator.
+    """
+    return isinstance(obj, dict) and str(obj.get("_key") or "").startswith("!folders!")
+
+
+def parse_json_object(text: str | None) -> dict | None:
+    if not text:
+        return None
+    try:
+        obj = json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        return None
+    return obj if isinstance(obj, dict) else None
+
+
+def is_templated_target(target: str) -> bool:
+    """MkDocs/Jinja links are templates, not literal filesystem dependencies."""
+    return "{{" in target or "{%" in target
+
+
+def should_require_h1(rel: str) -> bool:
+    """H1 is publication QA, not a Markdown syntax requirement.
+
+    Require it only for standalone Markdown pages in the docs publication
+    trees. Repository notes, generator sources, snippets, and other Markdown
+    inputs are not automatically errors merely because they omit H1.
+    """
+    p = Path(rel)
+    if p.suffix.lower() not in {".md", ".markdown"}:
+        return False
+    parts = p.parts
+    return len(parts) >= 3 and parts[0] == "docs" and parts[1] in {
+        "player-facing", "gm-facing", "_shared"
+    }
 
 
 def strip_fragment_query(target: str) -> str:
@@ -431,10 +475,14 @@ def scan_text_features(rel: str, text: str, root: Path, sites: dict[str, SiteCon
         features.append("raw-html")
 
     unresolved: list[str] = []
+    known_exceptions: list[str] = []
     resolved_dependencies: list[str] = []
 
     normal_deps = unique_sorted(transclusions + includes + images + internal_links)
     for dep in normal_deps:
+        if is_templated_target(dep):
+            known_exceptions.append("templated-local-dependency")
+            continue
         resolved, exists = resolve_local_dependency(rel, dep, root)
         if resolved:
             resolved_dependencies.append(resolved)
@@ -458,7 +506,7 @@ def scan_text_features(rel: str, text: str, root: Path, sites: dict[str, SiteCon
 
     wc = len(RE_WORD.findall(strip_markup_for_word_count(text)))
     flags = list(unresolved)
-    if suffix in {".md", ".markdown"} and not title:
+    if should_require_h1(rel) and not title:
         flags.append("missing-h1-title")
     if suffix in {".md", ".markdown"} and wc < 12:
         flags.append("stub-document")
@@ -483,6 +531,7 @@ def scan_text_features(rel: str, text: str, root: Path, sites: dict[str, SiteCon
         "mkdocs_features": unique_sorted(features),
         "normalization_flags": unique_sorted(normalization_flags),
         "generator_owner": generator_owner,
+        "known_exceptions": unique_sorted(known_exceptions),
         "review_flags": unique_sorted(flags),
     }
 
@@ -544,32 +593,65 @@ def generated_output_info(rel: str, root: Path, generator_types: dict[str, str])
     return False, ""
 
 
-def read_source_entities(root: Path, kind: str, type_key: str) -> dict[str, str]:
-    """Return {slug: source_path} for non-folder entities consumed by generate-docs."""
+def read_source_records(root: Path, kind: str, type_key: str) -> tuple[dict[str, str], dict[str, str]]:
+    """Return (publication entities, Foundry folder records) keyed by slug."""
     base = root / "src" / "packs" / kind / type_key
     entities: dict[str, str] = {}
+    folders: dict[str, str] = {}
     if not base.exists():
-        return entities
+        return entities, folders
     for p in sorted(base.rglob("*.json")):
         try:
             obj = json.loads(p.read_text(encoding="utf-8"))
         except Exception:
             continue
-        key = str(obj.get("_key") or "")
-        if "folders" in key:
-            continue
         name = obj.get("name")
         if not name:
             continue
-        entities[slugify(str(name))] = norm_rel(p, root)
+        slug = slugify(str(name))
+        if is_foundry_folder_obj(obj):
+            folders[slug] = norm_rel(p, root)
+            continue
+        entities[slug] = norm_rel(p, root)
+    return entities, folders
+
+
+def read_source_entities(root: Path, kind: str, type_key: str) -> dict[str, str]:
+    """Backward-compatible publication-entity view used by callers."""
+    entities, _folders = read_source_records(root, kind, type_key)
     return entities
+
+
+def discover_foundry_folders(root: Path, generator_types: dict[str, str]) -> dict[str, dict[str, str]]:
+    """Map generator type -> {folder_slug: source_path} for Foundry folder JSON."""
+    out: dict[str, dict[str, str]] = {}
+    for type_key, kind in generator_types.items():
+        _entities, folders = read_source_records(root, kind, type_key)
+        out[type_key] = folders
+    return out
+
+
+def icon_dependency_type_slug(dep: str) -> tuple[str, str] | None:
+    """Infer generator type and basename slug from an assets/icons dependency."""
+    target = unquote(strip_fragment_query(html.unescape(dep))).replace("\\", "/")
+    marker = "assets/icons/"
+    if marker not in target:
+        return None
+    rest = target.split(marker, 1)[1].strip("/")
+    parts = [p for p in rest.split("/") if p]
+    if len(parts) < 2:
+        return None
+    type_key = parts[0]
+    slug = slugify(Path(parts[-1]).stem)
+    return type_key, slug
 
 
 def reconcile_generator_outputs(root: Path, generator_types: dict[str, str]) -> list[dict]:
     rows: list[dict] = []
     for type_key, kind in sorted(generator_types.items()):
-        entities = read_source_entities(root, kind, type_key)
+        entities, folders = read_source_records(root, kind, type_key)
         expected = set(entities)
+        folder_slugs = set(folders)
         section = "items" if kind == "items" else "system"
         for audience in ("player-facing", "gm-facing"):
             out_base = root / "docs" / audience / section / type_key
@@ -580,15 +662,18 @@ def reconcile_generator_outputs(root: Path, generator_types: dict[str, str]) -> 
                 for p in out_base.glob("*/index.md")
                 if p.is_file()
             }
+            organizational = sorted((actual - expected) & folder_slugs)
             missing = sorted(expected - actual)
-            orphan = sorted(actual - expected)
+            orphan = sorted(actual - expected - folder_slugs)
             rows.append({
                 "audience": "player" if audience == "player-facing" else "gm",
                 "type": type_key,
                 "kind": kind,
                 "source_entities": len(expected),
+                "foundry_folders": len(folder_slugs),
                 "generated_pages": len(actual),
                 "missing_generated_pages": missing,
+                "organizational_generated_pages": organizational,
                 "orphan_generated_pages": orphan,
             })
     return rows
@@ -609,7 +694,7 @@ def classify_authorship(text: str | None, kind: str, generated_output: bool) -> 
 def add_title_collision_flags(items: list[InventoryItem]) -> list[dict]:
     title_map: dict[str, list[InventoryItem]] = defaultdict(list)
     for item in items:
-        if item.kind == "document" and item.title:
+        if item.kind == "document" and item.title and not item.organizational:
             title_map[item.title.casefold()].append(item)
 
     collisions: list[dict] = []
@@ -645,6 +730,7 @@ def add_title_collision_flags(items: list[InventoryItem]) -> list[dict]:
 def build_inventory(root: Path) -> dict:
     sites, config_warnings = parse_mkdocs_configs(root)
     generator_types = discover_generator_types(root)
+    foundry_folders = discover_foundry_folders(root, generator_types)
     reconciliation = reconcile_generator_outputs(root, generator_types)
     items: list[InventoryItem] = []
 
@@ -688,10 +774,53 @@ def build_inventory(root: Path) -> dict:
             nav_paths=nav_paths,
         )
 
+        if generated_output and generator_type:
+            parts = Path(rel).parts
+            if parts and parts[-1] == "index.md" and len(parts) >= 2:
+                output_slug = parts[-2]
+                if output_slug in foundry_folders.get(generator_type, {}):
+                    item.foundry_record_type = "folder-publication"
+                    item.organizational = True
+                    item.known_exceptions = unique_sorted(
+                        item.known_exceptions + ["foundry-folder-generated-page"]
+                    )
+
+        if suffix == ".json" and rel.startswith("src/"):
+            obj = parse_json_object(text)
+            if is_foundry_folder_obj(obj):
+                item.foundry_record_type = "folder"
+                item.organizational = True
+                item.known_exceptions = unique_sorted(item.known_exceptions + ["foundry-folder-record"])
+
         if text is not None and kind in {"document", "presentation"}:
             feat = scan_text_features(rel, text, root, sites)
             for k, v in feat.items():
                 setattr(item, k, v)
+
+            # A missing icon for a Foundry folder is intentional organizational
+            # metadata, not missing publication art.
+            retained_flags: list[str] = []
+            for flag in item.review_flags:
+                if not flag.startswith("unresolved-local-dependency:"):
+                    retained_flags.append(flag)
+                    continue
+                dep = flag.split(":", 1)[1]
+                parsed = icon_dependency_type_slug(dep)
+                if parsed:
+                    dep_type, dep_slug = parsed
+                    if dep_slug in foundry_folders.get(dep_type, {}):
+                        item.known_exceptions = unique_sorted(
+                            item.known_exceptions + ["foundry-folder-icon-reference"]
+                        )
+                        continue
+                retained_flags.append(flag)
+            item.review_flags = unique_sorted(retained_flags)
+            if item.organizational:
+                item.review_flags = [
+                    f for f in item.review_flags
+                    if f not in {"stub-document", "missing-h1-title"}
+                ]
+
             if generated_output:
                 item.generator_owner = GENERATOR
                 item.generator_type = generator_type
@@ -711,6 +840,14 @@ def build_inventory(root: Path) -> dict:
             p = f"docs/{audience_dir}/{section}/{rec['type']}/{slug}/index.md"
             if p in by_path:
                 by_path[p].review_flags = unique_sorted(by_path[p].review_flags + ["orphan-generated-page"])
+        for slug in rec.get("organizational_generated_pages", []):
+            p = f"docs/{audience_dir}/{section}/{rec['type']}/{slug}/index.md"
+            if p in by_path:
+                by_path[p].organizational = True
+                by_path[p].foundry_record_type = "folder-publication"
+                by_path[p].known_exceptions = unique_sorted(
+                    by_path[p].known_exceptions + ["foundry-folder-generated-page"]
+                )
         # Missing pages have no InventoryItem, so they remain in generator_reconciliation.
 
     sha_map: dict[str, list[InventoryItem]] = defaultdict(list)
@@ -746,6 +883,9 @@ def build_inventory(root: Path) -> dict:
             for i in items
         ),
         "stub_documents": sum(i.kind == "document" and "stub-document" in i.review_flags for i in items),
+        "foundry_folder_records": sum(i.foundry_record_type == "folder" for i in items),
+        "organizational_files": sum(i.organizational for i in items),
+        "known_exception_files": sum(bool(i.known_exceptions) for i in items),
         "flagged_files": sum(bool(i.review_flags) for i in items),
         "unresolved_dependency_files": sum(
             any(f.startswith("unresolved-local-dependency:") for f in i.review_flags)
@@ -757,6 +897,7 @@ def build_inventory(root: Path) -> dict:
     }
 
     review_flag_counts = Counter(flag for item in items for flag in item.review_flags)
+    known_exception_counts = Counter(flag for item in items for flag in item.known_exceptions)
     feature_counts = Counter(feature for item in items for feature in item.mkdocs_features)
     normalization_flag_counts = Counter(flag for item in items for flag in item.normalization_flags)
 
@@ -780,6 +921,7 @@ def build_inventory(root: Path) -> dict:
         "mkdocs_feature_counts": dict(sorted(feature_counts.items())),
         "normalization_flag_counts": dict(sorted(normalization_flag_counts.items())),
         "review_flag_counts": dict(sorted(review_flag_counts.items())),
+        "known_exception_counts": dict(sorted(known_exception_counts.items())),
         "generator_types": dict(sorted(generator_types.items())),
         "generator_reconciliation": reconciliation,
         "title_collisions": title_collisions,
@@ -798,7 +940,8 @@ def write_csv(inv: dict, out: Path) -> None:
         "site_targets", "nav_targets", "nav_paths", "heading_count",
         "mkdocs_features", "normalization_flags", "transclusions", "includes", "jinja_expression_count",
         "jinja_statement_count", "html_tag_count", "images", "internal_links",
-        "external_links", "data_dependencies", "size_bytes", "sha256", "review_flags",
+        "external_links", "data_dependencies", "size_bytes", "sha256",
+        "foundry_record_type", "organizational", "known_exceptions", "review_flags",
     ]
     with out.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -809,7 +952,7 @@ def write_csv(inv: dict, out: Path) -> None:
             for key in [
                 "site_targets", "nav_targets", "nav_paths", "mkdocs_features", "normalization_flags",
                 "transclusions", "includes", "images", "internal_links",
-                "external_links", "data_dependencies", "review_flags",
+                "external_links", "data_dependencies", "known_exceptions", "review_flags",
             ]:
                 row[key] = " | ".join(i[key])
             row.pop("headings", None)
@@ -851,6 +994,9 @@ def write_report(inv: dict, out: Path) -> None:
             ("Dynamic MkDocs documents", c["dynamic_documents"]),
             ("Documents requiring normalization", c["documents_requiring_normalization"]),
             ("Stub documents", c["stub_documents"]),
+            ("Foundry folder records", c["foundry_folder_records"]),
+            ("Organizational files/pages", c["organizational_files"]),
+            ("Files with known exceptions", c["known_exception_files"]),
             ("Files with review flags", c["flagged_files"]),
             ("Files with unresolved local dependencies", c["unresolved_dependency_files"]),
             ("Duplicate-content groups", c["duplicate_content_groups"]),
@@ -889,22 +1035,28 @@ def write_report(inv: dict, out: Path) -> None:
     lines += ["## Generator reconciliation", ""]
     if inv["generator_reconciliation"]:
         lines += [
-            "| Audience | Type | Source entities | Generated pages | Missing | Orphan |",
-            "|---|---|---:|---:|---:|---:|",
+            "| Audience | Type | Source entities | Foundry folders | Generated pages | Missing | Organizational | Orphan |",
+            "|---|---|---:|---:|---:|---:|---:|---:|",
         ]
         for r in inv["generator_reconciliation"]:
             lines.append(
                 f"| {r['audience']} | {r['type']} | {r['source_entities']} | "
-                f"{r['generated_pages']} | {len(r['missing_generated_pages'])} | "
+                f"{r.get('foundry_folders', 0)} | {r['generated_pages']} | "
+                f"{len(r['missing_generated_pages'])} | "
+                f"{len(r.get('organizational_generated_pages', []))} | "
                 f"{len(r['orphan_generated_pages'])} |"
             )
         lines += [""]
         for r in inv["generator_reconciliation"]:
-            if r["missing_generated_pages"] or r["orphan_generated_pages"]:
+            if r["missing_generated_pages"] or r["orphan_generated_pages"] or r.get("organizational_generated_pages"):
                 lines += [f"### {r['audience']} / {r['type']}", ""]
                 if r["missing_generated_pages"]:
                     lines += ["**Missing generated pages:**", ""]
                     lines += [f"- `{x}`" for x in r["missing_generated_pages"]]
+                    lines += [""]
+                if r.get("organizational_generated_pages"):
+                    lines += ["**Foundry folder / organizational generated pages (known exceptions):**", ""]
+                    lines += [f"- `{x}`" for x in r["organizational_generated_pages"]]
                     lines += [""]
                 if r["orphan_generated_pages"]:
                     lines += ["**Orphan generated pages:**", ""]
@@ -918,6 +1070,12 @@ def write_report(inv: dict, out: Path) -> None:
         for x in inv["title_collisions"]:
             lines.append(f"- **{x['title']}** — {x['classification']}: " + ", ".join(f"`{p}`" for p in x["paths"]))
         lines += [""]
+    else:
+        lines += ["None detected.", ""]
+
+    lines += ["## Known exceptions", ""]
+    if inv.get("known_exception_counts"):
+        lines += [md_table(list(inv["known_exception_counts"].items())), ""]
     else:
         lines += ["None detected.", ""]
 

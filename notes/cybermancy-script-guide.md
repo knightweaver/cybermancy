@@ -49,10 +49,17 @@ Builds Cybermancy documentation in Markdown and CSV.
   - Folder mapping for UUID display
 
 ### Example cli usages:
- - Generate all docs:
-   - `py .\pyCybermancy\generate-docs.py`
- - Generate the docs just for one type:
-   - `py .\pyCybermancy\generate-docs.py --type classes`
+
+```bash
+python pyCybermancy/generate-docs.py --audience gm-facing --types adversaries,environments --repo-root .
+mkdocs build -f mkdocs.gm.yml
+```
+
+Player-facing generation skips both Actor families:
+
+```bash
+python pyCybermancy/generate-docs.py --audience player-facing --types adversaries,environments --repo-root .
+```
 
 ---
 
