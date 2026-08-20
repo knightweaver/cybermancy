@@ -3,7 +3,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     var input = document.getElementById("filter");
-    var table = document.getElementById("weapons-table");
+    var table = document.getElementById("adversaries-features-table");
     if (!input || !table) return;
 
     input.addEventListener("input", function () {

@@ -1401,7 +1401,21 @@ def main():
         if type_key not in CONFIG:
             print(f"[skip] Unknown type: {type_key}")
             continue
-        n, out_dir = process_type(root, docs_root, data_root, args.audience, type_key, feature_map, folder_map)
+
+        # Item/equipment documentation is published only to the Player site.
+        if args.audience == "gm-facing" and CONFIG[type_key]["kind"] == "items":
+            print(f"[skip] {type_key}: item documentation is player-facing only")
+            continue
+
+        n, out_dir = process_type(
+            root,
+            docs_root,
+            data_root,
+            args.audience,
+            type_key,
+            feature_map,
+            folder_map
+        )
         if n:
             print(f"[ok] {type_key}: {n} pages -> {out_dir}")
             total += n
