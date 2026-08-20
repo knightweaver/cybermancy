@@ -24,6 +24,7 @@ import html
 import json
 import os
 import re
+import runpy
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -32,8 +33,8 @@ from pathlib import Path
 from typing import Iterable
 from urllib.parse import unquote, urlparse
 
-SCRIPT_VERSION = "0.2.2"
-SCHEMA_VERSION = "cybermancy-rulebook-inventory-v0.2.2"
+SCRIPT_VERSION = "0.2.3"
+SCHEMA_VERSION = "cybermancy-rulebook-inventory-v0.2.3"
 GENERATOR = "pyCybermancy/generate-docs.py"
 
 DEFAULT_EXCLUDED_DIRS = {
@@ -556,77 +557,194 @@ def git_commit(root: Path) -> str:
         return ""
 
 
-def discover_generator_types(root: Path) -> dict[str, str]:
-    """Return {type_key: kind} for generate-docs-managed source types.
+def discover_generator_families(root: Path) -> tuple[dict[str, dict], list[str]]:
+    """Return generate-docs-managed publication families from its live CONFIG.
 
-    We only treat a source type as generator-managed when it has both a
-    src/packs source directory and a docs/data/<type>.csv index, which is the
-    current generate-docs output contract.
+    generate-docs.py is executed with a non-main run name so its guarded CLI is
+    not invoked. This lets the inventory scanner read the same CONFIG object the
+    generator actually uses, including programmatic CONFIG additions and
+    explicit Actor-family ``src_path`` / ``out_dir_name`` values.
+
+    Returns ``({type_key: metadata}, warnings)``. Metadata contains:
+      - kind
+      - audiences
+      - source_path
+      - output_dirs (CONFIG audience -> path relative to docs/)
+      - actor_type (when present)
     """
-    out: dict[str, str] = {}
-    data_dir = root / "docs" / "data"
-    if not data_dir.exists():
-        return out
-    csv_types = {p.stem for p in data_dir.glob("*.csv")}
-    for kind in ("items", "system"):
-        base = root / "src" / "packs" / kind
-        if not base.exists():
+    generator_path = root / GENERATOR
+    if not generator_path.exists():
+        return {}, [f"missing expected generator: {GENERATOR}"]
+
+    try:
+        namespace = runpy.run_path(
+            str(generator_path),
+            run_name="_cybermancy_generate_docs_inventory_config",
+        )
+    except Exception as exc:
+        return {}, [f"could not load generator CONFIG from {GENERATOR}: {exc}"]
+
+    config = namespace.get("CONFIG")
+    if not isinstance(config, dict):
+        return {}, [f"CONFIG dictionary not found in {GENERATOR}"]
+
+    families: dict[str, dict] = {}
+    warnings: list[str] = []
+
+    for type_key, cfg in config.items():
+        if not isinstance(type_key, str) or not isinstance(cfg, dict):
             continue
-        for child in base.iterdir():
-            if child.is_dir() and child.name in csv_types:
-                out[child.name] = kind
-    return out
+
+        kind = str(cfg.get("kind") or "").strip()
+        audiences = cfg.get("audiences") or []
+        if not kind:
+            warnings.append(f"generator family {type_key}: missing kind")
+            continue
+        if not isinstance(audiences, (list, tuple)) or not all(isinstance(a, str) for a in audiences):
+            warnings.append(f"generator family {type_key}: invalid audiences")
+            continue
+
+        source_path = str(cfg.get("src_path") or "").strip()
+        if not source_path:
+            src_subdir = str(cfg.get("src_subdir") or type_key).strip()
+            source_path = f"src/packs/{kind}/{src_subdir}"
+        source_path = Path(source_path).as_posix().strip("/")
+
+        output_dirs: dict[str, str] = {}
+        out_dir_name = cfg.get("out_dir_name")
+        if callable(out_dir_name):
+            for audience in audiences:
+                try:
+                    out_dir = out_dir_name(audience, type_key)
+                except Exception as exc:
+                    warnings.append(
+                        f"generator family {type_key}: could not resolve out_dir_name "
+                        f"for {audience}: {exc}"
+                    )
+                    continue
+                if out_dir:
+                    output_dirs[audience] = Path(str(out_dir)).as_posix().strip("/")
+        else:
+            warnings.append(f"generator family {type_key}: missing callable out_dir_name")
+
+        families[type_key] = {
+            "kind": kind,
+            "audiences": list(audiences),
+            "source_path": source_path,
+            "output_dirs": output_dirs,
+            "actor_type": str(cfg.get("actor_type") or "").strip(),
+        }
+
+    return families, warnings
 
 
-def generated_output_info(rel: str, root: Path, generator_types: dict[str, str]) -> tuple[bool, str]:
+def discover_generator_types(root: Path) -> dict[str, str]:
+    """Backward-compatible ``{type_key: kind}`` view of CONFIG-managed families."""
+    families, _warnings = discover_generator_families(root)
+    return {type_key: str(meta.get("kind") or "") for type_key, meta in families.items()}
+
+
+def generated_output_info(
+    rel: str,
+    root: Path,
+    generator_families: dict[str, dict],
+) -> tuple[bool, str]:
+    """Identify generated detail pages and CSV indexes from CONFIG output paths."""
     p = Path(rel)
-    parts = p.parts
-    if len(parts) >= 6 and parts[0] == "docs" and parts[1] in {"player-facing", "gm-facing"} and parts[-1] == "index.md":
-        section = parts[2]
-        type_key = parts[3]
-        kind = generator_types.get(type_key)
-        if (section == "items" and kind == "items") or (section == "system" and kind == "system"):
-            return True, type_key
-    if len(parts) == 3 and parts[0] == "docs" and parts[1] == "data" and p.suffix.lower() == ".csv":
-        if p.stem in generator_types:
-            return True, p.stem
+
+    if (
+        len(p.parts) == 3
+        and p.parts[0] == "docs"
+        and p.parts[1] == "data"
+        and p.suffix.lower() == ".csv"
+        and p.stem in generator_families
+    ):
+        return True, p.stem
+
+    if p.name != "index.md":
+        return False, ""
+
+    for type_key, family in generator_families.items():
+        for out_rel in family.get("output_dirs", {}).values():
+            base = Path("docs") / out_rel
+            try:
+                tail = p.relative_to(base)
+            except ValueError:
+                continue
+            if len(tail.parts) == 2 and tail.parts[-1] == "index.md":
+                return True, type_key
+
     return False, ""
 
 
-def read_source_records(root: Path, kind: str, type_key: str) -> tuple[dict[str, str], dict[str, str]]:
-    """Return (publication entities, Foundry folder records) keyed by slug."""
-    base = root / "src" / "packs" / kind / type_key
+def read_source_records(
+    root: Path,
+    family_or_kind: dict | str,
+    type_key: str | None = None,
+) -> tuple[dict[str, str], dict[str, str]]:
+    """Return (publication entities, Foundry folder records) keyed by slug.
+
+    Preferred callers pass CONFIG-derived family metadata. The legacy
+    ``(kind, type_key)`` form is retained for compatibility.
+    """
+    if isinstance(family_or_kind, dict):
+        family = family_or_kind
+        base = root / str(family.get("source_path") or "")
+        actor_type = str(family.get("actor_type") or "").strip()
+    else:
+        kind = str(family_or_kind)
+        if not type_key:
+            return {}, {}
+        base = root / "src" / "packs" / kind / type_key
+        actor_type = ""
+
     entities: dict[str, str] = {}
     folders: dict[str, str] = {}
     if not base.exists():
         return entities, folders
-    for p in sorted(base.rglob("*.json")):
+
+    for source_path in sorted(base.rglob("*.json")):
         try:
-            obj = json.loads(p.read_text(encoding="utf-8"))
+            obj = json.loads(source_path.read_text(encoding="utf-8"))
         except Exception:
             continue
+
         name = obj.get("name")
         if not name:
             continue
+
         slug = slugify(str(name))
         if is_foundry_folder_obj(obj):
-            folders[slug] = norm_rel(p, root)
+            folders[slug] = norm_rel(source_path, root)
             continue
-        entities[slug] = norm_rel(p, root)
+
+        # Match generate-docs Actor filtering when actor_type is specified.
+        if actor_type and str(obj.get("type") or "") != actor_type:
+            continue
+
+        entities[slug] = norm_rel(source_path, root)
+
     return entities, folders
 
 
-def read_source_entities(root: Path, kind: str, type_key: str) -> dict[str, str]:
+def read_source_entities(
+    root: Path,
+    family_or_kind: dict | str,
+    type_key: str | None = None,
+) -> dict[str, str]:
     """Backward-compatible publication-entity view used by callers."""
-    entities, _folders = read_source_records(root, kind, type_key)
+    entities, _folders = read_source_records(root, family_or_kind, type_key)
     return entities
 
 
-def discover_foundry_folders(root: Path, generator_types: dict[str, str]) -> dict[str, dict[str, str]]:
+def discover_foundry_folders(
+    root: Path,
+    generator_families: dict[str, dict],
+) -> dict[str, dict[str, str]]:
     """Map generator type -> {folder_slug: source_path} for Foundry folder JSON."""
     out: dict[str, dict[str, str]] = {}
-    for type_key, kind in generator_types.items():
-        _entities, folders = read_source_records(root, kind, type_key)
+    for type_key, family in generator_families.items():
+        _entities, folders = read_source_records(root, family)
         out[type_key] = folders
     return out
 
@@ -646,22 +764,31 @@ def icon_dependency_type_slug(dep: str) -> tuple[str, str] | None:
     return type_key, slug
 
 
-def reconcile_generator_outputs(root: Path, generator_types: dict[str, str]) -> list[dict]:
+def reconcile_generator_outputs(
+    root: Path,
+    generator_families: dict[str, dict],
+) -> list[dict]:
+    """Reconcile each CONFIG-managed source family with its configured outputs."""
     rows: list[dict] = []
-    for type_key, kind in sorted(generator_types.items()):
-        entities, folders = read_source_records(root, kind, type_key)
+
+    for type_key, family in sorted(generator_families.items()):
+        kind = str(family.get("kind") or "")
+        entities, folders = read_source_records(root, family)
         expected = set(entities)
         folder_slugs = set(folders)
-        section = "items" if kind == "items" else "system"
-        for audience in ("player-facing", "gm-facing"):
-            out_base = root / "docs" / audience / section / type_key
-            if not out_base.exists():
-                continue
-            actual = {
-                p.parent.name
-                for p in out_base.glob("*/index.md")
-                if p.is_file()
-            }
+
+        for audience in family.get("audiences", []):
+            out_rel = str(family.get("output_dirs", {}).get(audience, ""))
+            actual: set[str] = set()
+            if out_rel:
+                out_base = root / "docs" / out_rel
+                if out_base.exists():
+                    actual = {
+                        page.parent.name
+                        for page in out_base.glob("*/index.md")
+                        if page.is_file()
+                    }
+
             organizational = sorted((actual - expected) & folder_slugs)
             missing = sorted(expected - actual)
             orphan = sorted(actual - expected - folder_slugs)
@@ -669,6 +796,8 @@ def reconcile_generator_outputs(root: Path, generator_types: dict[str, str]) -> 
                 "audience": "player" if audience == "player-facing" else "gm",
                 "type": type_key,
                 "kind": kind,
+                "source_path": str(family.get("source_path") or ""),
+                "output_dir": f"docs/{out_rel}" if out_rel else "",
                 "source_entities": len(expected),
                 "foundry_folders": len(folder_slugs),
                 "generated_pages": len(actual),
@@ -676,6 +805,7 @@ def reconcile_generator_outputs(root: Path, generator_types: dict[str, str]) -> 
                 "organizational_generated_pages": organizational,
                 "orphan_generated_pages": orphan,
             })
+
     return rows
 
 
@@ -729,9 +859,14 @@ def add_title_collision_flags(items: list[InventoryItem]) -> list[dict]:
 
 def build_inventory(root: Path) -> dict:
     sites, config_warnings = parse_mkdocs_configs(root)
-    generator_types = discover_generator_types(root)
-    foundry_folders = discover_foundry_folders(root, generator_types)
-    reconciliation = reconcile_generator_outputs(root, generator_types)
+    generator_families, generator_warnings = discover_generator_families(root)
+    config_warnings.extend(generator_warnings)
+    generator_types = {
+        type_key: str(meta.get("kind") or "")
+        for type_key, meta in generator_families.items()
+    }
+    foundry_folders = discover_foundry_folders(root, generator_families)
+    reconciliation = reconcile_generator_outputs(root, generator_families)
     items: list[InventoryItem] = []
 
     for path in walk_repo(root):
@@ -745,7 +880,7 @@ def build_inventory(root: Path) -> dict:
         source_family = classify_source_family(rel)
         audience = classify_audience(rel, source_family)
         content_scope = classify_content_scope(rel)
-        generated_output, generator_type = generated_output_info(rel, root, generator_types)
+        generated_output, generator_type = generated_output_info(rel, root, generator_families)
         text = read_text(path) if suffix in TEXT_EXTENSIONS or kind in {"document", "config", "code", "data", "presentation"} else None
         authorship = classify_authorship(text, kind, generated_output)
 
@@ -834,14 +969,13 @@ def build_inventory(root: Path) -> dict:
     # Flag missing/orphan generator pages on the corresponding inventory entries.
     by_path = {i.path: i for i in items}
     for rec in reconciliation:
-        audience_dir = "player-facing" if rec["audience"] == "player" else "gm-facing"
-        section = "items" if rec["kind"] == "items" else "system"
+        output_dir = str(rec.get("output_dir") or "").rstrip("/")
         for slug in rec["orphan_generated_pages"]:
-            p = f"docs/{audience_dir}/{section}/{rec['type']}/{slug}/index.md"
+            p = f"{output_dir}/{slug}/index.md" if output_dir else ""
             if p in by_path:
                 by_path[p].review_flags = unique_sorted(by_path[p].review_flags + ["orphan-generated-page"])
         for slug in rec.get("organizational_generated_pages", []):
-            p = f"docs/{audience_dir}/{section}/{rec['type']}/{slug}/index.md"
+            p = f"{output_dir}/{slug}/index.md" if output_dir else ""
             if p in by_path:
                 by_path[p].organizational = True
                 by_path[p].foundry_record_type = "folder-publication"
@@ -923,6 +1057,16 @@ def build_inventory(root: Path) -> dict:
         "review_flag_counts": dict(sorted(review_flag_counts.items())),
         "known_exception_counts": dict(sorted(known_exception_counts.items())),
         "generator_types": dict(sorted(generator_types.items())),
+        "generator_families": {
+            type_key: {
+                "kind": family.get("kind", ""),
+                "audiences": family.get("audiences", []),
+                "source_path": family.get("source_path", ""),
+                "output_dirs": family.get("output_dirs", {}),
+                "actor_type": family.get("actor_type", ""),
+            }
+            for type_key, family in sorted(generator_families.items())
+        },
         "generator_reconciliation": reconciliation,
         "title_collisions": title_collisions,
         "items": [asdict(i) for i in items],
