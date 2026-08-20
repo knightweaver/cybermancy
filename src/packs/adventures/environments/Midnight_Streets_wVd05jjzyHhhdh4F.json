@@ -1,0 +1,408 @@
+{
+  "folder": "PVM9xBt9UzTWTWGT",
+  "name": "Midnight Streets",
+  "type": "environment",
+  "img": "modules/cybermancy/assets/images/environments/Midnight%20streets.png",
+  "system": {
+    "description": "<p>The streets at 2 a.m. pulse with the faint afterglow of a city that never quite sleeps but has slumped into a dangerous lull. Neon signage flickers above empty walkways, casting jittery light across rain-sheened pavement. Delivery drones buzz through narrow flight lanes overhead. The transit grid runs on skeleton power, so half the intersections operate on fallback patterns, leaving certain lanes plunged in darkness. Steam rises from cracked vents. The few citizens still awake move fast and keep their heads down.</p>",
+    "tier": 1,
+    "difficulty": 13,
+    "potentialAdversaries": {},
+    "notes": "<p><strong>Environment: Midnight Arterials</strong></p><p>The streets at 2 a.m. pulse with the faint afterglow of a city that never quite sleeps but has slumped into a dangerous lull. Neon signage flickers above empty walkways, casting jittery light across rain-sheened pavement. Delivery drones buzz through narrow flight lanes overhead. The transit grid runs on skeleton power, so half the intersections operate on fallback patterns, leaving certain lanes plunged in darkness. Steam rises from cracked vents. The few citizens still awake move fast and keep their heads down.</p>",
+    "impulses": "",
+    "type": "event",
+    "attribution": {}
+  },
+  "prototypeToken": {
+    "name": "Midnight Environments",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "modules/cybermancy/assets/images/environments/Midnight%20streets.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Police in Pursuit",
+      "type": "feature",
+      "system": {
+        "description": "<p><strong>Spend 2 Fear</strong> to add a police cruiser to the chase in pursuit of the chase.</p><p></p><p>Their Chase die starts at the highest value and they can be spotlighted like normal. If they get within range, they will warn all participants in the chase to stop.</p><p></p><p>Start a <strong>Progress Countdown (4)</strong>. It ticks down whenever a party member takes an action.</p><p></p><p><strong>If this Progress Countdown reaches 0</strong>, add another Police cruiser to the chase and the police begin to open fire. <br /><br /><strong>Attack: </strong>+1 | Heavy Pistol | Close | 1d6+2</p>",
+        "resource": null,
+        "actions": {
+          "maNo9zm8q4JrQ3UR": {
+            "type": "effect",
+            "_id": "maNo9zm8q4JrQ3UR",
+            "systemPath": "actions",
+            "description": "<p><strong>Spend 2 Fear</strong> to add a police cruiser to the chase in pursuit of the chase.</p><p></p><p>Their Chase die starts at the highest value and they can be spotlighted like normal. If they get within range, they will warn all participants in the chase to stop.</p><p></p><p>Start a <strong>Progress Countdown (4)</strong>. It ticks down whenever a party member takes an action.</p><p></p><p><strong>If this Progress Countdown reaches 0</strong>, add another Police cruiser to the chase and the police begin to open fire. <br><br><strong>Attack: </strong>+1 | Heavy Pistol | Close | 1d6+2</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "fear",
+                "value": 2,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Police in pursuit",
+            "img": "systems/sfrpg/icons/cards/police-car.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "_id": "kO4E4yxfHF5LGbfO",
+      "img": "modules/cybermancy/assets/images/environments/police-pursuit.png",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!wVd05jjzyHhhdh4F.kO4E4yxfHF5LGbfO"
+    },
+    {
+      "name": "Pedestrians!",
+      "type": "feature",
+      "system": {
+        "description": "<p>Undergrid vagrants walk out into the street. <strong>Spend 1 Fear</strong> to force a <strong>Driving (13)</strong> check on one of the players.</p><p></p><ul><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: Tick down 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Hope</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Fear</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Hope</strong>: Tick up 2</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Fear</strong>: Tick up 3</span></p></li><li><p><strong>Critical Fail</strong>: You clip the vagrant, they are clearly injured by the impact. What do you do?</p></li></ul>",
+        "resource": null,
+        "actions": {
+          "JGYCpdDUXReHdMqY": {
+            "type": "effect",
+            "_id": "JGYCpdDUXReHdMqY",
+            "systemPath": "actions",
+            "description": "<ul><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);\">Critical Success</strong>: Tick down 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);\">Success with Hope</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);\">Success with Fear</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);\">Failure with Hope</strong>: Tick up 2</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing: border-box; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);\">Failure with Fear</strong>: Tick up 3</span></p></li><li><p><strong>Critical Fail</strong>: You clip the vagrant, they are clearly injured by the impact. What do you do?</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "fear",
+                "value": 1,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Pedestrians in the way!",
+            "img": "modules/cybermancy/assets/icons/adversaries/pattern-touched-beggar.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "_id": "BZDclhtIiYZqv6VJ",
+      "img": "modules/cybermancy/assets/images/environments/pedestrians.png",
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "ownership": {
+        "default": 0,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!wVd05jjzyHhhdh4F.BZDclhtIiYZqv6VJ"
+    },
+    {
+      "name": "Slick road",
+      "type": "feature",
+      "system": {
+        "description": "<p>Recent rainfall and leaking hydraulics create slippery patches that can throw off footing, traction, or drone stability.</p><p>Undergrid vagrants walk out into the street. <strong>Spend 1 Fear</strong> to force a <strong>Driving (12)</strong> check on one of the players.</p><p></p><ul><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: Tick down 2</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Hope</strong>: Tick down 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Fear</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Hope</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Fear</strong>: Tick up 2</span></p></li><li><p><strong>Critical Fail</strong>: You spin out Tick up 3</p></li></ul>",
+        "resource": null,
+        "actions": {
+          "yi0jRpW93RXpeih1": {
+            "type": "effect",
+            "_id": "yi0jRpW93RXpeih1",
+            "systemPath": "actions",
+            "description": "<p>Recent rainfall and leaking hydraulics create slippery patches that can throw off footing, traction, or drone stability.</p><p>Undergrid vagrants walk out into the street. <strong>Spend 1 Fear</strong> to force a <strong>Driving (12)</strong> check on one of the players.</p><p></p><ul><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: Tick down 2</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Hope</strong>: Tick down 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Fear</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Hope</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Fear</strong>: Tick up 2</span></p></li><li><p><strong>Critical Fail</strong>: You spin out Tick up 3</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "fear",
+                "value": 1,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Slick road",
+            "img": "icons/magic/water/wave-water-teal.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "_id": "6Yud3ouh7JdoAY1N",
+      "img": "icons/magic/water/wave-water-teal.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 225000,
+      "ownership": {
+        "default": 0,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!wVd05jjzyHhhdh4F.6Yud3ouh7JdoAY1N"
+    },
+    {
+      "name": "Short cut",
+      "type": "feature",
+      "system": {
+        "description": "<p>Any player character who is <strong>Driving</strong> can <strong>Spend 2 Hope</strong> to attempt a short cut through the alley. <strong>Make a Driving (15) check:</strong></p><p></p><ul><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: Chase ends immediately successfully for the players</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Hope</strong>: Tick up 3</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Fear</strong>: Tick up 2</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Hope</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Fear</strong>: No advancement</span></p></li><li><p><strong>Critical Fail:</strong> You clip the wall of the short cut and are blocked. Chase ends immediately and unsuccesfully for the players</p></li></ul>",
+        "resource": null,
+        "actions": {
+          "D9R3av4C05kimZ7f": {
+            "type": "effect",
+            "_id": "D9R3av4C05kimZ7f",
+            "systemPath": "actions",
+            "description": "<p>Any player character who is <strong>Driving</strong> can <strong>Spend 2 Hope</strong> to attempt a short cut through the alley. <strong>Make a Driving (15) check:</strong></p><p></p><ul><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: Chase ends immediately successfully for the players</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Hope</strong>: Tick up 3</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Fear</strong>: Tick up 2</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Hope</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Fear</strong>: No advancement</span></p></li><li><p><strong>Critical Fail:</strong> You clip the wall of the short cut and are blocked. Chase ends immediately and unsuccesfully for the players</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "hope",
+                "value": 2,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Cut-off",
+            "img": "modules/cybermancy/assets/images/environments/short-cut.png",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "_id": "oPXr2L1lvTDsDyWd",
+      "img": "modules/cybermancy/assets/images/environments/short-cut.png",
+      "effects": [],
+      "folder": null,
+      "sort": 125000,
+      "ownership": {
+        "default": 0,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!wVd05jjzyHhhdh4F.oPXr2L1lvTDsDyWd"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787230011078,
+    "modifiedTime": 1787230015247,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_id": "wVd05jjzyHhhdh4F",
+  "sort": 100000,
+  "_key": "!actors!wVd05jjzyHhhdh4F"
+}

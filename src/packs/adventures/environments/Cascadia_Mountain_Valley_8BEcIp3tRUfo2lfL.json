@@ -1,0 +1,482 @@
+{
+  "name": "Cascadia Mountain Valley",
+  "type": "environment",
+  "img": "worlds/cybermancer/assets/images/environments/cascadia-mountain-valley.png",
+  "system": {
+    "attribution": {
+      "source": "Cybermancy"
+    },
+    "description": "<p>A peaceful Cascadian mountain valley of clear water, old-growth forest, and alpine light, partially protected by Selka's people from the corruption spreading farther uphill.</p>\n<section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Establish the lower valley as beautiful, safe, and healthy. Let PCs engage with the landscape and give Selka authority to notice details others miss.</p><p><strong><em>Default:</em></strong> Reward observation with Quiet Signs. Give useful clues even on failure, but let failure cost time or movement toward danger.</p><p><strong><em>On Fear or Relaxation:</em></strong> Trigger Beauty That Hides the Cut: reveal one unmistakably wrong detail without making the lower valley hostile.</p><p><strong><em>Transition:</em></strong> Make Selka's Green Boundary perceptible before crossing it; beyond it, protection and safety begin to fall away.</p><p><strong><em>Remember:</em></strong> This environment restores and foreshadows; it is not intended to pressure the party through direct danger.</p><p><strong><em>Goal:</em></strong> Let the party lower its guard, recover, and connect with the land before revealing corruption ahead.</p></section>",
+    "tier": 1,
+    "difficulty": 10,
+    "potentialAdversaries": {
+      "GaxEgC55GpcjxJET": {
+        "label": "Potential Adversaries",
+        "adversaries": [
+          "Actor.BxqhkxeMpY5hXiF6",
+          "Actor.0TWQnZxMA2GLtizO",
+          "Actor.XQjo8jN8c4CWqYf7"
+        ]
+      }
+    },
+    "notes": "",
+    "impulses": "Soothe and restore weary travelers, Conceal the wound higher up the valley, Reward curiosity with subtle clues, Let the party feel safe before that safety frays",
+    "type": "exploration"
+  },
+  "prototypeToken": {
+    "name": "Cascadia Mountain Valley",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/images/environments/cascadia-mountain-valley.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Sheltered Wilds",
+      "type": "feature",
+      "_id": "LXeDmrjJsVe0gdhK",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The valley is unusually calm and healthy. The first time each PC takes a moment to breathe, observe, forage, or simply appreciate the landscape, they may clear 1 Stress or gain a useful sense of calm, belonging, or perspective.\n\nWhat detail of the land makes it immediately clear that this place has been protected?\nWhat moment of peace tempts the party to lower its guard?</p>",
+        "resource": null,
+        "actions": {
+          "0VIPoMz0c3LB7rXm": {
+            "type": "effect",
+            "_id": "0VIPoMz0c3LB7rXm",
+            "systemPath": "actions",
+            "description": "<p>The valley is unusually calm and healthy. The first time each PC takes a moment to breathe, observe, forage, or simply appreciate the landscape, they may clear 1 Stress or gain a useful sense of calm, belonging, or perspective.\n\nWhat detail of the land makes it immediately clear that this place has been protected?\nWhat moment of peace tempts the party to lower its guard?</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Sheltered Wilds",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!8BEcIp3tRUfo2lfL.LXeDmrjJsVe0gdhK"
+    },
+    {
+      "name": "Quiet Signs",
+      "type": "feature",
+      "_id": "0UmSQVGb5zxpOZ6Q",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A PC who studies tracks, birdsong, scents, stream flow, or the behavior of nearby animals can make an Instinct Roll. Critical Success: learn two useful truths about what lies farther up the valley. Success with Hope: learn one clear clue and one reassuring sign of local protection. Success with Fear: learn one true clue, but also notice something unsettling. Any Failure: the valley still yields a clue, but only after time passes or the party drifts farther toward danger.\n\nWhat sign reveals that the corruption ahead is affecting animal behavior?\nWhat sign confirms this lower valley is still healthier than the land above?</p>",
+        "resource": null,
+        "actions": {
+          "8q2xyjTLNQVADNwp": {
+            "type": "effect",
+            "_id": "8q2xyjTLNQVADNwp",
+            "systemPath": "actions",
+            "description": "<p>A PC who studies tracks, birdsong, scents, stream flow, or the behavior of nearby animals can make an Instinct Roll. Critical Success: learn two useful truths about what lies farther up the valley. Success with Hope: learn one clear clue and one reassuring sign of local protection. Success with Fear: learn one true clue, but also notice something unsettling. Any Failure: the valley still yields a clue, but only after time passes or the party drifts farther toward danger.\n\nWhat sign reveals that the corruption ahead is affecting animal behavior?\nWhat sign confirms this lower valley is still healthier than the land above?</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Quiet Signs",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!8BEcIp3tRUfo2lfL.0UmSQVGb5zxpOZ6Q"
+    },
+    {
+      "name": "Selka's Green Boundary",
+      "type": "feature",
+      "_id": "yKBUQ555BcPsKMSi",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Parts of the valley still carry the protective influence of Selka's people. Sacred markers, old paths, careful stewardship, and Resonance-harmonic practices have kept this lower valley healthier than the terrain above. While the party remains within this protected zone, altered wildlife is less likely to attack directly, rest and conversation feel easier, and signs of corruption appear faint, distant, or incomplete.\n\nWhere is the boundary visible only if someone knows how to read the land?\nWhat happens when the party steps beyond it?</p>",
+        "resource": null,
+        "actions": {
+          "pSeqj8UyG6L6ny5b": {
+            "type": "effect",
+            "_id": "pSeqj8UyG6L6ny5b",
+            "systemPath": "actions",
+            "description": "<p>Parts of the valley still carry the protective influence of Selka's people. Sacred markers, old paths, careful stewardship, and Resonance-harmonic practices have kept this lower valley healthier than the terrain above. While the party remains within this protected zone, altered wildlife is less likely to attack directly, rest and conversation feel easier, and signs of corruption appear faint, distant, or incomplete.\n\nWhere is the boundary visible only if someone knows how to read the land?\nWhat happens when the party steps beyond it?</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Selka's Green Boundary",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!8BEcIp3tRUfo2lfL.yKBUQ555BcPsKMSi"
+    },
+    {
+      "name": "Beauty That Hides the Cut",
+      "type": "feature",
+      "_id": "ZzqwUjQE3eYPmo0x",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When a PC rolls with Fear, or when the party becomes especially relaxed, reveal a soft disruption in the peace: a carcass where no predator should have left it, a patch of forest gone suddenly silent, birds lifting all at once from a distant tree line, a smear of blood near water, or a faint ritual mark hidden beneath moss or bark.\n\nWhat beautiful vista frames the first truly wrong detail?\nWhat clue arrives just late enough that the players have already started to feel safe?</p>",
+        "resource": null,
+        "actions": {
+          "QIJZYhvhwOz7yUyb": {
+            "type": "effect",
+            "_id": "QIJZYhvhwOz7yUyb",
+            "systemPath": "actions",
+            "description": "<p>When a PC rolls with Fear, or when the party becomes especially relaxed, reveal a soft disruption in the peace: a carcass where no predator should have left it, a patch of forest gone suddenly silent, birds lifting all at once from a distant tree line, a smear of blood near water, or a faint ritual mark hidden beneath moss or bark.\n\nWhat beautiful vista frames the first truly wrong detail?\nWhat clue arrives just late enough that the players have already started to feel safe?</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Beauty That Hides the Cut",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!8BEcIp3tRUfo2lfL.ZzqwUjQE3eYPmo0x"
+    },
+    {
+      "name": "Clear Water, Open Sky",
+      "type": "feature",
+      "_id": "mz5PLojyKYLYePey",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>If the party chooses to pause here for conversation, observation, or planning, the valley is an ideal place to surface character moments, tribal context from Selka, and emotional decompression before the hunt intensifies. Treat this as a favorable environment for regrouping, asking questions, noticing emotional beats, or giving Selka additional narrative authority about the land.\n\nWhat does Selka recognize here that no one else in the party would?\nWhat does the valley seem to promise that the upper mountain will betray?</p>",
+        "resource": null,
+        "actions": {
+          "sISRTUkd9a228Yrz": {
+            "type": "effect",
+            "_id": "sISRTUkd9a228Yrz",
+            "systemPath": "actions",
+            "description": "<p>If the party chooses to pause here for conversation, observation, or planning, the valley is an ideal place to surface character moments, tribal context from Selka, and emotional decompression before the hunt intensifies. Treat this as a favorable environment for regrouping, asking questions, noticing emotional beats, or giving Selka additional narrative authority about the land.\n\nWhat does Selka recognize here that no one else in the party would?\nWhat does the valley seem to promise that the upper mountain will betray?</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Clear Water, Open Sky",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!8BEcIp3tRUfo2lfL.mz5PLojyKYLYePey"
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "cybermancy": {
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Establish the lower valley as beautiful, safe, and healthy. Let PCs engage with the landscape and give Selka authority to notice details others miss.",
+            "featureRefs": [
+              "Sheltered Wilds",
+              "Clear Water, Open Sky"
+            ]
+          },
+          {
+            "label": "Default",
+            "text": "Reward observation with Quiet Signs. Give useful clues even on failure, but let failure cost time or movement toward danger.",
+            "featureRefs": [
+              "Quiet Signs"
+            ]
+          },
+          {
+            "label": "On Fear or Relaxation",
+            "text": "Trigger Beauty That Hides the Cut: reveal one unmistakably wrong detail without making the lower valley hostile.",
+            "featureRefs": [
+              "Beauty That Hides the Cut"
+            ]
+          },
+          {
+            "label": "Transition",
+            "text": "Make Selka's Green Boundary perceptible before crossing it; beyond it, protection and safety begin to fall away.",
+            "featureRefs": [
+              "Selka's Green Boundary"
+            ]
+          },
+          {
+            "label": "Remember",
+            "text": "This environment restores and foreshadows; it is not intended to pressure the party through direct danger.",
+            "featureRefs": [
+              "Sheltered Wilds"
+            ]
+          }
+        ],
+        "goal": "Let the party lower its guard, recover, and connect with the land before revealing corruption ahead."
+      }
+    }
+  },
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787229975551,
+    "modifiedTime": 1787230015247,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "folder": "PVM9xBt9UzTWTWGT",
+  "_id": "8BEcIp3tRUfo2lfL",
+  "sort": 400000,
+  "_key": "!actors!8BEcIp3tRUfo2lfL"
+}

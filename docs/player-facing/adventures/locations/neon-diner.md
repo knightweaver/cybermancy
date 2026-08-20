@@ -1,4 +1,4 @@
-## The Neon Diner
+# The Neon Diner
 
 **Name:** *The Neon Diner*
 

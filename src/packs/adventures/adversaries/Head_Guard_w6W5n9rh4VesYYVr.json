@@ -1,0 +1,570 @@
+{
+  "name": "Head Guard",
+  "img": "worlds/cybermancer/assets/images/adversaries/Head%20Corporate%20Guard.png",
+  "type": "adversary",
+  "folder": "37VSZjNUFnmscbRN",
+  "system": {
+    "difficulty": 15,
+    "damageThresholds": {
+      "major": 7,
+      "severe": 13
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 7,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 3,
+        "isReversed": true
+      }
+    },
+    "motivesAndTactics": "Arrest, guard the doors, pin down, seek promotion",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "type": "leader",
+    "notes": "",
+    "hordeHp": 1,
+    "experiences": {
+      "3B8vav5pEdBrxWXw": {
+        "name": "Commander",
+        "value": 2,
+        "description": ""
+      },
+      "DxLwVt9XFIUUhCAo": {
+        "name": "Local Knowledge",
+        "value": 2,
+        "description": ""
+      }
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        }
+      }
+    },
+    "tier": 1,
+    "description": "<p>A seasoned guard with a stun-baton, a smart pistol, a whistle, and a bellowing voice.</p>",
+    "attack": {
+      "name": "Heavy Shock Baton",
+      "img": "modules/cybermancy/assets/icons/weapons/heavy-shock-baton.webp",
+      "roll": {
+        "bonus": 4,
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "dice": "d10",
+              "bonus": 4,
+              "multiplier": "flat",
+              "flatMultiplier": 1
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false,
+        "direct": false
+      },
+      "type": "attack",
+      "range": "melee",
+      "chatDisplay": false,
+      "_id": "EWjqF2GABQECQ2ih",
+      "systemPath": "actions",
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "target": {
+        "type": "any",
+        "amount": null
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "attribution": {
+      "source": "Daggerheart SRD",
+      "page": 77,
+      "artist": ""
+    },
+    "criticalThreshold": 20,
+    "rules": {
+      "conditionImmunities": {
+        "hidden": false,
+        "restrained": false,
+        "vulnerable": false
+      }
+    }
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1776016946503,
+    "modifiedTime": 1787229932036,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "ownership": {
+    "default": 0,
+    "ei8OkswTzyDp4IGC": 3,
+    "WafZqd6qLGpBRGTt": 3,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "prototypeToken": {
+    "name": "Head Guard",
+    "displayName": 30,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/images/adversaries/Head%20Corporate%20Guard.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": "#8f0000",
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 0.7,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {
+      "wall-height": {
+        "tokenHeight": 0
+      }
+    },
+    "randomImg": true,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Rally Guards",
+      "type": "feature",
+      "_id": "SsgN2qSYpQLR43Cz",
+      "img": "icons/skills/movement/arrows-up-trio-red.webp",
+      "system": {
+        "description": "<p><strong>Spend 2 Fear</strong> to spotlight the Head Guard and up to <strong>2d4</strong> allies within Far range.</p><p>@Template[type:emanation|range:f]</p>",
+        "resource": null,
+        "actions": {
+          "lI0lnRb3xrUjqIYX": {
+            "type": "attack",
+            "_id": "lI0lnRb3xrUjqIYX",
+            "systemPath": "actions",
+            "description": "<p><strong>Spend 2 Fear</strong> to spotlight the Head Guard and up to <strong>2d4</strong> allies within Far range.</p><p>@Template[type:emanation|range:f]</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "fear",
+                "value": 2,
+                "step": null,
+                "itemId": null,
+                "consumeOnSuccess": false
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "parts": [],
+              "includeBase": false,
+              "direct": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": "diceSet",
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "flat",
+                "flatMultiplier": 2,
+                "dice": "d4",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            },
+            "name": "Rally",
+            "img": "icons/skills/movement/arrows-up-trio-red.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "MQSznptE5yLT7kj8": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!w6W5n9rh4VesYYVr.SsgN2qSYpQLR43Cz"
+    },
+    {
+      "name": "On My Signal",
+      "type": "feature",
+      "_id": "YeJ7eJVCKsRxG8mk",
+      "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+      "system": {
+        "description": "<p><em>Countdown (5)</em>. When the Head Guard is in the spotlight for the first time, activate the countdown. It ticks down when a PC makes an attack roll. When it triggers, all Corporate Guards within Far range make a standard attack with advantage against the nearest target within their range. If any attacks succeed on the same target, combine their damage.</p><p>@Template[type:emanation|range:f]</p>",
+        "resource": null,
+        "actions": {
+          "xyhaCmPGiVMsTViH": {
+            "type": "countdown",
+            "_id": "xyhaCmPGiVMsTViH",
+            "systemPath": "actions",
+            "description": "<p><em>Countdown (5)</em>. When the Head Guard is in the spotlight for the first time, activate the countdown. It ticks down when a PC makes an attack roll. When it triggers, all Archer Guards within Far range make a standard attack with advantage against the nearest target within their range. If any attacks succeed on the same target, combine their damage.</p>",
+            "chatDisplay": true,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "countdown": [
+              {
+                "name": "On My Signal",
+                "type": "encounter",
+                "defaultOwnership": -1,
+                "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+                "progress": {
+                  "looping": "noLooping",
+                  "type": "characterAttack",
+                  "start": 1,
+                  "startFormula": "5",
+                  "current": 1
+                },
+                "ownership": {}
+              }
+            ],
+            "name": "Start Countdown",
+            "img": "icons/skills/ranged/target-bullseye-arrow-blue.webp",
+            "range": "",
+            "baseAction": false
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "MQSznptE5yLT7kj8": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": "BT83wOOYeRCn9aoe",
+        "modifiedTime": 1776017500279
+      },
+      "_key": "!actors.items!w6W5n9rh4VesYYVr.YeJ7eJVCKsRxG8mk"
+    },
+    {
+      "name": "Momentum",
+      "type": "feature",
+      "_id": "sd2OlhLchyoqeKke",
+      "img": "icons/skills/melee/strike-weapons-orange.webp",
+      "system": {
+        "description": "<p>When the Head Guard makes a successful attack against a PC, you gain a Fear.</p>",
+        "resource": null,
+        "actions": {
+          "tD1hAwP6scxXrouw": {
+            "type": "healing",
+            "_id": "tD1hAwP6scxXrouw",
+            "systemPath": "actions",
+            "description": "<p>When the Head Guard makes a successful attack against a PC, you gain a Fear.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "parts": [
+                {
+                  "value": {
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    },
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null
+                  },
+                  "applyTo": "fear",
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  },
+                  "type": []
+                }
+              ],
+              "includeBase": false,
+              "direct": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": null,
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "name": "Gain Fear",
+            "img": "icons/skills/melee/strike-weapons-orange.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "MQSznptE5yLT7kj8": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!w6W5n9rh4VesYYVr.sd2OlhLchyoqeKke"
+    }
+  ],
+  "effects": [],
+  "_id": "w6W5n9rh4VesYYVr",
+  "sort": 1700000,
+  "_key": "!actors!w6W5n9rh4VesYYVr"
+}

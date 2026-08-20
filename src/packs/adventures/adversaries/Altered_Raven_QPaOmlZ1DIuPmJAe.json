@@ -1,0 +1,506 @@
+{
+  "name": "Altered Raven",
+  "img": "worlds/cybermancer/assets/images/adversaries/altered-raven.png",
+  "type": "adversary",
+  "system": {
+    "difficulty": 10,
+    "damageThresholds": {
+      "major": null,
+      "severe": null
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 1,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 1,
+        "isReversed": true
+      }
+    },
+    "motivesAndTactics": "observe from above, follow intruders, unsettle, warn the cult, flee direct confrontation",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "type": "minion",
+    "notes": "",
+    "hordeHp": 1,
+    "experiences": {
+      "k6mHamaNEU9IeEu0": {
+        "name": "Keen Senses",
+        "value": 3
+      }
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        }
+      }
+    },
+    "tier": 1,
+    "description": "<p>A Pacific Northwest raven warped by Abraxan ritual bleed, its black feathers traced with faint ember-red spiral corruption and its calls carrying impossible echoes of human voices.</p>\n<section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Stay flying and observe from above. Follow the PCs so they know they are being watched rather than starting a conventional fight.</p><p><strong><em>Default:</em></strong> Shadow movement and stay out of reach. Attack directly only if cornered or fiction strongly demands it.</p><p><strong><em>Pressure:</em></strong> Use Dread Chorus when psychological pressure matters, especially against a stressed or isolated target.</p><p><strong><em>If Threatened:</em></strong> Flee direct confrontation; Ravens are scouts and warning signs, not committed melee attackers.</p><p><strong><em>Remember:</em></strong> Flying adds +2 Difficulty. Minion (3) can remove additional nearby Ravens from one damaging attack.</p><p><strong><em>Goal:</em></strong> Make the party feel observed and unsettled while signaling that something deeper in the valley is aware of them.</p></section>",
+    "attack": {
+      "name": "Beak & Talons",
+      "roll": {
+        "bonus": -4,
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "range": "melee",
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "dice": "d4",
+              "bonus": 0,
+              "multiplier": "flat",
+              "flatMultiplier": 1
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false,
+        "direct": false
+      },
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "type": "attack",
+      "chatDisplay": false,
+      "_id": "tAXN97OLldYNE91M",
+      "systemPath": "actions",
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "target": {
+        "type": "any",
+        "amount": null
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "attribution": {
+      "source": "Cybermancy",
+      "page": null,
+      "artist": ""
+    },
+    "criticalThreshold": 20,
+    "rules": {
+      "conditionImmunities": {
+        "hidden": false,
+        "restrained": false,
+        "vulnerable": false
+      }
+    }
+  },
+  "flags": {
+    "cybermancy": {
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Stay flying and observe from above. Follow the PCs so they know they are being watched rather than starting a conventional fight.",
+            "featureRefs": [
+              "Flying"
+            ]
+          },
+          {
+            "label": "Default",
+            "text": "Shadow movement and stay out of reach. Attack directly only if cornered or fiction strongly demands it.",
+            "featureRefs": [
+              "Flying"
+            ]
+          },
+          {
+            "label": "Pressure",
+            "text": "Use Dread Chorus when psychological pressure matters, especially against a stressed or isolated target.",
+            "featureRefs": [
+              "Dread Chorus"
+            ]
+          },
+          {
+            "label": "If Threatened",
+            "text": "Flee direct confrontation; Ravens are scouts and warning signs, not committed melee attackers.",
+            "featureRefs": [
+              "Flying"
+            ]
+          },
+          {
+            "label": "Remember",
+            "text": "Flying adds +2 Difficulty. Minion (3) can remove additional nearby Ravens from one damaging attack.",
+            "featureRefs": [
+              "Flying",
+              "Minion (3)"
+            ]
+          }
+        ],
+        "goal": "Make the party feel observed and unsettled while signaling that something deeper in the valley is aware of them."
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Altered Raven",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/tokens/adversaries/altered-raven-token.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": "#8f0000",
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 0.8,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Minion (3)",
+      "type": "feature",
+      "_id": "8pfnjkB7vIIwbFbj",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The Altered Raven is defeated when it takes any damage. For every 3 damage a PC deals to the Raven, defeat an additional Altered Raven within range the attack would succeed against.</p>",
+        "resource": null,
+        "actions": {
+          "6WwWTPIrEvbPNf8V": {
+            "type": "effect",
+            "_id": "6WwWTPIrEvbPNf8V",
+            "systemPath": "actions",
+            "description": "<p>The Altered Raven is defeated when it takes any damage. For every 3 damage a PC deals to the Raven, defeat an additional Altered Raven within range the attack would succeed against.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Minion (3)",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!QPaOmlZ1DIuPmJAe.8pfnjkB7vIIwbFbj"
+    },
+    {
+      "name": "Flying",
+      "type": "feature",
+      "_id": "4w5ECZt4MadzWfyj",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>While flying, the Altered Raven gains a +2 bonus to its Difficulty.</p>",
+        "resource": null,
+        "actions": {
+          "Zv4jUfGUb6YW16zC": {
+            "type": "effect",
+            "_id": "Zv4jUfGUb6YW16zC",
+            "systemPath": "actions",
+            "description": "<p>While flying, the Altered Raven gains a +2 bonus to its Difficulty.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Flying",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!QPaOmlZ1DIuPmJAe.4w5ECZt4MadzWfyj"
+    },
+    {
+      "name": "Dread Chorus",
+      "type": "feature",
+      "_id": "Ng7lIcAYIWPnMqof",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mark a Stress and choose a target within Close range who can hear the ravens. The target must make a Presence Reaction Roll (13). On a failure, they mark 2 Stress and become Vulnerable until the end of their next action.</p>",
+        "resource": null,
+        "actions": {
+          "EtfSgtwumIWpfAae": {
+            "type": "effect",
+            "_id": "EtfSgtwumIWpfAae",
+            "systemPath": "actions",
+            "description": "<p>Mark a Stress and choose a target within Close range who can hear the ravens. The target must make a Presence Reaction Roll (13). On a failure, they mark 2 Stress and become Vulnerable until the end of their next action.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Dread Chorus",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!QPaOmlZ1DIuPmJAe.Ng7lIcAYIWPnMqof"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787229890263,
+    "modifiedTime": 1787229932036,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "folder": "37VSZjNUFnmscbRN",
+  "_id": "QPaOmlZ1DIuPmJAe",
+  "sort": 500000,
+  "_key": "!actors!QPaOmlZ1DIuPmJAe"
+}

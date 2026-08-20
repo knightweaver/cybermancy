@@ -1,6 +1,6 @@
 ![council-vs-cabal.png](../assets/images/council-vs-cabal.png)
 
-## The Chessboard Dynamics
+# The Chessboard Dynamics
 
 | Council Corp                 | Primary Enemy Project | Countermeasure                            | Hidden Flaw                                     |
 | ---------------------------- | --------------------- | ----------------------------------------- | ----------------------------------------------- |

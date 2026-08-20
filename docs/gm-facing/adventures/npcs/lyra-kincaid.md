@@ -1,6 +1,6 @@
 
 
-### **Lyra Kincaid** — *The Spark of the Rebellion*
+# **Lyra Kincaid** — *The Spark of the Rebellion*
 
 <div class="grid item-grid" markdown="1">
 <div markdown="1">

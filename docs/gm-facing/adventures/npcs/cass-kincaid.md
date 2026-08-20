@@ -1,4 +1,4 @@
-### **Cassiel “Cass” Kincaid** — *The Idealist of the System*
+# **Cassiel “Cass” Kincaid** — *The Idealist of the System*
 
 <div class="grid item-grid" markdown="1">
 <div markdown="1">

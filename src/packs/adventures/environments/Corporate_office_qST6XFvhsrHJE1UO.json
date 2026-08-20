@@ -1,0 +1,373 @@
+{
+  "folder": "PVM9xBt9UzTWTWGT",
+  "name": "Corporate office",
+  "type": "environment",
+  "img": "modules/cybermancy/assets/images/environments/corporate%20office.png",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "tier": 1,
+    "difficulty": 13,
+    "potentialAdversaries": {
+      "8XFk94myrSkjX7rt": {
+        "label": "Security Detail",
+        "adversaries": [
+          "Compendium.cybermancy.cybermancy-adversaries.Actor.w6W5n9rh4VesYYVr",
+          "Compendium.cybermancy.cybermancy-adversaries.Actor.jYbYx4VYHac8E0qv",
+          "Compendium.cybermancy.cybermancy-adversaries.Actor.BkaRe8jgL3EehUB4"
+        ]
+      }
+    },
+    "notes": "<p>System alert levels:</p><table><tbody><tr><td data-colwidth=\"163\"><p>0</p></td><td><p><span style=\"font-size:12.0pt;line-height:115%;font-family:Aptos, sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:'Times New Roman';mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">No alert – no action</span></p></td></tr><tr><td data-colwidth=\"163\"><p>1</p></td><td><p><span style=\"font-size:12.0pt;line-height:115%;font-family:Aptos, sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:'Times New Roman';mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">No alert – no action</span></p></td></tr><tr><td data-colwidth=\"163\"><p>2</p></td><td><p><span style=\"font-size:12.0pt;line-height:115%;font-family:Aptos, sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:'Times New Roman';mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">All ICE +1 Difficulty</span></p></td></tr><tr><td data-colwidth=\"163\"><p>3</p></td><td><p><span style=\"font-size:12.0pt;line-height:115%;font-family:Aptos, sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:'Times New Roman';mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">All ICE +1 Difficulty and \"Ma\" glanced pointedly your way</span></p></td></tr><tr><td data-colwidth=\"163\"><p>4</p></td><td><p>A security drone is launched inside the diner</p></td></tr><tr><td data-colwidth=\"163\"><p>5</p></td><td><p><span style=\"font-size:12.0pt;line-height:115%;font-family:Aptos, sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:'Times New Roman';mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">All ICE +2 damage and +2 Difficulty.</span><span style=\"mso-spacerun:yes\"><span style=\"font-size:12.0pt;line-height:115%;font-family:Aptos, sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:'Times New Roman';mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">  </span></span><span style=\"font-size:12.0pt;line-height:115%;font-family:Aptos, sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:Aptos;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:'Times New Roman';mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA\">\"Ma\" comes over to your table.</span></p></td></tr><tr><td data-colwidth=\"163\"><p>6</p></td><td><p>You are kicked out of the diner by 'Ma' and banished for a week</p></td></tr></tbody></table>",
+    "impulses": "",
+    "type": "social"
+  },
+  "prototypeToken": {
+    "name": "Corporate office",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "modules/cybermancy/assets/images/environments/corporate%20office.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Talkative Intern",
+      "type": "feature",
+      "system": {
+        "attribution": {},
+        "description": "<p>You are accosted by a talkative intern that is exceptionally interested in your background, the project you are working on an just about anything that might help advance his career at the company.</p><p></p><p>Start a Countdown clock (3).  When the clock reaches 0 you have successfully ditched the intern.  You can advance the clock by :</p><ul><li><p>Making a successful check for an appropriate social skill</p></li><li><p>Mark 1 Stress</p></li></ul><p>While the intern is with you all actions not attempting to address the intern are at disadvantage.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "q75OaMDI2YcUuOAa",
+      "img": "modules/cybermancy/assets/icons/adversaries/corp-intern-with-tablet.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "ONclH8Ftjn3ugooV": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!qST6XFvhsrHJE1UO.q75OaMDI2YcUuOAa"
+    },
+    {
+      "name": "Daemon Host",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
+      "system": {
+        "description": "<p><em>It speaks your syntax and calls you by your old handle.</em><br /><br /></p><p class=\"Card-Feature\">Spawns a self-aware daemon that hounds and taunts across systems until removed.</p><p></p><p>The ICE attempts to install a daemon on your computer.  As a Reaction, make a Spellcasting (Hacking) roll against the Difficulty of this ICE to prevent this installation.</p><p></p><p>If the daemon is successfully installed, all subsequent Spellcasting (Hacking) checks are at -2.  To remove the daemon, requires a Short Rest downtime activity.</p><p></p><p>While running the daemon provides running commentary on the deficiencies of your coding, hair cut, and life choices in the voice of an Italian grandmother.</p>",
+        "actions": {
+          "Daemon Host": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<i>It speaks your syntax and calls you by your old handle.</i><br><br><p class=\"Card-Feature\">Spawns a self-aware daemon that hunts you across systems until destroyed or appeased.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Daemon Host",
+            "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
+            "range": "",
+            "_id": "N9g4t1fzqwsVjNPZ",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          },
+          "N9g4t1fzqwsVjNPZ": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<p></p><p><em>It speaks your syntax and calls you by your old handle.</em><br></p><p class=\"Card-Feature\">Spawns a self-aware daemon that hounds and taunts across systems until removed.</p><p></p><p>The ICE attempts to install a daemon on your computer.  As a Reaction, make a Spellcasting (Hacking) roll against the Difficulty of this ICE to prevent this installation.</p><p></p><p>If the daemon is successfully installed, all subsequent Spellcasting (Hacking) checks are at -2.  To remove the daemon, requires a Short Rest downtime activity.</p><p></p><p>While running the daemon provides running commentary on the deficiencies of your coding, hair cut, and life choices in the voice of an Italian grandmother.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Daemon Host",
+            "img": "modules/cybermancy/assets/icons/ice/daemon-host.webp",
+            "range": "",
+            "_id": "N9g4t1fzqwsVjNPZ",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "resource": {
+          "type": "simple",
+          "value": 12,
+          "max": "",
+          "icon": "fa-solid fa-microchip",
+          "recovery": null,
+          "progression": "increasing",
+          "diceStates": {},
+          "dieFaces": "d4"
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "effects": [],
+      "folder": "m8XcfCKsOStlflZD",
+      "ownership": {
+        "default": 0,
+        "9AtfWssIybpdSZVY": 3,
+        "ONclH8Ftjn3ugooV": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_id": "bMPW5f5OZoAsv1ap",
+      "sort": 400000,
+      "_key": "!actors.items!qST6XFvhsrHJE1UO.bMPW5f5OZoAsv1ap"
+    },
+    {
+      "name": "Siren",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/ice/siren.webp",
+      "system": {
+        "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br /><br /><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.</p>",
+        "actions": {
+          "Siren": {
+            "type": "effect",
+            "systemPath": "actions",
+            "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br><br><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Siren",
+            "img": "modules/cybermancy/assets/icons/ice/siren.webp",
+            "range": "",
+            "_id": "b6NEse2L26dcoLv7",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "resource": {
+          "type": "simple",
+          "value": 14,
+          "max": "",
+          "icon": "fa-solid fa-microchip",
+          "recovery": null,
+          "progression": "increasing",
+          "diceStates": {},
+          "dieFaces": "d4"
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "effects": [],
+      "folder": "BImGuescyJIB1rRt",
+      "ownership": {
+        "default": 0,
+        "9AtfWssIybpdSZVY": 3,
+        "ONclH8Ftjn3ugooV": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_id": "95vYvGt4xGvHRd8L",
+      "sort": 600000,
+      "_key": "!actors.items!qST6XFvhsrHJE1UO.95vYvGt4xGvHRd8L"
+    },
+    {
+      "name": "Security patrol",
+      "type": "feature",
+      "system": {
+        "attribution": {},
+        "description": "<p>The office manager is walking through your area with a Head Guard and 2 Corporate Guards.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "_id": "P3JOdXLA43tfJOEz",
+      "img": "worlds/cybermancer/Corporate%20Guard.png",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "ONclH8Ftjn3ugooV": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!qST6XFvhsrHJE1UO.P3JOdXLA43tfJOEz"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "ONclH8Ftjn3ugooV": 3,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787230007086,
+    "modifiedTime": 1787230015247,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_id": "qST6XFvhsrHJE1UO",
+  "sort": 600000,
+  "_key": "!actors!qST6XFvhsrHJE1UO"
+}

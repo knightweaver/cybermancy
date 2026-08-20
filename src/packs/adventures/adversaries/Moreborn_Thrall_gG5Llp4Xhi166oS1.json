@@ -1,0 +1,478 @@
+{
+  "folder": "37VSZjNUFnmscbRN",
+  "name": "Moreborn Thrall",
+  "type": "adversary",
+  "_id": "gG5Llp4Xhi166oS1",
+  "img": "worlds/cybermancer/assets/images/adversaries/mireborn-thrall-group.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p>Dock workers whose minds have been overwritten by Bella's influence. They move and fight with eerie coordination.</p>",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "tier": 1,
+    "type": "standard",
+    "notes": "",
+    "difficulty": 11,
+    "hordeHp": 1,
+    "criticalThreshold": 20,
+    "damageThresholds": {
+      "major": 0,
+      "severe": 0
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 4,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 3,
+        "isReversed": true
+      }
+    },
+    "rules": {
+      "conditionImmunities": {
+        "hidden": false,
+        "restrained": false,
+        "vulnerable": false
+      }
+    },
+    "attack": {
+      "name": "Slam",
+      "img": "modules/cybermancy/assets/icons/attacks/hard-right-hook.webp",
+      "_id": "UIt1Usitwn6nwO6G",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "melee",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "bonus": 1,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": 2,
+              "multiplier": "flat"
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false,
+        "direct": false
+      },
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "experiences": {},
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        }
+      }
+    },
+    "motivesAndTactics": "Hive minded coordination, protect the hive mother"
+  },
+  "prototypeToken": {
+    "name": "Moreborn Thrall",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/images/adversaries/mireborn-thrall-group.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Too Many to Handle",
+      "type": "feature",
+      "system": {
+        "description": "<p>When the Thrall is within Melee range of a creature and at least one other Thrall is within Close range, all attacks against that creature have advantage.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "img": "icons/magic/death/undead-zombie-grave-green.webp",
+      "flags": {},
+      "folder": "cftTk8AgufljVZlb",
+      "effects": [],
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782187074507,
+        "modifiedTime": 1782187167176,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "YUtlcC1DVzkirPaJ": 3,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "_id": "JFvhuShwOdvwONY9",
+      "_key": "!actors.items!gG5Llp4Xhi166oS1.JFvhuShwOdvwONY9"
+    },
+    {
+      "name": "Horrifying",
+      "type": "feature",
+      "system": {
+        "description": "<p>Targets who mark HP from the Zombie’s attacks must also mark a Stress.</p>",
+        "resource": null,
+        "actions": {
+          "JUw16Jag9uTfBmKZ": {
+            "type": "damage",
+            "_id": "JUw16Jag9uTfBmKZ",
+            "systemPath": "actions",
+            "description": "<p>Targets who mark HP from the Zombie’s attacks must also mark a Stress.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "parts": [
+                {
+                  "value": {
+                    "custom": {
+                      "enabled": true,
+                      "formula": "1"
+                    },
+                    "multiplier": "flat",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null
+                  },
+                  "applyTo": "stress",
+                  "type": [],
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              ],
+              "includeBase": false,
+              "direct": false
+            },
+            "target": {
+              "type": "any",
+              "amount": 1
+            },
+            "effects": [],
+            "name": "Mark Stress",
+            "img": "icons/magic/death/skull-energy-light-purple.webp",
+            "range": "melee",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "img": "icons/magic/death/skull-energy-light-purple.webp",
+      "flags": {},
+      "folder": "cftTk8AgufljVZlb",
+      "effects": [],
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782187080562,
+        "modifiedTime": 1782187080562,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "YUtlcC1DVzkirPaJ": 3,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "_id": "O8Q0FUVFj2wt0cAP",
+      "_key": "!actors.items!gG5Llp4Xhi166oS1.O8Q0FUVFj2wt0cAP"
+    },
+    {
+      "name": "Strike as One",
+      "type": "feature",
+      "system": {
+        "description": "<p><strong>Mark a Stress</strong> to spotlight a number of other Thralls equal to the Thrall's unmarked Stress.</p>",
+        "resource": null,
+        "actions": {
+          "vKRDbD07bqR317Zv": {
+            "type": "effect",
+            "_id": "vKRDbD07bqR317Zv",
+            "systemPath": "actions",
+            "description": "<p><strong>Mark a Stress</strong> to spotlight a number of other Assassins equal to the Assassin’s unmarked Stress.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "self",
+              "amount": null
+            },
+            "name": "Mark Stress",
+            "img": "icons/skills/movement/arrows-up-trio-red.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "img": "icons/skills/movement/arrows-up-trio-red.webp",
+      "flags": {},
+      "folder": "mx9veq2dURvUmCze",
+      "effects": [],
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782187095602,
+        "modifiedTime": 1782187121094,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "YUtlcC1DVzkirPaJ": 3,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "_id": "rIHyHosvTyC3wiRk",
+      "_key": "!actors.items!gG5Llp4Xhi166oS1.rIHyHosvTyC3wiRk"
+    }
+  ],
+  "effects": [],
+  "sort": 1100000,
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1782186898865,
+    "modifiedTime": 1787229932036,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_key": "!actors!gG5Llp4Xhi166oS1"
+}

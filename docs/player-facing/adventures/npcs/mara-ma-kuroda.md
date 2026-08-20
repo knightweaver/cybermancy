@@ -1,4 +1,4 @@
-**Name:** *The Neon Diner*
+# **Name:** *The Neon Diner*
 
 <div class="grid item-grid" markdown="1">
 <div markdown="1">

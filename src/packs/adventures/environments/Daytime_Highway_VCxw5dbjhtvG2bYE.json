@@ -1,0 +1,330 @@
+{
+  "folder": "PVM9xBt9UzTWTWGT",
+  "name": "Daytime Highway",
+  "type": "environment",
+  "img": "modules/cybermancy/assets/images/environments/Highway%20rush%20hour.png",
+  "system": {
+    "description": "",
+    "tier": 1,
+    "difficulty": 14,
+    "potentialAdversaries": {},
+    "notes": "<p><strong>Environment: Rush-Hour Elevated Highway</strong></p><p>A dense flow of commuters fills the multilane highway. Autonomous cars hold tight formation while human drivers weave unpredictably. Traffic speed oscillates between smooth motion and abrupt gridlock as routing algorithms struggle with peak load. Police speed traps sit on overpasses and median cutouts. Farther ahead, robotic construction rigs crawl along active repair zones, narrowing lanes and throwing sensor noise into the air.</p><p><strong>Complicating Features</strong></p><p><strong>Sudden Traffic Compression</strong><br />Routing shifts or lane merges can collapse flow instantly, forcing hard braking or rapid lane changes.</p><p><strong>Police Speed Traps</strong><br />High-resolution lidar and drone patrols sweep for velocity spikes and unusual maneuvering.</p><p><strong>Human Driver Variability</strong><br />Commuters make late merges, emergency stops, or erratic lane shifts that disrupt predictable movement.</p><p><strong>Autonomous Platoons</strong><br />Tightly grouped auto-cars leave little physical space; breaking into a platoon requires precision or force.</p><p><strong>Construction Rigs</strong><br />Large robotic equipment drifts across marked boundaries, shedding debris and throwing off targeting or sensor locks.</p><p><strong>Sensor Interference</strong><br />High signal density from vehicles, signage, and enforcement systems can degrade comms or targeting feeds.</p><p>This setup supports a high-velocity chase with constant positional constraints and external pressure from civilian and enforcement systems.</p>",
+    "impulses": "",
+    "type": "event",
+    "attribution": {}
+  },
+  "prototypeToken": {
+    "name": "Daytime Highway",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "modules/cybermancy/assets/images/environments/Midnight%20streets.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Slick road",
+      "type": "feature",
+      "system": {
+        "description": "<p>Recent rainfall and leaking hydraulics create slippery patches that can throw off footing, traction, or drone stability.</p><p>Undergrid vagrants walk out into the street. <strong>Spend 1 Fear</strong> to force a <strong>Driving (12)</strong> check on one of the players.</p><p></p><ul><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: Tick down 2</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Hope</strong>: Tick down 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Fear</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Hope</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Fear</strong>: Tick up 2</span></p></li><li><p><strong>Critical Fail</strong>: You spin out Tick up 3</p></li></ul>",
+        "resource": null,
+        "actions": {
+          "yi0jRpW93RXpeih1": {
+            "type": "effect",
+            "_id": "yi0jRpW93RXpeih1",
+            "systemPath": "actions",
+            "description": "<p>Recent rainfall and leaking hydraulics create slippery patches that can throw off footing, traction, or drone stability.</p><p>Undergrid vagrants walk out into the street. <strong>Spend 1 Fear</strong> to force a <strong>Driving (12)</strong> check on one of the players.</p><p></p><ul><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: Tick down 2</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Hope</strong>: Tick down 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success with Fear</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Hope</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure with Fear</strong>: Tick up 2</span></p></li><li><p><strong>Critical Fail</strong>: You spin out Tick up 3</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "fear",
+                "value": 1,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Slick road",
+            "img": "icons/magic/water/wave-water-teal.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "_id": "2Kf3W62pHWknM9QV",
+      "img": "icons/magic/water/wave-water-teal.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "ownership": {
+        "default": 0,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!VCxw5dbjhtvG2bYE.2Kf3W62pHWknM9QV"
+    },
+    {
+      "name": "Cut-off",
+      "type": "feature",
+      "system": {
+        "description": "<p>The party may <strong>Spend 1 Hope</strong> <span style=\"text-decoration:underline\"><strong><span style=\"text-decoration:underline\">each</span></strong></span> or the GM may <strong>Spend 2 Fear</strong> to trigger a constriction in the traffic against the opponent.</p><p></p><p>Depending no which side triggers this effect, the other side must as a <strong>Reaction</strong> make an immediate <strong>Driving</strong> check for the Difficulty of the environment.</p><p></p><ul><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);font-family:Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure</strong>: Tick up 2</span></p></li><li><p><strong>Critical Fail</strong>: You clip one of the cars in traffic, Tick up 3 and they got your license plate number</p></li></ul>",
+        "resource": null,
+        "actions": {
+          "JEWip40YcLxAZFf2": {
+            "type": "effect",
+            "_id": "JEWip40YcLxAZFf2",
+            "systemPath": "actions",
+            "description": "<p>The party may <strong>Spend 1 Hope</strong> <span style=\"text-decoration: underline;\"><strong><span style=\"text-decoration: underline;\">each</span></strong></span> or the GM may <strong>Spend 2 Fear</strong> to trigger a constriction in the traffic against the opponent.</p><p></p><p>Depending no which side triggers this effect, the other side must as a <strong>Reaction</strong> make an immediate <strong>Driving</strong> check for the Difficulty of the environment.</p><p></p><ul><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Critical Success</strong>: No Advancement</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Success</strong>: Tick up 1</span></p></li><li><p><span style=\"box-sizing: border-box; margin: 0px; scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track); font-family: Montserrat, sans-serif\"><strong style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">Failure</strong>: Tick up 2</span></p></li><li><p><strong>Critical Fail</strong>: You clip one of the cars in traffic, Tick up 3 and they got your license plate number</p></li></ul>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Cut-off",
+            "img": "modules/cybermancy/assets/images/environments/cut-off.png",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "_id": "smePOc2QG8sgDgUJ",
+      "img": "modules/cybermancy/assets/images/environments/cut-off.png",
+      "effects": [],
+      "folder": null,
+      "sort": 50000,
+      "ownership": {
+        "default": 0,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!VCxw5dbjhtvG2bYE.smePOc2QG8sgDgUJ"
+    },
+    {
+      "name": "Police in Pursuit",
+      "type": "feature",
+      "system": {
+        "description": "<p><strong>Spend 2 Fear</strong> to add a police cruiser to the chase in pursuit of the chase.</p><p></p><p>Their Chase die starts at the highest value and they can be spotlighted like normal. If they get within range, they will warn all participants in the chase to stop.</p><p></p><p>Start a <strong>Progress Countdown (4)</strong>. It ticks down whenever a party member takes an action.</p><p></p><p><strong>If this Progress Countdown reaches 0</strong>, add another Police cruiser to the chase and the police begin to open fire. <br /><br /><strong>Attack: </strong>+1 | Heavy Pistol | Close | 1d6+2</p>",
+        "resource": null,
+        "actions": {
+          "maNo9zm8q4JrQ3UR": {
+            "type": "effect",
+            "_id": "maNo9zm8q4JrQ3UR",
+            "systemPath": "actions",
+            "description": "<p><strong>Spend 2 Fear</strong> to add a police cruiser to the chase in pursuit of the chase.</p><p></p><p>Their Chase die starts at the highest value and they can be spotlighted like normal. If they get within range, they will warn all participants in the chase to stop.</p><p></p><p>Start a <strong>Progress Countdown (4)</strong>. It ticks down whenever a party member takes an action.</p><p></p><p><strong>If this Progress Countdown reaches 0</strong>, add another Police cruiser to the chase and the police begin to open fire. <br><br><strong>Attack: </strong>+1 | Heavy Pistol | Close | 1d6+2</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "fear",
+                "value": 2,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Police in pursuit",
+            "img": "modules/cybermancy/assets/images/environments/police-pursuit.png",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "_id": "G4SKiyVXBBwKSjiU",
+      "img": "modules/cybermancy/assets/images/environments/police-pursuit.png",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "BT83wOOYeRCn9aoe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!VCxw5dbjhtvG2bYE.G4SKiyVXBBwKSjiU"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787230009044,
+    "modifiedTime": 1787230015247,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_id": "VCxw5dbjhtvG2bYE",
+  "sort": 500000,
+  "_key": "!actors!VCxw5dbjhtvG2bYE"
+}

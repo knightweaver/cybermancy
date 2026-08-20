@@ -1,9 +1,10 @@
+
+# **Adventure One: The Song of Psychopath**
+
 Perfect — this is a well-structured first mission arc that moves cleanly from street-level intrigue into the deeper machinery of the Council-versus-Cabal conflict.
 Below is a full, canon-consistent expansion of your outline with grounded names, factions, and hooks designed to pull the party organically toward *Project Chimera → Project Anima → Project Mirrorwake*.
 
 ---
-
-## **Adventure One: The Song of Psychopath**
 
 ### **1. The Job**
 

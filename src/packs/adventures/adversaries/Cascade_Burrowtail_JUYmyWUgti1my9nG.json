@@ -1,0 +1,627 @@
+{
+  "name": "Cascade Burrowtail",
+  "img": "worlds/cybermancer/assets/images/adversaries/cascade-burrowtail.png",
+  "type": "adversary",
+  "system": {
+    "difficulty": 12,
+    "damageThresholds": {
+      "major": null,
+      "severe": null
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 1,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 1,
+        "isReversed": true
+      }
+    },
+    "motivesAndTactics": "approach innocently, swarm exposed targets, latch on, burrow into flesh, call more of the colony",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "type": "minion",
+    "notes": "",
+    "hordeHp": 1,
+    "experiences": {
+      "0zQeuomWXwPEwbd8": {
+        "name": "Scurrying",
+        "value": 2
+      },
+      "pdBVgfH1fbNeSYVI": {
+        "name": "Natural Camouflage",
+        "value": 2
+      }
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        }
+      }
+    },
+    "tier": 1,
+    "description": "<p>A fluffy, curious Cascade squirrel or chipmunk whose harmless appearance hides backward-hooked teeth and a horrific instinct to burrow into living flesh.</p>\n<section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Approach harmlessly and get into Melee before revealing the threat.</p><p><strong><em>Default:</em></strong> Needle Bite an exposed target, preferably one without a Burrowing Countdown.</p><p><strong><em>On HP Marked:</em></strong> Resolve Leap and Burrow; once per GM turn, also trigger Blood Calls the Colony.</p><p><strong><em>Pressure:</em></strong> Spread new Burrowtails across exposed targets while attached victims decide whether to spend actions extracting them.</p><p><strong><em>Remember:</em></strong> Tick the countdown after each victim action. Embedded Burrowtails do not take spotlights; remember Under the Skin on Fear triggers.</p><p><strong><em>Goal:</em></strong> Turn one successful bite into an escalating triage problem before the parasites get under the skin.</p></section>",
+    "attack": {
+      "name": "Needle Bite",
+      "roll": {
+        "bonus": 1,
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "range": "melee",
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "custom": {
+                "enabled": true,
+                "formula": "3"
+              },
+              "dice": "d4",
+              "bonus": 0,
+              "multiplier": "flat",
+              "flatMultiplier": 1
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false,
+        "direct": false
+      },
+      "img": "icons/creatures/abilities/mouth-teeth-human.webp",
+      "type": "attack",
+      "chatDisplay": false,
+      "_id": "jERJNMGr6MNhHBWx",
+      "systemPath": "actions",
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "target": {
+        "type": "any",
+        "amount": null
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "attribution": {
+      "source": "Cybermancy",
+      "page": null,
+      "artist": ""
+    },
+    "criticalThreshold": 20,
+    "rules": {
+      "conditionImmunities": {
+        "hidden": false,
+        "restrained": false,
+        "vulnerable": false
+      }
+    }
+  },
+  "flags": {
+    "cybermancy": {
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Approach harmlessly and get into Melee before revealing the threat.",
+            "featureRefs": [
+              "Cute Until It Isn’t"
+            ]
+          },
+          {
+            "label": "Default",
+            "text": "Needle Bite an exposed target, preferably one without a Burrowing Countdown.",
+            "featureRefs": []
+          },
+          {
+            "label": "On HP Marked",
+            "text": "Resolve Leap and Burrow; once per GM turn, also trigger Blood Calls the Colony.",
+            "featureRefs": [
+              "Leap and Burrow",
+              "Blood Calls the Colony"
+            ]
+          },
+          {
+            "label": "Pressure",
+            "text": "Spread new Burrowtails across exposed targets while attached victims decide whether to spend actions extracting them.",
+            "featureRefs": [
+              "Blood Calls the Colony"
+            ]
+          },
+          {
+            "label": "Remember",
+            "text": "Tick the countdown after each victim action. Embedded Burrowtails do not take spotlights; remember Under the Skin on Fear triggers.",
+            "featureRefs": [
+              "Leap and Burrow",
+              "Under the Skin"
+            ]
+          }
+        ],
+        "goal": "Turn one successful bite into an escalating triage problem before the parasites get under the skin."
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Cascade Burrowtail",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/tokens/adversaries/cascade-burrowtail-token.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": "#4d4033",
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 0.8,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Minion (3)",
+      "type": "feature",
+      "_id": "8g2MmrkaPGADfJpA",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The Burrowtail is defeated when it takes any damage. For every 3 damage a PC deals to the Burrowtail, defeat an additional Burrowtail within range that the attack would succeed against.</p>",
+        "resource": null,
+        "actions": {
+          "3OW5IUYtTdG9VxSs": {
+            "type": "effect",
+            "_id": "3OW5IUYtTdG9VxSs",
+            "systemPath": "actions",
+            "description": "<p>The Burrowtail is defeated when it takes any damage. For every 3 damage a PC deals to the Burrowtail, defeat an additional Burrowtail within range that the attack would succeed against.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Minion (3)",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!JUYmyWUgti1my9nG.8g2MmrkaPGADfJpA"
+    },
+    {
+      "name": "Cute Until It Isn’t",
+      "type": "feature",
+      "_id": "VKU3788lsYNIthSl",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Before a Burrowtail attacks or openly reveals its altered anatomy, creatures have disadvantage on rolls to recognize it as dangerous.</p>",
+        "resource": null,
+        "actions": {
+          "OdnsMyKAFRMQVbpg": {
+            "type": "effect",
+            "_id": "OdnsMyKAFRMQVbpg",
+            "systemPath": "actions",
+            "description": "<p>Before a Burrowtail attacks or openly reveals its altered anatomy, creatures have disadvantage on rolls to recognize it as dangerous.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Cute Until It Isn’t",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!JUYmyWUgti1my9nG.VKU3788lsYNIthSl"
+    },
+    {
+      "name": "Leap and Burrow",
+      "type": "feature",
+      "_id": "OGZlEBbymAbeQyZi",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When a target marks HP from the Burrowtail’s Needle Bite, the Burrowtail latches onto them instead of remaining as a normal adversary. Start a Burrowing Countdown (3) on that target and remove the Burrowtail token from normal play. At the end of each action the affected target takes, tick the countdown down by 1. Before it triggers, the target or an ally within Melee range can use an action to attempt to remove the Burrowtail with a successful Finesse or Strength Roll (12). On a success, the Burrowtail is removed and defeated.</p>",
+        "resource": null,
+        "actions": {
+          "5YLlEH5tkSmEJeDj": {
+            "type": "effect",
+            "_id": "5YLlEH5tkSmEJeDj",
+            "systemPath": "actions",
+            "description": "<p>When a target marks HP from the Burrowtail’s Needle Bite, the Burrowtail latches onto them instead of remaining as a normal adversary. Start a Burrowing Countdown (3) on that target and remove the Burrowtail token from normal play. At the end of each action the affected target takes, tick the countdown down by 1. Before it triggers, the target or an ally within Melee range can use an action to attempt to remove the Burrowtail with a successful Finesse or Strength Roll (12). On a success, the Burrowtail is removed and defeated.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Leap and Burrow",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!JUYmyWUgti1my9nG.OGZlEBbymAbeQyZi"
+    },
+    {
+      "name": "Under the Skin",
+      "type": "feature",
+      "_id": "npv9sc2Ghc8H2Lci",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When the Burrowing Countdown triggers, the Burrowtail disappears beneath the target’s skin and can no longer be harmed by ordinary attacks. Whenever that creature rolls with Fear, or the GM spends a Fear while that creature is in the scene, they mark 1 HP. Removing the embedded Burrowtail requires surgery, appropriate medical treatment, Cybermancy, or another plausible intervention.</p>",
+        "resource": null,
+        "actions": {
+          "baZKWg8JjDoEjqxx": {
+            "type": "effect",
+            "_id": "baZKWg8JjDoEjqxx",
+            "systemPath": "actions",
+            "description": "<p>When the Burrowing Countdown triggers, the Burrowtail disappears beneath the target’s skin and can no longer be harmed by ordinary attacks. Whenever that creature rolls with Fear, or the GM spends a Fear while that creature is in the scene, they mark 1 HP. Removing the embedded Burrowtail requires surgery, appropriate medical treatment, Cybermancy, or another plausible intervention.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Under the Skin",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!JUYmyWUgti1my9nG.npv9sc2Ghc8H2Lci"
+    },
+    {
+      "name": "Blood Calls the Colony",
+      "type": "feature",
+      "_id": "v5LBxx0urbcl1cOy",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When a Burrowtail successfully deals enough damage with Needle Bite for the target to mark HP, immediately place 1d4 additional Cascade Burrowtail Minions within Close range. This feature can trigger only once per GM turn.</p>",
+        "resource": null,
+        "actions": {
+          "brgrYj1gObFu1Lrj": {
+            "type": "effect",
+            "_id": "brgrYj1gObFu1Lrj",
+            "systemPath": "actions",
+            "description": "<p>When a Burrowtail successfully deals enough damage with Needle Bite for the target to mark HP, immediately place 1d4 additional Cascade Burrowtail Minions within Close range. This feature can trigger only once per GM turn.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Blood Calls the Colony",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!JUYmyWUgti1my9nG.v5LBxx0urbcl1cOy"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787229896697,
+    "modifiedTime": 1787229932036,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "folder": "37VSZjNUFnmscbRN",
+  "_id": "JUYmyWUgti1my9nG",
+  "sort": 100000,
+  "_key": "!actors!JUYmyWUgti1my9nG"
+}

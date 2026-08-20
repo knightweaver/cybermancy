@@ -1,0 +1,484 @@
+{
+  "name": "Abraxas ritual cave",
+  "type": "environment",
+  "img": "worlds/cybermancer/assets/images/environments/abraxas-ritual-cave.png",
+  "system": {
+    "attribution": {
+      "source": "Cybermancy"
+    },
+    "description": "<p>A mountain cave swollen beyond natural geometry by Abraxas ritual power, where a blood-lit altar and half-open threshold pour chaos into the world while Dr. Elias Voss waits to be sacrificed.</p>\n<section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Start Ritual Countdown (6) when PCs enter the altar chamber or cultists notice them. Make Voss, altar, portal, and sacrifice visibly actionable.</p><p><strong><em>Default Pressure:</em></strong> Force choices between rescuing Voss, disrupting the altar, controlling enemies, and surviving; cultists should obstruct or advance the rite.</p><p><strong><em>On PC Fear:</em></strong> Advance the Ritual Countdown. If Fear occurred during movement, consider Warped Cave Geometry to separate or displace the PC.</p><p><strong><em>On GM Fear Spend:</em></strong> Remember Portal Backwash. If Fear specifically intensifies the rite, also advance the Ritual Countdown.</p><p><strong><em>Attack the Problem:</em></strong> Use Altar of Opening Progress (8); reward strong fictional leverage with extra progress. Completion stops cultist-driven ritual advancement.</p><p><strong><em>Goal:</em></strong> Create escalating objective pressure: actions spent fighting are actions not spent rescuing Voss or shutting down the ritual.</p></section>",
+    "tier": 2,
+    "difficulty": 15,
+    "potentialAdversaries": {
+      "Z7NPSGwDz2oWThDw": {
+        "label": "Potential Adversaries",
+        "adversaries": [
+          "Actor.BxqhkxeMpY5hXiF6",
+          "Actor.0TWQnZxMA2GLtizO",
+          "Actor.XQjo8jN8c4CWqYf7"
+        ]
+      }
+    },
+    "notes": "",
+    "impulses": "Complete the sacrifice, Widen the threshold breach, Separate rescuers from the altar, Feed on fear, blood, and hesitation, Twist space into a weapon",
+    "type": "event"
+  },
+  "prototypeToken": {
+    "name": "Abraxas ritual cave",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/images/environments/abraxas-ritual-cave.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Ritual of the Open Threshold",
+      "type": "feature",
+      "_id": "yYbRS5Fq4hLvUeVk",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Start a Ritual Countdown (6) when the party first enters the altar chamber or when the cultists become aware of them. Advance the countdown by 1 whenever a PC rolls with Fear, a cultist spends their action furthering the ritual, or the GM spends a Fear to intensify the rite. When the countdown triggers, Dr. Elias Voss is sacrificed unless the PCs have already freed him, and the portal surges fully open for a moment. All creatures in the altar chamber must make an Instinct Reaction Roll. Those who fail mark 2 Stress and become Vulnerable until they roll with Hope. Those who succeed mark 1 Stress.</p>",
+        "resource": null,
+        "actions": {
+          "4uXfDPxJUPCzFd21": {
+            "type": "effect",
+            "_id": "4uXfDPxJUPCzFd21",
+            "systemPath": "actions",
+            "description": "<p>Start a Ritual Countdown (6) when the party first enters the altar chamber or when the cultists become aware of them. Advance the countdown by 1 whenever a PC rolls with Fear, a cultist spends their action furthering the ritual, or the GM spends a Fear to intensify the rite. When the countdown triggers, Dr. Elias Voss is sacrificed unless the PCs have already freed him, and the portal surges fully open for a moment. All creatures in the altar chamber must make an Instinct Reaction Roll. Those who fail mark 2 Stress and become Vulnerable until they roll with Hope. Those who succeed mark 1 Stress.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Ritual of the Open Threshold",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!h5LbBi4TNmuMEzo5.yYbRS5Fq4hLvUeVk"
+    },
+    {
+      "name": "Warped Cave Geometry",
+      "type": "feature",
+      "_id": "0zAgAAnH2R4mw6OG",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When a PC rolls with Fear while moving or repositioning, the cave briefly folds around them. The GM may move that PC to a nearby precarious position, separate them from an ally by one zone, or place them nearer to a hazard, cultist, or the portal edge. If no reposition makes sense, the PC instead marks 1 Stress as vertigo and impossible angles overwhelm them.</p>",
+        "resource": null,
+        "actions": {
+          "N6dV1mwhfhMO9lcI": {
+            "type": "effect",
+            "_id": "N6dV1mwhfhMO9lcI",
+            "systemPath": "actions",
+            "description": "<p>When a PC rolls with Fear while moving or repositioning, the cave briefly folds around them. The GM may move that PC to a nearby precarious position, separate them from an ally by one zone, or place them nearer to a hazard, cultist, or the portal edge. If no reposition makes sense, the PC instead marks 1 Stress as vertigo and impossible angles overwhelm them.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Warped Cave Geometry",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!h5LbBi4TNmuMEzo5.0zAgAAnH2R4mw6OG"
+    },
+    {
+      "name": "Altar of Opening",
+      "type": "feature",
+      "_id": "7JnwHSKnDj8XsdaI",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The central altar anchors the ritual. A PC adjacent to the altar can attempt to disrupt it with an appropriate action: sabotage, counter-ritual, magical interference, hacking or Resonance analysis of embedded devices, or desecration of the sigils. Build a Progress Countdown (8) representing disruption of the ritual focus. Strong fictional leverage or especially appropriate abilities may tick the countdown by 2. When the countdown completes, the portal stabilizes downward and the Ritual Countdown can no longer be advanced by cultist actions, only by Fear results already in motion. If the altar is disrupted before the Ritual Countdown completes, Dr. Elias Voss can still be saved even if the chamber remains dangerous.</p>",
+        "resource": null,
+        "actions": {
+          "THOTHw2txD7KdudL": {
+            "type": "effect",
+            "_id": "THOTHw2txD7KdudL",
+            "systemPath": "actions",
+            "description": "<p>The central altar anchors the ritual. A PC adjacent to the altar can attempt to disrupt it with an appropriate action: sabotage, counter-ritual, magical interference, hacking or Resonance analysis of embedded devices, or desecration of the sigils. Build a Progress Countdown (8) representing disruption of the ritual focus. Strong fictional leverage or especially appropriate abilities may tick the countdown by 2. When the countdown completes, the portal stabilizes downward and the Ritual Countdown can no longer be advanced by cultist actions, only by Fear results already in motion. If the altar is disrupted before the Ritual Countdown completes, Dr. Elias Voss can still be saved even if the chamber remains dangerous.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Altar of Opening",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!h5LbBi4TNmuMEzo5.7JnwHSKnDj8XsdaI"
+    },
+    {
+      "name": "Portal Backwash",
+      "type": "feature",
+      "_id": "srAADA0R5JtA60Da",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Whenever a creature comes within Very Close of the portal, or whenever the GM spends a Fear, chaotic backwash lashes out. The target must make a Presence Reaction Roll. On a failure, they mark 1 HP or 2 Stress, their choice, and suffer an intrusive vision or momentary loss of orientation. On a success, they mark 1 Stress. Creatures already marked by the ritual's corruption may also display visible mutations, whispers, or shadow-doubling.</p>",
+        "resource": null,
+        "actions": {
+          "Gy06lwHYl2pgQl4w": {
+            "type": "effect",
+            "_id": "Gy06lwHYl2pgQl4w",
+            "systemPath": "actions",
+            "description": "<p>Whenever a creature comes within Very Close of the portal, or whenever the GM spends a Fear, chaotic backwash lashes out. The target must make a Presence Reaction Roll. On a failure, they mark 1 HP or 2 Stress, their choice, and suffer an intrusive vision or momentary loss of orientation. On a success, they mark 1 Stress. Creatures already marked by the ritual's corruption may also display visible mutations, whispers, or shadow-doubling.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Portal Backwash",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!h5LbBi4TNmuMEzo5.srAADA0R5JtA60Da"
+    },
+    {
+      "name": "Choir of Ruin",
+      "type": "feature",
+      "_id": "tpCy8WlGXYHCtSHk",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The cave carries layered whispers, chanting, and impossible harmonics from the half-open threshold. PCs attempting calm communication, concentration, or precise coordination across the chamber have disadvantage unless they are within Close range of one another or have first created some form of cover, silence, or anchoring effect. A PC who takes a moment to listen intentionally may ask one brief question about the ritual or cave. The answer is true but cryptic.</p>",
+        "resource": null,
+        "actions": {
+          "PSGKudnuW49NVXcV": {
+            "type": "effect",
+            "_id": "PSGKudnuW49NVXcV",
+            "systemPath": "actions",
+            "description": "<p>The cave carries layered whispers, chanting, and impossible harmonics from the half-open threshold. PCs attempting calm communication, concentration, or precise coordination across the chamber have disadvantage unless they are within Close range of one another or have first created some form of cover, silence, or anchoring effect. A PC who takes a moment to listen intentionally may ask one brief question about the ritual or cave. The answer is true but cryptic.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Choir of Ruin",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!h5LbBi4TNmuMEzo5.tpCy8WlGXYHCtSHk"
+    }
+  ],
+  "effects": [],
+  "flags": {
+    "cybermancy": {
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Start Ritual Countdown (6) when PCs enter the altar chamber or cultists notice them. Make Voss, altar, portal, and sacrifice visibly actionable.",
+            "featureRefs": [
+              "Ritual of the Open Threshold"
+            ]
+          },
+          {
+            "label": "Default Pressure",
+            "text": "Force choices between rescuing Voss, disrupting the altar, controlling enemies, and surviving; cultists should obstruct or advance the rite.",
+            "featureRefs": [
+              "Ritual of the Open Threshold"
+            ]
+          },
+          {
+            "label": "On PC Fear",
+            "text": "Advance the Ritual Countdown. If Fear occurred during movement, consider Warped Cave Geometry to separate or displace the PC.",
+            "featureRefs": [
+              "Ritual of the Open Threshold",
+              "Warped Cave Geometry"
+            ]
+          },
+          {
+            "label": "On GM Fear Spend",
+            "text": "Remember Portal Backwash. If Fear specifically intensifies the rite, also advance the Ritual Countdown.",
+            "featureRefs": [
+              "Portal Backwash",
+              "Ritual of the Open Threshold"
+            ]
+          },
+          {
+            "label": "Attack the Problem",
+            "text": "Use Altar of Opening Progress (8); reward strong fictional leverage with extra progress. Completion stops cultist-driven ritual advancement.",
+            "featureRefs": [
+              "Altar of Opening",
+              "Ritual of the Open Threshold"
+            ]
+          }
+        ],
+        "goal": "Create escalating objective pressure: actions spent fighting are actions not spent rescuing Voss or shutting down the ritual."
+      }
+    }
+  },
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787229971166,
+    "modifiedTime": 1787229971166,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "folder": "QkE61ieXiN62Wb82",
+  "_id": "h5LbBi4TNmuMEzo5",
+  "sort": 0,
+  "_key": "!actors!h5LbBi4TNmuMEzo5"
+}

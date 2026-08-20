@@ -1,5 +1,5 @@
 
-## 1. **Dominion Systems** (Weapons Conglomerate)
+# 1. **Dominion Systems** (Weapons Conglomerate)
 
 **Council Domain:** Monopoly over armament, enforcement, and predictive warfare.
 **Covenant Arm:** *Project Ægis* — intent-mapping and pre-crime suppression.

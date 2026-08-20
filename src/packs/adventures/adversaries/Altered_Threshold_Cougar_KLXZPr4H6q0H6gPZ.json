@@ -1,0 +1,506 @@
+{
+  "name": "Altered Threshold Cougar",
+  "img": "worlds/cybermancer/assets/images/adversaries/altered-threshold-cougar.png",
+  "type": "adversary",
+  "system": {
+    "difficulty": 14,
+    "damageThresholds": {
+      "major": 7,
+      "severe": 13
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 5,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 4,
+        "isReversed": true
+      }
+    },
+    "motivesAndTactics": "stalk unseen, isolate stragglers, silence prey, strike from concealment, reposition through shadow, retreat before retaliation",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "type": "skulk",
+    "notes": "",
+    "hordeHp": 1,
+    "experiences": {
+      "B6ygI6xXE7QTQBuq": {
+        "name": "Ambush Predator",
+        "value": 3
+      }
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        }
+      }
+    },
+    "tier": 2,
+    "description": "<p>A ritual-warped mountain cougar whose outline never quite agrees with itself: forelimbs double during a strike, shadows pool around its body, and it can vanish from one patch of darkness to emerge from another.</p>\n<section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Begin concealed where the fiction allows, stalk the party, and identify an isolated or exposed target before revealing the Cougar.</p><p><strong><em>Default:</em></strong> From Hidden, use Silent Threshold Pounce against isolated prey, especially when silencing or separating that target matters.</p><p><strong><em>Reset:</em></strong> After striking, break contact and seek darkness or cover. Use Threshold Skip when Stress meaningfully restores distance, concealment, or a new angle.</p><p><strong><em>If Cornered:</em></strong> Use Claws &amp; Bite, but take the first good opportunity to disengage and resume the ambush cycle.</p><p><strong><em>Remember:</em></strong> Living Shadow adds +2 Difficulty while Hidden. Threshold Skip repositions only; it does not grant another attack.</p><p><strong><em>Goal:</em></strong> Make the Cougar a disappearing ambush predator: dangerous while it controls contact, much weaker when PCs deny concealment.</p></section>",
+    "attack": {
+      "name": "Claws & Bite",
+      "roll": {
+        "bonus": 3,
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "range": "melee",
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "dice": "d8",
+              "bonus": 3,
+              "multiplier": "flat",
+              "flatMultiplier": 1
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false,
+        "direct": false
+      },
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "type": "attack",
+      "chatDisplay": false,
+      "_id": "7wOF3IeCNOXgNa22",
+      "systemPath": "actions",
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "target": {
+        "type": "any",
+        "amount": null
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "attribution": {
+      "source": "Cybermancy",
+      "page": null,
+      "artist": ""
+    },
+    "criticalThreshold": 20,
+    "rules": {
+      "conditionImmunities": {
+        "hidden": false,
+        "restrained": false,
+        "vulnerable": false
+      }
+    }
+  },
+  "flags": {
+    "cybermancy": {
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Begin concealed where the fiction allows, stalk the party, and identify an isolated or exposed target before revealing the Cougar.",
+            "featureRefs": [
+              "Living Shadow"
+            ]
+          },
+          {
+            "label": "Default",
+            "text": "From Hidden, use Silent Threshold Pounce against isolated prey, especially when silencing or separating that target matters.",
+            "featureRefs": [
+              "Silent Threshold Pounce",
+              "Living Shadow"
+            ]
+          },
+          {
+            "label": "Reset",
+            "text": "After striking, break contact and seek darkness or cover. Use Threshold Skip when Stress meaningfully restores distance, concealment, or a new angle.",
+            "featureRefs": [
+              "Threshold Skip",
+              "Living Shadow"
+            ]
+          },
+          {
+            "label": "If Cornered",
+            "text": "Use Claws & Bite, but take the first good opportunity to disengage and resume the ambush cycle.",
+            "featureRefs": []
+          },
+          {
+            "label": "Remember",
+            "text": "Living Shadow adds +2 Difficulty while Hidden. Threshold Skip repositions only; it does not grant another attack.",
+            "featureRefs": [
+              "Living Shadow",
+              "Threshold Skip"
+            ]
+          }
+        ],
+        "goal": "Make the Cougar a disappearing ambush predator: dangerous while it controls contact, much weaker when PCs deny concealment."
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Altered Threshold Cougar",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/tokens/adversaries/altered-threshold-cougar-token.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": "#8f0000",
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 0.8,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Living Shadow",
+      "type": "feature",
+      "_id": "eir307Cd0FAsejAk",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>While the Cougar is in dim light, darkness, heavy foliage, or similar visual cover, it can become Hidden without needing complete physical concealment. While Hidden in this way, its Difficulty increases by +2 against attacks until it next attacks or is clearly revealed.</p>",
+        "resource": null,
+        "actions": {
+          "eL2heKTR9gyyIzy0": {
+            "type": "effect",
+            "_id": "eL2heKTR9gyyIzy0",
+            "systemPath": "actions",
+            "description": "<p>While the Cougar is in dim light, darkness, heavy foliage, or similar visual cover, it can become Hidden without needing complete physical concealment. While Hidden in this way, its Difficulty increases by +2 against attacks until it next attacks or is clearly revealed.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Living Shadow",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!KLXZPr4H6q0H6gPZ.eir307Cd0FAsejAk"
+    },
+    {
+      "name": "Threshold Skip",
+      "type": "feature",
+      "_id": "Y2kdDrUoOrfrConF",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mark a Stress to move from one shadow or area of dim light to another within Far range. This movement appears instantaneous and does not require a clear path between the two points.</p>",
+        "resource": null,
+        "actions": {
+          "LRAi5iWkqGYleonV": {
+            "type": "effect",
+            "_id": "LRAi5iWkqGYleonV",
+            "systemPath": "actions",
+            "description": "<p>Mark a Stress to move from one shadow or area of dim light to another within Far range. This movement appears instantaneous and does not require a clear path between the two points.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Threshold Skip",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!KLXZPr4H6q0H6gPZ.Y2kdDrUoOrfrConF"
+    },
+    {
+      "name": "Silent Threshold Pounce",
+      "type": "feature",
+      "_id": "F1F9WnnFOlHvuc8k",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>While Hidden, mark a Stress and choose a target within Very Close range. The Cougar skips into Melee range as it attacks. The target must make an Agility or Instinct Reaction Roll (15). On a failure, they take 2d8 physical damage, become Vulnerable, and become Silenced until the end of their next action. On a success, they take half damage and do not become Silenced or Vulnerable. Silenced: The target cannot speak, shout warnings, or otherwise produce intentional vocal sound. This does not prevent physical actions, movement, or non-vocal communication.</p>",
+        "resource": null,
+        "actions": {
+          "m8iaz2a2T1MPtTWY": {
+            "type": "effect",
+            "_id": "m8iaz2a2T1MPtTWY",
+            "systemPath": "actions",
+            "description": "<p>While Hidden, mark a Stress and choose a target within Very Close range. The Cougar skips into Melee range as it attacks. The target must make an Agility or Instinct Reaction Roll (15). On a failure, they take 2d8 physical damage, become Vulnerable, and become Silenced until the end of their next action. On a success, they take half damage and do not become Silenced or Vulnerable. Silenced: The target cannot speak, shout warnings, or otherwise produce intentional vocal sound. This does not prevent physical actions, movement, or non-vocal communication.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Silent Threshold Pounce",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!KLXZPr4H6q0H6gPZ.F1F9WnnFOlHvuc8k"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787229892463,
+    "modifiedTime": 1787229904198,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "folder": "yGtkJVF1a2VeicyV",
+  "_id": "KLXZPr4H6q0H6gPZ",
+  "sort": 300000,
+  "_key": "!actors!KLXZPr4H6q0H6gPZ"
+}

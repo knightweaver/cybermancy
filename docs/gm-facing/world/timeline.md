@@ -3,7 +3,7 @@
 
 ---
 
-## Philosophical Interpretation
+# Philosophical Interpretation
 
 Each faction has its myth of the Event:
 

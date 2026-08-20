@@ -1,0 +1,628 @@
+{
+  "name": "Abraxas Cult Leader",
+  "img": "worlds/cybermancer/assets/images/adversaries/abraxas-cult-leader.png",
+  "type": "adversary",
+  "system": {
+    "difficulty": 16,
+    "damageThresholds": {
+      "major": 13,
+      "severe": 25
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 8,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 5,
+        "isReversed": true
+      }
+    },
+    "motivesAndTactics": "break order, revel in violence, drive followers into frenzy, protect the ritual, hurl enemies through warped space",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "type": "leader",
+    "notes": "",
+    "hordeHp": 1,
+    "experiences": {
+      "tEA9JPVHFWjtPPsc": {
+        "name": "Intimidation",
+        "value": 3
+      },
+      "2gNrgmAi8tlzvgSH": {
+        "name": "Ritual Lore",
+        "value": 3
+      }
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        }
+      }
+    },
+    "tier": 2,
+    "description": "<p>A hulking troll-like hierophant transformed by prolonged communion with Abraxas. Massive tusk-like fangs jut from a wide mouth, ritual scars crawl across their flesh, and violence sends them into visible ecstasy.</p>\n<section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Stay near the ritual and use Cry of Ruin early when several cultists can act meaningfully, forcing divided attention.</p><p><strong><em>Default:</em></strong> Use Rending Fists on one nearby target and gain Fear through Momentum. Use Chaotic Flux when multiple PCs cluster.</p><p><strong><em>When Hit Hard:</em></strong> Use Violence Is Revelation to reposition toward the ritual, vulnerable prey, or a disruptive location.</p><p><strong><em>Spend Fear:</em></strong> Use Gift of the Threshold primarily to break formations or displace PCs from objectives; damage is secondary.</p><p><strong><em>If Allies Thin:</em></strong> Stop investing Stress in Cry of Ruin and shift toward direct bruiser and control play.</p><p><strong><em>Goal:</em></strong> Conduct a chaotic battle through followers, Fear, and forced movement instead of becoming a stationary sack of HP.</p></section>",
+    "attack": {
+      "name": "Rending Fists",
+      "roll": {
+        "bonus": 4,
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "range": "melee",
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "dice": "d8",
+              "bonus": 5,
+              "multiplier": "flat",
+              "flatMultiplier": 2
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false,
+        "direct": false
+      },
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "type": "attack",
+      "chatDisplay": false,
+      "_id": "SxwJNDoWIoeKOhI9",
+      "systemPath": "actions",
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "target": {
+        "type": "any",
+        "amount": null
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "attribution": {
+      "source": "Cybermancy",
+      "page": null,
+      "artist": ""
+    },
+    "criticalThreshold": 20,
+    "rules": {
+      "conditionImmunities": {
+        "hidden": false,
+        "restrained": false,
+        "vulnerable": false
+      }
+    }
+  },
+  "flags": {
+    "cybermancy": {
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Stay near the ritual and use Cry of Ruin early when several cultists can act meaningfully, forcing divided attention.",
+            "featureRefs": [
+              "Cry of Ruin"
+            ]
+          },
+          {
+            "label": "Default",
+            "text": "Use Rending Fists on one nearby target and gain Fear through Momentum. Use Chaotic Flux when multiple PCs cluster.",
+            "featureRefs": [
+              "Momentum",
+              "Chaotic Flux"
+            ]
+          },
+          {
+            "label": "When Hit Hard",
+            "text": "Use Violence Is Revelation to reposition toward the ritual, vulnerable prey, or a disruptive location.",
+            "featureRefs": [
+              "Violence Is Revelation"
+            ]
+          },
+          {
+            "label": "Spend Fear",
+            "text": "Use Gift of the Threshold primarily to break formations or displace PCs from objectives; damage is secondary.",
+            "featureRefs": [
+              "Gift of the Threshold"
+            ]
+          },
+          {
+            "label": "If Allies Thin",
+            "text": "Stop investing Stress in Cry of Ruin and shift toward direct bruiser and control play.",
+            "featureRefs": [
+              "Cry of Ruin"
+            ]
+          }
+        ],
+        "goal": "Conduct a chaotic battle through followers, Fear, and forced movement instead of becoming a stationary sack of HP."
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Abraxas Cult Leader",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/tokens/adversaries/abraxas-cult-leader-token.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": "#8f0000",
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 0.8,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Momentum",
+      "type": "feature",
+      "_id": "oD4U9MYqcQwU5BXF",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When the Cult Leader makes a successful attack against a PC, you gain a Fear.</p>",
+        "resource": null,
+        "actions": {
+          "JQ7geXAb34osSYsu": {
+            "type": "effect",
+            "_id": "JQ7geXAb34osSYsu",
+            "systemPath": "actions",
+            "description": "<p>When the Cult Leader makes a successful attack against a PC, you gain a Fear.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Momentum",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!ElvVZnPlL4xqPf3y.oD4U9MYqcQwU5BXF"
+    },
+    {
+      "name": "Cry of Ruin",
+      "type": "feature",
+      "_id": "ySv7yvPk0cVILcBE",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Mark a Stress to spotlight up to 1d4+1 Cult of the Eternal Night allies within Far range. Attacks they make while spotlighted this way deal half damage.</p>",
+        "resource": null,
+        "actions": {
+          "2gaKGRaQNBVbyjug": {
+            "type": "effect",
+            "_id": "2gaKGRaQNBVbyjug",
+            "systemPath": "actions",
+            "description": "<p>Mark a Stress to spotlight up to 1d4+1 Cult of the Eternal Night allies within Far range. Attacks they make while spotlighted this way deal half damage.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Cry of Ruin",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!ElvVZnPlL4xqPf3y.ySv7yvPk0cVILcBE"
+    },
+    {
+      "name": "Chaotic Flux",
+      "type": "feature",
+      "_id": "xysRVnjD7wPM5ojB",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Make an attack against up to three targets within Very Close range. Mark a Stress to deal 2d8+4 magic damage to each target the Cult Leader succeeds against.</p>",
+        "resource": null,
+        "actions": {
+          "9YZNokZvgB2jAh07": {
+            "type": "effect",
+            "_id": "9YZNokZvgB2jAh07",
+            "systemPath": "actions",
+            "description": "<p>Make an attack against up to three targets within Very Close range. Mark a Stress to deal 2d8+4 magic damage to each target the Cult Leader succeeds against.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Chaotic Flux",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!ElvVZnPlL4xqPf3y.xysRVnjD7wPM5ojB"
+    },
+    {
+      "name": "Violence Is Revelation",
+      "type": "feature",
+      "_id": "zNkKKjx3a7WzL9nM",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>When the Cult Leader marks 2 or more HP from a single attack, they can immediately move anywhere within Close range, smashing through creatures and terrain in their path. Every target they pass within Melee range of must make a Strength Reaction Roll (16). On a failure, they take 2d6+5 physical damage and are knocked back to Very Close range. On a success, they take half damage and aren’t moved.</p>",
+        "resource": null,
+        "actions": {
+          "vFKJVerHgXv3pkCL": {
+            "type": "effect",
+            "_id": "vFKJVerHgXv3pkCL",
+            "systemPath": "actions",
+            "description": "<p>When the Cult Leader marks 2 or more HP from a single attack, they can immediately move anywhere within Close range, smashing through creatures and terrain in their path. Every target they pass within Melee range of must make a Strength Reaction Roll (16). On a failure, they take 2d6+5 physical damage and are knocked back to Very Close range. On a success, they take half damage and aren’t moved.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Violence Is Revelation",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!ElvVZnPlL4xqPf3y.zNkKKjx3a7WzL9nM"
+    },
+    {
+      "name": "Gift of the Threshold",
+      "type": "feature",
+      "_id": "Mcy4YfYlwbjHoLKt",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Spend a Fear and choose a point within Far range. Reality buckles in a Very Close area around that point. All creatures there must make an Instinct Reaction Roll (16). On a failure, they take 2d8+3 magic damage and the GM moves them anywhere within Very Close range of their original position. On a success, they take half damage and aren’t moved.</p>",
+        "resource": null,
+        "actions": {
+          "WbxDGeGLMCcVwQ1b": {
+            "type": "effect",
+            "_id": "WbxDGeGLMCcVwQ1b",
+            "systemPath": "actions",
+            "description": "<p>Spend a Fear and choose a point within Far range. Reality buckles in a Very Close area around that point. All creatures there must make an Instinct Reaction Roll (16). On a failure, they take 2d8+3 magic damage and the GM moves them anywhere within Very Close range of their original position. On a success, they take half damage and aren’t moved.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Gift of the Threshold",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "attribution": {},
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 400000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "lastModifiedBy": null
+      },
+      "_key": "!actors.items!ElvVZnPlL4xqPf3y.Mcy4YfYlwbjHoLKt"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1787229869270,
+    "modifiedTime": 1787229904198,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "folder": "yGtkJVF1a2VeicyV",
+  "_id": "ElvVZnPlL4xqPf3y",
+  "sort": 100000,
+  "_key": "!actors!ElvVZnPlL4xqPf3y"
+}

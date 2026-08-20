@@ -1,4 +1,4 @@
-## Project Helios never truly died. 
+# Project Helios never truly died. 
 
 It disintegrated, scattered across decades and factions like radioactive ash—each fragment carrying a different interpretation of what Prometheus *meant*. In the modern Cybermancy timeline, the “remains” of Helios are political, technological, and metaphysical ghosts that still shape the world’s balance of power.
 
