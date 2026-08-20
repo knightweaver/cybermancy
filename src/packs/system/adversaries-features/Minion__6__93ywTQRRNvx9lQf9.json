@@ -1,0 +1,33 @@
+{
+  "name": "Minion (6)",
+  "type": "feature",
+  "system": {
+    "description": "<p>The Assassin is defeated when they take any damage. For every 6 damage a PC deals to the Assassin, defeat an additional Minion within range the attack would succeed against.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/symbols/runes-carved-stone-yellow.webp",
+  "flags": {},
+  "folder": "OcAiaMTibqF8cmld",
+  "_id": "93ywTQRRNvx9lQf9",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!93ywTQRRNvx9lQf9"
+}

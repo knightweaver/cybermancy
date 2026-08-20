@@ -1,0 +1,90 @@
+{
+  "name": "Warding Sphere",
+  "type": "feature",
+  "system": {
+    "description": "<p>When the Wizard takes damage from an attack within Close range, deal <strong>2d6</strong> magic damage to the attacker. This reaction can’t be used again until the Wizard refreshes it with their “Refresh Warding Sphere” action.</p>",
+    "resource": null,
+    "actions": {
+      "2fHrpaZW9toi6nin": {
+        "type": "damage",
+        "_id": "2fHrpaZW9toi6nin",
+        "systemPath": "actions",
+        "description": "<p>When the Wizard takes damage from an attack within Close range, deal <strong>2d6</strong> magic damage to the attacker. This reaction can’t be used again until the Wizard refreshes it with their “Refresh Warding Sphere” action.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "flatMultiplier": 2,
+                "dice": "d6",
+                "bonus": null,
+                "multiplier": "flat"
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "magical"
+              ],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "effects": [],
+        "name": "Damage",
+        "img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
+        "range": "close"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
+  "flags": {},
+  "folder": "Z2vfSF9FCytHC75k",
+  "_id": "kWWH75u6im4BdE0U",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!kWWH75u6im4BdE0U"
+}

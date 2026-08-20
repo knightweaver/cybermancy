@@ -1,0 +1,33 @@
+{
+  "name": "Momentum",
+  "type": "feature",
+  "system": {
+    "description": "<p>When the Undefeated Champion makes a successful attack against a PC, you gain a Fear.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/skills/melee/strike-weapons-orange.webp",
+  "flags": {},
+  "folder": "HF5bQmqwJbLcIEeJ",
+  "_id": "J6fn8ifEq2fpCjwj",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!J6fn8ifEq2fpCjwj"
+}

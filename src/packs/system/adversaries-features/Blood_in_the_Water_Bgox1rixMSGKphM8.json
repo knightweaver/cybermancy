@@ -1,0 +1,66 @@
+{
+  "name": "Blood in the Water",
+  "type": "feature",
+  "system": {
+    "description": "<p>When a creature within Close range of the Shark marks HP from another creature’s attack, you can <strong>mark a Stress</strong> to immediately spotlight the Shark, moving them into Melee range of the target and making a standard attack.</p>",
+    "resource": null,
+    "actions": {
+      "sE9KRd9siZeYHPhb": {
+        "type": "effect",
+        "_id": "sE9KRd9siZeYHPhb",
+        "systemPath": "actions",
+        "description": "<p>When a creature within Close range of the Shark marks HP from another creature’s attack, you can <strong>mark a Stress</strong> to immediately spotlight the Shark, moving them into Melee range of the target and making a standard attack.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Mark Stress",
+        "img": "icons/skills/wounds/blood-spurt-spray-red.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/skills/wounds/blood-spurt-spray-red.webp",
+  "flags": {},
+  "folder": "Q1khRkuBADdKUgGV",
+  "_id": "Bgox1rixMSGKphM8",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!Bgox1rixMSGKphM8"
+}

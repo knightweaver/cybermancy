@@ -1,0 +1,23 @@
+{
+  "name": "Ranged",
+  "type": "Item",
+  "color": "#009912",
+  "_id": "Z2vfSF9FCytHC75k",
+  "description": "",
+  "folder": null,
+  "sorting": "a",
+  "sort": 500000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491181,
+    "modifiedTime": 1756234560575,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "_key": "!folders!Z2vfSF9FCytHC75k"
+}

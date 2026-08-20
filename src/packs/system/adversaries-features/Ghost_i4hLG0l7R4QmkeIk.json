@@ -1,0 +1,66 @@
+{
+  "name": "Ghost",
+  "type": "feature",
+  "system": {
+    "description": "<p>The Captain has resistance to physical damage. <strong>Mark a Stress</strong> to move up to Close range through solid objects.</p>",
+    "resource": null,
+    "actions": {
+      "k7RuXErgCsEBmhmk": {
+        "type": "effect",
+        "_id": "k7RuXErgCsEBmhmk",
+        "systemPath": "actions",
+        "description": "<p><strong>Mark a Stress</strong> to move up to Close range through solid objects.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Mark Stress",
+        "img": "icons/magic/death/undead-ghost-scream-teal.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/death/undead-ghost-scream-teal.webp",
+  "flags": {},
+  "folder": "mx9veq2dURvUmCze",
+  "_id": "i4hLG0l7R4QmkeIk",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!i4hLG0l7R4QmkeIk"
+}

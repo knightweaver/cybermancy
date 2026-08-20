@@ -1,0 +1,97 @@
+{
+  "name": "Thorny Armor",
+  "type": "feature",
+  "system": {
+    "description": "<p>When the Knight takes damage from an attack within Melee range, you can <strong>mark a Stress</strong> to deal <strong>1d10+5</strong> physical damage to the attacker.</p>",
+    "resource": null,
+    "actions": {
+      "b5KO7xpWspZS0swK": {
+        "type": "damage",
+        "_id": "b5KO7xpWspZS0swK",
+        "systemPath": "actions",
+        "description": "<p>When the Knight takes damage from an attack within Melee range, you can <strong>mark a Stress</strong> to deal <strong>1d10+5</strong> physical damage to the attacker.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "flatMultiplier": 1,
+                "dice": "d10",
+                "bonus": 5,
+                "multiplier": "flat"
+              },
+              "applyTo": "hitPoints",
+              "type": [],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "name": "Damage",
+        "img": "icons/magic/nature/root-vine-barrier-wall-brown.webp",
+        "range": "melee"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/nature/root-vine-barrier-wall-brown.webp",
+  "flags": {},
+  "folder": "cftTk8AgufljVZlb",
+  "_id": "FLXessK7q7RcaeUh",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!FLXessK7q7RcaeUh"
+}

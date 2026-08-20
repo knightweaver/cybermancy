@@ -1,0 +1,66 @@
+{
+  "name": "Overwhelm",
+  "type": "feature",
+  "system": {
+    "description": "<p>When the Zombies mark HP from an attack within Melee range, you can <strong>mark a Stress</strong> to make a standard attack against the attacker.</p>",
+    "resource": null,
+    "actions": {
+      "0Im5AEgp8gJaVJHh": {
+        "type": "effect",
+        "_id": "0Im5AEgp8gJaVJHh",
+        "systemPath": "actions",
+        "description": "<p>When the Zombies mark HP from an attack within Melee range, you can <strong>mark a Stress</strong> to make a standard attack against the attacker.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Mark Stress",
+        "img": "icons/magic/death/blood-corruption-vomit-red.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/death/blood-corruption-vomit-red.webp",
+  "flags": {},
+  "folder": "SsZQe2NHSxApYXSS",
+  "_id": "mfkXofEsP2DgvmDd",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!mfkXofEsP2DgvmDd"
+}

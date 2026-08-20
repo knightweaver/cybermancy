@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "oguBoQQVAvgjRfLI",
+  "name": "Speed Racer",
+  "color": null,
+  "sorting": "a",
+  "_id": "6zdDBjuDR9rMqEZp",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!6zdDBjuDR9rMqEZp"
+}

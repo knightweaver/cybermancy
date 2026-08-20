@@ -1,0 +1,22 @@
+{
+  "type": "Item",
+  "folder": "AxFSRTDWwaXnzlYP",
+  "name": "Rigger",
+  "color": "#e7aa51",
+  "sorting": "a",
+  "_id": "oguBoQQVAvgjRfLI",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "lastModifiedBy": "9AtfWssIybpdSZVY",
+    "modifiedTime": 1761535478133
+  },
+  "_key": "!folders!oguBoQQVAvgjRfLI"
+}

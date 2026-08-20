@@ -194,7 +194,7 @@ def extract_character_context(actor_json):
         "class_name": class_name,
         "subclass_name": subclass_name,
 
-        "level": system["levelData"]["level"]["current"],
+        "level": 1, #system["levelData"]["level"]["current"],
         "proficiency": system.get("proficiency",0),
         "evasion": system.get("evasion",0),
         "armor": system.get("armorScore",0),

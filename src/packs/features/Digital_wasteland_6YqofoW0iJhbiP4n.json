@@ -1,0 +1,145 @@
+{
+  "name": "Digital wasteland",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/digital-wasteland.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">You are on fire and a little out of control. <br />Once per long rest, <strong>Mark 2 Stress</strong> and <strong>Spend 2 Hope</strong> to start a counter at your Tier level (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4: d10). While that counter is in effect:</p><ul><li>+6 on all Control rolls</li><li>You cannot make Analyze or Infiltration rolls</li><li>+d6 on all damage effects</li></ul>",
+    "actions": {
+      "Digital wasteland": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You are on fire and a little out of control.  Start a counter at your Tier level (which by the time you are at Mastery, will be a d8 or d10).  While that counter is in effect:o\t+6 on all Control rollso\tYou cannot make Analyze or Infiltration rollso\t+d6 on all damage effects",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Digital wasteland",
+        "img": "modules/cybermancy/assets/icons/subclasses/digital-wasteland.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "mxxTTiEMfmTVVgyN",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "mxxTTiEMfmTVVgyN": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">You are on fire and a little out of control. <br>Once per long rest, <strong>Mark 2 Stress</strong> and <strong>Spend 2 Hope</strong> to start a counter at your Tier level (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4: d10). While that counter is in effect:</p><ul><li>+6 on all Control rolls</li><li>You cannot make Analyze or Infiltration rolls</li><li>+d6 on all damage effects</li></ul>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 2,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          },
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 2,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Digital wasteland",
+        "img": "modules/cybermancy/assets/icons/subclasses/digital-wasteland.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "mxxTTiEMfmTVVgyN",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "pfRYsg7NANvPBNz7",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761536902172,
+    "modifiedTime": 1761587716104,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "6YqofoW0iJhbiP4n",
+  "sort": 100000,
+  "_key": "!items!6YqofoW0iJhbiP4n"
+}

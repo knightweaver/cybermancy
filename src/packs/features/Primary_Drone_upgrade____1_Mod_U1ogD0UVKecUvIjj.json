@@ -1,0 +1,33 @@
+{
+  "folder": "iyutrVxyiXcSqPw9",
+  "name": "Primary Drone upgrade - +1 Mod",
+  "type": "feature",
+  "_id": "U1ogD0UVKecUvIjj",
+  "img": "modules/cybermancy/assets/icons/subclasses/primary-drone-upgrade.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Your Primary Drone is versitile! - +1 Mod slot</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761613918069,
+    "modifiedTime": 1761613985750,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_key": "!items!U1ogD0UVKecUvIjj"
+}

@@ -1,0 +1,137 @@
+{
+  "name": "Battle-bonded",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/battle-bonded.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">If you and your Primary Drone are within Very Close, as a Reaction <strong>Spend 1 Hope</strong> to give you both +2 Evasion for 1 adversary’s attack</p>",
+    "actions": {
+      "Battle-bonded": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "when you and your Primary Drone are within Very Close, Spend 1 Hope to give you both +2 Evasion for 1 adversary’s attack",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Battle-bonded",
+        "img": "modules/cybermancy/assets/icons/subclasses/battle-bonded.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "Zq8edxiAoIXb3Wy6",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "Zq8edxiAoIXb3Wy6": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "when you and your Primary Drone are within Very Close, Spend 1 Hope to give you both +2 Evasion for 1 adversary’s attack",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "keyIsID": false,
+            "key": "hope",
+            "value": 1,
+            "scalable": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Battle-bonded",
+        "img": "modules/cybermancy/assets/icons/subclasses/battle-bonded.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "Zq8edxiAoIXb3Wy6",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "iyutrVxyiXcSqPw9",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761536210157,
+    "modifiedTime": 1761612387536,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "Zxa69vc44GIKDJ0w",
+  "sort": 400000,
+  "_key": "!items!Zxa69vc44GIKDJ0w"
+}

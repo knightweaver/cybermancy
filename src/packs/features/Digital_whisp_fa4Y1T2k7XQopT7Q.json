@@ -1,0 +1,80 @@
+{
+  "type": "feature",
+  "name": "Digital whisp",
+  "system": {
+    "description": "<p>You fade between lines of code like smoke through fingers—every trace you leave behind already rewriting itself into nothing.</p>",
+    "resource": null,
+    "actions": {
+      "mVz4gLBTNFb8ToAV": {
+        "type": "effect",
+        "_id": "mVz4gLBTNFb8ToAV",
+        "systemPath": "actions",
+        "description": "<p>Reduce the System Alert level by 1 or the System counter by 2.  </p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": 0,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Don’t worry, that was just a glitch",
+        "img": "modules/cybermancy/assets/icons/subclasses/glitch.png",
+        "range": ""
+      },
+      "MuPhzf0MuGGDHxhW": {
+        "type": "effect",
+        "_id": "MuPhzf0MuGGDHxhW",
+        "systemPath": "actions",
+        "description": "<p>If you fail on an Infiltration roll, Mark 1 Stress to cause the ICE to react as if you had not made the Infiltration roll at all.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": 0,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Fade to black",
+        "img": "modules/cybermancy/assets/icons/subclasses/fade-to-black.png",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "modules/cybermancy/assets/icons/subclasses/digital-whisp.png",
+  "effects": [],
+  "folder": "AxFSRTDWwaXnzlYP",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760880908922,
+    "modifiedTime": 1760888213935,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "fa4Y1T2k7XQopT7Q",
+  "sort": 100000,
+  "_key": "!items!fa4Y1T2k7XQopT7Q"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Relentless (3)",
+  "type": "feature",
+  "system": {
+    "description": "<p>The Dragon can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/unholy/silhouette-evil-horned-giant.webp",
+  "flags": {},
+  "folder": "HF5bQmqwJbLcIEeJ",
+  "_id": "RDn0YmfJvYyqcjXo",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!RDn0YmfJvYyqcjXo"
+}

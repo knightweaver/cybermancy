@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "cards": [
+    {
+      "name": "Sewerjaw Gator",
+      "category": "adversary",
+      "tier": 1,
+      "type": "solo",
+      "description": "A mutated sewer alligator...",
+      "art": {
+        "portrait": "modules/cybermancy/assets/images/adversaries/sewerjaw-gator.webp",
+        "token": "modules/cybermancy/assets/tokens/adversaries/sewerjaw-gator.webp"
+      },
+      "motivesTactics": [
+        "Ambush from water",
+        "Drag prey underwater"
+      ],
+      "stats": {
+        "difficulty": 13,
+        "thresholds": [8, 16],
+        "hitPoints": 8,
+        "stress": 3,
+        "attack": 3,
+        "weapon": {
+          "name": "Crushing Jaws",
+          "range": "Very Close",
+          "damage": "1d12+2 phy"
+        },
+        "experience": [
+          "Sewer Ambush +2",
+          "Tremor Sense +2"
+        ]
+      },
+      "features": [
+        {
+          "name": "Death Roll",
+          "action": "Action",
+          "description": "Mark a Stress to..."
+        }
+      ]
+    }
+  ]
+}

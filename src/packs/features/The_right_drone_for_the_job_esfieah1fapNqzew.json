@@ -1,0 +1,128 @@
+{
+  "name": "The right drone for the job",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">Once per long rest, change 1 mod on your Primary Drone</p>",
+    "actions": {
+      "The right drone for the job": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Once per long rest, change 1 mod on your Primary Drone",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "The right drone for the job",
+        "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "Ow0Xakan1kBHIDmL",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "Ow0Xakan1kBHIDmL": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">Once per long rest, change 1 mod on your Primary Drone</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "1",
+          "recovery": "longRest",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "The right drone for the job",
+        "img": "modules/cybermancy/assets/icons/subclasses/the-right-drone-for-the-job.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "Ow0Xakan1kBHIDmL",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "oguBoQQVAvgjRfLI",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761536619698,
+    "modifiedTime": 1761612268377,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "esfieah1fapNqzew",
+  "sort": 200000,
+  "_key": "!items!esfieah1fapNqzew"
+}

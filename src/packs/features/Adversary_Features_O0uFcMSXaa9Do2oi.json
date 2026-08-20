@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Adversary Features",
+  "color": null,
+  "sorting": "a",
+  "_id": "O0uFcMSXaa9Do2oi",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1782183200115,
+    "modifiedTime": 1782183200115,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_key": "!folders!O0uFcMSXaa9Do2oi"
+}

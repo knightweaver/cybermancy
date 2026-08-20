@@ -1,0 +1,33 @@
+{
+  "name": "Opportunist",
+  "type": "feature",
+  "system": {
+    "description": "<p>When two or more adversaries are within Very Close range of a creature, all damage the Archer deals to that creature is doubled.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+  "flags": {},
+  "folder": "Z2vfSF9FCytHC75k",
+  "_id": "qoHg6AulCNYsCP8R",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!qoHg6AulCNYsCP8R"
+}

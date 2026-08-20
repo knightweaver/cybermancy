@@ -1,0 +1,88 @@
+{
+  "name": "Devastating Retort",
+  "type": "feature",
+  "system": {
+    "description": "<p>A PC who rolls less than 17 on an action roll targeting the Advisor must mark a Stress.</p>",
+    "resource": null,
+    "actions": {
+      "gtM7UPq6xHgJHPPp": {
+        "type": "damage",
+        "_id": "gtM7UPq6xHgJHPPp",
+        "systemPath": "actions",
+        "description": "<p>A PC who rolls less than 17 on an action roll targeting the Advisor must mark a Stress.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": true,
+                  "formula": "1"
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null
+              },
+              "applyTo": "stress",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "name": "Stress Damage",
+        "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+  "flags": {},
+  "folder": "7O1tVUYkYzTliaC8",
+  "_id": "YHNeyHuytfH718cz",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!YHNeyHuytfH718cz"
+}

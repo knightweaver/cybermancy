@@ -1,0 +1,62 @@
+{
+  "name": "Grindletooth Venom",
+  "type": "feature",
+  "system": {
+    "description": "<p>Targets who mark HP from the Assassin’s attacks are Vulnerable until they clear a HP.</p>",
+    "resource": null,
+    "actions": {
+      "L83tU1TgmqoH9SSn": {
+        "type": "effect",
+        "_id": "L83tU1TgmqoH9SSn",
+        "systemPath": "actions",
+        "description": "<p>Targets who mark HP from the Assassin’s attacks are Vulnerable until they clear a HP.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [
+          {
+            "_id": "2iBVUGHtGW3I9VIj",
+            "onSave": false
+          }
+        ],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Apply Venom",
+        "img": "icons/skills/toxins/poison-bottle-corked-fire-green.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/skills/toxins/poison-bottle-corked-fire-green.webp",
+  "flags": {},
+  "folder": "2AdIVZpm3ONNJNUY",
+  "_id": "5f0rtgDMBmN8Guov",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!5f0rtgDMBmN8Guov"
+}

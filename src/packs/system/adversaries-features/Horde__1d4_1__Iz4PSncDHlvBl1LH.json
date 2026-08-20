@@ -1,0 +1,33 @@
+{
+  "name": "Horde (1d4+1)",
+  "type": "feature",
+  "system": {
+    "description": "<p>When the Mosquitoes have marked half or more of their HP, their standard attack deals <strong>1d4+1</strong> physical damage instead.</p>",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/creatures/magical/humanoid-silhouette-aliens-green.webp",
+  "flags": {},
+  "folder": "SsZQe2NHSxApYXSS",
+  "_id": "Iz4PSncDHlvBl1LH",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!Iz4PSncDHlvBl1LH"
+}

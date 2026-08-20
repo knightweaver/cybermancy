@@ -1,0 +1,137 @@
+{
+  "name": "Quick hack",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/quick-hack.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> to gain Control of 1 unhardened device regardless of Tier or to make an Infiltration or a Control roll at +2.</p>",
+    "actions": {
+      "Quick hack": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Gain Control of 1 unhardened device.  Mark 1 Stress to make an Infiltration or a Control roll at +2.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Quick hack",
+        "img": "modules/cybermancy/assets/icons/subclasses/quick-hack.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "CInmbJmPD8hv7Air",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "CInmbJmPD8hv7Air": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> to gain Control of 1 unhardened device regardless of Tier or to make an Infiltration or a Control roll at +2.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "stress",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Quick hack",
+        "img": "modules/cybermancy/assets/icons/subclasses/quick-hack.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "CInmbJmPD8hv7Air",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "4yttrTVUhBpQJPXr",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761537001579,
+    "modifiedTime": 1761611251949,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "19NWq7MianXfs6IN",
+  "sort": 400000,
+  "_key": "!items!19NWq7MianXfs6IN"
+}

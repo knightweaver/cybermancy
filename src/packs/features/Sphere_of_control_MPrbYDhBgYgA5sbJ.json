@@ -1,0 +1,128 @@
+{
+  "name": "Sphere of control",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/sphere-of-control.webp",
+  "system": {
+    "description": "<p class=\"Card-Feature\">When you Spotlight an Action to Attack, you can attack any adversary within Melee of all allies within Very Close of you.</p>",
+    "actions": {
+      "Sphere of control": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "When you attack, you can attack any adversary within Melee of all allies within Very Close of you.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Sphere of control",
+        "img": "modules/cybermancy/assets/icons/subclasses/sphere-of-control.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "h1vZzRSGZ9O4pd30",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "h1vZzRSGZ9O4pd30": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "<p class=\"Card-Feature\">When you Spotlight an Action to Attack, you can attack any adversary within Melee of all allies within Very Close of you.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Sphere of control",
+        "img": "modules/cybermancy/assets/icons/subclasses/sphere-of-control.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "h1vZzRSGZ9O4pd30",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "0vjuCPBtaGC6yT9n",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1761535645421,
+    "modifiedTime": 1761615256338,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "MPrbYDhBgYgA5sbJ",
+  "sort": 300000,
+  "_key": "!items!MPrbYDhBgYgA5sbJ"
+}

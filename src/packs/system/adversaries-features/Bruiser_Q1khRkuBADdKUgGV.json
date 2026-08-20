@@ -1,0 +1,23 @@
+{
+  "name": "Bruiser",
+  "type": "Item",
+  "color": "#982237",
+  "_id": "Q1khRkuBADdKUgGV",
+  "description": "",
+  "folder": null,
+  "sorting": "a",
+  "sort": 100000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491181,
+    "modifiedTime": 1756234560575,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "_key": "!folders!Q1khRkuBADdKUgGV"
+}

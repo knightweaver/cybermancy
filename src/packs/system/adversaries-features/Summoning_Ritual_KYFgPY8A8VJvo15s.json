@@ -1,0 +1,80 @@
+{
+  "name": "Summoning Ritual",
+  "type": "feature",
+  "system": {
+    "description": "<p>Countdown (6). When the Secret-Keeper is in the spotlight for the first time, activate the countdown. When they mark HP, tick down this countdown by the number of HP marked. When it triggers, summon a @UUID[Compendium.daggerheart.adversaries.Actor.3tqCjDwJAQ7JKqMb]{Minor Demon} who appears at Close range.</p>",
+    "resource": null,
+    "actions": {
+      "PrShdg9N3MfeZaJc": {
+        "type": "effect",
+        "_id": "PrShdg9N3MfeZaJc",
+        "systemPath": "actions",
+        "description": "<p>Countdown (6). When the Secret-Keeper is in the spotlight for the first time, activate the countdown. When they mark HP, tick down this countdown by the number of HP marked.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Countdown",
+        "img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+        "range": ""
+      },
+      "0rixG6jLRynAYNqA": {
+        "type": "effect",
+        "_id": "0rixG6jLRynAYNqA",
+        "systemPath": "actions",
+        "description": "<p>When the countdown triggers, summon a @UUID[Compendium.daggerheart.adversaries.Actor.3tqCjDwJAQ7JKqMb]{Minor Demon} who appears at Close range.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Summon",
+        "img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+        "range": "close"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+  "flags": {},
+  "folder": "mx9veq2dURvUmCze",
+  "_id": "KYFgPY8A8VJvo15s",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!KYFgPY8A8VJvo15s"
+}

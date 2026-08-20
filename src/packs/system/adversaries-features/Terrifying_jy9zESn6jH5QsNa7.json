@@ -1,0 +1,88 @@
+{
+  "name": "Terrifying",
+  "type": "feature",
+  "system": {
+    "description": "<p>When the Knight makes a successful attack, all PCs within Close range lose a Hope and you gain a Fear.</p>",
+    "resource": null,
+    "actions": {
+      "9EiPNrGzwLtuf9g0": {
+        "type": "damage",
+        "_id": "9EiPNrGzwLtuf9g0",
+        "systemPath": "actions",
+        "description": "<p>When the Knight makes a successful attack, all PCs within Close range lose a Hope and you gain a Fear.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": true,
+                  "formula": "1"
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null
+              },
+              "applyTo": "hope",
+              "type": [],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "effects": [],
+        "name": "Damage Hope",
+        "img": "icons/magic/death/skull-energy-light-purple.webp",
+        "range": "close"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/death/skull-energy-light-purple.webp",
+  "flags": {},
+  "folder": "Q1khRkuBADdKUgGV",
+  "_id": "jy9zESn6jH5QsNa7",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!jy9zESn6jH5QsNa7"
+}

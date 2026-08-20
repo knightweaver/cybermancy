@@ -1,0 +1,66 @@
+{
+  "name": "Group Attack",
+  "type": "feature",
+  "system": {
+    "description": "<p><strong>Spend a Fear</strong> to choose a target and spotlight all Sellswords within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 3 physical damage each. Combine this damage.</p>",
+    "resource": null,
+    "actions": {
+      "ghgFZskDiizJDjcn": {
+        "type": "effect",
+        "_id": "ghgFZskDiizJDjcn",
+        "systemPath": "actions",
+        "description": "<p><strong>Spend a Fear</strong> to choose a target and spotlight all Sellswords within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 3 physical damage each. Combine this damage.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "fear",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "self",
+          "amount": null
+        },
+        "name": "Spend Fear",
+        "img": "icons/creatures/abilities/tail-strike-bone-orange.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/creatures/abilities/tail-strike-bone-orange.webp",
+  "flags": {},
+  "folder": "OcAiaMTibqF8cmld",
+  "_id": "Jbo5QNLhNkbJ6f1T",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!Jbo5QNLhNkbJ6f1T"
+}

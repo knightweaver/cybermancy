@@ -1,0 +1,81 @@
+{
+  "name": "Detect anomaly",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/detect-anomaly.webp",
+  "system": {
+    "description": "You are highly attuned to the presence of effects that attempt to alter the local Resonance.  Spend an action concentrating to detect if there are any anomalies within Close.  Spend at least 1 minute concentrating to detect information about any anomalies within Very Close – you may ask the GM up to 3 yes/no questions about an resonance field disturbance you detect and examine in this way.",
+    "actions": {
+      "Detect anomaly": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "You are highly attuned to the presence of effects that attempt to alter the local Resonance.  Spend an action concentrating to detect if there are any anomalies within Close.  Spend at least 1 minute concentrating to detect information about any anomalies within Very Close – you may ask the GM up to 3 yes/no questions about an resonance field disturbance you detect and examine in this way.",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Detect anomaly",
+        "img": "modules/cybermancy/assets/icons/subclasses/detect-anomaly.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "iP8MOiQnSoSf4qpp",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "fIZM60pfK58qIj5P",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763004621288,
+    "modifiedTime": 1763004621288,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "hDtPHdtGOMM6qRSD",
+  "sort": 0,
+  "_key": "!items!hDtPHdtGOMM6qRSD"
+}

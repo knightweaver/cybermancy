@@ -1,0 +1,70 @@
+{
+  "version": 2,
+  "cards": [
+    {
+      "name": "Sewerjaw Gator",
+      "tier": 1,
+      "type": "solo",
+      "description": "A mutated sewer alligator that ambushes prey in Seattle's underground drainage network.",
+      "art": {
+        "portrait": "worlds/cybermancer/assets/images/adversaries/sewerjaw-gator.png",
+        "token": "worlds/cybermancer/assets/tokens/adversaries/sewerjaw-gator-token.png",
+      },
+      "motivesTactics": [
+        "ambush from water",
+        "drag prey underwater",
+        "feed",
+        "retreat into tunnels"
+      ],
+      "stats": {
+        "difficulty": 13,
+        "thresholds": [
+          8,
+          16
+        ],
+        "hitPoints": 8,
+        "stress": 3,
+        "attack": 3,
+        "weapon": {
+          "name": "Crushing Jaws",
+          "range": "Very Close",
+          "damage": "1d12+2 phy"
+        },
+        "experience": [
+          "Sewer Ambush +2",
+          "Tremor Sense +2"
+        ]
+      },
+      "features": [
+        {
+          "name": "Relentless (2)",
+          "action": "Passive",
+          "description": "The Sewerjaw Gator can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them."
+        },
+        {
+          "name": "Death Roll",
+          "action": "Action",
+          "description": "Mark a Stress to attack a target the Gator has Restrained or otherwise pinned in its jaws. On a success, deal **2d8** physical damage and the target becomes Vulnerable until they next act."
+        },
+        {
+          "name": "Drain Surge",
+          "action": "Action",
+          "description": "The Gator slips into water, sludge, or a drainage opening and reappears anywhere within Far range that is connected by sewer channels, culverts, runoff tunnels, or standing water."
+        },
+        {
+          "name": "Filth Spray",
+          "action": "Reaction",
+          "description": "When the Gator takes Major damage, all creatures within Very Close range must succeed on an Agility Reaction Roll or mark a Stress as toxic sludge and sewer water spray across the area."
+        },
+        {
+          "name": "Cold Water Patience",
+          "action": "Passive",
+          "description": "While partially submerged or hidden in darkness, the Gator gains a +2 bonus to their Difficulty until they attack or otherwise reveal their position."
+        }
+      ],
+      "id": "5e4efc99-1192-45c8-8f8b-b8e8c0ab5a1a",
+      "version": 2,
+      "category": "adversary"
+    }
+  ]
+}

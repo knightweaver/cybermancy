@@ -1,0 +1,128 @@
+{
+  "name": "Reverb",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/reverb.webp",
+  "system": {
+    "description": "Mark 1 Stress to cause ALL (from yourself, allies, and adversaries) magical effects within Close to do +d4 damage for the remainder of the Scene",
+    "actions": {
+      "Reverb": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Mark 1 Stress to cause ALL (from yourself, allies, and adversaries) magical effects within Close to do +d4 damage for the remainder of the Scene",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reverb",
+        "img": "modules/cybermancy/assets/icons/subclasses/reverb-.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "EnkGKJ5gQNmWTZAM",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      },
+      "EnkGKJ5gQNmWTZAM": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": "Mark 1 Stress to cause ALL (from yourself, allies, and adversaries) magical effects within Close to do +d4 damage for the remainder of the Scene",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Reverb",
+        "img": "modules/cybermancy/assets/icons/subclasses/reverb.webp",
+        "range": "",
+        "damage": {
+          "parts": [],
+          "includeBase": false
+        },
+        "roll": {
+          "type": null,
+          "trait": null,
+          "difficulty": null,
+          "bonus": null,
+          "advState": "neutral",
+          "diceRolling": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "compare": null,
+            "treshold": null
+          },
+          "useDefault": false
+        },
+        "_id": "EnkGKJ5gQNmWTZAM",
+        "save": {
+          "trait": null,
+          "difficulty": null,
+          "damageMod": "none"
+        }
+      }
+    },
+    "resource": null,
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "fX4LJtNQ2dd0AYyi",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763004650328,
+    "modifiedTime": 1763004750539,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "cbdarc0Cv93RbO85",
+  "sort": 100000,
+  "_key": "!items!cbdarc0Cv93RbO85"
+}

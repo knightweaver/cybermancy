@@ -1,0 +1,66 @@
+{
+  "name": "Ramp Up",
+  "type": "feature",
+  "system": {
+    "description": "<p>You must <strong>spend a Fear</strong> to spotlight the Ogre. While spotlighted, they can make their standard attack against all targets within range.</p>",
+    "resource": null,
+    "actions": {
+      "UoZ6vXRXvWYjpJpZ": {
+        "type": "effect",
+        "_id": "UoZ6vXRXvWYjpJpZ",
+        "systemPath": "actions",
+        "description": "<p>You must <strong>spend a Fear</strong> to spotlight the Ogre. While spotlighted, they can make their standard attack against all targets within range.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "fear",
+            "value": 1,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Spend Fear",
+        "img": "icons/weapons/clubs/club-spiked-glowing.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/weapons/clubs/club-spiked-glowing.webp",
+  "flags": {},
+  "folder": "HF5bQmqwJbLcIEeJ",
+  "_id": "qgvK6tcyNXscfUVn",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!qgvK6tcyNXscfUVn"
+}

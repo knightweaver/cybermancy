@@ -1,0 +1,21 @@
+{
+  "type": "Actor",
+  "folder": "rnHw7D2ezohuJCVU",
+  "name": "Tier 3",
+  "color": null,
+  "sorting": "a",
+  "_id": "4W7eFHY2LtD1Xuol",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!4W7eFHY2LtD1Xuol"
+}

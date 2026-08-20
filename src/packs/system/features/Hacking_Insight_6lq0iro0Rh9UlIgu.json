@@ -1,0 +1,66 @@
+{
+  "type": "feature",
+  "name": "Hacking Insight",
+  "system": {
+    "description": "<p>Spend 3 Hope to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll</p>",
+    "resource": null,
+    "actions": {
+      "KxyuQ3Zzi5rAlGCs": {
+        "type": "effect",
+        "_id": "KxyuQ3Zzi5rAlGCs",
+        "systemPath": "actions",
+        "description": "",
+        "chatDisplay": false,
+        "actionType": "action",
+        "cost": [
+          {
+            "scalable": false,
+            "key": "hope",
+            "value": 3,
+            "keyIsID": false,
+            "step": null,
+            "consumeOnSuccess": false
+          }
+        ],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Spend Hope",
+        "img": "icons/commodities/currency/coin-embossed-ruby-gold.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "systems/sfrpg/icons/feats/four_handed_hacker.webp",
+  "effects": [],
+  "folder": "AxFSRTDWwaXnzlYP",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1760878919080,
+    "modifiedTime": 1760879501180,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "6lq0iro0Rh9UlIgu",
+  "sort": 200000,
+  "_key": "!items!6lq0iro0Rh9UlIgu"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Weavers",
+  "type": "subclass",
+  "_id": "qxZt0FgPJJ5icWji",
+  "img": "systems/daggerheart/assets/icons/documents/items/laurels.svg",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "spellcastingTrait": "instinct",
+    "features": [
+      {
+        "type": "foundation",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.83FEzl8LPrjcAuXl"
+      },
+      {
+        "type": "specialization",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.d2EhbynYYZ3MjyXU"
+      },
+      {
+        "type": "mastery",
+        "item": "Compendium.cybermancy.cybermancy-features.Item.4EbABEje37XS05V1"
+      }
+    ],
+    "featureState": 1,
+    "isMulticlass": false,
+    "linkedClass": "Compendium.cybermancy.cybermancy-classes.Item.pjN7ciiS9yyGB7rP"
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1776262613644,
+    "modifiedTime": 1776262726800,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_key": "!items!qxZt0FgPJJ5icWji"
+}

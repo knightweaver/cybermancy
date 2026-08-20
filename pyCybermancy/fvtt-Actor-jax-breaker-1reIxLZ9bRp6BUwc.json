@@ -1,0 +1,639 @@
+{
+  "folder": "TBUSmH3J3AMJiQe6",
+  "name": "Jax Breaker",
+  "type": "adversary",
+  "img": "worlds/cybermancer/assets/images/npcs/jax-breaker.webp",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "tier": 1,
+    "type": "leader",
+    "notes": "<h3 data-section-id=\"mb5v8a\" data-start=\"18\" data-end=\"33\">Personality</h3><p data-start=\"34\" data-end=\"387\">Jax is calm, disciplined, and relentlessly practical. He treats shadowrunning as a profession, not a lifestyle. He doesn't brag, doesn't threaten, and rarely raises his voice. He has an annoying habit of being right about risk assessments. Of the four, he's the most likely to negotiate before shooting and the most likely to shoot if negotiations fail.</p><h3 data-section-id=\"1r0j58p\" data-start=\"389\" data-end=\"405\">Scene Detail</h3><p data-start=\"406\" data-end=\"499\">Constantly checks sightlines, exits, and elevated firing positions whenever he enters a room.</p><h3 data-section-id=\"emdch2\" data-start=\"501\" data-end=\"516\">Catchphrase</h3><blockquote data-start=\"517\" data-end=\"550\"><p data-start=\"519\" data-end=\"550\">\"Let's keep this professional.\"</p></blockquote><h3 data-section-id=\"ie5x6g\" data-start=\"552\" data-end=\"562\">Accent</h3><p data-start=\"563\" data-end=\"621\">Plain American Pacific Northwest. Measured and deliberate.</p>",
+    "difficulty": 14,
+    "hordeHp": 1,
+    "criticalThreshold": 20,
+    "damageThresholds": {
+      "major": 7,
+      "severe": 12
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 7,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 4,
+        "isReversed": true
+      }
+    },
+    "rules": {
+      "conditionImmunities": {
+        "hidden": false,
+        "restrained": false,
+        "vulnerable": false
+      }
+    },
+    "attack": {
+      "name": "Open fire!",
+      "img": "modules/cybermancy/assets/icons/weapons/advanced-assault-rifle.webp",
+      "_id": "NWSr066UAHHK0bjI",
+      "systemPath": "attack",
+      "chatDisplay": false,
+      "type": "attack",
+      "range": "close",
+      "target": {
+        "type": "any",
+        "amount": 1
+      },
+      "roll": {
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "bonus": 3,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "damage": {
+        "parts": [
+          {
+            "value": {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "flatMultiplier": 1,
+              "dice": "d8",
+              "bonus": 3,
+              "multiplier": "flat"
+            },
+            "applyTo": "hitPoints",
+            "type": [
+              "physical"
+            ],
+            "resultBased": false,
+            "valueAlt": {
+              "multiplier": "prof",
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              }
+            },
+            "base": false
+          }
+        ],
+        "includeBase": false,
+        "direct": false
+      },
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "experiences": {
+      "dqYmavuZ4Z3P6QUG": {
+        "name": "Tactical assessment",
+        "description": "Acute awareness of danger generates almost a 6th sense",
+        "value": 2
+      },
+      "yaxe4KE03MRnxBrf": {
+        "name": "Commanding prescence",
+        "description": "If Jax has the spotlight, he can command or intimidate with the best of them",
+        "value": 3
+      }
+    },
+    "bonuses": {
+      "roll": {
+        "attack": {
+          "bonus": 0,
+          "dice": []
+        },
+        "action": {
+          "bonus": 0,
+          "dice": []
+        },
+        "reaction": {
+          "bonus": 0,
+          "dice": []
+        }
+      },
+      "damage": {
+        "physical": {
+          "bonus": 0,
+          "dice": []
+        },
+        "magical": {
+          "bonus": 0,
+          "dice": []
+        }
+      }
+    },
+    "motivesAndTactics": "Team leader, assault specialist, tactical coordinator"
+  },
+  "prototypeToken": {
+    "name": "Jax Breaker",
+    "displayName": 20,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "worlds/cybermancer/assets/images/npcs/jax-breaker.webp",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": "#b22424",
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 0.7,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {
+      "wall-height": {
+        "tokenHeight": 0
+      }
+    },
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Tactician",
+      "type": "feature",
+      "system": {
+        "description": "<p>When you spotlight the Lieutenant, <strong>mark a Stress</strong> to also spotlight two allies within Close range.</p>",
+        "resource": null,
+        "actions": {
+          "IfMFU67g4sfhSYtm": {
+            "type": "effect",
+            "_id": "IfMFU67g4sfhSYtm",
+            "systemPath": "actions",
+            "description": "<p>When you spotlight the Lieutenant, <strong>mark a Stress</strong> to also spotlight two allies within Close range.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "stress",
+                "value": 1,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "friendly",
+              "amount": 2
+            },
+            "name": "Mark Stress",
+            "img": "icons/skills/movement/arrows-up-trio-red.webp",
+            "range": "close",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "img": "icons/skills/movement/arrows-up-trio-red.webp",
+      "flags": {},
+      "folder": "mx9veq2dURvUmCze",
+      "effects": [],
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782182920888,
+        "modifiedTime": 1782182920888,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "_id": "OAGmosMjwvMETcdj",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Momentum",
+      "type": "feature",
+      "system": {
+        "description": "<p>When the Elemental makes a successful attack against a PC, you gain a Fear.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "img": "icons/skills/melee/strike-weapons-orange.webp",
+      "flags": {},
+      "folder": "Q1khRkuBADdKUgGV",
+      "effects": [],
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782182947046,
+        "modifiedTime": 1782182947046,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "_id": "PfA1H58z8YeX7DEu",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Goading Strike",
+      "type": "feature",
+      "system": {
+        "description": "<p>Make a standard attack against a target. On a success, <strong>mark a Stress</strong> to Taunt the target until their next successful attack. The next time the Taunted target attacks, they have disadvantage against targets other than the Weaponmaster.</p>",
+        "resource": null,
+        "actions": {
+          "mlPgZJNL2TjykjUb": {
+            "type": "attack",
+            "_id": "mlPgZJNL2TjykjUb",
+            "systemPath": "actions",
+            "description": "<p>Make a standard attack against a target. On a success, <strong>mark a Stress</strong> to Taunt the target until their next successful attack. The next time the Taunted target attacks, they have disadvantage against targets other than the Weaponmaster.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "parts": [
+                {
+                  "value": {
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    },
+                    "flatMultiplier": 1,
+                    "dice": "d12",
+                    "bonus": 2,
+                    "multiplier": "flat"
+                  },
+                  "applyTo": "hitPoints",
+                  "type": [
+                    "physical"
+                  ],
+                  "base": false,
+                  "resultBased": false,
+                  "valueAlt": {
+                    "multiplier": "prof",
+                    "flatMultiplier": 1,
+                    "dice": "d6",
+                    "bonus": null,
+                    "custom": {
+                      "enabled": false,
+                      "formula": ""
+                    }
+                  }
+                }
+              ],
+              "includeBase": false,
+              "direct": false
+            },
+            "target": {
+              "type": "any",
+              "amount": 1
+            },
+            "effects": [
+              {
+                "_id": "j2jYmYbtWXvq32yX",
+                "onSave": false
+              }
+            ],
+            "roll": {
+              "type": "attack",
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            },
+            "name": "Attack",
+            "img": "icons/skills/melee/strike-sword-dagger-runes-gold.webp",
+            "range": "veryClose",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "img": "icons/skills/melee/strike-sword-dagger-runes-gold.webp",
+      "flags": {},
+      "folder": "Q1khRkuBADdKUgGV",
+      "effects": [],
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782182959615,
+        "modifiedTime": 1782182959615,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "_id": "J7PHQjRSwP8DwGIV",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Dead Current, Move!",
+      "type": "feature",
+      "system": {
+        "description": "<p><strong>Spend 2 Fear</strong> to spotlight the Jax and up to <strong>2d4</strong> allies within Far range.</p><p>@Template[type:emanation|range:f]</p>",
+        "resource": null,
+        "actions": {
+          "lI0lnRb3xrUjqIYX": {
+            "type": "attack",
+            "_id": "lI0lnRb3xrUjqIYX",
+            "systemPath": "actions",
+            "description": "<p><strong>Spend 2 Fear</strong> to spotlight the Head Guard and up to <strong>2d4</strong> allies within Far range.</p><p>@Template[type:emanation|range:f]</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [
+              {
+                "scalable": false,
+                "key": "fear",
+                "value": 2,
+                "step": null,
+                "consumeOnSuccess": false,
+                "itemId": null
+              }
+            ],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "damage": {
+              "parts": [],
+              "includeBase": false,
+              "direct": false
+            },
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "effects": [],
+            "roll": {
+              "type": "diceSet",
+              "trait": null,
+              "difficulty": null,
+              "bonus": null,
+              "advState": "neutral",
+              "diceRolling": {
+                "multiplier": "flat",
+                "flatMultiplier": 2,
+                "dice": "d4",
+                "compare": null,
+                "treshold": null
+              },
+              "useDefault": false
+            },
+            "save": {
+              "trait": null,
+              "difficulty": null,
+              "damageMod": "none"
+            },
+            "name": "Rally",
+            "img": "icons/skills/movement/arrows-up-trio-red.webp",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            }
+          }
+        },
+        "originItemType": null,
+        "multiclassOrigin": false,
+        "attribution": {}
+      },
+      "img": "icons/skills/movement/arrows-up-trio-red.webp",
+      "flags": {},
+      "folder": "mx9veq2dURvUmCze",
+      "effects": [],
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782182968928,
+        "modifiedTime": 1782182997011,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "sort": 0,
+      "_id": "KWW4fF5iw6cTBIv0",
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "folder": "O0uFcMSXaa9Do2oi",
+      "name": "Breach and Clear",
+      "type": "feature",
+      "img": "modules/cybermancy/assets/icons/attacks/trained-takedown.webp",
+      "system": {
+        "attribution": {},
+        "description": "<p>Spend 2 Fear. Jax moves to Close range and immediately spotlights one other Dead Current member.</p>",
+        "resource": null,
+        "actions": {},
+        "originItemType": null,
+        "multiclassOrigin": false
+      },
+      "effects": [],
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "daggerheart",
+        "systemVersion": "1.2.7",
+        "createdTime": 1782183303589,
+        "modifiedTime": 1782183303589,
+        "lastModifiedBy": "BT83wOOYeRCn9aoe"
+      },
+      "_id": "n3bS2LDNnZYuGAvW",
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "cybermancer",
+      "uuid": "Actor.1reIxLZ9bRp6BUwc",
+      "coreVersion": "13.351",
+      "systemId": "daggerheart",
+      "systemVersion": "1.2.7"
+    },
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1776642340810,
+    "modifiedTime": 1782184687117,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Skulk",
+  "type": "Item",
+  "color": "#77008a",
+  "_id": "2AdIVZpm3ONNJNUY",
+  "description": "",
+  "folder": null,
+  "sorting": "a",
+  "sort": 600000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491181,
+    "modifiedTime": 1756234560575,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "_key": "!folders!2AdIVZpm3ONNJNUY"
+}

@@ -1,0 +1,62 @@
+{
+  "folder": "uDSMfyRJ5wzh9VdK",
+  "name": "Mana Phase Change Circuit",
+  "type": "feature",
+  "_id": "FoCr8cFnxwHf8AYC",
+  "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+  "system": {
+    "attribution": {},
+    "description": "",
+    "resource": null,
+    "actions": {
+      "fp95vYzxVTE7QpWQ": {
+        "type": "effect",
+        "_id": "fp95vYzxVTE7QpWQ",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "<p>You recognize that Hope and Fear are two addresses pointing to the same memory space—and you can swap the pointer. </p><p></p><p>Once per session, when any character in the scene rolls their Hope and Fear dice, you may exchange the values showing on those two dice after the dice are rolled and before the outcome is resolved.</p>",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": 0,
+          "max": "1",
+          "recovery": "session",
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Mana Phase Change Circuit",
+        "img": "systems/daggerheart/assets/icons/documents/items/stars-stack.svg",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1776262001878,
+    "modifiedTime": 1776262112560,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_key": "!items!FoCr8cFnxwHf8AYC"
+}

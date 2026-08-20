@@ -1,0 +1,57 @@
+{
+  "name": "Skilled Opportunist",
+  "type": "feature",
+  "system": {
+    "description": "<p>When another adversary deals damage to a target within Very Close range of the Zombie, you can <strong>spend a Fear</strong> to add the Zombie’s standard attack damage to the damage roll.</p>",
+    "resource": null,
+    "actions": {
+      "To2z7XQItxcMxKBp": {
+        "type": "effect",
+        "_id": "To2z7XQItxcMxKBp",
+        "systemPath": "actions",
+        "description": "<p>When another adversary deals damage to a target within Very Close range of the Zombie, you can <strong>spend a Fear</strong> to add the Zombie’s standard attack damage to the damage roll.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Spend Fear",
+        "img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
+        "range": ""
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
+  "flags": {},
+  "folder": "Q1khRkuBADdKUgGV",
+  "_id": "DlvHnA2aGbDbVSs2",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!DlvHnA2aGbDbVSs2"
+}

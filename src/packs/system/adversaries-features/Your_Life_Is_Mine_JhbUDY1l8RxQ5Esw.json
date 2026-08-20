@@ -1,0 +1,113 @@
+{
+  "name": "Your Life Is Mine",
+  "type": "feature",
+  "system": {
+    "description": "<p>Countdown (Loop 2d6). When the Necromancer has marked 6 or more of their HP, activate the countdown. When it triggers, deal <strong>2d10+6</strong> direct magic damage to a target within Close range. The Necromancer then <strong>clears a number of Stress or HP</strong> equal to the number of HP marked by the target from this attack.</p>",
+    "resource": null,
+    "actions": {
+      "Gd70IsPckAFOw0ha": {
+        "type": "effect",
+        "_id": "Gd70IsPckAFOw0ha",
+        "systemPath": "actions",
+        "description": "<p><span style=\"color: rgb(239, 230, 216); font-family: Montserrat, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgba(24, 22, 46, 0.376); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none\">Countdown (Loop 2d6). When the Necromancer has marked 6 or more of their HP, activate the countdown.</span></p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Countdown",
+        "img": "icons/magic/unholy/hand-claw-fire-green.webp",
+        "range": ""
+      },
+      "YzepYov9vEMcBPU1": {
+        "type": "damage",
+        "_id": "YzepYov9vEMcBPU1",
+        "systemPath": "actions",
+        "description": "<p>When the countdown triggers, deal <strong>2d10+6</strong> direct magic damage to a target within Close range. The Necromancer then <strong>clears a number of Stress or HP</strong> equal to the number of HP marked by the target from this attack.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                },
+                "flatMultiplier": 2,
+                "dice": "d10",
+                "bonus": 6,
+                "multiplier": "flat"
+              },
+              "applyTo": "hitPoints",
+              "type": [
+                "magical"
+              ],
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              }
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "effects": [],
+        "name": "Damage",
+        "img": "icons/magic/unholy/hand-claw-fire-green.webp",
+        "range": "close"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/unholy/hand-claw-fire-green.webp",
+  "flags": {},
+  "folder": "mx9veq2dURvUmCze",
+  "_id": "JhbUDY1l8RxQ5Esw",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756234560786,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!JhbUDY1l8RxQ5Esw"
+}

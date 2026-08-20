@@ -1,0 +1,88 @@
+{
+  "name": "Swashbuckler",
+  "type": "feature",
+  "system": {
+    "description": "<p>When the Captain marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.</p>",
+    "resource": null,
+    "actions": {
+      "xYphrI8GtMHHuT9a": {
+        "type": "damage",
+        "_id": "xYphrI8GtMHHuT9a",
+        "systemPath": "actions",
+        "description": "<p>When the Captain marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.</p>",
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": {
+          "parts": [
+            {
+              "value": {
+                "custom": {
+                  "enabled": true,
+                  "formula": "1"
+                },
+                "multiplier": "flat",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null
+              },
+              "applyTo": "stress",
+              "base": false,
+              "resultBased": false,
+              "valueAlt": {
+                "multiplier": "prof",
+                "flatMultiplier": 1,
+                "dice": "d6",
+                "bonus": null,
+                "custom": {
+                  "enabled": false,
+                  "formula": ""
+                }
+              },
+              "type": []
+            }
+          ],
+          "includeBase": false
+        },
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "effects": [],
+        "name": "Damage Stress",
+        "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+        "range": "melee"
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
+  "flags": {},
+  "folder": "mx9veq2dURvUmCze",
+  "_id": "JsH3JllGoi1CnasQ",
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.1",
+    "createdTime": 1756233491406,
+    "modifiedTime": 1756233491406,
+    "lastModifiedBy": "YUtlcC1DVzkirPaJ"
+  },
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "YUtlcC1DVzkirPaJ": 3
+  },
+  "_key": "!items!JsH3JllGoi1CnasQ"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "BImGuescyJIB1rRt",
+  "name": "Wall ICE",
+  "color": "#93a6cc",
+  "sorting": "a",
+  "_id": "wCGkCV9uQXcmcfwo",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!wCGkCV9uQXcmcfwo"
+}

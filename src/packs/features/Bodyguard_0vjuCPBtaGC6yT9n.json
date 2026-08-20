@@ -1,0 +1,21 @@
+{
+  "type": "Item",
+  "folder": "LOH78bJGWhb0hLT4",
+  "name": "Bodyguard",
+  "color": null,
+  "sorting": "a",
+  "_id": "0vjuCPBtaGC6yT9n",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "lastModifiedBy": null
+  },
+  "_key": "!folders!0vjuCPBtaGC6yT9n"
+}
