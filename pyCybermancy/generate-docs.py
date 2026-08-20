@@ -810,6 +810,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     # ---------------- Features - read these first ----------------
     "features": {
         "kind": "system",
+        "audiences": ["player-facing"],
         "src_subdir": "features",
         "csv_fields": ["name", "slug", "description"],
         "field_map": {
@@ -828,6 +829,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "adversaries-features": {
         "kind": "system",
+        "audiences": ["gm-facing"],
         "src_subdir": "adversaries-features",
         "csv_fields": ["name", "slug", "tier", "description"],
         "field_map": {
@@ -847,6 +849,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     # ---------------- Items ----------------
     "weapons": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "id": "_id",
         "src_subdir": "weapons",
         "csv_fields": ["name","slug","description","tier","trait","range","burden","damage","weapon_feats","actions_flat"],
@@ -865,6 +868,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "armors": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "id": "_id",
         "src_subdir": "armors",
         "csv_fields": ["name","slug","description","tier","baseScore","majorThreshold","severeThreshold","armor_features_flat"],
@@ -881,6 +885,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "ammo": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "src_subdir": "ammo",
         "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
@@ -891,6 +896,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "consumables": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "src_subdir": "consumables",
         "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
@@ -901,6 +907,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "cybernetics": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "src_subdir": "cybernetics",
         "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
@@ -911,6 +918,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "drones-devices": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "src_subdir": "drones-devices",
         "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
@@ -921,6 +929,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "mods": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "src_subdir": "mods",
         "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
@@ -931,6 +940,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "loot": {
         "kind": "items",
+        "audiences": ["player-facing"],
         "src_subdir": "loot",
         "csv_fields": ["name","slug","description","tier","actions"],
         "field_map": DEFAULT_ITEM_FIELD_MAP,
@@ -943,6 +953,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     # ---------------- System ----------------
     "domains": {
         "kind": "system",
+        "audiences": ["player-facing"],
         "src_subdir": "domains",
         "csv_fields": ["name","slug","domain","description","level","recallCost"],
         "field_map": {
@@ -965,6 +976,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "subclasses": {
         "kind": "system",
+        "audiences": ["player-facing"],
         "src_subdir": "subclasses",
         "csv_fields": ["name", "slug", "description", "spellcastingTrait"],
         "field_map": {
@@ -984,6 +996,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "classes": {
         "kind": "system",
+        "audiences": ["player-facing"],
         "src_subdir": "classes",
         "csv_fields": ["name", "slug", "description"],
         "field_map": {
@@ -1402,9 +1415,12 @@ def main():
             print(f"[skip] Unknown type: {type_key}")
             continue
 
-        # Item/equipment documentation is published only to the Player site.
-        if args.audience == "gm-facing" and CONFIG[type_key]["kind"] == "items":
-            print(f"[skip] {type_key}: item documentation is player-facing only")
+        allowed_audiences = CONFIG[type_key]["audiences"]
+
+        if args.audience not in allowed_audiences:
+            print(
+                f"[skip] {type_key}: not published to {args.audience}"
+            )
             continue
 
         n, out_dir = process_type(
