@@ -1,0 +1,33 @@
+{
+  "name": "Extra armor",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/extra-armor.webp",
+  "system": {
+    "description": "+1 Armor, +2 / +2 to Major and Severe damage thresholds, -1 Evasion",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "dZpRLvzzvRTw50fz",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830426898,
+    "modifiedTime": 1763830437767,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "fS7I2RM1zOXiQAZV",
+  "sort": 600000,
+  "_key": "!items!fS7I2RM1zOXiQAZV"
+}

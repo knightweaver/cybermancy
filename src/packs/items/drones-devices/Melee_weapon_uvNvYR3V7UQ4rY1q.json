@@ -1,0 +1,33 @@
+{
+  "name": "Melee weapon",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/melee-weapon.webp",
+  "system": {
+    "description": "Your drone gains an extra Melee range attack, damage: d8+3",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "aDjnzcfvUUAWKGgw",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830391530,
+    "modifiedTime": 1763830405238,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "uvNvYR3V7UQ4rY1q",
+  "sort": 700000,
+  "_key": "!items!uvNvYR3V7UQ4rY1q"
+}

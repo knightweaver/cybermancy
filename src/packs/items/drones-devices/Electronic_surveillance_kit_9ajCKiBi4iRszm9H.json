@@ -1,0 +1,33 @@
+{
+  "name": "Electronic surveillance kit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/electronic-surveillance-kit.webp",
+  "system": {
+    "description": "Give your Primary Drone the ability to eavesdrop on electric signals within Very Far.  If those signals are encrypted, you must make a Knowledge check against the Environment Difficulty to decrypt.",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "aDjnzcfvUUAWKGgw",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830381898,
+    "modifiedTime": 1763830405238,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "9ajCKiBi4iRszm9H",
+  "sort": 600000,
+  "_key": "!items!9ajCKiBi4iRszm9H"
+}

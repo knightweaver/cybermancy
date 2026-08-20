@@ -1,0 +1,33 @@
+{
+  "name": "Grenade",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/grenade.webp",
+  "system": {
+    "description": "Place a token on this card and remove 1 grenade from your inventory.  Your Primary Drone now has the ability to launch that grenade as an attack action .",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "dZpRLvzzvRTw50fz",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830430411,
+    "modifiedTime": 1763830437767,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "MMTfuZ6pSyFgFxFy",
+  "sort": 700000,
+  "_key": "!items!MMTfuZ6pSyFgFxFy"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Night vision",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/night-vision.webp",
+  "system": {
+    "description": "Allows your Primary Drone to see in total darkness up to Close and low-light up to Very Far.",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "aDjnzcfvUUAWKGgw",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830395426,
+    "modifiedTime": 1763830405238,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "faYqKfs7AyO2FBzI",
+  "sort": 100000,
+  "_key": "!items!faYqKfs7AyO2FBzI"
+}

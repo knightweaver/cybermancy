@@ -1,0 +1,33 @@
+{
+  "name": "Grappling device",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/grappling-device.webp",
+  "system": {
+    "description": "Your Primary Drone has an embedded grappling hook and 10m of cable.",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "aDjnzcfvUUAWKGgw",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830387138,
+    "modifiedTime": 1763830405238,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "nGZUxdwKhrhCMn5O",
+  "sort": 800000,
+  "_key": "!items!nGZUxdwKhrhCMn5O"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Primary Drone Base Armor",
+  "type": "armor",
+  "_id": "hzH0dLIfZCdb4pnV",
+  "img": "modules/cybermancy/assets/icons/drone-mods/stealth-shield.webp",
+  "system": {
+    "description": "<p>All primary drones start with this level of armor</p>",
+    "actions": {},
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "baseScore": 1,
+    "armorFeatures": [],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 5,
+      "severe": 9
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763825746024,
+    "modifiedTime": 1763825794742,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_key": "!items!hzH0dLIfZCdb4pnV"
+}

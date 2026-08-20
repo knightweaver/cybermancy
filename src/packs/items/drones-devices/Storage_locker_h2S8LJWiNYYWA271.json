@@ -1,0 +1,33 @@
+{
+  "name": "Storage locker",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/storage-locker.webp",
+  "system": {
+    "description": "Your Primary Drone  gains an internal modular cargo bay with secure locking and temperature stabilization. Supports mission-specific payloads, evidence retention, and concealment; access controlled via cryptographic key.",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "aDjnzcfvUUAWKGgw",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830400385,
+    "modifiedTime": 1763830405238,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "h2S8LJWiNYYWA271",
+  "sort": 300000,
+  "_key": "!items!h2S8LJWiNYYWA271"
+}

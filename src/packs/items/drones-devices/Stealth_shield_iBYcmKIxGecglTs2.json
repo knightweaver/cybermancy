@@ -1,0 +1,33 @@
+{
+  "name": "Stealth shield",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/stealth-shield.webp",
+  "system": {
+    "description": "Your Primary Drone gains the ability to trigger the Hidden condition as an action.  That condition persists until it takes any other action.",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "N3tZmW1d7VzxoH0j",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830441827,
+    "modifiedTime": 1763830441827,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "iBYcmKIxGecglTs2",
+  "sort": 0,
+  "_key": "!items!iBYcmKIxGecglTs2"
+}

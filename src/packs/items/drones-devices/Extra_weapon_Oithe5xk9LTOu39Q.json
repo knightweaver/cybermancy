@@ -1,0 +1,33 @@
+{
+  "name": "Extra weapon",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/extra-weapon.webp",
+  "system": {
+    "description": "Your Primary Drone gains an extra attack, d6+2",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "dZpRLvzzvRTw50fz",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830428419,
+    "modifiedTime": 1763830437767,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "Oithe5xk9LTOu39Q",
+  "sort": 800000,
+  "_key": "!items!Oithe5xk9LTOu39Q"
+}

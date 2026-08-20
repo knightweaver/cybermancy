@@ -1,0 +1,33 @@
+{
+  "name": "Lock kit",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/lock-kit.webp",
+  "system": {
+    "description": "Give your Primary Drone the ability to make a Finesse check using your character's Finesse ability when attempting to open a physical or electronic lock.",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "dZpRLvzzvRTw50fz",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830432379,
+    "modifiedTime": 1763830437767,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "bQJxUckIbHvNLLKk",
+  "sort": 100000,
+  "_key": "!items!bQJxUckIbHvNLLKk"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Digger",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/drone-mods/digger.webp",
+  "system": {
+    "description": "Your Primary Drone gaines the ability to burrow through soil at a rate of 3m / minute.",
+    "resource": null,
+    "actions": {},
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": "dZpRLvzzvRTw50fz",
+  "ownership": {
+    "default": 0,
+    "9AtfWssIybpdSZVY": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763830424697,
+    "modifiedTime": 1763830437767,
+    "lastModifiedBy": "9AtfWssIybpdSZVY"
+  },
+  "_id": "76hfLCJCVSZFOFji",
+  "sort": 500000,
+  "_key": "!items!76hfLCJCVSZFOFji"
+}
