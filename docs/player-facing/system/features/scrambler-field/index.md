@@ -5,7 +5,9 @@
 *<i>Your interface can’t decide what’s real.</i><br /><br /><p class="Card-Feature">Randomizes outputs—success and failure both become chaotic.</p>*
 
 ## Actions
-- <div markdown='1'>**Scrambler Field**<br>*Your interface can’t decide what’s real.Randomizes outputs—success and failure both become chaotic.*</div>
+- <div markdown='1'>**Scrambler Field**<br>*Your interface can’t decide what’s real.
+
+Randomizes outputs—success and failure both become chaotic.*</div>
 
 ---
 

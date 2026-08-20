@@ -7,7 +7,6 @@
 ## Description
 <i>Fear is the first bullet.</i><p class="Card-Feature">With a visible gun, make Presence rolls at  +d4.  Once per Scene, <strong>Spend 1 Hope</strong> to re-roll a Presence roll.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

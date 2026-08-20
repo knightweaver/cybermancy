@@ -7,7 +7,9 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Etheric Dampening Core**<br>*Become impervious to arcane whispers.-2 to all sources of Magical damage*</div>
+- <div markdown='1'>**Etheric Dampening Core**<br>*Become impervious to arcane whispers.
+
+-2 to all sources of Magical damage*</div>
 
 #### Effects
 —

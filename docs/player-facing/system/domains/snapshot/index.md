@@ -7,7 +7,6 @@
 ## Description
 <i>Faster than the spotlight.</i><p class="Card-Feature">Once per Scene, as a Reaction, <strong>Spend 1 Hope</strong> when the GM spotlights an opponent to make a single ranged attack.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Military Assault Rifle
@@ -12,7 +11,6 @@ Hardened composite frame with select-fire and tactical uplink for squad-level co
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Hardened composite frame with select-fire and tactical uplink for squad-level co
     <tr><td>Damage</td><td align="right">d8+6</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Suppressive Fire**<br>*On Hope win, all enemies in line of fire mark Stress.*</div>
+- <div markdown='1'>**Suppressive Fire**<br>*
 
-- <div markdown='1'>**Critical Effect:  Armor Break**<br>*Ignore armor; bullets chew through cover.*</div>
+On Hope win, all enemies in line of fire mark Stress.*</div>
+
+- <div markdown='1'>**Critical Effect:  Armor Break**<br>*
+
+Ignore armor; bullets chew through cover.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Hardened composite frame with select-fire and tactical uplink for squad-level co
 #### Weapon Features
 —
 []
-
 
 ---
 

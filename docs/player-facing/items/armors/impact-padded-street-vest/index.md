@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Impact-Padded Street Vest
 <img src="../../../assets/icons/armors/impact-padded-street-vest.webp" alt="Impact-Padded Street Vest" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *A padded street vest with shock-absorbing gel plates—cheap insurance against fists, batons, and stray shrapnel.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">5 / 11</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

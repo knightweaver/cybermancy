@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Shock Baton
@@ -12,7 +11,6 @@ A polymer club fitted with a high-voltage capacitor, used by corp security and r
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A polymer club fitted with a high-voltage capacitor, used by corp security and r
     <tr><td>Damage</td><td align="right">d8+1</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Stunning**<br>*Spend a Hope on a successful hit to inflict Dazed for one round.*</div>
+- <div markdown='1'>**Stunning**<br>*
 
-- <div markdown='1'>**Critical Effect:  Knockout**<br>*Target is stunned or unconscious for one scene beat.*</div>
+Spend a Hope on a successful hit to inflict Dazed for one round.*</div>
+
+- <div markdown='1'>**Critical Effect:  Knockout**<br>*
+
+Target is stunned or unconscious for one scene beat.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A polymer club fitted with a high-voltage capacitor, used by corp security and r
 #### Weapon Features
 —
 []
-
 
 ---
 

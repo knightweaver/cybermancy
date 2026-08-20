@@ -7,7 +7,6 @@
 ## Description
 <i>The floor is your runway.</i><p class="Card-Feature"><strong>Spend 3 Hope</strong> to move up to Far in a straight line; Attack all creatures passed. Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -7,7 +7,6 @@
 ## Description
 <i>Two shots, one heartbeat.</i><p class="Card-Feature">After a successful attack on a target, <strong>Spend 1 Hope</strong> to apply the damage to a second target within Very Close range.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

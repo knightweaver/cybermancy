@@ -7,7 +7,6 @@
 ## Description
 <i>Overclocked aggression.</i><p class="Card-Feature">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack with advantage; add dH extra damage on success depending on your Tier (1:d4, 2:d6, 3:d8, 4:d10)</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

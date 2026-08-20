@@ -7,7 +7,6 @@
 ## Description
 <i>Every circuit tells a secret.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

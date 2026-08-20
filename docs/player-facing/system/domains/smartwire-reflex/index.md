@@ -7,7 +7,6 @@
 ## Description
 <i>“You’re half machine — might as well let it drive.”</i><p class="Card-Feature">Once per Scene, you may reroll one failed Agility, Spellcasting or Finesse roll as your implants auto-correct your motion.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

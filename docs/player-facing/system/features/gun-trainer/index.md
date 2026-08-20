@@ -7,7 +7,9 @@
 ## Actions
 - <div markdown='1'>**Gun trainer**<br>*d10).  They may roll this Bullet die whenever they make an attack with a gun and add the result to their attack roll.*</div>
 
-- <div markdown='1'>**Gun trainer**<br>*d10). They may roll this Bullet die whenever they make an attack with a gun and add the result to their attack roll.*</div>
+- <div markdown='1'>**Gun trainer**<br>*d10). 
+
+They may roll this Bullet die whenever they make an attack with a gun and add the result to their attack roll.*</div>
 
 ---
 

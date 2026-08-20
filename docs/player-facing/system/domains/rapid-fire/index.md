@@ -7,7 +7,6 @@
 ## Description
 <i>The sound of inevitability.</i><p class="Card-Feature">Each time you make an Attack with a gun, you may attack 2 different targets within Close of eachother.  Each shot is at -2</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -7,7 +7,6 @@
 ## Description
 <i>Duct tape, hope, and brilliance.</i><p class="Card-Feature">Once per rest, <strong>Mark 1 Stress</strong> to restore 2 HP to your <b>Primary Drone</b>.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

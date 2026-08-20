@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # SMG (Machine Pistol)
@@ -12,7 +11,6 @@ Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, 
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, 
     <tr><td>Damage</td><td align="right">d6+3</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Burst Fire**<br>*Mark 1 Stress to attack an additional target in Close range.*</div>
+- <div markdown='1'>**Burst Fire**<br>*
 
-- <div markdown='1'>**Critical Effect:  Spray Down**<br>*Hit all targets in Very Close range with collateral fire.*</div>
+Mark 1 Stress to attack an additional target in Close range.*</div>
+
+- <div markdown='1'>**Critical Effect:  Spray Down**<br>*
+
+Hit all targets in Very Close range with collateral fire.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, 
 #### Weapon Features
 —
 []
-
 
 ---
 

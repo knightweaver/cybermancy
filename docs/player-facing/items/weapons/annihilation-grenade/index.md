@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Annihilation Grenade
@@ -12,7 +11,6 @@ Compact tactical nuke delivering utter destruction in a small, precise radius.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Compact tactical nuke delivering utter destruction in a small, precise radius.
     <tr><td>Damage</td><td align="right">d20</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Final Boom**<br>*Single-use, but massive radius.*</div>
+- <div markdown='1'>**Final Boom**<br>*
 
-- <div markdown='1'>**Critical Effect:  Tactical Nuke (Micro)**<br>*Entire area wiped  citywide consequences.*</div>
+Single-use, but massive radius.*</div>
+
+- <div markdown='1'>**Critical Effect:  Tactical Nuke (Micro)**<br>*
+
+Entire area wiped  citywide consequences.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Compact tactical nuke delivering utter destruction in a small, precise radius.
 #### Weapon Features
 —
 []
-
 
 ---
 

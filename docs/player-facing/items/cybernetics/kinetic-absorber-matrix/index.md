@@ -7,7 +7,11 @@
 ### **Tier: Tier 4**
 
 #### Actions
-- <div markdown='1'>**Kinetic Absorber Matrix**<br>* hope, tokenized resilience."Once per long rest, Spend 3 Hope to place 3 tokens on this card. As a Reaction, you can remove one token to negate a source of Physical damage.*</div>
+- <div markdown='1'>**Kinetic Absorber Matrix**<br>* hope, tokenized resilience."
+
+Once per long rest, Spend 3 Hope to place 3 tokens on this card. 
+
+As a Reaction, you can remove one token to negate a source of Physical damage.*</div>
 
 #### Effects
 —

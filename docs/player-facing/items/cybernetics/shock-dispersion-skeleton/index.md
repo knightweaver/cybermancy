@@ -7,7 +7,9 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Shock-Dispersion Skeleton**<br>* Veil your vulnerabilities.-2 to all sources of Physical damage*</div>
+- <div markdown='1'>**Shock-Dispersion Skeleton**<br>* Veil your vulnerabilities.
+
+-2 to all sources of Physical damage*</div>
 
 #### Effects
 —

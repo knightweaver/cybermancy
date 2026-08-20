@@ -7,7 +7,6 @@
 ## Description
 <i>“If at first you don’t succeed, reboot and lie about it.”</i><p class="Card-Feature">Mark Stress (up to your Proficiency) to lower the System Alert one level per Stress marked.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

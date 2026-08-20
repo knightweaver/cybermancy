@@ -7,7 +7,6 @@
 ## Description
 <i>Nothing moves without you noticing.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong>; make a Perception check at +3 to detect all armed entities within Far.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

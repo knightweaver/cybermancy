@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Advanced SMG
@@ -12,7 +11,6 @@ Modular close-combat firearm with smart recoil dampers and ammo tracking.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Modular close-combat firearm with smart recoil dampers and ammo tracking.
     <tr><td>Damage</td><td align="right">d6+9</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Bulletstorm**<br>*Once per rest, attack 3 targets in Close.*</div>
+- <div markdown='1'>**Bulletstorm**<br>*
 
-- <div markdown='1'>**Critical Effect:  Suppression Killzone**<br>*Enemies must Retreat or mark Stress.*</div>
+Once per rest, attack 3 targets in Close.*</div>
+
+- <div markdown='1'>**Critical Effect:  Suppression Killzone**<br>*
+
+Enemies must Retreat or mark Stress.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Modular close-combat firearm with smart recoil dampers and ammo tracking.
 #### Weapon Features
 —
 []
-
 
 ---
 

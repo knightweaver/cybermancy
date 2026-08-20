@@ -7,7 +7,6 @@
 ## Description
 <i>Knowledge is the best weapon.</i><p class="Card-Feature">Once per session, <strong>Spend 2 Hope</strong> to ask the GM 3 yes/no questions about a material, structure, or device.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

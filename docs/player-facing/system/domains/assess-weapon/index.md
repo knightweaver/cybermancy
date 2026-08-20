@@ -7,7 +7,6 @@
 ## Description
 <i>Every gun tells a story.</i><p class="Card-Feature">Identify the weapon type and potential weaknesses or modifications of one visible gun within Far</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

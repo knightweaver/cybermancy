@@ -7,7 +7,9 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Parallel Synapse Array**<br>*Unleash hidden strength with a whisper.Once per scene, Spend 2 Hope to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)*</div>
+- <div markdown='1'>**Parallel Synapse Array**<br>*Unleash hidden strength with a whisper.
+
+Once per scene, Spend 2 Hope to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)*</div>
 
 #### Effects
 —

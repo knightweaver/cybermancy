@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Assault Rifle
@@ -12,7 +11,6 @@ The runner’s staple: reliable, lethal, and adaptable across every corporate wa
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ The runner’s staple: reliable, lethal, and adaptable across every corporate wa
     <tr><td>Damage</td><td align="right">d8+3</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Suppressive Fire**<br>*On a Hope win, target must mark 1 Stress to act next turn.*</div>
+- <div markdown='1'>**Suppressive Fire**<br>*
 
-- <div markdown='1'>**Critical Effect:  Shredding Burst**<br>*Force enemy into cover, reducing their next attack roll.*</div>
+On a Hope win, target must mark 1 Stress to act next turn.*</div>
+
+- <div markdown='1'>**Critical Effect:  Shredding Burst**<br>*
+
+Force enemy into cover, reducing their next attack roll.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ The runner’s staple: reliable, lethal, and adaptable across every corporate wa
 #### Weapon Features
 —
 []
-
 
 ---
 

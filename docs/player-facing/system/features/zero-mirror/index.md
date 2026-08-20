@@ -5,7 +5,9 @@
 *<i>Weaponized intent rebounds—the system uses you.</i><br /><br /><p class="Card-Feature">Replicates your last command and turns it back on you.</p>*
 
 ## Actions
-- <div markdown='1'>**Zero Mirror**<br>*Weaponized intent rebounds—the system uses you.Replicates your last command and turns it back on you.*</div>
+- <div markdown='1'>**Zero Mirror**<br>*Weaponized intent rebounds—the system uses you.
+
+Replicates your last command and turns it back on you.*</div>
 
 ---
 

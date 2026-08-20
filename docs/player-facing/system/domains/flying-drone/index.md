@@ -7,7 +7,6 @@
 ## Description
 <i>The sky hums with your genius.</i><p class="Card-Feature">Your <b>Primary Drone</b> gains flight, +4 Evasion, and may carry 3 weapons.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

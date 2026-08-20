@@ -7,7 +7,6 @@
 ## Description
 <i>The right tool for the wrong moment.</i><p class="Card-Feature">Once per Scene, <strong>Mark 1 Stress</strong> to replace one module on your <b>Primary Drone</b> instantly.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

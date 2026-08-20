@@ -7,7 +7,6 @@
 ## Description
 <i>Expertise knows no boundaries.</i><p class="Card-Feature">You may add one Domain card from Circuit, Codex, or Bullet to your loadout of Level 4 or less.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

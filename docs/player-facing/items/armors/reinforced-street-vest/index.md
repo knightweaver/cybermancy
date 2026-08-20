@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Reinforced Street Vest
 <img src="../../../assets/icons/armors/reinforced-street-vest.webp" alt="Reinforced Street Vest" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Up-armored padding with denser gels and better dispersion. Looks cheap, works miracles.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">7 / 16</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Legendary Assault Carapace
 <img src="../../../assets/icons/armors/legendary-assault-carapace.webp" alt="Legendary Assault Carapace" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Black-ops composite suit meant to take a rocket and keep you upright.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">17 / 44</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

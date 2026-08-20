@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Scoped Sniper Rifle
@@ -12,7 +11,6 @@ Enhanced optics suite allows bullet trajectory correction and real-time target t
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Enhanced optics suite allows bullet trajectory correction and real-time target t
     <tr><td>Damage</td><td align="right">d8+6</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Scoped**<br>*Aim for advantage; crit chance rises if aiming 1 round.*</div>
+- <div markdown='1'>**Scoped**<br>*
 
-- <div markdown='1'>**Critical Effect:  Through and Through**<br>*Shot penetrates multiple targets.*</div>
+Aim for advantage; crit chance rises if aiming 1 round.*</div>
+
+- <div markdown='1'>**Critical Effect:  Through and Through**<br>*
+
+Shot penetrates multiple targets.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Enhanced optics suite allows bullet trajectory correction and real-time target t
 #### Weapon Features
 —
 []
-
 
 ---
 

@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Titanium Cyber Spurs
@@ -12,7 +11,6 @@ Polished titanium spurs with self-cleaning servos and monomolecular precision ed
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Polished titanium spurs with self-cleaning servos and monomolecular precision ed
     <tr><td>Damage</td><td align="right">d10+6</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Hidden Killer**<br>*+2 to first attack in combat.*</div>
+- <div markdown='1'>**Hidden Killer**<br>*
 
-- <div markdown='1'>**Critical Effect:  Critical Tendons**<br>*Cripple targets mobility permanently.*</div>
++2 to first attack in combat.*</div>
+
+- <div markdown='1'>**Critical Effect:  Critical Tendons**<br>*
+
+Cripple targets mobility permanently.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Polished titanium spurs with self-cleaning servos and monomolecular precision ed
 #### Weapon Features
 —
 []
-
 
 ---
 

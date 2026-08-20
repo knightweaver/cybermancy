@@ -7,7 +7,6 @@
 ## Description
 <i>Stillness is your superpower.</i><p class="Card-Feature">If you have a scope mod on your gun, <strong>Spend 1 Hope</strong> to gain +2 to attack (in addition to the +1 bonus provided by the scope).</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

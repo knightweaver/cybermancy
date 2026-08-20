@@ -7,7 +7,9 @@
 ### **Tier: —**
 
 #### Actions
-- <div markdown='1'>**Tracker Rounds**<br>*Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.*</div>
+- <div markdown='1'>**Tracker Rounds**<br>*Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  
+
+Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.*</div>
 
 #### Effects
 —

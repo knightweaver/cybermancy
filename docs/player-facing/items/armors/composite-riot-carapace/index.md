@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Composite Riot Carapace
 <img src="../../../assets/icons/armors/composite-riot-carapace.webp" alt="Composite Riot Carapace" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Full-coverage composite plating over impact mesh. Heavy, loud, and built to walk through riots.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">8 / 17</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

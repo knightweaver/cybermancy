@@ -1,0 +1,33 @@
+name,slug,tier,type,difficulty,description
+Daytime Highway,daytime-highway,1,Event,14,
+Midnight Streets,midnight-streets,1,Event,13,"The streets at 2 a.m. pulse with the faint afterglow of a city that never quite sleeps but has slumped into a dangerous lull. Neon signage flickers above empty walkways, casting jittery light across rain-sheened pavement. Delivery drones buzz through narrow flight lanes overhead. The transit grid runs on skeleton power, so half the intersections operate on fallback patterns, leaving certain lanes plunged in darkness. Steam rises from cracked vents. The few citizens still awake move fast and keep their heads down."
+Cascadia Mountain Valley,cascadia-mountain-valley,1,Exploration,10,"A peaceful Cascadian mountain valley of clear water, old-growth forest, and alpine light, partially protected by Selka's people from the corruption spreading farther uphill.
+
+FAST PLAYOpening: Establish the lower valley as beautiful, safe, and healthy. Let PCs engage with the landscape and give Selka authority to notice details others miss.
+
+Default: Reward observation with Quiet Signs. Give useful clues even on failure, but let failure cost time or movement toward danger.
+
+On Fear or Relaxation: Trigger Beauty That Hides the Cut: reveal one unmistakably wrong detail without making the lower valley hostile.
+
+Transition: Make Selka's Green Boundary perceptible before crossing it; beyond it, protection and safety begin to fall away.
+
+Remember: This environment restores and foreshadows; it is not intended to pressure the party through direct danger.
+
+Goal: Let the party lower its guard, recover, and connect with the land before revealing corruption ahead."
+Seattle Underflow Grid,seattle-underflow-grid,1,Exploration,13,"A vast, contaminated sewer and stormwater undercity beneath Seattle, warped by corporate dumping and lingering Resonance anomalies."
+Corporate office,corporate-office,1,Social,13,
+Neon Diner Environment,neon-diner-environment,1,Social,14,
+The Eternal Night,the-eternal-night,1,—,12,
+Abraxas ritual cave,abraxas-ritual-cave,2,Event,15,"A mountain cave swollen beyond natural geometry by Abraxas ritual power, where a blood-lit altar and half-open threshold pour chaos into the world while Dr. Elias Voss waits to be sacrificed.
+
+FAST PLAYOpening: Start Ritual Countdown (6) when PCs enter the altar chamber or cultists notice them. Make Voss, altar, portal, and sacrifice visibly actionable.
+
+Default Pressure: Force choices between rescuing Voss, disrupting the altar, controlling enemies, and surviving; cultists should obstruct or advance the rite.
+
+On PC Fear: Advance the Ritual Countdown. If Fear occurred during movement, consider Warped Cave Geometry to separate or displace the PC.
+
+On GM Fear Spend: Remember Portal Backwash. If Fear specifically intensifies the rite, also advance the Ritual Countdown.
+
+Attack the Problem: Use Altar of Opening Progress (8); reward strong fictional leverage with extra progress. Completion stops cultist-driven ritual advancement.
+
+Goal: Create escalating objective pressure: actions spent fighting are actions not spent rescuing Voss or shutting down the ritual."

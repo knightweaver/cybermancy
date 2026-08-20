@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Improved Vibro-Knife
@@ -12,7 +11,6 @@ Precision-tuned vibration edge allows for armor penetration and silent, efficien
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Precision-tuned vibration edge allows for armor penetration and silent, efficien
     <tr><td>Damage</td><td align="right">d8+5</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Piercing**<br>*Ignores 1 level of armor.*</div>
+- <div markdown='1'>**Piercing**<br>*
 
-- <div markdown='1'>**Critical Effect:  Assassins Cut**<br>*Severe damage ignoring defenses.*</div>
+Ignores 1 level of armor.*</div>
+
+- <div markdown='1'>**Critical Effect:  Assassins Cut**<br>*
+
+Severe damage ignoring defenses.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Precision-tuned vibration edge allows for armor penetration and silent, efficien
 #### Weapon Features
 —
 []
-
 
 ---
 

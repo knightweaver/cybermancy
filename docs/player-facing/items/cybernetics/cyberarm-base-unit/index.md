@@ -7,7 +7,11 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Cyberarm™ Base Unit**<br>*Unleash untamed might with mechanical grace.Cyberarm™ base unit - enables other Cyberarm-related cybernetics.   Once per long rest, Spend 1 Hope for advantage on a Strength roll or saving throw*</div>
+- <div markdown='1'>**Cyberarm™ Base Unit**<br>*Unleash untamed might with mechanical grace.
+
+Cyberarm™ base unit - enables other Cyberarm-related cybernetics.  
+
+ Once per long rest, Spend 1 Hope for advantage on a Strength roll or saving throw*</div>
 
 #### Effects
 —

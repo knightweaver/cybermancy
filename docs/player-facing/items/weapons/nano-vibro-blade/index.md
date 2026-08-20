@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Nano Vibro-Blade
@@ -12,7 +11,6 @@ A nano-edged weapon that self-sharpens at the molecular level, slicing even thro
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A nano-edged weapon that self-sharpens at the molecular level, slicing even thro
     <tr><td>Damage</td><td align="right">d12+9</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Self-Sharpening**<br>*Ignore all armor values.*</div>
+- <div markdown='1'>**Self-Sharpening**<br>*
 
-- <div markdown='1'>**Critical Effect:  Critical Dissection**<br>*Narratively kill or disable any single non-boss foe.*</div>
+Ignore all armor values.*</div>
+
+- <div markdown='1'>**Critical Effect:  Critical Dissection**<br>*
+
+Narratively kill or disable any single non-boss foe.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A nano-edged weapon that self-sharpens at the molecular level, slicing even thro
 #### Weapon Features
 —
 []
-
 
 ---
 

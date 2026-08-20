@@ -7,7 +7,6 @@
 ## Description
 <i>Precision through proxies.</i><p class="Card-Feature">As an Action, <strong>Spend 1 Hope</strong> for your <b>Primary Drone</b> to attack at +2.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

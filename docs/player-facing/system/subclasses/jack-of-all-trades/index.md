@@ -1,6 +1,5 @@
 <div class="subclass" markdown="1">
 <img src="../../../assets/icons/subclasses/jack-of-all-trades.webp" alt="Jack of All Trades" class="item-image" style="width:300px; height:auto;">
-
 # Jack of All Trades
 
 ## Description

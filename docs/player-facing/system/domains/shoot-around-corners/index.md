@@ -7,7 +7,6 @@
 ## Description
 <i>Geometry is your ally.</i><p class="Card-Feature">Hit a target around a 45° corner with disadvantage.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

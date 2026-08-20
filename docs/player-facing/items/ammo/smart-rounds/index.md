@@ -7,7 +7,11 @@
 ### **Tier: —**
 
 #### Actions
-- <div markdown='1'>**Smart Rounds**<br>*Take a Reload action to apply this ammo to any SmartLink™ enabled weapon and place 4 tokens on this card.  Spotlight an action to designate a target.  Discard 1 token for all subsequent attacks using that weapon against that target have +3 to hit.  Smart Rounds cannot be retargeted or re-used.*</div>
+- <div markdown='1'>**Smart Rounds**<br>*Take a Reload action to apply this ammo to any SmartLink™ enabled weapon and place 4 tokens on this card.  
+
+Spotlight an action to designate a target.  Discard 1 token for all subsequent attacks using that weapon against that target have +3 to hit. 
+
+ Smart Rounds cannot be retargeted or re-used.*</div>
 
 #### Effects
 —

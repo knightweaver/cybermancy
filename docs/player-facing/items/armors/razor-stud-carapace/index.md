@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Razor-Stud Carapace
 <img src="../../../assets/icons/armors/razor-stud-carapace.webp" alt="Razor-Stud Carapace" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Barbs and razor-studs turn every clinch into a mistake—for them.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">10 / 25</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

@@ -7,7 +7,9 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Tactical Subcortex**<br>*Ascend reactions, thrive with precision.Once per scene, Spend 1 Hope to gain +2 on the current Reaction Roll*</div>
+- <div markdown='1'>**Tactical Subcortex**<br>*Ascend reactions, thrive with precision.
+
+Once per scene, Spend 1 Hope to gain +2 on the current Reaction Roll*</div>
 
 #### Effects
 —

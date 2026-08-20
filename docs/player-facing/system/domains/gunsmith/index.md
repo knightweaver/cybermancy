@@ -7,7 +7,6 @@
 ## Description
 <i>Your tools are extensions of your will.</i><p class="Card-Feature">Gain +1 mod slot for each firearm you own.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # EMP Cascade
@@ -12,7 +11,6 @@ A cascading EMP charge that disables all systems across multiple networks simult
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A cascading EMP charge that disables all systems across multiple networks simult
     <tr><td>Damage</td><td align="right">d12</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**System Overload**<br>*Devices take 2 rounds to recover.*</div>
+- <div markdown='1'>**System Overload**<br>*
 
-- <div markdown='1'>**Critical Effect:  Matrix Burnout**<br>*Deckers hit take HP damage directly.*</div>
+Devices take 2 rounds to recover.*</div>
+
+- <div markdown='1'>**Critical Effect:  Matrix Burnout**<br>*
+
+Deckers hit take HP damage directly.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A cascading EMP charge that disables all systems across multiple networks simult
 #### Weapon Features
 —
 []
-
 
 ---
 

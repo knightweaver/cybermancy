@@ -7,7 +7,11 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Brainiac™ Intuit**<br>*"Awaken your potential with a spark."Spend 1 Hope to gain +2 on an Instinct Roll or Saving Throw.  Requires Brainiac™ Base Unit.*</div>
+- <div markdown='1'>**Brainiac™ Intuit**<br>*"Awaken your potential with a spark."
+
+Spend 1 Hope to gain +2 on an Instinct Roll or Saving Throw. 
+
+ Requires Brainiac™ Base Unit.*</div>
 
 #### Effects
 —

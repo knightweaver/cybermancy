@@ -7,7 +7,6 @@
 ## Description
 <i>If you can imagine it, you can build it.</i><p class="Card-Feature">Once per rest, <strong>Mark 2 Stress</strong> to create a device you need. Describe construction and function (GM discretion).</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

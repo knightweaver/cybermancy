@@ -7,7 +7,6 @@
 ## Description
 <i>“If at first you don’t succeed, reboot and lie about it.”</i><p class="Card-Feature">Once per long rest, add a new Digital Feature to a Device that it didn't originally have (GM's discretion)</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -7,7 +7,6 @@
 ## Description
 <i>Precision is compassion—end it cleanly.</i><p class="Card-Feature">Once per rest, <strong>Mark 1 Stress</strong> to make an Attack targeting a specific limb, device mod, weapon, etc. on a creature at -2 on the Attack roll.  On a successful attack roll, disable a targeted component for the Scene</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

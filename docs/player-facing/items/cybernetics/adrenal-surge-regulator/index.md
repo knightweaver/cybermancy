@@ -7,7 +7,9 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Adrenal Surge Regulator**<br>*"Ascend with Hope, embrace limitless potential."Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current Reaction Roll*</div>
+- <div markdown='1'>**Adrenal Surge Regulator**<br>*"Ascend with Hope, embrace limitless potential."
+
+Once per scene, Mark 1 Stress to increase your Hope die to d20 for the current Reaction Roll*</div>
 
 #### Effects
 —

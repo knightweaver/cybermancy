@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Thunder Baton
@@ -12,7 +11,6 @@ Electrified shock weapon tuned for area suppression, discharging arcs of blindin
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Electrified shock weapon tuned for area suppression, discharging arcs of blindin
     <tr><td>Damage</td><td align="right">d12+9</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Overdrive**<br>*Once per rest, stun all enemies in Close range.*</div>
+- <div markdown='1'>**Overdrive**<br>*
 
-- <div markdown='1'>**Critical Effect:  EMP Surge**<br>*Wipe out all small electronics in scene.*</div>
+Once per rest, stun all enemies in Close range.*</div>
+
+- <div markdown='1'>**Critical Effect:  EMP Surge**<br>*
+
+Wipe out all small electronics in scene.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Electrified shock weapon tuned for area suppression, discharging arcs of blindin
 #### Weapon Features
 —
 []
-
 
 ---
 

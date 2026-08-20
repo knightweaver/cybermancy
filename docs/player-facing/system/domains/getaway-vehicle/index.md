@@ -7,7 +7,6 @@
 ## Description
 <i>Drive fast, live smarter.</i><p class="Card-Feature">You own a vehicle large enough for your team - describe the vehicle on your character sheet. While driving this vehicle, gain +2 to Driving checks. On a critical roll, you may perform a cinematic driving maneuver with your vehicle (GM discretion), and adjust your Chase Die by and additional -1 to +1</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

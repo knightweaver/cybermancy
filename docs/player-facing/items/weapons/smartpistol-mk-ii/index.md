@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Smartpistol Mk II
@@ -12,7 +11,6 @@ Improved ballistic computer with predictive recoil compensation and infrared tra
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Improved ballistic computer with predictive recoil compensation and infrared tra
     <tr><td>Damage</td><td align="right">d6+5</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Smartlink**<br>*Auto-correct; reroll a miss once per scene.*</div>
+- <div markdown='1'>**Smartlink**<br>*
 
-- <div markdown='1'>**Critical Effect:  Eye Shot**<br>*Disable optics or key sensors.*</div>
+Auto-correct; reroll a miss once per scene.*</div>
+
+- <div markdown='1'>**Critical Effect:  Eye Shot**<br>*
+
+Disable optics or key sensors.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Improved ballistic computer with predictive recoil compensation and infrared tra
 #### Weapon Features
 —
 []
-
 
 ---
 

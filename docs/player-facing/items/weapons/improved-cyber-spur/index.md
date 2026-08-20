@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Improved Cyber Spur
@@ -12,7 +11,6 @@ Enhanced retractable spurs forged from titanium alloy, near undetectable by secu
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Enhanced retractable spurs forged from titanium alloy, near undetectable by secu
     <tr><td>Damage</td><td align="right">d8+4</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Concealed**<br>*Cannot be detected by casual scans.*</div>
+- <div markdown='1'>**Concealed**<br>*
 
-- <div markdown='1'>**Critical Effect:  Spinal Strike**<br>*Target is paralyzed for 1 round.*</div>
+Cannot be detected by casual scans.*</div>
+
+- <div markdown='1'>**Critical Effect:  Spinal Strike**<br>*
+
+Target is paralyzed for 1 round.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Enhanced retractable spurs forged from titanium alloy, near undetectable by secu
 #### Weapon Features
 —
 []
-
 
 ---
 

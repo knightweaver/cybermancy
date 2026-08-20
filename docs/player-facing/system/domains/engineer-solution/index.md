@@ -7,7 +7,6 @@
 ## Description
 <i>Innovation given form.</i><p class="Card-Feature">With one day of prep, you can construct nearly any practical device needed (GM discretion).</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

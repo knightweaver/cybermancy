@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Throwing Knives
@@ -12,7 +11,6 @@ Balanced steel blades designed for silent takedowns or distraction in the shadow
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Balanced steel blades designed for silent takedowns or distraction in the shadow
     <tr><td>Damage</td><td align="right">d6+1</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Quick Draw**<br>*May be used as a reaction against melee attackers.*</div>
+- <div markdown='1'>**Quick Draw**<br>*
 
-- <div markdown='1'>**Critical Effect:  Pinning Strike**<br>*Pin targets limb, weapon, or clothing, restricting movement.*</div>
+May be used as a reaction against melee attackers.*</div>
+
+- <div markdown='1'>**Critical Effect:  Pinning Strike**<br>*
+
+Pin targets limb, weapon, or clothing, restricting movement.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Balanced steel blades designed for silent takedowns or distraction in the shadow
 #### Weapon Features
 —
 []
-
 
 ---
 

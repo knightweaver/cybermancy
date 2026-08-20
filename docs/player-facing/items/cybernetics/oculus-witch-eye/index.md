@@ -7,7 +7,11 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Oculus™ Witch Eye**<br>*"Empower your gaze, command with intent."Spend 1 Hope to gain +2 on a Presence roll in which you are attempting to Intimidate a creature. Requires Oculus ™ base unit.*</div>
+- <div markdown='1'>**Oculus™ Witch Eye**<br>*"Empower your gaze, command with intent."
+
+Spend 1 Hope to gain +2 on a Presence roll in which you are attempting to Intimidate a creature. 
+
+Requires Oculus ™ base unit.*</div>
 
 #### Effects
 —

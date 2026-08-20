@@ -7,7 +7,11 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Oculus™ Spectra**<br>*"Pierce veils of light unseen before."Gain the ability to see in infrared and ultraviolet spectra. Requires Oculus ™ base unit.*</div>
+- <div markdown='1'>**Oculus™ Spectra**<br>*"Pierce veils of light unseen before."
+
+Gain the ability to see in infrared and ultraviolet spectra. 
+
+Requires Oculus ™ base unit.*</div>
 
 #### Effects
 —

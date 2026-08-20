@@ -5,7 +5,9 @@
 *<i>You feel the CEO’s signature pulsing in every file.</i><br /><br /><p class="Card-Feature">Forces compliance mode; all hacking penalties are doubled until root is restored.</p>*
 
 ## Actions
-- <div markdown='1'>**Overseer Protocol**<br>*You feel the CEO’s signature pulsing in every file.Forces compliance mode; all hacking penalties are doubled until root is restored.*</div>
+- <div markdown='1'>**Overseer Protocol**<br>*You feel the CEO’s signature pulsing in every file.
+
+Forces compliance mode; all hacking penalties are doubled until root is restored.*</div>
 
 ---
 

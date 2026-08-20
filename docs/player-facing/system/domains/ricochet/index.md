@@ -7,7 +7,6 @@
 ## Description
 <i>Bullets obey geometry, not walls.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to Attack at -2 a target with the Hidden condition by virtue of being behind cover.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

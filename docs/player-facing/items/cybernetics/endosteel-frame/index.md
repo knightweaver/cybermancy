@@ -7,7 +7,11 @@
 ### **Tier: Tier 3**
 
 #### Actions
-- <div markdown='1'>**Endosteel Frame**<br>* halve your harm.Once per long rest, Spend 2 Hope to place 2 tokens on this card. As a Reaction, you can remove one token to negate a source of Physical damage by half.*</div>
+- <div markdown='1'>**Endosteel Frame**<br>* halve your harm.
+
+Once per long rest, Spend 2 Hope to place 2 tokens on this card. 
+
+As a Reaction, you can remove one token to negate a source of Physical damage by half.*</div>
 
 #### Effects
 —

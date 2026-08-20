@@ -7,7 +7,6 @@
 ## Description
 <i>The sky belongs to you.</i><p class="Card-Feature">One per long rest, you launch and control drones that provide tactical overwatch. Spotlight an Action to shift the drones between Offensive mode and Defensive mode: </p><p><b>Defensive mode</b>: You have +2 Evasion and all allies have +1 Evasion</p><b>Offensive mode</b>: You have +2 to your attacks and all allies have +1 to their attacks
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

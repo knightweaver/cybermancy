@@ -7,7 +7,6 @@
 ## Description
 <i>“Return to sender.”</i><p class="Card-Feature">As a Reaction, <strong>Spend 1 Hope</strong> when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Ghoststep Weave
 <img src="../../../assets/icons/armors/ghoststep-weave.webp" alt="Ghoststep Weave" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Sound-dampened cloth and frictionless seams—made for slipping past guards and cameras alike.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">8 / 18</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

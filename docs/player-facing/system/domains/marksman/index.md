@@ -7,7 +7,6 @@
 ## Description
 <i>One bullet, one breath.</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to attack with advantage and deal +d4 damage.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

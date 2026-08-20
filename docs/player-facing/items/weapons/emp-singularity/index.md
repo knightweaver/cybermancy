@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # EMP Singularity
@@ -12,7 +11,6 @@ A massive EMP charge that disables all systems across multiple networks simultan
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A massive EMP charge that disables all systems across multiple networks simultan
     <tr><td>Damage</td><td align="right">d20</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Blackout**<br>*Kill power grid in 1 km radius once per rest.*</div>
+- <div markdown='1'>**Blackout**<br>*
 
-- <div markdown='1'>**Critical Effect:  System Collapse**<br>*Entire Matrix zone crashes beyond repair.*</div>
+Kill power grid in 1 km radius once per rest.*</div>
+
+- <div markdown='1'>**Critical Effect:  System Collapse**<br>*
+
+Entire Matrix zone crashes beyond repair.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A massive EMP charge that disables all systems across multiple networks simultan
 #### Weapon Features
 —
 []
-
 
 ---
 

@@ -7,7 +7,11 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Oculus™ Eagle Eye**<br>*"Sharpen sights, redefine the unseen."Up to 10x optical zoom.  Spend 1 Hope to gain +2 on a Perceive check.  Requires Oculus ™ base unit.*</div>
+- <div markdown='1'>**Oculus™ Eagle Eye**<br>*"Sharpen sights, redefine the unseen."
+
+Up to 10x optical zoom.  Spend 1 Hope to gain +2 on a Perceive check.  
+
+Requires Oculus ™ base unit.*</div>
 
 #### Effects
 —

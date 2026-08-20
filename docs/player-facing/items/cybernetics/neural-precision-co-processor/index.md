@@ -7,7 +7,9 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Neural Precision Co-Processor**<br>*Elevate thought; brilliance, a heartbeat away.Once per scene, Spend 2 Hope to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)*</div>
+- <div markdown='1'>**Neural Precision Co-Processor**<br>*Elevate thought; brilliance, a heartbeat away.
+
+Once per scene, Spend 2 Hope to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)*</div>
 
 #### Effects
 —

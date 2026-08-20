@@ -7,7 +7,6 @@
 ## Description
 <i>“Being off the grid never felt so literal.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or creatures targeting you have a -2 to hit.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

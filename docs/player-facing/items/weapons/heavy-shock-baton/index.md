@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Heavy Shock Baton
@@ -12,7 +11,6 @@ Industrial security baton capable of stunning cybernetic brutes and armored enfo
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Industrial security baton capable of stunning cybernetic brutes and armored enfo
     <tr><td>Damage</td><td align="right">d10+5</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Chain Lightning**<br>*Spend 2 Hope, arc to 2 additional targets.*</div>
+- <div markdown='1'>**Chain Lightning**<br>*
 
-- <div markdown='1'>**Critical Effect:  System Shutdown**<br>*Target incapacitated (stun or KO).*</div>
+Spend 2 Hope, arc to 2 additional targets.*</div>
+
+- <div markdown='1'>**Critical Effect:  System Shutdown**<br>*
+
+Target incapacitated (stun or KO).*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Industrial security baton capable of stunning cybernetic brutes and armored enfo
 #### Weapon Features
 —
 []
-
 
 ---
 

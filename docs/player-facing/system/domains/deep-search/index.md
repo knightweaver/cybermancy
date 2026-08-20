@@ -7,7 +7,6 @@
 ## Description
 <i>“The Grid whispers, if you know how to listen.”</i><p class="Card-Feature"><strong>Spend 2 Hope</strong> to know something about an creature.  As the GM up to 3 yes/no questions.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

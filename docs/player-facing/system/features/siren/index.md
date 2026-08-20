@@ -5,7 +5,9 @@
 *<i>Your comm buzzes with your own voice: ‘Come home.’</i><br /><br /><p class="Card-Feature">Generates perfect voices and prompts to lure you deeper into the system.</p>*
 
 ## Actions
-- <div markdown='1'>**Siren**<br>* ‘Come home.’Generates perfect voices and prompts to lure you deeper into the system.*</div>
+- <div markdown='1'>**Siren**<br>* ‘Come home.’
+
+Generates perfect voices and prompts to lure you deeper into the system.*</div>
 
 ---
 

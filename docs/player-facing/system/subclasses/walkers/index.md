@@ -1,6 +1,5 @@
 <div class="subclass" markdown="1">
 <img src="../../../assets/icons/subclasses/walkers.webp" alt="Walkers" class="item-image" style="width:300px; height:auto;">
-
 # Walkers
 
 ## Description

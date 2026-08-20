@@ -7,7 +7,6 @@
 ## Description
 <i>Reloading is for amateurs.</i><p class="Card-Feature">Swap ammunition types without spending an action.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

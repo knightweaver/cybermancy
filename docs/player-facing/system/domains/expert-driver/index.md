@@ -7,7 +7,6 @@
 ## Description
 <i>Speed racer's got nothing on you!</i><p class="Card-Feature">All Driving checks are +2.  Each time you are Spotlighted while Driving, you may also take an Attack Action.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

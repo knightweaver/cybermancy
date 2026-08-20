@@ -7,7 +7,9 @@
 ### **Tier: —**
 
 #### Actions
-- <div markdown='1'>**Breeching Shells**<br>*Take a Reload action to apply this ammo to a shotgun (only shotgun compatible) and place 2 tokens on this card.  Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.*</div>
+- <div markdown='1'>**Breeching Shells**<br>*Take a Reload action to apply this ammo to a shotgun (only shotgun compatible) and place 2 tokens on this card. 
+
+ Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.*</div>
 
 #### Effects
 —

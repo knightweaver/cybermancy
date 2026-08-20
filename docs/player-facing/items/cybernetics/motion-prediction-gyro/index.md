@@ -7,7 +7,9 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Motion Prediction Gyro**<br>*"Swift salvation in chrome elegance."As a Reaction, Mark 1 Stress to gain +2 on an Agility saving throw*</div>
+- <div markdown='1'>**Motion Prediction Gyro**<br>*"Swift salvation in chrome elegance."
+
+As a Reaction, Mark 1 Stress to gain +2 on an Agility saving throw*</div>
 
 #### Effects
 —

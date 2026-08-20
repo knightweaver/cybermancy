@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Vibro-Knife
@@ -12,7 +11,6 @@ A short combat blade that hums at ultrasonic speed, capable of piercing armor wi
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A short combat blade that hums at ultrasonic speed, capable of piercing armor wi
     <tr><td>Damage</td><td align="right">d8+2</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Piercing**<br>*Ignores armor on a Hope critical.*</div>
+- <div markdown='1'>**Piercing**<br>*
 
-- <div markdown='1'>**Critical Effect:  Silent Kill**<br>*Disable one target silently with no alert escalation.*</div>
+Ignores armor on a Hope critical.*</div>
+
+- <div markdown='1'>**Critical Effect:  Silent Kill**<br>*
+
+Disable one target silently with no alert escalation.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A short combat blade that hums at ultrasonic speed, capable of piercing armor wi
 #### Weapon Features
 —
 []
-
 
 ---
 

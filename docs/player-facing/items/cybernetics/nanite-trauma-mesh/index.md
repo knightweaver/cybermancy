@@ -7,7 +7,9 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Nanite Trauma Mesh**<br>*Escape harm's grasp; rewrite fate.Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound*</div>
+- <div markdown='1'>**Nanite Trauma Mesh**<br>*Escape harm's grasp; rewrite fate.
+
+Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Minor Wound*</div>
 
 #### Effects
 —

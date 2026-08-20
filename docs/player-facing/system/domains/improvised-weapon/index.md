@@ -7,7 +7,6 @@
 ## Description
 <i>The world is your arsenal.</i><p class="Card-Feature"><strong>Mark 2 Stress</strong> spend at least 1 minute to create a d6 melee weapon.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

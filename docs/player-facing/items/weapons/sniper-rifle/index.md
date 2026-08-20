@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Sniper Rifle
@@ -12,7 +11,6 @@ Precision weapon built for the patient killer — silent, steady, and unerring o
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Precision weapon built for the patient killer — silent, steady, and unerring o
     <tr><td>Damage</td><td align="right">d8+4</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Scoped**<br>*Spend a round aiming to gain advantage on next shot.*</div>
+- <div markdown='1'>**Scoped**<br>*
 
-- <div markdown='1'>**Critical Effect:  Through and Through**<br>*Bullet passes through to a second target in line.*</div>
+Spend a round aiming to gain advantage on next shot.*</div>
+
+- <div markdown='1'>**Critical Effect:  Through and Through**<br>*
+
+Bullet passes through to a second target in line.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Precision weapon built for the patient killer — silent, steady, and unerring o
 #### Weapon Features
 —
 []
-
 
 ---
 

@@ -7,7 +7,6 @@
 ## Description
 <i>You know who to call.</i><p class="Card-Feature">You have a contact for materials. Non-weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

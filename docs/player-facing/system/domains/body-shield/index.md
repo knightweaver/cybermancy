@@ -7,7 +7,6 @@
 ## Description
 <i>Pragmatism over pity.</i><p class="Card-Feature">Once per Scene, <strong>Mark 1 Stress</strong> and grab a creature of your size or smaller within Very Close. Gain +2 Evasion until next your next Action.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Smartpistol
@@ -12,7 +11,6 @@ Compact sidearm with digital targeting and auto-adjust systems, favored by profe
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Compact sidearm with digital targeting and auto-adjust systems, favored by profe
     <tr><td>Damage</td><td align="right">d6+2</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Smartlink**<br>*Once per scene, reroll one attack die if linked to cyberware/gear.*</div>
+- <div markdown='1'>**Smartlink**<br>*
 
-- <div markdown='1'>**Critical Effect:  Pinpoint**<br>*Crit ignores cover; disable weapon/armor.*</div>
+Once per scene, reroll one attack die if linked to cyberware/gear.*</div>
+
+- <div markdown='1'>**Critical Effect:  Pinpoint**<br>*
+
+Crit ignores cover; disable weapon/armor.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Compact sidearm with digital targeting and auto-adjust systems, favored by profe
 #### Weapon Features
 —
 []
-
 
 ---
 

@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Monofilament Whip
@@ -12,7 +11,6 @@ A razor-thin filament coil capable of slicing through armor and bone. Deadly, si
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A razor-thin filament coil capable of slicing through armor and bone. Deadly, si
     <tr><td>Damage</td><td align="right">d10</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Lethal Edge**<br>*On a Hope win, deal Severe damage if the Fear die shows 8-12.*</div>
+- <div markdown='1'>**Lethal Edge**<br>*
 
-- <div markdown='1'>**Critical Effect:  Slice in Two**<br>*Sever or disable a limb, item, or piece of cover.*</div>
+On a Hope win, deal Severe damage if the Fear die shows 8-12.*</div>
+
+- <div markdown='1'>**Critical Effect:  Slice in Two**<br>*
+
+Sever or disable a limb, item, or piece of cover.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A razor-thin filament coil capable of slicing through armor and bone. Deadly, si
 #### Weapon Features
 —
 []
-
 
 ---
 

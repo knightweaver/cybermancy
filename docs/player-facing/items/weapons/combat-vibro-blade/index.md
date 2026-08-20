@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Combat Vibro-Blade
@@ -12,7 +11,6 @@ Balanced for extended melee, this knife hums with a subsonic pulse designed for 
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Balanced for extended melee, this knife hums with a subsonic pulse designed for 
     <tr><td>Damage</td><td align="right">d10+7</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**High Frequency**<br>*+2 to all attack rolls this scene after a hit.*</div>
+- <div markdown='1'>**High Frequency**<br>*
 
-- <div markdown='1'>**Critical Effect:  Fatal Wound**<br>*Additional 1d12 bleed damage next turn.*</div>
++2 to all attack rolls this scene after a hit.*</div>
+
+- <div markdown='1'>**Critical Effect:  Fatal Wound**<br>*
+
+Additional 1d12 bleed damage next turn.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Balanced for extended melee, this knife hums with a subsonic pulse designed for 
 #### Weapon Features
 —
 []
-
 
 ---
 

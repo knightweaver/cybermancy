@@ -7,7 +7,6 @@
 ## Description
 <i>“Two heads, one neural network.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to instantly share sensory data with one ally within Far range. You both gain +1 to rolls using shared perception for one Scene.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Shotgun
@@ -12,7 +11,6 @@ Brutal close-range weapon that clears hallways with concussive thunder and devas
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Brutal close-range weapon that clears hallways with concussive thunder and devas
     <tr><td>Damage</td><td align="right">d10+2</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Scatter**<br>*Spend a Hope to attack all targets in Very Close range.*</div>
+- <div markdown='1'>**Scatter**<br>*
 
-- <div markdown='1'>**Critical Effect:  Point-Blank Devastation**<br>*Knock back and lose next action.*</div>
+Spend a Hope to attack all targets in Very Close range.*</div>
+
+- <div markdown='1'>**Critical Effect:  Point-Blank Devastation**<br>*
+
+Knock back and lose next action.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Brutal close-range weapon that clears hallways with concussive thunder and devas
 #### Weapon Features
 —
 []
-
 
 ---
 

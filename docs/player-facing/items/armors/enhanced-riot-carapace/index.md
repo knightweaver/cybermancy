@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Enhanced Riot Carapace
 <img src="../../../assets/icons/armors/enhanced-riot-carapace.webp" alt="Enhanced Riot Carapace" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Optimized riot carapace with servo assists at the knees and shoulders—still heavy, now meaner.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">13 / 28</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

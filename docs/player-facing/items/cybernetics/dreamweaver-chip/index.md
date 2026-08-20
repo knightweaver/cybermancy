@@ -7,7 +7,9 @@
 ### **Tier: Tier 3**
 
 #### Actions
-- <div markdown='1'>**DreamWeaver Chip**<br>*"Dream deeper, recharge beyond limits."Gain one additional long rest downtime action*</div>
+- <div markdown='1'>**DreamWeaver Chip**<br>*"Dream deeper, recharge beyond limits."
+
+Gain one additional long rest downtime action*</div>
 
 #### Effects
 —

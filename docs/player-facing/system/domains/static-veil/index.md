@@ -7,7 +7,6 @@
 ## Description
 <i>“The perfect invisibility cloak smells faintly of ozone.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, creatures roll with Disadvantage to detect you or your team.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

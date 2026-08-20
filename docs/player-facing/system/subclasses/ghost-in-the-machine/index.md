@@ -1,6 +1,5 @@
 <div class="subclass" markdown="1">
 <img src="../../../assets/icons/subclasses/ghost-in-the-machine.webp" alt="Ghost in the Machine" class="item-image" style="width:300px; height:auto;">
-
 # Ghost in the Machine
 
 ## Description

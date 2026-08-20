@@ -7,7 +7,6 @@
 ## Description
 <i>The air itself becomes hostile.</i><p class="Card-Feature"><strong>Mark 2 Stress</strong> and target one creature; all creatures within Very Close of it take -2 to actions and evasion.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -7,7 +7,9 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Wakizashi™ Neural Balancer**<br>*Unlock hidden potential with Hope's precision.Spend 1 Hope to gain +2 on any attack roll with your secondary weapon.*</div>
+- <div markdown='1'>**Wakizashi™ Neural Balancer**<br>*Unlock hidden potential with Hope's precision.
+
+Spend 1 Hope to gain +2 on any attack roll with your secondary weapon.*</div>
 
 #### Effects
 —

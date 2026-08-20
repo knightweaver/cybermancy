@@ -5,7 +5,9 @@
 *<i>Somewhere, your digital ghost keeps working.</i><br /><br /><p class="Card-Feature">Copies a fragment of your consciousness into cold storage.</p>*
 
 ## Actions
-- <div markdown='1'>**Soulcatcher**<br>*Somewhere, your digital ghost keeps working.Copies a fragment of your consciousness into cold storage.*</div>
+- <div markdown='1'>**Soulcatcher**<br>*Somewhere, your digital ghost keeps working.
+
+Copies a fragment of your consciousness into cold storage.*</div>
 
 ---
 

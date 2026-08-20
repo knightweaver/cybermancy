@@ -7,7 +7,6 @@
 ## Description
 <i>“Turns out, rushing a hack only impresses the ICE.”</i><p class="Card-Feature">If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

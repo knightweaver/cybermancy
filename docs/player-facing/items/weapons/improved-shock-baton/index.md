@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Improved Shock Baton
@@ -12,7 +11,6 @@ Upgraded battery coils deliver chained electrical arcs between multiple nearby t
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Upgraded battery coils deliver chained electrical arcs between multiple nearby t
     <tr><td>Damage</td><td align="right">d8+3</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Arc Charge**<br>*Spend 1 Stress to arc lightning to another Very Close target.*</div>
+- <div markdown='1'>**Arc Charge**<br>*
 
-- <div markdown='1'>**Critical Effect:  Overload**<br>*Targets nervous system locks up; they drop gear.*</div>
+Spend 1 Stress to arc lightning to another Very Close target.*</div>
+
+- <div markdown='1'>**Critical Effect:  Overload**<br>*
+
+Targets nervous system locks up; they drop gear.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Upgraded battery coils deliver chained electrical arcs between multiple nearby t
 #### Weapon Features
 —
 []
-
 
 ---
 

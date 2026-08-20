@@ -7,7 +7,6 @@
 ## Description
 <i>“The universe called — it wants its encryption key back.”</i><p class="Card-Feature">Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

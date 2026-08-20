@@ -7,7 +7,9 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Etheric Amplifier**<br>* Your Power Multiplied."Mark 1 Stress to add +2 damage per die rolled to any attack that does magical damage*</div>
+- <div markdown='1'>**Etheric Amplifier**<br>* Your Power Multiplied."
+
+Mark 1 Stress to add +2 damage per die rolled to any attack that does magical damage*</div>
 
 #### Effects
 —

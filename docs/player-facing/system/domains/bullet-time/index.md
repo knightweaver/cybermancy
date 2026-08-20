@@ -7,7 +7,6 @@
 ## Description
 <i>You’re never where they’re aiming.</i><p class="Card-Feature">Once per rest, Spend 2 Hope to gain +4 to evasion against one chosen target until your next action.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # EMP Grenade
@@ -12,7 +11,6 @@ Pulse emitter that fries circuits, drones, and cyberware with a single electroma
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Pulse emitter that fries circuits, drones, and cyberware with a single electroma
     <tr><td>Damage</td><td align="right">d8</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Disruptive**<br>*On hit, drones/tech in range must succeed or shut down 1 round.*</div>
+- <div markdown='1'>**Disruptive**<br>*
 
-- <div markdown='1'>**Critical Effect:  Total System Crash**<br>*All devices in area disabled until end of scene.*</div>
+On hit, drones/tech in range must succeed or shut down 1 round.*</div>
+
+- <div markdown='1'>**Critical Effect:  Total System Crash**<br>*
+
+All devices in area disabled until end of scene.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Pulse emitter that fries circuits, drones, and cyberware with a single electroma
 #### Weapon Features
 —
 []
-
 
 ---
 

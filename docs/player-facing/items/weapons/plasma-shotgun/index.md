@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Plasma Shotgun
@@ -12,7 +11,6 @@ Fires superheated plasma shells that vaporize targets and ignite the surrounding
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Fires superheated plasma shells that vaporize targets and ignite the surrounding
     <tr><td>Damage</td><td align="right">d12+12</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Meltdown**<br>*Spend Hope to add 1d8 burn damage.*</div>
+- <div markdown='1'>**Meltdown**<br>*
 
-- <div markdown='1'>**Critical Effect:  Critical Inferno**<br>*All targets in blast zone catch fire.*</div>
+Spend Hope to add 1d8 burn damage.*</div>
+
+- <div markdown='1'>**Critical Effect:  Critical Inferno**<br>*
+
+All targets in blast zone catch fire.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Fires superheated plasma shells that vaporize targets and ignite the surrounding
 #### Weapon Features
 —
 []
-
 
 ---
 

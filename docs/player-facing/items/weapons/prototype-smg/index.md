@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Prototype SMG
@@ -12,7 +11,6 @@ Experimental gyro-balanced SMG capable of recoil-free sustained bursts.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Experimental gyro-balanced SMG capable of recoil-free sustained bursts.
     <tr><td>Damage</td><td align="right">d8+11</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Gyrostabilized**<br>*Fire with no recoil penalty.*</div>
+- <div markdown='1'>**Gyrostabilized**<br>*
 
-- <div markdown='1'>**Critical Effect:  Critical Spray**<br>*Hit all enemies in Close range automatically.*</div>
+Fire with no recoil penalty.*</div>
+
+- <div markdown='1'>**Critical Effect:  Critical Spray**<br>*
+
+Hit all enemies in Close range automatically.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Experimental gyro-balanced SMG capable of recoil-free sustained bursts.
 #### Weapon Features
 —
 []
-
 
 ---
 

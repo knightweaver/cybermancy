@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Light Semi-auto pistol
@@ -12,7 +11,6 @@
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,7 +22,6 @@
     <tr><td>Damage</td><td align="right">d6</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
@@ -36,7 +33,6 @@
 #### Weapon Features
 —
 []
-
 
 ---
 

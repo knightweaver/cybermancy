@@ -7,7 +7,6 @@
 ## Description
 <i>“If you can code it, you can unbreak it.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to temporarily stabilize or rewrite corrupted digital space. Remove one ongoing Environment Digital effect.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

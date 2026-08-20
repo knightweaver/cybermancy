@@ -7,7 +7,11 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**SmartLink™ CPU Implant**<br>*"Awaken instinct with SmartLink's synergy."SmarkLink™ base unit - enables other SmartLink-related weapons and abilities. Once per long rest, Spend 1 Hope for advantage on an Instinct roll or saving throw.*</div>
+- <div markdown='1'>**SmartLink™ CPU Implant**<br>*"Awaken instinct with SmartLink's synergy."
+
+SmarkLink™ base unit - enables other SmartLink-related weapons and abilities. 
+
+Once per long rest, Spend 1 Hope for advantage on an Instinct roll or saving throw.*</div>
 
 #### Effects
 —

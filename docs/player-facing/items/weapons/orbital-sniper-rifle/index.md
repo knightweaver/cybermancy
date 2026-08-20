@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Orbital Sniper Rifle
@@ -12,7 +11,6 @@ A satellite-linked rifle capable of marking and calling down orbital strikes.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A satellite-linked rifle capable of marking and calling down orbital strikes.
     <tr><td>Damage</td><td align="right">d12+12</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Satellite Link**<br>*Call in orbital fire once per rest.*</div>
+- <div markdown='1'>**Satellite Link**<br>*
 
-- <div markdown='1'>**Critical Effect:  Heavens Lance**<br>*Obliterate target zone, GM narrates consequences.*</div>
+Call in orbital fire once per rest.*</div>
+
+- <div markdown='1'>**Critical Effect:  Heavens Lance**<br>*
+
+Obliterate target zone, GM narrates consequences.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A satellite-linked rifle capable of marking and calling down orbital strikes.
 #### Weapon Features
 —
 []
-
 
 ---
 

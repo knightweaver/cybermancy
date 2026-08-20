@@ -5,7 +5,9 @@
 *<i>It burns your nerves before you even see it.</i><br /><br /><p class="Card-Feature">Targets wetware directly; roll physical defense or mark HP instead of Stress.</p>*
 
 ## Actions
-- <div markdown='1'>**Neural Ripper**<br>*It burns your nerves before you even see it.Targets wetware directly; roll physical defense or mark HP instead of Stress.*</div>
+- <div markdown='1'>**Neural Ripper**<br>*It burns your nerves before you even see it.
+
+Targets wetware directly; roll physical defense or mark HP instead of Stress.*</div>
 
 ---
 

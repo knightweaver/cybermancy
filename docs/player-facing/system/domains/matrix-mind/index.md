@@ -7,7 +7,6 @@
 ## Description
 <i>"It's full of stars… !"</i><p class="Card-Feature">When 4 or more domain cards in your loadout  are from Circuit, gain the following effects: +1 to your Spellcasting (Hacking) rolls, once per rest you can switch the result of your Hope and Fear dice</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

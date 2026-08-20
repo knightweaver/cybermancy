@@ -7,7 +7,6 @@
 ## Description
 <i>Armor is just skin for machines.</i><p class="Card-Feature">During downtime, <strong>Spend 1 Hope</strong> to repair up to 3 armor slots for yourself or an ally.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

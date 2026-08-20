@@ -7,7 +7,6 @@
 ## Description
 <i>“Every brain’s got a port — some just need a gentle knock.”</i><p class="Card-Feature">Your Digital Awareness can now detect cybernetics within individuals.  <strong>Spend 2 Hope</strong> and make a Spellcasting roll against their Difficulty, to do d10+3 damage</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -7,7 +7,6 @@
 ## Description
 <i>“You’ve seen this circuit before — probably in the wreckage of your last run.”</i><p class="Card-Feature">Once per Long Rest, put tokens on this card equal to your Spellcasting (Hacking) to gain one of the following effect: +1 on next Hack action, +1 on Evasion as a Reaction, Gain 1 Hope, Clear 1 Stress</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

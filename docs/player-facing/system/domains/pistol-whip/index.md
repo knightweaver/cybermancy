@@ -7,7 +7,6 @@
 ## Description
 <i>Sometimes subtlety isn’t loaded.</i><p class="Card-Feature">Make an Attack at Melee range with your gun at +2, then move to Close</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

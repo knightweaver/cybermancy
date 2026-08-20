@@ -7,7 +7,6 @@
 ## Description
 <i>Airlift on demand.</i><p class="Card-Feature">While active, your <b>Primary Drone</b> can carry you and one ally. While equipped, it may only carry one weapon and has -2 Evasion.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

@@ -1,6 +1,5 @@
 <div class="subclass" markdown="1">
 <img src="../../../assets/icons/subclasses/weavers.webp" alt="Weavers" class="item-image" style="width:300px; height:auto;">
-
 # Weavers
 
 ## Description

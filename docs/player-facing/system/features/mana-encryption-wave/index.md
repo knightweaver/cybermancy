@@ -5,7 +5,9 @@
 *<p>You wrap allies in a shimmering data-shroud of sigils and encryption keys. </p><p>Cost: Spend 3 Hope. </p><p>Range: Close. </p><p>Effect: Choose any number of allies within range. Until the end of the scene, each chosen ally increases their Major and Severe damage thresholds by an amount equal to your Spellcast trait (minimum +1).</p>*
 
 ## Actions
-- <div markdown='1'>**Mana-Encryption Wave**<br>*You wrap allies in a shimmering data-shroud of sigils and encryption keys. Choose any number of allies within range. Until the end of the scene, each chosen ally increases their Major and Severe damage thresholds by an amount equal to your Spellcast trait (minimum +1).*</div>
+- <div markdown='1'>**Mana-Encryption Wave**<br>*You wrap allies in a shimmering data-shroud of sigils and encryption keys. 
+
+Choose any number of allies within range. Until the end of the scene, each chosen ally increases their Major and Severe damage thresholds by an amount equal to your Spellcast trait (minimum +1).*</div>
 
 ---
 

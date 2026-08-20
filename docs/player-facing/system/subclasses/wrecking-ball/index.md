@@ -1,6 +1,5 @@
 <div class="subclass" markdown="1">
 <img src="../../../assets/icons/subclasses/wrecking-ball.webp" alt="Wrecking Ball" class="item-image" style="width:300px; height:auto;">
-
 # Wrecking Ball
 
 ## Description

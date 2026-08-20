@@ -7,7 +7,6 @@
 ## Description
 <i>Leadership through logistics.</i><p class="Card-Feature">Once per rest, <strong>Spend 1 Hope</strong> before a Group Action to grant +2 to the roll.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

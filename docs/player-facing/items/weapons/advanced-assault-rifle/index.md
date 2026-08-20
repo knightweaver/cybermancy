@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Advanced Assault Rifle
@@ -12,7 +11,6 @@ Elite-issue firearm capable of sustained fire with minimal barrel drift.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Elite-issue firearm capable of sustained fire with minimal barrel drift.
     <tr><td>Damage</td><td align="right">d10+8</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Full Auto**<br>*Spend Hope, double damage dice.*</div>
+- <div markdown='1'>**Full Auto**<br>*
 
-- <div markdown='1'>**Critical Effect:  Critical Barrage**<br>*Mow down cover, forcing enemies into open.*</div>
+Spend Hope, double damage dice.*</div>
+
+- <div markdown='1'>**Critical Effect:  Critical Barrage**<br>*
+
+Mow down cover, forcing enemies into open.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Elite-issue firearm capable of sustained fire with minimal barrel drift.
 #### Weapon Features
 —
 []
-
 
 ---
 

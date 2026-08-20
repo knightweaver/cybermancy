@@ -5,7 +5,9 @@
 *(No description yet.)*
 
 ## Actions
-- <div markdown='1'>**Mana Phase Change Circuit**<br>*You recognize that Hope and Fear are two addresses pointing to the same memory space—and you can swap the pointer. Once per session, when any character in the scene rolls their Hope and Fear dice, you may exchange the values showing on those two dice after the dice are rolled and before the outcome is resolved.*</div>
+- <div markdown='1'>**Mana Phase Change Circuit**<br>*You recognize that Hope and Fear are two addresses pointing to the same memory space—and you can swap the pointer. 
+
+Once per session, when any character in the scene rolls their Hope and Fear dice, you may exchange the values showing on those two dice after the dice are rolled and before the outcome is resolved.*</div>
 
 ---
 

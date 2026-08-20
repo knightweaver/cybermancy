@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Cluster Grenade
@@ -12,7 +11,6 @@ A multi-charge fragmentation device that detonates across several zones at once.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ A multi-charge fragmentation device that detonates across several zones at once.
     <tr><td>Damage</td><td align="right">d12+6</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Fragment Split**<br>*Hit two separate zones.*</div>
+- <div markdown='1'>**Fragment Split**<br>*
 
-- <div markdown='1'>**Critical Effect:  Kill Zone**<br>*Full damage in all adjacent zones.*</div>
+Hit two separate zones.*</div>
+
+- <div markdown='1'>**Critical Effect:  Kill Zone**<br>*
+
+Full damage in all adjacent zones.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ A multi-charge fragmentation device that detonates across several zones at once.
 #### Weapon Features
 —
 []
-
 
 ---
 

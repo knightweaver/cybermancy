@@ -7,7 +7,6 @@
 ## Description
 <i>Dodge by remote instinct.</i><p class="Card-Feature">As a Reaction, <strong>Mark 1 Stress</strong> to give your <b>Primary Drone</b> +2 Evasion for one attack before results are determined.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

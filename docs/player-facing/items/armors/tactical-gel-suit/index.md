@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Tactical Gel Suit
 <img src="../../../assets/icons/armors/tactical-gel-suit.webp" alt="Tactical Gel Suit" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Combat-grade gel padding bonded to compression mesh—soaks hits, keeps you moving.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">9 / 23</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

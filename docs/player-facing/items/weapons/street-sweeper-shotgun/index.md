@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Street Sweeper Shotgun
@@ -12,7 +11,6 @@ Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.
     <tr><td>Damage</td><td align="right">d12+4</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Wide Scatter**<br>*Attack all targets in Very Close range once per scene.*</div>
+- <div markdown='1'>**Wide Scatter**<br>*
 
-- <div markdown='1'>**Critical Effect:  Bone Shaker**<br>*Target knocked prone and loses next turn.*</div>
+Attack all targets in Very Close range once per scene.*</div>
+
+- <div markdown='1'>**Critical Effect:  Bone Shaker**<br>*
+
+Target knocked prone and loses next turn.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.
 #### Weapon Features
 —
 []
-
 
 ---
 

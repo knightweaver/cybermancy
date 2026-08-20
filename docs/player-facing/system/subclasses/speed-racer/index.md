@@ -1,6 +1,5 @@
 <div class="subclass" markdown="1">
 <img src="../../../assets/icons/subclasses/speed-racer.webp" alt="Speed Racer" class="item-image" style="width:300px; height:auto;">
-
 # Speed Racer
 
 ## Description

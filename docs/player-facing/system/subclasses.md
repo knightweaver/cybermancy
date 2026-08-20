@@ -1,4 +1,4 @@
-# Subclassess
+# Subclasses
 
 Type to filter:
 <input id="filter" placeholder="Filter by name, category, domain, rarity" />

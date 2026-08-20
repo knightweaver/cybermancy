@@ -5,7 +5,9 @@
 *<p><em>A blinking icon follows you across subnets—and it’s learning.</em><br /><br /></p><p class="Card-Feature"><strong>Spend 1 Fear</strong> to create a copy of this ICE to another device within Close and increase the Difficulty of the cloned ICE by 1</p>*
 
 ## Actions
-- <div markdown='1'>**Data Hound**<br>*A blinking icon follows you across subnets—and it’s learning.Marks and traces your signature, alerting other nodes as you move.*</div>
+- <div markdown='1'>**Data Hound**<br>*A blinking icon follows you across subnets—and it’s learning.
+
+Marks and traces your signature, alerting other nodes as you move.*</div>
 
 ---
 

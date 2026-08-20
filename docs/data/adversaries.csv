@@ -1,0 +1,223 @@
+name,slug,tier,role,difficulty,description
+Dockworker with Grease Stains,dockworker-with-grease-stains,1,Bruiser,11,"A heavy-lifting laborer used to moving crates, not dodging bullets."
+Mireborn Thrall Foreman,mireborn-thrall-foreman,1,Bruiser,10,"A large corpse, decay-bloated and angry."
+Rave Enforcer,rave-enforcer,1,Bruiser,12,Implanted subdermal LEDs pulse with hypnotic rhythm. Swings a reinforced baton synchronized to their internal beat-generator.
+Liminal Research Drone,liminal-research-drone,1,Horde,12,Former laboratory assistants transformed into silent coordinated servants of the Prometheus Shard.
+Head Guard,head-guard,1,Leader,15,"A seasoned guard with a stun-baton, a smart pistol, a whistle, and a bellowing voice."
+Altered Raven,altered-raven,1,Minion,10,"A Pacific Northwest raven warped by Abraxan ritual bleed, its black feathers traced with faint ember-red spiral corruption and its calls carrying impossible echoes of human voices.
+
+FAST PLAYOpening: Stay flying and observe from above. Follow the PCs so they know they are being watched rather than starting a conventional fight.
+
+Default: Shadow movement and stay out of reach. Attack directly only if cornered or fiction strongly demands it.
+
+Pressure: Use Dread Chorus when psychological pressure matters, especially against a stressed or isolated target.
+
+If Threatened: Flee direct confrontation; Ravens are scouts and warning signs, not committed melee attackers.
+
+Remember: Flying adds +2 Difficulty. Minion (3) can remove additional nearby Ravens from one damaging attack.
+
+Goal: Make the party feel observed and unsettled while signaling that something deeper in the valley is aware of them."
+Cascade Burrowtail,cascade-burrowtail,1,Minion,12,"A fluffy, curious Cascade squirrel or chipmunk whose harmless appearance hides backward-hooked teeth and a horrific instinct to burrow into living flesh.
+
+FAST PLAYOpening: Approach harmlessly and get into Melee before revealing the threat.
+
+Default: Needle Bite an exposed target, preferably one without a Burrowing Countdown.
+
+On HP Marked: Resolve Leap and Burrow; once per GM turn, also trigger Blood Calls the Colony.
+
+Pressure: Spread new Burrowtails across exposed targets while attached victims decide whether to spend actions extracting them.
+
+Remember: Tick the countdown after each victim action. Embedded Burrowtails do not take spotlights; remember Under the Skin on Fear triggers.
+
+Goal: Turn one successful bite into an escalating triage problem before the parasites get under the skin."
+Raz Eels,raz-eels,1,Minion,10,Resonance-mutated electric eels drawn to strong emotions and psychic disturbances.
+Automated Machinegun Turret Mk.I,automated-machinegun-turret-mk-i,1,Ranged,12,A ceiling-mounted ballistic turret with automated targeting.
+Corp Guard,corp-guard,1,Ranged,10,A low-level corporate guard - good at following instructions… but not much else.
+Micro-Missile Sentry Pod Mk. I,micro-missile-sentry-pod-mk-i,1,Ranged,10,A compact pod that fires guided micro-missiles.
+Pattern-Touched Beggar,pattern-touched-beggar,1,Ranged,11,"Unpredictable, mumbling fragments of pattern phrases. Carries improvised weapons. Presence causes mild psychic static in their vicinity."
+Burned-out Decker,burned-out-decker,1,Skulk,11,A hacker whose nerves and implants are half-shot but who can still think sideways when pressed.
+Diner Regular with Backpack,diner-regular-with-backpack,1,Skulk,10,A regular who treats the booth like a second home and the backpack like a lifeline.
+Explosive Decoy Crate,explosive-decoy-crate,1,Skulk,10,A booby-trapped storage crate meant to lure thieves.
+Glassmask Lookout,glassmask-lookout,1,Skulk,11,"Wears a cracked, reflective faceplate that hides identity and displays looping memetic patterns. Uses a cheap pistol and a signal whistle tied to Abraxas-pattern frequencies."
+Glassmask Sniper,glassmask-sniper,1,Skulk,13,"Wears a cracked, reflective faceplate that hides identity and displays looping memetic patterns. Uses a cheap pistol and a signal whistle tied to Abraxas-pattern frequencies."
+Local Courier,local-courier,1,Skulk,10,A street courier hauling parcels and data chips through dangerous blocks on a tight schedule.
+Micro-camera,micro-camera,1,Skulk,9,A fixed or pinhole surveillance camera tied into local or corporate feeds.
+Off-duty Prostitute Sipping Coffee,off-duty-prostitute-sipping-coffee,1,Skulk,10,"A nightlife worker off the clock, dressed down and keeping a low profile in the corner booth."
+Personal Drone,personal-drone,1,Skulk,10,"A small consumer drone used for recording, courier work, or selfies."
+Silent Alarm,silent-alarm,1,Skulk,10,"A covert pressure plate, trip laser, or sensor that signals quietly when crossed."
+Smart Claymore Charge,smart-claymore-charge,1,Skulk,10,A directional explosive with smart detonation logic.
+Street Kid with Scavenged Cyberware,street-kid-with-scavenged-cyberware,1,Skulk,11,A young survivor with mismatched implants and sharp survival instincts.
+Clevermask,clevermask,1,Social,12,"An ordinary-looking Cascade raccoon whose bright eyes and precise forepaw gestures reveal startling intelligence. It is curious rather than hostile and flees from violence.
+
+FAST PLAYOpening: Observe the PCs curiously and try to communicate. Investigate unfamiliar technology or obvious Cybermancy.
+
+Default: Use Hands That Speak to exchange simple ideas. Gentle treatment plus food can make the Clevermask Friendly automatically.
+
+If Friendly: Answer what it could reasonably know and guide the PCs through familiar terrain or toward an observable clue.
+
+If Threatened: Trigger Nope and escape if possible. Use Defensive Scratch only if cornered with no plausible escape.
+
+Remember: After a PC successfully communicates once, that PC has advantage on later attempts to understand its gestures this scene.
+
+Goal: Reward patience, curiosity, and kindness with information and exploration help; violence should normally end the encounter."
+Sewerjaw Gator,sewerjaw-gator,1,Solo,13,A mutated sewer alligator that ambushes prey in Seattle's underground drainage network.
+Abraxas Cultist,abraxas-cultist,1,Standard,12,"A recognizably ordinary Seattle resident whose clothing and manner still reflect their former life, but whose flesh bears ritual cuts, deliberate mutilations, and the spiraling mark of Abraxas.
+
+FAST PLAYOpening: Stay close to other cultists and put bodies between the PCs and the ritual or other objective.
+
+Default: Use Street Weapons against a target another cultist already threatens so Frenzy of the Faithful can replace normal damage.
+
+Pressure: Use Threshold Spasm when two PCs cluster or when its small forced movement will disrupt position, cover, or access to an objective.
+
+When Hurt: After marking Major or greater damage, use Pain Is the Door when the Stress cost is worth gaining Fear.
+
+Goal: Make ordinary cultists dangerous through fanaticism and proximity; PCs should benefit from breaking up the group."
+Abraxas modified Deer,abraxas-modified-deer,1,Standard,12,"A once-natural deer twisted by Abraxan ritual bleed, with blackened branching antlers, ember-lit eyes, and a violent compulsion to charge anything that shows fear.
+
+FAST PLAYOpening: Use Antler Rush from Close against an exposed target so the Deer arrives violently and establishes its charge-and-pursue behavior.
+
+Default: Attack with Antlers in Melee. If distance opens again, look for another useful line for Antler Rush.
+
+On PC Fear: Use Ritual Frenzy when a PC within Close rolls with Fear, especially if it lets the Deer punish a target who thought they were safe.
+
+Pressure: Keep pursuing exposed or fearful prey rather than holding ground like a trained defender.
+
+Goal: Show ritual corruption through relentless animal aggression: charge, scatter the group, and make Fear attract immediate danger."
+Altered Coyote,altered-coyote,1,Standard,12,"A lean Cascade coyote marked by subtle Abraxan ritual corruption, hunting with an eerie collective intelligence that makes a gathering pack far more dangerous than any individual animal.
+
+FAST PLAYOpening: Spread out to encircle the party. Identify an isolated or exposed PC as immediate prey.
+
+Default: Bite the chosen target after establishing Pack Tactics whenever possible; the pack is intentionally weaker when isolated.
+
+Reposition: Use Shared Nervous System when the Stress spend will establish or preserve Pack Tactics, close an escape route, or reform the surround.
+
+Pressure: Concentrate on isolated prey. If PCs break formation, reform the surround instead of fighting as scattered individuals.
+
+Remember: Pack Tactics replaces normal Bite damage. Its highest tier requires three other Coyotes; Shared Nervous System grants movement only.
+
+Goal: Make formation the pack's danger and reward PCs who separate, shove, restrain, scatter, or remove individual Coyotes."
+Augmented Street Performer,augmented-street-performer,1,Standard,11,A performer using tasteful luminous augments to turn bodies and light into art.
+Baton-wielding Guard,baton-wielding-guard,1,Standard,12,"An guard in riot gear bearing a baton and riot shield, assigned to suppress and arrest, but not kill."
+Body-mod Enthusiast,body-mod-enthusiast,1,Standard,11,A citizen proudly displaying fresh cosmetic and functional augments.
+Choir of Glass knifer,choir-of-glass-knifer,1,Standard,12,"Carries a shard knife, low-end AR visor, and a pocket speaker that emits disorienting tones."
+Corp Intern With Tablet,corp-intern-with-tablet,1,Standard,10,"A junior employee juggling tasks on a company-issued slate, still believing in promotion ladders."
+Drunk Salaryman,drunk-salaryman,1,Standard,9,A corporate employee several drinks past their limit and several hours past their shift.
+Electronic Door Lock,electronic-door-lock,1,Standard,10,"A secured access panel using RFID, biometrics, or encoded credentials."
+Healer's Folly,healer-s-folly,1,Standard,12,"A lush mountain shrub crowned by an enormous spectacular flower. Its nectar is restorative, but four powerful vines defend the bloom.
+
+FAST PLAYOpening: When a creature enters Very Close, raise the four Guardian Vines and become hostile while keeping the flower visibly intact.
+
+Default: Vine Lash intruders; use Entangling Lash when Restraining someone helps protect the flower.
+
+As Vines Fall: Track active vines. At three subdued, Fewer Vines, Fewer Threats reduces attack damage.
+
+Protect the Reward: Telegraph Do Not Cut the Vines: serious damage spoils nectar; non-injurious restraint preserves it.
+
+Resolution: At four subdued vines, stop attacking and allow one dose of Mercy Nectar to be harvested.
+
+Goal: Make the encounter a visible nonlethal puzzle where restraint and teamwork preserve a useful healing reward."
+Late-shift Worker Eating Breakfast,late-shift-worker-eating-breakfast,1,Standard,10,"A tired worker grabbing a meal before or after a long shift, clothes stained with the day's labor."
+Moreborn Thrall,moreborn-thrall,1,Standard,11,Dock workers whose minds have been overwritten by Bella's influence. They move and fight with eerie coordination.
+Pierjaw Crab,pierjaw-crab,1,Standard,12,Huge resonance-mutated crustaceans used by Bella as living shock troops.
+Public Service Bot,public-service-bot,1,Standard,9,A low-autonomy cleaner or maintenance bot trundling along fixed patrol routes.
+Security Drone,security-drone,1,Standard,11,"A light patrol drone with sensors and loudspeaker, more watcher than fighter."
+Sleep-deprived Student,sleep-deprived-student,1,Standard,10,A wired student juggling coursework and side gigs to stay ahead of debt.
+AR Projector,ar-projector,1,Support,8,A small projector that paints augmented reality overlays into local space.
+Awakened Kid,awakened-kid,1,Support,11,A young person whose latent power makes lights flicker and air hum when they get emotional.
+Ceiling-Drop Restraint Mesh,ceiling-drop-restraint-mesh,1,Support,10,A silent restraint mesh that drops from overhead panels.
+Conspiracy Vlogger,conspiracy-vlogger,1,Support,10,"A streamer convinced the world runs on hidden patterns, some of which are disturbingly accurate."
+Desk Console,desk-console,1,Support,10,A seated corporate workstation with encrypted shells and limited privileges.
+Down-on-his-luck Corporate Drone,down-on-his-luck-corporate-drone,1,Support,10,"A burned-out office worker whose badge still works in a few places, even if their paycheck does not."
+Echo Runner,echo-runner,1,Support,10,Constant noise maker in combat. Drops a beat and then beats on you
+Elderly Shopkeeper,elderly-shopkeeper,1,Support,10,An older proprietor who has seen entire crews rise and vanish from their storefront.
+Emergency Call Beacon,emergency-call-beacon,1,Support,9,A wall-mounted beacon that pings responders and logs distress calls.
+Entrapment Foam Ejector,entrapment-foam-ejector,1,Support,10,A wall device that sprays hardening restraint foam.
+Environmental Sensor,environmental-sensor,1,Support,9,"A node that monitors air, chemical, or mana conditions and reports anomalies."
+High-Voltage Security Door,high-voltage-security-door,1,Support,10,A fortified door that shocks unauthorized contact.
+Holo-terminal,holo-terminal,1,Support,9,"A stand-alone terminal for public info, orders, or corp interface sessions."
+Laser Tripwire Grid,laser-tripwire-grid,1,Support,10,A fixed-beam laser intrusion grid that activates lethal countermeasures when crossed.
+Matrix Relay Node,matrix-relay-node,1,Support,9,A mesh-network repeater extending wireless coverage through a location.
+Medical Scanner,medical-scanner,1,Support,9,"A diagnostic scanner for vitals, implants, and basic nanotech assays."
+Neon Sign Controller,neon-sign-controller,1,Support,8,A control box regulating local neon signage and ambient lighting.
+Payment Terminal,payment-terminal,1,Support,9,A credstick or palm-scan payment unit tied to identity and ledger systems.
+Shock-Floor Conduction Plates,shock-floor-conduction-plates,1,Support,10,Conductive plates that deliver incapacitating shocks.
+Smart Appliance,smart-appliance,1,Support,8,An automated household or industrial unit with simple task routines.
+Smartphone / Commlink,smartphone-commlink,1,Support,8,A personal mesh-enabled comms and data device carried by almost everyone.
+Synthetic-food Vendor,synthetic-food-vendor,1,Support,10,A stall owner selling steaming trays of reconstituted everything to anyone with cred.
+Taser Web Launcher,taser-web-launcher,1,Support,10,A wall unit that fires electrified capture webs.
+Thermal Motion Detector,thermal-motion-detector,1,Support,10,A heat-tracking sensor node with defensive shock emitters.
+Tired Paramedic on Break,tired-paramedic-on-break,1,Support,10,"A medic between calls, uniform rumpled and eyes red from too many nights on duty."
+Undercity Preacher,undercity-preacher,1,Support,10,A street preacher calling for hope in places the corps forgot.
+Vehicle Node Interface,vehicle-node-interface,1,Support,10,"A diagnostic and control port for local vehicles, often melee parking."
+Wearable Tech,wearable-tech,1,Support,8,"A personal HUD, smart ear augment, or wrist display tied into the mesh."
+Autonomous Combat Drone (Ground),autonomous-combat-drone-ground,2,Bruiser,12,A quadrupedal drone built for stability and pursuit.
+Ex-gang Member Trying to Stay Clean,ex-gang-member-trying-to-stay-clean,2,Bruiser,12,A former ganger with old scars and enough discipline to try another life.
+Ex-military Veteran,ex-military-veteran,2,Bruiser,13,A former soldier with outdated chrome and ingrained tactical reflexes.
+Quiet Ganger,quiet-ganger,2,Bruiser,12,"A low-level gang member watching, listening, and reporting back to someone meaner."
+Abraxas Cult Leader,abraxas-cult-leader,2,Leader,16,"A hulking troll-like hierophant transformed by prolonged communion with Abraxas. Massive tusk-like fangs jut from a wide mouth, ritual scars crawl across their flesh, and violence sends them into visible ecstasy.
+
+FAST PLAYOpening: Stay near the ritual and use Cry of Ruin early when several cultists can act meaningfully, forcing divided attention.
+
+Default: Use Rending Fists on one nearby target and gain Fear through Momentum. Use Chaotic Flux when multiple PCs cluster.
+
+When Hit Hard: Use Violence Is Revelation to reposition toward the ritual, vulnerable prey, or a disruptive location.
+
+Spend Fear: Use Gift of the Threshold primarily to break formations or displace PCs from objectives; damage is secondary.
+
+If Allies Thin: Stop investing Stress in Cry of Ruin and shift toward direct bruiser and control play.
+
+Goal: Conduct a chaotic battle through followers, Fear, and forced movement instead of becoming a stationary sack of HP."
+Autonomous Guard Bot,autonomous-guard-bot,2,Leader,12,A compact bipedal bot with nonlethal and lethal options.
+Automated Machinegun Turret Mk.II,automated-machinegun-turret-mk-ii,2,Ranged,12,A ceiling-mounted ballistic turret with automated targeting.
+Micro-Missile Sentry Pod Mk. II,micro-missile-sentry-pod-mk-ii,2,Ranged,12,A compact pod that fires guided micro-missiles.
+Sonic Disruption Cannon,sonic-disruption-cannon,2,Ranged,12,A high-frequency sonic weapon for hallways and chokepoints.
+Washed-up Mage,washed-up-mage,2,Ranged,12,"An older mage whose power is frayed but not gone, haunted by past contracts."
+Altered Threshold Cougar,altered-threshold-cougar,2,Skulk,14,"A ritual-warped mountain cougar whose outline never quite agrees with itself: forelimbs double during a strike, shadows pool around its body, and it can vanish from one patch of darkness to emerge from another.
+
+FAST PLAYOpening: Begin concealed where the fiction allows, stalk the party, and identify an isolated or exposed target before revealing the Cougar.
+
+Default: From Hidden, use Silent Threshold Pounce against isolated prey, especially when silencing or separating that target matters.
+
+Reset: After striking, break contact and seek darkness or cover. Use Threshold Skip when Stress meaningfully restores distance, concealment, or a new angle.
+
+If Cornered: Use Claws & Bite, but take the first good opportunity to disengage and resume the ambush cycle.
+
+Remember: Living Shadow adds +2 Difficulty while Hidden. Threshold Skip repositions only; it does not grant another attack.
+
+Goal: Make the Cougar a disappearing ambush predator: dangerous while it controls contact, much weaker when PCs deny concealment."
+Autonomous Combat Drone (Aerial),autonomous-combat-drone-aerial,2,Skulk,12,A hovering drone armed with light kinetic weapons.
+Corporate Courier,corporate-courier,2,Skulk,12,A sleek courier trusted to move sensitive packages between secure sites.
+Electro-Pulse Mine,electro-pulse-mine,2,Skulk,12,A mine that generates an EMP combined with neural shock.
+Fixer's Messenger,fixer-s-messenger,2,Skulk,12,"A trusted courier carrying coded instructions, often underestimated until too late."
+Illegal Cybertech Dealer,illegal-cybertech-dealer,2,Skulk,12,A back-alley tech who can source implants the corps pretend do not exist.
+Microdrone Swarm Dispenser,microdrone-swarm-dispenser,2,Skulk,12,Deploys a cloud of needle-equipped microdrones.
+Monofilament Perimeter Wire,monofilament-perimeter-wire,2,Skulk,12,meleely invisible monofilament strands stretched across chokepoints.
+Remote-Triggered Nanoshard Mine,remote-triggered-nanoshard-mine,2,Skulk,12,A mine that releases cutting nanoshards on detonation.
+Runner Doing Fixer Errands,runner-doing-fixer-errands,2,Skulk,12,A low-tier runner carrying someone else's package and reputation.
+Security Ripper-Drone,security-ripper-drone,2,Skulk,12,A rotary-blade drone designed for close-quarters interception.
+Cavelor Finn,cavelor-finn,2,Solo,16,"A lean half-elf assassin who treats observation as the real job and violence as an optional conclusion. Finn works from prepared hides with suppressed weapons, custom toxins, and multiple escape routes, refusing any fight that becomes fair.
+
+FAST PLAYOpening: Shadow the team unseen until Finn has a clean assassination opportunity or another compelling reason to reveal himself.
+
+Default: From Hidden, use Precision Rifle to trigger Prepared Shot against exposed prey, then reset with Ghost Position rather than trade attacks.
+
+If Pressed: Use Exit Strategy when disengagement matters. Use Dead Drop when preparation can restore concealment, create escape, or disrupt pursuit.
+
+Fallback: Use Suppressed Pistol when close engagement is already advantageous; if the fight becomes fair, break contact.
+
+Remember: Relentless (2) permits a second spotlight but does not make it free. Any hit that marks HP triggers Finn's Compound.
+
+Goal: Make the PCs feel watched, suddenly endangered, then uncertain whether Finn is truly gone."
+Off-duty Security Guard,off-duty-security-guard,2,Standard,12,"A corp-contracted guard off shift, still wired to read a room like a threat board."
+Chemical Mist Neutralizer,chemical-mist-neutralizer,2,Support,12,A dispersal unit that emits paralytic or disorienting mist.
+Guardrail Jackpot Trap,guardrail-jackpot-trap,2,Support,12,Conductive rails delivering concussive shockwaves.
+Hostile Intruder Spray Unit,hostile-intruder-spray-unit,2,Support,12,A chemical dispersal node that emits irritants or neuro-gas.
+Portable Auto-Barricade,portable-auto-barricade,2,Support,12,A mobile barricade drone deploying armored plates.
+Street Medic,street-medic,2,Support,12,A combat-capable medic patching up people the official system leaves to die.
+Automated Barricade Deployment System,automated-barricade-deployment-system,3,Bruiser,14,Deployable steel plates with integrated weapon pods.
+Corp-Spec Guard Android,corp-spec-guard-android,3,Bruiser,14,A humanoid android built for facility defense.
+Security Mech Frame,security-mech-frame,3,Bruiser,14,A compact exosuit used by facility defense teams.
+Auto-Targeting Sniper Node,auto-targeting-sniper-node,3,Ranged,14,A rooftop precision node with thermal scope and rail-lens.
+Heat-Seeking Micro-Rocket Turret,heat-seeking-micro-rocket-turret,3,Ranged,14,A compact turret firing miniature guided rockets.
+Rail-Slug Wall Cannon,rail-slug-wall-cannon,3,Ranged,14,A wall-embedded railgun firing armor-piercing slugs.
+Bella,bella,3,Solo,18,

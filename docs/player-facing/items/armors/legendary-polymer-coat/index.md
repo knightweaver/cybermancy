@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Legendary Polymer Coat
 <img src="../../../assets/icons/armors/legendary-polymer-coat.webp" alt="Legendary Polymer Coat" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Masterwork polymer-link coat—cutter-proof and photogenic.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">15 / 40</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

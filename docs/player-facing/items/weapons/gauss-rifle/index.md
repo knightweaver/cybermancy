@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Gauss Rifle
@@ -12,7 +11,6 @@ Magnetic accelerator weapon firing hyper-velocity projectiles that punch through
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Magnetic accelerator weapon firing hyper-velocity projectiles that punch through
     <tr><td>Damage</td><td align="right">d12+12</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Rail Shot**<br>*Spend Stress to deal double damage dice.*</div>
+- <div markdown='1'>**Rail Shot**<br>*
 
-- <div markdown='1'>**Critical Effect:  Hyper-Pierce**<br>*Shot tears through multiple enemies/vehicles in a line.*</div>
+Spend Stress to deal double damage dice.*</div>
+
+- <div markdown='1'>**Critical Effect:  Hyper-Pierce**<br>*
+
+Shot tears through multiple enemies/vehicles in a line.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Magnetic accelerator weapon firing hyper-velocity projectiles that punch through
 #### Weapon Features
 —
 []
-
 
 ---
 

@@ -7,7 +7,6 @@
 ## Description
 <i>“Sometimes the best fix is a hard crash.”</i><p class="Card-Feature">Once per rest, target any mechanical Adversaries (Drones, robots, etc.) within Far and make a Spellcasting roll against the Adversaries's Difficulty.  On a success, the target loses its next round and takes d8+2 damage</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

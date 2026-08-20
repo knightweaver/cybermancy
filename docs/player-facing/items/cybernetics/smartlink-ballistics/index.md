@@ -7,7 +7,11 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**SmartLink™ Ballistics**<br>*"Extend your reach, redefine distance."Spend 1 Hope and take an action to increase the allowed range for your next action with a SmarkLink gun. Requires the SmartLink™ CPU implant*</div>
+- <div markdown='1'>**SmartLink™ Ballistics**<br>*"Extend your reach, redefine distance."
+
+Spend 1 Hope and take an action to increase the allowed range for your next action with a SmarkLink gun. 
+
+Requires the SmartLink™ CPU implant*</div>
 
 #### Effects
 —

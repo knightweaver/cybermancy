@@ -7,7 +7,9 @@
 ### **Tier: Tier 2**
 
 #### Actions
-- <div markdown='1'>**Arc Resonator Node**<br>* amplify your arcane arsenal."Once per scene, Spend 1 Hope after making a successful Spellcasting roll that does damage, increase the size of the damage die rolled by 1 step (e.g. from d4 to d6)*</div>
+- <div markdown='1'>**Arc Resonator Node**<br>* amplify your arcane arsenal."
+
+Once per scene, Spend 1 Hope after making a successful Spellcasting roll that does damage, increase the size of the damage die rolled by 1 step (e.g. from d4 to d6)*</div>
 
 #### Effects
 —

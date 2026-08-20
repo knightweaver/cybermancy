@@ -7,7 +7,6 @@
 ## Description
 <i>They can run, but they can’t hide.</i><p class="Card-Feature"><strong>Mark 2 Stress</strong> to plant a tracker on a creature or device within Very Close. Roll Finesse vs target’s difficulty to avoid detection.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

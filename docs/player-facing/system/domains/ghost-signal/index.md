@@ -7,7 +7,6 @@
 ## Description
 <i>“Sometimes your best ally is a flickering echo of bad code.”</i><p class="Card-Feature">Target 1 weapon within Far, <strong>Spend 1 Hope</strong> and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

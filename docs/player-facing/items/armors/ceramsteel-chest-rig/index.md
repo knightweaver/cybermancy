@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # CeramSteel Chest Rig
 <img src="../../../assets/icons/armors/ceramsteel-chest-rig.webp" alt="CeramSteel Chest Rig" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Ceramic-steel sandwich paneling that hardens under impact—your torso becomes a problem for bullets.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">9 / 20</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

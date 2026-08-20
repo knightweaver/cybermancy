@@ -7,7 +7,6 @@
 ## Description
 <i>A well-oiled machine never quits.</i><p class="Card-Feature">Your weapons and <b>Primary Drone</b> cannot malfunction except through magical effects.</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

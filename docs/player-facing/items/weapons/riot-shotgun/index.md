@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Riot Shotgun
@@ -12,7 +11,6 @@ Crowd-control platform launching high-impact kinetic or shock shells to suppress
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Crowd-control platform launching high-impact kinetic or shock shells to suppress
     <tr><td>Damage</td><td align="right">d12+8</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Knockback**<br>*Push targets back one range band.*</div>
+- <div markdown='1'>**Knockback**<br>*
 
-- <div markdown='1'>**Critical Effect:  Concussive Blast**<br>*Stun all in Close cone.*</div>
+Push targets back one range band.*</div>
+
+- <div markdown='1'>**Critical Effect:  Concussive Blast**<br>*
+
+Stun all in Close cone.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Crowd-control platform launching high-impact kinetic or shock shells to suppress
 #### Weapon Features
 —
 []
-
 
 ---
 

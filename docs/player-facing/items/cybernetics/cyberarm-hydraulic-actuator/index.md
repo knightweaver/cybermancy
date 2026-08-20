@@ -7,7 +7,11 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Cyberarm™ Hydraulic Actuator**<br>*"Unleash your power, rest and rise."Reduce the Cyberarm™ Strength effect's recovery time to once per rest.  Spend 1 Hope for advantage on a Strength roll or saving throw*</div>
+- <div markdown='1'>**Cyberarm™ Hydraulic Actuator**<br>*"Unleash your power, rest and rise."
+
+Reduce the Cyberarm™ Strength effect's recovery time to once per rest.  
+
+Spend 1 Hope for advantage on a Strength roll or saving throw*</div>
 
 #### Effects
 —

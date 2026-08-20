@@ -7,7 +7,6 @@
 ## Description
 <i>Precision demolition by proxy.</i><p class="Card-Feature">At the start of the Session, place tokens on this card equal to your proficiency level.  Take an Action to Spend one token to detonate an explosion within Far range. Target takes d8+2 damage; all others within Very Close of the target take d6. <strong>Mark 2 Stress</strong> to refresh this card with tokens</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

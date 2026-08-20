@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Legendary Monofilament Whip
@@ -12,7 +11,6 @@ The apex of weaponized filaments, capable of cutting through armor, steel, or re
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ The apex of weaponized filaments, capable of cutting through armor, steel, or re
     <tr><td>Damage</td><td align="right">d12+10</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Reality Cut**<br>*Can slice vehicles, turrets, drones.*</div>
+- <div markdown='1'>**Reality Cut**<br>*
 
-- <div markdown='1'>**Critical Effect:  Sever Reality**<br>*Slice environment  create a permanent gap or hazard.*</div>
+Can slice vehicles, turrets, drones.*</div>
+
+- <div markdown='1'>**Critical Effect:  Sever Reality**<br>*
+
+Slice environment  create a permanent gap or hazard.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ The apex of weaponized filaments, capable of cutting through armor, steel, or re
 #### Weapon Features
 —
 []
-
 
 ---
 

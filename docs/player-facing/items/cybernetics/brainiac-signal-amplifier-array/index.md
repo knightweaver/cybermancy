@@ -7,7 +7,9 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Brainiac™ Signal Amplifier Array**<br>*Extend your touch to distant realms.Spend 2 Hope to increase the range at which you can interact with Devices or Drones for the remainder of the scene*</div>
+- <div markdown='1'>**Brainiac™ Signal Amplifier Array**<br>*Extend your touch to distant realms.
+
+Spend 2 Hope to increase the range at which you can interact with Devices or Drones for the remainder of the scene*</div>
 
 #### Effects
 —

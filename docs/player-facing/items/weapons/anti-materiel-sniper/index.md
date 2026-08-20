@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Anti-Materiel Sniper
@@ -12,7 +11,6 @@ Long-range rail weapon capable of puncturing vehicles, mechs, and even bunkers.
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Long-range rail weapon capable of puncturing vehicles, mechs, and even bunkers.
     <tr><td>Damage</td><td align="right">d10+8</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Penetration**<br>*Shoot through walls/vehicles.*</div>
+- <div markdown='1'>**Penetration**<br>*
 
-- <div markdown='1'>**Critical Effect:  Executioners Shot**<br>*Instantly remove non-boss foe.*</div>
+Shoot through walls/vehicles.*</div>
+
+- <div markdown='1'>**Critical Effect:  Executioners Shot**<br>*
+
+Instantly remove non-boss foe.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Long-range rail weapon capable of puncturing vehicles, mechs, and even bunkers.
 #### Weapon Features
 —
 []
-
 
 ---
 

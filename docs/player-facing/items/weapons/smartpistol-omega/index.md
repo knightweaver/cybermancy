@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Smartpistol Omega
@@ -12,7 +11,6 @@ An AI-driven sidearm that learns its wielder’s habits and compensates perfectl
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ An AI-driven sidearm that learns its wielder’s habits and compensates perfectl
     <tr><td>Damage</td><td align="right">d10+10</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**AI Assist**<br>*Advantage on all ranged rolls.*</div>
+- <div markdown='1'>**AI Assist**<br>*
 
-- <div markdown='1'>**Critical Effect:  Neural Kill**<br>*Bullet bypasses physical armor; deals Stress + HP.*</div>
+Advantage on all ranged rolls.*</div>
+
+- <div markdown='1'>**Critical Effect:  Neural Kill**<br>*
+
+Bullet bypasses physical armor; deals Stress + HP.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ An AI-driven sidearm that learns its wielder’s habits and compensates perfectl
 #### Weapon Features
 —
 []
-
 
 ---
 

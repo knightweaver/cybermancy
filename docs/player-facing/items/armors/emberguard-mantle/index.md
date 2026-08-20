@@ -1,17 +1,13 @@
 <div class="item" markdown="1">
 <div class="grid item-grid" markdown="1">
-
 <div markdown="1">
 # Emberguard Mantle
 <img src="../../../assets/icons/armors/emberguard-mantle.webp" alt="Emberguard Mantle" class="item-image" style="width:300px; height:auto;">
-
 <div class="item-flavor">
 *Heat-reactive panels flare with plasma warnings; anyone who swings in close gets a nasty surprise.*
 </div>
 </div>
-
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
@@ -21,7 +17,6 @@
     <tr><td>Thresholds</td><td align="right">13 / 36</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 

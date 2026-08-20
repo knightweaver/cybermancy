@@ -7,7 +7,6 @@
 ## Description
 <i>“Push it past the redline — what’s the worst that could happen?”</i><p class="Card-Feature">Make a Spellcasting roll (15) to make a device you Control explode causing all Adversaries within Very Close of the Device to take 2d6 damage, and all within Close take 1d6</p>
 </div>
-
 <div markdown="1">
 <table class="stat-table">
   <thead><tr><th>Attribute</th><th align="right">Value</th></tr></thead>

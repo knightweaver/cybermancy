@@ -1,5 +1,4 @@
 <div class="item" markdown="1">
-    
 <div class="grid item-grid" markdown="1">
 <div markdown="1">
 # Diamond Cyber Spurs
@@ -12,7 +11,6 @@ Mirror-finish diamond-tipped spurs designed for surgical precision and absolute 
 </div>
 
 <div markdown="1">
-
 #### Stats
 <table class="stat-table">
   <thead><tr><th align="left">Attribute</th><th align="right">Value</th></tr></thead>
@@ -24,13 +22,16 @@ Mirror-finish diamond-tipped spurs designed for surgical precision and absolute 
     <tr><td>Damage</td><td align="right">d12+9</td></tr>
   </tbody>
 </table>
-
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Ghost Kill**<br>*Cannot be tracked by sensors.*</div>
+- <div markdown='1'>**Ghost Kill**<br>*
 
-- <div markdown='1'>**Critical Effect:  Spinal Sever**<br>*Target permanently disabled unless cybernetically healed.*</div>
+Cannot be tracked by sensors.*</div>
+
+- <div markdown='1'>**Critical Effect:  Spinal Sever**<br>*
+
+Target permanently disabled unless cybernetically healed.*</div>
 
 #### Effects
 —
@@ -38,7 +39,6 @@ Mirror-finish diamond-tipped spurs designed for surgical precision and absolute 
 #### Weapon Features
 —
 []
-
 
 ---
 

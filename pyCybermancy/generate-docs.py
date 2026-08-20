@@ -12,8 +12,8 @@ Supported publication families:
 Default source layout:
 - items:        <repo-root>/src/packs/items/<type>/**/*.json
 - system:       <repo-root>/src/packs/system/<type>/**/*.json
-- adversaries:  <repo-root>/src/packs/adversaries/**/*.json
-- environments: <repo-root>/src/packs/environments/**/*.json
+- adversaries:  <repo-root>/src/packs/adventures/adversaries/**/*.json
+- environments: <repo-root>/src/packs/adventures/environments/**/*.json
 
 Outputs:
 - CSV indexes: <repo-root>/docs/data/<type>.csv
@@ -1021,7 +1021,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     # below src/packs rather than under src/packs/items or src/packs/system.
     "adversaries": {
         "kind": "actors", "audiences": ["gm-facing"],
-        "src_path": "src/packs/adversaries", "actor_type": "adversary",
+        "src_path": "src/packs/adventures/adversaries", "actor_type": "adversary",
         "csv_fields": ["name", "slug", "tier", "role", "difficulty", "description"],
         "field_map": ACTOR_FIELD_MAP | {
             "role": "system.type", "difficulty": "system.difficulty",
@@ -1033,7 +1033,7 @@ CONFIG: Dict[str, Dict[str, Any]] = {
     },
     "environments": {
         "kind": "actors", "audiences": ["gm-facing"],
-        "src_path": "src/packs/environments", "actor_type": "environment",
+        "src_path": "src/packs/adventures/environments", "actor_type": "environment",
         "csv_fields": ["name", "slug", "tier", "type", "difficulty", "description"],
         "field_map": ACTOR_FIELD_MAP | {
             "difficulty": "system.difficulty",

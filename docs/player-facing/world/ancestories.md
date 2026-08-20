@@ -1,3 +1,6 @@
+
+# Ancestories
+
 Below are Cybermancy-aligned rewrites of each ancstry; mechanics are kept the same; only the fiction and justification are adapted.
 
 ---

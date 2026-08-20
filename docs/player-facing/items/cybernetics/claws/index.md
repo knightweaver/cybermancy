@@ -7,7 +7,9 @@
 ### **Tier: Tier 1**
 
 #### Actions
-- <div markdown='1'>**Claws**<br>*Forged elegance, lethal precision.Spend 1 Hope to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage*</div>
+- <div markdown='1'>**Claws**<br>*Forged elegance, lethal precision.
+
+Spend 1 Hope to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage*</div>
 
 #### Effects
 —

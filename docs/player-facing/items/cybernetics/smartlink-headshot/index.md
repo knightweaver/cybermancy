@@ -7,7 +7,11 @@
 ### **Tier: Tier 3**
 
 #### Actions
-- <div markdown='1'>**SmartLink™ Headshot**<br>*"Unleash precision, elevate impact."When firing a SmartLink™ enabled weapon, Mark 1 Stress to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  Requires the SmartLink™ CPU implant*</div>
+- <div markdown='1'>**SmartLink™ Headshot**<br>*"Unleash precision, elevate impact."
+
+When firing a SmartLink™ enabled weapon, Mark 1 Stress to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  
+
+Requires the SmartLink™ CPU implant*</div>
 
 #### Effects
 —
