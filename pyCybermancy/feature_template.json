@@ -1,0 +1,43 @@
+{
+  "name": "Boom Baby!",
+  "type": "feature",
+  "img": "modules/cybermancy/assets/icons/subclasses/boom-baby.png",
+  "system": {
+    "description": "<p>Detonate any Device you Control within Very Far. All creatures within Very Close of the targeted Device must make a Reaction Roll (13). Targets who fail take d8+2 physical damage using your proficiency. Targets who succeed take half damage.</p>",
+    "resource": null,
+    "actions": {
+      "Boom Baby!": {
+        "type": "attack",
+        "systemPath": "actions",
+        "description": null
+        "chatDisplay": true,
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "damage": null,
+        "target": {
+          "type": "any",
+          "amount": 1
+        },
+        "effects": [],
+        "roll": null,
+        "name": "Boom Baby!",
+        "img": "modules/cybermancy/assets/icons/subclasses/boom-baby.png",
+        "range": null
+      }
+    },
+    "originItemType": null,
+    "multiclassOrigin": false
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  }
+}

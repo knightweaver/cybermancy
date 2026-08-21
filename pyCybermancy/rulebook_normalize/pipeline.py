@@ -1,0 +1,383 @@
+from __future__ import annotations
+import hashlib
+import json
+import re
+import shutil
+import subprocess
+import tempfile
+from pathlib import Path, PurePosixPath
+from typing import Any
+
+from .assets import map_asset_reference, sha256_file, stage_repo_asset
+from .manifest import (
+    publication_views, assembly_views, pub_authored_by_path, pub_families_by_id,
+    asm_authored_by_path, asm_families_by_id, flatten_chapters
+)
+from .markdown import normalize_authored_markdown, extract_images
+from .structured import is_foundry_folder, render_entity, source_sort_value, stable_id
+from .validate import new_report, add_check, tree_hash_manifest
+from .xrefs import rewrite_internal_links, collect_targets, validate_unique_targets, audience_reference_allowed
+
+
+def _sha256_text(s: str) -> str:
+    return hashlib.sha256(s.encode('utf-8')).hexdigest()
+
+
+def _slug(s: str) -> str:
+    s=(s or '').casefold().replace('_','-').replace(' ','-')
+    s=re.sub(r'[^a-z0-9-]+','-',s); s=re.sub(r'-+','-',s).strip('-')
+    return s or 'entry'
+
+
+def _write_json(path: Path, data: Any):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    path.write_text(json.dumps(data,indent=2,ensure_ascii=False,sort_keys=True)+'\n',encoding='utf-8')
+
+
+def _write_text(path: Path, text: str):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    path.write_text(text.rstrip()+'\n',encoding='utf-8')
+
+
+def manifest_contract_report(pub: dict, asm: dict, config: dict) -> dict:
+    report=new_report()
+    try:
+        pub_commit,pub_auth_records,pub_family_records=publication_views(pub,config)
+        book_structure,profiles=assembly_views(asm,config)
+    except Exception as e:
+        add_check(report,'MANIFEST_BINDINGS','ERROR',str(e)); return report
+
+    baseline=config['baseline']['commit']
+    asm_commit=asm.get('authority',{}).get('sourceCommit')
+    commits={'config':baseline,'publication':pub_commit,'assembly':asm_commit}
+    if len(set(v for v in commits.values() if v))==1 and all(commits.values()):
+        add_check(report,'BASELINE_COMMIT_ALIGNMENT','PASS',f'All authorities resolve to {baseline}.')
+    else:
+        add_check(report,'BASELINE_COMMIT_ALIGNMENT','ERROR','Baseline commits disagree.',commits)
+
+    pub_auth=pub_authored_by_path(pub_auth_records); asm_auth=asm_authored_by_path(asm)
+    only_pub=sorted(set(pub_auth)-set(asm_auth)); only_asm=sorted(set(asm_auth)-set(pub_auth))
+    if not only_pub and not only_asm:
+        add_check(report,'AUTHORED_MANIFEST_JOIN','PASS',f'{len(pub_auth)} authored inputs join exactly by path.')
+    else:
+        add_check(report,'AUTHORED_MANIFEST_JOIN','ERROR',
+                  'Step 3 authored inputs do not exactly join to Step 2 INCLUDE authored inputs.',
+                  {'publicationOnly':only_pub,'assemblyOnly':only_asm})
+
+    pub_fam=pub_families_by_id(pub_family_records); asm_fam=asm_families_by_id(asm)
+    if set(pub_fam)==set(asm_fam):
+        add_check(report,'STRUCTURED_FAMILY_JOIN','PASS',f'{len(pub_fam)} structured families join exactly by family ID.')
+    else:
+        add_check(report,'STRUCTURED_FAMILY_JOIN','ERROR','Structured family IDs disagree.',
+                  {'publicationOnly':sorted(set(pub_fam)-set(asm_fam)),'assemblyOnly':sorted(set(asm_fam)-set(pub_fam))})
+
+    count_errors=[]
+    for fid in sorted(set(pub_fam)&set(asm_fam)):
+        p=int(pub_fam[fid].get('entityCount',-1)); a=int(asm_fam[fid].get('entityCount',-2)); c=config.get('families',{}).get(fid,{}).get('expected')
+        if c is None or p!=a or p!=int(c): count_errors.append({'family':fid,'publication':p,'assembly':a,'config':c})
+    if count_errors:
+        add_check(report,'STRUCTURED_FAMILY_COUNTS','ERROR','Per-family counts disagree.',count_errors)
+    else:
+        total=sum(int(x.get('entityCount',0)) for x in asm_fam.values())
+        status='PASS' if total==int(config['baseline']['expectedLogicalEntities']) else 'ERROR'
+        add_check(report,'STRUCTURED_FAMILY_COUNTS',status,f'Per-family counts align; total {total}.')
+
+    # Primary placement is expressed in two Step 3 locations:
+    #   * part.openerRefs for front-matter/opening fragments, and
+    #   * chapter.contentRefs for ordinary chapter content.
+    # gmDivider.afterDividerFrontMatterRefs is an ordering/routing assertion for
+    # the GM opener, not a second primary placement.
+    authored_refs=[]; family_refs=[]; chapter_ids=[]
+    for part in sorted(book_structure,key=lambda p:(p.get('order',0),p.get('id',''))):
+        for ref in part.get('openerRefs',[]):
+            if isinstance(ref,str) and ref.startswith('auth.'):
+                authored_refs.append(ref)
+            elif isinstance(ref,str) and ref.startswith('family:'):
+                family_refs.append(ref.split(':',1)[1])
+            else:
+                add_check(report,'UNKNOWN_CONTENT_REF','ERROR',f"Unknown assembly openerRef {ref} in {part.get('id')}")
+        for ch in sorted(part.get('chapters',[]),key=lambda c:(c.get('number',0),c.get('id',''))):
+            chapter_ids.append(ch.get('id'))
+            for ref in ch.get('contentRefs',[]):
+                if isinstance(ref,str) and ref.startswith('auth.'): authored_refs.append(ref)
+                elif isinstance(ref,str) and ref.startswith('family:'): family_refs.append(ref.split(':',1)[1])
+                else: add_check(report,'UNKNOWN_CONTENT_REF','ERROR',f"Unknown assembly contentRef {ref} in {ch.get('id')}")
+    asm_auth_ids=[r.get('assemblyInputId') for r in asm.get('authoredInputs',[])]
+    dup_auth=sorted({x for x in authored_refs if authored_refs.count(x)>1}); missing_auth=sorted(set(asm_auth_ids)-set(authored_refs)); extra_auth=sorted(set(authored_refs)-set(asm_auth_ids))
+    if not dup_auth and not missing_auth and not extra_auth:
+        add_check(report,'AUTHORED_PRIMARY_PLACEMENT','PASS',f'{len(authored_refs)} authored refs placed exactly once.')
+    else:
+        add_check(report,'AUTHORED_PRIMARY_PLACEMENT','ERROR','Authored placement invariant violated.',{'duplicates':dup_auth,'missing':missing_auth,'unknown':extra_auth})
+    dup_fam=sorted({x for x in family_refs if family_refs.count(x)>1}); missing_fam=sorted(set(asm_fam)-set(family_refs)); extra_fam=sorted(set(family_refs)-set(asm_fam))
+    if not dup_fam and not missing_fam and not extra_fam:
+        add_check(report,'STRUCTURED_PRIMARY_PLACEMENT','PASS',f'{len(family_refs)} family refs placed exactly once.')
+    else:
+        add_check(report,'STRUCTURED_PRIMARY_PLACEMENT','ERROR','Structured placement invariant violated.',{'duplicates':dup_fam,'missing':missing_fam,'unknown':extra_fam})
+
+    profile_ids={p.get('id') for p in profiles}
+    required={'complete-rulebook','player-guide'}
+    if required.issubset(profile_ids): add_check(report,'BUILD_PROFILES','PASS','Required complete-rulebook and player-guide profiles are present.')
+    else: add_check(report,'BUILD_PROFILES','ERROR','Required build profile missing.',{'found':sorted(profile_ids)})
+
+    divider=asm.get('gmDivider',{})
+    if divider.get('title')==config['semantics']['gmDivider'] and divider.get('requiredInCompleteBuild') and divider.get('omittedInPlayerBuild'):
+        add_check(report,'GM_DIVIDER_CONTRACT','PASS',divider.get('title'))
+    else: add_check(report,'GM_DIVIDER_CONTRACT','ERROR','GM divider contract does not match normalization config.',divider)
+
+    # v1.1 makes the GM-section opener explicit in both the part and divider
+    # metadata. Treat the divider list as a routing assertion and require it to
+    # agree with the openerRefs of beforePart when either side is present.
+    before_part=next((p for p in book_structure if p.get('id')==divider.get('beforePart')),None)
+    divider_front=list(divider.get('afterDividerFrontMatterRefs',[]) or [])
+    part_openers=list((before_part or {}).get('openerRefs',[]) or [])
+    if divider_front or part_openers:
+        if before_part is None:
+            add_check(report,'GM_FRONT_MATTER_ROUTING','ERROR','gmDivider.beforePart does not resolve to a book part.',{'beforePart':divider.get('beforePart')})
+        elif divider_front==part_openers:
+            add_check(report,'GM_FRONT_MATTER_ROUTING','PASS',f'{len(part_openers)} GM front-matter opener ref(s) route immediately after the divider.')
+        else:
+            add_check(report,'GM_FRONT_MATTER_ROUTING','ERROR','GM divider front-matter refs disagree with the beforePart openerRefs.',{'afterDividerFrontMatterRefs':divider_front,'openerRefs':part_openers,'beforePart':divider.get('beforePart')})
+    return report
+
+
+def repository_preflight(repo_root: Path, pub: dict, asm: dict, config: dict, report: dict):
+    pub_commit,pub_auth_records,pub_family_records=publication_views(pub,config)
+    # Git check is authoritative when the checkout exposes .git.
+    if (repo_root/'.git').exists():
+        try:
+            head=subprocess.check_output(['git','-C',str(repo_root),'rev-parse','HEAD'],text=True,stderr=subprocess.STDOUT).strip()
+            if head==pub_commit: add_check(report,'REPOSITORY_HEAD','PASS',head)
+            else: add_check(report,'REPOSITORY_HEAD','ERROR',f'Repository HEAD {head} does not equal frozen source commit {pub_commit}.')
+        except Exception as e: add_check(report,'REPOSITORY_HEAD','ERROR',f'Could not resolve repository HEAD: {e}')
+    else:
+        add_check(report,'REPOSITORY_HEAD','WARNING','No .git directory found; source-file hashes will enforce the frozen authored inputs and family digests.')
+
+    missing_auth=[]; bad_hash=[]
+    for r in pub_authored_by_path(pub_auth_records).values():
+        p=repo_root/r['path']
+        if not p.is_file(): missing_auth.append(r['path']); continue
+        expected=r.get('sha256')
+        if expected and sha256_file(p)!=expected: bad_hash.append({'path':r['path'],'expected':expected,'actual':sha256_file(p)})
+    if missing_auth: add_check(report,'AUTHORED_SOURCE_FILES','ERROR','Included authored sources are missing.',missing_auth)
+    elif bad_hash: add_check(report,'AUTHORED_SOURCE_HASHES','ERROR','Included authored source hashes do not match the frozen publication manifest.',bad_hash)
+    else: add_check(report,'AUTHORED_SOURCE_FILES','PASS','All frozen authored INCLUDE sources exist and match their SHA-256 values.')
+
+    missing_fams=[]
+    for fid,r in pub_families_by_id(pub_family_records).items():
+        p=repo_root/r['sourcePath']
+        if not p.is_dir(): missing_fams.append({'family':fid,'path':r['sourcePath']})
+    if missing_fams: add_check(report,'STRUCTURED_SOURCE_DIRS','ERROR','Structured source directories are missing.',missing_fams)
+    else: add_check(report,'STRUCTURED_SOURCE_DIRS','PASS','All structured source family directories exist.')
+    return report
+
+
+def _family_digest(repo_root: Path, source_path: str) -> tuple[str,list[Path]]:
+    root=repo_root/source_path
+    files=sorted(p for p in root.rglob('*.json') if p.is_file())
+    rows=[]
+    for p in files:
+        rel=p.relative_to(repo_root).as_posix(); rows.append(f'{rel}\t{sha256_file(p)}')
+    payload='\n'.join(rows)
+    return _sha256_text(payload),files
+
+
+def _generated_link_candidates(pub_rec: dict, asm_rec: dict, entity: dict, source_file: Path, family_root: Path):
+    outdir=str(pub_rec.get('generatedOutputDir') or '').rstrip('/')
+    name=_slug(entity.get('name') or '')
+    rel_parent=source_file.parent.relative_to(family_root).as_posix()
+    cands={f'{outdir}/{name}.md'}
+    if rel_parent!='.': cands.add(f'{outdir}/{rel_parent}/{name}.md')
+    cands.add(f'{outdir}/{source_file.stem}.md')
+    return cands
+
+
+def _resolve_authored_image(source_repo_path: str, target: str)->str|None:
+    if target.startswith(('http://','https://','data:','icons/')): return None
+    if target.startswith(('modules/','worlds/')): return target
+    base=PurePosixPath(source_repo_path).parent
+    parts=[]
+    for p in (base/PurePosixPath(target)).parts:
+        if p=='.': continue
+        if p=='..':
+            if parts: parts.pop()
+        else: parts.append(p)
+    return '/'.join(parts)
+
+
+def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: dict, base_report: dict | None=None) -> dict:
+    if outroot.exists(): shutil.rmtree(outroot)
+    source_root=outroot/'source'; meta_root=source_root/'metadata'; generated_root=source_root/'generated'; authored_root=source_root/'authored'; assembled_root=source_root/'assembled'
+    for p in (meta_root,generated_root,authored_root,assembled_root): p.mkdir(parents=True,exist_ok=True)
+    report=json.loads(json.dumps(base_report or new_report()))
+    pub_commit,pub_auth_records,pub_family_records=publication_views(pub,config)
+    pub_auth=pub_authored_by_path(pub_auth_records); pub_fam=pub_families_by_id(pub_family_records)
+    asm_auth=asm_authored_by_path(asm); asm_fam=asm_families_by_id(asm)
+
+    provenance=[]; source_hashes=[]; semantic_targets=[]; assets=[]; references=[]
+    content_by_ref={}; target_audience={}; generated_link_targets={}
+
+    # Structured families first so legacy links from authored docs can resolve to entity semantic IDs.
+    for fid,arec in asm_fam.items():
+        prec=pub_fam[fid]; family_dir=repo_root/arec['sourcePath']
+        digest,all_json=_family_digest(repo_root,arec['sourcePath'])
+        expected_digest=prec.get('contentDigestSha256')
+        if expected_digest and digest!=expected_digest:
+            add_check(report,'STRUCTURED_FAMILY_DIGEST','ERROR',f'{fid}: source digest mismatch.',{'expected':expected_digest,'actual':digest})
+        logical=[]; folder_count=0
+        for p in all_json:
+            try: doc=json.loads(p.read_text(encoding='utf-8'))
+            except Exception as e:
+                add_check(report,'STRUCTURED_JSON_PARSE','ERROR',f'{p.relative_to(repo_root).as_posix()}: {e}'); continue
+            if is_foundry_folder(doc): folder_count+=1; continue
+            logical.append((p,doc))
+        expected=int(arec['entityCount'])
+        if len(logical)!=expected:
+            add_check(report,'STRUCTURED_ENTITY_COUNT','ERROR',f'{fid}: found {len(logical)} logical entities; expected {expected}.')
+        else: add_check(report,f'COUNT_{fid.upper().replace("-","_")}','PASS',f'{fid}: {expected} logical entities.')
+        logical.sort(key=lambda pair: source_sort_value(fid,pair[1],pair[0].relative_to(family_dir).as_posix(),arec.get('sort',[])))
+        family_chunks=[f'::: {{#{"family:"+fid} .rb-collection data-family="{fid}" data-audience="{arec["audience"]}"}}','']
+        semantic_targets.append({'semanticId':f'family:{fid}','kind':'family','audience':arec['audience'],'title':arec['title']}); target_audience[f'family:{fid}']=arec['audience']
+        for idx,(p,doc) in enumerate(logical,1):
+            try: md,metadata=render_entity(fid,doc,config['structured']['fastPlayCandidatePaths'])
+            except Exception as e:
+                add_check(report,'STRUCTURED_RENDER','ERROR',f'{p.relative_to(repo_root).as_posix()}: {e}'); continue
+            metadata['sourcePath']=p.relative_to(repo_root).as_posix(); metadata['audience']=arec['audience']
+            entity_out=generated_root/fid/f'{idx:04d}-{metadata["sourceId"]}.md'; _write_text(entity_out,md)
+            family_chunks += [md.rstrip(),'']
+            semantic_targets.append({'semanticId':metadata['semanticId'],'kind':'entity','audience':arec['audience'],'title':metadata['name'],'family':fid,'sourceId':metadata['sourceId']}); target_audience[metadata['semanticId']]=arec['audience']
+            provenance.append({'kind':'structured-entity','family':fid,'sourcePath':metadata['sourcePath'],'sourceSha256':sha256_file(p),'sourceCommit':pub_commit,'semanticId':metadata['semanticId'],'outputPath':entity_out.relative_to(outroot).as_posix(),'outputSha256':sha256_file(entity_out)})
+            source_hashes.append({'path':metadata['sourcePath'],'sha256':sha256_file(p)})
+            for cand in _generated_link_candidates(prec,arec,doc,p,family_dir):
+                if cand in generated_link_targets and generated_link_targets[cand]!=metadata['semanticId']:
+                    generated_link_targets[cand]='__AMBIGUOUS__'
+                else: generated_link_targets[cand]=metadata['semanticId']
+            for ref in metadata.get('assetRefs',[]): assets.append({'reference':ref,'sourceEntity':metadata['semanticId'],'kind':'structured'})
+        family_chunks.append(':::')
+        fam_md='\n'.join(family_chunks).rstrip()+'\n'; collection_path=generated_root/fid/'_collection.md'; _write_text(collection_path,fam_md)
+        content_by_ref[f'family:{fid}']={'markdown':fam_md,'audience':arec['audience'],'semanticId':f'family:{fid}','title':arec['title']}
+        provenance.append({'kind':'structured-family','family':fid,'sourcePath':arec['sourcePath'],'sourceDigestSha256':digest,'sourceCommit':pub_commit,'semanticId':f'family:{fid}','outputPath':collection_path.relative_to(outroot).as_posix(),'outputSha256':sha256_file(collection_path),'logicalEntityCount':len(logical),'foundryFolderCount':folder_count})
+
+    generated_link_targets={k:v for k,v in generated_link_targets.items() if v!='__AMBIGUOUS__'}
+
+    placement_to_chapter={r['assemblyInputId']:r['placement'] for r in asm.get('authoredInputs',[])}
+    path_targets={r['path']:f"section:{r['placement']}" for r in asm.get('authoredInputs',[])}
+    for arec in asm.get('authoredInputs',[]):
+        path=arec['path']; prec=pub_auth.get(path)
+        if prec is None:
+            # Contract validation already records this; avoid fabricating content.
+            continue
+        src=repo_root/path
+        try: text=src.read_text(encoding='utf-8'); norm=normalize_authored_markdown(path,text,arec)
+        except Exception as e:
+            add_check(report,'AUTHORED_NORMALIZE','ERROR',f'{path}: {e}'); continue
+        norm,refs=rewrite_internal_links(norm,path,path_targets,generated_link_targets); references.extend(refs)
+        for img in extract_images(norm):
+            resolved=_resolve_authored_image(path,img)
+            if resolved: assets.append({'reference':resolved,'sourcePath':path,'kind':'authored'})
+        out=authored_root/f'{arec["assemblyInputId"].replace(".","-")}.md'; _write_text(out,norm)
+        sem=f"section:{arec['placement']}"; target_audience[sem]=arec['audience']
+        content_by_ref[arec['assemblyInputId']]={'markdown':norm,'audience':arec['audience'],'semanticId':sem,'title':arec['title']}
+        provenance.append({'kind':'authored','assemblyInputId':arec['assemblyInputId'],'sourcePath':path,'sourceSha256':sha256_file(src),'sourceCommit':pub_commit,'semanticId':sem,'outputPath':out.relative_to(outroot).as_posix(),'outputSha256':sha256_file(out),'assemblyMode':arec.get('assemblyMode')})
+        source_hashes.append({'path':path,'sha256':sha256_file(src)})
+
+    # Stage unique repo-backed assets.
+    staged={}; mappings=config.get('assets',{}).get('foundryRuntimeMappings',[]); staging=outroot/'assets'/'repo'
+    for item in assets:
+        mapped=map_asset_reference(item['reference'],mappings)
+        if mapped is None:
+            item['status']='external-or-base-system'; continue
+        if mapped not in staged: staged[mapped]=stage_repo_asset(repo_root,mapped,staging)
+        item['mappedRepoPath']=mapped; item.update({k:v for k,v in staged[mapped].items() if k!='source'})
+    missing_assets=sorted({x.get('mappedRepoPath') for x in assets if x.get('status')=='missing' and x.get('mappedRepoPath')})
+    if missing_assets: add_check(report,'ASSET_RESOLUTION','ERROR',f'{len(missing_assets)} referenced repository assets are unresolved.',missing_assets[:200])
+    else: add_check(report,'ASSET_RESOLUTION','PASS',f'{sum(1 for v in staged.values() if v.get("status")=="staged")} unique repository assets staged.')
+
+    unresolved=[r for r in references if not r.get('resolved')]
+    if unresolved: add_check(report,'CROSS_REFERENCE_RESOLUTION','ERROR',f'{len(unresolved)} local Markdown links did not resolve to stable semantic targets.',unresolved[:200])
+    else: add_check(report,'CROSS_REFERENCE_RESOLUTION','PASS',f'{len(references)} internal Markdown references resolved or no internal references were present.')
+
+    # Assemble authoritative book topology.
+    profile_outputs={}
+    profiles={p['id']:p for p in asm.get('buildProfiles',[])}
+    divider=asm.get('gmDivider',{})
+    for pid,profile in profiles.items():
+        include=set(profile.get('includeAudiences',[])); chunks=[]; inserted=False
+        chunks += ['---',f'title: "{profile.get("title",pid)}"',f'profile: "{pid}"',f'source-commit: "{pub_commit}"','---','']
+        for part in sorted(asm.get('bookStructure',[]),key=lambda p:(p.get('order',0),p.get('id',''))):
+            paud=part.get('audience','player')
+            if paud not in include: continue
+            if pid=='complete-rulebook' and part.get('id')==divider.get('beforePart') and divider.get('requiredInCompleteBuild') and not inserted:
+                chunks += [f'# {divider["title"]} {{#section:gm-material-divider .gm-divider data-audience="gm"}}','']; inserted=True
+                semantic_targets.append({'semanticId':'section:gm-material-divider','kind':'divider','audience':'gm','title':divider['title']}); target_audience['section:gm-material-divider']='gm'
+            # Part opener/front-matter fragments are primary assembly content.
+            # For the GM boundary they are deliberately rendered after the
+            # spoiler divider and before the Part V heading.
+            for ref in part.get('openerRefs',[]):
+                node=content_by_ref.get(ref)
+                if not node:
+                    add_check(report,'ASSEMBLY_CONTENT_MISSING','ERROR',f'{part["id"]}: openerRef {ref} has no normalized fragment.'); continue
+                if node['audience'] not in include:
+                    add_check(report,'ASSEMBLY_AUDIENCE_MISMATCH','ERROR',f'{part["id"]}: openerRef {ref} audience {node["audience"]} not allowed in {pid}.'); continue
+                chunks += [node['markdown'].rstrip(),'']
+
+            psem=f"section:{part['id']}"; chunks += [f'# {part["title"]} {{#{psem} .rb-part data-audience="{paud}"}}','']
+            if not any(t.get('semanticId')==psem for t in semantic_targets): semantic_targets.append({'semanticId':psem,'kind':'part','audience':paud,'title':part['title']}); target_audience[psem]=paud
+            for ch in sorted(part.get('chapters',[]),key=lambda c:(c.get('number',0),c.get('id',''))):
+                csem=f"section:{ch['id']}"; chunks += [f'## Chapter {ch["number"]}: {ch["title"]} {{#{csem} .rb-chapter data-audience="{paud}"}}','']
+                if not any(t.get('semanticId')==csem for t in semantic_targets): semantic_targets.append({'semanticId':csem,'kind':'chapter','audience':paud,'title':ch['title'],'number':ch['number']}); target_audience[csem]=paud
+                for ref in ch.get('contentRefs',[]):
+                    node=content_by_ref.get(ref)
+                    if not node:
+                        add_check(report,'ASSEMBLY_CONTENT_MISSING','ERROR',f'{ch["id"]}: contentRef {ref} has no normalized fragment.'); continue
+                    if node['audience'] not in include:
+                        add_check(report,'ASSEMBLY_AUDIENCE_MISMATCH','ERROR',f'{ch["id"]}: {ref} audience {node["audience"]} not allowed in {pid}.'); continue
+                    chunks += [node['markdown'].rstrip(),'']
+        text='\n'.join(chunks).rstrip()+'\n'; out=assembled_root/f'{pid}.md'; _write_text(out,text); profile_outputs[pid]=out
+
+    complete=profile_outputs.get('complete-rulebook'); player=profile_outputs.get('player-guide')
+    if complete:
+        n=complete.read_text(encoding='utf-8').count(config['semantics']['gmDivider'])
+        add_check(report,'COMPLETE_GM_DIVIDER','PASS' if n==1 else 'ERROR',f'Complete rulebook contains GM divider {n} time(s).')
+    if player:
+        txt=player.read_text(encoding='utf-8'); bad=config['semantics']['gmDivider'] in txt or any('data-audience="gm"' in line for line in txt.splitlines())
+        add_check(report,'PLAYER_PROFILE_AUDIENCE','ERROR' if bad else 'PASS','Player guide contains no GM-only nodes.' if not bad else 'Player guide contains GM-only material.')
+
+    # Semantic target uniqueness across canonical fragments, not across assembled profiles (which intentionally repeat targets).
+    targets_by_file={}
+    for p in list(authored_root.glob('*.md'))+list(generated_root.glob('*/_collection.md')):
+        targets_by_file[p.relative_to(outroot).as_posix()]=collect_targets(p.read_text(encoding='utf-8'))
+    dupes=validate_unique_targets(targets_by_file)
+    if dupes: add_check(report,'SEMANTIC_TARGET_UNIQUENESS','ERROR','Duplicate semantic targets in normalized corpus.',dupes[:200])
+    else: add_check(report,'SEMANTIC_TARGET_UNIQUENESS','PASS',f'{sum(len(v) for v in targets_by_file.values())} canonical semantic targets are unique.')
+
+    # Audience cross-reference rule for resolved semantic refs.
+    leaks=[]
+    for r in references:
+        if not r.get('resolved'): continue
+        source_path=r['source']; srec=asm_auth.get(source_path); saud=srec.get('audience') if srec else 'shared'; taud=target_audience.get(r.get('semanticTarget'))
+        if taud and not audience_reference_allowed(saud,taud): leaks.append({**r,'sourceAudience':saud,'targetAudience':taud})
+    if leaks: add_check(report,'AUDIENCE_REFERENCE_ISOLATION','ERROR','Player/shared references target GM-only nodes.',leaks)
+    else: add_check(report,'AUDIENCE_REFERENCE_ISOLATION','PASS','No player/shared → GM semantic references detected.')
+
+    provenance.sort(key=lambda x:(x.get('kind',''),x.get('sourcePath',''),x.get('semanticId','')))
+    source_hashes=sorted({(x['path'],x['sha256']) for x in source_hashes})
+    _write_json(meta_root/'provenance.json',provenance)
+    _write_json(meta_root/'semantic-targets.json',sorted(semantic_targets,key=lambda x:x['semanticId']))
+    _write_json(meta_root/'references.json',references)
+    _write_json(meta_root/'assets.json',assets)
+    _write_json(meta_root/'source-hashes.json',[{'path':p,'sha256':h} for p,h in source_hashes])
+    _write_json(meta_root/'validation.json',report)
+    return report
+
+
+def deterministic_build(repo_root: Path,outroot: Path,pub: dict,asm: dict,config: dict,base_report: dict)->dict:
+    report=materialize(repo_root,outroot,pub,asm,config,base_report)
+    if report['status']!='PASS': return report
+    with tempfile.TemporaryDirectory(prefix='cybermancy-rulebook-determinism-') as td:
+        second=Path(td)/'rulebook'
+        report2=materialize(repo_root,second,pub,asm,config,base_report)
+        # validation.json should itself be deterministic; all metadata paths are output-relative.
+        same=tree_hash_manifest(outroot)==tree_hash_manifest(second)
+    add_check(report,'DETERMINISM','PASS' if same and report2['status']=='PASS' else 'ERROR','Two clean materializations are byte-identical.' if same else 'Second clean materialization differed from the first.')
+    _write_json(outroot/'source'/'metadata'/'validation.json',report)
+    return report
