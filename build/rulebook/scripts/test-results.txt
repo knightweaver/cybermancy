@@ -1,0 +1,23 @@
+test_divider_routing_must_match_part_opener (test_rulebook_normalization.TestFrontMatterPlacement.test_divider_routing_must_match_part_opener) ... ok
+test_part_opener_is_primary_authored_placement (test_rulebook_normalization.TestFrontMatterPlacement.test_part_opener_is_primary_authored_placement) ... ok
+test_assembly_selector_frame_rules_obeys_step3 (test_rulebook_normalization.TestManifestIntegration.test_assembly_selector_frame_rules_obeys_step3) ... ok
+test_manifest_join_detects_swapped_authored_input (test_rulebook_normalization.TestManifestIntegration.test_manifest_join_detects_swapped_authored_input) ... ok
+test_admonition (test_rulebook_normalization.TestNormalization.test_admonition) ... ok
+test_audience_leak (test_rulebook_normalization.TestNormalization.test_audience_leak) ... ok
+test_fast_play_is_separate (test_rulebook_normalization.TestNormalization.test_fast_play_is_separate) ... ok
+test_folder_not_entity (test_rulebook_normalization.TestNormalization.test_folder_not_entity) ... ok
+test_name_collision_is_family_safe (test_rulebook_normalization.TestNormalization.test_name_collision_is_family_safe) ... ok
+test_player_index_segment (test_rulebook_normalization.TestNormalization.test_player_index_segment) ... ok
+test_profiles (test_rulebook_normalization.TestNormalization.test_profiles) ... ok
+test_rules_segmentation (test_rulebook_normalization.TestNormalization.test_rules_segmentation) ... ok
+test_stable_id (test_rulebook_normalization.TestNormalization.test_stable_id) ... ok
+test_timeline_drops_resonance_include (test_rulebook_normalization.TestNormalization.test_timeline_drops_resonance_include) ... ok
+test_digest_is_deterministic_and_content_sensitive (test_rulebook_normalization.TestSnapshotAndAssets.test_digest_is_deterministic_and_content_sensitive) ... ok
+test_rendered_markdown_image_is_publication_asset (test_rulebook_normalization.TestSnapshotAndAssets.test_rendered_markdown_image_is_publication_asset) ... ok
+test_runtime_icon_is_not_publication_asset (test_rulebook_normalization.TestSnapshotAndAssets.test_runtime_icon_is_not_publication_asset) ... ok
+test_same_name_records_remain_distinct_in_snapshot (test_rulebook_normalization.TestSnapshotAndAssets.test_same_name_records_remain_distinct_in_snapshot) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.003s
+
+OK

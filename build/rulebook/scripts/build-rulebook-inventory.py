@@ -33,8 +33,8 @@ from pathlib import Path
 from typing import Iterable
 from urllib.parse import unquote, urlparse
 
-SCRIPT_VERSION = "0.2.3"
-SCHEMA_VERSION = "cybermancy-rulebook-inventory-v0.2.3"
+SCRIPT_VERSION = "0.2.4"
+SCHEMA_VERSION = "cybermancy-rulebook-inventory-v0.2.4"
 GENERATOR = "pyCybermancy/generate-docs.py"
 
 DEFAULT_EXCLUDED_DIRS = {
@@ -188,6 +188,27 @@ def is_foundry_folder_obj(obj: object) -> bool:
     """
     return isinstance(obj, dict) and str(obj.get("_key") or "").startswith("!folders!")
 
+
+def foundry_stable_id(obj: dict) -> str:
+    """Return durable Foundry/source identity for one unpacked record.
+
+    Identity precedence matches the Step 4 normalizer:
+      1. top-level ``_id``;
+      2. final document ID segment in ``_key``.
+
+    Display name and slug are intentionally NOT identity.
+    """
+    value = obj.get("_id")
+    if isinstance(value, str) and value.strip():
+        return value.strip()
+
+    key = obj.get("_key")
+    if isinstance(key, str) and key.strip():
+        tail = key.rsplit("!", 1)[-1].strip()
+        if tail and tail != key:
+            return tail
+
+    raise ValueError("STRUCTURED_ID_MISSING")
 
 def parse_json_object(text: str | None) -> dict | None:
     if not text:
@@ -682,10 +703,14 @@ def read_source_records(
     family_or_kind: dict | str,
     type_key: str | None = None,
 ) -> tuple[dict[str, str], dict[str, str]]:
-    """Return (publication entities, Foundry folder records) keyed by slug.
+    """Return (publication entities, Foundry folder records).
 
-    Preferred callers pass CONFIG-derived family metadata. The legacy
-    ``(kind, type_key)`` form is retained for compatibility.
+    Canonical publication entities are keyed by stable Foundry/source ID.
+    Folder records remain keyed by display slug because they are used only for
+    generated-page organizational reconciliation.
+
+    Multiple distinct source records may share a display-name slug. They must
+    remain distinct canonical entities.
     """
     if isinstance(family_or_kind, dict):
         family = family_or_kind
@@ -713,16 +738,28 @@ def read_source_records(
         if not name:
             continue
 
+        rel = norm_rel(source_path, root)
         slug = slugify(str(name))
+
         if is_foundry_folder_obj(obj):
-            folders[slug] = norm_rel(source_path, root)
+            folders.setdefault(slug, rel)
             continue
 
-        # Match generate-docs Actor filtering when actor_type is specified.
         if actor_type and str(obj.get("type") or "") != actor_type:
             continue
 
-        entities[slug] = norm_rel(source_path, root)
+        try:
+            source_id = foundry_stable_id(obj)
+        except ValueError as exc:
+            raise RuntimeError(f"{exc}: {rel}") from exc
+
+        previous = entities.get(source_id)
+        if previous is not None and previous != rel:
+            raise RuntimeError(
+                "STRUCTURED_ID_DUPLICATE: "
+                f"{source_id!r} occurs in both {previous!r} and {rel!r}"
+            )
+        entities[source_id] = rel
 
     return entities, folders
 
@@ -764,18 +801,54 @@ def icon_dependency_type_slug(dep: str) -> tuple[str, str] | None:
     return type_key, slug
 
 
+def _source_page_slug(root: Path, source_rel: str) -> tuple[str, str]:
+    """Return (display name, generated-page slug) for a structured source."""
+    path = root / source_rel
+    try:
+        obj = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return Path(source_rel).stem, slugify(Path(source_rel).stem)
+    name = str(obj.get("name") or Path(source_rel).stem)
+    return name, slugify(name)
+
+
 def reconcile_generator_outputs(
     root: Path,
     generator_families: dict[str, dict],
 ) -> list[dict]:
-    """Reconcile each CONFIG-managed source family with its configured outputs."""
+    """Reconcile canonical source entities with configured generated outputs.
+
+    Canonical entity counts are stable-ID based. Generated pages remain
+    display-slug based. Same-name canonical entities therefore produce explicit
+    ``structured_slug_collisions`` diagnostics rather than being silently
+    collapsed from ``source_entities``.
+    """
     rows: list[dict] = []
 
     for type_key, family in sorted(generator_families.items()):
         kind = str(family.get("kind") or "")
         entities, folders = read_source_records(root, family)
-        expected = set(entities)
+
+        slug_to_entities: dict[str, list[dict[str, str]]] = defaultdict(list)
+        for source_id, source_rel in sorted(entities.items()):
+            display_name, page_slug = _source_page_slug(root, source_rel)
+            slug_to_entities[page_slug].append({
+                "source_id": source_id,
+                "name": display_name,
+                "source_path": source_rel,
+            })
+
+        expected_page_slugs = set(slug_to_entities)
         folder_slugs = set(folders)
+
+        slug_collisions = []
+        for page_slug, records in sorted(slug_to_entities.items()):
+            if len(records) > 1:
+                slug_collisions.append({
+                    "slug": page_slug,
+                    "record_count": len(records),
+                    "records": records,
+                })
 
         for audience in family.get("audiences", []):
             out_rel = str(family.get("output_dirs", {}).get(audience, ""))
@@ -789,21 +862,25 @@ def reconcile_generator_outputs(
                         if page.is_file()
                     }
 
-            organizational = sorted((actual - expected) & folder_slugs)
-            missing = sorted(expected - actual)
-            orphan = sorted(actual - expected - folder_slugs)
+            organizational = sorted((actual - expected_page_slugs) & folder_slugs)
+            missing = sorted(expected_page_slugs - actual)
+            orphan = sorted(actual - expected_page_slugs - folder_slugs)
+
             rows.append({
                 "audience": "player" if audience == "player-facing" else "gm",
                 "type": type_key,
                 "kind": kind,
                 "source_path": str(family.get("source_path") or ""),
                 "output_dir": f"docs/{out_rel}" if out_rel else "",
-                "source_entities": len(expected),
-                "foundry_folders": len(folder_slugs),
+                "source_entities": len(entities),
+                "source_page_slugs": len(expected_page_slugs),
+                "foundry_folders": len(folders),
                 "generated_pages": len(actual),
                 "missing_generated_pages": missing,
                 "organizational_generated_pages": organizational,
                 "orphan_generated_pages": orphan,
+                "structured_slug_collision_count": len(slug_collisions),
+                "structured_slug_collisions": slug_collisions,
             })
 
     return rows
