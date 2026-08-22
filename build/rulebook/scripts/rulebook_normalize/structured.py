@@ -6,6 +6,21 @@ from typing import Any
 from .markdown import html_to_markdown
 
 
+EQUIPMENT_TECH_FAMILIES = {
+    'weapons', 'ammo', 'armors', 'cybernetics',
+    'drones-devices', 'consumables', 'mods', 'loot',
+}
+
+_CRITICAL_EFFECT_RE = re.compile(
+    r'^\s*Critical\s+Effect\s*:\s*(.+?)\s*$',
+    re.IGNORECASE,
+)
+_BLOCK_HTML_RE = re.compile(
+    r'<\s*(?:p|ul|ol|table|div|blockquote|h[1-6])\b',
+    re.IGNORECASE,
+)
+
+
 def get_in(obj: Any, dotted: str, default=None):
     cur = obj
     for part in dotted.split('.'):
@@ -117,8 +132,29 @@ def _iter_actions(node: Any):
             if isinstance(v, dict): yield v
 
 
-def render_action(action: dict) -> str:
-    name=action.get('name') or 'Action'
+def publication_trait(family: str, doc: dict):
+    """Resolve the semantic attack Trait used by publication sorting/rendering."""
+    if family == 'weapons':
+        return get_in(doc, 'system.attack.roll.trait')
+    return get_in(doc, 'system.trait')
+
+
+def classify_action(family: str, action: dict) -> tuple[str, str]:
+    """Translate Foundry action naming into explicit publication semantics."""
+    raw_name = str(action.get('name') or 'Action').strip()
+    if family == 'weapons':
+        match = _CRITICAL_EFFECT_RE.match(raw_name)
+        if match:
+            return 'critical-effect', match.group(1).strip()
+    return 'action', raw_name
+
+
+def render_action(
+    action: dict,
+    semantic_type: str = 'action',
+    display_name: str | None = None,
+) -> str:
+    name=display_name or action.get('name') or 'Action'
     desc=clean_text(action.get('description',''))
     kind=action.get('actionType') or action.get('type')
     rng=action.get('range')
@@ -127,10 +163,61 @@ def render_action(action: dict) -> str:
     if kind: meta.append(str(kind).replace('_',' ').title())
     if rng: meta.append(f'Range {rng}')
     if dmg: meta.append(f'Damage {dmg}')
-    lines=[f'::: {{.feature data-feature-type="action"}}', f'**{clean_text(name)}**' + (f" — *{' · '.join(meta)}*" if meta else '')]
+    lines=[f'::: {{.feature data-feature-type="{semantic_type}"}}', f'**{clean_text(name)}**' + (f" — *{' · '.join(meta)}*" if meta else '')]
     if desc: lines += ['', desc]
     lines.append(':::')
     return '\n'.join(lines)
+
+
+def weapon_feature_name(feature: dict) -> str:
+    value = feature.get('name') or feature.get('label') or feature.get('value')
+    return clean_text(value) if value not in (None, '') else 'Feature'
+
+
+def _system_description(doc: dict):
+    value = get_in(doc, 'system.description')
+    if isinstance(value, dict):
+        return value.get('value') or ''
+    if value not in (None, ''):
+        return value
+    return get_in(doc, 'system.description.value', '')
+
+
+def _contains_block_html(value: Any) -> bool:
+    return isinstance(value, str) and bool(_BLOCK_HTML_RE.search(value))
+
+
+def collect_source_warnings(family: str, doc: dict) -> list[dict]:
+    """Return non-blocking source-quality warnings for Step 4 validation."""
+    warnings=[]
+    sid=stable_id(doc)
+    name=doc.get('name') or get_in(doc,'identity.name') or sid
+
+    if family == 'weapons' and not _nonempty(publication_trait(family, doc)):
+        warnings.append({
+            'code':'WEAPON_TRAIT_MISSING',
+            'message':f'{name}: weapon attack Trait is missing; it will sort after populated Traits.',
+            'details':{
+                'family':family,
+                'sourceId':sid,
+                'name':name,
+                'field':'system.attack.roll.trait',
+            },
+        })
+
+    system_desc=_system_description(doc)
+    if family in EQUIPMENT_TECH_FAMILIES and _contains_block_html(system_desc):
+        warnings.append({
+            'code':'SOURCE_DESCRIPTION_HTML',
+            'message':f'{name}: equipment description contains block HTML and is omitted from publication output.',
+            'details':{
+                'family':family,
+                'sourceId':sid,
+                'name':name,
+                'field':'system.description',
+            },
+        })
+    return warnings
 
 
 def render_embedded_feature(item: dict) -> str:
@@ -197,6 +284,10 @@ def source_sort_value(family: str, doc: dict, source_rel: str, sort_fields: list
     for field in sort_fields:
         if field=='name': v=name
         elif field=='tier': v=get_in(doc,'system.tier', get_in(doc,'identity.tier', 999))
+        elif field=='trait':
+            trait=publication_trait(family,doc)
+            # Missing Traits are deterministic but sort after populated Traits.
+            v=(1,'') if not _nonempty(trait) else (0,str(trait).casefold())
         elif field=='classification': v=_classification(doc) or ''
         elif field=='source-folder': v=folder
         elif field=='level-or-tier': v=get_in(doc,'system.level', get_in(doc,'system.tier',999))
@@ -240,8 +331,16 @@ def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[s
     name=doc.get('name') or get_in(doc,'identity.name')
     if not isinstance(name,str) or not name.strip(): raise ValueError(f'Entity {sid} has no name')
     sem=f'entity:{family}:{sid}'
+    warnings=collect_source_warnings(family,doc)
     lines=[f'### {clean_text(name)} {{#{sem} .rb-entity data-family="{family}" data-source-id="{sid}"}}','']
-    desc=clean_text(get_in(doc,'identity.description') or get_in(doc,'system.description') or get_in(doc,'system.description.value') or '')
+
+    identity_desc=get_in(doc,'identity.description')
+    system_desc=_system_description(doc)
+    raw_desc=identity_desc or system_desc or ''
+    if family in EQUIPMENT_TECH_FAMILIES and not identity_desc and _contains_block_html(system_desc):
+        desc=''
+    else:
+        desc=clean_text(raw_desc)
     if desc: lines += [desc,'']
 
     system=doc.get('system') if isinstance(doc.get('system'),dict) else {}
@@ -251,13 +350,13 @@ def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[s
         ('Classification', _classification(doc)),
         ('Difficulty', get_in(doc,'mechanics.difficulty') or system.get('difficulty')),
         ('Burden', system.get('burden')),
-        ('Trait', system.get('trait')),
+        ('Trait', publication_trait(family,doc)),
         ('Range', system.get('range')),
         ('Cost', system.get('cost') or system.get('price')),
     ]
     rows=[(a,b) for a,b in scalar_specs if _nonempty(b)]
     thresholds=system.get('damageThresholds') if isinstance(system.get('damageThresholds'),dict) else {}
-    for k in ('major','severe'): 
+    for k in ('major','severe'):
         if _nonempty(thresholds.get(k)): rows.append((f'{k.title()} Threshold',thresholds[k]))
     resources=system.get('resources') if isinstance(system.get('resources'),dict) else {}
     for key,label in (('hitPoints','HP'),('stress','Stress')):
@@ -291,12 +390,32 @@ def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[s
     if isinstance(attack,dict) and attack:
         lines += ['#### Attack','',render_attack(attack),'']
 
+    action_names=[]
+    critical_effect_names=[]
     actions=list(_iter_actions(system.get('actions')))
-    if actions:
+    if family == 'weapons':
+        ordinary=[]; critical=[]
+        for action in actions:
+            semantic_type,display_name=classify_action(family,action)
+            if semantic_type=='critical-effect':
+                critical.append((action,display_name)); critical_effect_names.append(display_name)
+            else:
+                ordinary.append((action,display_name)); action_names.append(display_name)
+        if ordinary:
+            lines += ['#### Actions','']
+            for action,display_name in ordinary:
+                lines += [render_action(action,'action',display_name),'']
+        if critical:
+            lines += ['#### Critical Effects','']
+            for action,display_name in critical:
+                lines += [render_action(action,'critical-effect',display_name),'']
+    elif actions:
         lines += ['#### Actions','']
-        for a in actions: lines += [render_action(a),'']
+        for action in actions:
+            lines += [render_action(action),'']
 
     # Item-family feature nodes.
+    weapon_feature_names=[]
     for feature_key in ('weaponFeatures','armorFeatures','features'):
         features=system.get(feature_key)
         vals=list(_iter_actions(features)) if isinstance(features,dict) else (features if isinstance(features,list) else [])
@@ -304,9 +423,17 @@ def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[s
             lines += [f'#### {feature_key.replace("Features"," Features").replace("weapon","Weapon").replace("armor","Armor").strip()}','']
             for f in vals:
                 if not isinstance(f,dict): continue
-                fname=f.get('name') or f.get('label') or 'Feature'
+                if family=='weapons' and feature_key=='weaponFeatures':
+                    fname=weapon_feature_name(f)
+                    feature_type='weapon-feature'
+                    weapon_feature_names.append(fname)
+                else:
+                    fname=f.get('name') or f.get('label') or f.get('value') or 'Feature'
+                    feature_type='feature'
                 rules=f.get('rules') or f.get('description') or get_in(f,'system.description') or get_in(f,'system.description.value') or ''
-                lines += [f'::: {{.feature}}\n**{clean_text(fname)}**\n\n{clean_text(rules)}\n:::','']
+                lines += [f'::: {{.feature data-feature-type="{feature_type}"}}',f'**{clean_text(fname)}**']
+                if rules: lines += ['',clean_text(rules)]
+                lines += [':::','']
 
     # Actor embedded feature items are the authoritative actor feature payload.
     embedded=doc.get('items')
@@ -333,10 +460,18 @@ def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[s
     metadata={
         'semanticId':sem,'sourceId':sid,'name':name,'family':family,
         'fastPlay':fast_meta,
+        'warnings':warnings,
         # Only images actually emitted into normalized reader content are
         # publication assets. Foundry image wiring is retained separately as
         # non-blocking runtime provenance.
         'assetRefs':collect_publication_asset_refs(rendered_markdown),
         'runtimeAssetRefs':collect_runtime_asset_refs(doc),
     }
+    if family=='weapons':
+        metadata['weaponSemantics']={
+            'trait':publication_trait(family,doc),
+            'weaponFeatures':weapon_feature_names,
+            'actions':action_names,
+            'criticalEffects':critical_effect_names,
+        }
     return rendered_markdown,metadata
