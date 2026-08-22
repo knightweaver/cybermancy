@@ -9,14 +9,17 @@ from rulebook_normalize.markdown import (
     segment_before_heading, segment_rules_index, drop_include_matching,
     mkdocs_admonitions_to_divs
 )
-from rulebook_normalize.structured import stable_id, semantic_entity_id, render_entity, is_foundry_folder
+from rulebook_normalize.structured import (
+    classify_action, collect_publication_asset_refs, collect_source_warnings,
+    is_foundry_folder, publication_trait, render_entity, semantic_entity_id,
+    source_sort_value, stable_id,
+)
 from rulebook_normalize.xrefs import audience_reference_allowed
 from rulebook_normalize.assemble import assemble_profile, GM_DIVIDER
 from rulebook_normalize.validate import tree_hash_manifest, sum_expected_family_counts
 from rulebook_normalize.snapshot import (
     STRUCTURED_DIGEST_ALGORITHM, structured_family_snapshot
 )
-from rulebook_normalize.structured import collect_publication_asset_refs
 
 class TestNormalization(unittest.TestCase):
     def test_player_index_segment(self):
@@ -96,6 +99,106 @@ class TestNormalization(unittest.TestCase):
         out = mkdocs_admonitions_to_divs(src)
         self.assertIn("::: {.admonition .note}", out)
         self.assertIn("Keep this.", out)
+
+
+class TestWeaponPublicationSemantics(unittest.TestCase):
+    @staticmethod
+    def _weapon(
+        *, source_id='W1', name='Test Weapon', trait='agility',
+        description='Plain description.', actions=None, weapon_features=None,
+    ):
+        roll = {} if trait is None else {'trait': trait}
+        return {
+            '_id': source_id,
+            'name': name,
+            'system': {
+                'tier': 1,
+                'description': description,
+                'attack': {'roll': roll},
+                'actions': {} if actions is None else actions,
+                'weaponFeatures': [] if weapon_features is None else weapon_features,
+            },
+        }
+
+    def test_weapon_trait_resolves_nested_attack_trait(self):
+        doc = self._weapon(trait='finesse')
+        self.assertEqual(publication_trait('weapons', doc), 'finesse')
+
+    def test_weapon_trait_sort_is_case_insensitive(self):
+        upper = self._weapon(source_id='A', name='Alpha', trait='Agility')
+        lower = self._weapon(source_id='B', name='Beta', trait='agility')
+        upper_key = source_sort_value('weapons', upper, 'a.json', ['tier', 'trait', 'name'])
+        lower_key = source_sort_value('weapons', lower, 'b.json', ['tier', 'trait', 'name'])
+        self.assertEqual(upper_key[1], (0, 'agility'))
+        self.assertEqual(lower_key[1], (0, 'agility'))
+
+    def test_missing_weapon_trait_sorts_last_and_warns(self):
+        present = self._weapon(source_id='A', name='Alpha', trait='strength')
+        missing = self._weapon(source_id='B', name='Beta', trait=None)
+        present_key = source_sort_value('weapons', present, 'a.json', ['tier', 'trait', 'name'])
+        missing_key = source_sort_value('weapons', missing, 'b.json', ['tier', 'trait', 'name'])
+        self.assertLess(present_key, missing_key)
+        codes = {w['code'] for w in collect_source_warnings('weapons', missing)}
+        self.assertIn('WEAPON_TRAIT_MISSING', codes)
+
+    def test_normal_weapon_action_is_explicit_action(self):
+        action = {'name': 'Smartlink', 'description': '<p>Reroll once.</p>'}
+        self.assertEqual(classify_action('weapons', action), ('action', 'Smartlink'))
+        doc = self._weapon(actions={'Smartlink': action})
+        md, meta = render_entity('weapons', doc, [])
+        self.assertIn('data-feature-type="action"', md)
+        self.assertIn('**Smartlink**', md)
+        self.assertEqual(meta['weaponSemantics']['actions'], ['Smartlink'])
+
+    def test_critical_effect_prefix_becomes_semantic_type_and_clean_name(self):
+        action = {'name': 'Critical Effect:  Pinpoint', 'description': '<p>Ignore cover.</p>'}
+        self.assertEqual(classify_action('weapons', action), ('critical-effect', 'Pinpoint'))
+        doc = self._weapon(actions={'Pinpoint': action})
+        md, meta = render_entity('weapons', doc, [])
+        self.assertIn('#### Critical Effects', md)
+        self.assertIn('data-feature-type="critical-effect"', md)
+        self.assertIn('**Pinpoint**', md)
+        self.assertNotIn('**Critical Effect:', md)
+        self.assertEqual(meta['weaponSemantics']['criticalEffects'], ['Pinpoint'])
+
+    def test_empty_actions_do_not_synthesize_mechanics(self):
+        doc = self._weapon(actions={})
+        md, meta = render_entity('weapons', doc, [])
+        self.assertNotIn('#### Actions', md)
+        self.assertNotIn('#### Critical Effects', md)
+        self.assertEqual(meta['weaponSemantics']['actions'], [])
+        self.assertEqual(meta['weaponSemantics']['criticalEffects'], [])
+
+    def test_weapon_feature_value_is_preserved_as_semantic_feature(self):
+        doc = self._weapon(weapon_features=[{'value': 'retractable'}])
+        md, meta = render_entity('weapons', doc, [])
+        self.assertIn('data-feature-type="weapon-feature"', md)
+        self.assertIn('**retractable**', md)
+        self.assertEqual(meta['weaponSemantics']['weaponFeatures'], ['retractable'])
+
+    def test_equipment_block_html_description_is_omitted_and_warned(self):
+        doc = self._weapon(description='<p>Legacy description.</p>')
+        md, meta = render_entity('weapons', doc, [])
+        self.assertNotIn('Legacy description.', md)
+        codes = {w['code'] for w in meta['warnings']}
+        self.assertIn('SOURCE_DESCRIPTION_HTML', codes)
+
+    def test_action_html_still_normalizes(self):
+        action = {'name': 'Smartlink', 'description': '<p>Reroll once.</p>'}
+        doc = self._weapon(actions={'Smartlink': action})
+        md, _ = render_entity('weapons', doc, [])
+        self.assertIn('Reroll once.', md)
+        self.assertNotIn('<p>', md)
+
+    def test_non_weapon_critical_effect_like_name_is_not_reclassified(self):
+        action = {'name': 'Critical Effect: Example', 'description': 'Text.'}
+        self.assertEqual(classify_action('features', action), ('action', 'Critical Effect: Example'))
+        doc = {'_id': 'F1', 'name': 'Feature', 'system': {'actions': {'Example': action}}}
+        md, _ = render_entity('features', doc, [])
+        self.assertIn('data-feature-type="action"', md)
+        self.assertIn('**Critical Effect: Example**', md)
+        self.assertNotIn('data-feature-type="critical-effect"', md)
+
 
 class TestManifestIntegration(unittest.TestCase):
     def _config(self):
