@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Character Sheet – Nox “Phantomware” Kade</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 1rem;
+    }
+    .character-sheet {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+    .sheet-header {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    .char-portrait {
+      width: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #eee;
+    }
+    .identity h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.6rem;
+    }
+    .identity .tags {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.25rem;
+    }
+    .identity .meta {
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr;
+      gap: 1rem;
+    }
+    .box {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+    }
+    .box h2 {
+      font-size: 1rem;
+      margin: 0 0 0.35rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.25rem;
+    }
+    .traits-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .traits-table th,
+    .traits-table td {
+      border: 1px solid #ddd;
+      padding: 0.2rem 0.4rem;
+      text-align: center;
+    }
+    .traits-table th {
+      background: #f0f0f0;
+    }
+    .list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+    .list li {
+      margin-bottom: 0.25rem;
+    }
+    .section {
+      margin-top: 1rem;
+    }
+    .section h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.35rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    .subsection-title {
+      font-weight: 600;
+      margin-top: 0.5rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    table.simple {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    table.simple th,
+    table.simple td {
+      border: 1px solid #ddd;
+      padding: 0.25rem 0.35rem;
+    }
+    table.simple th {
+      background: #c42929;
+      text-align: left;
+    }
+    .bio {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+<div class="character-sheet">
+
+  <!-- HEADER -->
+  <div class="sheet-header">
+    <img class="char-portrait" src="../../assets/images/npcs/nox-phantomware-kade.png" alt="Nox “Phantomware” Kade portrait" />
+
+    <div class="identity">
+      <h1>Nox “Phantomware” Kade</h1>
+
+      <div class="tags">
+        Heritage: Elf • Community: Underborne
+      </div>
+
+      <div class="tags">
+        Class: Netrunner • Subclass: Ghost in the Machine
+      </div>
+
+      <div class="meta">
+        Level 1 • Proficiency: +1
+        • Evasion: 0 • Armor: 0
+      </div>
+
+      <div class="meta">
+        HP: 0 / 0
+        • Stress: 0 / 6
+        • Hope: 2 / 6
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CORE TRAITS -->
+  <div class="grid-2">
+    <div class="box">
+      <h2>Traits</h2>
+      <table class="traits-table">
+        <tr>
+          <th>Strength</th>
+          <th>Agility</th>
+          <th>Finesse</th>
+          <th>Instinct</th>
+          <th>Presence</th>
+          <th>Knowledge</th>
+        </tr>
+        <tr>
+          <td>-1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h2>Defense & Resources</h2>
+
+      <div>
+        Major Threshold: 0 • Severe: 0
+      </div>
+
+      <div style="margin-top:0.25rem;">
+        Resistances:<br />
+        Physical: — • Magical: —
+      </div>
+
+      <div style="margin-top:0.5rem;">
+        Gold:
+        0 coins •
+        1 handfuls •
+        0 bags •
+        0 chests
+      </div>
+    </div>
+  </div>
+
+
+  <!-- EXPERIENCES -->
+  <div class="section">
+    <h2>Experiences</h2>
+    <ul class="list">
+      
+      <li><strong>Shadow Life</strong> (2): “Lived inside a corrupted training sim for three days after the power failed.”
+
+Applicable when you are operating from some place dark and quiet, even if only for a moment.</li>
+      
+      <li><strong>Fascinating...</strong> (2): "I once studies the evolving patterns in a game of life simulation for a week."
+
+Applicable when you are in a state of curiosity about something</li>
+      
+    </ul>
+  </div>
+
+
+  <!-- FEATURES -->
+  <div class="section">
+    <h2>Features</h2>
+
+    
+      <div class="subsection-title">Ancestry</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Celestial Trance</strong> – <p>During a rest, you can drop into a trance to choose an additional downtime move.</p>
+        </li>
+        
+        <li>
+          <strong>Quick Reactions</strong> – <p><strong>Mark a Stress</strong> to gain advantage on a reaction roll.</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Community</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Low-Light Living</strong> – <p>When you’re in an area with low light or heavy shadow, you have advantage on rolls to hide, investigate, or perceive details within that area.</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Class</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Reboot</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> to restore a Device, Cybernetic implant, or Drone. If the target item has Hit Points, it is returned to 1 Hit Point.</p>
+        </li>
+        
+        <li>
+          <strong>Hacking Insight</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> to convert a Hacking failure into a Hacking success on one Infiltrate or Control roll.</p>
+        </li>
+        
+        <li>
+          <strong>Digital Awareness</strong> – <p class="Card-Feature">Spotlight an Action to become aware of any digital signal within Very Close.</p><p><br /></p><p class="Card-Feature"><strong>Spend 1 Hope</strong> to extend the range to within Close.</p><p><br /></p><p class="Card-Feature"><strong>Mark 1 Stress</strong> to extend the range to within Far. This alerts you to the devices’ presence, type, and whether they are hardened or unharden-</p>
+        </li>
+        
+        <li>
+          <strong>Interference</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> to disrupt electronics within Close. Set a d4 to a value of 4 and decrement each time you take a Reaction to have one of the following effects:</p><ul><li>-2 to an enemy’s attack with electronic weapons (which are most weapons in Cybermancy),</li><li>-2 to Evasion for one drone or device within Close. This effect cannot target a non-synthetic entity or construct (even a cybernetically enhanced one).</li><li>-2 to a Reaction roll for a creature within Close.</li></ul>
+        </li>
+        
+        <li>
+          <strong>Quick hack</strong> – <p class="Card-Feature"><strong>Mark 1 Stress</strong> to gain Control of 1 unhardened device regardless of Tier or to make an Infiltration or a Control roll at +2.</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Subclass</div>
+      <ul class="list">
+        
+        <li>
+          <strong>I’ve seen this model before</strong> – <p><strong>Spend 1 Hope</strong> and make an Infiltration roll at +2.</p><p><br />On a result of:</p><ul><li>Succeed with Hope - You gain access to the Infiltration actions only and you leave a backdoor such that this device is at -2 Difficulty until your next rest (short or long) for all rolls, Infiltrate or Control.</li><li>Succeed with Fear – You gain access to the Infiltration actions only.</li><li>Fail with Hope – No access granted, but no increate in the System Alert level</li><li><p>Fail with Fear – No access granted, Increate the System Alert by 1.</p><p></p></li></ul>
+        </li>
+        
+        <li>
+          <strong>Don't worry, that was just a glitch</strong> – <p><span style="color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none">Once per Scene, </span><span style="box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial"><strong>Mark 1 Stress</strong></span><span style="color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none"> to reduce the System Alert level by 1.</span></p>
+        </li>
+        
+        <li>
+          <strong>Now you see me, now you don’t</strong> – <p>Once per Short Rest, after failing on an Infiltration roll, <strong>Mark 1 Stress</strong> to cause the ICE to react as if you had not made the Infiltration roll at all.</p>
+        </li>
+        
+        <li>
+          <strong>Become one with the Matrix</strong> – <p>Once per long rest, you delve so deeply, that you can almost see the System as a whole from the inside. Start a counter at your Tier level (which by the time you are at Mastery, will be a d8 or d10). While that counter is in effect:</p><ul><li><p>+6 on all Analyze rolls</p></li><li><p>+4 on all Infiltration rolls</p></li><li><p>+2 on all Control rolls</p></li><li><p>+d4 on all damage effects</p></li><li><p>Cybernetic devices can be targeted as if they were regular devices.</p></li></ul><p>Tick down the die by 1 for each Action you take.</p>
+        </li>
+        
+      </ul>
+    
+  </div>
+
+
+  <!-- DOMAINS -->
+  <div class="section">
+    <h2>Domain Abilities</h2>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Domain</th>
+          <th>Level</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>Pick and Pull</td>
+          <td>midnight</td>
+          <td>1</td>
+          <td><p class="Body-Foundation">You have advantage on action rolls to pick nonmagical locks, disarm nonmagical traps, or steal items from a target (either through stealth or by force).</p></td>
+        </tr>
+        
+        <tr>
+          <td>Quick Hack</td>
+          <td>circuit</td>
+          <td>1</td>
+          <td><i>“For when you don’t have time to be subtle… or alive.”</i><p class="Card-Feature">Once per Scene, when you trigger an ICE countermeasure or trace feature, you can <strong>Mark 1 Stress</strong> to use your Reaction against the Device difficulty to avoid the effect, or <strong>Mark 2 Stress</strong> to avoid it without a roll.</p></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- WEAPONS -->
+  <div class="section">
+    <h2>Weapons</h2>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Equipped</th>
+          <th>Trait & Range</th>
+          <th>Damage</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+        <tr>
+          <td>Light Semi-auto pistol</td>
+          <td>Yes</td>
+          <td>agility • close</td>
+          <td>d6 (physical)</td>
+          <td>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Vibro-Knife</td>
+          <td>No</td>
+          <td>agility • melee</td>
+          <td>d8+2 (physical)</td>
+          <td>
+            
+              <strong>Piercing</strong> – <p></p><p><span style="font-family: 'Bruno Ace'"><strong>Piercing:</strong></span></p><ul><li><p><span style="font-family: Montserrat, sans-serif">Ignores armor on a Hope critical.</span></p></li></ul><br />
+            
+              <strong>Critical Effect:  Silent Kill</strong> – <p></p><p><span style="font-family: 'Bruno Ace'"><strong>Critical Effect - Silent Kill:</strong></span></p><ul><li><p><span style="font-family: Montserrat, sans-serif">Disable one target silently with no alert escalation.</span></p></li></ul><br />
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- ARMOR & GEAR -->
+  <div class="section">
+    <h2>Armor & Gear</h2>
+
+    <div class="subsection-title">Armor</div>
+    <ul class="list">
+      
+      <li>
+        <strong>Impact-Padded Street Vest</strong>
+        (Equipped: Yes)<br />
+        Base: 3 • Major 5 • Severe 11<br />
+        A padded street vest with shock-absorbing gel plates—cheap insurance against fists, batons, and stray shrapnel.
+      </li>
+      
+    </ul>
+
+    <div class="subsection-title">Consumables</div>
+    <ul class="list">
+      
+    </ul>
+
+    <div class="subsection-title">Other Gear</div>
+    <ul class="list">
+      
+      <li>
+        <strong>Adrenaline Patch Geneartor Mk.1</strong> (x1)<br />
+        <p>As a downtime move, you can craft a Minor Adrenaline Patch. nanite payload delivers fast onset effects</p>
+      </li>
+      
+      <li>
+        <strong>Synth Premium Bedroll Key</strong> (x1)<br />
+        During downtime, you automatically clear a Stress. black-market tech favored by runners and fixers
+      </li>
+      
+    </ul>
+  </div>
+
+
+  <!-- BIOGRAPHY -->
+  <div class="section">
+    <h2>Background</h2>
+    <div class="bio">
+      <p>Background and motivation:</p><p><br data-start="56" data-end="59" />Born inside an abandoned research subnet left over from a failed OmniTrine neural-immersion project. Nox grew up half in the real world, half in deprecated architecture, learning to stabilize their own consciousness as it drifted between layers. Their motive is survival: their mind desyncs without constant digital anchor points, and shadowrunning gives them access to the systems that keep them stable.</p><p data-start="465" data-end="720"></p><p data-start="465" data-end="720"></p><p data-start="465" data-end="720">Something they know and are excited by:<br data-start="504" data-end="507" /></p><p data-start="465" data-end="720">They understand orphaned network strata—dead protocols, abandoned VR scaffolds, and “ghost loops” where data echoes long after deletion. Nox treats these as ecosystems and is fascinated by their emergent behavior.</p><p data-start="917" data-end="1127"></p><p data-start="917" data-end="1127"></p><p data-start="917" data-end="1127">Why they started shadowrunning:<br data-start="948" data-end="951" /></p><p data-start="917" data-end="1127">Running provides high-grade system access, rare network topologies, and paychecks large enough to buy stabilization gear. It also keeps corps from reclaiming them as stolen IP.</p><p data-start="1129" data-end="1362" data-is-last-node data-is-only-node>Why they joined this team:<br data-start="1155" data-end="1158" /></p><p data-start="1129" data-end="1362" data-is-last-node data-is-only-node>This team hits targets with complex device meshes—perfect environments for Nox to anchor their drifting consciousness. In return, Nox’s infiltration precision keeps the team’s operations clean and silent.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
