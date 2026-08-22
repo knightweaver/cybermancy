@@ -6,19 +6,20 @@ HERE = Path(__file__).resolve()
 sys.path.insert(0, str(HERE.parents[1]))
 
 from rulebook_normalize.markdown import (
-    segment_before_heading, segment_rules_index, drop_include_matching,
-    mkdocs_admonitions_to_divs
+    body_yaml_delimiter_ambiguities, drop_include_matching,
+    mkdocs_admonitions_to_divs, pandoc_safe_assembled_markdown,
+    rewrite_image_targets, segment_before_heading, segment_rules_index,
 )
-from rulebook_normalize.structured import (
-    classify_action, collect_publication_asset_refs, collect_source_warnings,
-    is_foundry_folder, publication_trait, render_entity, semantic_entity_id,
-    source_sort_value, stable_id,
-)
+from rulebook_normalize.structured import stable_id, semantic_entity_id, render_entity, is_foundry_folder
 from rulebook_normalize.xrefs import audience_reference_allowed
 from rulebook_normalize.assemble import assemble_profile, GM_DIVIDER
 from rulebook_normalize.validate import tree_hash_manifest, sum_expected_family_counts
 from rulebook_normalize.snapshot import (
     STRUCTURED_DIGEST_ALGORITHM, structured_family_snapshot
+)
+from rulebook_normalize.structured import collect_publication_asset_refs
+from rulebook_normalize.assets import (
+    publication_asset_path, publication_markdown_reference, stage_publication_asset,
 )
 
 class TestNormalization(unittest.TestCase):
@@ -99,106 +100,6 @@ class TestNormalization(unittest.TestCase):
         out = mkdocs_admonitions_to_divs(src)
         self.assertIn("::: {.admonition .note}", out)
         self.assertIn("Keep this.", out)
-
-
-class TestWeaponPublicationSemantics(unittest.TestCase):
-    @staticmethod
-    def _weapon(
-        *, source_id='W1', name='Test Weapon', trait='agility',
-        description='Plain description.', actions=None, weapon_features=None,
-    ):
-        roll = {} if trait is None else {'trait': trait}
-        return {
-            '_id': source_id,
-            'name': name,
-            'system': {
-                'tier': 1,
-                'description': description,
-                'attack': {'roll': roll},
-                'actions': {} if actions is None else actions,
-                'weaponFeatures': [] if weapon_features is None else weapon_features,
-            },
-        }
-
-    def test_weapon_trait_resolves_nested_attack_trait(self):
-        doc = self._weapon(trait='finesse')
-        self.assertEqual(publication_trait('weapons', doc), 'finesse')
-
-    def test_weapon_trait_sort_is_case_insensitive(self):
-        upper = self._weapon(source_id='A', name='Alpha', trait='Agility')
-        lower = self._weapon(source_id='B', name='Beta', trait='agility')
-        upper_key = source_sort_value('weapons', upper, 'a.json', ['tier', 'trait', 'name'])
-        lower_key = source_sort_value('weapons', lower, 'b.json', ['tier', 'trait', 'name'])
-        self.assertEqual(upper_key[1], (0, 'agility'))
-        self.assertEqual(lower_key[1], (0, 'agility'))
-
-    def test_missing_weapon_trait_sorts_last_and_warns(self):
-        present = self._weapon(source_id='A', name='Alpha', trait='strength')
-        missing = self._weapon(source_id='B', name='Beta', trait=None)
-        present_key = source_sort_value('weapons', present, 'a.json', ['tier', 'trait', 'name'])
-        missing_key = source_sort_value('weapons', missing, 'b.json', ['tier', 'trait', 'name'])
-        self.assertLess(present_key, missing_key)
-        codes = {w['code'] for w in collect_source_warnings('weapons', missing)}
-        self.assertIn('WEAPON_TRAIT_MISSING', codes)
-
-    def test_normal_weapon_action_is_explicit_action(self):
-        action = {'name': 'Smartlink', 'description': '<p>Reroll once.</p>'}
-        self.assertEqual(classify_action('weapons', action), ('action', 'Smartlink'))
-        doc = self._weapon(actions={'Smartlink': action})
-        md, meta = render_entity('weapons', doc, [])
-        self.assertIn('data-feature-type="action"', md)
-        self.assertIn('**Smartlink**', md)
-        self.assertEqual(meta['weaponSemantics']['actions'], ['Smartlink'])
-
-    def test_critical_effect_prefix_becomes_semantic_type_and_clean_name(self):
-        action = {'name': 'Critical Effect:  Pinpoint', 'description': '<p>Ignore cover.</p>'}
-        self.assertEqual(classify_action('weapons', action), ('critical-effect', 'Pinpoint'))
-        doc = self._weapon(actions={'Pinpoint': action})
-        md, meta = render_entity('weapons', doc, [])
-        self.assertIn('#### Critical Effects', md)
-        self.assertIn('data-feature-type="critical-effect"', md)
-        self.assertIn('**Pinpoint**', md)
-        self.assertNotIn('**Critical Effect:', md)
-        self.assertEqual(meta['weaponSemantics']['criticalEffects'], ['Pinpoint'])
-
-    def test_empty_actions_do_not_synthesize_mechanics(self):
-        doc = self._weapon(actions={})
-        md, meta = render_entity('weapons', doc, [])
-        self.assertNotIn('#### Actions', md)
-        self.assertNotIn('#### Critical Effects', md)
-        self.assertEqual(meta['weaponSemantics']['actions'], [])
-        self.assertEqual(meta['weaponSemantics']['criticalEffects'], [])
-
-    def test_weapon_feature_value_is_preserved_as_semantic_feature(self):
-        doc = self._weapon(weapon_features=[{'value': 'retractable'}])
-        md, meta = render_entity('weapons', doc, [])
-        self.assertIn('data-feature-type="weapon-feature"', md)
-        self.assertIn('**retractable**', md)
-        self.assertEqual(meta['weaponSemantics']['weaponFeatures'], ['retractable'])
-
-    def test_equipment_block_html_description_is_omitted_and_warned(self):
-        doc = self._weapon(description='<p>Legacy description.</p>')
-        md, meta = render_entity('weapons', doc, [])
-        self.assertNotIn('Legacy description.', md)
-        codes = {w['code'] for w in meta['warnings']}
-        self.assertIn('SOURCE_DESCRIPTION_HTML', codes)
-
-    def test_action_html_still_normalizes(self):
-        action = {'name': 'Smartlink', 'description': '<p>Reroll once.</p>'}
-        doc = self._weapon(actions={'Smartlink': action})
-        md, _ = render_entity('weapons', doc, [])
-        self.assertIn('Reroll once.', md)
-        self.assertNotIn('<p>', md)
-
-    def test_non_weapon_critical_effect_like_name_is_not_reclassified(self):
-        action = {'name': 'Critical Effect: Example', 'description': 'Text.'}
-        self.assertEqual(classify_action('features', action), ('action', 'Critical Effect: Example'))
-        doc = {'_id': 'F1', 'name': 'Feature', 'system': {'actions': {'Example': action}}}
-        md, _ = render_entity('features', doc, [])
-        self.assertIn('data-feature-type="action"', md)
-        self.assertIn('**Critical Effect: Example**', md)
-        self.assertNotIn('data-feature-type="critical-effect"', md)
-
 
 class TestManifestIntegration(unittest.TestCase):
     def _config(self):
@@ -339,6 +240,292 @@ class TestSnapshotAndAssets(unittest.TestCase):
         refs=collect_publication_asset_refs('Text\n\n![Art](assets/art/example.png)\n')
         self.assertEqual(refs,['assets/art/example.png'])
 
+
+class TestPandocAndPublicationAssets(unittest.TestCase):
+    def test_body_thematic_break_is_pandoc_safe(self):
+        src=(
+            '---\n'
+            'title: "Test"\n'
+            'profile: "player-guide"\n'
+            '---\n\n'
+            '# Chapter\n\n'
+            'Before.\n\n'
+            '---\n\n'
+            'After.\n'
+        )
+        out=pandoc_safe_assembled_markdown(src)
+        self.assertIn('\n***\n',out)
+        self.assertEqual(body_yaml_delimiter_ambiguities(out),[])
+        standalone=[line for line in out.splitlines() if line=='---']
+        self.assertEqual(len(standalone),2)
+
+    def test_rewrite_image_target_preserves_markdown_wrapper(self):
+        src='![Corp Logo](../assets/icons/corps/example.webp "Logo")\n'
+        out=rewrite_image_targets(src,{
+            '../assets/icons/corps/example.webp':'../assets/icons/corps/example-v2.webp'
+        })
+        self.assertEqual(out,'![Corp Logo](../assets/icons/corps/example-v2.webp "Logo")\n')
+
+    def test_publication_asset_path_uses_assets_tail(self):
+        rel=publication_asset_path('docs/player-facing/assets/images/rules/flashbacks.png')
+        self.assertEqual(rel,'assets/images/rules/flashbacks.png')
+        self.assertEqual(publication_markdown_reference(rel),'../assets/images/rules/flashbacks.png')
+
+    def test_staged_asset_resolves_from_assembled_profile(self):
+        from rulebook_normalize.pipeline import _validate_assembled_assets
+        from rulebook_normalize.validate import new_report
+
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            repo=root/'repo'; source=root/'build'/'rulebook'/'source'
+            original=repo/'docs'/'player-facing'/'assets'/'icons'/'corps'/'example.webp'
+            original.parent.mkdir(parents=True)
+            original.write_bytes(b'publication-art')
+
+            pub_rel='assets/icons/corps/example.webp'
+            staged=stage_publication_asset(
+                repo,'docs/player-facing/assets/icons/corps/example.webp',source,pub_rel
+            )
+            assembled=source/'assembled'/'player-guide.md'
+            assembled.parent.mkdir(parents=True)
+            assembled.write_text(
+                '---\ntitle: "Test"\n---\n\n![Logo](../assets/icons/corps/example.webp)\n',
+                encoding='utf-8'
+            )
+            report=new_report()
+            _validate_assembled_assets(
+                {'player-guide':assembled},source,{pub_rel:staged},report
+            )
+            codes={x['code']:x for x in report['checks']}
+            self.assertEqual(codes['ASSET_RESOLUTION']['status'],'PASS')
+            self.assertEqual(report['status'],'PASS')
+
+    def test_missing_assembled_asset_is_blocking(self):
+        from rulebook_normalize.pipeline import _validate_assembled_assets
+        from rulebook_normalize.validate import new_report
+
+        with tempfile.TemporaryDirectory() as td:
+            source=Path(td)/'source'
+            assembled=source/'assembled'/'player-guide.md'
+            assembled.parent.mkdir(parents=True)
+            assembled.write_text(
+                '---\ntitle: "Test"\n---\n\n![Logo](../assets/icons/missing.webp)\n',
+                encoding='utf-8'
+            )
+            report=new_report()
+            _validate_assembled_assets({'player-guide':assembled},source,{},report)
+            codes={x['code']:x for x in report['checks']}
+            self.assertEqual(codes['ASSET_RESOLUTION']['status'],'ERROR')
+            self.assertEqual(report['status'],'FAIL')
+
+
+    def test_full_materialization_is_self_contained_and_pandoc_safe(self):
+        import hashlib
+        from rulebook_normalize.pipeline import deterministic_build
+        from rulebook_normalize.validate import new_report
+
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            repo=root/'repo'; out=root/'rulebook'
+            authored=repo/'docs'/'player-facing'/'world'/'test.md'
+            authored.parent.mkdir(parents=True)
+            authored.write_text(
+                '# Test\n\n![Logo](../assets/icons/corps/example.webp)\n\n---\n\nAfter.\n',
+                encoding='utf-8'
+            )
+            asset=repo/'docs'/'player-facing'/'assets'/'icons'/'corps'/'example.webp'
+            asset.parent.mkdir(parents=True)
+            asset.write_bytes(b'logo')
+
+            family=repo/'src'/'packs'/'system'/'things'
+            family.mkdir(parents=True)
+            (family/'one.json').write_text(json.dumps({'_id':'A','name':'One'}),encoding='utf-8')
+            snap=structured_family_snapshot(repo,'src/packs/system/things')
+            authored_hash=hashlib.sha256(authored.read_bytes()).hexdigest()
+
+            pub={
+                'repository':{'gitCommit':'FROZEN'},
+                'publicationInputs':{
+                    'authoredDocuments':[{
+                        'path':'docs/player-facing/world/test.md','disposition':'INCLUDE',
+                        'decisionStatus':'DECIDED','sha256':authored_hash
+                    }],
+                    'structuredFamilies':[{
+                        'generatorFamily':'things','sourcePath':'src/packs/system/things',
+                        'entityCount':1,'disposition':'INCLUDE','decisionStatus':'DECIDED',
+                        'contentDigestAlgorithm':STRUCTURED_DIGEST_ALGORITHM,
+                        'contentDigestSha256':snap.digest_sha256
+                    }]
+                }
+            }
+            asm={
+                'authority':{'sourceCommit':'FROZEN'},
+                'authoredInputs':[{
+                    'assemblyInputId':'auth.test','path':'docs/player-facing/world/test.md',
+                    'placement':'ch1','audience':'player','title':'Test','assemblyMode':'whole-document'
+                }],
+                'structuredFamilies':[{
+                    'familyId':'things','sourcePath':'src/packs/system/things','entityCount':1,
+                    'audience':'player','title':'Things','sort':['name']
+                }],
+                'bookStructure':[
+                    {'id':'player-part','order':1,'title':'Player','audience':'player','chapters':[
+                        {'id':'ch1','number':1,'title':'Chapter','contentRefs':['auth.test','family:things']}
+                    ]},
+                    {'id':'gm-part','order':2,'title':'GM','audience':'gm','chapters':[]}
+                ],
+                'buildProfiles':[
+                    {'id':'complete-rulebook','title':'Complete','includeAudiences':['shared','player','gm']},
+                    {'id':'player-guide','title':'Player Guide','includeAudiences':['shared','player']}
+                ],
+                'gmDivider':{
+                    'beforePart':'gm-part','title':'GM MATERIAL — SPOILERS BEYOND THIS POINT',
+                    'requiredInCompleteBuild':True,'omittedInPlayerBuild':True
+                }
+            }
+            config={
+                'baseline':{'commit':'FROZEN','expectedLogicalEntities':1},
+                'manifestAdapter':{
+                    'publication':{
+                        'baselineCommitPointer':'/repository/gitCommit',
+                        'authoredIncludeRecordsPointer':'/publicationInputs/authoredDocuments',
+                        'structuredFamilyRecordsPointer':'/publicationInputs/structuredFamilies'
+                    },
+                    'assembly':{'sectionsPointer':'/bookStructure','profilesPointer':'/buildProfiles'}
+                },
+                'structured':{
+                    'familyDigestAlgorithm':STRUCTURED_DIGEST_ALGORITHM,
+                    'fastPlayCandidatePaths':['flags.cybermancy.fastPlay']
+                },
+                'assets':{'foundryRuntimeMappings':[]},
+                'semantics':{'gmDivider':'GM MATERIAL — SPOILERS BEYOND THIS POINT'},
+                'families':{'things':{'expected':1}}
+            }
+
+            report=deterministic_build(repo,out,pub,asm,config,new_report())
+            self.assertEqual(report['status'],'PASS',report)
+            player=(out/'source'/'assembled'/'player-guide.md').read_text(encoding='utf-8')
+            self.assertIn('![Logo](../assets/icons/corps/example.webp)',player)
+            self.assertIn('\n***\n',player)
+            self.assertEqual(body_yaml_delimiter_ambiguities(player),[])
+            self.assertTrue((out/'source'/'assets'/'icons'/'corps'/'example.webp').is_file())
+            codes={x['code']:x for x in report['checks']}
+            self.assertEqual(codes['BODY_YAML_DELIMITER_AMBIGUITY']['status'],'PASS')
+            self.assertEqual(codes['ASSET_RESOLUTION']['status'],'PASS')
+            self.assertEqual(codes['ASSET_TREE_DETERMINISM']['status'],'PASS')
+            self.assertEqual(codes['DETERMINISM']['status'],'PASS')
+
+
+class TestSourceCorpusGovernance(unittest.TestCase):
+    def _config(self):
+        return {
+            'baseline': {'commit':'FROZEN','expectedLogicalEntities':1},
+            'families': {'things': {'expected':1}},
+            'manifestAdapter': {
+                'publication': {
+                    'baselineCommitPointer':'/repository/gitCommit',
+                    'authoredIncludeRecordsPointer':'/publicationInputs/authoredDocuments',
+                    'structuredFamilyRecordsPointer':'/publicationInputs/structuredFamilies'
+                },
+                'assembly': {'sectionsPointer':'/bookStructure','profilesPointer':'/buildProfiles'}
+            },
+            'semantics': {'gmDivider':'GM MATERIAL — SPOILERS BEYOND THIS POINT'},
+            'structured': {'familyDigestAlgorithm': STRUCTURED_DIGEST_ALGORITHM}
+        }
+
+    def _fixture(self, root):
+        import hashlib
+        authored=root/'rules.md'
+        authored.write_text('# Rules\nFrozen.\n',encoding='utf-8')
+        authored_hash=hashlib.sha256(authored.read_bytes()).hexdigest()
+
+        fam=root/'src'/'packs'/'system'/'things'
+        fam.mkdir(parents=True)
+        entity=fam/'one.json'
+        entity.write_text(json.dumps({'_id':'A','name':'One'}),encoding='utf-8')
+        snap=structured_family_snapshot(root,'src/packs/system/things')
+
+        pub={
+            'repository':{'gitCommit':'FROZEN'},
+            'publicationInputs':{
+                'authoredDocuments':[{
+                    'path':'rules.md','disposition':'INCLUDE','decisionStatus':'DECIDED',
+                    'sha256':authored_hash
+                }],
+                'structuredFamilies':[{
+                    'generatorFamily':'things','sourcePath':'src/packs/system/things',
+                    'entityCount':1,'disposition':'INCLUDE','decisionStatus':'DECIDED',
+                    'contentDigestAlgorithm':STRUCTURED_DIGEST_ALGORITHM,
+                    'contentDigestSha256':snap.digest_sha256
+                }]
+            }
+        }
+        asm={
+            'authority':{'sourceCommit':'FROZEN'},
+            'authoredInputs':[{'assemblyInputId':'auth.rules','path':'rules.md'}],
+            'structuredFamilies':[{'familyId':'things','sourcePath':'src/packs/system/things','entityCount':1}],
+        }
+        return pub,asm,authored,entity
+
+    def test_head_advance_is_info_when_canonical_sources_match(self):
+        from unittest.mock import patch
+        from rulebook_normalize.pipeline import repository_preflight
+        from rulebook_normalize.validate import new_report
+
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            (root/'.git').mkdir()
+            pub,asm,_authored,_entity=self._fixture(root)
+            report=new_report()
+            with patch('rulebook_normalize.pipeline.subprocess.check_output',return_value='TOOLING-COMMIT\n'):
+                repository_preflight(root,pub,asm,self._config(),report)
+
+            codes={x['code']:x for x in report['checks']}
+            self.assertEqual(report['status'],'PASS')
+            self.assertEqual(codes['REPOSITORY_HEAD']['status'],'INFO')
+            self.assertFalse(codes['REPOSITORY_HEAD']['details']['headMatchesFrozenSourceCommit'])
+            self.assertEqual(codes['STRUCTURED_SOURCE_SNAPSHOT']['status'],'PASS')
+            self.assertEqual(codes['SOURCE_CORPUS_INTEGRITY']['status'],'PASS')
+
+    def test_head_match_remains_pass(self):
+        from unittest.mock import patch
+        from rulebook_normalize.pipeline import repository_preflight
+        from rulebook_normalize.validate import new_report
+
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            (root/'.git').mkdir()
+            pub,asm,_authored,_entity=self._fixture(root)
+            report=new_report()
+            with patch('rulebook_normalize.pipeline.subprocess.check_output',return_value='FROZEN\n'):
+                repository_preflight(root,pub,asm,self._config(),report)
+
+            codes={x['code']:x for x in report['checks']}
+            self.assertEqual(report['status'],'PASS')
+            self.assertEqual(codes['REPOSITORY_HEAD']['status'],'PASS')
+            self.assertEqual(codes['SOURCE_CORPUS_INTEGRITY']['status'],'PASS')
+
+    def test_structured_drift_still_blocks_after_head_advance(self):
+        from unittest.mock import patch
+        from rulebook_normalize.pipeline import repository_preflight
+        from rulebook_normalize.validate import new_report
+
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            (root/'.git').mkdir()
+            pub,asm,_authored,entity=self._fixture(root)
+            # Change canonical structured content after the frozen manifest snapshot.
+            entity.write_text(json.dumps({'_id':'A','name':'One','system':{'changed':True}}),encoding='utf-8')
+
+            report=new_report()
+            with patch('rulebook_normalize.pipeline.subprocess.check_output',return_value='TOOLING-COMMIT\n'):
+                repository_preflight(root,pub,asm,self._config(),report)
+
+            codes={x['code']:x for x in report['checks']}
+            self.assertEqual(codes['REPOSITORY_HEAD']['status'],'INFO')
+            self.assertEqual(codes['STRUCTURED_FAMILY_DIGEST']['status'],'ERROR')
+            self.assertEqual(codes['SOURCE_CORPUS_INTEGRITY']['status'],'ERROR')
+            self.assertEqual(report['status'],'FAIL')
 
 if __name__ == "__main__":
     unittest.main()

@@ -9,12 +9,19 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 from urllib.parse import unquote
 
-from .assets import map_asset_reference, sha256_file, stage_repo_asset
+from .assets import (
+    is_remote_asset_reference, map_asset_reference, publication_asset_path,
+    publication_markdown_reference, sha256_file, stage_publication_asset,
+    strip_query_fragment,
+)
 from .manifest import (
     publication_views, assembly_views, pub_authored_by_path, pub_families_by_id,
     asm_authored_by_path, asm_families_by_id, flatten_chapters
 )
-from .markdown import normalize_authored_markdown, extract_images
+from .markdown import (
+    body_yaml_delimiter_ambiguities, extract_images, normalize_authored_markdown,
+    pandoc_safe_assembled_markdown, rewrite_image_targets,
+)
 from .structured import render_entity, source_sort_value, stable_id
 from .snapshot import (
     STRUCTURED_DIGEST_ALGORITHM, SnapshotError, structured_family_snapshot
@@ -374,18 +381,146 @@ def _generated_link_candidates(pub_rec: dict, asm_rec: dict, entity: dict, sourc
     return cands
 
 
-def _resolve_authored_image(source_repo_path: str, target: str)->str|None:
-    target=unquote(target)
-    if target.startswith(('http://','https://','data:','icons/')): return None
-    if target.startswith(('modules/','worlds/')): return target
+def _resolve_source_image(source_repo_path: str, target: str) -> str | None:
+    """Resolve a local image target to a repository-relative source path."""
+    target=unquote(strip_query_fragment(target))
+    if is_remote_asset_reference(target):
+        return None
+    if target.startswith(('modules/','worlds/','icons/')):
+        return target.lstrip('/')
+    if target.startswith('/'):
+        return target.lstrip('/')
     base=PurePosixPath(source_repo_path).parent
     parts=[]
-    for p in (base/PurePosixPath(target)).parts:
-        if p=='.': continue
-        if p=='..':
-            if parts: parts.pop()
-        else: parts.append(p)
+    for part in (base/PurePosixPath(target)).parts:
+        if part in ('','.'): continue
+        if part=='..':
+            if not parts:
+                raise ValueError(f'Asset reference escapes repository root: {source_repo_path}: {target}')
+            parts.pop()
+        else:
+            parts.append(part)
     return '/'.join(parts)
+
+
+def _publicationize_images(
+    text: str,
+    source_repo_path: str,
+    mappings: list[dict],
+    assets: list[dict],
+    **context,
+) -> str:
+    """Rewrite reader-visible image targets to source/assembled-relative assets."""
+    replacements={}
+    for target in sorted(set(extract_images(text))):
+        if is_remote_asset_reference(target):
+            continue
+        resolved=_resolve_source_image(source_repo_path,target)
+        if resolved is None:
+            continue
+        mapped=map_asset_reference(resolved,mappings)
+        if mapped is None:
+            continue
+        publication_rel=publication_asset_path(mapped)
+        publication_ref=publication_markdown_reference(publication_rel)
+        replacements[target]=publication_ref
+        assets.append({
+            **context,
+            'sourcePath':source_repo_path,
+            'sourceReference':target,
+            'reference':mapped,
+            'publicationPath':publication_rel,
+            'publicationReference':publication_ref,
+        })
+    return rewrite_image_targets(text,replacements)
+
+
+def _stage_publication_assets(repo_root: Path, source_root: Path, assets: list[dict], report: dict) -> dict[str,dict]:
+    """Stage all publication-visible local assets into source/assets/."""
+    registry={}
+    collisions=[]
+    missing=[]
+
+    for item in assets:
+        publication_rel=item.get('publicationPath')
+        repo_rel=item.get('reference')
+        if not publication_rel or not repo_rel:
+            continue
+        existing=registry.get(publication_rel)
+        if existing and existing['source']!=repo_rel:
+            a=repo_root/existing['source']; b=repo_root/repo_rel
+            if a.is_file() and b.is_file() and sha256_file(a)==sha256_file(b):
+                item.update({k:v for k,v in existing.items() if k!='source'})
+                item['status']='staged-alias'
+                item['aliasedToSource']=existing['source']
+                continue
+            collisions.append({
+                'publicationPath':publication_rel,
+                'firstSource':existing['source'],
+                'secondSource':repo_rel,
+            })
+            item['status']='collision'
+            continue
+
+        if existing is None:
+            staged=stage_publication_asset(repo_root,repo_rel,source_root,publication_rel)
+            registry[publication_rel]=staged
+        else:
+            staged=existing
+        item.update({k:v for k,v in staged.items() if k!='source'})
+        item['sourceRepoPath']=repo_rel
+        if staged.get('status')=='missing':
+            missing.append({'source':repo_rel,'publicationPath':publication_rel})
+
+    if collisions:
+        add_check(report,'PUBLICATION_ASSET_COLLISION','ERROR',
+                  'Multiple different source assets map to the same normalized publication path.',collisions)
+    else:
+        add_check(report,'PUBLICATION_ASSET_COLLISION','PASS',
+                  'No conflicting publication asset paths were detected.')
+
+    if missing:
+        add_check(report,'ASSET_STAGING','ERROR',
+                  f'{len(missing)} publication-visible repository assets could not be staged.',missing[:200])
+    else:
+        staged_count=sum(1 for v in registry.values() if v.get('status')=='staged')
+        add_check(report,'ASSET_STAGING','PASS',
+                  f'{staged_count} unique publication assets staged inside build/rulebook/source/assets/.')
+    return registry
+
+
+def _validate_assembled_assets(profile_outputs: dict[str,Path], source_root: Path, registry: dict[str,dict], report: dict) -> None:
+    """Require every local assembled image to resolve inside the Step 4 corpus."""
+    problems=[]; refs=[]
+    source_abs=source_root.resolve()
+    for profile_id,path in sorted(profile_outputs.items()):
+        for target in extract_images(path.read_text(encoding='utf-8')):
+            if is_remote_asset_reference(target):
+                continue
+            local=unquote(strip_query_fragment(target))
+            candidate=(path.parent/local).resolve()
+            if source_abs not in candidate.parents and candidate!=source_abs:
+                problems.append({'profile':profile_id,'reference':target,'issue':'escapes-source-root'})
+                continue
+            rel=candidate.relative_to(source_root).as_posix()
+            refs.append({'profile':profile_id,'reference':target,'resolvedPath':rel})
+            if not candidate.is_file():
+                problems.append({'profile':profile_id,'reference':target,'resolvedPath':rel,'issue':'missing'})
+                continue
+            provenance=registry.get(rel)
+            if provenance is None:
+                problems.append({'profile':profile_id,'reference':target,'resolvedPath':rel,'issue':'no-staging-provenance'})
+                continue
+            if provenance.get('sha256')!=sha256_file(candidate):
+                problems.append({'profile':profile_id,'reference':target,'resolvedPath':rel,'issue':'staged-hash-mismatch'})
+
+    if problems:
+        add_check(report,'ASSET_RESOLUTION','ERROR',
+                  f'{len(problems)} local image references in assembled profiles are not self-contained.',problems[:200])
+    else:
+        add_check(report,'ASSET_RESOLUTION','PASS',
+                  f'{len(refs)} local image references across assembled profiles resolve inside build/rulebook/source/.',
+                  {'localReferences':len(refs),'uniqueStagedAssets':len(registry)})
 
 
 def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: dict, base_report: dict | None=None) -> dict:
@@ -399,6 +534,7 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
 
     provenance=[]; source_hashes=[]; semantic_targets=[]; assets=[]; runtime_assets=[]; references=[]
     content_by_ref={}; target_audience={}; generated_link_targets={}
+    asset_mappings=config.get('assets',{}).get('foundryRuntimeMappings',[])
 
     # Structured families first so legacy links from authored docs can resolve to entity semantic IDs.
     for fid,arec in asm_fam.items():
@@ -430,6 +566,10 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
             except Exception as e:
                 add_check(report,'STRUCTURED_RENDER','ERROR',f'{p.relative_to(repo_root).as_posix()}: {e}'); continue
             metadata['sourcePath']=p.relative_to(repo_root).as_posix(); metadata['audience']=arec['audience']
+            md=_publicationize_images(
+                md,metadata['sourcePath'],asset_mappings,assets,
+                sourceEntity=metadata['semanticId'],kind='structured-publication'
+            )
             entity_out=generated_root/fid/f'{idx:04d}-{metadata["sourceId"]}.md'; _write_text(entity_out,md)
             family_chunks += [md.rstrip(),'']
             semantic_targets.append({'semanticId':metadata['semanticId'],'kind':'entity','audience':arec['audience'],'title':metadata['name'],'family':fid,'sourceId':metadata['sourceId']}); target_audience[metadata['semanticId']]=arec['audience']
@@ -439,8 +579,6 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
                 if cand in generated_link_targets and generated_link_targets[cand]!=metadata['semanticId']:
                     generated_link_targets[cand]='__AMBIGUOUS__'
                 else: generated_link_targets[cand]=metadata['semanticId']
-            for ref in metadata.get('assetRefs',[]):
-                assets.append({'reference':ref,'sourceEntity':metadata['semanticId'],'kind':'structured-publication'})
             for ref in metadata.get('runtimeAssetRefs',[]):
                 runtime_assets.append({'reference':ref,'sourceEntity':metadata['semanticId'],'kind':'foundry-runtime','status':'metadata-only'})
         family_chunks.append(':::')
@@ -462,26 +600,15 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
         except Exception as e:
             add_check(report,'AUTHORED_NORMALIZE','ERROR',f'{path}: {e}'); continue
         norm,refs=rewrite_internal_links(norm,path,path_targets,generated_link_targets); references.extend(refs)
-        for img in extract_images(norm):
-            resolved=_resolve_authored_image(path,img)
-            if resolved: assets.append({'reference':resolved,'sourcePath':path,'kind':'authored'})
+        norm=_publicationize_images(norm,path,asset_mappings,assets,kind='authored')
         out=authored_root/f'{arec["assemblyInputId"].replace(".","-")}.md'; _write_text(out,norm)
         sem=f"section:{arec['placement']}"; target_audience[sem]=arec['audience']
         content_by_ref[arec['assemblyInputId']]={'markdown':norm,'audience':arec['audience'],'semanticId':sem,'title':arec['title']}
         provenance.append({'kind':'authored','assemblyInputId':arec['assemblyInputId'],'sourcePath':path,'sourceSha256':sha256_file(src),'sourceCommit':pub_commit,'semanticId':sem,'outputPath':out.relative_to(outroot).as_posix(),'outputSha256':sha256_file(out),'assemblyMode':arec.get('assemblyMode')})
         source_hashes.append({'path':path,'sha256':sha256_file(src)})
 
-    # Stage unique repo-backed assets.
-    staged={}; mappings=config.get('assets',{}).get('foundryRuntimeMappings',[]); staging=outroot/'assets'/'repo'
-    for item in assets:
-        mapped=map_asset_reference(item['reference'],mappings)
-        if mapped is None:
-            item['status']='external-or-base-system'; continue
-        if mapped not in staged: staged[mapped]=stage_repo_asset(repo_root,mapped,staging)
-        item['mappedRepoPath']=mapped; item.update({k:v for k,v in staged[mapped].items() if k!='source'})
-    missing_assets=sorted({x.get('mappedRepoPath') for x in assets if x.get('status')=='missing' and x.get('mappedRepoPath')})
-    if missing_assets: add_check(report,'ASSET_RESOLUTION','ERROR',f'{len(missing_assets)} referenced repository assets are unresolved.',missing_assets[:200])
-    else: add_check(report,'ASSET_RESOLUTION','PASS',f'{sum(1 for v in staged.values() if v.get("status")=="staged")} unique repository assets staged.')
+    # Stage every reader-visible local asset into the self-contained Step 4 source corpus.
+    staged_assets=_stage_publication_assets(repo_root,source_root,assets,report)
 
     unresolved=[r for r in references if not r.get('resolved')]
     if unresolved: add_check(report,'CROSS_REFERENCE_RESOLUTION','ERROR',f'{len(unresolved)} local Markdown links did not resolve to stable semantic targets.',unresolved[:200])
@@ -523,7 +650,34 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
                     if node['audience'] not in include:
                         add_check(report,'ASSEMBLY_AUDIENCE_MISMATCH','ERROR',f'{ch["id"]}: {ref} audience {node["audience"]} not allowed in {pid}.'); continue
                     chunks += [node['markdown'].rstrip(),'']
-        text='\n'.join(chunks).rstrip()+'\n'; out=assembled_root/f'{pid}.md'; _write_text(out,text); profile_outputs[pid]=out
+        raw_text='\n'.join(chunks).rstrip()+'\n'
+        try:
+            text=pandoc_safe_assembled_markdown(raw_text)
+        except Exception as e:
+            add_check(report,'BODY_YAML_DELIMITER_AMBIGUITY','ERROR',f'{pid}: could not sanitize assembled YAML/thematic-break boundaries: {e}')
+            text=raw_text
+        out=assembled_root/f'{pid}.md'; _write_text(out,text); profile_outputs[pid]=out
+
+    yaml_problems=[]
+    for profile_id,path in sorted(profile_outputs.items()):
+        txt=path.read_text(encoding='utf-8')
+        ambiguous=body_yaml_delimiter_ambiguities(txt)
+        standalone=[i for i,line in enumerate(txt.splitlines(),start=1) if line.strip()=='---' and not line.startswith((' ','\t'))]
+        if ambiguous or len(standalone)!=2:
+            yaml_problems.append({
+                'profile':profile_id,
+                'ambiguousBodyLines':ambiguous,
+                'standaloneDelimiterLines':standalone,
+                'expectedStandaloneDelimiterCount':2,
+            })
+    if yaml_problems:
+        add_check(report,'BODY_YAML_DELIMITER_AMBIGUITY','ERROR',
+                  'Assembled profiles contain standalone body --- delimiters that may be parsed as YAML metadata.',yaml_problems)
+    else:
+        add_check(report,'BODY_YAML_DELIMITER_AMBIGUITY','PASS',
+                  'Each assembled profile contains only its two opening YAML metadata delimiters; body thematic breaks are Pandoc-safe.')
+
+    _validate_assembled_assets(profile_outputs,source_root,staged_assets,report)
 
     complete=profile_outputs.get('complete-rulebook'); player=profile_outputs.get('player-guide')
     if complete:
@@ -570,6 +724,9 @@ def deterministic_build(repo_root: Path,outroot: Path,pub: dict,asm: dict,config
         report2=materialize(repo_root,second,pub,asm,config,base_report)
         # validation.json should itself be deterministic; all metadata paths are output-relative.
         same=tree_hash_manifest(outroot)==tree_hash_manifest(second)
+        asset_same=tree_hash_manifest(outroot/'source'/'assets')==tree_hash_manifest(second/'source'/'assets')
+    add_check(report,'ASSET_TREE_DETERMINISM','PASS' if asset_same and report2['status']=='PASS' else 'ERROR',
+              'Two clean materializations produce byte-identical publication asset trees.' if asset_same else 'Publication asset tree differed between clean materializations.')
     add_check(report,'DETERMINISM','PASS' if same and report2['status']=='PASS' else 'ERROR','Two clean materializations are byte-identical.' if same else 'Second clean materialization differed from the first.')
     _write_json(outroot/'source'/'metadata'/'validation.json',report)
     return report

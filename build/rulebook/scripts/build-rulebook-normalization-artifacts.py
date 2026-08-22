@@ -43,7 +43,7 @@ from pathlib import Path
 from typing import Any
 
 
-SCRIPT_VERSION = "1.1.0"
+SCRIPT_VERSION = "1.2.0"
 
 SCRIPT_PATH = Path(__file__).resolve()
 SCRIPT_DIR = SCRIPT_PATH.parent
@@ -422,7 +422,9 @@ def build_config(
             "gmDivider": divider_title,
         },
         "assets": {
-            "stagingRoot": "build/rulebook/assets/repo",
+            "stagingRoot": "build/rulebook/source/assets",
+            "assembledReferenceBase": "build/rulebook/source/assembled",
+            "selfContainedPublicationCorpus": True,
             "runtimeAssetPolicy": "metadata-only-unless-rendered",
             "ambiguousBasenameFallback": False,
             "foundryRuntimeMappings": [
@@ -439,6 +441,9 @@ def build_config(
             "duplicateSemanticId": "error",
             "orderingAuthorityMissing": "error",
             "determinism": "error",
+            "bodyYamlDelimiterAmbiguity": "error",
+            "assembledAssetResolution": "error",
+            "assetTreeDeterminism": "error",
         },
     }
 
@@ -604,6 +609,10 @@ build/rulebook/
     ├── assembled/
     │   ├── complete-rulebook.md
     │   └── player-guide.md
+    ├── assets/
+    │   ├── icons/
+    │   ├── images/
+    │   └── repository/        # fallback for reader-visible assets outside repo assets/ trees
     └── metadata/
         ├── provenance.json
         ├── semantic-targets.json
@@ -722,13 +731,19 @@ Special opener/front-matter routing declared by Step 3:
 
 Step 4 distinguishes publication assets from Foundry/runtime references.
 
-- Assets actually emitted into normalized Markdown must resolve and be staged.
+- Assets actually emitted into normalized Markdown must resolve and be staged under `build/rulebook/source/assets/`.
+- Local image targets are rewritten deterministically to publication-relative paths that resolve from `source/assembled/*.md` without consulting upstream source trees.
 - Structured entity art deliberately selected for publication must resolve and be staged.
 - Foundry runtime/action/token/embedded-feature image references that are not rendered in the book may be retained in metadata without becoming publication blockers.
-- Base-system/external assets are not copied unless the assembly explicitly requires them.
-- Basename-only fallback is prohibited when ambiguous.
+- Remote HTTP(S)/data assets remain external; any non-remote image emitted into an assembled profile is a local publication dependency and must resolve inside `build/rulebook/source/`.
+- Every staged publication asset must retain source-path and SHA-256 provenance.
+- Basename-only fallback is prohibited when ambiguous; conflicting sources mapping to the same publication path are errors.
 
-Unresolved publication-visible assets are errors.
+Unresolved publication-visible assets are errors. The Step 4 publication corpus must be self-contained for Step 5.
+
+## 10.1 Pandoc-safe thematic breaks
+
+Assembled profiles begin with one YAML metadata block delimited by standalone `---` lines. After that opening block, standalone body `---` thematic breaks are normalized to `***` so Pandoc cannot misinterpret them as a second YAML metadata block. Canonical authored prose is not edited; this is a deterministic publication-normalization transform.
 
 ## 11. Cross-references
 
@@ -751,7 +766,9 @@ A successful Step 4 build must validate at minimum:
 - semantic IDs are unique;
 - cross-references resolve within audience/profile constraints;
 - Fast Play remains separately identifiable and GM-only;
-- publication-visible assets resolve;
+- publication-visible assets resolve inside `build/rulebook/source/` and retain source provenance;
+- each assembled profile contains no Pandoc-ambiguous body `---` YAML delimiters;
+- the staged publication asset tree is deterministic across clean materializations;
 - complete and player profiles are generated from the same normalized corpus;
 - the GM divider contract is satisfied;
 - a second clean build is byte-for-byte deterministic.

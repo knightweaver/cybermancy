@@ -247,3 +247,101 @@ def extract_links(text: str) -> list[str]:
 
 def extract_images(text: str) -> list[str]:
     return [m.group('target') for m in IMAGE_RE.finditer(text)]
+
+
+def rewrite_image_targets(text: str, replacements: dict[str, str]) -> str:
+    """Rewrite only Markdown image target substrings, preserving alt/title text."""
+    if not replacements:
+        return text
+
+    def repl(m):
+        old = m.group('target')
+        new = replacements.get(old)
+        if new is None or new == old:
+            return m.group(0)
+        whole = m.group(0)
+        start = m.start('target') - m.start(0)
+        end = m.end('target') - m.start(0)
+        return whole[:start] + new + whole[end:]
+
+    return IMAGE_RE.sub(repl, text)
+
+
+def pandoc_safe_assembled_markdown(text: str) -> str:
+    """Replace body ``---`` thematic breaks while preserving opening YAML.
+
+    Pandoc treats a standalone ``---`` at column zero as a possible YAML block
+    delimiter. Assembled profiles deliberately begin with one YAML metadata
+    block, so only its opening and closing delimiters are retained. Subsequent
+    standalone body ``---`` lines outside fenced code blocks become ``***``.
+    """
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != '---':
+        raise ValueError('Assembled manuscript does not begin with YAML metadata delimiter.')
+
+    closing = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == '---' and not lines[i].startswith((' ', '\t')):
+            closing = i
+            break
+    if closing is None:
+        raise ValueError('Assembled manuscript YAML metadata block is not closed.')
+
+    out = list(lines[:closing + 1])
+    fence_char = None
+    fence_len = 0
+    fence_re = re.compile(r'^\s*(`{3,}|~{3,})')
+
+    for line in lines[closing + 1:]:
+        fm = fence_re.match(line)
+        if fm:
+            marker = fm.group(1)
+            if fence_char is None:
+                fence_char = marker[0]
+                fence_len = len(marker)
+            elif marker[0] == fence_char and len(marker) >= fence_len:
+                fence_char = None
+                fence_len = 0
+            out.append(line)
+            continue
+
+        if fence_char is None and re.fullmatch(r'---[ \t]*', line):
+            out.append('***')
+        else:
+            out.append(line)
+
+    return '\n'.join(out) + ('\n' if text.endswith('\n') else '')
+
+
+def body_yaml_delimiter_ambiguities(text: str) -> list[int]:
+    """Return 1-based body line numbers containing Pandoc-ambiguous ``---``."""
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != '---':
+        return [1]
+
+    closing = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == '---' and not lines[i].startswith((' ', '\t')):
+            closing = i
+            break
+    if closing is None:
+        return [1]
+
+    ambiguous = []
+    fence_char = None
+    fence_len = 0
+    fence_re = re.compile(r'^\s*(`{3,}|~{3,})')
+    for i, line in enumerate(lines[closing + 1:], start=closing + 2):
+        fm = fence_re.match(line)
+        if fm:
+            marker = fm.group(1)
+            if fence_char is None:
+                fence_char = marker[0]
+                fence_len = len(marker)
+            elif marker[0] == fence_char and len(marker) >= fence_len:
+                fence_char = None
+                fence_len = 0
+            continue
+        if fence_char is None and re.fullmatch(r'---[ \t]*', line):
+            ambiguous.append(i)
+    return ambiguous

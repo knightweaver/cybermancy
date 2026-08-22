@@ -1,129 +1,229 @@
-# Cybermancy Rulebook Step 4 — r4 Script Update
+# Cybermancy Rulebook Step 4 — r4.2 Post-Acceptance Publication-Safety Fixes
 
-This package addresses the two blockers exposed by the v1.4 Step 4 build:
+This package contains two targeted Step 4 fixes exposed by the first real Step 5 PDF prototype:
 
-1. **Structured-family digest divergence** between the Step 2 publication-manifest generator and Step 4 normalizer.
-2. **Foundry runtime artwork incorrectly treated as publication-required assets.**
+1. Pandoc-safe body thematic breaks.
+2. Self-contained Step 4 publication asset staging.
 
-## Install location
+Step 4 source authority, assembly architecture, audience routing, semantic IDs,
+structured-family reconciliation, digest v2 governance, HEAD/source-corpus policy,
+and deterministic materialization are unchanged.
+
+## Fix 1 — Pandoc-safe body thematic breaks
+
+Assembled profiles still begin with their normal YAML metadata block:
+
+```markdown
+---
+title: "..."
+profile: "..."
+source-commit: "..."
+---
+```
+
+After that block, standalone body thematic breaks written as:
+
+```markdown
+---
+```
+
+are deterministically emitted as:
+
+```markdown
+***
+```
+
+Canonical authored Markdown is not edited.
+
+New blocking validation:
+
+```text
+BODY_YAML_DELIMITER_AMBIGUITY
+```
+
+A passing assembled profile has no Pandoc-ambiguous body `---` delimiters and,
+outside fenced code, only the opening YAML block uses `---`.
+
+## Fix 2 — Self-contained publication assets
+
+Publication-visible local images are now normalized to paths resolvable from:
+
+```text
+build/rulebook/source/assembled/*.md
+```
+
+and copied into:
+
+```text
+build/rulebook/source/assets/
+```
+
+For example:
+
+```text
+canonical source:
+  docs/player-facing/assets/icons/corps/astravail-technologies.webp
+
+assembled Markdown:
+  ../assets/icons/corps/astravail-technologies.webp
+
+staged publication file:
+  build/rulebook/source/assets/icons/corps/astravail-technologies.webp
+```
+
+Reader-visible source assets already beneath a repository `assets/` directory
+preserve the hierarchy below `assets/`. A reader-visible source file outside an
+`assets/` tree is staged under:
+
+```text
+build/rulebook/source/assets/repository/<repo-relative-path>
+```
+
+and the Markdown target is rewritten accordingly.
+
+Foundry runtime/action/token/feature image wiring that is not rendered into the
+book remains metadata-only and is not promoted back into publication assets.
+
+### Asset validation
+
+The materializer now checks:
+
+```text
+PUBLICATION_ASSET_COLLISION
+ASSET_STAGING
+ASSET_RESOLUTION
+ASSET_TREE_DETERMINISM
+```
+
+`ASSET_RESOLUTION` is now an assembled-profile invariant: every non-remote image
+reference must resolve to an actual file inside `build/rulebook/source/`, and
+that file must have Step 4 staging provenance.
+
+Conflicting different source files that would map to the same normalized asset
+path are blocking errors rather than silent basename substitutions.
+
+The existing whole-build `DETERMINISM` check remains in force, and an explicit
+asset-tree determinism check has been added.
+
+## Output corpus
+
+The resulting Step 4 publication source is now self-contained:
+
+```text
+build/rulebook/source/
+├── assembled/
+│   ├── complete-rulebook.md
+│   └── player-guide.md
+├── assets/
+│   ├── icons/
+│   ├── images/
+│   └── repository/
+└── metadata/
+```
+
+The old generated `build/rulebook/assets/` tree is removed on the next successful
+Step 4 publish. Only that known legacy generated child is cleaned; `scripts/`,
+`manifests/`, and unrelated later-stage outputs are not removed.
+
+## Modified source files
+
+Relative to Step 4 r4.1, the patch modifies exactly these implementation/test files:
+
+```text
+build-rulebook-source.py
+build-rulebook-normalization-artifacts.py
+rulebook_normalize/__init__.py
+rulebook_normalize/assets.py
+rulebook_normalize/markdown.py
+rulebook_normalize/pipeline.py
+tests/test_rulebook_normalization.py
+```
+
+No canonical Cybermancy prose, structured pack JSON, publication manifest, or
+assembly manifest is modified by this patch.
+
+`build-rulebook-publication-manifest.py`, `snapshot.py`, `structured.py`, and the
+other package files are included unchanged so the package can be copied as a
+complete Step 4 script directory.
+
+## Existing frozen v1.5 inputs
+
+You do **not** need to regenerate Step 2 or Step 3 for these two fixes. They are
+representation/materialization corrections, not canonical-source changes.
+
+The current v1.5 normalization config can be used directly. The normalization-
+artifact generator is updated so future generated configs describe the new
+`build/rulebook/source/assets` staging contract.
+
+## Install
 
 Copy the contents of this package into:
 
 ```text
-cybermancy/
-└── build/
-    └── rulebook/
-        └── scripts/
-            ├── build-rulebook-publication-manifest.py
-            ├── build-rulebook-normalization-artifacts.py
-            ├── build-rulebook-source.py
-            └── rulebook_normalize/
-                ├── __init__.py
-                ├── assemble.py
-                ├── assets.py
-                ├── manifest.py
-                ├── markdown.py
-                ├── pipeline.py
-                ├── snapshot.py          # NEW shared snapshot/digest implementation
-                ├── structured.py
-                ├── validate.py
-                └── xrefs.py
+cybermancy/build/rulebook/scripts/
 ```
 
-The launcher already prefers `build/rulebook/scripts/rulebook_normalize/` over the legacy `pyCybermancy/rulebook_normalize/` package, so these Step 4 changes can be tested without checking them into Git first.
+over the current r4.1 Step 4 tooling.
 
-`upgrade-build-rulebook-inventory.py` is included only for reference. If your current inventory already reports 1082 structured entities, do not rerun the upgrader.
+## Local regression commands
 
-## Shared structured-family digest v2
+From the Cybermancy repository root:
 
-Step 2 and Step 4 now import the exact same implementation from:
+```powershell
+python -m unittest discover -s build\rulebook\scripts\tests -v
+python build\rulebook\scripts\build-rulebook-source.py validate
+python build\rulebook\scripts\build-rulebook-source.py build
+```
+
+The `build` command performs the full materialization validation, including the
+new thematic-break and assembled-asset checks plus the existing repeated clean
+materialization determinism test.
+
+Expected new checks include:
 
 ```text
-rulebook_normalize/snapshot.py
+BODY_YAML_DELIMITER_AMBIGUITY  PASS
+PUBLICATION_ASSET_COLLISION    PASS
+ASSET_STAGING                  PASS
+ASSET_RESOLUTION               PASS
+ASSET_TREE_DETERMINISM         PASS
+DETERMINISM                    PASS
 ```
 
-The v2 digest is:
+You can also directly inspect the generated profiles with PowerShell:
 
-```text
-sha256(sorted stable-source-id<TAB>repo-path<TAB>file-sha256
-       over logical publication entities)
+```powershell
+Select-String -Path build\rulebook\source\assembled\complete-rulebook.md -Pattern '^---$'
+Select-String -Path build\rulebook\source\assembled\player-guide.md -Pattern '^---$'
 ```
 
-Foundry folder records and actor records excluded by an explicit actor type are not part of the publication digest.
+Each should normally show only the opening and closing YAML metadata delimiters.
 
-The publication manifest records the exact algorithm string and digest version. The normalization config copies that algorithm from the publication manifest. Step 4 validates that all three layers agree before materialization.
+Then verify the staged publication tree exists:
 
-## Asset policy correction
-
-Structured JSON may contain many `img`, `src`, and `texture` fields used only by Foundry VTT. r4 now separates them into two classes:
-
-- `assets.json` — only images actually emitted into normalized reader-facing Markdown; these are publication assets and unresolved files remain errors.
-- `runtime-assets.json` — Foundry/runtime image references retained for provenance only; these are not staged and are not build blockers unless they are actually rendered into the manuscript.
-
-URL-encoded repository paths such as `Corporate%20Guard.png` are decoded before repository resolution.
-
-## Tests
-
-The package includes 18 normalization tests. They cover the existing Step 4 regression suite plus:
-
-- same-name structured records remain distinct;
-- structured digest determinism/content sensitivity;
-- runtime icons do not become publication assets;
-- rendered Markdown images do become publication assets.
-
-A synthetic full materialization was also validated with:
-
-- shared digest contract PASS;
-- runtime Foundry image retained as metadata only;
-- URL-encoded authored image successfully staged;
-- deterministic second build PASS.
-
-## Next run — no Git commit required
-
-Your source snapshot remains the existing frozen Git commit. Because no canonical rulebook sources changed, **do not rerun the inventory solely for this tooling change**.
-
-Run these commands in order:
-
-```bash
-python build/rulebook/scripts/build-rulebook-publication-manifest.py
+```powershell
+Get-ChildItem build\rulebook\source\assets -Recurse -File
 ```
 
-This should create the next publication manifest (normally v1.5) with the new shared v2 family digests while retaining the same frozen Git commit and the 1082-entity corpus.
+After Step 4 passes, return to Step 5 and run:
 
-Then:
-
-```bash
-python build/rulebook/scripts/build-rulebook-assembly-manifest.py
+```powershell
+python build\rulebook\scripts\build-rulebook-pdf.py build --profile all
 ```
 
-Then:
+Step 5 should no longer need to reach into `docs/player-facing/assets` or any
+other upstream publication/source directory.
 
-```bash
-python build/rulebook/scripts/build-rulebook-normalization-artifacts.py
-```
+## Upstream-source assessment
 
-Then validate:
+Neither defect required an upstream canonical-source correction:
 
-```bash
-python build/rulebook/scripts/build-rulebook-source.py validate
-```
+- valid authored Markdown thematic breaks were ambiguous only after concatenation
+  into a Pandoc publication manuscript;
+- canonical asset files already existed, but the Step 4 publication corpus did
+  not stage them at the paths emitted by the assembled Markdown.
 
-If validation passes, run:
-
-```bash
-python build/rulebook/scripts/build-rulebook-source.py build
-```
-
-## Expected changes in the next validation
-
-You should see:
-
-```text
-EXPECTED_STRUCTURED_COUNT        PASS (1082)
-STRUCTURED_FAMILY_COUNTS         PASS (1082)
-STRUCTURED_DIGEST_CONTRACT       PASS
-```
-
-The former 12 `STRUCTURED_FAMILY_DIGEST` mismatches should disappear after regenerating the publication/assembly/config artifacts with the shared v2 digest.
-
-The former 693 unresolved assets should also disappear as a class. If `ASSET_RESOLUTION` still fails, the remaining entries should now be actual images referenced by the normalized manuscript and therefore worth resolving individually.
+The patch therefore changes only Step 4 representation/materialization behavior.
+If the real repository run discovers a genuinely missing source asset or a
+conflicting publication-path collision, Step 4 will now report that explicitly
+rather than silently masking it.

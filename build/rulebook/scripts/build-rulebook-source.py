@@ -72,11 +72,6 @@ try:
         manifest_contract_report,
         repository_preflight,
     )
-    from rulebook_normalize.snapshot import (
-        SnapshotError,
-        structured_family_snapshot,
-    )
-    from rulebook_normalize.structured import collect_source_warnings
     from rulebook_normalize.validate import (
         add_check,
         new_report,
@@ -109,6 +104,7 @@ _CANONICAL_VERSION_SUFFIX_RE = re.compile(
 # this launcher builds in a temporary staging root and publishes only generated
 # children back into build/rulebook. These source directories are never removed.
 RESERVED_OUTPUT_CHILDREN = {"scripts", "manifests"}
+LEGACY_GENERATED_CHILDREN = {"assets"}
 
 
 class InputDiscoveryError(RuntimeError):
@@ -275,45 +271,6 @@ def inspect(args: argparse.Namespace) -> int:
     return 0
 
 
-def _surface_structured_source_warnings(repo_root: Path, asm: dict, report: dict) -> None:
-    """Report non-blocking structured-source issues discovered during Step 4."""
-    for family_rec in asm.get("structuredFamilies", []):
-        family = family_rec.get("familyId")
-        source_path = family_rec.get("sourcePath")
-        if not family or not source_path:
-            continue
-        actor_type = family_rec.get("actorType") or ""
-        try:
-            snapshot = structured_family_snapshot(repo_root, source_path, actor_type)
-        except SnapshotError:
-            # repository_preflight already reports snapshot/source failures.
-            continue
-        for record in snapshot.logical_records:
-            try:
-                warnings = collect_source_warnings(family, record.document)
-            except Exception as exc:
-                add_check(
-                    report,
-                    "STRUCTURED_SOURCE_WARNING_SCAN",
-                    "WARNING",
-                    f"Could not inspect {family} source {record.path}: {exc}",
-                )
-                continue
-            for warning in warnings:
-                details = dict(warning.get("details") or {})
-                try:
-                    details["sourcePath"] = record.path.relative_to(repo_root).as_posix()
-                except ValueError:
-                    details["sourcePath"] = str(record.path)
-                add_check(
-                    report,
-                    warning.get("code") or "STRUCTURED_SOURCE_WARNING",
-                    "WARNING",
-                    warning.get("message") or "Structured source warning.",
-                    details,
-                )
-
-
 def preflight(args: argparse.Namespace, include_repo: bool = True):
     config = load_config(Path(args.config))
     report = new_report()
@@ -401,9 +358,7 @@ def preflight(args: argparse.Namespace, include_repo: bool = True):
             add_check(report, item["code"], "ERROR", item["message"], item.get("details"))
 
     if include_repo and report["status"] == "PASS":
-        repo_root = Path(args.repo_root)
-        repository_preflight(repo_root, pub, asm, config, report)
-        _surface_structured_source_warnings(repo_root, asm, report)
+        repository_preflight(Path(args.repo_root), pub, asm, config, report)
     return report, pub, asm, config
 
 
@@ -421,8 +376,21 @@ def _remove_existing(path: Path) -> None:
 
 
 def _publish_stage(stage_root: Path, output_root: Path) -> None:
-    """Publish generated build children without touching scripts/manifests."""
+    """Publish generated build children without touching scripts/manifests.
+
+    r4.2 moved publication assets from the legacy top-level ``build/rulebook/assets``
+    tree into the self-contained ``build/rulebook/source/assets`` corpus. Remove
+    only that known legacy generated child when publishing a successful clean
+    stage; do not delete unrelated future build products.
+    """
     output_root.mkdir(parents=True, exist_ok=True)
+    staged_names={child.name for child in stage_root.iterdir()}
+    for legacy in sorted(LEGACY_GENERATED_CHILDREN):
+        if legacy not in staged_names:
+            stale=output_root/legacy
+            if stale.exists() or stale.is_symlink():
+                _remove_existing(stale)
+
     for child in sorted(stage_root.iterdir(), key=lambda p: p.name.lower()):
         if child.name in RESERVED_OUTPUT_CHILDREN:
             raise RuntimeError(

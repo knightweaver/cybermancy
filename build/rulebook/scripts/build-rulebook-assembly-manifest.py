@@ -275,7 +275,7 @@ STRUCTURED_ARCHITECTURE: dict[str, dict[str, Any]] = {
     "weapons": {
         "placement": "ch16-weapons",
         "title": "Weapons",
-        "sort": ["tier", "name"],
+        "sort": ["tier", "trait", "name"],
     },
 }
 
