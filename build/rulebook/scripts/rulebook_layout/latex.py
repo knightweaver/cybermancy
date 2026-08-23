@@ -23,6 +23,8 @@ def _document_preamble(config: dict) -> str:
 \usepackage{{longtable}}
 \usepackage{{array}}
 \usepackage{{ragged2e}}
+\usepackage{{microtype}}
+\usepackage{{titlesec}}
 \pagestyle{{empty}}
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{0pt}}
