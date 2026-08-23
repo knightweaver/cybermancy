@@ -60,6 +60,7 @@ def _definition_records(entities: Iterable[dict], keys: tuple[str, ...]) -> list
     out = []
     for entity in entities:
         semantic_id = str(entity.get("semanticId") or "")
+        entity_name = str(entity.get("name") or "")
         data = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
         for key in keys:
             values = data.get(key)
@@ -73,11 +74,25 @@ def _definition_records(entities: Iterable[dict], keys: tuple[str, ...]) -> list
                     "description": _definition_text(definition.get("description")),
                     "kind": str(definition.get("kind") or ""),
                     "sourceEntity": semantic_id,
+                    "sourceEntityName": entity_name,
                     "definitionStatus": str(definition.get("definitionStatus") or ""),
                     "definitionSource": definition.get("definitionSource"),
                     "definitionSourcePath": definition.get("definitionSourcePath"),
                 })
     return out
+
+
+def _source_entity_details(entries: Iterable[dict]) -> list[dict]:
+    """Return stable entity ID/name pairs for human-actionable validation reports."""
+    details = {
+        (str(entry.get("sourceEntity") or ""), str(entry.get("sourceEntityName") or ""))
+        for entry in entries
+        if entry.get("sourceEntity") or entry.get("sourceEntityName")
+    }
+    return [
+        {"semanticId": semantic_id, "name": name}
+        for semantic_id, name in sorted(details, key=lambda pair: (pair[1].casefold(), pair[0]))
+    ]
 
 
 def _collect_section(
@@ -111,6 +126,7 @@ def _collect_section(
                 "sources": [
                     {
                         "sourceEntity": m["sourceEntity"],
+                        "sourceEntityName": m["sourceEntityName"],
                         "kind": m["kind"],
                         "definitionStatus": m.get("definitionStatus"),
                         "definitionSource": m.get("definitionSource"),
@@ -131,6 +147,7 @@ def _collect_section(
                     {
                         "description": entries[0]["description"],
                         "sourceEntities": sorted({entry["sourceEntity"] for entry in entries}),
+                        "sourceEntityDetails": _source_entity_details(entries),
                         "kinds": sorted({entry["kind"] for entry in entries if entry["kind"]}),
                     }
                     for entries in variants.values()
@@ -151,6 +168,7 @@ def _collect_section(
             orphans.append({
                 "name": matches[0]["name"],
                 "sourceEntities": sorted({m["sourceEntity"] for m in matches}),
+                "sourceEntityDetails": _source_entity_details(matches),
                 "kinds": sorted({m["kind"] for m in matches if m["kind"]}),
             })
 
