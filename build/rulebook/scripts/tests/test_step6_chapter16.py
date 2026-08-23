@@ -64,12 +64,12 @@ class TestStep4WeaponReferenceDefinitions(unittest.TestCase):
 
 
 class TestWeaponMechanicReferences(unittest.TestCase):
-    def entity(self, sid, *, action_name="Smartlink", action_description="Same rule.", critical_name="Pinpoint", critical_description="Critical rule."):
+    def entity(self, sid, *, name=None, action_name="Smartlink", action_description="Same rule.", critical_name="Pinpoint", critical_description="Critical rule."):
         return {
             "semanticId": f"entity:weapons:{sid}",
             "family": "weapons",
             "sourceId": sid,
-            "name": sid,
+            "name": name or sid,
             "publicationData": {
                 "weaponFeatures": [],
                 "actions": [action_name] if action_name else [],
@@ -92,11 +92,16 @@ class TestWeaponMechanicReferences(unittest.TestCase):
 
     def test_same_name_with_different_rules_is_a_collision(self):
         refs = collect_weapon_references([
-            self.entity("A", action_description="Tier one rule."),
-            self.entity("B", action_description="Tier two rule."),
+            self.entity("A", name="Smartpistol", action_description="Tier one rule."),
+            self.entity("B", name="Smartpistol Mk II", action_description="Tier two rule."),
         ])
         self.assertEqual(len(refs["collisions"]), 1)
-        self.assertEqual(refs["collisions"][0]["name"], "Smartlink")
+        collision = refs["collisions"][0]
+        self.assertEqual(collision["name"], "Smartlink")
+        details = [variant["sourceEntityDetails"] for variant in collision["variants"]]
+        flattened = [item for group in details for item in group]
+        self.assertIn({"semanticId": "entity:weapons:A", "name": "Smartpistol"}, flattened)
+        self.assertIn({"semanticId": "entity:weapons:B", "name": "Smartpistol Mk II"}, flattened)
         self.assertEqual(refs["actions"], [])
 
     def test_displayed_mechanic_without_text_is_missing(self):
