@@ -98,7 +98,7 @@ def _strip_mechanic_label(description: Any, display_name: str, kind: str) -> str
     escaped = re.escape(str(display_name).strip())
     patterns = []
     if kind == "critical-effect":
-        patterns.append(rf"^\s*Critical\s+Effect\s*[-:]\s*{escaped}\s*:\s*")
+        patterns.append(rf"^\s*Critical\s+Effect\s*[-–—:]\s*{escaped}\s*:\s*")
     patterns.append(rf"^\s*{escaped}\s*:\s*")
     for pattern in patterns:
         updated = re.sub(pattern, "", text, count=1, flags=re.IGNORECASE)
