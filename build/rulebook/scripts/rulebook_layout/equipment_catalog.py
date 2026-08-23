@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from typing import Any, Iterable
 
@@ -38,6 +39,17 @@ def _mechanic_display(value: Any) -> str:
     return text
 
 
+def _human_label(value: Any) -> str:
+    """Convert code-style enum values to ordinary sentence-case publication text."""
+    text = str(value).strip()
+    if not text:
+        return ""
+    text = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", text)
+    text = re.sub(r"[_-]+", " ", text)
+    text = re.sub(r"\s+", " ", text).strip().casefold()
+    return text[:1].upper() + text[1:] if text else ""
+
+
 def _flatten_values(value: Any) -> list[Any]:
     if isinstance(value, list):
         return [x for x in value if _present(x)]
@@ -56,6 +68,8 @@ def _cell_value(entity: dict, column: dict, missing: str) -> str:
     transform = column.get("transform")
     if transform == "mechanic-list":
         rendered = [_mechanic_display(v) for v in values]
+    elif transform == "human-label":
+        rendered = [_human_label(v) for v in values]
     else:
         rendered = [str(v).strip() for v in values]
     rendered = [v for v in rendered if v]
@@ -163,6 +177,16 @@ def _render_header(columns: list[dict]) -> str:
     return r"\rowcolor{CMTableHeader}" + " & ".join(cells) + r" \\"
 
 
+def _render_cell(value: str, column: dict) -> str:
+    rendered = latex_escape(value)
+    if column.get("bold"):
+        rendered = rf"\textbf{{{rendered}}}"
+    padding = float(column.get("verticalPaddingPt", 0) or 0)
+    if padding > 0:
+        rendered = rf"\vspace*{{{padding:g}pt}}\strut {rendered}\strut\par\vspace*{{{padding:g}pt}}"
+    return rendered
+
+
 def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
     columns = list(config.get("columns", []))
     if not columns:
@@ -191,12 +215,10 @@ def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
         for row in group_rows:
             if row_index % 2 == 0:
                 lines.append(r"\rowcolor{CMAltRow}")
-            rendered_cells = []
-            for column in columns:
-                value = latex_escape(row.cells[str(column["key"])])
-                if column.get("bold"):
-                    value = rf"\textbf{{{value}}}"
-                rendered_cells.append(value)
+            rendered_cells = [
+                _render_cell(row.cells[str(column["key"])], column)
+                for column in columns
+            ]
             lines.append(" & ".join(rendered_cells) + r" \\")
             row_index += 1
 
