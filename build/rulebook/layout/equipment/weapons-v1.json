@@ -44,19 +44,22 @@
       "key": "publicationData.attack.trait",
       "label": "Trait",
       "widthIn": 0.48,
-      "align": "left"
+      "align": "left",
+      "transform": "human-label"
     },
     {
       "key": "publicationData.attack.range",
       "label": "Range",
       "widthIn": 0.51,
-      "align": "left"
+      "align": "left",
+      "transform": "human-label"
     },
     {
       "key": "publicationData.burden",
       "label": "Burden",
       "widthIn": 0.70,
-      "align": "left"
+      "align": "left",
+      "transform": "human-label"
     },
     {
       "key": "publicationData.attack.damageFormula",
@@ -91,7 +94,8 @@
       "key": "publicationData.description",
       "label": "Description",
       "widthIn": 1.91,
-      "align": "left"
+      "align": "left",
+      "verticalPaddingPt": 2
     }
   ],
   "style": {
