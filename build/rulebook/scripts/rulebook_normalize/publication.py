@@ -8,13 +8,17 @@ from .structured import clean_description, get_in
 SCHEMA_VERSION = "cybermancy-step4-structured-entities-v1.0"
 
 
-def _system_description(doc: dict) -> Any:
-    value = get_in(doc, "system.description")
+def _description_value(value: Any) -> Any:
     if isinstance(value, dict):
         return value.get("value") or ""
+    return value
+
+
+def _system_description(doc: dict) -> Any:
+    value = get_in(doc, "system.description")
     if value not in (None, ""):
-        return value
-    return get_in(doc, "system.description.value", "")
+        return _description_value(value)
+    return _description_value(get_in(doc, "system.description.value", ""))
 
 
 def _format_number(value: Any) -> str:
@@ -61,7 +65,7 @@ def structured_publication_data(family: str, doc: dict, metadata: dict) -> dict:
     keeps only reader-facing values needed by later publication/layout stages.
     """
     system = doc.get("system") if isinstance(doc.get("system"), dict) else {}
-    identity_description = get_in(doc, "identity.description")
+    identity_description = _description_value(get_in(doc, "identity.description"))
     description = clean_description(identity_description or _system_description(doc) or "")
 
     result = {
