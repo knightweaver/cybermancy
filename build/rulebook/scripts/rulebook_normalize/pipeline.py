@@ -22,6 +22,11 @@ from .markdown import (
     body_yaml_delimiter_ambiguities, extract_images, normalize_authored_markdown,
     pandoc_safe_assembled_markdown, rewrite_image_targets,
 )
+from .publication import (
+    SCHEMA_VERSION as STRUCTURED_ENTITIES_SCHEMA,
+    sidecar_entity,
+    structured_publication_data,
+)
 from .structured import render_entity, source_sort_value, stable_id
 from .snapshot import (
     STRUCTURED_DIGEST_ALGORITHM, SnapshotError, structured_family_snapshot
@@ -532,7 +537,7 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
     pub_auth=pub_authored_by_path(pub_auth_records); pub_fam=pub_families_by_id(pub_family_records)
     asm_auth=asm_authored_by_path(asm); asm_fam=asm_families_by_id(asm)
 
-    provenance=[]; source_hashes=[]; semantic_targets=[]; assets=[]; runtime_assets=[]; references=[]
+    provenance=[]; source_hashes=[]; semantic_targets=[]; assets=[]; runtime_assets=[]; references=[]; structured_entities=[]
     content_by_ref={}; target_audience={}; generated_link_targets={}
     asset_mappings=config.get('assets',{}).get('foundryRuntimeMappings',[])
 
@@ -566,6 +571,9 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
             except Exception as e:
                 add_check(report,'STRUCTURED_RENDER','ERROR',f'{p.relative_to(repo_root).as_posix()}: {e}'); continue
             metadata['sourcePath']=p.relative_to(repo_root).as_posix(); metadata['audience']=arec['audience']
+            publication_data=structured_publication_data(fid,doc,metadata)
+            metadata['publicationData']=publication_data
+            structured_entities.append(sidecar_entity(metadata,publication_data))
             md=_publicationize_images(
                 md,metadata['sourcePath'],asset_mappings,assets,
                 sourceEntity=metadata['semanticId'],kind='structured-publication'
@@ -704,10 +712,22 @@ def materialize(repo_root: Path, outroot: Path, pub: dict, asm: dict, config: di
     if leaks: add_check(report,'AUDIENCE_REFERENCE_ISOLATION','ERROR','Player/shared references target GM-only nodes.',leaks)
     else: add_check(report,'AUDIENCE_REFERENCE_ISOLATION','PASS','No player/shared → GM semantic references detected.')
 
+    structured_entities=sorted(structured_entities,key=lambda x:(str(x.get('family','')).casefold(),str(x.get('semanticId',''))))
+    expected_sidecar=sum(int(rec.get('entityCount',0)) for rec in asm_fam.values())
+    if len(structured_entities)==expected_sidecar:
+        add_check(report,'STRUCTURED_ENTITY_SIDECAR','PASS',f'{len(structured_entities)} structured entities have normalized publication sidecar data.')
+    else:
+        add_check(report,'STRUCTURED_ENTITY_SIDECAR','ERROR',f'Structured publication sidecar contains {len(structured_entities)} entities; expected {expected_sidecar}.')
+
     provenance.sort(key=lambda x:(x.get('kind',''),x.get('sourcePath',''),x.get('semanticId','')))
     source_hashes=sorted({(x['path'],x['sha256']) for x in source_hashes})
     _write_json(meta_root/'provenance.json',provenance)
     _write_json(meta_root/'semantic-targets.json',sorted(semantic_targets,key=lambda x:x['semanticId']))
+    _write_json(meta_root/'structured-entities.json',{
+        'schema':STRUCTURED_ENTITIES_SCHEMA,
+        'sourceCommit':pub_commit,
+        'entities':structured_entities,
+    })
     _write_json(meta_root/'references.json',references)
     _write_json(meta_root/'assets.json',assets)
     _write_json(meta_root/'runtime-assets.json',runtime_assets)
