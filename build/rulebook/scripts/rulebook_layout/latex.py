@@ -33,8 +33,6 @@ def render_tier_prototype_document(table_latex: str, config: dict, tier: int) ->
 \usepackage{{longtable}}
 \usepackage{{array}}
 \usepackage{{ragged2e}}
-\usepackage{{microtype}}
-\usepackage{{titlesec}}
 \pagestyle{{empty}}
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{0pt}}
