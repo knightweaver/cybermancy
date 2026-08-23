@@ -67,7 +67,19 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         config_path = HERE.parents[2] / "layout" / "equipment" / "weapons-v1.json"
         self.config = json.loads(config_path.read_text(encoding="utf-8"))
 
-    def entity(self, name, trait, *, action=None, feature=None, critical=None, damage="d8", description="Desc"):
+    def entity(
+        self,
+        name,
+        trait,
+        *,
+        action=None,
+        feature=None,
+        critical=None,
+        damage="d8",
+        description="Desc",
+        range_value="Close",
+        burden="One Handed",
+    ):
         return {
             "semanticId": f"entity:weapons:{name}",
             "family": "weapons",
@@ -78,8 +90,8 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
             "publicationData": {
                 "tier": 1,
                 "description": description,
-                "burden": "One Handed",
-                "attack": {"trait": trait, "range": "Close", "damageFormula": damage},
+                "burden": burden,
+                "attack": {"trait": trait, "range": range_value, "damageFormula": damage},
                 "weaponFeatures": [] if feature is None else [feature],
                 "actions": [] if action is None else [action],
                 "criticalEffects": [] if critical is None else [critical],
@@ -97,6 +109,20 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         self.assertEqual([row.name for row in rows], ["Alpha", "beta", "Middle", "Zulu"])
         self.assertEqual([row.group for row in rows], ["AGILITY", "AGILITY", "FINESSE", "STRENGTH"])
 
+    def test_trait_range_and_burden_are_humanized_for_display(self):
+        rows = build_catalog_rows([
+            self.entity(
+                "Example",
+                "agility",
+                range_value="veryClose",
+                burden="oneHanded",
+            )
+        ], self.config, tier=1)
+        row = rows[0]
+        self.assertEqual(row.cells["publicationData.attack.trait"], "Agility")
+        self.assertEqual(row.cells["publicationData.attack.range"], "Very close")
+        self.assertEqual(row.cells["publicationData.burden"], "One handed")
+
     def test_cyber_spur_combines_weapon_feature_then_action(self):
         rows = build_catalog_rows([
             self.entity("Cyber Spur", "Strength", feature="retractable", action="Concealed", critical="Ambush Kill")
@@ -111,7 +137,7 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         self.assertEqual(rows[0].cells["action"], "—")
         self.assertEqual(rows[0].cells["criticalEffect"], "—")
 
-    def test_latex_table_has_approved_header_and_trait_band(self):
+    def test_latex_table_has_approved_header_trait_band_and_description_padding(self):
         rows = build_catalog_rows([
             self.entity("Alpha", "Agility", action="Quick Draw", critical="Pinning Strike")
         ], self.config, tier=1)
@@ -121,6 +147,7 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         self.assertIn("AGILITY", latex)
         self.assertIn("CMTableHeader", latex)
         self.assertIn("CMGroupBand", latex)
+        self.assertIn(r"\vspace*{2pt}\strut Desc\strut\par\vspace*{2pt}", latex)
 
     def test_family_ast_replacement_is_semantic_not_textual(self):
         ast = {
