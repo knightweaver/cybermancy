@@ -137,7 +137,7 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         self.assertEqual(rows[0].cells["action"], "—")
         self.assertEqual(rows[0].cells["criticalEffect"], "—")
 
-    def test_latex_table_has_approved_header_trait_band_and_description_padding(self):
+    def test_latex_table_has_approved_header_trait_band_description_padding_and_vertical_centering(self):
         rows = build_catalog_rows([
             self.entity("Alpha", "Agility", action="Quick Draw", critical="Pinning Strike")
         ], self.config, tier=1)
@@ -148,6 +148,9 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         self.assertIn("CMTableHeader", latex)
         self.assertIn("CMGroupBand", latex)
         self.assertIn(r"\vspace*{2pt}\strut Desc\strut\par\vspace*{2pt}", latex)
+        self.assertIn(r">{\RaggedRight\arraybackslash}m{0.970in}", latex)
+        self.assertIn(r">{\Centering\arraybackslash}m{0.290in}", latex)
+        self.assertNotIn(r">{\RaggedRight\arraybackslash}p{0.970in}", latex)
 
     def test_family_ast_replacement_is_semantic_not_textual(self):
         ast = {
