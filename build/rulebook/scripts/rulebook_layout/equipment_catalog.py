@@ -166,7 +166,10 @@ def _column_spec(column: dict) -> str:
     width = float(column["widthIn"])
     align = str(column.get("align", "left")).casefold()
     prefix = r">{\Centering\arraybackslash}" if align == "center" else r">{\RaggedRight\arraybackslash}"
-    return f"{prefix}p{{{width:.3f}in}}"
+    # array's m{} columns vertically center their contents within the row.
+    # The Description cell remains the natural row-height driver because its
+    # configured vertical padding is emitted inside the cell.
+    return f"{prefix}m{{{width:.3f}in}}"
 
 
 def _render_header(columns: list[dict]) -> str:
