@@ -207,6 +207,66 @@ def html_to_markdown(text: str) -> str:
     return html.unescape(out).strip()
 
 
+class _HTMLToPlainText(HTMLParser):
+    """Extract reader-facing text from Foundry HTML without Markdown syntax."""
+    BOUNDARY_TAGS = {
+        'p', 'div', 'section', 'article', 'br', 'ul', 'ol', 'li',
+        'table', 'tr', 'th', 'td', 'blockquote', 'hr',
+        'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    }
+    SKIP_TAGS = {'script', 'style'}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.out = []
+        self.skip_depth = 0
+
+    def emit(self, value: str) -> None:
+        if not self.skip_depth:
+            self.out.append(value)
+
+    def handle_starttag(self, tag, attrs):
+        tag = tag.casefold()
+        if tag in self.SKIP_TAGS:
+            self.skip_depth += 1
+            return
+        if self.skip_depth:
+            return
+        if tag in self.BOUNDARY_TAGS:
+            self.emit(' ')
+        elif tag == 'img':
+            alt = dict(attrs).get('alt', '')
+            if alt:
+                self.emit(f' {alt} ')
+
+    def handle_endtag(self, tag):
+        tag = tag.casefold()
+        if tag in self.SKIP_TAGS and self.skip_depth:
+            self.skip_depth -= 1
+            return
+        if self.skip_depth:
+            return
+        if tag in self.BOUNDARY_TAGS:
+            self.emit(' ')
+
+    def handle_data(self, data):
+        self.emit(data)
+
+
+def html_to_plain_text(text: str) -> str:
+    """Return one plain-text line from HTML or already-plain description text."""
+    if text is None:
+        return ''
+    source = str(text)
+    if '<' in source and '>' in source:
+        parser = _HTMLToPlainText()
+        parser.feed(source)
+        parser.close()
+        source = ''.join(parser.out)
+    source = html.unescape(source)
+    return re.sub(r'\s+', ' ', source).strip()
+
+
 def apply_assembly_selector(path: str, text: str, assembly_record: dict) -> str:
     mode = assembly_record.get('assemblyMode', 'whole-document')
     if mode == 'whole-document':
