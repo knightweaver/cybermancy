@@ -116,8 +116,8 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
             self.entity("Alpha", "Agility", action="Quick Draw", critical="Pinning Strike")
         ], self.config, tier=1)
         latex = render_equipment_catalog_latex(rows, self.config)
-        for label in ("NAME", "TIER", "TRAIT", "RANGE", "BURDEN", "DAMAGE", "ACTION", "CRITICAL EFFECT", "DESCRIPTION"):
-            self.assertIn(label, latex)
+        for label in ("Name", "Tier", "Trait", "Range", "Burden", "Damage", "Action", "Critical Effect", "Description"):
+            self.assertIn(f"\\MakeUppercase{{{label}}}", latex)
         self.assertIn("AGILITY", latex)
         self.assertIn("CMTableHeader", latex)
         self.assertIn("CMGroupBand", latex)
