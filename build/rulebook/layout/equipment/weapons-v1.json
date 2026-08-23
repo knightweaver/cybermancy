@@ -1,0 +1,97 @@
+{
+  "schema": "cybermancy-step6-equipment-catalog-config-v1.0",
+  "family": "weapons",
+  "chapter": 16,
+  "partLabel": "EQUIPMENT & TECHNOLOGY",
+  "title": "Weapons",
+  "tierLabel": "TIER {tier}",
+  "deck": "",
+  "expectedTierCounts": {
+    "1": 14
+  },
+  "sort": [
+    "publicationData.tier",
+    "publicationData.attack.trait",
+    "name"
+  ],
+  "groupBy": "publicationData.attack.trait",
+  "display": {
+    "missing": "—",
+    "groupUppercase": true
+  },
+  "columns": [
+    {
+      "key": "name",
+      "label": "Name",
+      "widthIn": 0.97,
+      "align": "left",
+      "bold": true
+    },
+    {
+      "key": "publicationData.tier",
+      "label": "Tier",
+      "widthIn": 0.29,
+      "align": "center"
+    },
+    {
+      "key": "publicationData.attack.trait",
+      "label": "Trait",
+      "widthIn": 0.48,
+      "align": "left"
+    },
+    {
+      "key": "publicationData.attack.range",
+      "label": "Range",
+      "widthIn": 0.51,
+      "align": "left"
+    },
+    {
+      "key": "publicationData.burden",
+      "label": "Burden",
+      "widthIn": 0.70,
+      "align": "left"
+    },
+    {
+      "key": "publicationData.attack.damageFormula",
+      "label": "Damage",
+      "widthIn": 0.50,
+      "align": "center"
+    },
+    {
+      "key": "action",
+      "label": "Action",
+      "widthIn": 0.79,
+      "align": "left",
+      "compose": [
+        "publicationData.weaponFeatures",
+        "publicationData.actions"
+      ],
+      "transform": "mechanic-list",
+      "separator": ", "
+    },
+    {
+      "key": "criticalEffect",
+      "label": "Critical Effect",
+      "widthIn": 1.02,
+      "align": "left",
+      "compose": [
+        "publicationData.criticalEffects"
+      ],
+      "transform": "mechanic-list",
+      "separator": ", "
+    },
+    {
+      "key": "publicationData.description",
+      "label": "Description",
+      "widthIn": 1.91,
+      "align": "left"
+    }
+  ],
+  "style": {
+    "headerColor": "0B6573",
+    "groupBandColor": "DDEEF0",
+    "alternateRowColor": "EEF7F8",
+    "textDarkColor": "183238",
+    "ruleColor": "18A7B5"
+  }
+}
