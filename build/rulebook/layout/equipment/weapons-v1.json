@@ -9,6 +9,13 @@
   "expectedTierCounts": {
     "1": 14
   },
+  "expectedTierGroups": {
+    "1": [
+      "AGILITY",
+      "FINESSE",
+      "STRENGTH"
+    ]
+  },
   "sort": [
     "publicationData.tier",
     "publicationData.attack.trait",
