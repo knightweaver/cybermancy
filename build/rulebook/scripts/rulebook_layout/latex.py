@@ -3,29 +3,19 @@ from __future__ import annotations
 from .equipment_catalog import latex_escape
 
 
-def render_tier_prototype_document(table_latex: str, config: dict, tier: int) -> str:
+def _style_values(config: dict) -> dict[str, str]:
     style = config.get("style", {})
-    header = style.get("headerColor", "0B6573")
-    group = style.get("groupBandColor", "DDEEF0")
-    alt = style.get("alternateRowColor", "EEF7F8")
-    text_dark = style.get("textDarkColor", "183238")
-    rule = style.get("ruleColor", "18A7B5")
+    return {
+        "header": style.get("headerColor", "0B6573"),
+        "group": style.get("groupBandColor", "DDEEF0"),
+        "alt": style.get("alternateRowColor", "EEF7F8"),
+        "text_dark": style.get("textDarkColor", "183238"),
+        "rule": style.get("ruleColor", "18A7B5"),
+    }
 
-    chapter = int(config.get("chapter", 16))
-    part_label = str(config.get("partLabel", "EQUIPMENT & TECHNOLOGY"))
-    title = str(config.get("title", "Equipment"))
-    tier_label = str(config.get("tierLabel", "TIER {tier}")).format(tier=tier)
-    deck = str(config.get("deck", "") or "").strip()
 
-    deck_tex = ""
-    if deck:
-        deck_tex = (
-            r"\vspace{1.5mm}" "\n"
-            r"{\fontsize{8.2}{10}\selectfont\color{CMTextDark} "
-            + latex_escape(deck)
-            + r"\par}" "\n"
-        )
-
+def _document_preamble(config: dict) -> str:
+    style = _style_values(config)
     return rf"""\documentclass[10pt]{{article}}
 \usepackage[letterpaper,margin=0.46in]{{geometry}}
 \usepackage{{fontspec}}
@@ -38,21 +28,105 @@ def render_tier_prototype_document(table_latex: str, config: dict, tier: int) ->
 \setlength{{\parskip}}{{0pt}}
 \IfFontExistsTF{{Roboto Condensed}}{{\setsansfont{{Roboto Condensed}}}}{{\setsansfont{{TeX Gyre Heros}}}}
 \IfFontExistsTF{{Roboto}}{{\setmainfont{{Roboto}}}}{{\setmainfont{{TeX Gyre Heros}}}}
-\definecolor{{CMTableHeader}}{{HTML}}{{{header}}}
-\definecolor{{CMGroupBand}}{{HTML}}{{{group}}}
-\definecolor{{CMAltRow}}{{HTML}}{{{alt}}}
-\definecolor{{CMTextDark}}{{HTML}}{{{text_dark}}}
-\definecolor{{CMRule}}{{HTML}}{{{rule}}}
-\begin{{document}}
-\sffamily
-{{\fontsize{{7.4}}{{8.4}}\selectfont\bfseries\color{{CMRule}} CHAPTER {chapter} / {latex_escape(part_label)}\par}}
-\vspace{{1.4mm}}
-{{\fontsize{{26}}{{27}}\selectfont\bfseries\color{{CMTextDark}} {latex_escape(title.upper())}\par}}
-\vspace{{0.8mm}}
-{{\color{{CMRule}}\rule{{\linewidth}}{{0.7pt}}}}
-{deck_tex}\vspace{{1.8mm}}
-{{\fontsize{{11}}{{12}}\selectfont\bfseries\color{{CMTextDark}} {latex_escape(tier_label)}\par}}
-\vspace{{1.2mm}}
-{table_latex}
-\end{{document}}
+\definecolor{{CMTableHeader}}{{HTML}}{{{style['header']}}}
+\definecolor{{CMGroupBand}}{{HTML}}{{{style['group']}}}
+\definecolor{{CMAltRow}}{{HTML}}{{{style['alt']}}}
+\definecolor{{CMTextDark}}{{HTML}}{{{style['text_dark']}}}
+\definecolor{{CMRule}}{{HTML}}{{{style['rule']}}}
 """
+
+
+def _chapter_header(config: dict) -> str:
+    chapter = int(config.get("chapter", 16))
+    part_label = str(config.get("partLabel", "EQUIPMENT & TECHNOLOGY"))
+    title = str(config.get("title", "Equipment"))
+    deck = str(config.get("deck", "") or "").strip()
+    deck_tex = ""
+    if deck:
+        deck_tex = (
+            r"\vspace{1.5mm}" "\n"
+            r"{\fontsize{8.2}{10}\selectfont\color{CMTextDark} "
+            + latex_escape(deck)
+            + r"\par}" "\n"
+        )
+    return (
+        rf"{{\fontsize{{7.4}}{{8.4}}\selectfont\bfseries\color{{CMRule}} CHAPTER {chapter} / {latex_escape(part_label)}\par}}" "\n"
+        r"\vspace{1.4mm}" "\n"
+        rf"{{\fontsize{{26}}{{27}}\selectfont\bfseries\color{{CMTextDark}} {latex_escape(title.upper())}\par}}" "\n"
+        r"\vspace{0.8mm}" "\n"
+        r"{\color{CMRule}\rule{\linewidth}{0.7pt}}" "\n"
+        + deck_tex
+    )
+
+
+def _tier_heading(config: dict, tier: int) -> str:
+    label = str(config.get("tierLabel", "TIER {tier}")).format(tier=tier)
+    return (
+        rf"{{\fontsize{{11}}{{12}}\selectfont\bfseries\color{{CMTextDark}} {latex_escape(label)}\par}}" "\n"
+        r"\vspace{1.2mm}" "\n"
+    )
+
+
+def _reference_heading(title: str) -> str:
+    return (
+        rf"{{\fontsize{{16}}{{17}}\selectfont\bfseries\color{{CMTextDark}} {latex_escape(title.upper())}\par}}" "\n"
+        r"\vspace{0.6mm}" "\n"
+        r"{\color{CMRule}\rule{\linewidth}{0.55pt}}" "\n"
+        r"\vspace{1.4mm}" "\n"
+    )
+
+
+def render_tier_prototype_document(table_latex: str, config: dict, tier: int) -> str:
+    """Retain the accepted Step 6C single-tier proof document."""
+    return (
+        _document_preamble(config)
+        + r"\begin{document}" + "\n"
+        + r"\sffamily" + "\n"
+        + _chapter_header(config)
+        + r"\vspace{1.8mm}" + "\n"
+        + _tier_heading(config, tier)
+        + table_latex
+        + r"\end{document}" + "\n"
+    )
+
+
+def render_weapons_family_latex(
+    tier_tables: dict[int, str],
+    actions_reference_latex: str,
+    critical_reference_latex: str,
+    config: dict,
+) -> str:
+    """Render the complete family payload used both by D's chapter proof and AST replacement."""
+    pieces: list[str] = []
+    for index, tier in enumerate(sorted(tier_tables)):
+        if index:
+            pieces.append(r"\newpage")
+        pieces.append(_tier_heading(config, tier).rstrip())
+        pieces.append(tier_tables[tier].rstrip())
+
+    references = config.get("references", {}) if isinstance(config.get("references"), dict) else {}
+    actions_title = str(references.get("actionsTitle", "Weapon Actions"))
+    critical_title = str(references.get("criticalEffectsTitle", "Critical Effects"))
+
+    pieces.extend([
+        r"\newpage",
+        _reference_heading(actions_title).rstrip(),
+        actions_reference_latex.rstrip(),
+        r"\newpage",
+        _reference_heading(critical_title).rstrip(),
+        critical_reference_latex.rstrip(),
+    ])
+    return "\n".join(pieces) + "\n"
+
+
+def render_weapons_chapter_document(family_latex: str, config: dict) -> str:
+    """Wrap the complete Step 6D Weapons family in a standalone Chapter 16 proof PDF."""
+    return (
+        _document_preamble(config)
+        + r"\begin{document}" + "\n"
+        + r"\sffamily" + "\n"
+        + _chapter_header(config)
+        + r"\vspace{1.8mm}" + "\n"
+        + family_latex
+        + r"\end{document}" + "\n"
+    )
