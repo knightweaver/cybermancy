@@ -1,13 +1,17 @@
 {
-  "schema": "cybermancy-step6-equipment-catalog-config-v1.0",
+  "schema": "cybermancy-step6-equipment-catalog-config-v1.1",
   "family": "weapons",
   "chapter": 16,
   "partLabel": "EQUIPMENT & TECHNOLOGY",
   "title": "Weapons",
   "tierLabel": "TIER {tier}",
   "deck": "",
+  "expectedEntityCount": 47,
   "expectedTierCounts": {
-    "1": 14
+    "1": 14,
+    "2": 11,
+    "3": 11,
+    "4": 11
   },
   "expectedTierGroups": {
     "1": [
@@ -98,6 +102,25 @@
       "verticalPaddingPt": 2
     }
   ],
+  "references": {
+    "actionsTitle": "Weapon Actions",
+    "criticalEffectsTitle": "Critical Effects",
+    "verticalPaddingPt": 2,
+    "columns": [
+      {
+        "key": "name",
+        "label": "Name",
+        "widthIn": 1.55,
+        "align": "left"
+      },
+      {
+        "key": "description",
+        "label": "Effect",
+        "widthIn": 5.90,
+        "align": "left"
+      }
+    ]
+  },
   "style": {
     "headerColor": "0B6573",
     "groupBandColor": "DDEEF0",
