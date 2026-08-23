@@ -31,9 +31,10 @@ def _mechanic_display(value: Any) -> str:
     if not text:
         return ""
     # Foundry weaponFeature values are commonly lowercase identifiers while
-    # authored action names already carry intentional capitalization.
+    # authored action names already carry intentional capitalization. Step 6
+    # owns display casing, so lowercase semantic identifiers become title case.
     if text == text.casefold():
-        return text[:1].upper() + text[1:]
+        return text.title()
     return text
 
 
