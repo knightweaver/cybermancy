@@ -3,20 +3,11 @@ import html
 import json
 import re
 from typing import Any
-from .markdown import html_to_markdown
+from .markdown import html_to_markdown, html_to_plain_text
 
-
-EQUIPMENT_TECH_FAMILIES = {
-    'weapons', 'ammo', 'armors', 'cybernetics',
-    'drones-devices', 'consumables', 'mods', 'loot',
-}
 
 _CRITICAL_EFFECT_RE = re.compile(
     r'^\s*Critical\s+Effect\s*:\s*(.+?)\s*$',
-    re.IGNORECASE,
-)
-_BLOCK_HTML_RE = re.compile(
-    r'<\s*(?:p|ul|ol|table|div|blockquote|h[1-6])\b',
     re.IGNORECASE,
 )
 
@@ -56,6 +47,13 @@ def clean_text(value: Any) -> str:
         return ''
     s = str(value)
     return html_to_markdown(s).strip() if '<' in s and '>' in s else html.unescape(s).strip()
+
+
+def clean_description(value: Any) -> str:
+    """Normalize structured description fields to one plain publication string."""
+    if value is None:
+        return ''
+    return html_to_plain_text(str(value))
 
 
 def _fmt(v: Any) -> str:
@@ -155,7 +153,7 @@ def render_action(
     display_name: str | None = None,
 ) -> str:
     name=display_name or action.get('name') or 'Action'
-    desc=clean_text(action.get('description',''))
+    desc=clean_description(action.get('description',''))
     kind=action.get('actionType') or action.get('type')
     rng=action.get('range')
     dmg=_damage_text(action)
@@ -183,10 +181,6 @@ def _system_description(doc: dict):
     return get_in(doc, 'system.description.value', '')
 
 
-def _contains_block_html(value: Any) -> bool:
-    return isinstance(value, str) and bool(_BLOCK_HTML_RE.search(value))
-
-
 def collect_source_warnings(family: str, doc: dict) -> list[dict]:
     """Return non-blocking source-quality warnings for Step 4 validation."""
     warnings=[]
@@ -204,31 +198,18 @@ def collect_source_warnings(family: str, doc: dict) -> list[dict]:
                 'field':'system.attack.roll.trait',
             },
         })
-
-    system_desc=_system_description(doc)
-    if family in EQUIPMENT_TECH_FAMILIES and _contains_block_html(system_desc):
-        warnings.append({
-            'code':'SOURCE_DESCRIPTION_HTML',
-            'message':f'{name}: equipment description contains block HTML and is omitted from publication output.',
-            'details':{
-                'family':family,
-                'sourceId':sid,
-                'name':name,
-                'field':'system.description',
-            },
-        })
     return warnings
 
 
 def render_embedded_feature(item: dict) -> str:
     name=item.get('name') or 'Feature'
-    desc=clean_text(get_in(item,'system.description','') or item.get('description',''))
+    desc=clean_description(_system_description(item) or item.get('description',''))
     typ=item.get('type') or 'feature'
     lines=[f'::: {{.feature data-feature-type="{typ}"}}', f'**{clean_text(name)}**']
     if desc: lines += ['', desc]
     actions=get_in(item,'system.actions')
     for action in _iter_actions(actions):
-        adesc=clean_text(action.get('description',''))
+        adesc=clean_description(action.get('description',''))
         if adesc and adesc != desc:
             lines += ['', f'*Action:* {adesc}']
     lines.append(':::')
@@ -336,11 +317,7 @@ def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[s
 
     identity_desc=get_in(doc,'identity.description')
     system_desc=_system_description(doc)
-    raw_desc=identity_desc or system_desc or ''
-    if family in EQUIPMENT_TECH_FAMILIES and not identity_desc and _contains_block_html(system_desc):
-        desc=''
-    else:
-        desc=clean_text(raw_desc)
+    desc=clean_description(identity_desc or system_desc or '')
     if desc: lines += [desc,'']
 
     system=doc.get('system') if isinstance(doc.get('system'),dict) else {}
