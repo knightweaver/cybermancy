@@ -27,7 +27,7 @@ Pulse emitter that fries circuits, drones, and cyberware with a single electroma
 #### Actions
 - <div markdown='1'>**Disruptive**<br>*
 
-On hit, drones/tech in range must succeed or shut down 1 round.*</div>
+On hit, unhardened drones/tech in range shut down for 1 round.*</div>
 
 - <div markdown='1'>**Critical Effect:  Total System Crash**<br>*
 

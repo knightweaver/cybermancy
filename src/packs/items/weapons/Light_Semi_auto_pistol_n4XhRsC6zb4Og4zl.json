@@ -3,7 +3,7 @@
   "type": "weapon",
   "img": "modules/cybermancy/assets/icons/weapons/smartpistol.webp",
   "system": {
-    "description": "<p>A small, light-weight semi-automatic pistol. Cheap but not high quality</p><p></p><ul><li><p>Concealable in a pocket</p></li><li><p>-1 to hit</p></li><li><p>Centa cred ($100's)</p></li><li><p>Close range</p></li></ul>",
+    "description": "<p>A small, light-weight semi-automatic pistol. Cheap but not high quality</p>",
     "actions": {},
     "attached": [],
     "tier": 1,
@@ -158,12 +158,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762204644737,
-    "modifiedTime": 1762204915268,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787434197078,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "n4XhRsC6zb4Og4zl",
   "sort": 0,

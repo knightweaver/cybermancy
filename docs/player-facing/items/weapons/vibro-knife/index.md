@@ -27,7 +27,7 @@ A short combat blade that hums at ultrasonic speed, capable of piercing armor wi
 #### Actions
 - <div markdown='1'>**Piercing**<br>*
 
-Ignores armor on a Hope critical.*</div>
+An Armor Slot cannot be marked to reduce Minor damage to No damage.*</div>
 
 - <div markdown='1'>**Critical Effect:  Silent Kill**<br>*
 

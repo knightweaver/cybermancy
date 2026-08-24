@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Unleash hidden strength with a whisper.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)</p>",
     "actions": {
-      "Parallel Synapse Array": {
+      "IdE6b7Bg7tU9HsgM": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Unleash hidden strength with a whisper.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any physical trait die roll (Strength, Agility, or Finesse)",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Parallel Synapse Array",
         "img": "modules/cybermancy/assets/icons/cybernetics/parallel-synapse-array.webp",
         "range": "",
-        "_id": "IdE6b7Bg7tU9HsgM"
+        "_id": "IdE6b7Bg7tU9HsgM",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468854,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143789,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "MJl7ui8OGcIr44Pt",
   "sort": 300000,

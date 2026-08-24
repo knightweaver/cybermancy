@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Wide Scatter": {
+      "F33aHye1yrSf1LXA": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Wide Scatter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Attack all targets in Very Close range once per scene.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Wide Scatter",
         "img": "modules/cybermancy/assets/icons/features/wide-scatter.webp",
         "range": "",
-        "_id": "F33aHye1yrSf1LXA"
+        "_id": "F33aHye1yrSf1LXA",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Bone Shaker": {
+      "uhvGFd4RDP2glqEK": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Bone Shaker:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target knocked prone and loses next turn.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Bone Shaker",
         "img": "modules/cybermancy/assets/icons/features/bone-shaker.webp",
         "range": "",
-        "_id": "uhvGFd4RDP2glqEK"
+        "_id": "uhvGFd4RDP2glqEK",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883698818,
-    "modifiedTime": 1760883781792,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539050,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "SICmg6flEUEjUKR4",
   "sort": 200000,

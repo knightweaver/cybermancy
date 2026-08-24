@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Stress for clarity; mind transcends chaos.</i><br /><br /><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence</p>",
     "actions": {
-      "Cognitive Filter Array": {
+      "L0gEd0EVYa7VwZlA": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Stress for clarity; mind transcends chaos.</i><br><br><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to negate 1 source of disadvantage for cognitive functions (those affecting Knowledge, Instinct, or Presence",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Cognitive Filter Array",
         "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-filter-array.webp",
         "range": "",
-        "_id": "L0gEd0EVYa7VwZlA"
+        "_id": "L0gEd0EVYa7VwZlA",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121556812,
-    "modifiedTime": 1762121561453,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143681,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "FR4N4dWYPOH8PNSq",
   "sort": 150000,

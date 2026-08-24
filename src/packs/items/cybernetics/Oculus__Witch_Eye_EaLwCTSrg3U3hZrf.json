@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Empower your gaze, command with intent.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Presence roll in which you are attempting to Intimidate a creature. <br /><br />Requires Oculus ™ base unit.</p>",
     "actions": {
-      "Oculus™ Witch Eye": {
+      "TdynAg6cnq7OMnVX": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Empower your gaze, command with intent.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Presence roll in which you are attempting to Intimidate a creature. <br><br>Requires Oculus ™ base unit.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Oculus™ Witch Eye",
         "img": "modules/cybermancy/assets/icons/cybernetics/oculus-witch-eye.webp",
         "range": "",
-        "_id": "TdynAg6cnq7OMnVX"
+        "_id": "TdynAg6cnq7OMnVX",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468830,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143650,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "EaLwCTSrg3U3hZrf",
   "sort": 400000,

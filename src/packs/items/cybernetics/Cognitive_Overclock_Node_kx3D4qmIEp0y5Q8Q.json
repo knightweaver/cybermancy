@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Hope-fueled edge, perfection's clandestine spark.\"</i><br /><br /><p class=\"Card-Feature\">Once per long rest, <strong>Spend 1 Hope</strong> to gain advantage on an action (of any type)</p>",
     "actions": {
-      "Cognitive Overclock Node": {
+      "mw2exkUURt0U2xTT": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Hope-fueled edge, perfection's clandestine spark.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 1 Hope</strong> to gain advantage on an action (of any type)",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Cognitive Overclock Node",
         "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-overclock-node.webp",
         "range": "",
-        "_id": "mw2exkUURt0U2xTT"
+        "_id": "mw2exkUURt0U2xTT",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468451,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144050,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "kx3D4qmIEp0y5Q8Q",
   "sort": 1500000,

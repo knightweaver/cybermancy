@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Unleash precision, elevate impact.\"</i><br /><br /><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  <br /><br />Requires the SmartLink™ CPU implant</p>",
     "actions": {
-      "SmartLink™ Headshot": {
+      "zMTSPf3NkHzRRApj": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Unleash precision, elevate impact.\"</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).  <br><br>Requires the SmartLink™ CPU implant",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "SmartLink™ Headshot",
         "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-headshot.webp",
         "range": "",
-        "_id": "zMTSPf3NkHzRRApj"
+        "_id": "zMTSPf3NkHzRRApj",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557326,
-    "modifiedTime": 1762121573364,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143972,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "g6sb3w8S387pWK05",
   "sort": 100007,

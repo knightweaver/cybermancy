@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Crave rest? Double the dream.\"</i><br /><br /><p class=\"Card-Feature\">During a long rest, gain one additional short rest downtime action</p>",
     "actions": {
-      "REM Compression Routine": {
+      "o8DCJB3s2yjVTEfI": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Crave rest? Double the dream.\"</i><br><br><p class=\"Card-Feature\">During a long rest, gain one additional short rest downtime action",
@@ -26,7 +26,11 @@
         "name": "REM Compression Routine",
         "img": "modules/cybermancy/assets/icons/cybernetics/rem-compression-routine.webp",
         "range": "",
-        "_id": "o8DCJB3s2yjVTEfI"
+        "_id": "o8DCJB3s2yjVTEfI",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557264,
-    "modifiedTime": 1762121571813,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143338,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "1VkyZe1C041eCacZ",
   "sort": 100025,

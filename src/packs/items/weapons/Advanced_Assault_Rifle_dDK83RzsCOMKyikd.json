@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Full Auto": {
+      "6M7LYfQLeRqBaTmn": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Full Auto:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend Hope, double damage dice.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Full Auto",
         "img": "modules/cybermancy/assets/icons/features/full-auto.webp",
         "range": "",
-        "_id": "6M7LYfQLeRqBaTmn"
+        "_id": "6M7LYfQLeRqBaTmn",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Critical Barrage": {
+      "BraXcDHiiQuxk1fP": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Critical Barrage:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Mow down cover, forcing enemies into open.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Critical Barrage",
         "img": "modules/cybermancy/assets/icons/features/critical-barrage.webp",
         "range": "",
-        "_id": "BraXcDHiiQuxk1fP"
+        "_id": "BraXcDHiiQuxk1fP",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883826000,
-    "modifiedTime": 1760883834889,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539136,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "dDK83RzsCOMKyikd",
   "sort": 100000,

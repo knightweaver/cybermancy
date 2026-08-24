@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Explosive": {
+      "pxrKNBWDbH93KJX5": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On Hope win, half damage to all in Close range.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On success, apply damage rolled to all Actors in Very Close; on fail, apply half-damage.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Explosive",
         "img": "modules/cybermancy/assets/icons/features/explosive.webp",
         "range": "",
-        "_id": "pxrKNBWDbH93KJX5"
+        "_id": "pxrKNBWDbH93KJX5",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Shrapnel Storm": {
+      "Cnvy9jLhLtDjqcQz": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Shrapnel Storm:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">All enemies in area take full damage and mark 1 Stress.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Shrapnel Storm",
         "img": "modules/cybermancy/assets/icons/features/shrapnel-storm.webp",
         "range": "",
-        "_id": "Cnvy9jLhLtDjqcQz"
+        "_id": "Cnvy9jLhLtDjqcQz",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883145587,
-    "modifiedTime": 1760883586637,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538905,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "BrgCj5tfK1EGOc4S",
   "sort": 400000,

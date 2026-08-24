@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Disruptive": {
+      "0roif22u48NmViza": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Disruptive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On hit, drones/tech in range must succeed or shut down 1 round.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Disruptive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On hit, unhardened drones/tech in range shut down for 1 round.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Disruptive",
         "img": "modules/cybermancy/assets/icons/features/disruptive.webp",
         "range": "",
-        "_id": "0roif22u48NmViza"
+        "_id": "0roif22u48NmViza",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Total System Crash": {
+      "euf12meaz6naVKm9": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Total System Crash:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">All devices in area disabled until end of scene.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Total System Crash",
         "img": "modules/cybermancy/assets/icons/features/total-system-crash.webp",
         "range": "",
-        "_id": "euf12meaz6naVKm9"
+        "_id": "euf12meaz6naVKm9",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883144243,
-    "modifiedTime": 1760883585220,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539088,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Ur1JgpnhnV3fP3af",
   "sort": 300000,

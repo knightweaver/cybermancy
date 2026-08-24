@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Precision reborn, elevate your lethal art.\"</i><br /><br /><p class=\"Card-Feature\">+3 to all Attacks made by a SmartLink™ weapon. <br /><br />Requires SmartLink™ CPU implant</p>",
     "actions": {
-      "SmartLink™ Weapon Mount": {
+      "yw9xACc4YD5GdyI3": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Precision reborn, elevate your lethal art.\"</i><br><br><p class=\"Card-Feature\">+3 to all Attacks made by a SmartLink™ weapon. <br><br>Requires SmartLink™ CPU implant",
@@ -26,7 +26,11 @@
         "name": "SmartLink™ Weapon Mount",
         "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-weapon-mount.webp",
         "range": "",
-        "_id": "yw9xACc4YD5GdyI3"
+        "_id": "yw9xACc4YD5GdyI3",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557366,
-    "modifiedTime": 1762121574085,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143723,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "IcDhEwtRTpQvoeUt",
   "sort": 100004,

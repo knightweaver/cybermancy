@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"See, capture, upgrade—vision redefined.\"</i><br /><br /><p class=\"Card-Feature\">Your eyes have been replaced with Oculus™ granting the ability to photograph and video record.  This base unit is required for several upgrades.</p>",
     "actions": {
-      "Oculus™ Base Unit": {
+      "2wWHKGsdGawpVlsz": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"See, capture, upgrade—vision redefined.\"</i><br><br><p class=\"Card-Feature\">Your eyes have been replaced with Oculus™ granting the ability to photograph and video record.  This base unit is required for several upgrades.",
@@ -26,7 +26,11 @@
         "name": "Oculus™ Base Unit",
         "img": "modules/cybermancy/assets/icons/cybernetics/oculus-base-unit.webp",
         "range": "",
-        "_id": "2wWHKGsdGawpVlsz"
+        "_id": "2wWHKGsdGawpVlsz",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121316858,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143900,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Z4WY2e73USF3nM25",
   "sort": 1500000,

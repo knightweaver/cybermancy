@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Sharpen sights, redefine the unseen.\"</i><br /><br /><p class=\"Card-Feature\">Up to 10x optical zoom.  <strong>Spend 1 Hope</strong> to gain +2 on a Perceive check.  <br /><br />Requires Oculus ™ base unit.</p>",
     "actions": {
-      "Oculus™ Eagle Eye": {
+      "bScKEXGsp5JwVSJR": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Sharpen sights, redefine the unseen.\"</i><br><br><p class=\"Card-Feature\">Up to 10x optical zoom.  <strong>Spend 1 Hope</strong> to gain +2 on a Perceive check.  <br><br>Requires Oculus ™ base unit.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Oculus™ Eagle Eye",
         "img": "modules/cybermancy/assets/icons/cybernetics/oculus-eagle-eye.webp",
         "range": "",
-        "_id": "bScKEXGsp5JwVSJR"
+        "_id": "bScKEXGsp5JwVSJR",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121317626,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143513,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "8iYIln84dOO2iW72",
   "sort": 1600000,

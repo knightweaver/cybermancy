@@ -27,7 +27,7 @@ A retractable blade hidden in the user’s forearm, perfect for sudden, lethal s
 #### Actions
 - <div markdown='1'>**Concealed**<br>*
 
-Can be hidden; gain advantage on your first attack each scene.*</div>
+Difficulty 14 to be detected; gain advantage on your first attack each scene.*</div>
 
 - <div markdown='1'>**Critical Effect:  Ambush Kill**<br>*
 

@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Satellite Link": {
+      "eyhRgLSm8Vx2C3Zt": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Satellite Link:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Call in orbital fire once per rest.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Satellite Link",
         "img": "modules/cybermancy/assets/icons/features/satellite-link.webp",
         "range": "",
-        "_id": "eyhRgLSm8Vx2C3Zt"
+        "_id": "eyhRgLSm8Vx2C3Zt",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Heavens Lance": {
+      "2Mjny01dbGah9tHd": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Heavens Lance:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Obliterate target zone, GM narrates consequences.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Heavens Lance",
         "img": "modules/cybermancy/assets/icons/features/heavens-lance.webp",
         "range": "",
-        "_id": "2Mjny01dbGah9tHd"
+        "_id": "2Mjny01dbGah9tHd",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883944345,
-    "modifiedTime": 1760883981654,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539039,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "RqbqpWmxrrXmWSTY",
   "sort": 200000,

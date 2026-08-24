@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Forge destiny with unyielding cybernetic might.</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Strength roll or saving throw.</p>",
     "actions": {
-      "Myomer Muscle Weave": {
+      "LHZIq1c2fHhiTndD": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Forge destiny with unyielding cybernetic might.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Strength roll or saving throw.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Myomer Muscle Weave",
         "img": "modules/cybermancy/assets/icons/cybernetics/myomer-muscle-weave.webp",
         "range": "",
-        "_id": "LHZIq1c2fHhiTndD"
+        "_id": "LHZIq1c2fHhiTndD",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121313113,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144171,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "tXLT3OMGNeYOefUZ",
   "sort": 1100000,

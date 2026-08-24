@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Unleash silent fury, upgrade your strike.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, after making a successful Melee attack with a weapon that does physical damage, increase the damage die increment by 1 (e.g. d4 to d6).  <br /><br />Requires Cyberarm™ base unit</p>",
     "actions": {
-      "Cyberarm™ Shock Servo Enhancer": {
+      "gn2YF7Lt4DRhnvm0": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Unleash silent fury, upgrade your strike.\"</i><br><br><p class=\"Card-Feature\">Once per scene, after making a successful Melee attack with a weapon that does physical damage, increase the damage die increment by 1 (e.g. d4 to d6).  <br><br>Requires Cyberarm™ base unit",
@@ -26,7 +26,11 @@
         "name": "Cyberarm™ Shock Servo Enhancer",
         "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-shock-servo-enhancer.webp",
         "range": "",
-        "_id": "gn2YF7Lt4DRhnvm0"
+        "_id": "gn2YF7Lt4DRhnvm0",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468499,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144104,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "orbLiYdVlhvY3lWa",
   "sort": 1400000,

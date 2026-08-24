@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Forge your wrath; precision unfolds.\"</i><br /><br /><p class=\"Card-Feature\">+2 to all Attacks made by a Melee weapon.</p>",
     "actions": {
-      "Combat Reflex Core": {
+      "eAzLmin3VYIjdBuY": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Forge your wrath; precision unfolds.\"</i><br><br><p class=\"Card-Feature\">+2 to all Attacks made by a Melee weapon.",
@@ -26,7 +26,11 @@
         "name": "Combat Reflex Core",
         "img": "modules/cybermancy/assets/icons/cybernetics/combat-reflex-core.webp",
         "range": "",
-        "_id": "eAzLmin3VYIjdBuY"
+        "_id": "eAzLmin3VYIjdBuY",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121556834,
-    "modifiedTime": 1762121562300,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144123,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "pvsNrj4ymQiw3pLI",
   "sort": 125000,

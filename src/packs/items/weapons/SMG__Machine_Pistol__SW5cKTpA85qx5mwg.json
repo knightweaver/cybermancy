@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Burst Fire": {
+      "JPuuh5YDZqPguBBR": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Burst Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Mark 1 Stress to attack an additional target in Close range.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Burst Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend Hope to hit two targets in Close range.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Burst Fire",
         "img": "modules/cybermancy/assets/icons/features/burst-fire.webp",
         "range": "",
-        "_id": "JPuuh5YDZqPguBBR"
+        "_id": "JPuuh5YDZqPguBBR",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Spray Down": {
+      "9ov3r6ycHSwVJ3QI": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Spray Down:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Hit all targets in Very Close range with collateral fire.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Spray Down",
         "img": "modules/cybermancy/assets/icons/features/spray-down.webp",
         "range": "",
-        "_id": "9ov3r6ycHSwVJ3QI"
+        "_id": "9ov3r6ycHSwVJ3QI",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883154874,
-    "modifiedTime": 1760883596156,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539059,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "SW5cKTpA85qx5mwg",
   "sort": 900000,

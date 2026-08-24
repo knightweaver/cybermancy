@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"\" - Master minds, bend drones, limitlessly near.</i><br /><br /><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a rigger drone control module, but it isn't as powerful as a normal regger drone control unitand has shorter range.  You may control any of your drones within Close and at -2 on your rolls.  <br /><br /> Requires Brainiac™ Base Unit.</p>",
     "actions": {
-      "Brainiac™ Drone Control": {
+      "ojzFxXUj1He0EgBo": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"\" - Master minds, bend drones, limitlessly near.</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a rigger drone control module, but it isn't as powerful as a normal regger drone control unitand has shorter range.  You may control any of your drones within Close and at -2 on your rolls.  <br><br> Requires Brainiac™ Base Unit.",
@@ -26,7 +26,11 @@
         "name": "Brainiac™ Drone Control",
         "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-drone-control.webp",
         "range": "",
-        "_id": "ojzFxXUj1He0EgBo"
+        "_id": "ojzFxXUj1He0EgBo",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468329,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143472,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "72NpZYXWU959OHK4",
   "sort": 1800000,

@@ -27,7 +27,7 @@ Enhanced retractable spurs forged from titanium alloy, near undetectable by secu
 #### Actions
 - <div markdown='1'>**Concealed**<br>*
 
-Cannot be detected by casual scans.*</div>
+Difficulty 14 to be detected; gain advantage on your first attack each scene.*</div>
 
 - <div markdown='1'>**Critical Effect:  Spinal Strike**<br>*
 

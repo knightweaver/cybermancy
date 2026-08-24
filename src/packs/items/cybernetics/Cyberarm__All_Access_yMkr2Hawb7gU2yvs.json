@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Unlock elegance, embrace limitless entry.</i><br /><br /><p class=\"Card-Feature\">You always have a lock pick with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 Finesse on a lock picking attempt. <br /><br />Requires Cyberarm™ base unit</p>",
     "actions": {
-      "Cyberarm™ All Access": {
+      "QPTLtytKBKVrd72w": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Unlock elegance, embrace limitless entry.</i><br><br><p class=\"Card-Feature\">You always have a lock pick with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 Finesse on a lock picking attempt. <br><br>Requires Cyberarm™ base unit",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Cyberarm™ All Access",
         "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-all-access.webp",
         "range": "",
-        "_id": "QPTLtytKBKVrd72w"
+        "_id": "QPTLtytKBKVrd72w",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121284385,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144202,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "yMkr2Hawb7gU2yvs",
   "sort": 3000000,

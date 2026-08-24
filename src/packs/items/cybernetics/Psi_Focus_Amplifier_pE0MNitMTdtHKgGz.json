@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Power surges—increase, unleash devastation.\"</i><br /><br /><p class=\"Card-Feature\">After a successful Spellcasting roll that does damage, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).</p>",
     "actions": {
-      "Psi-Focus Amplifier": {
+      "LHhnUscu7zX4SU0K": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Power surges—increase, unleash devastation.\"</i><br><br><p class=\"Card-Feature\">After a successful Spellcasting roll that does damage, <strong>Mark 1 Stress</strong> to increase all damage die rolled by 1 die increment (e.g. from d4 to d6).",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Psi-Focus Amplifier",
         "img": "modules/cybermancy/assets/icons/cybernetics/psi-focus-amplifier.webp",
         "range": "",
-        "_id": "LHhnUscu7zX4SU0K"
+        "_id": "LHhnUscu7zX4SU0K",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468881,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144115,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "pE0MNitMTdtHKgGz",
   "sort": 200000,

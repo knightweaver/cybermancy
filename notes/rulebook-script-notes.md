@@ -14,7 +14,7 @@ python build/rulebook/scripts/build-rulebook-source.py build
 
 
 1. Build the rulebook inventory:
-`python.exe .\scripts\build-rulebook-inventory.py --repo-root ..\..\  `
+`python.exe .\build\rulebook\scripts\build-rulebook-inventory.py --repo-root ..\..\  `
 
 2. Rebuild the rulebook publication manifest
 `python rebuild-rulebook-publication-manifest.py ^

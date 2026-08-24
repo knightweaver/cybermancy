@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Arc Charge": {
+      "N9Xa0vxT7VtZAlRB": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Arc Charge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend 1 Stress to arc lightning to another Very Close target.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Arc Charge",
         "img": "modules/cybermancy/assets/icons/features/arc-charge.webp",
         "range": "",
-        "_id": "N9Xa0vxT7VtZAlRB"
+        "_id": "N9Xa0vxT7VtZAlRB",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Overload": {
+      "ahSJdeDw0aC4FM7Y": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Overload:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Targets nervous system locks up; they drop gear.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Overload",
         "img": "modules/cybermancy/assets/icons/features/overload.webp",
         "range": "",
-        "_id": "ahSJdeDw0aC4FM7Y"
+        "_id": "ahSJdeDw0aC4FM7Y",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883693859,
-    "modifiedTime": 1760883756414,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539080,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "UCazo0jcAd9753Iw",
   "sort": 700000,

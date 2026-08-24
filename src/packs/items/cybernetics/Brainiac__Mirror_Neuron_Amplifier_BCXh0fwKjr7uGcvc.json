@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Trade hope for unwavering charisma surge.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Prescence Roll or Saving Throw</p>",
     "actions": {
-      "Brainiac™ Mirror Neuron Amplifier": {
+      "ThajoBm3XKDFcpn0": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Trade hope for unwavering charisma surge.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Prescence Roll or Saving Throw",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Brainiac™ Mirror Neuron Amplifier",
         "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-mirror-neuron-amplifier.webp",
         "range": "",
-        "_id": "ThajoBm3XKDFcpn0"
+        "_id": "ThajoBm3XKDFcpn0",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121556773,
-    "modifiedTime": 1762121559446,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143568,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "BCXh0fwKjr7uGcvc",
   "sort": 100000,

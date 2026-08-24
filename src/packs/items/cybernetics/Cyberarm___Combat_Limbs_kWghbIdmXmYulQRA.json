@@ -5,29 +5,6 @@
   "system": {
     "description": "<i>Edge precision, unrivaled force, definitive impact.</i><br /><br /><p class=\"Card-Feature\">+1 to all Attacks made by a Melee weapon that does physical damage. <br /><br />Requires Cyberarm™ base unit</p>",
     "actions": {
-      "Cyberarm™  Combat Limbs": {
-        "type": "effect",
-        "systemPath": "actions",
-        "description": "<i>Edge precision, unrivaled force, definitive impact.</i><br><br><p class=\"Card-Feature\">+1 to all Attacks made by a Melee weapon that does physical damage. <br><br>Requires Cyberarm™ base unit",
-        "chatDisplay": true,
-        "actionType": "passive",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Cyberarm™  Combat Limbs",
-        "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm--combat-limbs.webp",
-        "range": "",
-        "_id": "CtgrIqK1JFn10hn8"
-      },
       "CtgrIqK1JFn10hn8": {
         "type": "effect",
         "systemPath": "actions",
@@ -67,12 +44,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121283273,
-    "modifiedTime": 1762121681118,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144030,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "kWghbIdmXmYulQRA",
   "sort": 3600000,

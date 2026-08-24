@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Rail Shot": {
+      "Jc2FAWMUoNPV0Btg": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Rail Shot:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend Stress to deal double damage dice.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Rail Shot",
         "img": "modules/cybermancy/assets/icons/features/rail-shot.webp",
         "range": "",
-        "_id": "Jc2FAWMUoNPV0Btg"
+        "_id": "Jc2FAWMUoNPV0Btg",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Hyper-Pierce": {
+      "RMQ36RrKAr9BdOdu": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Hyper-Pierce:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Shot tears through multiple enemies/vehicles in a line.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Hyper-Pierce",
         "img": "modules/cybermancy/assets/icons/features/hyper-pierce.webp",
         "range": "",
-        "_id": "RMQ36RrKAr9BdOdu"
+        "_id": "RMQ36RrKAr9BdOdu",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883941289,
-    "modifiedTime": 1760883944357,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539154,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "hi3OHz6RxT9josjx",
   "sort": 100000,

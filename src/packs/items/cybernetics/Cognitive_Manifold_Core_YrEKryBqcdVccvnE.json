@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Unleash hope, transcend limits.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Spellcasting Roll</p>",
     "actions": {
-      "Cognitive Manifold Core": {
+      "6U6KJFFDy57K87pq": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Unleash hope, transcend limits.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Spellcasting Roll",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Cognitive Manifold Core",
         "img": "modules/cybermancy/assets/icons/cybernetics/cognitive-manifold-core.webp",
         "range": "",
-        "_id": "6U6KJFFDy57K87pq"
+        "_id": "6U6KJFFDy57K87pq",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121277755,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143890,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "YrEKryBqcdVccvnE",
   "sort": 3700000,

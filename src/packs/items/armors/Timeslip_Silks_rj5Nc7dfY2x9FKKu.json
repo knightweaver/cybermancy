@@ -15,9 +15,9 @@
         "img": "icons/magic/time/hourglass-brown-orange.webp",
         "cost": [
           {
-            "key": "armorSlot",
+            "key": "resource",
+            "itemId": "armorSlot",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
             "consumeOnSuccess": false
@@ -94,12 +94,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760912121288,
-    "modifiedTime": 1760912121303,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1764522905798,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "rj5Nc7dfY2x9FKKu",
   "sort": 200000,

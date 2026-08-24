@@ -27,7 +27,7 @@ Lightweight submachine gun optimized for close-quarters burst fire; loud, fast, 
 #### Actions
 - <div markdown='1'>**Burst Fire**<br>*
 
-Mark 1 Stress to attack an additional target in Close range.*</div>
+Spend Hope to hit two targets in Close range.*</div>
 
 - <div markdown='1'>**Critical Effect:  Spray Down**<br>*
 

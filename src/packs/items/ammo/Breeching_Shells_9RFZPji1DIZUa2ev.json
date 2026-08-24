@@ -5,7 +5,7 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br /> Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.</p>",
     "actions": {
-      "Breeching Shells": {
+      "DwPlpfYaB5fTgfB3": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br><br> Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.",
@@ -26,7 +26,11 @@
         "name": "Breeching Shells",
         "img": "modules/cybermancy/assets/icons/consumables/ammo/breeching-shells.webp",
         "range": "",
-        "_id": "DwPlpfYaB5fTgfB3"
+        "_id": "DwPlpfYaB5fTgfB3",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "quantity": 1,
@@ -43,12 +47,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762172541283,
-    "modifiedTime": 1762172541283,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143238,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "9RFZPji1DIZUa2ev",
   "sort": 0,

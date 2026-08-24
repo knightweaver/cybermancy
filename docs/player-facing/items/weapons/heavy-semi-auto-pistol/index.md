@@ -6,7 +6,7 @@
 <img src="../../../assets/icons/weapons/heavy-semi-auto-pistol.webp" alt="Heavy Semi-auto pistol" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-<p>A small, light-weight semi-automatic pistol. Cheap but with only 1 Mod slots</p><p></p><ul><li><p>Concealable in a jacket / armpit holster</p></li><li><p>Centa cred ($100's)</p></li><li><p>Close range</p></li></ul>
+<p>A small, light-weight semi-automatic pistol. Cheap but with only 1 Mod slots</p>
 </div>
 </div>
 

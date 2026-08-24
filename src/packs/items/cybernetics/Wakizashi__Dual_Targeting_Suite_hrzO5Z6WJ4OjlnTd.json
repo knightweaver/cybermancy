@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Unlock despair's edge, amplify hope.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current attack roll with your secondary weapon</p>",
     "actions": {
-      "Wakizashi™ Dual-Targeting Suite": {
+      "DGgFi3uTnrjStJ8N": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Unlock despair's edge, amplify hope.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current attack roll with your secondary weapon",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Wakizashi™ Dual-Targeting Suite",
         "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-dual-targeting-suite.webp",
         "range": "",
-        "_id": "DGgFi3uTnrjStJ8N"
+        "_id": "DGgFi3uTnrjStJ8N",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121469123,
-    "modifiedTime": 1762121519476,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143995,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "hrzO5Z6WJ4OjlnTd",
   "sort": 100196,

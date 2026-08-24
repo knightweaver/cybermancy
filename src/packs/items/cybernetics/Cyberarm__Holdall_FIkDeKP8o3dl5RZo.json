@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Secrets hidden beneath your seamless alloy.\"</i><br /><br /><p class=\"Card-Feature\">You have a disguised compartment integrated into your Cyberarm unit that can hold a few small items (about 64 cm^2 of storage).  Impossible to detect without a physical search of the arm.<br /><br />Requires Cyberarm™ base unit</p>",
     "actions": {
-      "Cyberarm™ Holdall": {
+      "FJasM7da0zbBBiKM": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Secrets hidden beneath your seamless alloy.\"</i><br><br><p class=\"Card-Feature\">You have a disguised compartment integrated into your Cyberarm unit that can hold a few small items (about 64 cm^2 of storage).  Impossible to detect without a physical search of the arm.<br><br>Requires Cyberarm™ base unit",
@@ -26,7 +26,11 @@
         "name": "Cyberarm™ Holdall",
         "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-holdall.webp",
         "range": "",
-        "_id": "FJasM7da0zbBBiKM"
+        "_id": "FJasM7da0zbBBiKM",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121290754,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143671,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "FIkDeKP8o3dl5RZo",
   "sort": 3100000,

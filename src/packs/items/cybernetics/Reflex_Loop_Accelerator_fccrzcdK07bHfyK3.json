@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Unleash potential, where stress births success.</i><br /><br /><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make your Hope die a d20 for 1 attack roll</p>",
     "actions": {
-      "Reflex Loop Accelerator": {
+      "InNUW1RpSEa6AVXV": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Unleash potential, where stress births success.</i><br><br><p class=\"Card-Feature\">Once per rest, <strong>Mark 1 Stress</strong> to make your Hope die a d20 for 1 attack roll",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Reflex Loop Accelerator",
         "img": "modules/cybermancy/assets/icons/cybernetics/reflex-loop-accelerator.webp",
         "range": "",
-        "_id": "InNUW1RpSEa6AVXV"
+        "_id": "InNUW1RpSEa6AVXV",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557128,
-    "modifiedTime": 1762121569933,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143962,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "fccrzcdK07bHfyK3",
   "sort": 100098,

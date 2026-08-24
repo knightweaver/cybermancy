@@ -5,29 +5,6 @@
   "system": {
     "description": "<i>\"Embrace renewal; hope embedded within.\"</i><br /><br /><p class=\"Card-Feature\">Once per rest, Gain 1 Hope</p>",
     "actions": {
-      "Empathic Feedback Loop": {
-        "type": "effect",
-        "systemPath": "actions",
-        "description": "<i>\"Embrace renewal; hope embedded within.\"</i><br><br><p class=\"Card-Feature\">Once per rest, Gain 1 Hope",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "1",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Empathic Feedback Loop",
-        "img": "modules/cybermancy/assets/icons/cybernetics/empathic-feedback-loop.webp",
-        "range": "",
-        "_id": "82HU0MjOpSLDwjrn"
-      },
       "82HU0MjOpSLDwjrn": {
         "type": "effect",
         "systemPath": "actions",
@@ -67,12 +44,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121298547,
-    "modifiedTime": 1762122318605,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144211,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "zZC1fpkxQs4FMJ0x",
   "sort": 400000,

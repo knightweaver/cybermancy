@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Suppressive Fire": {
+      "CD9vrCGuiHDY0Jrd": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Suppressive Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Hope win, target must mark 1 Stress to act next turn.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Suppressive Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, target must mark 1 Stress to act next turn.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,12 +106,16 @@
         "name": "Suppressive Fire",
         "img": "modules/cybermancy/assets/icons/features/suppressive-fire.webp",
         "range": "",
-        "_id": "CD9vrCGuiHDY0Jrd"
+        "_id": "CD9vrCGuiHDY0Jrd",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Shredding Burst": {
+      "RHGsxK7PrJhODOX7": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Shredding Burst:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Force enemy into cover, reducing their next attack roll.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Shredding Burst:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Force enemy into cover, they had disadvantage on their next attack roll.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Shredding Burst",
         "img": "modules/cybermancy/assets/icons/features/shredding-burst.webp",
         "range": "",
-        "_id": "RHGsxK7PrJhODOX7"
+        "_id": "RHGsxK7PrJhODOX7",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883140519,
-    "modifiedTime": 1760883581346,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573604535,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "vJNoJ489P0XiOSql",
   "sort": 100000,

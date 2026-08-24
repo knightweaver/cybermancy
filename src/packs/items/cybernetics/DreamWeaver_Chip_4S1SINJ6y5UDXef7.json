@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Dream deeper, recharge beyond limits.\"</i><br /><br /><p class=\"Card-Feature\">Gain one additional long rest downtime action</p>",
     "actions": {
-      "DreamWeaver Chip": {
+      "gyAouGNVrBv89PAT": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Dream deeper, recharge beyond limits.\"</i><br><br><p class=\"Card-Feature\">Gain one additional long rest downtime action",
@@ -26,7 +26,11 @@
         "name": "DreamWeaver Chip",
         "img": "modules/cybermancy/assets/icons/cybernetics/dreamweaver-chip.webp",
         "range": "",
-        "_id": "gyAouGNVrBv89PAT"
+        "_id": "gyAouGNVrBv89PAT",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121556932,
-    "modifiedTime": 1762121563941,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143403,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "4S1SINJ6y5UDXef7",
   "sort": 106250,

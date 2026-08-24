@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Arcane Shield: Veil your vulnerabilities.</i><br /><br /><p class=\"Card-Feature\">-2 to all sources of Physical damage</p>",
     "actions": {
-      "Shock-Dispersion Skeleton": {
+      "HlR01zsFjml3ZnbT": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Arcane Shield: Veil your vulnerabilities.</i><br><br><p class=\"Card-Feature\">-2 to all sources of Physical damage",
@@ -26,7 +26,11 @@
         "name": "Shock-Dispersion Skeleton",
         "img": "modules/cybermancy/assets/icons/cybernetics/shock-dispersion-skeleton.webp",
         "range": "",
-        "_id": "HlR01zsFjml3ZnbT"
+        "_id": "HlR01zsFjml3ZnbT",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468931,
-    "modifiedTime": 1762121512885,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143690,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "FcdbPDC2MwouFdq7",
   "sort": 125000,

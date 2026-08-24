@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Inhale secrets; exhale mastery.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to monitor your environment for chemicals of all types.  Like a massively improved sense of smell</p>",
     "actions": {
-      "Chemical hazard sensor": {
+      "3uETmp5BBLmLgDxD": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Inhale secrets; exhale mastery.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to monitor your environment for chemicals of all types.  Like a massively improved sense of smell",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Chemical hazard sensor",
         "img": "modules/cybermancy/assets/icons/cybernetics/chemical-hazard-sensor.webp",
         "range": "",
-        "_id": "3uETmp5BBLmLgDxD"
+        "_id": "3uETmp5BBLmLgDxD",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121274729,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143735,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Iqa6zJtq5pCyuPus",
   "sort": 4000000,

@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Knockback": {
+      "5bPLWn3eCSLEz4ZC": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Knockback:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Push targets back one range band.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Knockback",
         "img": "modules/cybermancy/assets/icons/features/knockback.webp",
         "range": "",
-        "_id": "5bPLWn3eCSLEz4ZC"
+        "_id": "5bPLWn3eCSLEz4ZC",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Concussive Blast": {
+      "N1rVtlNi0VApVZnd": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Concussive Blast:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Stun all in Close cone.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Concussive Blast",
         "img": "modules/cybermancy/assets/icons/features/concussive-blast.webp",
         "range": "",
-        "_id": "N1rVtlNi0VApVZnd"
+        "_id": "N1rVtlNi0VApVZnd",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883836955,
-    "modifiedTime": 1760883888996,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538984,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "NEGlKZuHAH63uctm",
   "sort": 0,

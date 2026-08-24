@@ -5,7 +5,7 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round</p>",
     "actions": {
-      "Data-Spike Rounds": {
+      "1XpqnTWaSMgmOnpO": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round",
@@ -26,7 +26,11 @@
         "name": "Data-Spike Rounds",
         "img": "modules/cybermancy/assets/icons/consumables/ammo/data-spike-rounds.webp",
         "range": "",
-        "_id": "1XpqnTWaSMgmOnpO"
+        "_id": "1XpqnTWaSMgmOnpO",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "quantity": 1,
@@ -43,12 +47,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762172541331,
-    "modifiedTime": 1762172541331,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143221,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "42INI9FyMuNnTBB1",
   "sort": 0,

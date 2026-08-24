@@ -5,7 +5,7 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.</p>",
     "actions": {
-      "Tracker Rounds": {
+      "mJort3nHmLneyreC": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any rifle and place 2 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  These rounds inject a tracker into the body of the target if the target takes any Hit Points of damage.  The tracker can be detected within 3 miles.",
@@ -26,7 +26,11 @@
         "name": "Tracker Rounds",
         "img": "modules/cybermancy/assets/icons/consumables/ammo/tracker-rounds.webp",
         "range": "",
-        "_id": "mJort3nHmLneyreC"
+        "_id": "mJort3nHmLneyreC",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "quantity": 1,
@@ -43,12 +47,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762172541564,
-    "modifiedTime": 1762172541564,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143215,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "2eycIVnLUHGrQHfy",
   "sort": 0,

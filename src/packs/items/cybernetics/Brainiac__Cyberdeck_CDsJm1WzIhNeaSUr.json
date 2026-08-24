@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Whispered code, unleashed within arm's reach.\"</i><br /><br /><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a hacking rig, but it isn't as powerful as a normal hacking rig and has shorter range.  You may make Spellcasting (Hacking) actions within Very Close and at -2 on your rolls.  <br /><br /> Requires ™ Base Unit.</p>",
     "actions": {
-      "Brainiac™ Cyberdeck": {
+      "PH2yh9IiSXd8FyrX": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Whispered code, unleashed within arm's reach.\"</i><br><br><p class=\"Card-Feature\">You have an advanced Brainiac unit implant with enough power to function as a hacking rig, but it isn't as powerful as a normal hacking rig and has shorter range.  You may make Spellcasting (Hacking) actions within Very Close and at -2 on your rolls.  <br><br> Requires ™ Base Unit.",
@@ -26,7 +26,11 @@
         "name": "Brainiac™ Cyberdeck",
         "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-cyberdeck.webp",
         "range": "",
-        "_id": "PH2yh9IiSXd8FyrX"
+        "_id": "PH2yh9IiSXd8FyrX",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121271178,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143603,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "CDsJm1WzIhNeaSUr",
   "sort": 4300000,

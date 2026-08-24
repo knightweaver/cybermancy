@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "System Overload": {
+      "zs3qKprkkWLtfbsV": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>System Overload:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Devices take 2 rounds to recover.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "System Overload",
         "img": "modules/cybermancy/assets/icons/features/system-overload.webp",
         "range": "",
-        "_id": "zs3qKprkkWLtfbsV"
+        "_id": "zs3qKprkkWLtfbsV",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Matrix Burnout": {
+      "rrbtLKJgcXuQnz2h": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Matrix Burnout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Deckers hit take HP damage directly.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Matrix Burnout",
         "img": "modules/cybermancy/assets/icons/features/matrix-burnout.webp",
         "range": "",
-        "_id": "rrbtLKJgcXuQnz2h"
+        "_id": "rrbtLKJgcXuQnz2h",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883834875,
-    "modifiedTime": 1760883876708,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538817,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "1tr9FHTbcVUlN8dv",
   "sort": 600000,

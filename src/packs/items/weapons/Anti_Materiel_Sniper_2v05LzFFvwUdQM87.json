@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Penetration": {
+      "yFPvgGqHUyV2ppdo": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Penetration:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Shoot through walls/vehicles.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Penetration",
         "img": "modules/cybermancy/assets/icons/features/penetration.webp",
         "range": "",
-        "_id": "yFPvgGqHUyV2ppdo"
+        "_id": "yFPvgGqHUyV2ppdo",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Executioners Shot": {
+      "D9Wrta8cdhKRIoOy": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Executioners Shot:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Instantly remove non-boss foe.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Executioners Shot",
         "img": "modules/cybermancy/assets/icons/features/executioners-shot.webp",
         "range": "",
-        "_id": "D9Wrta8cdhKRIoOy"
+        "_id": "D9Wrta8cdhKRIoOy",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883829546,
-    "modifiedTime": 1760883853340,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538842,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "2v05LzFFvwUdQM87",
   "sort": 300000,

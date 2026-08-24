@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Fortify your flesh: hope, tokenized resilience.\"</i><br /><br /><p class=\"Card-Feature\">Once per long rest, <strong>Spend 3 Hope</strong> to place 3 tokens on this card. <br /><br />As a Reaction, you can remove one token to negate a source of Physical damage.</p>",
     "actions": {
-      "Kinetic Absorber Matrix": {
+      "IApLuZY3dKDeGBSM": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Fortify your flesh: hope, tokenized resilience.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 3 Hope</strong> to place 3 tokens on this card. <br><br>As a Reaction, you can remove one token to negate a source of Physical damage.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 3,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Kinetic Absorber Matrix",
         "img": "modules/cybermancy/assets/icons/cybernetics/kinetic-absorber-matrix.webp",
         "range": "",
-        "_id": "IApLuZY3dKDeGBSM"
+        "_id": "IApLuZY3dKDeGBSM",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121599098,
-    "modifiedTime": 1762121605207,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143953,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "fEqgXqY53rg5Iy89",
   "sort": 125000,

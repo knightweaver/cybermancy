@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Concealed": {
+      "3XG7ntMmFVryoRx8": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Concealed:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Cannot be detected by casual scans.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Concealed:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Difficulty 14 to be detected; gain advantage on your first attack each scene.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Concealed",
         "img": "modules/cybermancy/assets/icons/features/concealed.webp",
         "range": "",
-        "_id": "3XG7ntMmFVryoRx8"
+        "_id": "3XG7ntMmFVryoRx8",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Spinal Strike": {
+      "Ft2NeMUb3H5lysPK": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Spinal Strike:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target is paralyzed for 1 round.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Spinal Strike",
         "img": "modules/cybermancy/assets/icons/features/spinal-strike.webp",
         "range": "",
-        "_id": "Ft2NeMUb3H5lysPK"
+        "_id": "Ft2NeMUb3H5lysPK",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883691019,
-    "modifiedTime": 1760883741773,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538996,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "NTgD6uRpDgDrtiNZ",
   "sort": 500000,

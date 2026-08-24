@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Ascend with Hope, embrace limitless potential.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Reaction Roll</p>",
     "actions": {
-      "Adrenal Surge Regulator": {
+      "Qx63c59iBKIpr2uc": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Ascend with Hope, embrace limitless potential.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Mark 1 Stress</strong> to increase your Hope die to d20 for the current Reaction Roll",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Adrenal Surge Regulator",
         "img": "modules/cybermancy/assets/icons/cybernetics/adrenal-surge-regulator.webp",
         "range": "",
-        "_id": "Qx63c59iBKIpr2uc"
+        "_id": "Qx63c59iBKIpr2uc",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121467350,
-    "modifiedTime": 1762121490159,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143594,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "C50mU642fxc6BFN9",
   "sort": 100000,

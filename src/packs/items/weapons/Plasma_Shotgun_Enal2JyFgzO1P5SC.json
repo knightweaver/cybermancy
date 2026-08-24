@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Meltdown": {
+      "MK7HKxJFXMs7uNRt": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Meltdown:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend Hope to add 1d8 burn damage.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Meltdown",
         "img": "modules/cybermancy/assets/icons/features/meltdown.webp",
         "range": "",
-        "_id": "MK7HKxJFXMs7uNRt"
+        "_id": "MK7HKxJFXMs7uNRt",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Critical Inferno": {
+      "hBbPy3RLpsSwYzaQ": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Critical Inferno:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">All targets in blast zone catch fire.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Critical Inferno",
         "img": "modules/cybermancy/assets/icons/features/critical-inferno.webp",
         "range": "",
-        "_id": "hBbPy3RLpsSwYzaQ"
+        "_id": "hBbPy3RLpsSwYzaQ",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883945233,
-    "modifiedTime": 1760883987637,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538919,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Enal2JyFgzO1P5SC",
   "sort": 0,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Precision reborn; risk is your muse.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, as a Reaction, <strong>Mark 1 Stress</strong> to reroll 1 Agility ablity or saving throw</p>",
     "actions": {
-      "Gyroscopic Stabilizer Frame": {
+      "ZGiDeuWPWZga6jHs": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Precision reborn; risk is your muse.\"</i><br><br><p class=\"Card-Feature\">Once per scene, as a Reaction, <strong>Mark 1 Stress</strong> to reroll 1 Agility ablity or saving throw",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Gyroscopic Stabilizer Frame",
         "img": "modules/cybermancy/assets/icons/cybernetics/gyroscopic-stabilizer-frame.webp",
         "range": "",
-        "_id": "ZGiDeuWPWZga6jHs"
+        "_id": "ZGiDeuWPWZga6jHs",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121310801,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144219,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "zlnENzvRFAs3mHnD",
   "sort": 800000,

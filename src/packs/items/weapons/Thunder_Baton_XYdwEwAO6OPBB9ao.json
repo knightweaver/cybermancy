@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Overdrive": {
+      "HZCG4bgU9Z0zPrw4": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Overdrive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per rest, stun all enemies in Close range.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Overdrive",
         "img": "modules/cybermancy/assets/icons/features/overdrive.webp",
         "range": "",
-        "_id": "HZCG4bgU9Z0zPrw4"
+        "_id": "HZCG4bgU9Z0zPrw4",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "EMP Surge": {
+      "IgGCc3HRQ1eX7mLT": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - EMP Surge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Wipe out all small electronics in scene.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  EMP Surge",
         "img": "modules/cybermancy/assets/icons/features/emp-surge.webp",
         "range": "",
-        "_id": "IgGCc3HRQ1eX7mLT"
+        "_id": "IgGCc3HRQ1eX7mLT",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883948304,
-    "modifiedTime": 1760883995470,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539108,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "XYdwEwAO6OPBB9ao",
   "sort": 0,

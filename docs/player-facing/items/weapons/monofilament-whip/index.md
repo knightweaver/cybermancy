@@ -27,7 +27,7 @@ A razor-thin filament coil capable of slicing through armor and bone. Deadly, si
 #### Actions
 - <div markdown='1'>**Lethal Edge**<br>*
 
-On a Hope win, deal Severe damage if the Fear die shows 8-12.*</div>
+On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.*</div>
 
 - <div markdown='1'>**Critical Effect:  Slice in Two**<br>*
 

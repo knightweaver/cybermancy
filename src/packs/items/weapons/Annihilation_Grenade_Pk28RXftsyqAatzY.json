@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Final Boom": {
+      "YVHBBiSCoZeI4Xoj": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Final Boom:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Single-use, but massive radius.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Final Boom",
         "img": "modules/cybermancy/assets/icons/features/final-boom.webp",
         "range": "",
-        "_id": "YVHBBiSCoZeI4Xoj"
+        "_id": "YVHBBiSCoZeI4Xoj",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Tactical Nuke (Micro)": {
+      "4AbLm55mGj19yvna": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Tactical Nuke (Micro):</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Entire area wiped  citywide consequences.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Tactical Nuke (Micro)",
         "img": "modules/cybermancy/assets/icons/features/tactical-nuke-micro.webp",
         "range": "",
-        "_id": "4AbLm55mGj19yvna"
+        "_id": "4AbLm55mGj19yvna",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883935874,
-    "modifiedTime": 1760883955637,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539030,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Pk28RXftsyqAatzY",
   "sort": 500000,

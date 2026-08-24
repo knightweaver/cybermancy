@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Swift salvation in chrome elegance.\"</i><br /><br /><p class=\"Card-Feature\">As a Reaction, <strong>Mark 1 Stress</strong> to gain +2 on an Agility saving throw</p>",
     "actions": {
-      "Motion Prediction Gyro": {
+      "jYQCnoiAm9ZDfMJ0": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Swift salvation in chrome elegance.\"</i><br><br><p class=\"Card-Feature\">As a Reaction, <strong>Mark 1 Stress</strong> to gain +2 on an Agility saving throw",
@@ -15,10 +15,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Motion Prediction Gyro",
         "img": "modules/cybermancy/assets/icons/cybernetics/motion-prediction-gyro.webp",
         "range": "",
-        "_id": "jYQCnoiAm9ZDfMJ0"
+        "_id": "jYQCnoiAm9ZDfMJ0",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121312322,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143498,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "8Ja7fS791Kr06KIW",
   "sort": 1000000,

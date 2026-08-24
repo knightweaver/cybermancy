@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "AI Assist": {
+      "ZHWEpg7fRDJxstWE": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>AI Assist:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Advantage on all ranged rolls.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "AI Assist",
         "img": "modules/cybermancy/assets/icons/features/ai-assist.webp",
         "range": "",
-        "_id": "ZHWEpg7fRDJxstWE"
+        "_id": "ZHWEpg7fRDJxstWE",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Neural Kill": {
+      "UMdXIRvJEZq9aSwR": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Neural Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Bullet bypasses physical armor; deals Stress + HP.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Neural Kill",
         "img": "modules/cybermancy/assets/icons/features/neural-kill.webp",
         "range": "",
-        "_id": "UMdXIRvJEZq9aSwR"
+        "_id": "UMdXIRvJEZq9aSwR",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883947337,
-    "modifiedTime": 1760883947337,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538951,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "JDyWN4BiMXX68I6C",
   "sort": 0,

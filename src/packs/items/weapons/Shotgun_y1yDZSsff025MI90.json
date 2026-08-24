@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Scatter": {
+      "kmSA17mhrY4rgAXo": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Scatter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a Hope to attack all targets in Very Close range.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Scatter",
         "img": "modules/cybermancy/assets/icons/features/scatter.webp",
         "range": "",
-        "_id": "kmSA17mhrY4rgAXo"
+        "_id": "kmSA17mhrY4rgAXo",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Point-Blank Devastation": {
+      "MSKud7c0zegy8PdQ": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Point-Blank Devastation:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Knock back and lose next action.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Point-Blank Devastation",
         "img": "modules/cybermancy/assets/icons/features/point-blank-devastation.webp",
         "range": "",
-        "_id": "MSKud7c0zegy8PdQ"
+        "_id": "MSKud7c0zegy8PdQ",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883151843,
-    "modifiedTime": 1760883592252,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539254,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "y1yDZSsff025MI90",
   "sort": 700000,

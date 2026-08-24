@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Extend your reach, redefine distance.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and take an action to increase the allowed range for your next action with a SmarkLink gun. <br /><br />Requires the SmartLink™ CPU implant</p>",
     "actions": {
-      "SmartLink™ Ballistics": {
+      "dJBqwbbQ2FobTjD5": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Extend your reach, redefine distance.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and take an action to increase the allowed range for your next action with a SmarkLink gun. <br><br>Requires the SmartLink™ CPU implant",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "SmartLink™ Ballistics",
         "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-ballistics.webp",
         "range": "",
-        "_id": "dJBqwbbQ2FobTjD5"
+        "_id": "dJBqwbbQ2FobTjD5",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121321401,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143835,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "TDUzGFYWu5Qb2PfE",
   "sort": 2000000,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit receive -2 Evasion until the GM spends 1 Fear to remove the effect.</p>",
     "actions": {
-      "Cryo-Slugs": {
+      "4XR30TS1qSZi1CGg": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit receive -2 Evasion until the GM spends 1 Fear to remove the effect.",
@@ -26,7 +26,11 @@
         "name": "Cryo-Slugs",
         "img": "modules/cybermancy/assets/icons/consumables/ammo/cryo-slugs.webp",
         "range": "",
-        "_id": "4XR30TS1qSZi1CGg"
+        "_id": "4XR30TS1qSZi1CGg",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "quantity": 1,
@@ -43,12 +47,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762172541304,
-    "modifiedTime": 1762172541304,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143273,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "SRCXTWj0wkE81tRe",
   "sort": 0,

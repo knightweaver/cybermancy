@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Quick Draw": {
+      "A7nqgoWKYzkKhdAL": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Quick Draw:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">May be used as a reaction against melee attackers.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Quick Draw",
         "img": "modules/cybermancy/assets/icons/features/quick-draw.webp",
         "range": "",
-        "_id": "A7nqgoWKYzkKhdAL"
+        "_id": "A7nqgoWKYzkKhdAL",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Pinning Strike": {
+      "tcOQ0qnVK3VUH6CJ": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Pinning Strike:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Pin targets limb, weapon, or clothing, restricting movement.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Pinning Strike",
         "img": "modules/cybermancy/assets/icons/features/pinning-strike.webp",
         "range": "",
-        "_id": "tcOQ0qnVK3VUH6CJ"
+        "_id": "tcOQ0qnVK3VUH6CJ",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883157844,
-    "modifiedTime": 1760883600453,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539165,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "iX0OqOc50fvuAUS3",
   "sort": 1100000,

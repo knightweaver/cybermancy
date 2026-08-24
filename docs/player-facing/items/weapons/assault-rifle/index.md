@@ -27,11 +27,11 @@ The runner’s staple: reliable, lethal, and adaptable across every corporate wa
 #### Actions
 - <div markdown='1'>**Suppressive Fire**<br>*
 
-On a Hope win, target must mark 1 Stress to act next turn.*</div>
+On a Success with Hope, target must mark 1 Stress to act next turn.*</div>
 
 - <div markdown='1'>**Critical Effect:  Shredding Burst**<br>*
 
-Force enemy into cover, reducing their next attack roll.*</div>
+Force enemy into cover, they had disadvantage on their next attack roll.*</div>
 
 #### Effects
 —

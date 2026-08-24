@@ -5,7 +5,7 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br /><br /> All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.</p>",
     "actions": {
-      "Reactive Shrapnel Shells": {
+      "c6DGFC6sDaUNJDUW": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br><br> All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.",
@@ -26,7 +26,11 @@
         "name": "Reactive Shrapnel Shells",
         "img": "modules/cybermancy/assets/icons/consumables/ammo/reactive-shrapnel-shells.webp",
         "range": "",
-        "_id": "c6DGFC6sDaUNJDUW"
+        "_id": "c6DGFC6sDaUNJDUW",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "quantity": 1,
@@ -43,12 +47,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762172541408,
-    "modifiedTime": 1762172541408,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143251,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "LSe6DWDQOQDQbXUa",
   "sort": 0,

@@ -92,10 +92,10 @@
       }
     ],
     "actions": {
-      "Concealed": {
+      "dsiEXxKS2Dt6knQk": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Concealed:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Can be hidden; gain advantage on your first attack each scene.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Concealed:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Difficulty 14 to be detected; gain advantage on your first attack each scene.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -113,9 +113,13 @@
         "name": "Concealed",
         "img": "modules/cybermancy/assets/icons/features/concealed.webp",
         "range": "",
-        "_id": "dsiEXxKS2Dt6knQk"
+        "_id": "dsiEXxKS2Dt6knQk",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Ambush Kill": {
+      "I5FnBczWfLWBNzNY": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Ambush Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">If striking from surprise, escalate Fear consequences for target.</span></p></li></ul>",
@@ -136,7 +140,11 @@
         "name": "Critical Effect:  Ambush Kill",
         "img": "modules/cybermancy/assets/icons/features/ambush-kill.webp",
         "range": "",
-        "_id": "I5FnBczWfLWBNzNY"
+        "_id": "I5FnBczWfLWBNzNY",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -159,12 +167,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883142868,
-    "modifiedTime": 1760883583564,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573970563,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "qk0Nbk0KKQ0wEqct",
   "sort": 200000,

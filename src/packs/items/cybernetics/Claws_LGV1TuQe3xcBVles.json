@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Forged elegance, lethal precision.</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage</p>",
     "actions": {
-      "Claws": {
+      "3nEMYd4llMxterWZ": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Forged elegance, lethal precision.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to extend these cybernetic claws.  They stay extended until you take an action to retract them.  d4 damage",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Claws",
         "img": "modules/cybermancy/assets/icons/cybernetics/claws.webp",
         "range": "",
-        "_id": "3nEMYd4llMxterWZ"
+        "_id": "3nEMYd4llMxterWZ",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121276274,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143761,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "LGV1TuQe3xcBVles",
   "sort": 3500000,

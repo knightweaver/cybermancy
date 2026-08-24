@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Unlock hidden worlds with neural flair.\"</i><br /><br /><p class=\"Card-Feature\">Gain 1 Experience slot and fill it in with a new Experience (GM discretion).  As a downtime activity, spend 1 Mega to change the Experience<br /><br /> Requires Brainiac™ Base Unit.</p>",
     "actions": {
-      "Brainiac™ Skilz": {
+      "o1PbWaf8uHWnuVz0": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Unlock hidden worlds with neural flair.\"</i><br><br><p class=\"Card-Feature\">Gain 1 Experience slot and fill it in with a new Experience (GM discretion).  As a downtime activity, spend 1 Mega to change the Experience<br><br> Requires Brainiac™ Base Unit.",
@@ -26,7 +26,11 @@
         "name": "Brainiac™ Skilz",
         "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-skilz.webp",
         "range": "",
-        "_id": "o1PbWaf8uHWnuVz0"
+        "_id": "o1PbWaf8uHWnuVz0",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121556792,
-    "modifiedTime": 1762121560478,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143936,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "dcBYueAcVuOgYXuF",
   "sort": 200000,

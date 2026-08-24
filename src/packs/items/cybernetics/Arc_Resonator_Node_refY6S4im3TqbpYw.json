@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Surge forward: amplify your arcane arsenal.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> after making a successful Spellcasting roll that does damage, increase the size of the damage die rolled by 1 step (e.g. from d4 to d6)</p>",
     "actions": {
-      "Arc Resonator Node": {
+      "bIuzlRJlBwdcwjJl": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Surge forward: amplify your arcane arsenal.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> after making a successful Spellcasting roll that does damage, increase the size of the damage die rolled by 1 step (e.g. from d4 to d6)",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Arc Resonator Node",
         "img": "modules/cybermancy/assets/icons/cybernetics/arc-resonator-node.webp",
         "range": "",
-        "_id": "bIuzlRJlBwdcwjJl"
+        "_id": "bIuzlRJlBwdcwjJl",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468238,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144161,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "refY6S4im3TqbpYw",
   "sort": 1900000,

@@ -27,7 +27,7 @@ A high-yield fragmentation device scattering lethal shrapnel in every direction.
 #### Actions
 - <div markdown='1'>**Explosive**<br>*
 
-On Hope win, half damage to all in Close range.*</div>
+On success, apply damage rolled to all Actors in Very Close; on fail, apply half-damage.*</div>
 
 - <div markdown='1'>**Critical Effect:  Shrapnel Storm**<br>*
 

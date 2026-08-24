@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Hope's shield, a warrior's silent sanctuary.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to prevent Marking up to 1 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>",
     "actions": {
-      "Emotive Pulse Regulator": {
+      "G4Oleg03dlyLFCxr": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Hope's shield, a warrior's silent sanctuary.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to prevent Marking up to 1 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Emotive Pulse Regulator",
         "img": "modules/cybermancy/assets/icons/cybernetics/emotive-pulse-regulator.webp",
         "range": "",
-        "_id": "G4Oleg03dlyLFCxr"
+        "_id": "G4Oleg03dlyLFCxr",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121297545,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143553,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "9t09SgaYvHThejmw",
   "sort": 300000,

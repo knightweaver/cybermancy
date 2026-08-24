@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Whispers unveiled, secrets echo endlessly.</i><br /><br /><p class=\"Card-Feature\">Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.</p>",
     "actions": {
-      "Caracal Ears": {
+      "M0fzsJc5UJReRtFN": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Whispers unveiled, secrets echo endlessly.</i><br><br><p class=\"Card-Feature\">Audio signal pre-processor that effectively extends your hearing by 1 range unit, meaning you can hear a whisper at Close, quiet speech at Far, and regular speech at Very Far.",
@@ -26,7 +26,11 @@
         "name": "Caracal Ears",
         "img": "modules/cybermancy/assets/icons/cybernetics/caracal-ears.webp",
         "range": "",
-        "_id": "M0fzsJc5UJReRtFN"
+        "_id": "M0fzsJc5UJReRtFN",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121273521,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143945,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "e81WTYnDYwhGKwjq",
   "sort": 4100000,

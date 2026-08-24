@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Elevate potential; risk-draped enhancement awaits.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to increase your Proficiency level for 1 action or reaction</p>",
     "actions": {
-      "SkillJack Neural Matrix": {
+      "7nkZYZQc7aujaHFc": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Elevate potential; risk-draped enhancement awaits.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to increase your Proficiency level for 1 action or reaction",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "SkillJack Neural Matrix",
         "img": "modules/cybermancy/assets/icons/cybernetics/skilljack-neural-matrix.webp",
         "range": "",
-        "_id": "7nkZYZQc7aujaHFc"
+        "_id": "7nkZYZQc7aujaHFc",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557284,
-    "modifiedTime": 1762121572589,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143801,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "OCuqGbvY2DG9fbAL",
   "sort": 100013,

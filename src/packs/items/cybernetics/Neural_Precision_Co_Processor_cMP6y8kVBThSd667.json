@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Elevate thought; brilliance, a heartbeat away.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)</p>",
     "actions": {
-      "Neural Precision Co-Processor": {
+      "VHH7b7xq6akFofpe": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Elevate thought; brilliance, a heartbeat away.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 2 Hope</strong> to gain +3 on any mental trait die roll (Instinct, Presence, or Knowledge)",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Neural Precision Co-Processor",
         "img": "modules/cybermancy/assets/icons/cybernetics/neural-precision-co-processor.webp",
         "range": "",
-        "_id": "VHH7b7xq6akFofpe"
+        "_id": "VHH7b7xq6akFofpe",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468748,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143919,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "cMP6y8kVBThSd667",
   "sort": 700000,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Hope-fueled shield: halve your harm.</i><br /><br /><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to place 2 tokens on this card. <br /><br />As a Reaction, you can remove one token to negate a source of Physical damage by half.</p>",
     "actions": {
-      "Endosteel Frame": {
+      "GewwLNh7SrzQU4l3": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Hope-fueled shield: halve your harm.</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to place 2 tokens on this card. <br><br>As a Reaction, you can remove one token to negate a source of Physical damage by half.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Endosteel Frame",
         "img": "modules/cybermancy/assets/icons/cybernetics/endosteel-frame.webp",
         "range": "",
-        "_id": "GewwLNh7SrzQU4l3"
+        "_id": "GewwLNh7SrzQU4l3",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121556961,
-    "modifiedTime": 1762121564796,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143769,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "LP4gfhV6N5F33GEl",
   "sort": 103125,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Amplify intellect, unlock future potential.\"</i><br /><br /><p class=\"Card-Feature\">Brainiac™ Base Unit - includes embedded comms unit and allows other Brainiac modules to be installed</p>",
     "actions": {
-      "Brainiac™ Base Unit": {
+      "t7GRR29XIEl5Q746": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Amplify intellect, unlock future potential.\"</i><br><br><p class=\"Card-Feature\">Brainiac™ Base Unit - includes embedded comms unit and allows other Brainiac modules to be installed",
@@ -26,7 +26,11 @@
         "name": "Brainiac™ Base Unit",
         "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-base-unit.webp",
         "range": "",
-        "_id": "t7GRR29XIEl5Q746"
+        "_id": "t7GRR29XIEl5Q746",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121268746,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144012,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "jAECycNBbXp1QkV0",
   "sort": 4200000,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Restore, rejuvenate: your timeless touchpoint.\"</i><br /><br /><p class=\"Card-Feature\">Gain an additional short rest downtime action that can only be used to heal a Hit Point</p>",
     "actions": {
-      "Regenerative Stemware": {
+      "7etUtdDcLYWxicPK": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Restore, rejuvenate: your timeless touchpoint.\"</i><br><br><p class=\"Card-Feature\">Gain an additional short rest downtime action that can only be used to heal a Hit Point",
@@ -26,7 +26,11 @@
         "name": "Regenerative Stemware",
         "img": "modules/cybermancy/assets/icons/cybernetics/regenerative-stemware.webp",
         "range": "",
-        "_id": "7etUtdDcLYWxicPK"
+        "_id": "7etUtdDcLYWxicPK",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557149,
-    "modifiedTime": 1762121570932,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144019,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "jjSwi0Jefccp7D23",
   "sort": 100049,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Unveil horizons, empower your reach.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to increase the range of one Spell you are casting</p>",
     "actions": {
-      "Mana Projector Coil": {
+      "xqWk2jkpvtumJAon": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Unveil horizons, empower your reach.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to increase the range of one Spell you are casting",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Mana Projector Coil",
         "img": "modules/cybermancy/assets/icons/cybernetics/mana-projector-coil.webp",
         "range": "",
-        "_id": "xqWk2jkpvtumJAon"
+        "_id": "xqWk2jkpvtumJAon",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121311588,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143447,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "5pdBJfbFsy3GJ8k7",
   "sort": 900000,

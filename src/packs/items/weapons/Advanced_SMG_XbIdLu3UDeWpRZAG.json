@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Bulletstorm": {
+      "0WPAFmRoBR9t75XJ": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Bulletstorm:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per rest, attack 3 targets in Close.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Bulletstorm",
         "img": "modules/cybermancy/assets/icons/features/bulletstorm.webp",
         "range": "",
-        "_id": "0WPAFmRoBR9t75XJ"
+        "_id": "0WPAFmRoBR9t75XJ",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Suppression Killzone": {
+      "UJasqQGn3QQPdfzT": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Suppression Killzone:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Enemies must Retreat or mark Stress.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Suppression Killzone",
         "img": "modules/cybermancy/assets/icons/features/suppression-killzone.webp",
         "range": "",
-        "_id": "UJasqQGn3QQPdfzT"
+        "_id": "UJasqQGn3QQPdfzT",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883828181,
-    "modifiedTime": 1760883834889,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539118,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "XbIdLu3UDeWpRZAG",
   "sort": 200000,

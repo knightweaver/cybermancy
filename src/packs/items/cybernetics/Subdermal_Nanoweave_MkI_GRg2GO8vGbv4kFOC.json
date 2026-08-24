@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Shield your core: a heartbeat fortified.</i><br /><br /><p class=\"Card-Feature\">+1 Hit Point</p>",
     "actions": {
-      "Subdermal Nanoweave MkI": {
+      "ydd51qUfGbeFNx17": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Shield your core: a heartbeat fortified.</i><br><br><p class=\"Card-Feature\">+1 Hit Point",
@@ -26,7 +26,11 @@
         "name": "Subdermal Nanoweave MkI",
         "img": "modules/cybermancy/assets/icons/cybernetics/subdermal-nanoweave-mki.webp",
         "range": "",
-        "_id": "ydd51qUfGbeFNx17"
+        "_id": "ydd51qUfGbeFNx17",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121469035,
-    "modifiedTime": 1762121516460,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143703,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "GRg2GO8vGbv4kFOC",
   "sort": 101563,

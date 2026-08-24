@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Smartlink": {
+      "ONMAUQxkkn7ED8Cf": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per scene, reroll one attack die if linked to cyberware/gear.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per scene, reroll one Destiny die if linked to cyberware/gear.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Smartlink",
         "img": "modules/cybermancy/assets/icons/features/smartlink.webp",
         "range": "",
-        "_id": "ONMAUQxkkn7ED8Cf"
+        "_id": "ONMAUQxkkn7ED8Cf",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Pinpoint": {
+      "F6gY2LnDGxLt39Xy": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Pinpoint:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Crit ignores cover; disable weapon/armor.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Pinpoint",
         "img": "modules/cybermancy/assets/icons/features/pinpoint.webp",
         "range": "",
-        "_id": "F6gY2LnDGxLt39Xy"
+        "_id": "F6gY2LnDGxLt39Xy",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883153179,
-    "modifiedTime": 1760883594117,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538863,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "41U5oyL5z2gAkerd",
   "sort": 800000,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Turn despair to dust with hidden grace.</i><br /><br /><p class=\"Card-Feature\">Once per scene, Spend 1, 2, or 3 Hope to prevent Marking up to 1, 2, or 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)</p>",
     "actions": {
-      "Neural Firewall": {
+      "8BusWrY83JADpMhw": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Turn despair to dust with hidden grace.</i><br><br><p class=\"Card-Feature\">Once per scene, Spend 1, 2, or 3 Hope to prevent Marking up to 1, 2, or 3 Stress caused by damage from an external source (cannot be used to prevent Marking Stress from an action or reaction of your choice)",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Neural Firewall",
         "img": "modules/cybermancy/assets/icons/cybernetics/neural-firewall.webp",
         "range": "",
-        "_id": "8BusWrY83JADpMhw"
+        "_id": "8BusWrY83JADpMhw",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121599168,
-    "modifiedTime": 1762121607070,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143369,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "1ruAUK7sojBY4mqP",
   "sort": 106250,

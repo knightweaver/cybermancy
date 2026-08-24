@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Stunning": {
+      "gKDqo3OPtaDLNUuk": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Stunning:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a Hope on a successful hit to inflict Dazed for one round.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Stunning",
         "img": "modules/cybermancy/assets/icons/features/stunning.webp",
         "range": "",
-        "_id": "gKDqo3OPtaDLNUuk"
+        "_id": "gKDqo3OPtaDLNUuk",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Knockout": {
+      "WCek2NbwzMF3WHRE": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Knockout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target is stunned or unconscious for one scene beat.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Knockout",
         "img": "modules/cybermancy/assets/icons/features/knockout.webp",
         "range": "",
-        "_id": "WCek2NbwzMF3WHRE"
+        "_id": "WCek2NbwzMF3WHRE",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883150373,
-    "modifiedTime": 1760883590619,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538929,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "GVb3K3Syhv1xtBAJ",
   "sort": 600000,

@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Lethal Edge": {
+      "2jdDykNxG2RFyKft": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Can slice through vehicles on Hope crit.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Lethal Edge",
         "img": "modules/cybermancy/assets/icons/features/lethal-edge.webp",
         "range": "",
-        "_id": "2jdDykNxG2RFyKft"
+        "_id": "2jdDykNxG2RFyKft",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Corpse-Cutter": {
+      "hwK4hvXjmExk5tIL": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Corpse-Cutter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Destroy one environmental object (door, drone, wall).</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Corpse-Cutter",
         "img": "modules/cybermancy/assets/icons/features/corpse-cutter.webp",
         "range": "",
-        "_id": "hwK4hvXjmExk5tIL"
+        "_id": "hwK4hvXjmExk5tIL",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883833770,
-    "modifiedTime": 1760883834889,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538853,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "3qETwPObEg5JtIBs",
   "sort": 700000,

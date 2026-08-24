@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Ascend reactions, thrive with precision.</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to gain +2 on the current Reaction Roll</p>",
     "actions": {
-      "Tactical Subcortex": {
+      "vVPUbfaQM7HaeO40": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Ascend reactions, thrive with precision.</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to gain +2 on the current Reaction Roll",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Tactical Subcortex",
         "img": "modules/cybermancy/assets/icons/cybernetics/tactical-subcortex.webp",
         "range": "",
-        "_id": "vVPUbfaQM7HaeO40"
+        "_id": "vVPUbfaQM7HaeO40",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121324841,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143391,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "2waJuDTwhTGhou6B",
   "sort": 2400000,

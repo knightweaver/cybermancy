@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Unleash untamed might with mechanical grace.</i><br /><br /><p class=\"Card-Feature\">Cyberarm™ base unit - enables other Cyberarm-related cybernetics.  <br /><br /> Once per long rest, <strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw</p>",
     "actions": {
-      "Cyberarm™ Base Unit": {
+      "Nbsc0UwlLhkEf8OM": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Unleash untamed might with mechanical grace.</i><br><br><p class=\"Card-Feature\">Cyberarm™ base unit - enables other Cyberarm-related cybernetics.  <br><br> Once per long rest, <strong>Spend 1 Hope</strong> for advantage on a Strength roll or saving throw",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Cyberarm™ Base Unit",
         "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-base-unit.webp",
         "range": "",
-        "_id": "Nbsc0UwlLhkEf8OM"
+        "_id": "Nbsc0UwlLhkEf8OM",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121288810,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143415,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "5SEtYPqU3s9fEkUA",
   "sort": 3300000,

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Unleash precision; amplify destruction's whisper.\"</i><br /><br /><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, <strong>Spend 1 Hope</strong> after a successful attack for +2 on all damage die rolled.  <br /><br />Requires the SmartLink™ CPU implant</p>",
     "actions": {
-      "SmartLink™ Armor Analyzer": {
+      "fZk5va4f5zf9wNAN": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Unleash precision; amplify destruction's whisper.\"</i><br><br><p class=\"Card-Feature\">When firing a SmartLink™ enabled weapon, <strong>Spend 1 Hope</strong> after a successful attack for +2 on all damage die rolled.  <br><br>Requires the SmartLink™ CPU implant",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "SmartLink™ Armor Analyzer",
         "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-armor-analyzer.webp",
         "range": "",
-        "_id": "fZk5va4f5zf9wNAN"
+        "_id": "fZk5va4f5zf9wNAN",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468956,
-    "modifiedTime": 1762121513878,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144085,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "oAfrEmGnGqlh9W4s",
   "sort": 112500,

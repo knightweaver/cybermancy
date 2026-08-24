@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Piercing": {
+      "F63q81RcMJGMYyN4": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Piercing:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Ignores armor on a Hope critical.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Piercing:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">An Armor Slot cannot be marked to reduce Minor damage to No damage.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Piercing",
         "img": "modules/cybermancy/assets/icons/features/piercing.webp",
         "range": "",
-        "_id": "F63q81RcMJGMYyN4"
+        "_id": "F63q81RcMJGMYyN4",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Silent Kill": {
+      "0vb68GdtBxI89mDe": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Silent Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Disable one target silently with no alert escalation.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Silent Kill",
         "img": "modules/cybermancy/assets/icons/features/silent-kill.webp",
         "range": "",
-        "_id": "0vb68GdtBxI89mDe"
+        "_id": "0vb68GdtBxI89mDe",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883159219,
-    "modifiedTime": 1761431133818,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787575486033,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "zXajmYeiCBqJPj9c",
   "sort": 150000,

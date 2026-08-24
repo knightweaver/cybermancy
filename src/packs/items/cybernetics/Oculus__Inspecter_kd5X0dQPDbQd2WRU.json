@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Eyes unveil secrets, but Hope pays.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Sense roll so long as you can see the creature's face and eyes.</p>",
     "actions": {
-      "Oculus™ Inspecter": {
+      "zJ2aqYWy24srRzYT": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Eyes unveil secrets, but Hope pays.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Sense roll so long as you can see the creature's face and eyes.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Oculus™ Inspecter",
         "img": "modules/cybermancy/assets/icons/cybernetics/oculus-inspecter.webp",
         "range": "",
-        "_id": "zJ2aqYWy24srRzYT"
+        "_id": "zJ2aqYWy24srRzYT",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468799,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144040,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "kd5X0dQPDbQd2WRU",
   "sort": 500000,

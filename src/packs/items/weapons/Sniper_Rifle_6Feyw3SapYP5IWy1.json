@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Scoped": {
+      "gqQgK225WH7sFyIf": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Scoped:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a round aiming to gain advantage on next shot.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Scoped:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a round aiming to gain advantage on next shot.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,12 +106,16 @@
         "name": "Scoped",
         "img": "modules/cybermancy/assets/icons/features/scoped.webp",
         "range": "",
-        "_id": "gqQgK225WH7sFyIf"
+        "_id": "gqQgK225WH7sFyIf",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Through and Through": {
+      "sZjoUg5HBy3NjWDk": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Through and Through:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Bullet passes through to a second target in line.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Through and Through:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a successful hit, if there is a second target in a line behind the first, apply that attack roll to the second target. If that value exceeds the Difficulty of the second target apply the damage to both.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Through and Through",
         "img": "modules/cybermancy/assets/icons/features/through-and-through.webp",
         "range": "",
-        "_id": "sZjoUg5HBy3NjWDk"
+        "_id": "sZjoUg5HBy3NjWDk",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883156333,
-    "modifiedTime": 1760883598220,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538883,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "6Feyw3SapYP5IWy1",
   "sort": 1000000,

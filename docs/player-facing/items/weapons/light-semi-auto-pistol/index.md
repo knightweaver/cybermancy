@@ -6,7 +6,7 @@
 <img src="../../../assets/icons/weapons/light-semi-auto-pistol.webp" alt="Light Semi-auto pistol" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-<p>A small, light-weight semi-automatic pistol. Cheap but not high quality</p><p></p><ul><li><p>Concealable in a pocket</p></li><li><p>-1 to hit</p></li><li><p>Centa cred ($100's)</p></li><li><p>Close range</p></li></ul>
+<p>A small, light-weight semi-automatic pistol. Cheap but not high quality</p>
 </div>
 </div>
 

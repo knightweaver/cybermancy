@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Unlock brilliance; trade despair for genius.</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Knowledge Roll or Saving Throw. <br /><br /> Requires Brainiac™ Base Unit.</p>",
     "actions": {
-      "Brainiac™ Know-it-all": {
+      "cmAkVQbGFJnGp1Yl": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Unlock brilliance; trade despair for genius.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on a Knowledge Roll or Saving Throw. <br><br> Requires Brainiac™ Base Unit.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Brainiac™ Know-it-all",
         "img": "modules/cybermancy/assets/icons/cybernetics/brainiac-know-it-all.webp",
         "range": "",
-        "_id": "cmAkVQbGFJnGp1Yl"
+        "_id": "cmAkVQbGFJnGp1Yl",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468410,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143328,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "0hYKkPSBrv7ZNgHd",
   "sort": 1600000,

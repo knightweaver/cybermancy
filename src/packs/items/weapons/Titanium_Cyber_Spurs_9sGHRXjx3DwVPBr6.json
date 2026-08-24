@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Hidden Killer": {
+      "4EZv48HoXMiE8rHo": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Hidden Killer:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">+2 to first attack in combat.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Hidden Killer",
         "img": "modules/cybermancy/assets/icons/features/hidden-killer.webp",
         "range": "",
-        "_id": "4EZv48HoXMiE8rHo"
+        "_id": "4EZv48HoXMiE8rHo",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Critical Tendons": {
+      "tXOfxhk8VLvCKHCa": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Critical Tendons:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Cripple targets mobility permanently.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Critical Tendons",
         "img": "modules/cybermancy/assets/icons/features/critical-tendons.webp",
         "range": "",
-        "_id": "tXOfxhk8VLvCKHCa"
+        "_id": "tXOfxhk8VLvCKHCa",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883839040,
-    "modifiedTime": 1760883899724,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538892,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "9sGHRXjx3DwVPBr6",
   "sort": 0,

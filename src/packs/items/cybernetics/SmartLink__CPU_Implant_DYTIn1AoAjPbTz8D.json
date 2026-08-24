@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Awaken instinct with SmartLink's synergy.\"</i><br /><br /><p class=\"Card-Feature\">SmarkLink™ base unit - enables other SmartLink-related weapons and abilities. <br /><br />Once per long rest, <strong>Spend 1 Hope</strong> for advantage on an Instinct roll or saving throw.</p>",
     "actions": {
-      "SmartLink™ CPU Implant": {
+      "W1U8hsv5QCNSdLja": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Awaken instinct with SmartLink's synergy.\"</i><br><br><p class=\"Card-Feature\">SmarkLink™ base unit - enables other SmartLink-related weapons and abilities. <br><br>Once per long rest, <strong>Spend 1 Hope</strong> for advantage on an Instinct roll or saving throw.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "SmartLink™ CPU Implant",
         "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-cpu-implant.webp",
         "range": "",
-        "_id": "W1U8hsv5QCNSdLja"
+        "_id": "W1U8hsv5QCNSdLja",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121322242,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143628,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "DYTIn1AoAjPbTz8D",
   "sort": 2100000,

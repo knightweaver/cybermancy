@@ -27,7 +27,7 @@ Compact sidearm with digital targeting and auto-adjust systems, favored by profe
 #### Actions
 - <div markdown='1'>**Smartlink**<br>*
 
-Once per scene, reroll one attack die if linked to cyberware/gear.*</div>
+Once per scene, reroll one Destiny die if linked to cyberware/gear.*</div>
 
 - <div markdown='1'>**Critical Effect:  Pinpoint**<br>*
 

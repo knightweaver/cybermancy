@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Radiate power; command with a glance.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +1 on a Presence roll, so long as the target can see your skin</p>",
     "actions": {
-      "Dynamic tattoo": {
+      "qixrTm4ha4LAAejP": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Radiate power; command with a glance.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +1 on a Presence roll, so long as the target can see your skin",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Dynamic tattoo",
         "img": "modules/cybermancy/assets/icons/cybernetics/dynamic-tattoo.webp",
         "range": "",
-        "_id": "qixrTm4ha4LAAejP"
+        "_id": "qixrTm4ha4LAAejP",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121296665,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143852,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "WYIvMLTfIWu0MdIp",
   "sort": 100000,

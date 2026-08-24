@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Unlock hidden potential with Hope's precision.</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on any attack roll with your secondary weapon.</p>",
     "actions": {
-      "Wakizashi™ Neural Balancer": {
+      "TfQIJlYdSWJJkzSN": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Unlock hidden potential with Hope's precision.</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to gain +2 on any attack roll with your secondary weapon.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Wakizashi™ Neural Balancer",
         "img": "modules/cybermancy/assets/icons/cybernetics/wakizashi-neural-balancer.webp",
         "range": "",
-        "_id": "TfQIJlYdSWJJkzSN"
+        "_id": "TfQIJlYdSWJJkzSN",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121399009,
-    "modifiedTime": 1762121399009,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143881,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "YdWQkdghH6jXbHnx",
   "sort": 0,

@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Reality Cut": {
+      "UrVXsZORRVpPtoSh": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Reality Cut:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Can slice vehicles, turrets, drones.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Reality Cut",
         "img": "modules/cybermancy/assets/icons/features/reality-cut.webp",
         "range": "",
-        "_id": "UrVXsZORRVpPtoSh"
+        "_id": "UrVXsZORRVpPtoSh",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Sever Reality": {
+      "3Nqmd4hAJo8fGC6T": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Sever Reality:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Slice environment  create a permanent gap or hazard.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Sever Reality",
         "img": "modules/cybermancy/assets/icons/features/sever-reality.webp",
         "range": "",
-        "_id": "3Nqmd4hAJo8fGC6T"
+        "_id": "3Nqmd4hAJo8fGC6T",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883942256,
-    "modifiedTime": 1760883944357,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538940,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "GmHIkjdje0vSBViO",
   "sort": 300000,

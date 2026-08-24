@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Defy Fate, Preserve with Precision.\"</i><br /><br /><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Severe Wound</p>",
     "actions": {
-      "Elite Nanite Trauma Mesh": {
+      "2qZ4lE2ie0kQNToU": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Defy Fate, Preserve with Precision.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, as a Reaction, entirely prevent the damage from 1 attack that would cause a Severe Wound",
@@ -26,7 +26,11 @@
         "name": "Elite Nanite Trauma Mesh",
         "img": "modules/cybermancy/assets/icons/cybernetics/elite-nanite-trauma-mesh.webp",
         "range": "",
-        "_id": "2qZ4lE2ie0kQNToU"
+        "_id": "2qZ4lE2ie0kQNToU",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121599060,
-    "modifiedTime": 1762121602980,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143458,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "5sRQxjpU1vcLfQUZ",
   "sort": 200000,

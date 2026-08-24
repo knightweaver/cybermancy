@@ -27,11 +27,11 @@ Enhanced optics suite allows bullet trajectory correction and real-time target t
 #### Actions
 - <div markdown='1'>**Scoped**<br>*
 
-Aim for advantage; crit chance rises if aiming 1 round.*</div>
+Spend a round aiming to gain advantage on next shot.*</div>
 
 - <div markdown='1'>**Critical Effect:  Through and Through**<br>*
 
-Shot penetrates multiple targets.*</div>
+On a successful hit, if there is a second target in a line behind the first, apply that attack roll to the second target. If that value exceeds the Difficulty of the second target apply the damage to both.*</div>
 
 #### Effects
 —

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Swift steel triumph; your closest ally.</i><br /><br /><p class=\"Card-Feature\">Melee range weapon, d6+1 with the Quick feature.</p>",
     "actions": {
-      "Cyberarm™ Stiletto": {
+      "Z5juudZJMxBKYDD2": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>Swift steel triumph; your closest ally.</i><br><br><p class=\"Card-Feature\">Melee range weapon, d6+1 with the Quick feature.",
@@ -57,7 +57,8 @@
               }
             }
           ],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -79,6 +80,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -97,12 +102,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121293809,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143358,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "1qucBIRQoLdeP0qN",
   "sort": 2800000,

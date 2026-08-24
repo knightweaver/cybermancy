@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Fortify Essence; transmute fear to vapor.\"</i><br /><br /><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Mark 2 Armor slots and entirely prevent the damage from 1 attack</p>",
     "actions": {
-      "Neuro-Spinal Load Balancer": {
+      "G0HKdoL3NXCTebkA": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Fortify Essence; transmute fear to vapor.\"</i><br><br><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to Mark 2 Armor slots and entirely prevent the damage from 1 attack",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Neuro-Spinal Load Balancer",
         "img": "modules/cybermancy/assets/icons/cybernetics/neuro-spinal-load-balancer.webp",
         "range": "",
-        "_id": "G0HKdoL3NXCTebkA"
+        "_id": "G0HKdoL3NXCTebkA",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557080,
-    "modifiedTime": 1762121567510,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143827,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "REPOAQaETfBrPAf8",
   "sort": 100391,

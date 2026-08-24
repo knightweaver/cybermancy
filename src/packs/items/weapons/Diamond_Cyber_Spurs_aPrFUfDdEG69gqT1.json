@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Ghost Kill": {
+      "GKmiKA8KuLjg2UeH": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Ghost Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Cannot be tracked by sensors.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Ghost Kill",
         "img": "modules/cybermancy/assets/icons/features/ghost-kill.webp",
         "range": "",
-        "_id": "GKmiKA8KuLjg2UeH"
+        "_id": "GKmiKA8KuLjg2UeH",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Spinal Sever": {
+      "SrzjG6s5sNav9JTV": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Spinal Sever:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target permanently disabled unless cybernetically healed.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Spinal Sever",
         "img": "modules/cybermancy/assets/icons/features/spinal-sever.webp",
         "range": "",
-        "_id": "SrzjG6s5sNav9JTV"
+        "_id": "SrzjG6s5sNav9JTV",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883938673,
-    "modifiedTime": 1760883961998,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539128,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "aPrFUfDdEG69gqT1",
   "sort": 700000,

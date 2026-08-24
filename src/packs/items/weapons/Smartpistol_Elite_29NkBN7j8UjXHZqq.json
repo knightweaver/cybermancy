@@ -85,7 +85,7 @@
       }
     },
     "actions": {
-      "Autotarget": {
+      "3VcbH2pVski64qt2": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Autotarget:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Always ignore cover.</span></p></li></ul>",
@@ -106,9 +106,13 @@
         "name": "Autotarget",
         "img": "modules/cybermancy/assets/icons/features/autotarget.webp",
         "range": "",
-        "_id": "3VcbH2pVski64qt2"
+        "_id": "3VcbH2pVski64qt2",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "One-Shot Kill": {
+      "0KUNFgJUlyKbacxo": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - One-Shot Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Severe damage ignoring all armor.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  One-Shot Kill",
         "img": "modules/cybermancy/assets/icons/features/one-shot-kill.webp",
         "range": "",
-        "_id": "0KUNFgJUlyKbacxo"
+        "_id": "0KUNFgJUlyKbacxo",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883837952,
-    "modifiedTime": 1760883837952,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573538831,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "29NkBN7j8UjXHZqq",
   "sort": 0,

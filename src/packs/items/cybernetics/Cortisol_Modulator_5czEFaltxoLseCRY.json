@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Ethereal serenity, engineered for your mind.</i><br /><br /><p class=\"Card-Feature\">Once per rest, Recover 1 Stress</p>",
     "actions": {
-      "Cortisol Modulator": {
+      "uRaBmEYZOuuPYlAC": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Ethereal serenity, engineered for your mind.</i><br><br><p class=\"Card-Feature\">Once per rest, Recover 1 Stress",
@@ -26,7 +26,11 @@
         "name": "Cortisol Modulator",
         "img": "modules/cybermancy/assets/icons/cybernetics/cortisol-modulator.webp",
         "range": "",
-        "_id": "uRaBmEYZOuuPYlAC"
+        "_id": "uRaBmEYZOuuPYlAC",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121282497,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143430,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "5czEFaltxoLseCRY",
   "sort": 3800000,

@@ -27,7 +27,7 @@ Improved ballistic computer with predictive recoil compensation and infrared tra
 #### Actions
 - <div markdown='1'>**Smartlink**<br>*
 
-Auto-correct; reroll a miss once per scene.*</div>
+Once per scene, reroll one Destiny die if linked to cyberware/gear.*</div>
 
 - <div markdown='1'>**Critical Effect:  Eye Shot**<br>*
 

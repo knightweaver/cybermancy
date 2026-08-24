@@ -5,7 +5,7 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit cannot receive healing effects until the GM spends 1 Fear to remove this affect.</p>",
     "actions": {
-      "Nanite Rounds": {
+      "UWryzNTyFJSfWqsQ": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br><br>Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit cannot receive healing effects until the GM spends 1 Fear to remove this affect.",
@@ -26,7 +26,11 @@
         "name": "Nanite Rounds",
         "img": "modules/cybermancy/assets/icons/consumables/ammo/nanite-rounds.webp",
         "range": "",
-        "_id": "UWryzNTyFJSfWqsQ"
+        "_id": "UWryzNTyFJSfWqsQ",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "quantity": 1,
@@ -43,12 +47,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762172541380,
-    "modifiedTime": 1762172541380,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143204,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "0lSF03vZHMMZaI1a",
   "sort": 0,

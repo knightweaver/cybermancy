@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Aegis of Hope: Armor for the Soul.\"</i><br /><br /><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to place 2 tokens on this card. <br /><br />As a Reaction, you can remove one token to reduce a source of Magical damage by half</p>",
     "actions": {
-      "Phase Interference Skin": {
+      "rjZWB4BENZHvbnxM": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Aegis of Hope: Armor for the Soul.\"</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to place 2 tokens on this card. <br><br>As a Reaction, you can remove one token to reduce a source of Magical damage by half",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Phase Interference Skin",
         "img": "modules/cybermancy/assets/icons/cybernetics/phase-interference-skin.webp",
         "range": "",
-        "_id": "rjZWB4BENZHvbnxM"
+        "_id": "rjZWB4BENZHvbnxM",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121557102,
-    "modifiedTime": 1762121568774,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144003,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "j8TfBnB5rbQhS57q",
   "sort": 100196,

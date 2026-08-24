@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Smartlink": {
+      "GwU11Dw66Gai2Ra1": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Auto-correct; reroll a miss once per scene.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per scene, reroll one Destiny die if linked to cyberware/gear.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Smartlink",
         "img": "modules/cybermancy/assets/icons/features/smartlink.webp",
         "range": "",
-        "_id": "GwU11Dw66Gai2Ra1"
+        "_id": "GwU11Dw66Gai2Ra1",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Eye Shot": {
+      "iIJ1CjlkH4cNdvGW": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Eye Shot:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Disable optics or key sensors.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Eye Shot",
         "img": "modules/cybermancy/assets/icons/features/eye-shot.webp",
         "range": "",
-        "_id": "iIJ1CjlkH4cNdvGW"
+        "_id": "iIJ1CjlkH4cNdvGW",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883697818,
-    "modifiedTime": 1760883701302,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539099,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Wc9Ap6SGGCz0DGJC",
   "sort": 1100000,

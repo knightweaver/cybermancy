@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Suppressive Fire": {
+      "8dzsOyzUduq9aHWE": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Suppressive Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On Hope win, all enemies in line of fire mark Stress.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Suppressive Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, target must mark 1 Stress to act next turn.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Suppressive Fire",
         "img": "modules/cybermancy/assets/icons/features/suppressive-fire.webp",
         "range": "",
-        "_id": "8dzsOyzUduq9aHWE"
+        "_id": "8dzsOyzUduq9aHWE",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Armor Break": {
+      "VwXXNZs78Pa5HUVH": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Armor Break:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Ignore armor; bullets chew through cover.</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Armor Break",
         "img": "modules/cybermancy/assets/icons/features/armor-break.webp",
         "range": "",
-        "_id": "VwXXNZs78Pa5HUVH"
+        "_id": "VwXXNZs78Pa5HUVH",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883695891,
-    "modifiedTime": 1760883701302,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539215,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "vAnozeVTXAkCKdLV",
   "sort": 900000,

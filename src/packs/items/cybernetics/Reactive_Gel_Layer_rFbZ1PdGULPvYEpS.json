@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Hope's shield: armor's unseen embrace.\"</i><br /><br /><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to prevent 2 Hit Points of damage when marking an Armor Slot</p>",
     "actions": {
-      "Reactive Gel Layer": {
+      "oO9GLiNNcc0xaqMB": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Hope's shield: armor's unseen embrace.\"</i><br><br><p class=\"Card-Feature\">Once per scene, <strong>Spend 1 Hope</strong> to prevent 2 Hit Points of damage when marking an Armor Slot",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Reactive Gel Layer",
         "img": "modules/cybermancy/assets/icons/cybernetics/reactive-gel-layer.webp",
         "range": "",
-        "_id": "oO9GLiNNcc0xaqMB"
+        "_id": "oO9GLiNNcc0xaqMB",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468904,
-    "modifiedTime": 1762121509284,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144144,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "rFbZ1PdGULPvYEpS",
   "sort": 150000,

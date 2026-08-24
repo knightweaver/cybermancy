@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Glide seamlessly, strike swiftly with precision.</i><br /><br /><p class=\"Card-Feature\">Your feet have been replaced with cybernetics that have retractable wheels.  <strong>Spend 1 Hope</strong> to move within Far and still make an attack, your Evasion is -1 until your next action.</p>",
     "actions": {
-      "Speed Feet rollerblades": {
+      "sBwWsOvAaCKr7WSs": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Glide seamlessly, strike swiftly with precision.</i><br><br><p class=\"Card-Feature\">Your feet have been replaced with cybernetics that have retractable wheels.  <strong>Spend 1 Hope</strong> to move within Far and still make an attack, your Evasion is -1 until your next action.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Speed Feet rollerblades",
         "img": "modules/cybermancy/assets/icons/cybernetics/speed-feet-rollerblades.webp",
         "range": "",
-        "_id": "sBwWsOvAaCKr7WSs"
+        "_id": "sBwWsOvAaCKr7WSs",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121323162,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143532,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "9aQqD20FnWDC4MAY",
   "sort": 2200000,

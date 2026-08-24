@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Embrace fusion; hack reality's core.\"</i><br /><br /><p class=\"Card-Feature\">You always have a digital link and storage device with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 on a Spellcasting (Hacking) attempt on a device within Melee range. <br /><br />Requires Cyberarm™ base unit</p>",
     "actions": {
-      "Cyberarm™ Digital Uplink": {
+      "lrkUKyWTwn5gbJJc": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Embrace fusion; hack reality's core.\"</i><br><br><p class=\"Card-Feature\">You always have a digital link and storage device with you (does not take a slot in your Kit).  <strong>Spend 1 Hope</strong> to gain +2 on a Spellcasting (Hacking) attempt on a device within Melee range. <br><br>Requires Cyberarm™ base unit",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Cyberarm™ Digital Uplink",
         "img": "modules/cybermancy/assets/icons/cybernetics/cyberarm-digital-uplink.webp",
         "range": "",
-        "_id": "lrkUKyWTwn5gbJJc"
+        "_id": "lrkUKyWTwn5gbJJc",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121289763,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143639,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "DaeKrWUYfGnKuFco",
   "sort": 3400000,

@@ -11,10 +11,6 @@
 
 Once per rest, Gain 1 Hope*</div>
 
-- <div markdown='1'>**Empathic Feedback Loop**<br>*"Embrace renewal; hope embedded within."
-
-Once per rest, Gain 1 Hope*</div>
-
 #### Effects
 —
 

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Shift your gaze, shape your truth.\"</i><br /><br /><p class=\"Card-Feature\">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br /><br />Requires Oculus ™ base unit.</p>",
     "actions": {
-      "Oculus™ Palette": {
+      "oKvu1z5TKpriLak7": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Shift your gaze, shape your truth.\"</i><br><br><p class=\"Card-Feature\">Change your eye's appearance at will. <strong>Spend 1 Hope</strong> to gain +2 on a Deceive roll. <br><br>Requires Oculus ™ base unit.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Oculus™ Palette",
         "img": "modules/cybermancy/assets/icons/cybernetics/oculus-palette.webp",
         "range": "",
-        "_id": "oKvu1z5TKpriLak7"
+        "_id": "oKvu1z5TKpriLak7",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121318649,
-    "modifiedTime": 1762121325709,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143582,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "BLYSSsYomyLG0RVJ",
   "sort": 1700000,

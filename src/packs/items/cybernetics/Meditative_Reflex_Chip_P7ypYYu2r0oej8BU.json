@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Serenity unlocked: elite stress liberation device.</i><br /><br /><p class=\"Card-Feature\">Gain an additional downtime action that can only be used to clear one Stress mark.</p>",
     "actions": {
-      "Meditative Reflex Chip": {
+      "eWj19D0bXuk8kfBF": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Serenity unlocked: elite stress liberation device.</i><br><br><p class=\"Card-Feature\">Gain an additional downtime action that can only be used to clear one Stress mark.",
@@ -26,7 +26,11 @@
         "name": "Meditative Reflex Chip",
         "img": "modules/cybermancy/assets/icons/cybernetics/meditative-reflex-chip.webp",
         "range": "",
-        "_id": "eWj19D0bXuk8kfBF"
+        "_id": "eWj19D0bXuk8kfBF",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121468722,
-    "modifiedTime": 1762121507886,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143818,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "P7ypYYu2r0oej8BU",
   "sort": 800000,

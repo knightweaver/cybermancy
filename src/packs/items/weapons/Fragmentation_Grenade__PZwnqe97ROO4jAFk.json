@@ -85,10 +85,10 @@
       }
     },
     "actions": {
-      "Explosive": {
+      "i0AjRDIowQdqGlet": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Half damage to adjacent zones.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On success, apply damage rolled to all Actors in Very Close; on fail, apply half-damage.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -106,9 +106,13 @@
         "name": "Explosive",
         "img": "modules/cybermancy/assets/icons/features/explosive.webp",
         "range": "",
-        "_id": "i0AjRDIowQdqGlet"
+        "_id": "i0AjRDIowQdqGlet",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       },
-      "Massive Detonation": {
+      "vxsLEK2bM3LLqBLe": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Massive Detonation:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Full damage in wider zone (Far).</span></p></li></ul>",
@@ -129,7 +133,11 @@
         "name": "Critical Effect:  Massive Detonation",
         "img": "modules/cybermancy/assets/icons/features/massive-detonation.webp",
         "range": "",
-        "_id": "vxsLEK2bM3LLqBLe"
+        "_id": "vxsLEK2bM3LLqBLe",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "attached": [],
@@ -153,12 +161,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1760883689809,
-    "modifiedTime": 1760883726742,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787573539017,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "PZwnqe97ROO4jAFk",
   "sort": 400000,

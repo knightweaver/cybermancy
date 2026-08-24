@@ -27,7 +27,7 @@ Precision-tuned vibration edge allows for armor penetration and silent, efficien
 #### Actions
 - <div markdown='1'>**Piercing**<br>*
 
-Ignores 1 level of armor.*</div>
+An Armor Slot cannot be marked to reduce Minor damage to No damage.*</div>
 
 - <div markdown='1'>**Critical Effect:  Assassins Cut**<br>*
 

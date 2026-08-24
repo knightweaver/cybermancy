@@ -31,7 +31,7 @@ Spend a round aiming to gain advantage on next shot.*</div>
 
 - <div markdown='1'>**Critical Effect:  Through and Through**<br>*
 
-Bullet passes through to a second target in line.*</div>
+On a successful hit, if there is a second target in a line behind the first, apply that attack roll to the second target. If that value exceeds the Difficulty of the second target apply the damage to both.*</div>
 
 #### Effects
 —

@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Hope-crafted aegis against magical harm.</i><br /><br /><p class=\"Card-Feature\">Once per long rest, <strong>Spend 3 Hope</strong> to place 3 tokens on this card.  <br /><br />As a Reaction, you can remove one token to negate a source of Magical damage.</p>",
     "actions": {
-      "Thaumic Nullifier Implant": {
+      "c186ANkPpTFMLmd3": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Hope-crafted aegis against magical harm.</i><br><br><p class=\"Card-Feature\">Once per long rest, <strong>Spend 3 Hope</strong> to place 3 tokens on this card.  <br><br>As a Reaction, you can remove one token to negate a source of Magical damage.",
@@ -15,10 +15,10 @@
           {
             "key": "hope",
             "value": 3,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -35,7 +35,11 @@
         "name": "Thaumic Nullifier Implant",
         "img": "modules/cybermancy/assets/icons/cybernetics/thaumic-nullifier-implant.webp",
         "range": "",
-        "_id": "c186ANkPpTFMLmd3"
+        "_id": "c186ANkPpTFMLmd3",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -53,12 +57,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121599334,
-    "modifiedTime": 1762121608871,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574143715,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "GYYh2uwPdR0bawPC",
   "sort": 101563,

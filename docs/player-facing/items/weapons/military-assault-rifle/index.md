@@ -27,7 +27,7 @@ Hardened composite frame with select-fire and tactical uplink for squad-level co
 #### Actions
 - <div markdown='1'>**Suppressive Fire**<br>*
 
-On Hope win, all enemies in line of fire mark Stress.*</div>
+On a Success with Hope, target must mark 1 Stress to act next turn.*</div>
 
 - <div markdown='1'>**Critical Effect:  Armor Break**<br>*
 

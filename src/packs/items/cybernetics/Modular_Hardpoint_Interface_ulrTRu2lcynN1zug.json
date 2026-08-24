@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>\"Enhance potential, expand your digital domain.\"</i><br /><br /><p class=\"Card-Feature\">Increase the number of Domain Cards in your load out by 1 permenantly.</p>",
     "actions": {
-      "Modular Hardpoint Interface": {
+      "O52S8k0rJHndIRAu": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>\"Enhance potential, expand your digital domain.\"</i><br><br><p class=\"Card-Feature\">Increase the number of Domain Cards in your load out by 1 permenantly.",
@@ -26,7 +26,11 @@
         "name": "Modular Hardpoint Interface",
         "img": "modules/cybermancy/assets/icons/cybernetics/modular-hardpoint-interface.webp",
         "range": "",
-        "_id": "O52S8k0rJHndIRAu"
+        "_id": "O52S8k0rJHndIRAu",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null,
@@ -44,12 +48,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762121599135,
-    "modifiedTime": 1762121606109,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144182,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "ulrTRu2lcynN1zug",
   "sort": 112500,
