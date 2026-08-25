@@ -5,6 +5,11 @@ Consumes only Step 4 normalized outputs. The generic ``*-equipment`` commands
 select a family configuration from ``build/rulebook/layout/equipment``. Weapons
 retain their accepted Chapter 16 specialist contract; Ammunition is the first
 single-catalog family using the generic path.
+
+Generic Equipment commands accept either ``--family <name>`` or ``--all``.
+``--all`` discovers every approved ``*-v1.json`` Equipment config, executes the
+configured families in chapter order, and writes an aggregate equipment-all.json
+report for validation/build operations.
 """
 from __future__ import annotations
 
@@ -36,6 +41,7 @@ DEFAULT_REPORT_DIR = LAYOUT_DIR / "reports"
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+from rulebook_layout.equipment_batch import run_all_equipment_command  # noqa: E402
 from rulebook_layout.equipment_catalog import (  # noqa: E402
     build_catalog_rows, get_path, render_equipment_catalog_latex,
     replace_family_div_with_latex,
@@ -432,13 +438,29 @@ def _equipment_paths(args):
     family = canonical_family(args.family); config = resolve_path(args.config, default_family_config(family)); sidecar = resolve_path(args.sidecar, DEFAULT_SIDECAR); manuscript = resolve_path(args.manuscript, DEFAULT_MANUSCRIPT); cfg = load_json(config) if config.is_file() else {}; chapter = int(cfg.get("chapter") or 0); out = resolve_path(getattr(args, "output_dir", None), LAYOUT_DIR / (f"chapter{chapter}" if chapter else family)); report_dir = resolve_path(args.report_dir, DEFAULT_REPORT_DIR); return family, config, sidecar, manuscript, out, report_dir
 
 
+def _run_all(operation: str, args: argparse.Namespace) -> int:
+    return run_all_equipment_command(
+        operation,
+        args,
+        script_path=SCRIPT_PATH,
+        config_dir=EQUIPMENT_CONFIG_DIR,
+        default_sidecar=DEFAULT_SIDECAR,
+        default_manuscript=DEFAULT_MANUSCRIPT,
+        default_report_dir=DEFAULT_REPORT_DIR,
+    )
+
+
 def command_inspect_equipment(args) -> int:
+    if getattr(args, "all", False):
+        return _run_all("inspect", args)
     family, config, sidecar, manuscript, _, _ = _equipment_paths(args)
     if family == "weapons": args.config = str(config); return command_inspect_chapter16(args)
     report, cfg, _, rows = validate_equipment_family(family, config, sidecar, manuscript); print(json.dumps({"report": report, "config": cfg, "rows": _rows(rows)}, indent=2, ensure_ascii=False)); return 0 if report["status"] == "PASS" else 2
 
 
 def command_validate_equipment(args) -> int:
+    if getattr(args, "all", False):
+        return _run_all("validate", args)
     family, config, sidecar, manuscript, _, report_dir = _equipment_paths(args)
     if family == "weapons": args.config = str(config); return command_validate_chapter16(args)
     report, cfg, _, rows = validate_equipment_family(family, config, sidecar, manuscript)
@@ -453,6 +475,8 @@ def _safe_stem(value: str) -> str:
 
 
 def command_build_equipment(args) -> int:
+    if getattr(args, "all", False):
+        return _run_all("build", args)
     family, config, sidecar, manuscript, out, report_dir = _equipment_paths(args)
     if family == "weapons": args.config = str(config); args.output_dir = str(out); return command_build_chapter16(args)
     report, cfg, _, rows = validate_equipment_family(family, config, sidecar, manuscript); report_path = report_dir / f"equipment-{family}.json"
@@ -479,13 +503,25 @@ def parser() -> argparse.ArgumentParser:
         p = sub.add_parser(name); p.add_argument("--config"); p.add_argument("--sidecar"); p.add_argument("--manuscript"); p.add_argument("--report-dir")
         if name == "build-chapter16": p.add_argument("--output-dir"); p.add_argument("--tex-only", action="store_true")
     for name in ("inspect-equipment", "validate-equipment", "build-equipment"):
-        p = sub.add_parser(name); p.add_argument("--family", required=True); p.add_argument("--config"); p.add_argument("--sidecar"); p.add_argument("--manuscript"); p.add_argument("--report-dir")
-        if name == "build-equipment": p.add_argument("--output-dir"); p.add_argument("--tex-only", action="store_true")
+        p = sub.add_parser(name)
+        selector = p.add_mutually_exclusive_group(required=True)
+        selector.add_argument("--family")
+        selector.add_argument("--all", action="store_true", help="Process every configured Equipment family in chapter order.")
+        p.add_argument("--config")
+        p.add_argument("--sidecar")
+        p.add_argument("--manuscript")
+        p.add_argument("--report-dir")
+        if name == "build-equipment":
+            p.add_argument("--output-dir", help="For --all, base directory under which chapterNN directories are created.")
+            p.add_argument("--tex-only", action="store_true")
     return root
 
 
 def main() -> int:
-    args = parser().parse_args()
+    command_parser = parser()
+    args = command_parser.parse_args()
+    if getattr(args, "all", False) and getattr(args, "config", None):
+        command_parser.error("--config cannot be used with --all; batch mode discovers *-v1.json configs automatically.")
     return {"inspect": command_inspect, "validate": command_validate, "build": command_build, "inspect-chapter16": command_inspect_chapter16, "validate-chapter16": command_validate_chapter16, "build-chapter16": command_build_chapter16, "inspect-equipment": command_inspect_equipment, "validate-equipment": command_validate_equipment, "build-equipment": command_build_equipment}[args.command](args)
 
 
