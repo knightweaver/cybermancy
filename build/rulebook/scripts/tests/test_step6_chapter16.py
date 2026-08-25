@@ -14,7 +14,7 @@ from rulebook_normalize.publication import SCHEMA_VERSION, structured_publicatio
 
 class TestStep4WeaponReferenceDefinitions(unittest.TestCase):
     def test_sidecar_schema_and_action_definitions_support_step6d(self):
-        self.assertEqual(SCHEMA_VERSION, "cybermancy-step4-structured-entities-v1.1")
+        self.assertEqual(SCHEMA_VERSION, "cybermancy-step4-structured-entities-v1.2")
         doc = {
             "_id": "W1",
             "name": "Cyber Spur",
