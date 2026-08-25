@@ -5,9 +5,12 @@ from pathlib import Path
 from typing import Any
 
 
-BOOTSTRAP_SCHEMA = "cybermancy-rulebook-step6-equipment-bootstrap-inspection-v1.0"
+BOOTSTRAP_SCHEMA = "cybermancy-rulebook-step6-equipment-bootstrap-inspection-v1.1"
 SECTION_SCHEMA = "cybermancy-step6-equipment-section-v1.0"
-SIDECAR_SCHEMA = "cybermancy-step4-structured-entities-v1.1"
+SIDECAR_SCHEMAS = {
+    "cybermancy-step4-structured-entities-v1.1",
+    "cybermancy-step4-structured-entities-v1.2",
+}
 
 
 def _load_json(path: Path) -> Any:
@@ -129,12 +132,14 @@ def inspect_equipment_bootstrap(
     sidecar_path: Path,
     manuscript_path: Path,
     section_registry: Path,
+    *,
+    config_status: str = "NOT_IMPLEMENTED",
 ) -> dict:
-    """Inspect a Step 4 Equipment family before its Step 6 config exists.
+    """Inspect normalized Equipment semantics before/while configuring Step 6.
 
-    Config absence is intentionally informational. The purpose of this mode is
-    to expose normalized Step 4 semantics so a publication contract can be
-    designed without inventing a placeholder Step 6 config.
+    Config absence is intentionally informational. ``config_status`` also lets
+    the initializer inspect an existing recognized scaffold before safely
+    refreshing it from a newer Step 4 sidecar.
     """
     report = {
         "schema": BOOTSTRAP_SCHEMA,
@@ -151,12 +156,18 @@ def inspect_equipment_bootstrap(
             "sectionRegistry": str(section_registry),
         },
     }
+    normalized_status = str(config_status or "NOT_IMPLEMENTED").strip().upper()
+    if normalized_status == "REFRESHING_SCAFFOLD":
+        config_message = f"Existing recognized Step 6 scaffold is being inspected for refresh: {config_path}"
+    else:
+        normalized_status = "NOT_IMPLEMENTED"
+        config_message = f"Step 6 family config is not yet implemented: {config_path}"
     _add_check(
         report,
         "CONFIG_STATUS",
         "INFO",
-        f"Step 6 family config is not yet implemented: {config_path}",
-        {"status": "NOT_IMPLEMENTED", "expectedConfig": str(config_path)},
+        config_message,
+        {"status": normalized_status, "expectedConfig": str(config_path)},
     )
 
     contract, contract_errors = _section_entry(section_registry, family)
@@ -180,7 +191,8 @@ def inspect_equipment_bootstrap(
         _add_check(report, "STRUCTURED_SIDECAR_JSON", "ERROR", f"Could not load Step 4 structured sidecar: {exc}")
         return {"report": report, "config": None, "bootstrap": None}
 
-    _add_check(report, "SIDECAR_SCHEMA", "PASS" if sidecar.get("schema") == SIDECAR_SCHEMA else "ERROR", str(sidecar.get("schema")))
+    sidecar_schema = sidecar.get("schema")
+    _add_check(report, "SIDECAR_SCHEMA", "PASS" if sidecar_schema in SIDECAR_SCHEMAS else "ERROR", str(sidecar_schema))
     entities_source = sidecar.get("entities") if isinstance(sidecar.get("entities"), list) else []
     entities = [entity for entity in entities_source if entity.get("family") == family]
     _add_check(report, "EQUIPMENT_ENTITY_COUNT", "PASS" if entities else "ERROR", f"Structured sidecar contains {len(entities)} {family} entities.")
@@ -204,15 +216,17 @@ def inspect_equipment_bootstrap(
             "name": entity.get("name"),
             "sourcePath": entity.get("sourcePath"),
             "publicationData": entity.get("publicationData"),
+            "publicationProvenance": entity.get("publicationProvenance"),
         })
 
     bootstrap = {
-        "configStatus": "NOT_IMPLEMENTED",
+        "configStatus": normalized_status,
         "expectedConfig": str(config_path),
         "family": family,
         "chapter": contract["chapter"] if contract else None,
         "title": contract["title"] if contract else family,
         "entityCount": len(entities),
+        "sidecarSchema": sidecar_schema,
         "publicationFields": fields,
         "representativeEntities": examples,
     }
