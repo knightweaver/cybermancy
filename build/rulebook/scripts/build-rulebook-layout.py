@@ -30,6 +30,7 @@ METADATA_DIR = SOURCE_DIR / "metadata"
 ASSEMBLED_DIR = SOURCE_DIR / "assembled"
 LAYOUT_DIR = RULEBOOK_DIR / "layout"
 EQUIPMENT_CONFIG_DIR = LAYOUT_DIR / "equipment"
+DEFAULT_SECTION_REGISTRY = EQUIPMENT_CONFIG_DIR / "equipment-section-v1.json"
 DEFAULT_WEAPONS_CONFIG = EQUIPMENT_CONFIG_DIR / "weapons-v1.json"
 DEFAULT_CONFIG = DEFAULT_WEAPONS_CONFIG
 DEFAULT_SIDECAR = METADATA_DIR / "structured-entities.json"
@@ -42,6 +43,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.equipment_batch import run_all_equipment_command  # noqa: E402
+from rulebook_layout.equipment_bootstrap import inspect_equipment_bootstrap  # noqa: E402
 from rulebook_layout.equipment_catalog import (  # noqa: E402
     build_catalog_rows, get_path, render_equipment_catalog_latex,
     replace_family_div_with_latex,
@@ -454,6 +456,10 @@ def command_inspect_equipment(args) -> int:
     if getattr(args, "all", False):
         return _run_all("inspect", args)
     family, config, sidecar, manuscript, _, _ = _equipment_paths(args)
+    if not config.is_file():
+        payload = inspect_equipment_bootstrap(family, config, sidecar, manuscript, DEFAULT_SECTION_REGISTRY)
+        print(json.dumps(payload, indent=2, ensure_ascii=False))
+        return 0 if payload["report"]["status"] == "PASS" else 2
     if family == "weapons": args.config = str(config); return command_inspect_chapter16(args)
     report, cfg, _, rows = validate_equipment_family(family, config, sidecar, manuscript); print(json.dumps({"report": report, "config": cfg, "rows": _rows(rows)}, indent=2, ensure_ascii=False)); return 0 if report["status"] == "PASS" else 2
 
