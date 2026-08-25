@@ -101,6 +101,10 @@ def generate_equipment_config(bootstrap: dict) -> dict:
     Step 4. It does not infer family-specific mechanics or reach back into Foundry.
     Generated configs are explicitly marked as scaffolds so they can later be
     refreshed without risking accepted hand-tuned family contracts.
+
+    A family with complete normalized Tier coverage is structurally tiered: each
+    Tier renders as its own catalog table. Tierless and partially tiered families
+    stay on the single-catalog path until their Step 4 Tier semantics are complete.
     """
     family = str(bootstrap["family"])
     chapter = int(bootstrap["chapter"])
@@ -150,6 +154,7 @@ def generate_equipment_config(bootstrap: dict) -> dict:
         tier_mode = "present"
     else:
         tier_mode = "optional"
+    layout_mode = "tiered-catalog" if tier_mode == "present" else "single-catalog"
 
     required = []
     for key in selected:
@@ -166,11 +171,12 @@ def generate_equipment_config(bootstrap: dict) -> dict:
             "initSchema": INIT_SCHEMA,
             "basisSidecarSchema": bootstrap.get("sidecarSchema"),
         },
-        "layoutMode": "single-catalog",
+        "layoutMode": layout_mode,
         "family": family,
         "chapter": chapter,
         "partLabel": "EQUIPMENT & TECHNOLOGY",
         "title": title,
+        "tierLabel": "TIER {tier}",
         "deck": "",
         "outputStem": f"Cybermancy_Chapter{chapter}_{_safe_stem(title)}_Step6",
         "expectedEntityCount": entity_count,
@@ -185,6 +191,8 @@ def generate_equipment_config(bootstrap: dict) -> dict:
         "columns": columns,
         "tableStyle": dict(SCAFFOLD_TABLE_STYLE),
         "pagination": {
+            "tierStartNeedspaceIn": 1.25,
+            "interTableSpacePt": 10,
             "continuationLabel": title,
             "continuationTemplate": "{label} — CONTINUED",
         },
