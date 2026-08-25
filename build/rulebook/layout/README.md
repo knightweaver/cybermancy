@@ -33,7 +33,7 @@ build/rulebook/layout/equipment/ammo-v1.json     # Chapter 17
 
 ## Generic family commands
 
-The preferred interface for Equipment & Technology chapters is:
+The preferred interface for a single Equipment & Technology chapter is:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family <family>
@@ -60,6 +60,38 @@ python build\rulebook\scripts\build-rulebook-layout.py build-chapter16
 
 The generic interface also accepts `--family weapons` and routes it through the
 specialized Chapter 16 validation/reference contract.
+
+## Batch commands
+
+Use `--all` to process every approved `*-v1.json` config found in
+`build/rulebook/layout/equipment/`. Configs are discovered automatically and
+executed in configured chapter order:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --all
+python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --all
+python build\rulebook\scripts\build-rulebook-layout.py build-equipment --all
+```
+
+Validation and build batch operations write the aggregate report:
+
+```text
+build/rulebook/layout/reports/equipment-all.json
+```
+
+The aggregate report records discovered configs, chapter execution order, each
+family's status, and the path/content of its individual validation report.
+Individual family reports remain unchanged.
+
+`build-equipment --all` is fail-closed. It first validates every discovered
+family. If any family fails preflight, no chapter builds are started. If a
+render/build failure occurs after preflight, later chapters are marked BLOCKED
+and are not built.
+
+If `--output-dir` is supplied with `build-equipment --all`, it is treated as a
+base output directory and each family is written beneath its own `chapterNN`
+subdirectory. `--config` cannot be combined with `--all`, because batch mode
+discovers family configs automatically.
 
 ## Shared catalog behavior
 
@@ -121,8 +153,9 @@ build/rulebook/layout/reports/equipment-ammo.json
 
 ## Scope boundary
 
-This stage generalizes individual Equipment family chapters. It does not yet
-build the entire Equipment & Technology section in one pass. A section-level
-aggregator should be added only after additional family configs have been audited
-and accepted, so the section builder composes proven family contracts rather
-than guessing their schemas.
+Batch mode currently builds every Equipment family that has an approved
+`*-v1.json` Step 6 config. It does not infer publication contracts for families
+that have not yet been audited. Adding a new approved family config therefore
+automatically adds that family to the next `--all` run, while preserving the
+requirement that its Step 4 semantics and Step 6 publication contract be defined
+first.
