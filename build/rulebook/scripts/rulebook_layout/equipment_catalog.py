@@ -190,6 +190,24 @@ def _render_cell(value: str, column: dict) -> str:
     return rendered
 
 
+def _continuation_label(rows: list[CatalogRow], config: dict) -> str:
+    if not rows:
+        return ""
+    label = str(config.get("tierLabel", "TIER {tier}")).format(tier=rows[0].tier)
+    pagination = config.get("pagination", {}) if isinstance(config.get("pagination"), dict) else {}
+    template = str(pagination.get("continuationTemplate", "{label} — CONTINUED"))
+    return template.format(label=label)
+
+
+def _render_continuation_band(label: str, column_count: int) -> str:
+    if not label:
+        return ""
+    return (
+        rf"\rowcolor{{CMGroupBand}}\multicolumn{{{column_count}}}{{@{{}}l@{{}}}}{{"
+        rf"\textbf{{\color{{CMTextDark}} {latex_escape(label)}}}}} \\"
+    )
+
+
 def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
     columns = list(config.get("columns", []))
     if not columns:
@@ -197,23 +215,32 @@ def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
 
     spec = "@{}" + "".join(_column_spec(col) for col in columns) + "@{}"
     header = _render_header(columns)
+    continuation_band = _render_continuation_band(_continuation_label(rows, config), len(columns))
     lines = [
         r"\begingroup",
         r"\setlength{\tabcolsep}{1.4pt}",
+        r"\setlength{\LTpre}{0pt}",
+        r"\setlength{\LTpost}{0pt}",
         r"\renewcommand{\arraystretch}{1.10}",
         r"\fontsize{6.55}{7.55}\selectfont",
         rf"\begin{{longtable}}{{{spec}}}",
         header,
         r"\endfirsthead",
+    ]
+    if continuation_band:
+        lines.append(continuation_band)
+    lines.extend([
         header,
         r"\endhead",
-    ]
+    ])
 
     row_index = 0
     for group, group_rows in group_catalog_rows(rows):
+        # The starred row break prevents the Trait band from being stranded at
+        # the bottom of a page without at least the first weapon row beneath it.
         lines.append(
             rf"\rowcolor{{CMGroupBand}}\multicolumn{{{len(columns)}}}{{@{{}}l@{{}}}}{{"
-            rf"\textbf{{\color{{CMTextDark}}\MakeUppercase{{{latex_escape(group)}}}}}}} \\"
+            rf"\textbf{{\color{{CMTextDark}}\MakeUppercase{{{latex_escape(group)}}}}}}} \\*"
         )
         for row in group_rows:
             if row_index % 2 == 0:
