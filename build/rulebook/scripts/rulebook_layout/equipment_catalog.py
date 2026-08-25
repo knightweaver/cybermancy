@@ -31,9 +31,6 @@ def _mechanic_display(value: Any) -> str:
     text = str(value).strip()
     if not text:
         return ""
-    # Foundry weaponFeature values are commonly lowercase identifiers while
-    # authored action names already carry intentional capitalization. Step 6
-    # owns display casing, so lowercase semantic identifiers become title case.
     if text == text.casefold():
         return text.title()
     return text
@@ -166,9 +163,6 @@ def _column_spec(column: dict) -> str:
     width = float(column["widthIn"])
     align = str(column.get("align", "left")).casefold()
     prefix = r">{\Centering\arraybackslash}" if align == "center" else r">{\RaggedRight\arraybackslash}"
-    # array's m{} columns vertically center their contents within the row.
-    # The Description cell remains the natural row-height driver because its
-    # configured vertical padding is emitted inside the cell.
     return f"{prefix}m{{{width:.3f}in}}"
 
 
@@ -191,12 +185,16 @@ def _render_cell(value: str, column: dict) -> str:
 
 
 def _continuation_label(rows: list[CatalogRow], config: dict) -> str:
-    if not rows:
-        return ""
-    label = str(config.get("tierLabel", "TIER {tier}")).format(tier=rows[0].tier)
     pagination = config.get("pagination", {}) if isinstance(config.get("pagination"), dict) else {}
+    explicit = str(pagination.get("continuationLabel") or "").strip()
+    if explicit:
+        base = explicit
+    elif rows and rows[0].tier not in (None, ""):
+        base = str(config.get("tierLabel", "TIER {tier}")).format(tier=rows[0].tier)
+    else:
+        base = str(config.get("title") or config.get("family") or "Catalog")
     template = str(pagination.get("continuationTemplate", "{label} — CONTINUED"))
-    return template.format(label=label)
+    return template.format(label=base)
 
 
 def _render_continuation_band(label: str, column_count: int) -> str:
@@ -208,6 +206,16 @@ def _render_continuation_band(label: str, column_count: int) -> str:
     )
 
 
+def _table_style(config: dict) -> tuple[float, float, float, float]:
+    style = config.get("tableStyle", {}) if isinstance(config.get("tableStyle"), dict) else {}
+    return (
+        float(style.get("tabcolsepPt", 1.4) or 1.4),
+        float(style.get("arrayStretch", 1.10) or 1.10),
+        float(style.get("fontSizePt", 6.55) or 6.55),
+        float(style.get("leadingPt", 7.55) or 7.55),
+    )
+
+
 def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
     columns = list(config.get("columns", []))
     if not columns:
@@ -216,32 +224,32 @@ def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
     spec = "@{}" + "".join(_column_spec(col) for col in columns) + "@{}"
     header = _render_header(columns)
     continuation_band = _render_continuation_band(_continuation_label(rows, config), len(columns))
+    tabcolsep, array_stretch, font_size, leading = _table_style(config)
     lines = [
         r"\begingroup",
-        r"\setlength{\tabcolsep}{1.4pt}",
+        rf"\setlength{{\tabcolsep}}{{{tabcolsep:g}pt}}",
         r"\setlength{\LTpre}{0pt}",
         r"\setlength{\LTpost}{0pt}",
-        r"\renewcommand{\arraystretch}{1.10}",
-        r"\fontsize{6.55}{7.55}\selectfont",
+        rf"\renewcommand{{\arraystretch}}{{{array_stretch:g}}}",
+        rf"\fontsize{{{font_size:g}}}{{{leading:g}}}\selectfont",
         rf"\begin{{longtable}}{{{spec}}}",
         header,
         r"\endfirsthead",
     ]
     if continuation_band:
         lines.append(continuation_band)
-    lines.extend([
-        header,
-        r"\endhead",
-    ])
+    lines.extend([header, r"\endhead"])
 
     row_index = 0
-    for group, group_rows in group_catalog_rows(rows):
-        # The starred row break prevents the Trait band from being stranded at
-        # the bottom of a page without at least the first weapon row beneath it.
-        lines.append(
-            rf"\rowcolor{{CMGroupBand}}\multicolumn{{{len(columns)}}}{{@{{}}l@{{}}}}{{"
-            rf"\textbf{{\color{{CMTextDark}}\MakeUppercase{{{latex_escape(group)}}}}}}} \\*"
-        )
+    grouped = bool(config.get("groupBy"))
+    row_groups = group_catalog_rows(rows) if grouped else [("", list(rows))]
+
+    for group, group_rows in row_groups:
+        if grouped:
+            lines.append(
+                rf"\rowcolor{{CMGroupBand}}\multicolumn{{{len(columns)}}}{{@{{}}l@{{}}}}{{"
+                rf"\textbf{{\color{{CMTextDark}}\MakeUppercase{{{latex_escape(group)}}}}}}} \\*"
+            )
         for row in group_rows:
             if row_index % 2 == 0:
                 lines.append(r"\rowcolor{CMAltRow}")
@@ -269,13 +277,7 @@ def _div_identifier(node: dict) -> str:
 
 
 def replace_family_div_with_latex(ast: dict, family: str, latex: str) -> int:
-    """Replace a normalized family Div's body with a Step 6 raw-LaTeX catalog.
-
-    C exposes this transformation for later full-book integration. The Tier 1
-    prototype builder uses the same table renderer without deleting Tiers 2–4
-    from the current full manuscript; D can invoke this replacer once all four
-    Weapon tiers and references are ready.
-    """
+    """Replace a normalized family Div's body with a Step 6 raw-LaTeX catalog."""
     target = f"family:{family}"
     replaced = 0
 
