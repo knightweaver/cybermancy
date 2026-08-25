@@ -4,8 +4,8 @@ from __future__ import annotations
 
 Foundry folder records are not logical publication entities, but selected folder
 names can carry publication semantics. Cybermancy uses ``Tier N`` folders as a
-fallback Tier source for item types whose Daggerheart JSON model has no
-intrinsic tier field.
+fallback Tier source for Equipment item types whose Daggerheart JSON model has
+no intrinsic tier field.
 """
 
 from dataclasses import dataclass
@@ -17,6 +17,16 @@ from typing import Any, Iterable
 _TIER_FOLDER_RE = re.compile(r"^\s*Tier\s*([1-4])\s*$", re.IGNORECASE)
 _TIER_VALUE_RE = re.compile(r"^\s*(?:Tier\s*)?([1-4])\s*$", re.IGNORECASE)
 _FOLDER_CONTEXTS: dict[str, dict[str, dict[str, Any]]] = {}
+FOLDER_TIER_FAMILIES = frozenset({
+    "weapons",
+    "ammo",
+    "armors",
+    "cybernetics",
+    "drones-devices",
+    "consumables",
+    "mods",
+    "loot",
+})
 
 
 def _nonempty(value: Any) -> bool:
@@ -252,4 +262,6 @@ def resolve_publication_tier(
 
 
 def resolve_registered_publication_tier(family: str, doc: dict[str, Any]) -> TierResolution:
-    return resolve_publication_tier(doc, registered_folder_map(family))
+    normalized_family = str(family or "").strip().casefold()
+    folder_map = registered_folder_map(normalized_family) if normalized_family in FOLDER_TIER_FAMILIES else {}
+    return resolve_publication_tier(doc, folder_map)
