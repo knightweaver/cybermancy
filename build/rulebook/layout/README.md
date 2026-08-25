@@ -1,26 +1,11 @@
-# Cybermancy Rulebook Step 6 — Equipment Catalog Table
+# Cybermancy Rulebook Step 6 — Equipment & Technology Layout
 
-Step 6 is the publication-layout layer. It consumes the normalized Step 4 corpus
-and does not read canonical Foundry pack JSON directly.
+Step 6 is the publication-layout layer. It consumes normalized Step 4 outputs
+and never reads canonical Foundry pack JSON directly.
 
-## C implementation
+## Architecture
 
-The first reusable primitive is the Equipment Catalog Table, validated against
-Chapter 16 / Tier 1 Weapons.
-
-Inputs:
-
-```text
-build/rulebook/source/assembled/player-guide.md
-build/rulebook/source/metadata/structured-entities.json
-build/rulebook/layout/equipment/weapons-v1.json
-```
-
-The `structured-entities.json` file is a derived Step 4 sidecar containing stable
-publication semantics such as Weapon Trait, Range, formula-only Damage, plain-text
-Description, Weapon Features, Actions, and Critical Effects.
-
-Build flow:
+The Equipment & Technology workflow is configuration-driven:
 
 ```text
 canonical Foundry data
@@ -29,77 +14,115 @@ Step 4 normalization
         ↓
 assembled Markdown + structured-entities.json
         ↓
-Step 5 content-only validation/rendering
+family-specific Step 6 configuration
         ↓
-Step 6 layout projection
+shared Equipment Catalog / reference primitives
         ↓
-Equipment Catalog Table
+family chapter artifact + semantic AST replacement
 ```
 
-## Commands
+Each family receives its own publication contract. A later family must not
+silently inherit the Weapons schema merely because both are equipment.
 
-From the repository root, rebuild Step 4 first so the sidecar exists:
-
-```powershell
-python build\rulebook\scripts\build-rulebook-source.py validate
-python build\rulebook\scripts\build-rulebook-source.py build
-```
-
-Then run Step 6 C:
-
-```powershell
-python build\rulebook\scripts\build-rulebook-layout.py validate
-python build\rulebook\scripts\build-rulebook-layout.py build
-```
-
-Use `--tex-only` to generate the deterministic TeX source without invoking
-LuaLaTeX:
-
-```powershell
-python build\rulebook\scripts\build-rulebook-layout.py build --tex-only
-```
-
-Generated prototype outputs are written under:
+Current configs:
 
 ```text
-build/rulebook/layout/prototype/
+build/rulebook/layout/equipment/weapons-v1.json  # Chapter 16
+build/rulebook/layout/equipment/ammo-v1.json     # Chapter 17
 ```
 
-Validation reports are written under:
+## Generic family commands
 
-```text
-build/rulebook/layout/reports/
+The preferred interface for Equipment & Technology chapters is:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family <family>
+python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --family <family>
+python build\rulebook\scripts\build-rulebook-layout.py build-equipment --family <family>
 ```
 
-## Weapons v1 contract
+For example, Chapter 17 Ammunition:
 
-Tier 1 uses the approved columns:
+```powershell
+python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family ammo
+python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --family ammo
+python build\rulebook\scripts\build-rulebook-layout.py build-equipment --family ammo
+```
+
+`ammunition` is accepted as an alias for `ammo`.
+
+The existing Chapter 16 commands remain supported:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-layout.py validate-chapter16
+python build\rulebook\scripts\build-rulebook-layout.py build-chapter16
+```
+
+The generic interface also accepts `--family weapons` and routes it through the
+specialized Chapter 16 validation/reference contract.
+
+## Shared catalog behavior
+
+The reusable Equipment Catalog primitive supports:
+
+- config-driven columns and widths;
+- deterministic source-sidecar sorting;
+- optional grouping rather than synthetic group bands;
+- humanized code-style labels where configured;
+- normalized plain-text descriptions from Step 4;
+- config-driven table typography;
+- `longtable` pagination with repeated column headers;
+- family/tier continuation labels on continuation pages;
+- semantic Pandoc-AST replacement of `family:<family>`.
+
+## Chapter 16 — Weapons
+
+Weapons retain their approved nine-column contract:
 
 ```text
 Name | Tier | Trait | Range | Burden | Damage | Action | Critical Effect | Description
 ```
 
-Rules implemented by the configuration/primitive:
+Weapons sort by Tier → Trait → Name, use Trait bands, combine Weapon Features
+and Actions for the Action column, and publish separate Weapon Actions and
+Critical Effects reference sections. The complete Weapons chapter uses flowing
+pagination rather than one forced table per page.
 
-- sort by Tier → Trait → Name;
-- render full-width Trait group bands;
-- retain Trait as a table column;
-- render Damage formula only, without damage type;
-- compose Weapon Features before ordinary Actions in the Action column;
-- render missing Action/Critical Effect as an em dash;
-- consume already-normalized Critical Effect names without reparsing Foundry prefixes;
-- consume Step 4 plain-text descriptions;
-- repeat column headers when a long table crosses a page boundary;
-- prevent table rows from being intentionally split by the layout code.
+## Chapter 17 — Ammunition
 
-The catalog engine is configuration-driven. Other Equipment & Technology families
-will receive their own field/grouping configurations rather than inheriting the
-Weapons schema.
+The canonical Ammunition pack currently contains 13 records. Those records do
+not carry canonical Tier values, so Step 6 does not invent tiers or tier groups.
+The initial Chapter 17 publication contract is:
+
+```text
+Name | Effect
+```
+
+`Effect` is the Step 4 normalized plain-text entity description. Entries sort
+alphabetically by Name. If the catalog crosses a page boundary, the continuation
+page repeats the Ammunition continuation label and the table header.
+
+Expected outputs are written to:
+
+```text
+build/rulebook/layout/chapter17/
+    Cybermancy_Chapter17_Ammunition_Step6.tex
+    Cybermancy_Chapter17_Ammunition_Step6.pdf
+    ammo-family-step6.tex
+    ammo-rows.json
+    player-guide-step6-ammo.ast.json
+```
+
+The validation report is:
+
+```text
+build/rulebook/layout/reports/equipment-ammo.json
+```
 
 ## Scope boundary
 
-C validates only the Tier 1 Weapons table primitive. The layout package also
-exposes semantic Pandoc-AST replacement for `family:weapons`, but the full-book
-replacement is intentionally deferred until D, when all four Weapon tiers and the
-Action/Critical Effect reference material are ready. This prevents C from deleting
-Tiers 2–4 from the current complete manuscript merely to demonstrate the primitive.
+This stage generalizes individual Equipment family chapters. It does not yet
+build the entire Equipment & Technology section in one pass. A section-level
+aggregator should be added only after additional family configs have been audited
+and accepted, so the section builder composes proven family contracts rather
+than guessing their schemas.
