@@ -5,6 +5,9 @@ from dataclasses import dataclass
 from typing import Any, Iterable
 
 
+_TIER_RE = re.compile(r"^[1-4]$")
+
+
 @dataclass(frozen=True)
 class CatalogRow:
     semantic_id: str
@@ -25,6 +28,19 @@ def get_path(obj: Any, dotted: str, default=None):
 
 def _present(value: Any) -> bool:
     return value not in (None, "", [], {})
+
+
+def _tier_number(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value if 1 <= value <= 4 else None
+    if isinstance(value, float):
+        return int(value) if value.is_integer() and 1 <= int(value) <= 4 else None
+    if isinstance(value, str):
+        text = value.strip()
+        return int(text) if _TIER_RE.fullmatch(text) else None
+    return None
 
 
 def _mechanic_display(value: Any) -> str:
@@ -92,18 +108,22 @@ def build_catalog_rows(
     family = str(config["family"])
     missing = str(config.get("display", {}).get("missing", "—"))
     group_path = str(config.get("groupBy") or "")
+    tiered = str(config.get("layoutMode") or "single-catalog").casefold() == "tiered-catalog"
     rows: list[tuple[tuple, CatalogRow]] = []
 
     for entity in entities:
         if entity.get("family") != family:
             continue
         entity_tier = get_path(entity, "publicationData.tier")
+        normalized_tier = _tier_number(entity_tier)
         if tier is not None:
-            try:
-                if int(entity_tier) != int(tier):
-                    continue
-            except (TypeError, ValueError):
+            if normalized_tier != _tier_number(tier):
                 continue
+        elif tiered and normalized_tier is None:
+            # A structural tiered catalog must never quietly admit an untiered
+            # or malformed row. Omitting it here causes the generic validator's
+            # CATALOG_ROW_COUNT check to fail closed before rendering begins.
+            continue
 
         raw_group = get_path(entity, group_path) if group_path else ""
         group = str(raw_group or missing)
@@ -117,7 +137,7 @@ def build_catalog_rows(
         row = CatalogRow(
             semantic_id=str(entity.get("semanticId") or ""),
             name=str(entity.get("name") or ""),
-            tier=entity_tier,
+            tier=normalized_tier if tiered else entity_tier,
             group=group,
             cells=cells,
         )
@@ -152,12 +172,8 @@ def partition_catalog_rows_by_tier(rows: Iterable[CatalogRow]) -> dict[int, list
     result: dict[int, list[CatalogRow]] = {}
     invalid: list[dict[str, Any]] = []
     for row in rows:
-        try:
-            tier = int(row.tier)
-        except (TypeError, ValueError):
-            invalid.append({"name": row.name, "tier": row.tier})
-            continue
-        if tier < 1 or tier > 4:
+        tier = _tier_number(row.tier)
+        if tier is None:
             invalid.append({"name": row.name, "tier": row.tier})
             continue
         result.setdefault(tier, []).append(row)
