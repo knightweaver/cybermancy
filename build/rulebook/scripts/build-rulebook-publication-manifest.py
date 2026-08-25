@@ -39,7 +39,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-SCRIPT_VERSION = "1.1.0"
+SCRIPT_VERSION = "1.2.0"
 
 SCRIPT_PATH = Path(__file__).resolve()
 SCRIPT_DIR = SCRIPT_PATH.parent
@@ -59,6 +59,7 @@ for _package_parent in (SCRIPT_DIR, REPO_ROOT / "pyCybermancy"):
 try:
     from rulebook_normalize.snapshot import (
         STRUCTURED_DIGEST_ALGORITHM,
+        STRUCTURED_DIGEST_VERSION,
         SnapshotError,
         structured_family_snapshot,
     )
@@ -316,10 +317,11 @@ def update_structured(
         row["missingGeneratedPageCount"] = len(rec.get("missing_generated_pages") or [])
         row["actionableOrphanGeneratedPageCount"] = len(rec.get("orphan_generated_pages") or [])
         row["contentDigestAlgorithm"] = STRUCTURED_DIGEST_ALGORITHM
-        row["contentDigestVersion"] = 2
+        row["contentDigestVersion"] = STRUCTURED_DIGEST_VERSION
         row["contentDigestSha256"] = snap["contentDigestSha256"]
         row["contentDigestValidation"] = (
-            "Recomputed with the shared Step 2/Step 4 structured-family digest implementation; not carried forward from a prior publication manifest."
+            "Recomputed with the shared Step 2/Step 4 structured-family digest implementation; "
+            "v3 includes Foundry folder records because folder placement can carry Tier semantics."
         )
         collisions = rec.get("structured_slug_collisions") or []
         row["generatedPageSlugCount"] = int(rec.get("source_page_slugs", snap["entityCount"]))
@@ -331,8 +333,10 @@ def update_structured(
         diagnostics.append({
             "family": family,
             "entityCount": snap["entityCount"],
+            "foundryFolderCount": snap["foundryFolderCount"],
             "generatedPageSlugCount": row["generatedPageSlugCount"],
             "slugCollisionCount": row["structuredSlugCollisionCount"],
+            "contentDigestVersion": STRUCTURED_DIGEST_VERSION,
             "contentDigestSha256": snap["contentDigestSha256"],
         })
 
@@ -390,12 +394,15 @@ def update_summary_and_validation(
             checks.pop(key, None)
         if key == "structuredSourceTreeMatchesV1_0Freeze":
             checks.pop(key, None)
+        if re.fullmatch(r"structuredFamilyDigestUsesSharedV\d+Implementation", key):
+            checks.pop(key, None)
 
     checks[f"all{authored_count}IncludedAuthoredPathsExistInFreezeInventory"] = True
     checks[f"all{family_count}StructuredFamiliesReconcile"] = True
     checks["structuredEntityAccountingUsesStableSourceIds"] = True
     checks["structuredFamilyDigestsRecomputed"] = True
-    checks["structuredFamilyDigestUsesSharedV2Implementation"] = True
+    checks[f"structuredFamilyDigestUsesSharedV{STRUCTURED_DIGEST_VERSION}Implementation"] = True
+    checks["structuredFolderRecordsIncludedInFamilyDigest"] = True
     checks["structuredEntityTotalMatchesInventoryReconciliation"] = True
     checks["zeroMissingGeneratedPagesAcrossIncludedStructuredFamilies"] = all(
         int(r.get("missingGeneratedPageCount", 0)) == 0 for r in families
@@ -438,13 +445,13 @@ def markdown_summary(manifest: dict[str, Any], diagnostics: list[dict[str, Any]]
         "",
         "## Structured publication families",
         "",
-        "| Family | Entities | Generated page slugs | Slug collisions | Digest |",
-        "|---|---:|---:|---:|---|",
+        "| Family | Entities | Folders | Generated page slugs | Slug collisions | Digest |",
+        "|---|---:|---:|---:|---:|---|",
     ]
     for d in diagnostics:
         lines.append(
-            f"| `{d['family']}` | {d['entityCount']} | {d['generatedPageSlugCount']} | "
-            f"{d['slugCollisionCount']} | `{d['contentDigestSha256']}` |"
+            f"| `{d['family']}` | {d['entityCount']} | {d['foundryFolderCount']} | "
+            f"{d['generatedPageSlugCount']} | {d['slugCollisionCount']} | `{d['contentDigestSha256']}` |"
         )
     lines += [
         "",
@@ -455,7 +462,8 @@ def markdown_summary(manifest: dict[str, Any], diagnostics: list[dict[str, Any]]
         "- Canonical structured entity counts use stable Foundry/source IDs.",
         "- Same-name source records remain distinct canonical entities.",
         "- Generated-page slug collisions are presentation diagnostics, not deduplication.",
-        "- Every structured family digest was recomputed from this repository snapshot.",
+        f"- Every structured family digest was recomputed with shared digest v{STRUCTURED_DIGEST_VERSION}.",
+        "- Foundry folder records participate in the digest without becoming publication entities.",
         "- Structured family counts were cross-checked against the selected inventory.",
         "",
         "The JSON manifest is the normative machine-readable freeze artifact.",
@@ -509,7 +517,8 @@ def main(argv: list[str] | None = None) -> int:
         "reason": (
             "Repository snapshot refreshed with unchanged Step 2 authority decisions. "
             "Structured entity accounting and family digests were recomputed from the "
-            "selected inventory/source snapshot using stable Foundry/source identity."
+            "selected inventory/source snapshot using stable Foundry/source identity; "
+            "digest v3 also freezes Foundry folder records that can carry Tier semantics."
         ),
     }
 
@@ -559,6 +568,7 @@ def main(argv: list[str] | None = None) -> int:
         "authoredInputs": len(authored),
         "structuredFamilies": len(families),
         "structuredEntities": total,
+        "structuredDigestVersion": STRUCTURED_DIGEST_VERSION,
         "outputs": {"json": str(out_json), "markdown": str(out_md)},
         "dryRun": bool(args.dry_run),
         "familyDiagnostics": diagnostics,
