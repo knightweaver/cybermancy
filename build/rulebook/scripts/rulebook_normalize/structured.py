@@ -3,6 +3,7 @@ import html
 import json
 import re
 from typing import Any
+from .foundry_folders import resolve_registered_publication_tier
 from .markdown import html_to_markdown, html_to_plain_text
 
 
@@ -198,6 +199,44 @@ def collect_source_warnings(family: str, doc: dict) -> list[dict]:
                 'field':'system.attack.roll.trait',
             },
         })
+
+    tier=resolve_registered_publication_tier(family,doc)
+    if tier.conflict:
+        warnings.append({
+            'code':'TIER_SOURCE_CONFLICT',
+            'message':(
+                f'{name}: intrinsic Tier {tier.value} conflicts with Foundry folder '
+                f'{tier.folder_name!r}; intrinsic Tier remains authoritative.'
+            ),
+            'details':{
+                'family':family,
+                'sourceId':sid,
+                'name':name,
+                'tierResolution':tier.as_dict(),
+            },
+        })
+    if tier.malformed_intrinsic:
+        warnings.append({
+            'code':'TIER_INTRINSIC_INVALID',
+            'message':f'{name}: intrinsic Tier value {tier.intrinsic_raw!r} is not a valid Tier 1-4 value.',
+            'details':{
+                'family':family,
+                'sourceId':sid,
+                'name':name,
+                'tierResolution':tier.as_dict(),
+            },
+        })
+    if tier.unresolved_folder_id:
+        warnings.append({
+            'code':'TIER_FOLDER_REFERENCE_UNRESOLVED',
+            'message':f'{name}: Foundry folder reference {tier.unresolved_folder_id!r} could not be resolved.',
+            'details':{
+                'family':family,
+                'sourceId':sid,
+                'name':name,
+                'tierResolution':tier.as_dict(),
+            },
+        })
     return warnings
 
 
@@ -271,7 +310,13 @@ def source_sort_value(
 ) -> tuple:
     name=str(doc.get('name') or '').casefold()
     folder='/'.join(source_rel.replace('\\','/').split('/')[:-1]).casefold()
-    resolved_tier=publication_tier if _nonempty(publication_tier) else _native_tier(doc)
+    if publication_tier is None:
+        resolved=resolve_registered_publication_tier(family,doc)
+        resolved_tier=resolved.value
+    else:
+        resolved_tier=publication_tier
+    if not _nonempty(resolved_tier):
+        resolved_tier=_native_tier(doc)
     vals=[]
     for field in sort_fields:
         if field=='name': v=name
@@ -331,6 +376,10 @@ def render_entity(
     if not isinstance(name,str) or not name.strip(): raise ValueError(f'Entity {sid} has no name')
     sem=f'entity:{family}:{sid}'
     warnings=collect_source_warnings(family,doc)
+    tier_resolution=resolve_registered_publication_tier(family,doc)
+    resolved_tier=tier_resolution.value if publication_tier is None else publication_tier
+    if not _nonempty(resolved_tier):
+        resolved_tier=_native_tier(doc)
     lines=[f'### {clean_text(name)} {{#{sem} .rb-entity data-family="{family}" data-source-id="{sid}"}}','']
 
     identity_desc=get_in(doc,'identity.description')
@@ -339,7 +388,6 @@ def render_entity(
     if desc: lines += [desc,'']
 
     system=doc.get('system') if isinstance(doc.get('system'),dict) else {}
-    resolved_tier=publication_tier if _nonempty(publication_tier) else _native_tier(doc)
     scalar_specs=[
         ('Tier', resolved_tier),
         ('Level', system.get('level')),
@@ -457,6 +505,7 @@ def render_entity(
         'semanticId':sem,'sourceId':sid,'name':name,'family':family,
         'fastPlay':fast_meta,
         'warnings':warnings,
+        'publicationProvenance':{'tier':tier_resolution.as_dict()},
         # Only images actually emitted into normalized reader content are
         # publication assets. Foundry image wiring is retained separately as
         # non-blocking runtime provenance.
