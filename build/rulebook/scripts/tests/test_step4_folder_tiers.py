@@ -19,6 +19,7 @@ from rulebook_normalize.publication import (
     structured_publication_data,
 )
 from rulebook_normalize.snapshot import (
+    STRUCTURED_DIGEST_ALGORITHM,
     STRUCTURED_DIGEST_VERSION,
     structured_family_snapshot,
 )
@@ -70,32 +71,53 @@ class TestFolderTierResolution(unittest.TestCase):
 
 
 class TestFolderDigestAuthority(unittest.TestCase):
-    def test_folder_change_changes_digest_without_changing_entity_count(self):
+    def _write_family(self, root: Path, family_name: str) -> tuple[Path, Path, str]:
+        source_path = f"src/packs/items/{family_name}"
+        family = root / source_path
+        family.mkdir(parents=True)
+        folder = family / "Tier_1_T1.json"
+        item = family / "item.json"
+        folder.write_text(json.dumps({
+            "_key": "!folders!T1", "_id": "T1", "name": "Tier 1", "folder": None,
+        }), encoding="utf-8")
+        item.write_text(json.dumps({
+            "_id": "A", "_key": "!items!A", "name": "Item", "folder": "T1", "system": {},
+        }), encoding="utf-8")
+        return folder, item, source_path
+
+    def test_equipment_folder_change_changes_digest_without_changing_entity_count(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
-            family = root / "src" / "packs" / "items" / "cybernetics"
-            family.mkdir(parents=True)
-            folder = family / "Tier_1_T1.json"
-            item = family / "item.json"
-            folder.write_text(json.dumps({
-                "_key": "!folders!T1", "_id": "T1", "name": "Tier 1", "folder": None,
-            }), encoding="utf-8")
-            item.write_text(json.dumps({
-                "_id": "A", "_key": "!items!A", "name": "Item", "folder": "T1", "system": {},
-            }), encoding="utf-8")
-
-            first = structured_family_snapshot(root, "src/packs/items/cybernetics")
+            folder, _, source_path = self._write_family(root, "cybernetics")
+            first = structured_family_snapshot(root, source_path)
             folder.write_text(json.dumps({
                 "_key": "!folders!T1", "_id": "T1", "name": "Tier 2", "folder": None,
             }), encoding="utf-8")
-            second = structured_family_snapshot(root, "src/packs/items/cybernetics")
+            second = structured_family_snapshot(root, source_path)
 
         self.assertEqual(STRUCTURED_DIGEST_VERSION, 3)
+        self.assertIn("Equipment families", STRUCTURED_DIGEST_ALGORITHM)
         self.assertEqual(first.entity_count, 1)
         self.assertEqual(second.entity_count, 1)
         self.assertEqual(first.foundry_folder_count, 1)
         self.assertEqual(len(first.folder_records), 1)
         self.assertNotEqual(first.digest_sha256, second.digest_sha256)
+
+    def test_non_equipment_folder_change_does_not_change_digest(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            folder, _, source_path = self._write_family(root, "classes")
+            first = structured_family_snapshot(root, source_path)
+            folder.write_text(json.dumps({
+                "_key": "!folders!T1", "_id": "T1", "name": "Tier 4", "folder": None,
+            }), encoding="utf-8")
+            second = structured_family_snapshot(root, source_path)
+
+        self.assertEqual(first.entity_count, 1)
+        self.assertEqual(second.entity_count, 1)
+        self.assertEqual(first.foundry_folder_count, 1)
+        self.assertEqual(second.foundry_folder_count, 1)
+        self.assertEqual(first.digest_sha256, second.digest_sha256)
 
 
 class TestStep4TierIntegration(unittest.TestCase):
