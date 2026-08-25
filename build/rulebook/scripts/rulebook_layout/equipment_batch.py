@@ -154,7 +154,7 @@ def _family_report_path(report_dir: Path, family: str) -> Path:
 
 
 def _child_command(operation: str, item: dict, args: argparse.Namespace, *, script_path: Path, output_base: Path | None) -> list[str]:
-    command = [sys.executable, str(script_path), f"{operation}-equipment", "--family", str(item["family"]), "--config", str(item["config"]), "--verbose"]
+    command = [sys.executable, str(script_path), f"{operation}-equipment", "--family", str(item["family"]), "--config", str(item["config"])]
     if getattr(args, "sidecar", None): command.extend(["--sidecar", str(args.sidecar)])
     if getattr(args, "manuscript", None): command.extend(["--manuscript", str(args.manuscript)])
     if getattr(args, "report_dir", None): command.extend(["--report-dir", str(args.report_dir)])
