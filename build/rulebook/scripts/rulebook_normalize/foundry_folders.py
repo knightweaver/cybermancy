@@ -9,12 +9,14 @@ intrinsic tier field.
 """
 
 from dataclasses import dataclass
+from pathlib import PurePosixPath
 import re
 from typing import Any, Iterable
 
 
 _TIER_FOLDER_RE = re.compile(r"^\s*Tier\s*([1-4])\s*$", re.IGNORECASE)
 _TIER_VALUE_RE = re.compile(r"^\s*(?:Tier\s*)?([1-4])\s*$", re.IGNORECASE)
+_FOLDER_CONTEXTS: dict[str, dict[str, dict[str, Any]]] = {}
 
 
 def _nonempty(value: Any) -> bool:
@@ -78,6 +80,27 @@ def build_folder_map(folder_records: Iterable[Any]) -> dict[str, dict[str, Any]]
             "repoPath": getattr(record, "repo_path", None),
         }
     return result
+
+
+def register_folder_context(source_path: str, folder_records: Iterable[Any]) -> dict[str, dict[str, Any]]:
+    """Register the current snapshot's folder map for publication helpers.
+
+    Step 2 and Step 4 share the snapshot primitive. Registration is a derived,
+    in-process convenience only; no source document is mutated. Family IDs in
+    the current manifests match the final component of their source paths.
+    """
+    folder_map = build_folder_map(folder_records)
+    normalized_path = str(source_path or "").replace("\\", "/").strip("/")
+    if normalized_path:
+        _FOLDER_CONTEXTS[normalized_path.casefold()] = folder_map
+        basename = PurePosixPath(normalized_path).name
+        if basename:
+            _FOLDER_CONTEXTS[basename.casefold()] = folder_map
+    return folder_map
+
+
+def registered_folder_map(family: str) -> dict[str, dict[str, Any]]:
+    return _FOLDER_CONTEXTS.get(str(family or "").strip().casefold(), {})
 
 
 @dataclass(frozen=True)
@@ -226,3 +249,7 @@ def resolve_publication_tier(
         folder_path=folder_path,
         unresolved_folder_id=unresolved,
     )
+
+
+def resolve_registered_publication_tier(family: str, doc: dict[str, Any]) -> TierResolution:
+    return resolve_publication_tier(doc, registered_folder_map(family))
