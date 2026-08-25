@@ -13,6 +13,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from .foundry_folders import register_folder_context
+
 
 STRUCTURED_DIGEST_VERSION = 3
 STRUCTURED_DIGEST_ALGORITHM = (
@@ -174,6 +176,10 @@ def structured_family_snapshot(
     ]
     digest_rows.sort()
     digest = hashlib.sha256("\n".join(digest_rows).encode("utf-8")).hexdigest()
+
+    # Register derived folder semantics for the current in-process Step 4 pass.
+    # The registration is keyed by source path/basename and never mutates source.
+    register_folder_context(source_path, folder_records)
 
     return StructuredFamilySnapshot(
         source_path=source_path,
