@@ -109,6 +109,22 @@ class TestWeaponMechanicReferences(unittest.TestCase):
         self.assertEqual(len(refs["missingDefinitions"]), 1)
         self.assertEqual(refs["missingDefinitions"][0]["name"], "Smartlink")
 
+    def test_reference_longtables_repeat_section_and_column_headers(self):
+        refs = collect_weapon_references([self.entity("A")])
+        actions = render_mechanics_reference_latex(refs["actions"], self._config())
+        critical = render_mechanics_reference_latex(refs["criticalEffects"], self._config())
+        self.assertIn("WEAPON ACTIONS — CONTINUED", actions)
+        self.assertIn("CRITICAL EFFECTS — CONTINUED", critical)
+        self.assertGreaterEqual(actions.count("CMTableHeader"), 2)
+        self.assertGreaterEqual(critical.count("CMTableHeader"), 2)
+        self.assertIn(r"\setlength{\LTpre}{0pt}", actions)
+        self.assertIn(r"\setlength{\LTpost}{0pt}", actions)
+
+    @staticmethod
+    def _config():
+        config_path = HERE.parents[2] / "layout" / "equipment" / "weapons-v1.json"
+        return json.loads(config_path.read_text(encoding="utf-8"))
+
 
 class TestCompleteChapter16Composition(unittest.TestCase):
     def setUp(self):
@@ -135,11 +151,14 @@ class TestCompleteChapter16Composition(unittest.TestCase):
             },
         }
 
-    def test_config_locks_all_four_weapon_tiers(self):
+    def test_config_locks_all_four_weapon_tiers_and_flowing_pagination(self):
         self.assertEqual(self.config["expectedEntityCount"], 47)
         self.assertEqual(self.config["expectedTierCounts"], {"1": 14, "2": 11, "3": 11, "4": 11})
+        self.assertEqual(self.config["pagination"]["tierStartNeedspaceIn"], 1.25)
+        self.assertEqual(self.config["pagination"]["referenceStartNeedspaceIn"], 1.25)
+        self.assertEqual(self.config["pagination"]["interTableSpacePt"], 10)
 
-    def test_family_and_chapter_render_four_tiers_plus_two_references(self):
+    def test_family_and_chapter_render_four_tiers_plus_two_references_without_forced_pages(self):
         entities = [self.entity(f"Weapon {tier}", tier, "agility") for tier in range(1, 5)]
         tier_tables = {
             tier: render_equipment_catalog_latex(build_catalog_rows(entities, self.config, tier=tier), self.config)
@@ -154,7 +173,10 @@ class TestCompleteChapter16Composition(unittest.TestCase):
             self.assertIn(f"TIER {tier}", family)
         self.assertIn("WEAPON ACTIONS", family)
         self.assertIn("CRITICAL EFFECTS", family)
-        self.assertGreaterEqual(family.count(r"\newpage"), 5)
+        self.assertNotIn(r"\newpage", family)
+        self.assertEqual(family.count(r"\Needspace{1.25in}"), 6)
+        self.assertGreaterEqual(family.count(r"\par\addvspace{10pt}"), 5)
+        self.assertIn(r"\usepackage{needspace}", chapter)
         self.assertIn("CHAPTER 16 / EQUIPMENT", chapter)
         self.assertIn("WEAPONS", chapter)
         self.assertIn(r"\begin{document}", chapter)
