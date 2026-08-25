@@ -30,6 +30,12 @@
     "missing": "—",
     "groupUppercase": true
   },
+  "pagination": {
+    "tierStartNeedspaceIn": 1.25,
+    "referenceStartNeedspaceIn": 1.25,
+    "interTableSpacePt": 10,
+    "continuationTemplate": "{label} — CONTINUED"
+  },
   "columns": [
     {
       "key": "name",
