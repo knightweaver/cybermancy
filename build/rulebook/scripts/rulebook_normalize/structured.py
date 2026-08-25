@@ -258,20 +258,33 @@ def _classification(doc: dict):
     return get_in(doc,'system.type') or get_in(doc,'system.role') or get_in(doc,'system.classification') or get_in(doc,'identity.classification')
 
 
-def source_sort_value(family: str, doc: dict, source_rel: str, sort_fields: list[str]) -> tuple:
+def _native_tier(doc: dict):
+    return get_in(doc,'identity.tier') or get_in(doc,'system.tier')
+
+
+def source_sort_value(
+    family: str,
+    doc: dict,
+    source_rel: str,
+    sort_fields: list[str],
+    publication_tier: Any = None,
+) -> tuple:
     name=str(doc.get('name') or '').casefold()
     folder='/'.join(source_rel.replace('\\','/').split('/')[:-1]).casefold()
+    resolved_tier=publication_tier if _nonempty(publication_tier) else _native_tier(doc)
     vals=[]
     for field in sort_fields:
         if field=='name': v=name
-        elif field=='tier': v=get_in(doc,'system.tier', get_in(doc,'identity.tier', 999))
+        elif field=='tier': v=resolved_tier if _nonempty(resolved_tier) else 999
         elif field=='trait':
             trait=publication_trait(family,doc)
             # Missing Traits are deterministic but sort after populated Traits.
             v=(1,'') if not _nonempty(trait) else (0,str(trait).casefold())
         elif field=='classification': v=_classification(doc) or ''
         elif field=='source-folder': v=folder
-        elif field=='level-or-tier': v=get_in(doc,'system.level', get_in(doc,'system.tier',999))
+        elif field=='level-or-tier':
+            level=get_in(doc,'system.level')
+            v=level if _nonempty(level) else (resolved_tier if _nonempty(resolved_tier) else 999)
         elif field=='parent-class-or-source-folder':
             v=(get_in(doc,'system.class') or get_in(doc,'system.parentClass') or folder)
         else: v=get_in(doc,field,'')
@@ -307,7 +320,12 @@ def collect_publication_asset_refs(rendered_markdown: str) -> list[str]:
     return sorted(set(refs))
 
 
-def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[str, dict]:
+def render_entity(
+    family: str,
+    doc: dict,
+    fast_play_paths: list[str],
+    publication_tier: Any = None,
+) -> tuple[str, dict]:
     sid=stable_id(doc)
     name=doc.get('name') or get_in(doc,'identity.name')
     if not isinstance(name,str) or not name.strip(): raise ValueError(f'Entity {sid} has no name')
@@ -321,8 +339,9 @@ def render_entity(family: str, doc: dict, fast_play_paths: list[str]) -> tuple[s
     if desc: lines += [desc,'']
 
     system=doc.get('system') if isinstance(doc.get('system'),dict) else {}
+    resolved_tier=publication_tier if _nonempty(publication_tier) else _native_tier(doc)
     scalar_specs=[
-        ('Tier', get_in(doc,'identity.tier') or system.get('tier')),
+        ('Tier', resolved_tier),
         ('Level', system.get('level')),
         ('Classification', _classification(doc)),
         ('Difficulty', get_in(doc,'mechanics.difficulty') or system.get('difficulty')),
