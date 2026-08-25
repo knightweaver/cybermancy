@@ -152,6 +152,19 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         self.assertIn(r">{\Centering\arraybackslash}m{0.290in}", latex)
         self.assertNotIn(r">{\RaggedRight\arraybackslash}p{0.970in}", latex)
 
+    def test_longtable_repeats_header_and_protects_trait_band_on_page_breaks(self):
+        rows = build_catalog_rows([
+            self.entity("Alpha", "Agility", action="Quick Draw", critical="Pinning Strike")
+        ], self.config, tier=1)
+        latex = render_equipment_catalog_latex(rows, self.config)
+        self.assertIn(r"\setlength{\LTpre}{0pt}", latex)
+        self.assertIn(r"\setlength{\LTpost}{0pt}", latex)
+        self.assertIn("TIER 1 — CONTINUED", latex)
+        self.assertIn(r"\endfirsthead", latex)
+        self.assertIn(r"\endhead", latex)
+        self.assertGreaterEqual(latex.count("CMTableHeader"), 2)
+        self.assertIn(r"\MakeUppercase{AGILITY}}} \\*", latex)
+
     def test_family_ast_replacement_is_semantic_not_textual(self):
         ast = {
             "pandoc-api-version": [1, 23],
