@@ -194,7 +194,7 @@ def _continuation_label(rows: list[CatalogRow], config: dict) -> str:
     else:
         base = str(config.get("title") or config.get("family") or "Catalog")
     template = str(pagination.get("continuationTemplate", "{label} — CONTINUED"))
-    return template.format(label=base)
+    return template.format(label=base).upper()
 
 
 def _render_continuation_band(label: str, column_count: int) -> str:
