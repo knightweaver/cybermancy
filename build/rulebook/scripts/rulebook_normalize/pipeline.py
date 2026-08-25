@@ -105,7 +105,7 @@ def manifest_contract_report(pub: dict, asm: dict, config: dict) -> dict:
     }
     configured_algorithm=str(config.get('structured',{}).get('familyDigestAlgorithm') or '').strip()
     if declared_algorithms=={STRUCTURED_DIGEST_ALGORITHM} and configured_algorithm==STRUCTURED_DIGEST_ALGORITHM:
-        add_check(report,'STRUCTURED_DIGEST_CONTRACT','PASS','Publication manifest and normalization config use the shared structured-family digest v2 contract.')
+        add_check(report,'STRUCTURED_DIGEST_CONTRACT','PASS','Publication manifest and normalization config use the shared structured-family digest v3 contract.')
     else:
         add_check(report,'STRUCTURED_DIGEST_CONTRACT','ERROR','Structured-family digest contract is not aligned.',{
             'publicationAlgorithms':sorted(declared_algorithms),
@@ -263,7 +263,7 @@ def repository_preflight(repo_root: Path, pub: dict, asm: dict, config: dict, re
             'All frozen authored INCLUDE sources exist and match their SHA-256 values.'
         )
 
-    # Structured canonical sources: existence + shared digest-v2 + entity counts.
+    # Structured canonical sources: existence + shared digest-v3 + entity counts.
     missing_fams=[]
     structured_errors=[]
     structured_entities=0
@@ -339,7 +339,7 @@ def repository_preflight(repo_root: Path, pub: dict, asm: dict, config: dict, re
         if digest_details:
             item=add_check(
                 report,'STRUCTURED_FAMILY_DIGEST','ERROR',
-                'One or more structured families do not match the frozen digest-v2 snapshot.',
+                'One or more structured families do not match the frozen digest-v3 snapshot.',
                 digest_details
             ); source_errors.append(item)
         if count_details:
@@ -352,7 +352,7 @@ def repository_preflight(repo_root: Path, pub: dict, asm: dict, config: dict, re
         add_check(
             report,'STRUCTURED_SOURCE_SNAPSHOT','PASS',
             f'{len(pub_fam)} structured families and {structured_entities} logical entities '
-            'match the frozen digest-v2/count snapshot.',
+            'match the frozen digest-v3/count snapshot.',
             {
                 'familyCount':len(pub_fam),
                 'entityCount':structured_entities,
