@@ -15,7 +15,7 @@ from .structured import (
 )
 
 
-SCHEMA_VERSION = "cybermancy-step4-structured-entities-v1.1"
+SCHEMA_VERSION = "cybermancy-step4-structured-entities-v1.2"
 _DAGGERHEART_FEATURE_SOURCE = Path(__file__).resolve().parents[4] / "daggerheart-mods" / "en.json"
 
 
@@ -227,6 +227,16 @@ def _weapon_action_definitions(system: dict) -> tuple[list[dict], list[dict]]:
     return ordinary, critical
 
 
+def _resolved_publication_tier(doc: dict, metadata: dict) -> Any:
+    provenance = metadata.get("publicationProvenance")
+    if isinstance(provenance, dict):
+        tier = provenance.get("tier")
+        if isinstance(tier, dict) and "value" in tier:
+            return tier.get("value")
+    system = doc.get("system") if isinstance(doc.get("system"), dict) else {}
+    return get_in(doc, "identity.tier") or system.get("tier")
+
+
 def structured_publication_data(family: str, doc: dict, metadata: dict) -> dict:
     """Project a structured source record into stable publication semantics.
 
@@ -238,7 +248,7 @@ def structured_publication_data(family: str, doc: dict, metadata: dict) -> dict:
     description = clean_description(identity_description or _system_description(doc) or "")
 
     result = {
-        "tier": get_in(doc, "identity.tier") or system.get("tier"),
+        "tier": _resolved_publication_tier(doc, metadata),
         "description": description,
         "burden": system.get("burden"),
         "range": system.get("range"),
@@ -266,7 +276,7 @@ def structured_publication_data(family: str, doc: dict, metadata: dict) -> dict:
 
 
 def sidecar_entity(metadata: dict, publication_data: dict) -> dict:
-    return {
+    result = {
         "semanticId": metadata["semanticId"],
         "family": metadata["family"],
         "sourceId": metadata["sourceId"],
@@ -275,3 +285,7 @@ def sidecar_entity(metadata: dict, publication_data: dict) -> dict:
         "sourcePath": metadata.get("sourcePath"),
         "publicationData": publication_data,
     }
+    provenance = metadata.get("publicationProvenance")
+    if isinstance(provenance, dict) and provenance:
+        result["publicationProvenance"] = provenance
+    return result
