@@ -14,10 +14,11 @@ from pathlib import Path
 from typing import Any
 
 
+STRUCTURED_DIGEST_VERSION = 3
 STRUCTURED_DIGEST_ALGORITHM = (
-    "cybermancy-structured-family-digest-v2: "
-    "sha256(sorted stable-source-id + tab + repo-path + tab + file-sha256 "
-    "over logical publication entities)"
+    "cybermancy-structured-family-digest-v3: "
+    "sha256(sorted record-kind + tab + stable-source-id + tab + repo-path + tab + "
+    "file-sha256 over logical publication entities and Foundry folder records)"
 )
 
 
@@ -39,6 +40,7 @@ class StructuredFamilySnapshot:
     source_path: str
     digest_sha256: str
     logical_records: tuple[StructuredRecord, ...]
+    folder_records: tuple[StructuredRecord, ...]
     foundry_folder_count: int
     json_file_count: int
 
@@ -80,15 +82,15 @@ def structured_family_snapshot(
 ) -> StructuredFamilySnapshot:
     """Return the canonical logical snapshot for one structured family.
 
-    The digest is deliberately based on logical publication entities rather
-    than every JSON file under the directory. Foundry folder records and actor
-    records outside an explicitly selected actor type are not publication
-    entities and therefore do not influence the family publication digest.
+    Logical publication entities determine entity counts. Foundry folder
+    records remain non-entities, but beginning with digest v3 they are included
+    in the family digest because Cybermancy publication semantics can derive an
+    item's Tier from its Foundry folder ancestry.
 
-    Every logical record contributes its stable source ID, repository-relative
-    path, and raw file SHA-256. This makes the digest sensitive to identity,
-    location, and content while remaining independent of filesystem traversal
-    order and display-name slug collisions.
+    Every digest record contributes a record kind, stable source ID,
+    repository-relative path, and raw file SHA-256. The digest is therefore
+    sensitive to entity content/location and to folder names/ancestry without
+    inflating logical publication entity counts.
     """
     repo_root = Path(repo_root).resolve()
     family_root = repo_root / source_path
@@ -96,9 +98,10 @@ def structured_family_snapshot(
         raise SnapshotError(f"STRUCTURED_SOURCE_DIR_MISSING: {source_path}")
 
     json_files = sorted(p for p in family_root.rglob("*.json") if p.is_file())
-    folder_count = 0
     records: list[StructuredRecord] = []
+    folder_records: list[StructuredRecord] = []
     seen_ids: dict[str, str] = {}
+    seen_folder_ids: dict[str, str] = {}
 
     normalized_actor_type = str(actor_type or "").strip()
 
@@ -112,7 +115,26 @@ def structured_family_snapshot(
             raise SnapshotError(f"STRUCTURED_JSON_NOT_OBJECT: {repo_rel}")
 
         if is_foundry_folder(doc):
-            folder_count += 1
+            try:
+                folder_id = stable_source_id(doc)
+            except SnapshotError as exc:
+                raise SnapshotError(f"{exc}: {repo_rel}") from exc
+            previous = seen_folder_ids.get(folder_id)
+            if previous is not None and previous != repo_rel:
+                raise SnapshotError(
+                    "STRUCTURED_FOLDER_ID_DUPLICATE: "
+                    f"{folder_id!r} occurs in both {previous!r} and {repo_rel!r}"
+                )
+            seen_folder_ids[folder_id] = repo_rel
+            folder_records.append(
+                StructuredRecord(
+                    source_id=folder_id,
+                    path=path,
+                    repo_path=repo_rel,
+                    sha256=sha256_file(path),
+                    document=doc,
+                )
+            )
             continue
 
         if normalized_actor_type and str(doc.get("type") or "") != normalized_actor_type:
@@ -142,13 +164,22 @@ def structured_family_snapshot(
         )
 
     records.sort(key=lambda r: (r.source_id, r.repo_path))
-    rows = [f"{r.source_id}\t{r.repo_path}\t{r.sha256}" for r in records]
-    digest = hashlib.sha256("\n".join(rows).encode("utf-8")).hexdigest()
+    folder_records.sort(key=lambda r: (r.source_id, r.repo_path))
+    digest_rows = [
+        f"entity\t{r.source_id}\t{r.repo_path}\t{r.sha256}"
+        for r in records
+    ] + [
+        f"folder\t{r.source_id}\t{r.repo_path}\t{r.sha256}"
+        for r in folder_records
+    ]
+    digest_rows.sort()
+    digest = hashlib.sha256("\n".join(digest_rows).encode("utf-8")).hexdigest()
 
     return StructuredFamilySnapshot(
         source_path=source_path,
         digest_sha256=digest,
         logical_records=tuple(records),
-        foundry_folder_count=folder_count,
+        folder_records=tuple(folder_records),
+        foundry_folder_count=len(folder_records),
         json_file_count=len(json_files),
     )
