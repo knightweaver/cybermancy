@@ -24,7 +24,26 @@ family chapter artifact + semantic AST replacement
 Each family receives its own publication contract. A later family must not
 silently inherit the Weapons schema merely because both are equipment.
 
-Current configs:
+The authoritative section contract is:
+
+```text
+build/rulebook/layout/equipment/equipment-section-v1.json
+```
+
+It defines the complete Equipment & Technology sequence:
+
+```text
+16  weapons
+17  ammo
+18  armors
+19  cybernetics
+20  drones-devices
+21  consumables
+22  mods
+23  loot
+```
+
+Family configs are implemented separately, for example:
 
 ```text
 build/rulebook/layout/equipment/weapons-v1.json  # Chapter 16
@@ -63,9 +82,7 @@ specialized Chapter 16 validation/reference contract.
 
 ## Batch commands
 
-Use `--all` to process every approved `*-v1.json` config found in
-`build/rulebook/layout/equipment/`. Configs are discovered automatically and
-executed in configured chapter order:
+Use `--all` to process the complete Equipment & Technology section contract:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --all
@@ -73,25 +90,44 @@ python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --all
 python build\rulebook\scripts\build-rulebook-layout.py build-equipment --all
 ```
 
-Validation and build batch operations write the aggregate report:
+Batch mode no longer equates “all” with “all configs currently present.” It
+reads `equipment-section-v1.json`, reports every required Chapter 16–23 family,
+and marks any family whose approved config does not yet exist as `BLOCKED`.
+Missing configs therefore remain visible in the aggregate report rather than
+being silently omitted.
+
+Validation and build batch operations write:
 
 ```text
 build/rulebook/layout/reports/equipment-all.json
 ```
 
-The aggregate report records discovered configs, chapter execution order, each
-family's status, and the path/content of its individual validation report.
+The aggregate report records the section registry, chapter order, every required
+family, its implementation/config status, and the child validation/build result.
 Individual family reports remain unchanged.
 
-`build-equipment --all` is fail-closed. It first validates every discovered
-family. If any family fails preflight, no chapter builds are started. If a
-render/build failure occurs after preflight, later chapters are marked BLOCKED
-and are not built.
+`build-equipment --all` has two fail-closed rules:
+
+1. If any **implemented** family fails validation preflight, no implemented
+   chapter builds begin.
+2. If an implemented family fails during rendering, later implemented families
+   are marked `BLOCKED` and are not built.
+
+A family whose config has not yet been implemented is also reported as `BLOCKED`,
+but it does not prevent already implemented families from being validated or
+built. Until every required Chapter 16–23 config exists, the aggregate command
+still exits non-zero and `equipment-all.json` remains `FAIL` because the section
+is incomplete. This allows progressive implementation without falsely reporting
+that the complete Equipment section is finished.
+
+Batch child Python processes are forced to UTF-8 (`PYTHONIOENCODING=utf-8` and
+`PYTHONUTF8=1`) so reader-facing Unicode such as `→` and `—` can be emitted in
+JSON reports on Windows consoles that otherwise default to cp1252.
 
 If `--output-dir` is supplied with `build-equipment --all`, it is treated as a
-base output directory and each family is written beneath its own `chapterNN`
-subdirectory. `--config` cannot be combined with `--all`, because batch mode
-discovers family configs automatically.
+base output directory and each implemented family is written beneath its own
+`chapterNN` subdirectory. `--config` cannot be combined with `--all` because the
+section contract owns config discovery.
 
 ## Shared catalog behavior
 
@@ -153,9 +189,7 @@ build/rulebook/layout/reports/equipment-ammo.json
 
 ## Scope boundary
 
-Batch mode currently builds every Equipment family that has an approved
-`*-v1.json` Step 6 config. It does not infer publication contracts for families
-that have not yet been audited. Adding a new approved family config therefore
-automatically adds that family to the next `--all` run, while preserving the
-requirement that its Step 4 semantics and Step 6 publication contract be defined
-first.
+The section registry defines which chapters must ultimately exist; it does not
+invent publication contracts for those chapters. Armor, Cybernetics, Drones and
+Devices, Consumables, Mods, and Loot still require their own Step 4 semantic
+audits and approved Step 6 family configs before the aggregate section can pass.
