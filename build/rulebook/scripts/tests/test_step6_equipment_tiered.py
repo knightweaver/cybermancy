@@ -1,4 +1,7 @@
+import importlib.util
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -13,6 +16,15 @@ from rulebook_layout.equipment_catalog import (
     render_equipment_catalog_latex,
 )
 from rulebook_layout.equipment_init import generate_equipment_config
+
+
+def _load_builder():
+    path = SCRIPT_DIR / "build-rulebook-layout.py"
+    spec = importlib.util.spec_from_file_location("build_rulebook_layout_tiered", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
 
 
 def _entity(source_id: str, name: str, tier):
@@ -102,12 +114,35 @@ class TestTieredCatalogRendering(unittest.TestCase):
         self.assertIn("Alpha Two", tier2_section)
         self.assertIn("Beta Two", tier2_section)
 
-    def test_invalid_tier_cannot_be_silently_rendered_in_tiered_catalog(self):
-        rows = build_catalog_rows([_entity("BAD", "Bad Tier", None)], self.config)
-        with self.assertRaises(ValueError):
-            partition_catalog_rows_by_tier(rows)
+    def test_invalid_tier_is_rejected_before_rendering(self):
+        rows = build_catalog_rows([_entity("BAD", "Bad Tier", "bogus")], self.config)
+        self.assertEqual(rows, [])
         with self.assertRaises(ValueError):
             render_equipment_catalog_latex(rows, self.config)
+
+    def test_generic_validator_fails_closed_on_malformed_tier(self):
+        builder = _load_builder()
+        config = generate_equipment_config(_bootstrap(1, entity_count=1))
+        bad_entity = _entity("BAD", "Bad Tier", "bogus")
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            config_path = root / "cybernetics-v1.json"
+            sidecar_path = root / "structured-entities.json"
+            manuscript_path = root / "player-guide.md"
+            config_path.write_text(json.dumps(config), encoding="utf-8")
+            sidecar_path.write_text(
+                json.dumps({"schema": builder.SIDECAR_SCHEMA_E, "entities": [bad_entity]}),
+                encoding="utf-8",
+            )
+            manuscript_path.write_text("::: {#family:cybernetics}\nplaceholder\n:::\n", encoding="utf-8")
+            report, _, _, rows = builder.validate_equipment_family(
+                "cybernetics", config_path, sidecar_path, manuscript_path
+            )
+
+        self.assertEqual(rows, [])
+        self.assertEqual(report["status"], "FAIL")
+        checks = {check["code"]: check["status"] for check in report["checks"]}
+        self.assertEqual(checks["CATALOG_ROW_COUNT"], "ERROR")
 
 
 if __name__ == "__main__":
