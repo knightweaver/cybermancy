@@ -8,7 +8,7 @@ and never reads canonical Foundry pack JSON directly.
 The Equipment & Technology workflow is configuration-driven:
 
 ```text
-canonical Foundry data
+canonical Foundry data + Foundry folder records
         ↓
 Step 4 normalization
         ↓
@@ -23,6 +23,33 @@ family chapter artifact + semantic AST replacement
 
 Each family receives its own publication contract. A later family must not
 silently inherit the Weapons schema merely because both are equipment.
+
+### Tier semantics belong to Step 4
+
+Some Daggerheart/Foundry item types do not have an intrinsic `system.tier` node.
+For those records, Cybermancy uses Foundry organization as an explicit fallback
+publication semantic. Step 4 resolves Tier in this order:
+
+```text
+identity.tier
+    ↓
+system.tier
+    ↓
+nearest ancestor Foundry folder named Tier 1 / Tier 2 / Tier 3 / Tier 4
+    ↓
+no Tier
+```
+
+Intrinsic Tier is authoritative. If an intrinsic Tier disagrees with a recognized
+Tier folder, Step 4 keeps the intrinsic value and emits a `TIER_SOURCE_CONFLICT`
+warning rather than silently changing the item.
+
+Folder records remain organizational/non-entity records for entity counts, but
+they are part of the structured-family digest v3 because changing a Tier folder
+can now change reader-facing publication semantics. Step 4 structured sidecar
+v1.2 records both the resolved numeric `publicationData.tier` and its
+`publicationProvenance.tier` source. Step 6 consumes only that normalized value;
+it never performs its own Foundry folder lookup.
 
 The authoritative section contract is:
 
@@ -85,7 +112,7 @@ uses the Equipment section registry plus Step 4 normalized inputs to report:
 - every available `publicationData.*` field path;
 - populated/missing counts and coverage for each field;
 - up to three representative values per field; and
-- up to five representative normalized entities.
+- up to five representative normalized entities, including publication provenance.
 
 For example, before `armors-v1.json` has been initialized:
 
@@ -97,7 +124,7 @@ returns a successful bootstrap inspection with `configStatus: NOT_IMPLEMENTED`
 rather than failing `CONFIG_PRESENT`. This output exposes the Step 4 semantics
 available to the family without inventing a publication contract.
 
-### Initializing a family config
+### Initializing and refreshing family configs
 
 `init-equipment` converts the bootstrap inspection into a conservative, usable
 first-pass Step 6 family config at the exact path owned by the section registry.
@@ -124,8 +151,29 @@ visual style deterministically. Other discovered `publicationData.*` fields stay
 visible in bootstrap inspection but are not automatically turned into columns;
 family-specific mechanics still require an explicit semantic/layout decision.
 
-Initialization never overwrites an existing config. Re-running a family whose
-config already exists reports `EXISTS` and preserves the file unchanged.
+Newly generated configs are marked:
+
+```json
+"configStatus": "scaffold"
+```
+
+and record the Step 4 sidecar schema from which they were initialized. Ordinary
+`init-equipment` remains non-destructive: if a config already exists it reports
+`EXISTS` and leaves the file unchanged.
+
+After Step 4 semantics change, generated scaffolds can be refreshed safely:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-layout.py init-equipment --all --refresh-scaffolds
+```
+
+`--refresh-scaffolds` overwrites only configs recognized as initializer-generated
+scaffolds. It also recognizes the conservative v1.0 initializer shape created
+before `configStatus: scaffold` was introduced, so already-generated Armor,
+Cybernetics, Drones/Devices, Consumables, Mods, and Loot scaffolds can migrate to
+the new Tier-aware sidecar. Accepted hand-tuned contracts such as Weapons and
+Ammunition are not recognized as scaffolds and are reported as `PRESERVED`.
+
 Initialization reports are written to:
 
 ```text
@@ -241,8 +289,9 @@ pagination rather than one forced table per page.
 ## Chapter 17 — Ammunition
 
 The canonical Ammunition pack currently contains 13 records. Those records do
-not carry canonical Tier values, so Step 6 does not invent tiers or tier groups.
-The initial Chapter 17 publication contract is:
+not carry canonical Tier values and are not organized beneath recognized Tier
+folders, so Step 4 leaves their Tier absent and Step 6 does not invent tiers or
+tier groups. The Chapter 17 publication contract is:
 
 ```text
 Name | Effect
