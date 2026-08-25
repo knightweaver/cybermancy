@@ -1,0 +1,61 @@
+{
+  "schema": "cybermancy-step6-equipment-catalog-config-v1.1",
+  "layoutMode": "single-catalog",
+  "family": "ammo",
+  "chapter": 17,
+  "partLabel": "EQUIPMENT & TECHNOLOGY",
+  "title": "Ammunition",
+  "deck": "",
+  "outputStem": "Cybermancy_Chapter17_Ammunition_Step6",
+  "expectedEntityCount": 13,
+  "expectedColumnLabels": [
+    "Name",
+    "Effect"
+  ],
+  "tierMode": "absent",
+  "sort": [
+    "publicationData.tier",
+    "name"
+  ],
+  "requiredPublicationFields": [
+    "publicationData.description"
+  ],
+  "display": {
+    "missing": "—",
+    "groupUppercase": true
+  },
+  "columns": [
+    {
+      "key": "name",
+      "label": "Name",
+      "widthIn": 1.65,
+      "align": "left",
+      "bold": true,
+      "verticalPaddingPt": 2
+    },
+    {
+      "key": "publicationData.description",
+      "label": "Effect",
+      "widthIn": 5.75,
+      "align": "left",
+      "verticalPaddingPt": 2
+    }
+  ],
+  "tableStyle": {
+    "tabcolsepPt": 2.5,
+    "arrayStretch": 1.08,
+    "fontSizePt": 7.8,
+    "leadingPt": 9.2
+  },
+  "pagination": {
+    "continuationLabel": "Ammunition",
+    "continuationTemplate": "{label} — CONTINUED"
+  },
+  "style": {
+    "headerColor": "0B6573",
+    "groupBandColor": "DDEEF0",
+    "alternateRowColor": "EEF7F8",
+    "textDarkColor": "183238",
+    "ruleColor": "18A7B5"
+  }
+}
