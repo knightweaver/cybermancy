@@ -14,6 +14,23 @@ def _style_values(config: dict) -> dict[str, str]:
     }
 
 
+def _pagination_values(config: dict) -> dict[str, float | str]:
+    pagination = config.get("pagination", {}) if isinstance(config.get("pagination"), dict) else {}
+    return {
+        "tier_needspace": float(pagination.get("tierStartNeedspaceIn", 1.25) or 1.25),
+        "reference_needspace": float(pagination.get("referenceStartNeedspaceIn", 1.25) or 1.25),
+        "inter_table_space": float(pagination.get("interTableSpacePt", 10) or 10),
+    }
+
+
+def _needspace(inches: float) -> str:
+    return rf"\Needspace{{{inches:g}in}}"
+
+
+def _inter_table_gap(points: float) -> str:
+    return rf"\par\addvspace{{{points:g}pt}}"
+
+
 def _document_preamble(config: dict) -> str:
     style = _style_values(config)
     return rf"""\documentclass[10pt]{{article}}
@@ -25,6 +42,7 @@ def _document_preamble(config: dict) -> str:
 \usepackage{{ragged2e}}
 \usepackage{{microtype}}
 \usepackage{{titlesec}}
+\usepackage{{needspace}}
 \pagestyle{{empty}}
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{0pt}}
@@ -98,11 +116,24 @@ def render_weapons_family_latex(
     critical_reference_latex: str,
     config: dict,
 ) -> str:
-    """Render the complete family payload used both by D's chapter proof and AST replacement."""
+    """Render the complete Weapons family using flowing longtable pagination.
+
+    Step 6D deliberately does not predict rendered table height in Python.
+    Needspace protects the start of each table from an unusably short fragment,
+    while longtable decides actual page breaks and repeats continuation headers.
+    Multiple complete tables may therefore share a page when space permits.
+    """
+    pagination = _pagination_values(config)
+    tier_needspace = float(pagination["tier_needspace"])
+    reference_needspace = float(pagination["reference_needspace"])
+    inter_table_space = float(pagination["inter_table_space"])
+    gap = _inter_table_gap(inter_table_space)
+
     pieces: list[str] = []
     for index, tier in enumerate(sorted(tier_tables)):
         if index:
-            pieces.append(r"\newpage")
+            pieces.append(gap)
+        pieces.append(_needspace(tier_needspace))
         pieces.append(_tier_heading(config, tier).rstrip())
         pieces.append(tier_tables[tier].rstrip())
 
@@ -111,10 +142,12 @@ def render_weapons_family_latex(
     critical_title = str(references.get("criticalEffectsTitle", "Critical Effects"))
 
     pieces.extend([
-        r"\newpage",
+        gap,
+        _needspace(reference_needspace),
         _reference_heading(actions_title).rstrip(),
         actions_reference_latex.rstrip(),
-        r"\newpage",
+        gap,
+        _needspace(reference_needspace),
         _reference_heading(critical_title).rstrip(),
         critical_reference_latex.rstrip(),
     ])
