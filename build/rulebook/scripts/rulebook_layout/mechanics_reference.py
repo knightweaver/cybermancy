@@ -226,7 +226,7 @@ def _reference_section_title(references: list[MechanicReference], config: dict) 
 def _continuation_label(base_label: str, config: dict) -> str:
     pagination = config.get("pagination", {}) if isinstance(config.get("pagination"), dict) else {}
     template = str(pagination.get("continuationTemplate", "{label} — CONTINUED"))
-    return template.format(label=base_label)
+    return template.format(label=base_label).upper()
 
 
 def render_mechanics_reference_latex(references: list[MechanicReference], config: dict) -> str:
