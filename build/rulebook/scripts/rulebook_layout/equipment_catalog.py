@@ -142,6 +142,30 @@ def group_catalog_rows(rows: Iterable[CatalogRow]) -> list[tuple[str, list[Catal
     return grouped
 
 
+def partition_catalog_rows_by_tier(rows: Iterable[CatalogRow]) -> dict[int, list[CatalogRow]]:
+    """Partition normalized catalog rows into deterministic numeric Tier tables.
+
+    ``tiered-catalog`` is reserved for families whose Step 4 publication Tier is
+    complete. Treat an absent, non-numeric, or out-of-range Tier as a contract
+    error rather than silently mixing it into a table.
+    """
+    result: dict[int, list[CatalogRow]] = {}
+    invalid: list[dict[str, Any]] = []
+    for row in rows:
+        try:
+            tier = int(row.tier)
+        except (TypeError, ValueError):
+            invalid.append({"name": row.name, "tier": row.tier})
+            continue
+        if tier < 1 or tier > 4:
+            invalid.append({"name": row.name, "tier": row.tier})
+            continue
+        result.setdefault(tier, []).append(row)
+    if invalid:
+        raise ValueError(f"Tiered Equipment catalog contains invalid Tier values: {invalid}")
+    return {tier: result[tier] for tier in sorted(result)}
+
+
 def latex_escape(value: Any) -> str:
     text = str(value)
     replacements = {
@@ -216,7 +240,7 @@ def _table_style(config: dict) -> tuple[float, float, float, float]:
     )
 
 
-def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
+def _render_single_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
     columns = list(config.get("columns", []))
     if not columns:
         raise ValueError("Equipment catalog config has no columns.")
@@ -262,6 +286,51 @@ def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
 
     lines += [r"\end{longtable}", r"\endgroup"]
     return "\n".join(lines) + "\n"
+
+
+def _tier_heading(config: dict, tier: int) -> str:
+    label = str(config.get("tierLabel", "TIER {tier}")).format(tier=tier)
+    return (
+        rf"{{\fontsize{{11}}{{12}}\selectfont\bfseries\color{{CMTextDark}} {latex_escape(label)}\par}}" "\n"
+        r"\vspace{1.2mm}" "\n"
+    )
+
+
+def _tiered_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
+    tier_rows = partition_catalog_rows_by_tier(rows)
+    if not tier_rows:
+        raise ValueError("Tiered Equipment catalog has no Tier rows.")
+
+    pagination = config.get("pagination", {}) if isinstance(config.get("pagination"), dict) else {}
+    tier_needspace = float(pagination.get("tierStartNeedspaceIn", 1.25) or 1.25)
+    inter_table_space = float(pagination.get("interTableSpacePt", 10) or 10)
+    pieces: list[str] = []
+
+    for index, (tier, subset) in enumerate(tier_rows.items()):
+        if index:
+            pieces.append(rf"\par\addvspace{{{inter_table_space:g}pt}}")
+        pieces.append(rf"\Needspace{{{tier_needspace:g}in}}")
+        pieces.append(_tier_heading(config, tier).rstrip())
+
+        # A continuing longtable should identify the Tier it is continuing, not
+        # merely the overall family title. Do this on a shallow config copy so
+        # the canonical family config remains untouched.
+        tier_config = dict(config)
+        tier_pagination = dict(pagination)
+        tier_pagination["continuationLabel"] = str(
+            config.get("tierLabel", "TIER {tier}")
+        ).format(tier=tier)
+        tier_config["pagination"] = tier_pagination
+        pieces.append(_render_single_catalog_latex(subset, tier_config).rstrip())
+
+    return "\n".join(pieces) + "\n"
+
+
+def render_equipment_catalog_latex(rows: list[CatalogRow], config: dict) -> str:
+    """Render one Equipment catalog, using structural Tier tables when configured."""
+    if str(config.get("layoutMode") or "single-catalog").casefold() == "tiered-catalog":
+        return _tiered_catalog_latex(rows, config)
+    return _render_single_catalog_latex(rows, config)
 
 
 def _div_identifier(node: dict) -> str:
