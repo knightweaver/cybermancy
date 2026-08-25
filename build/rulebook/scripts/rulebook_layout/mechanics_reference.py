@@ -212,6 +212,23 @@ def _padded(value: str, padding_pt: float = 2.0, *, bold: bool = False) -> str:
     return rf"\vspace*{{{padding_pt:g}pt}}\strut {rendered}\strut\par\vspace*{{{padding_pt:g}pt}}"
 
 
+def _reference_section_title(references: list[MechanicReference], config: dict) -> str:
+    ref_config = config.get("references", {}) if isinstance(config.get("references"), dict) else {}
+    critical_only = bool(references) and all(
+        set(reference.kinds).issubset({"critical-effect"})
+        for reference in references
+    )
+    if critical_only:
+        return str(ref_config.get("criticalEffectsTitle", "Critical Effects"))
+    return str(ref_config.get("actionsTitle", "Weapon Actions"))
+
+
+def _continuation_label(base_label: str, config: dict) -> str:
+    pagination = config.get("pagination", {}) if isinstance(config.get("pagination"), dict) else {}
+    template = str(pagination.get("continuationTemplate", "{label} — CONTINUED"))
+    return template.format(label=base_label)
+
+
 def render_mechanics_reference_latex(references: list[MechanicReference], config: dict) -> str:
     ref_config = config.get("references", {}) if isinstance(config.get("references"), dict) else {}
     columns = ref_config.get("columns") if isinstance(ref_config.get("columns"), list) else []
@@ -229,14 +246,22 @@ def render_mechanics_reference_latex(references: list[MechanicReference], config
         rf"\textbf{{\color{{white}}\MakeUppercase{{{latex_escape(column['label'])}}}}}"
         for column in columns
     ) + r" \\"
+    continuation = _continuation_label(_reference_section_title(references, config), config)
+    continuation_band = (
+        rf"\rowcolor{{CMGroupBand}}\multicolumn{{{len(columns)}}}{{@{{}}l@{{}}}}{{"
+        rf"\textbf{{\color{{CMTextDark}} {latex_escape(continuation)}}}}} \\"
+    )
     lines = [
         r"\begingroup",
         r"\setlength{\tabcolsep}{2.5pt}",
+        r"\setlength{\LTpre}{0pt}",
+        r"\setlength{\LTpost}{0pt}",
         r"\renewcommand{\arraystretch}{1.08}",
         r"\fontsize{7.3}{8.6}\selectfont",
         rf"\begin{{longtable}}{{{spec}}}",
         header,
         r"\endfirsthead",
+        continuation_band,
         header,
         r"\endhead",
     ]
