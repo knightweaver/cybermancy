@@ -7,9 +7,8 @@ retain their accepted Chapter 16 specialist contract; Ammunition is the first
 single-catalog family using the generic path.
 
 Generic Equipment commands accept either ``--family <name>`` or ``--all``.
-``--all`` discovers every approved ``*-v1.json`` Equipment config, executes the
-configured families in chapter order, and writes an aggregate equipment-all.json
-report for validation/build operations.
+The Equipment section registry defines authoritative chapter membership/order;
+missing configs are reported explicitly rather than silently disappearing.
 """
 from __future__ import annotations
 
@@ -63,6 +62,9 @@ CAMEL_CODE_RE = re.compile(r"[a-z][A-Z]")
 PANDOC_FROM = "markdown+fenced_divs+bracketed_spans+pipe_tables+grid_tables+definition_lists+raw_attribute"
 SIDECAR_SCHEMA_C = "cybermancy-step4-structured-entities-v1.0"
 SIDECAR_SCHEMA_D = "cybermancy-step4-structured-entities-v1.1"
+SIDECAR_SCHEMA_E = "cybermancy-step4-structured-entities-v1.2"
+SUPPORTED_SIDECAR_SCHEMAS = {SIDECAR_SCHEMA_C, SIDECAR_SCHEMA_D, SIDECAR_SCHEMA_E}
+EQUIPMENT_SIDECAR_SCHEMAS = {SIDECAR_SCHEMA_D, SIDECAR_SCHEMA_E}
 FAMILY_ALIASES = {"ammunition": "ammo", "armor": "armors"}
 
 
@@ -176,7 +178,7 @@ def validate_catalog(config_path: Path, sidecar_path: Path, manuscript_path: Pat
         add_check(report, "INPUT_JSON", "ERROR", f"Could not load Step 6 JSON input: {exc}")
         return report, None, None, []
     schema = sidecar.get("schema")
-    add_check(report, "SIDECAR_SCHEMA", "PASS" if schema in {SIDECAR_SCHEMA_C, SIDECAR_SCHEMA_D} else "ERROR", str(schema))
+    add_check(report, "SIDECAR_SCHEMA", "PASS" if schema in SUPPORTED_SIDECAR_SCHEMAS else "ERROR", str(schema))
     family = str(config.get("family") or "")
     add_check(report, "CATALOG_FAMILY", "PASS" if family else "ERROR", family or "Equipment catalog configuration has no family.")
     marker = f"family:{family}"
@@ -217,7 +219,7 @@ def validate_chapter16(config_path: Path, sidecar_path: Path, manuscript_path: P
     except Exception as exc:
         add_check(report, "INPUT_JSON", "ERROR", f"Could not load Step 6 JSON input: {exc}")
         return report, None, None, {}, None
-    add_check(report, "SIDECAR_SCHEMA", "PASS" if sidecar.get("schema") == SIDECAR_SCHEMA_D else "ERROR", str(sidecar.get("schema")))
+    add_check(report, "SIDECAR_SCHEMA", "PASS" if sidecar.get("schema") in EQUIPMENT_SIDECAR_SCHEMAS else "ERROR", str(sidecar.get("schema")))
     add_check(report, "CATALOG_FAMILY", "PASS" if config.get("family") == "weapons" else "ERROR", str(config.get("family") or "missing"))
     manuscript = manuscript_path.read_text(encoding="utf-8")
     add_check(report, "MANUSCRIPT_FAMILY_ALIGNMENT", "PASS" if "family:weapons" in manuscript else "ERROR", "Assembled manuscript contains family:weapons." if "family:weapons" in manuscript else "Assembled manuscript does not contain family:weapons.")
@@ -274,7 +276,7 @@ def validate_equipment_family(family: str, config_path: Path, sidecar_path: Path
         add_check(report, "INPUT_JSON", "ERROR", f"Could not load Step 6 JSON input: {exc}")
         return report, None, None, []
     report["chapter"] = config.get("chapter")
-    add_check(report, "SIDECAR_SCHEMA", "PASS" if sidecar.get("schema") == SIDECAR_SCHEMA_D else "ERROR", str(sidecar.get("schema")))
+    add_check(report, "SIDECAR_SCHEMA", "PASS" if sidecar.get("schema") in EQUIPMENT_SIDECAR_SCHEMAS else "ERROR", str(sidecar.get("schema")))
     actual_family = str(config.get("family") or "")
     add_check(report, "CATALOG_FAMILY", "PASS" if actual_family == family else "ERROR", actual_family if actual_family == family else f"Config family {actual_family!r} does not match requested family {family!r}.")
     marker = f"family:{family}"
@@ -466,6 +468,7 @@ def command_init_equipment(args) -> int:
         manuscript=manuscript,
         section_registry=DEFAULT_SECTION_REGISTRY.resolve(),
         report_dir=report_dir,
+        refresh_scaffolds=bool(getattr(args, "refresh_scaffolds", False)),
     )
     print(json.dumps(payload, indent=2, ensure_ascii=False))
     return rc
@@ -534,11 +537,16 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--sidecar")
     p.add_argument("--manuscript")
     p.add_argument("--report-dir")
+    p.add_argument(
+        "--refresh-scaffolds",
+        action="store_true",
+        help="Regenerate recognized initializer scaffold configs from the current Step 4 sidecar; accepted hand-authored configs are preserved.",
+    )
     for name in ("inspect-equipment", "validate-equipment", "build-equipment"):
         p = sub.add_parser(name)
         selector = p.add_mutually_exclusive_group(required=True)
         selector.add_argument("--family")
-        selector.add_argument("--all", action="store_true", help="Process every configured Equipment family in chapter order.")
+        selector.add_argument("--all", action="store_true", help="Process the authoritative Equipment section in chapter order.")
         p.add_argument("--config")
         p.add_argument("--sidecar")
         p.add_argument("--manuscript")
@@ -553,7 +561,7 @@ def main() -> int:
     command_parser = parser()
     args = command_parser.parse_args()
     if getattr(args, "all", False) and getattr(args, "config", None):
-        command_parser.error("--config cannot be used with --all; batch mode discovers *-v1.json configs automatically.")
+        command_parser.error("--config cannot be used with --all; batch mode resolves the Equipment section registry automatically.")
     return {"inspect": command_inspect, "validate": command_validate, "build": command_build, "inspect-chapter16": command_inspect_chapter16, "validate-chapter16": command_validate_chapter16, "build-chapter16": command_build_chapter16, "init-equipment": command_init_equipment, "inspect-equipment": command_inspect_equipment, "validate-equipment": command_validate_equipment, "build-equipment": command_build_equipment}[args.command](args)
 
 
