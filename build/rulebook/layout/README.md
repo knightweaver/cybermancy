@@ -56,16 +56,18 @@ The preferred interface for a single Equipment & Technology chapter is:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family <family>
+python build\rulebook\scripts\build-rulebook-layout.py init-equipment --family <family>
 python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --family <family>
 python build\rulebook\scripts\build-rulebook-layout.py build-equipment --family <family>
 ```
 
-For example, Chapter 17 Ammunition:
+For example, Chapter 18 Armor:
 
 ```powershell
-python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family ammo
-python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --family ammo
-python build\rulebook\scripts\build-rulebook-layout.py build-equipment --family ammo
+python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family armors
+python build\rulebook\scripts\build-rulebook-layout.py init-equipment --family armors
+python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --family armors
+python build\rulebook\scripts\build-rulebook-layout.py build-equipment --family armors
 ```
 
 `ammunition` is accepted as an alias for `ammo`; `armor` is accepted as an alias
@@ -85,19 +87,70 @@ uses the Equipment section registry plus Step 4 normalized inputs to report:
 - up to three representative values per field; and
 - up to five representative normalized entities.
 
-For example, before `armors-v1.json` has been designed:
+For example, before `armors-v1.json` has been initialized:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family armors
 ```
 
 returns a successful bootstrap inspection with `configStatus: NOT_IMPLEMENTED`
-rather than failing `CONFIG_PRESENT`. This output is the starting point for the
-family's Step 4 semantic audit and Step 6 publication-contract design.
+rather than failing `CONFIG_PRESENT`. This output exposes the Step 4 semantics
+available to the family without inventing a publication contract.
 
-Only inspection has this bootstrap behavior. `validate-equipment` and
-`build-equipment` remain fail-closed and continue to require an approved family
-config before validation or publication rendering can proceed.
+### Initializing a family config
+
+`init-equipment` converts the bootstrap inspection into a conservative, usable
+first-pass Step 6 family config at the exact path owned by the section registry.
+For Armor this creates:
+
+```text
+build/rulebook/layout/equipment/armors-v1.json
+```
+
+The initializer is deliberately limited to normalized fields that are already
+present in Step 4. It always publishes `Name` and may additionally publish these
+safe common fields when they contain data:
+
+```text
+publicationData.tier         → Tier
+publicationData.range        → Range
+publicationData.burden       → Burden
+publicationData.description  → Description
+```
+
+It derives the chapter/title, entity count, tier mode, sort order, required-field
+coverage, column widths, continuation label, output stem, and standard Equipment
+visual style deterministically. Other discovered `publicationData.*` fields stay
+visible in bootstrap inspection but are not automatically turned into columns;
+family-specific mechanics still require an explicit semantic/layout decision.
+
+Initialization never overwrites an existing config. Re-running a family whose
+config already exists reports `EXISTS` and preserves the file unchanged.
+Initialization reports are written to:
+
+```text
+build/rulebook/layout/reports/equipment-init-<family>.json
+```
+
+The complete initialization pass is:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-layout.py init-equipment --all
+```
+
+`--all` walks Chapters 16–23 in section order, preserves existing configs such
+as Weapons and Ammunition, and creates only missing family configs whose bootstrap
+inspection passes. Its aggregate report is:
+
+```text
+build/rulebook/layout/reports/equipment-init-all.json
+```
+
+After initialization, `validate-equipment` and `build-equipment` remain
+fail-closed in the normal way. A generated first-pass config is therefore a
+repeatable starting contract, not permission to bypass semantic review; validation
+must still pass and the rendered chapter should still be reviewed before the
+family contract is treated as final.
 
 The existing Chapter 16 commands remain supported:
 
@@ -115,15 +168,15 @@ Use `--all` to process the complete Equipment & Technology section contract:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --all
+python build\rulebook\scripts\build-rulebook-layout.py init-equipment --all
 python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --all
 python build\rulebook\scripts\build-rulebook-layout.py build-equipment --all
 ```
 
-Batch mode no longer equates “all” with “all configs currently present.” It
-reads `equipment-section-v1.json`, reports every required Chapter 16–23 family,
-and marks any family whose approved config does not yet exist as `BLOCKED`.
-Missing configs therefore remain visible in the aggregate report rather than
-being silently omitted.
+Batch validation/build mode reads `equipment-section-v1.json`, reports every
+required Chapter 16–23 family, and marks a family whose config does not exist as
+`BLOCKED`. Missing configs therefore remain visible rather than being silently
+omitted.
 
 Validation and build batch operations write:
 
@@ -155,8 +208,8 @@ JSON reports on Windows consoles that otherwise default to cp1252.
 
 If `--output-dir` is supplied with `build-equipment --all`, it is treated as a
 base output directory and each implemented family is written beneath its own
-`chapterNN` subdirectory. `--config` cannot be combined with `--all` because the
-section contract owns config discovery.
+`chapterNN` subdirectory. `--config` cannot be combined with the validation/build
+`--all` flow because the section contract owns config discovery.
 
 ## Shared catalog behavior
 
@@ -218,7 +271,8 @@ build/rulebook/layout/reports/equipment-ammo.json
 
 ## Scope boundary
 
-The section registry defines which chapters must ultimately exist; it does not
-invent publication contracts for those chapters. Armor, Cybernetics, Drones and
-Devices, Consumables, Mods, and Loot still require their own Step 4 semantic
-audits and approved Step 6 family configs before the aggregate section can pass.
+The section registry defines which chapters must ultimately exist. Initialization
+can create deterministic first-pass configs from normalized Step 4 fields, but it
+does not invent family-specific mechanics. Armor, Cybernetics, Drones and Devices,
+Consumables, Mods, and Loot may still require Step 4 semantic enrichment or manual
+config refinement after their generated first-pass layouts are inspected.
