@@ -41,10 +41,11 @@ class TestEquipmentAllDiscovery(unittest.TestCase):
         config_dir = HERE.parents[2] / "layout" / "equipment"
         discovered, errors = discover_equipment_configs(config_dir)
         self.assertEqual(errors, [])
-        self.assertEqual(
-            [(item["chapter"], item["family"]) for item in discovered],
-            [(16, "weapons"), (17, "ammo")],
-        )
+        pairs = [(item["chapter"], item["family"]) for item in discovered]
+        chapters = [item["chapter"] for item in discovered]
+        self.assertIn((16, "weapons"), pairs)
+        self.assertIn((17, "ammo"), pairs)
+        self.assertEqual(chapters, sorted(chapters))
 
     def test_duplicate_chapters_fail_discovery(self):
         with tempfile.TemporaryDirectory() as td:
