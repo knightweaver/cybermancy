@@ -44,6 +44,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from rulebook_layout.equipment_batch import run_all_equipment_command  # noqa: E402
 from rulebook_layout.equipment_bootstrap import inspect_equipment_bootstrap  # noqa: E402
+from rulebook_layout.equipment_init import initialize_equipment  # noqa: E402
 from rulebook_layout.equipment_catalog import (  # noqa: E402
     build_catalog_rows, get_path, render_equipment_catalog_latex,
     replace_family_div_with_latex,
@@ -452,6 +453,24 @@ def _run_all(operation: str, args: argparse.Namespace) -> int:
     )
 
 
+def command_init_equipment(args) -> int:
+    family = canonical_family(args.family) if getattr(args, "family", None) else None
+    sidecar = resolve_path(args.sidecar, DEFAULT_SIDECAR)
+    manuscript = resolve_path(args.manuscript, DEFAULT_MANUSCRIPT)
+    report_dir = resolve_path(args.report_dir, DEFAULT_REPORT_DIR)
+    rc, payload = initialize_equipment(
+        family=family,
+        all_families=bool(getattr(args, "all", False)),
+        config_dir=EQUIPMENT_CONFIG_DIR.resolve(),
+        sidecar=sidecar,
+        manuscript=manuscript,
+        section_registry=DEFAULT_SECTION_REGISTRY.resolve(),
+        report_dir=report_dir,
+    )
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    return rc
+
+
 def command_inspect_equipment(args) -> int:
     if getattr(args, "all", False):
         return _run_all("inspect", args)
@@ -508,6 +527,13 @@ def parser() -> argparse.ArgumentParser:
     for name in ("inspect-chapter16", "validate-chapter16", "build-chapter16"):
         p = sub.add_parser(name); p.add_argument("--config"); p.add_argument("--sidecar"); p.add_argument("--manuscript"); p.add_argument("--report-dir")
         if name == "build-chapter16": p.add_argument("--output-dir"); p.add_argument("--tex-only", action="store_true")
+    p = sub.add_parser("init-equipment")
+    selector = p.add_mutually_exclusive_group(required=True)
+    selector.add_argument("--family")
+    selector.add_argument("--all", action="store_true", help="Initialize every missing Equipment family config in section order; existing configs are preserved.")
+    p.add_argument("--sidecar")
+    p.add_argument("--manuscript")
+    p.add_argument("--report-dir")
     for name in ("inspect-equipment", "validate-equipment", "build-equipment"):
         p = sub.add_parser(name)
         selector = p.add_mutually_exclusive_group(required=True)
@@ -528,7 +554,7 @@ def main() -> int:
     args = command_parser.parse_args()
     if getattr(args, "all", False) and getattr(args, "config", None):
         command_parser.error("--config cannot be used with --all; batch mode discovers *-v1.json configs automatically.")
-    return {"inspect": command_inspect, "validate": command_validate, "build": command_build, "inspect-chapter16": command_inspect_chapter16, "validate-chapter16": command_validate_chapter16, "build-chapter16": command_build_chapter16, "inspect-equipment": command_inspect_equipment, "validate-equipment": command_validate_equipment, "build-equipment": command_build_equipment}[args.command](args)
+    return {"inspect": command_inspect, "validate": command_validate, "build": command_build, "inspect-chapter16": command_inspect_chapter16, "validate-chapter16": command_validate_chapter16, "build-chapter16": command_build_chapter16, "init-equipment": command_init_equipment, "inspect-equipment": command_inspect_equipment, "validate-equipment": command_validate_equipment, "build-equipment": command_build_equipment}[args.command](args)
 
 
 if __name__ == "__main__":
