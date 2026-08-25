@@ -80,6 +80,7 @@ class TestEquipmentScaffoldMarker(unittest.TestCase):
         })
         self.assertEqual(config["configStatus"], "scaffold")
         self.assertEqual(config["generatedBy"]["basisSidecarSchema"], "cybermancy-step4-structured-entities-v1.2")
+        self.assertEqual(config["layoutMode"], "tiered-catalog")
         self.assertTrue(is_scaffold_config(config))
 
     def test_legacy_v1_initializer_shape_is_recognized(self):
@@ -154,11 +155,17 @@ class TestEquipmentScaffoldRefresh(unittest.TestCase):
             config_path = config_dir / "armors-v1.json"
             original = json.loads(config_path.read_text(encoding="utf-8"))
             self.assertEqual(original["tierMode"], "absent")
+            self.assertEqual(original["layoutMode"], "single-catalog")
 
             # Emulate a config created by the already-released init-equipment
-            # v1.0, before explicit scaffold markers were introduced.
+            # v1.0, before explicit scaffold markers and tiered catalogs existed.
             original.pop("configStatus", None)
             original.pop("generatedBy", None)
+            original.pop("tierLabel", None)
+            original["pagination"] = {
+                "continuationLabel": "Armor",
+                "continuationTemplate": "{label} — CONTINUED",
+            }
             config_path.write_text(json.dumps(original, indent=2), encoding="utf-8")
             sidecar.write_text(json.dumps(_sidecar(2)), encoding="utf-8")
 
@@ -180,6 +187,7 @@ class TestEquipmentScaffoldRefresh(unittest.TestCase):
         self.assertEqual(refresh["families"][0]["status"], "REFRESHED")
         self.assertTrue(refresh["families"][0]["legacyScaffoldMigrated"])
         self.assertEqual(updated["tierMode"], "present")
+        self.assertEqual(updated["layoutMode"], "tiered-catalog")
         self.assertEqual(updated["expectedColumnLabels"], ["Name", "Tier", "Description"])
         self.assertEqual(updated["configStatus"], "scaffold")
 
@@ -211,6 +219,7 @@ class TestEquipmentScaffoldRefresh(unittest.TestCase):
 
         self.assertEqual(rc, 0)
         self.assertIsNotNone(config)
+        self.assertEqual(config["layoutMode"], "tiered-catalog")
         self.assertEqual(report["status"], "PASS")
         self.assertEqual(len(rows), 1)
         schemas = [check for check in report["checks"] if check["code"] == "SIDECAR_SCHEMA"]
