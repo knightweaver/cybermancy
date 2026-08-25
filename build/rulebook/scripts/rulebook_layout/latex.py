@@ -116,13 +116,7 @@ def render_weapons_family_latex(
     critical_reference_latex: str,
     config: dict,
 ) -> str:
-    """Render the complete Weapons family using flowing longtable pagination.
-
-    Step 6D deliberately does not predict rendered table height in Python.
-    Needspace protects the start of each table from an unusably short fragment,
-    while longtable decides actual page breaks and repeats continuation headers.
-    Multiple complete tables may therefore share a page when space permits.
-    """
+    """Render the complete Weapons family using flowing longtable pagination."""
     pagination = _pagination_values(config)
     tier_needspace = float(pagination["tier_needspace"])
     reference_needspace = float(pagination["reference_needspace"])
@@ -140,7 +134,6 @@ def render_weapons_family_latex(
     references = config.get("references", {}) if isinstance(config.get("references"), dict) else {}
     actions_title = str(references.get("actionsTitle", "Weapon Actions"))
     critical_title = str(references.get("criticalEffectsTitle", "Critical Effects"))
-
     pieces.extend([
         gap,
         _needspace(reference_needspace),
@@ -154,8 +147,8 @@ def render_weapons_family_latex(
     return "\n".join(pieces) + "\n"
 
 
-def render_weapons_chapter_document(family_latex: str, config: dict) -> str:
-    """Wrap the complete Step 6D Weapons family in a standalone Chapter 16 proof PDF."""
+def render_equipment_chapter_document(family_latex: str, config: dict) -> str:
+    """Wrap a Step 6 Equipment family payload in its configured chapter shell."""
     return (
         _document_preamble(config)
         + r"\begin{document}" + "\n"
@@ -165,3 +158,8 @@ def render_weapons_chapter_document(family_latex: str, config: dict) -> str:
         + family_latex
         + r"\end{document}" + "\n"
     )
+
+
+def render_weapons_chapter_document(family_latex: str, config: dict) -> str:
+    """Backward-compatible alias for the accepted Chapter 16 Weapons builder."""
+    return render_equipment_chapter_document(family_latex, config)
