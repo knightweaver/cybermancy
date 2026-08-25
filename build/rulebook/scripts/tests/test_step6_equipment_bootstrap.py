@@ -142,6 +142,24 @@ class TestBootstrapInspection(unittest.TestCase):
         self.assertEqual(payload["bootstrap"]["family"], "armors")
         self.assertEqual(payload["bootstrap"]["configStatus"], "NOT_IMPLEMENTED")
 
+    def test_validate_equipment_still_requires_family_config(self):
+        builder = _load_builder()
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            config = root / "armors-v1.json"
+            sidecar = root / "structured-entities.json"
+            manuscript = root / "player-guide.md"
+            sidecar.write_text(
+                json.dumps({"schema": builder.SIDECAR_SCHEMA_D, "entities": _armor_entities()}),
+                encoding="utf-8",
+            )
+            manuscript.write_text("::: {#family:armors}\nplaceholder\n:::\n", encoding="utf-8")
+            report, _, _, _ = builder.validate_equipment_family("armors", config, sidecar, manuscript)
+
+        self.assertEqual(report["status"], "FAIL")
+        checks = {item["code"]: item["status"] for item in report["checks"]}
+        self.assertEqual(checks["CONFIG_PRESENT"], "BLOCKED")
+
 
 if __name__ == "__main__":
     unittest.main()
