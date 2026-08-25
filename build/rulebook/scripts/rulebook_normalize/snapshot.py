@@ -13,14 +13,15 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .foundry_folders import register_folder_context
+from .foundry_folders import FOLDER_TIER_FAMILIES, register_folder_context
 
 
 STRUCTURED_DIGEST_VERSION = 3
 STRUCTURED_DIGEST_ALGORITHM = (
     "cybermancy-structured-family-digest-v3: "
     "sha256(sorted record-kind + tab + stable-source-id + tab + repo-path + tab + "
-    "file-sha256 over logical publication entities and Foundry folder records)"
+    "file-sha256 over logical publication entities, plus Foundry folder records "
+    "for Equipment families with folder-derived publication semantics)"
 )
 
 
@@ -77,6 +78,11 @@ def stable_source_id(doc: dict[str, Any]) -> str:
     raise SnapshotError("STRUCTURED_ID_MISSING")
 
 
+def _source_family(source_path: str) -> str:
+    normalized = str(source_path or "").replace("\\", "/").strip("/")
+    return normalized.rsplit("/", 1)[-1].casefold() if normalized else ""
+
+
 def structured_family_snapshot(
     repo_root: Path,
     source_path: str,
@@ -85,14 +91,15 @@ def structured_family_snapshot(
     """Return the canonical logical snapshot for one structured family.
 
     Logical publication entities determine entity counts. Foundry folder
-    records remain non-entities, but beginning with digest v3 they are included
-    in the family digest because Cybermancy publication semantics can derive an
-    item's Tier from its Foundry folder ancestry.
+    records remain non-entities. Beginning with digest v3, folder records are
+    included in the digest only for Equipment families whose publication
+    semantics can derive Tier from Foundry folder ancestry.
 
     Every digest record contributes a record kind, stable source ID,
-    repository-relative path, and raw file SHA-256. The digest is therefore
-    sensitive to entity content/location and to folder names/ancestry without
-    inflating logical publication entity counts.
+    repository-relative path, and raw file SHA-256. Equipment-family digests are
+    therefore sensitive to entity content/location and to folder names/ancestry
+    without inflating logical publication entity counts. Organizational folders
+    in unrelated structured families do not change their frozen digest.
     """
     repo_root = Path(repo_root).resolve()
     family_root = repo_root / source_path
@@ -167,19 +174,22 @@ def structured_family_snapshot(
 
     records.sort(key=lambda r: (r.source_id, r.repo_path))
     folder_records.sort(key=lambda r: (r.source_id, r.repo_path))
+    folder_semantics = _source_family(source_path) in FOLDER_TIER_FAMILIES
     digest_rows = [
         f"entity\t{r.source_id}\t{r.repo_path}\t{r.sha256}"
         for r in records
-    ] + [
-        f"folder\t{r.source_id}\t{r.repo_path}\t{r.sha256}"
-        for r in folder_records
     ]
+    if folder_semantics:
+        digest_rows.extend(
+            f"folder\t{r.source_id}\t{r.repo_path}\t{r.sha256}"
+            for r in folder_records
+        )
     digest_rows.sort()
     digest = hashlib.sha256("\n".join(digest_rows).encode("utf-8")).hexdigest()
 
-    # Register derived folder semantics for the current in-process Step 4 pass.
-    # The registration is keyed by source path/basename and never mutates source.
-    register_folder_context(source_path, folder_records)
+    # Register only folder semantics that Step 4 is allowed to consume. The
+    # registration is derived, in-process state and never mutates source data.
+    register_folder_context(source_path, folder_records if folder_semantics else ())
 
     return StructuredFamilySnapshot(
         source_path=source_path,
