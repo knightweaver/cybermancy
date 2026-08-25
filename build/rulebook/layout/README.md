@@ -68,7 +68,36 @@ python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --fami
 python build\rulebook\scripts\build-rulebook-layout.py build-equipment --family ammo
 ```
 
-`ammunition` is accepted as an alias for `ammo`.
+`ammunition` is accepted as an alias for `ammo`; `armor` is accepted as an alias
+for the canonical `armors` family.
+
+### Bootstrap inspection before a family config exists
+
+`inspect-equipment` does not require a Step 6 family config. If the expected
+`<family>-v1.json` file is missing, inspection switches to bootstrap mode and
+uses the Equipment section registry plus Step 4 normalized inputs to report:
+
+- chapter number and title from `equipment-section-v1.json`;
+- entity count and semantic identity integrity;
+- `family:<family>` manuscript alignment;
+- every available `publicationData.*` field path;
+- populated/missing counts and coverage for each field;
+- up to three representative values per field; and
+- up to five representative normalized entities.
+
+For example, before `armors-v1.json` has been designed:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family armors
+```
+
+returns a successful bootstrap inspection with `configStatus: NOT_IMPLEMENTED`
+rather than failing `CONFIG_PRESENT`. This output is the starting point for the
+family's Step 4 semantic audit and Step 6 publication-contract design.
+
+Only inspection has this bootstrap behavior. `validate-equipment` and
+`build-equipment` remain fail-closed and continue to require an approved family
+config before validation or publication rendering can proceed.
 
 The existing Chapter 16 commands remain supported:
 
