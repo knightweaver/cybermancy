@@ -19,7 +19,7 @@ class TestStep6CompactClassPackage(unittest.TestCase):
             "chapter": 12,
             "class": {
                 "name": "Test Class",
-                "description": "First class sentence. Second class sentence.",
+                "description": "First class sentence.\n\nSecond class sentence.\n\nThird class sentence.",
                 "domains": ["arcana", "circuit"],
                 "hitPoints": 5,
                 "evasion": 11,
@@ -29,13 +29,22 @@ class TestStep6CompactClassPackage(unittest.TestCase):
                     "class": [feature("Class Engine", "Class feature text.")],
                 },
                 "classItems": [],
-                "startingInventory": {},
-                "characterGuide": {},
+                "startingInventory": {
+                    "take": [{"name": "Take Item"}],
+                    "choiceA": [{"name": "Choice A Item"}],
+                    "choiceB": [{"name": "Choice B Item"}],
+                },
+                "characterGuide": {
+                    "suggestedPrimaryWeapon": {"name": "Primary Weapon"},
+                    "suggestedSecondaryWeapon": None,
+                    "suggestedArmor": {"name": "Test Armor"},
+                    "suggestedTraits": {"agility": 2, "finesse": 1},
+                },
             },
             "subclasses": [
                 {
                     "name": "Path A",
-                    "description": "First subclass sentence. Second subclass sentence.",
+                    "description": "First subclass sentence.\n\nSecond subclass sentence.",
                     "image": "assets/icons/subclasses/path-a.png",
                     "spellcastingTrait": "instinct",
                     "progression": {
@@ -93,12 +102,13 @@ class TestStep6CompactClassPackage(unittest.TestCase):
 
     def test_two_subclasses_share_one_page_in_parallel_columns(self):
         tex = self._render()
+        subclass_page = tex[tex.index("\\clearpage") :]
 
         self.assertEqual(tex.count("\\clearpage"), 1)
-        self.assertEqual(tex.count("\\begin{minipage}[t]{0.485\\linewidth}"), 2)
-        self.assertIn("PATH A", tex)
-        self.assertIn("PATH B", tex)
-        between = tex[tex.index("PATH A") : tex.index("PATH B")]
+        self.assertEqual(subclass_page.count("\\begin{minipage}[t]{0.485\\linewidth}"), 2)
+        self.assertIn("PATH A", subclass_page)
+        self.assertIn("PATH B", subclass_page)
+        between = subclass_page[subclass_page.index("PATH A") : subclass_page.index("PATH B")]
         self.assertNotIn("\\clearpage", between)
         self.assertIn("\\hfill", between)
 
@@ -113,12 +123,41 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         self.assertLess(path_a.index("FOUNDATION"), path_a.index("SPECIALIZATION"))
         self.assertLess(path_a.index("SPECIALIZATION"), path_a.index("MASTERY"))
 
-    def test_description_spacing_uses_frenchspacing(self):
+    def test_class_and_subclass_leads_are_collapsed_to_single_paragraphs(self):
         tex = self._render()
 
         self.assertIn("\\frenchspacing", tex)
-        self.assertIn("First class sentence. Second class sentence.", tex)
+        self.assertIn("First class sentence. Second class sentence. Third class sentence.", tex)
+        self.assertNotIn("First class sentence.\n\nSecond class sentence.", tex)
         self.assertIn("First subclass sentence. Second subclass sentence.", tex)
+        self.assertNotIn("First subclass sentence.\n\nSecond subclass sentence.", tex)
+
+    def test_class_and_subclass_description_blocks_have_explicit_top_spacing(self):
+        tex = self._render()
+
+        self.assertIn(
+            "\\end{tabularx}\n\\vspace{3.0mm}\n{\\fontsize{10.5}{12.3}\\selectfont First class sentence.",
+            tex,
+        )
+        path_a = tex[tex.index("PATH A") : tex.index("PATH B")]
+        self.assertIn(
+            "SPELLCAST TRAIT: INSTINCT\n}}\n\\vspace{2.0mm}\n{\\fontsize{10.5}{12.1}\\selectfont First subclass sentence.",
+            path_a,
+        )
+
+    def test_starting_package_uses_two_aligned_columns(self):
+        tex = self._render()
+        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\clearpage")]
+
+        self.assertEqual(package.count("\\begin{minipage}[t]{0.485\\linewidth}"), 2)
+        self.assertIn("\\end{minipage}\\hfill", package)
+        self.assertIn("\\strut Take & \\strut Take Item", package)
+        self.assertIn("\\strut Choice A & \\strut Choice A Item", package)
+        self.assertIn("\\strut Choice B & \\strut Choice B Item", package)
+        self.assertIn("\\strut Suggested Weapon & \\strut Primary Weapon", package)
+        self.assertIn("\\strut Suggested Armor & \\strut Test Armor", package)
+        self.assertIn("\\strut Suggested Traits & \\strut Agility 2, Finesse 1", package)
+        self.assertLess(package.index("\\strut Take"), package.index("\\strut Suggested Weapon"))
 
     def test_typography_has_ten_point_five_minimum_domains_fourteen_and_features_twelve(self):
         tex = self._render()
