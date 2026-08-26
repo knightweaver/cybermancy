@@ -36,6 +36,65 @@ def _foundry_uuid_leaks(value: Any, path: str = "publicationData") -> list[dict]
     return leaks
 
 
+def _publication_render_document(family: str, doc: dict) -> dict:
+    """Hide Foundry relationship wiring from generic Class/Subclass Markdown.
+
+    Step 4 keeps these relationships in the semantic sidecar. The generic
+    structured renderer must not reproduce raw Compendium UUIDs as Additional
+    Mechanics merely because those implementation fields are present in the
+    canonical Foundry document.
+    """
+    if family not in CLASS_FAMILIES or not isinstance(doc, dict):
+        return doc
+    system = doc.get("system")
+    if not isinstance(system, dict):
+        return doc
+
+    shadow = dict(doc)
+    shadow_system = dict(system)
+    for key in ("subclasses", "inventory", "classItems", "linkedClass"):
+        shadow_system.pop(key, None)
+
+    guide = shadow_system.get("characterGuide")
+    if isinstance(guide, dict):
+        guide_shadow = dict(guide)
+        for key in (
+            "suggestedPrimaryWeapon",
+            "suggestedSecondaryWeapon",
+            "suggestedArmor",
+        ):
+            guide_shadow.pop(key, None)
+        if guide_shadow:
+            shadow_system["characterGuide"] = guide_shadow
+        else:
+            shadow_system.pop("characterGuide", None)
+
+    shadow["system"] = shadow_system
+    return shadow
+
+
+def _generated_markdown_uuid_leaks(outroot: Path) -> list[dict]:
+    leaks: list[dict] = []
+    generated_root = outroot / "source" / "generated"
+    for family in sorted(CLASS_FAMILIES):
+        family_root = generated_root / family
+        if not family_root.is_dir():
+            continue
+        for path in sorted(family_root.rglob("*.md")):
+            text = path.read_text(encoding="utf-8")
+            for line_number, line in enumerate(text.splitlines(), 1):
+                if "Compendium." not in line:
+                    continue
+                leaks.append(
+                    {
+                        "path": path.relative_to(outroot).as_posix(),
+                        "line": line_number,
+                        "excerpt": line.strip()[:240],
+                    }
+                )
+    return leaks
+
+
 def _source_records(repo_root: Path, entities: list[dict]) -> tuple[list[dict], list[dict]]:
     records: list[dict] = []
     errors: list[dict] = []
@@ -164,6 +223,16 @@ def _postprocess_materialization(
             }
         )
 
+    markdown_leaks = _generated_markdown_uuid_leaks(outroot)
+    if markdown_leaks:
+        errors.append(
+            {
+                "code": "RELATION_FOUNDRY_UUID_MARKDOWN_LEAK",
+                "message": "Raw Foundry Compendium UUIDs remain in normalized Class/Subclass Markdown.",
+                "leaks": markdown_leaks,
+            }
+        )
+
     summary = {
         "schema": RELATIONSHIP_SCHEMA,
         "classCount": int(result.get("classCount") or 0),
@@ -212,6 +281,7 @@ def configure_step4_class_relationships(namespace: dict[str, Any]) -> None:
 
     original_materialize = pipeline.materialize
     original_source_sort_value = pipeline.source_sort_value
+    original_render_entity = pipeline.render_entity
 
     def source_sort_value(
         family: str,
@@ -232,6 +302,14 @@ def configure_step4_class_relationships(namespace: dict[str, Any]) -> None:
                 doc = shadow
         return original_source_sort_value(family, doc, source_rel, sort_spec)
 
+    def render_entity(family: str, doc: dict, *args: Any, **kwargs: Any):
+        return original_render_entity(
+            family,
+            _publication_render_document(family, doc),
+            *args,
+            **kwargs,
+        )
+
     def materialize(
         repo_root: Path,
         outroot: Path,
@@ -250,5 +328,6 @@ def configure_step4_class_relationships(namespace: dict[str, Any]) -> None:
         return report
 
     pipeline.source_sort_value = source_sort_value
+    pipeline.render_entity = render_entity
     pipeline.materialize = materialize
     pipeline._class_relationship_semantics_patch = True
