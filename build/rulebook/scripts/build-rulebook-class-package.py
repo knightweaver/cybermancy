@@ -17,7 +17,8 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.class_package import compose_class_package, load_json
-from rulebook_layout.class_package_compact import render_class_package_tex
+from rulebook_layout.class_package_geometry import validate_class_package_pdf_geometry
+from rulebook_layout.class_package_refined import render_class_package_tex
 
 DEFAULT_CONFIG = REPO_ROOT / "build/rulebook/layout/classes/class-package-v1.json"
 DEFAULT_SIDECAR = REPO_ROOT / "build/rulebook/source/metadata/structured-entities.json"
@@ -185,6 +186,14 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
                 if overfull
                 else "No overfull LaTeX boxes detected.",
                 overfull or None,
+            )
+            geometry = validate_class_package_pdf_geometry(pdf_path, view)
+            _append_check(
+                report,
+                str(geometry.get("code") or "CLASS_PACKAGE_RENDER_GEOMETRY"),
+                str(geometry.get("status") or "ERROR"),
+                str(geometry.get("message") or "Rendered geometry validation returned no message."),
+                geometry.get("details"),
             )
         else:
             _append_check(
