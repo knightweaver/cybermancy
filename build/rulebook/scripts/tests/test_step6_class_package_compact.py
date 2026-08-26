@@ -1,3 +1,4 @@
+import re
 import sys
 import tempfile
 import unittest
@@ -18,13 +19,13 @@ class TestStep6CompactClassPackage(unittest.TestCase):
             "chapter": 12,
             "class": {
                 "name": "Test Class",
-                "description": "Class description.",
+                "description": "First class sentence. Second class sentence.",
                 "domains": ["arcana", "circuit"],
                 "hitPoints": 5,
                 "evasion": 11,
                 "image": "assets/icons/classes/test-class.png",
                 "features": {
-                    "hope": [feature("Hope Signal", "Hope feature text.")],
+                    "hope": [feature("Hope Signal", "First hope sentence. Second hope sentence.")],
                     "class": [feature("Class Engine", "Class feature text.")],
                 },
                 "classItems": [],
@@ -34,7 +35,7 @@ class TestStep6CompactClassPackage(unittest.TestCase):
             "subclasses": [
                 {
                     "name": "Path A",
-                    "description": "First subclass description.",
+                    "description": "First subclass sentence. Second subclass sentence.",
                     "image": "assets/icons/subclasses/path-a.png",
                     "spellcastingTrait": "instinct",
                     "progression": {
@@ -73,11 +74,14 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         }
         return view, config
 
-    def test_class_stats_align_with_art_and_features_follow_opening(self):
+    def _render(self) -> str:
         view, config = self._fixture()
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
-            tex = render_class_package_tex(view, config, root / "source", root / "out")
+            return render_class_package_tex(view, config, root / "source", root / "out")
+
+    def test_class_stats_align_with_art_and_features_follow_opening(self):
+        tex = self._render()
 
         self.assertIn(
             "\\begin{minipage}[t]{0.430\\linewidth}\n\\vspace{0pt}\n\\centering\n\\includegraphics[width=\\linewidth,height=3.9in",
@@ -88,10 +92,7 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         self.assertLess(tex.index("CLASS FEATURES"), tex.index("\\clearpage"))
 
     def test_two_subclasses_share_one_page_in_parallel_columns(self):
-        view, config = self._fixture()
-        with tempfile.TemporaryDirectory() as td:
-            root = Path(td)
-            tex = render_class_package_tex(view, config, root / "source", root / "out")
+        tex = self._render()
 
         self.assertEqual(tex.count("\\clearpage"), 1)
         self.assertEqual(tex.count("\\begin{minipage}[t]{0.485\\linewidth}"), 2)
@@ -102,10 +103,7 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         self.assertIn("\\hfill", between)
 
     def test_subclass_art_is_half_height_and_trait_starts_at_art_top(self):
-        view, config = self._fixture()
-        with tempfile.TemporaryDirectory() as td:
-            root = Path(td)
-            tex = render_class_package_tex(view, config, root / "source", root / "out")
+        tex = self._render()
 
         self.assertEqual(tex.count("height=1.55in"), 2)
         self.assertGreaterEqual(tex.count("\\vspace{0pt}"), 7)
@@ -114,6 +112,34 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         self.assertLess(path_a.index("SPELLCAST TRAIT: INSTINCT"), path_a.index("FOUNDATION"))
         self.assertLess(path_a.index("FOUNDATION"), path_a.index("SPECIALIZATION"))
         self.assertLess(path_a.index("SPECIALIZATION"), path_a.index("MASTERY"))
+
+    def test_description_spacing_uses_frenchspacing(self):
+        tex = self._render()
+
+        self.assertIn("\\frenchspacing", tex)
+        self.assertIn("First class sentence. Second class sentence.", tex)
+        self.assertIn("First subclass sentence. Second subclass sentence.", tex)
+
+    def test_typography_has_ten_point_five_minimum_domains_fourteen_and_features_twelve(self):
+        tex = self._render()
+
+        explicit_sizes = [float(value) for value in re.findall(r"\\fontsize\{([0-9.]+)\}", tex)]
+        self.assertTrue(explicit_sizes)
+        self.assertGreaterEqual(min(explicit_sizes), 10.5)
+        self.assertIn("\\fontsize{14}{15}\\selectfont\\bfseries\\color{CMAccent} ARCANA • CIRCUIT", tex)
+        self.assertIn("\\fontsize{12}{13.2}\\selectfont\\bfseries\\color{CMInk} Hope Signal", tex)
+        self.assertIn("\\fontsize{10.5}{12.3}\\selectfont First class sentence.", tex)
+        self.assertIn("\\fontsize{10.5}{12.1}\\selectfont First subclass sentence.", tex)
+
+    def test_feature_separator_follows_description(self):
+        tex = self._render()
+
+        hope = tex[tex.index("Hope Signal") : tex.index("CLASS FEATURES")]
+        self.assertLess(hope.index("First hope sentence. Second hope sentence."), hope.index("\\rule{\\linewidth}{0.45pt}"))
+        self.assertLess(hope.index("Hope Signal"), hope.index("First hope sentence. Second hope sentence."))
+
+        path_a = tex[tex.index("A Foundation") : tex.index("A Specialization")]
+        self.assertLess(path_a.index("Foundation A."), path_a.index("\\rule{\\linewidth}{0.35pt}"))
 
 
 if __name__ == "__main__":
