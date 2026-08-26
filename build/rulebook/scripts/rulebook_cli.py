@@ -5,6 +5,7 @@ import io
 import re
 import sys
 import traceback
+import types
 from pathlib import Path
 from typing import Any, Callable
 
@@ -20,15 +21,32 @@ def _load_namespace(
 ) -> dict[str, Any]:
     """Load an implementation while preserving the public script's __file__ contract."""
     source = implementation_path.read_text(encoding="utf-8")
-    namespace: dict[str, Any] = {
-        "__name__": module_name,
-        "__file__": str(public_path),
-        "__package__": None,
-        "__builtins__": __builtins__,
-    }
-    exec(compile(source, str(public_path), "exec"), namespace)
-    if configure is not None:
-        configure(namespace)
+    module = types.ModuleType(module_name)
+    namespace = module.__dict__
+    namespace.update(
+        {
+            "__file__": str(public_path),
+            "__package__": None,
+            "__builtins__": __builtins__,
+        }
+    )
+
+    # Python 3.13 dataclasses (and other runtime introspection) require the
+    # defining module to exist in sys.modules while class decorators execute.
+    # Executing into a detached dict works for simple scripts but fails for
+    # @dataclass because cls.__module__ cannot be resolved.
+    previous_module = sys.modules.get(module_name)
+    sys.modules[module_name] = module
+    try:
+        exec(compile(source, str(public_path), "exec"), namespace)
+        if configure is not None:
+            configure(namespace)
+    except Exception:
+        if previous_module is None:
+            sys.modules.pop(module_name, None)
+        else:
+            sys.modules[module_name] = previous_module
+        raise
     return namespace
 
 
