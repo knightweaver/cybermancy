@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `8d7782aff5dbe0f212910ecffa649acd2c0eb0cb`
+Git commit: `e6bbf1f527b091bddfbdf50158a1a3531b9e4c6f`
 
 ## Scope
 
@@ -14,23 +14,23 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| Files scanned | 4778 |
-| Documents | 1056 |
-| Player-site documents | 585 |
+| Files scanned | 4783 |
+| Documents | 1060 |
+| Player-site documents | 589 |
 | GM-site documents | 459 |
 | Player nav entries | 20 |
 | GM nav entries | 15 |
-| Generated documents | 994 |
+| Generated documents | 998 |
 | Hand-authored/source documents | 62 |
 | Dynamic MkDocs documents | 18 |
-| Documents requiring normalization | 1028 |
+| Documents requiring normalization | 1032 |
 | Stub documents | 3 |
 | Foundry folder records | 109 |
 | Organizational files/pages | 123 |
 | Files with known exceptions | 139 |
-| Files with review flags | 22 |
-| Files with unresolved local dependencies | 3 |
-| Duplicate-content groups | 251 |
+| Files with review flags | 26 |
+| Files with unresolved local dependencies | 7 |
+| Duplicate-content groups | 246 |
 
 ## Files by source family
 
@@ -41,10 +41,10 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | data | 15 |
 | generator | 65 |
 | gm | 959 |
-| player | 1445 |
+| player | 1449 |
 | repository | 32 |
 | shared-docs | 3 |
-| structured-source | 2000 |
+| structured-source | 2001 |
 
 ## Files by audience
 
@@ -52,8 +52,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 |---|---:|
 | developer | 67 |
 | gm | 959 |
-| player | 1445 |
-| shared | 2018 |
+| player | 1449 |
+| shared | 2019 |
 | unknown | 289 |
 
 ## Files by content scope
@@ -63,7 +63,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | campaign | 305 |
 | developer | 86 |
 | setting | 16 |
-| system | 2286 |
+| system | 2291 |
 | unknown | 2085 |
 
 ## Files by kind
@@ -73,8 +73,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | asset | 1631 |
 | code | 40 |
 | config | 4 |
-| data | 1872 |
-| document | 1056 |
+| data | 1873 |
+| document | 1060 |
 | other | 166 |
 | presentation | 9 |
 
@@ -82,8 +82,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| generated | 1020 |
-| hand-authored-or-source | 1961 |
+| generated | 1024 |
+| hand-authored-or-source | 1962 |
 | unknown | 1797 |
 
 ## MkDocs sites
@@ -100,19 +100,19 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | jinja-expression | 17 |
 | jinja-statement | 17 |
 | load-csv | 16 |
-| raw-html | 1030 |
+| raw-html | 1034 |
 
 ## Print-normalization flags
 
 | Metric | Count |
 |---|---:|
 | attribute-list | 32 |
-| html-heavy | 334 |
+| html-heavy | 337 |
 | include-markdown | 1 |
 | jinja-expression | 17 |
 | jinja-statement | 17 |
 | load-csv | 16 |
-| raw-html | 1030 |
+| raw-html | 1034 |
 
 ## Generator reconciliation
 
@@ -121,7 +121,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | gm | adversaries | 106 | 12 | 106 | 0 | 0 | 0 |
 | gm | adversaries-features | 419 | 10 | 323 | 0 | 0 | 0 |
 | player | ammo | 13 | 0 | 13 | 0 | 0 | 0 |
-| player | armors | 35 | 4 | 35 | 0 | 0 | 0 |
+| player | armors | 36 | 4 | 36 | 0 | 0 | 0 |
 | player | classes | 5 | 0 | 5 | 0 | 0 | 0 |
 | player | consumables | 59 | 4 | 59 | 0 | 0 | 0 |
 | player | cybernetics | 103 | 4 | 103 | 0 | 0 | 0 |
@@ -132,7 +132,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | player | loot | 60 | 4 | 60 | 0 | 0 | 0 |
 | player | mods | 20 | 0 | 20 | 0 | 0 | 0 |
 | player | subclasses | 10 | 0 | 10 | 0 | 0 | 0 |
-| player | weapons | 47 | 4 | 45 | 0 | 0 | 0 |
+| player | weapons | 47 | 4 | 48 | 0 | 0 | 1 |
 
 ### player / features
 
@@ -152,6 +152,12 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 - `street-samuri`
 - `wall-ice`
 - `wrecking-ball`
+
+### player / weapons
+
+**Orphan generated pages:**
+
+- `assault-rigle-manual-build`
 
 ## Title collisions
 
@@ -178,8 +184,13 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
+| orphan-generated-page | 1 |
 | stub-document | 3 |
 | title-collision-candidate | 16 |
+| unresolved-local-dependency:../../../assets/icons/armors/kevlar-shirt.webp | 1 |
+| unresolved-local-dependency:../../../assets/icons/weapons/adv-emp-grenade.webp | 1 |
+| unresolved-local-dependency:../../../assets/icons/weapons/adv-fragmentation-grenade.webp | 1 |
+| unresolved-local-dependency:../../../assets/icons/weapons/assault-rigle-manual-build.webp | 1 |
 | unresolved-local-dependency:assets/art/275637-Female%20Halfing%20Commoner%20C%20.png.webp | 1 |
 | unresolved-local-dependency:stella-brownwalk.html | 1 |
 | unresolved-local-dependency:worlds/cybermancer/assets/images/SelkaToken_sm.png | 1 |
@@ -198,7 +209,11 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | `docs/player-facing/adventures/locations.md` | player | campaign | hand-authored-or-source | `stub-document` |
 | `docs/player-facing/adventures/npcs.md` | player | campaign | hand-authored-or-source | `stub-document` |
 | `docs/player-facing/items/ammo/reactive-shrapnel-shells/index.md` | player | system | generated | `title-collision-candidate` |
+| `docs/player-facing/items/armors/kevlar-shirt/index.md` | player | system | generated | `unresolved-local-dependency:../../../assets/icons/armors/kevlar-shirt.webp` |
 | `docs/player-facing/items/mods/reactive-shrapnel-shells/index.md` | player | system | generated | `title-collision-candidate` |
+| `docs/player-facing/items/weapons/adv-emp-grenade/index.md` | player | system | generated | `unresolved-local-dependency:../../../assets/icons/weapons/adv-emp-grenade.webp` |
+| `docs/player-facing/items/weapons/adv-fragmentation-grenade/index.md` | player | system | generated | `unresolved-local-dependency:../../../assets/icons/weapons/adv-fragmentation-grenade.webp` |
+| `docs/player-facing/items/weapons/assault-rigle-manual-build/index.md` | player | system | generated | `orphan-generated-page`, `unresolved-local-dependency:../../../assets/icons/weapons/assault-rigle-manual-build.webp` |
 | `docs/player-facing/system/domains/drone-control/index.md` | player | system | generated | `title-collision-candidate` |
 | `docs/player-facing/system/domains/gun-trainer/index.md` | player | system | generated | `title-collision-candidate` |
 | `docs/player-facing/system/domains/overload/index.md` | player | system | generated | `title-collision-candidate` |
