@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "e6bbf1f527b091bddfbdf50158a1a3531b9e4c6f"
+    "git_commit": "6775d0c3ca3f60a0de836a42c915f316adcbf5a8"
   },
   "mkdocs_sites": {
     "player": {
@@ -18,9 +18,9 @@
     }
   },
   "counts": {
-    "total_files": 4783,
+    "total_files": 4786,
     "by_kind": {
-      "asset": 1631,
+      "asset": 1634,
       "code": 40,
       "config": 4,
       "data": 1873,
@@ -34,7 +34,7 @@
       "data": 15,
       "generator": 65,
       "gm": 959,
-      "player": 1449,
+      "player": 1452,
       "repository": 32,
       "shared-docs": 3,
       "structured-source": 2001
@@ -42,7 +42,7 @@
     "by_audience": {
       "developer": 67,
       "gm": 959,
-      "player": 1449,
+      "player": 1452,
       "shared": 2019,
       "unknown": 289
     },
@@ -51,12 +51,12 @@
       "developer": 86,
       "setting": 16,
       "system": 2291,
-      "unknown": 2085
+      "unknown": 2088
     },
     "by_authorship": {
       "generated": 1024,
       "hand-authored-or-source": 1962,
-      "unknown": 1797
+      "unknown": 1800
     },
     "documents": 1060,
     "documents_player_site": 589,
@@ -60005,6 +60005,42 @@
       "review_flags": []
     },
     {
+      "path": "docs/player-facing/assets/icons/classes/razzhacker.png",
+      "extension": ".png",
+      "kind": "asset",
+      "source_family": "player",
+      "audience": "player",
+      "content_scope": "unknown",
+      "authorship": "unknown",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [
+        "player"
+      ],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 1836563,
+      "sha256": "86aec967560beb006c91256da1660fad90cbf285f7744702c29c98f46d9420df",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
       "path": "docs/player-facing/assets/icons/classes/rigger.png",
       "extension": ".png",
       "kind": "asset",
@@ -84773,6 +84809,42 @@
       "review_flags": []
     },
     {
+      "path": "docs/player-facing/assets/icons/subclasses/walker.png",
+      "extension": ".png",
+      "kind": "asset",
+      "source_family": "player",
+      "audience": "player",
+      "content_scope": "unknown",
+      "authorship": "unknown",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [
+        "player"
+      ],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 1578104,
+      "sha256": "dbbc41b506cbcd2e64b719c845f39eed7a6bf7ad8e4c83ae0b7b8d70d14ea5fe",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
       "path": "docs/player-facing/assets/icons/subclasses/walkers.webp",
       "extension": ".webp",
       "kind": "asset",
@@ -84803,6 +84875,42 @@
       "nav_paths": [],
       "size_bytes": 423186,
       "sha256": "c6de3b482fb5589981ea27d0e0a50bedb3608818f88f8a99022fff3bd69ec648",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
+      "path": "docs/player-facing/assets/icons/subclasses/weaver.png",
+      "extension": ".png",
+      "kind": "asset",
+      "source_family": "player",
+      "audience": "player",
+      "content_scope": "unknown",
+      "authorship": "unknown",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [
+        "player"
+      ],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 1530844,
+      "sha256": "6546c5e44c96cd9436aa595cb544599b6577408f1a1dc6db9446579f89c7d3e5",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -188771,8 +188879,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2770,
-      "sha256": "b9d2aadd9c94255b55ee76d640bbc5b31a1880066c076836b1f2c7ba4b0ba1de",
+      "size_bytes": 2759,
+      "sha256": "4de31918e943a8a6e57e3490e2a81d3bf52b5571d76ac1585c6da2d778093b18",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196891,8 +196999,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1558,
-      "sha256": "11db4c71dce03211bb544632695d50b835d2ae95f6fad2c126d372f6a5c00a12",
+      "size_bytes": 1551,
+      "sha256": "fee4033f87cb6a40cead1a63b067e7f9d6960ee191d126d2b01c53c10bfe3177",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196925,8 +197033,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1266,
-      "sha256": "f90d882becea84e5b577ece2466960d9834f65f70ce6a861f04c0ce00bdfdcd6",
+      "size_bytes": 1259,
+      "sha256": "59f4d950bd0d42aa8665bac6da41f06b6f791181656fa9ea43a71ef8922e92b9",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],

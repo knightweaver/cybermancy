@@ -2,7 +2,7 @@
   "name": "Street Samurai",
   "type": "class",
   "_id": "XWaW4nZ0dMha0NUi",
-  "img": "modules/cybermancy/assets/icons/classes/street-samuri.webp",
+  "img": "modules/cybermancy/assets/icons/classes/street-samurai.webp",
   "system": {
     "description": "<p><em>Steel is honest. Flesh lies.</em></p><p></p><p>You walk the line between the old world’s honor and the new world’s circuitry.</p><p>Some call you a mercenary, some a relic — they’re both right. You move through the sprawl like a storm wrapped in human skin: clean, efficient, and devastatingly precise. The Street Samurai doesn’t talk about strength; they demonstrate it.</p><p></p><p>Your body is a weapon — sculpted, reforged, upgraded, and tuned past the edge of human tolerance. Every scar is a story, every implant a lesson bought in blood and chrome. You’ve seen what happens when code and conscience mix: it’s not pretty. That’s why you live by your own code — maybe ancient, maybe self-written, but always yours.</p><p></p><p>Corporations build armies; gangs build legends. You build reputation. You fight because someone has to — and because deep down, you still believe that mastery of the blade, the gun, or the body means something in a world that’s sold its soul to machines.</p><p></p><p>Some Street Samurai operate like ghosts, silent and unseen until the moment of violence. Others are thunder — explosive, unstoppable, and poetic in destruction. Neither path is wrong. Both are beautiful.</p><p>What weapon have you made an extension of yourself? What line will you never cross — and what happens when someone makes you?</p>",
     "domains": [
@@ -72,7 +72,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1762658806819,
-    "modifiedTime": 1787263116274,
+    "modifiedTime": 1787761938653,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!XWaW4nZ0dMha0NUi"
