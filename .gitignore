@@ -32,3 +32,10 @@ test-data/
 *.tmp
 temp/
 /packs/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# MkDocs generated site
+_site/

@@ -1,0 +1,42 @@
+{
+  "folder": "qDElCNnXyLI0oZc8",
+  "name": "Kevlar Shirt",
+  "type": "armor",
+  "_id": "2yhHVISLCgazOcJ5",
+  "img": "systems/daggerheart/assets/icons/documents/items/chest-armor.svg",
+  "system": {
+    "description": "<p>The lightest weight, most invisible protection money can buy. </p><p></p><p>It's a little scratchy and hot, but better than getting shot!</p>",
+    "actions": {},
+    "attached": [],
+    "tier": 1,
+    "equipped": false,
+    "baseScore": 1,
+    "armorFeatures": [],
+    "marks": {
+      "value": 0
+    },
+    "baseThresholds": {
+      "major": 3,
+      "severe": 6
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763644950669,
+    "modifiedTime": 1763645017806,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_key": "!items!2yhHVISLCgazOcJ5"
+}
