@@ -13,16 +13,16 @@ It does **not** read canonical Foundry JSON, generated MkDocs pages, or `docs/..
 
 `class-package-v1.json` currently selects the Razz Hacker Class entity as the design proof. The composition is generic: the renderer follows the Class semantic relationships to its Class/Hope Features, linked Subclasses, each Subclass progression group, and referenced starting equipment.
 
-The prototype grammar is:
+The current compact prototype grammar is:
 
-1. Class identity, art, domains, HP, and Evasion.
-2. Class lead text.
-3. Hope and Class Feature definitions.
-4. Starting package and character-guide recommendations when present.
-5. Optional Background Questions and Connections when present.
-6. Every linked Subclass as part of the same ClassPackage.
-7. Subclass identity/art, optional Spellcast Trait and lead text.
-8. Foundation, Specialization, and Mastery Feature groups using variable-length progression arrays.
+1. Class identity, domains, and full-height Class art establish the opening.
+2. HP and Evasion begin at the top of the text column, aligned with the top of the Class art; Class lead text follows them.
+3. Hope Features begin immediately below the Class-art row, followed directly by Class Features.
+4. Starting package, character-guide recommendations, Background Questions, and Connections follow when present.
+5. The linked Subclasses begin together on a new page and are paired in parallel half-page columns when two are available.
+6. Each Subclass uses artwork at roughly half the original page footprint, with Spellcast Trait and lead text aligned to the top of the artwork.
+7. Foundation, Specialization, and Mastery Feature groups begin immediately below the Subclass identity/art row and preserve variable-length progression arrays.
+8. If a Class eventually has more Subclasses than fit the configured column count, additional pairs continue on subsequent pages without changing the Class/Subclass semantic model.
 
 Blank optional content is omitted cleanly. A blank Subclass description is a warning, not a pipeline failure. Broken semantic references, wrong-family references, parent mismatches, unstaged images, unsupported Step 4 schemas, and raw Foundry-reference leakage are blocking errors.
 
