@@ -55,6 +55,48 @@ def _audience_asset_roots(audience: str | None) -> tuple[str, ...]:
     return ('docs/_shared',)
 
 
+def _resolution_groups(logical: str, audience: str | None) -> list[list[str]]:
+    """Return ordered source-authority groups for one logical asset path.
+
+    Audience-specific documentation assets are the canonical publication
+    sources. ``docs/_shared`` is the next fallback, and a legacy repository-root
+    copy is consulted only when no authoritative docs copy exists. Shared
+    publication content may fall back to player/GM copies as one equal-priority
+    group; conflicting files within that group remain ambiguous.
+    """
+    if not logical:
+        return []
+    if logical.startswith('docs/'):
+        return [[logical]]
+
+    value = (audience or '').strip().lower()
+    if value in {'player', 'players', 'player-facing'}:
+        return [
+            [PurePosixPath('docs/player-facing', logical).as_posix()],
+            [PurePosixPath('docs/_shared', logical).as_posix()],
+            [logical],
+        ]
+    if value in {'gm', 'game-master', 'gm-facing'}:
+        return [
+            [PurePosixPath('docs/gm-facing', logical).as_posix()],
+            [PurePosixPath('docs/_shared', logical).as_posix()],
+            [logical],
+        ]
+    if value in {'shared', 'common', 'all'}:
+        return [
+            [PurePosixPath('docs/_shared', logical).as_posix()],
+            [
+                PurePosixPath('docs/player-facing', logical).as_posix(),
+                PurePosixPath('docs/gm-facing', logical).as_posix(),
+            ],
+            [logical],
+        ]
+    return [
+        [PurePosixPath('docs/_shared', logical).as_posix()],
+        [logical],
+    ]
+
+
 def resolve_publication_source_asset(
     repo_root: Path,
     logical_repo_rel: str,
@@ -64,57 +106,54 @@ def resolve_publication_source_asset(
 
     Canonical Foundry records can keep runtime references such as
     ``modules/cybermancy/assets/...``. After runtime mapping reduces those to a
-    logical path such as ``assets/...``, this resolver looks first for a legacy
-    repository-root copy and then in the audience-specific documentation asset
-    roots. This lets the repository store large artwork once under ``docs``
-    while Step 4 still stages a self-contained publication corpus.
+    logical path such as ``assets/...``, the publication source is resolved by
+    explicit authority: audience-specific ``docs`` assets first, shared docs
+    second, and legacy repository-root copies only as a fallback.
 
-    The result is deterministic and fail-closed. Multiple existing candidates
-    are accepted only when their file hashes are identical; conflicting copies
-    are reported as ambiguous rather than selected by incidental path order.
+    This lets the repository keep large artwork once in the publication source
+    tree while allowing older root-level asset copies to coexist temporarily.
+    Conflicts only fail closed when multiple files exist at the *same authority
+    level* and differ in content; a lower-authority legacy copy never overrides
+    or makes an authoritative docs asset ambiguous.
     """
     logical = unquote(logical_repo_rel or '').replace('\\', '/').lstrip('/')
-    candidates: list[str] = []
+    groups = _resolution_groups(logical, audience)
+    candidates = [candidate for group in groups for candidate in group]
 
-    def add_candidate(value: str) -> None:
-        normalized = value.replace('\\', '/').lstrip('/')
-        if normalized and normalized not in candidates:
-            candidates.append(normalized)
+    for priority, group in enumerate(groups):
+        existing = [candidate for candidate in group if (repo_root / candidate).is_file()]
+        if not existing:
+            continue
 
-    add_candidate(logical)
-    if logical and not logical.startswith('docs/'):
-        for root in _audience_asset_roots(audience):
-            add_candidate(PurePosixPath(root, logical).as_posix())
+        hashes = {candidate: sha256_file(repo_root / candidate) for candidate in existing}
+        unique_hashes = set(hashes.values())
+        if len(unique_hashes) > 1:
+            return {
+                'status': 'ambiguous',
+                'logicalPath': logical,
+                'audience': audience,
+                'candidates': candidates,
+                'existing': existing,
+                'hashes': hashes,
+                'authorityPriority': priority,
+            }
 
-    existing = [candidate for candidate in candidates if (repo_root / candidate).is_file()]
-    if not existing:
         return {
-            'status': 'missing',
+            'status': 'resolved',
             'logicalPath': logical,
             'audience': audience,
+            'sourceRepoPath': existing[0],
             'candidates': candidates,
-        }
-
-    hashes = {candidate: sha256_file(repo_root / candidate) for candidate in existing}
-    unique_hashes = set(hashes.values())
-    if len(unique_hashes) > 1:
-        return {
-            'status': 'ambiguous',
-            'logicalPath': logical,
-            'audience': audience,
-            'candidates': candidates,
-            'existing': existing,
-            'hashes': hashes,
+            'equivalentSources': existing,
+            'sha256': hashes[existing[0]],
+            'authorityPriority': priority,
         }
 
     return {
-        'status': 'resolved',
+        'status': 'missing',
         'logicalPath': logical,
         'audience': audience,
-        'sourceRepoPath': existing[0],
         'candidates': candidates,
-        'equivalentSources': existing,
-        'sha256': hashes[existing[0]],
     }
 
 
