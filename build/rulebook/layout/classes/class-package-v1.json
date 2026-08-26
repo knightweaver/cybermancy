@@ -1,0 +1,45 @@
+{
+  "schema": "cybermancy-step6-class-package-config-v1.0",
+  "chapter": 12,
+  "partLabel": "CHARACTER OPTIONS",
+  "title": "Classes and Subclasses",
+  "prototype": {
+    "classSemanticId": "entity:classes:pjN7ciiS9yyGB7rP",
+    "outputStem": "Cybermancy_Chapter12_Razz_Hacker_ClassPackage_Step6"
+  },
+  "composition": {
+    "kind": "class-package",
+    "primaryFamily": "classes",
+    "nestedFamily": "subclasses",
+    "featureFamily": "features",
+    "subclassProgressionOrder": [
+      "foundation",
+      "specialization",
+      "mastery"
+    ],
+    "classFeatureOrder": [
+      "hope",
+      "class"
+    ]
+  },
+  "style": {
+    "accentColor": "0B6573",
+    "accentBrightColor": "18A7B5",
+    "inkColor": "183238",
+    "mutedColor": "58747A",
+    "softColor": "EAF4F5",
+    "subclassBandColor": "DDEEF0",
+    "pageMarginIn": 0.55,
+    "classArtWidthFraction": 0.43,
+    "subclassArtWidthFraction": 0.34
+  },
+  "prototypePolicy": {
+    "consumeStep4Only": true,
+    "requireStructuredSidecarSchema": "cybermancy-step4-structured-entities-v1.3",
+    "requirePublicationImageSemanticsPass": true,
+    "requireStagedImages": true,
+    "failOnRawFoundryReferences": true,
+    "allowBlankSubclassDescription": true,
+    "astIntegration": "deferred-until-class-package-grammar-acceptance"
+  }
+}
