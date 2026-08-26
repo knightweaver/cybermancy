@@ -16,11 +16,8 @@ REPO_ROOT = SCRIPT_DIR.parents[2]
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from rulebook_layout.class_package import (
-    compose_class_package,
-    load_json,
-    render_class_package_tex,
-)
+from rulebook_layout.class_package import compose_class_package, load_json
+from rulebook_layout.class_package_compact import render_class_package_tex
 
 DEFAULT_CONFIG = REPO_ROOT / "build/rulebook/layout/classes/class-package-v1.json"
 DEFAULT_SIDECAR = REPO_ROOT / "build/rulebook/source/metadata/structured-entities.json"
