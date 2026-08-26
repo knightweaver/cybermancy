@@ -216,7 +216,7 @@ class TestClassPublicationImages(unittest.TestCase):
                 "docs/gm-facing/assets/icons/adversaries/test.png",
             )
 
-    def test_conflicting_duplicate_sources_fail_as_ambiguous(self):
+    def test_audience_docs_source_overrides_conflicting_legacy_root_copy(self):
         with tempfile.TemporaryDirectory() as td:
             repo = Path(td) / "repo"
             direct = repo / "assets/icons/classes/test-class.png"
@@ -224,7 +224,7 @@ class TestClassPublicationImages(unittest.TestCase):
             direct.parent.mkdir(parents=True)
             docs.parent.mkdir(parents=True)
             direct.write_bytes(b"old-copy")
-            docs.write_bytes(b"new-copy")
+            docs.write_bytes(b"publication-copy")
 
             resolved = resolve_publication_source_asset(
                 repo,
@@ -232,8 +232,52 @@ class TestClassPublicationImages(unittest.TestCase):
                 "player",
             )
 
+            self.assertEqual(resolved["status"], "resolved")
+            self.assertEqual(
+                resolved["sourceRepoPath"],
+                "docs/player-facing/assets/icons/classes/test-class.png",
+            )
+            self.assertEqual(resolved["authorityPriority"], 0)
+
+    def test_legacy_root_copy_remains_fallback_when_docs_asset_is_absent(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td) / "repo"
+            direct = repo / "assets/icons/classes/test-class.png"
+            direct.parent.mkdir(parents=True)
+            direct.write_bytes(b"legacy-only")
+
+            resolved = resolve_publication_source_asset(
+                repo,
+                "assets/icons/classes/test-class.png",
+                "player",
+            )
+
+            self.assertEqual(resolved["status"], "resolved")
+            self.assertEqual(
+                resolved["sourceRepoPath"],
+                "assets/icons/classes/test-class.png",
+            )
+            self.assertEqual(resolved["authorityPriority"], 2)
+
+    def test_shared_cross_audience_conflict_still_fails_closed(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td) / "repo"
+            player = repo / "docs/player-facing/assets/icons/shared/test.png"
+            gm = repo / "docs/gm-facing/assets/icons/shared/test.png"
+            player.parent.mkdir(parents=True)
+            gm.parent.mkdir(parents=True)
+            player.write_bytes(b"player-copy")
+            gm.write_bytes(b"gm-copy")
+
+            resolved = resolve_publication_source_asset(
+                repo,
+                "assets/icons/shared/test.png",
+                "shared",
+            )
+
             self.assertEqual(resolved["status"], "ambiguous")
             self.assertEqual(len(resolved["existing"]), 2)
+            self.assertEqual(resolved["authorityPriority"], 1)
 
 
 if __name__ == "__main__":
