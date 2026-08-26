@@ -95,7 +95,7 @@ class TestFolderDigestAuthority(unittest.TestCase):
             }), encoding="utf-8")
             second = structured_family_snapshot(root, source_path)
 
-        self.assertEqual(STRUCTURED_DIGEST_VERSION, 3)
+        self.assertEqual(STRUCTURED_DIGEST_VERSION, 4)
         self.assertIn("Equipment families", STRUCTURED_DIGEST_ALGORITHM)
         self.assertEqual(first.entity_count, 1)
         self.assertEqual(second.entity_count, 1)
