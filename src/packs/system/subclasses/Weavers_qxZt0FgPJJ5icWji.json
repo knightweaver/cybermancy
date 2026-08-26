@@ -2,7 +2,7 @@
   "name": "Weavers",
   "type": "subclass",
   "_id": "qxZt0FgPJJ5icWji",
-  "img": "systems/daggerheart/assets/icons/documents/items/laurels.svg",
+  "img": "modules/cybermancy/assets/icons/subclasses/weaver.png",
   "system": {
     "attribution": {},
     "description": "",
@@ -41,7 +41,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1776262613644,
-    "modifiedTime": 1776262726800,
+    "modifiedTime": 1787758577413,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!qxZt0FgPJJ5icWji"

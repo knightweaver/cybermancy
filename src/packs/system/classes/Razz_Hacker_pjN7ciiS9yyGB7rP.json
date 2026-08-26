@@ -2,7 +2,7 @@
   "name": "Razz Hacker",
   "type": "class",
   "_id": "pjN7ciiS9yyGB7rP",
-  "img": "systems/daggerheart/assets/icons/documents/items/laurel-crown.svg",
+  "img": "modules/cybermancy/assets/icons/classes/razzhacker.png",
   "system": {
     "attribution": {},
     "description": "<p>The world calls them Razz Hackers. They call themselves Neo Monks—adepts who treat spellwork and software as the same living language running beneath neon streets and astral skylines.</p><p>Nobody teaches you how to become a Razz Hacker. You learn it the hard way: by realizing magic and code aren’t opposites or “two paths.” They are the same interface—syntax that convinces reality to compile.</p><p>Once it clicks, you move through the world differently: you slip through an ICE wall as a freezing sigil in the datasphere, or you fire an arcane pulse packaged as perfectly structured JSON.</p><p></p>",
@@ -79,7 +79,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1776183925244,
-    "modifiedTime": 1776263079425,
+    "modifiedTime": 1787758539357,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!pjN7ciiS9yyGB7rP"

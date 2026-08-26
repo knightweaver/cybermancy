@@ -2,7 +2,7 @@
   "name": "Walkers",
   "type": "subclass",
   "_id": "nRubgu6f89YA2udE",
-  "img": "systems/daggerheart/assets/icons/documents/items/laurels.svg",
+  "img": "modules/cybermancy/assets/icons/subclasses/walker.png",
   "system": {
     "attribution": {},
     "description": "<p>Some Neo Monks learn to read the city like a probability map: traffic lights, ley-lines, stock tickers, and spirit-omens all resolving into a single branching flowchart. These Razz Hackers are called Walkers—those who can see the road, and sometimes nudge which lane reality chooses.</p>",
@@ -41,7 +41,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1776262477508,
-    "modifiedTime": 1776262724738,
+    "modifiedTime": 1787758564345,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!nRubgu6f89YA2udE"
