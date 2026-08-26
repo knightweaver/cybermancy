@@ -34,6 +34,11 @@ def _tex_image_path(source_root: Path, output_dir: Path, publication_path: str) 
     return r"\detokenize{" + relative + "}"
 
 
+def _single_paragraph(value: Any) -> str:
+    """Collapse authored paragraph/line boundaries for compact Class/Subclass lead text."""
+    return " ".join(str(value or "").split())
+
+
 def _feature_tex(feature: dict[str, Any], *, compact: bool = False) -> str:
     name = latex_escape(feature.get("name"))
     description = latex_escape(feature.get("description"))
@@ -62,11 +67,21 @@ def _reference_names(items: list[dict[str, Any]]) -> str:
     return ", ".join(latex_escape(item.get("name")) for item in items) or "—"
 
 
+def _package_column_tex(rows: list[tuple[str, str]], label_width: str) -> str:
+    pieces = [
+        rf"\begin{{tabularx}}{{\linewidth}}{{@{{}}>{{\raggedright\arraybackslash\bfseries\color{{CMMuted}}}}p{{{label_width}}} >{{\raggedright\arraybackslash}}X@{{}}}}",
+    ]
+    for label, value in rows:
+        pieces.append(rf"\strut {label} & \strut {value} \\[0.65mm]")
+    pieces.append(r"\end{tabularx}")
+    return "\n".join(pieces)
+
+
 def _class_opening_tex(view: dict[str, Any], config: dict[str, Any], source_root: Path, output_dir: Path) -> str:
     style = _style(config)
     cls = view["class"]
     title = latex_escape(cls.get("name"))
-    description = latex_escape(cls.get("description"))
+    description = latex_escape(_single_paragraph(cls.get("description")))
     domains = " • ".join(latex_escape(str(v).upper()) for v in cls.get("domains", []))
     image = _tex_image_path(source_root, output_dir, str(cls.get("image") or ""))
     art_width = max(0.25, min(0.55, style["class_art"]))
@@ -93,7 +108,7 @@ def _class_opening_tex(view: dict[str, Any], config: dict[str, Any], source_root
         r"{\fontsize{10.5}{11.5}\selectfont\bfseries\color{CMMuted} HIT POINTS} & {\fontsize{10.5}{11.5}\selectfont\bfseries\color{CMMuted} EVASION} \\",
         rf"{{\fontsize{{21}}{{22}}\selectfont\bfseries\color{{CMInk}} {latex_escape(cls.get('hitPoints'))}}} & {{\fontsize{{21}}{{22}}\selectfont\bfseries\color{{CMInk}} {latex_escape(cls.get('evasion'))}}} \\",
         r"\end{tabularx}",
-        r"\vspace{1.6mm}",
+        r"\vspace{3.0mm}",
         rf"{{\fontsize{{10.5}}{{12.3}}\selectfont {description}\par}}",
         r"\end{minipage}",
         r"\vspace{0.8mm}",
@@ -118,36 +133,49 @@ def _class_support_tex(cls: dict[str, Any]) -> str:
     inventory = cls.get("startingInventory") if isinstance(cls.get("startingInventory"), dict) else {}
     guide = cls.get("characterGuide") if isinstance(cls.get("characterGuide"), dict) else {}
     class_items = cls.get("classItems") if isinstance(cls.get("classItems"), list) else []
-    if inventory or guide or class_items:
+
+    left_rows: list[tuple[str, str]] = []
+    right_rows: list[tuple[str, str]] = []
+
+    if class_items:
+        left_rows.append(("Class Items", _reference_names(class_items)))
+    for key, label in (("take", "Take"), ("choiceA", "Choice A"), ("choiceB", "Choice B")):
+        rows = inventory.get(key) if isinstance(inventory.get(key), list) else []
+        if rows:
+            left_rows.append((label, _reference_names(rows)))
+
+    primary = guide.get("suggestedPrimaryWeapon")
+    secondary = guide.get("suggestedSecondaryWeapon")
+    armor = guide.get("suggestedArmor")
+    if isinstance(primary, dict):
+        right_rows.append(("Suggested Weapon", latex_escape(primary.get("name"))))
+    if isinstance(secondary, dict):
+        right_rows.append(("Secondary Weapon", latex_escape(secondary.get("name"))))
+    if isinstance(armor, dict):
+        right_rows.append(("Suggested Armor", latex_escape(armor.get("name"))))
+    traits = guide.get("suggestedTraits")
+    if isinstance(traits, dict) and traits:
+        trait_text = ", ".join(
+            f"{latex_escape(str(name).title())} {latex_escape(value)}"
+            for name, value in traits.items()
+        )
+        right_rows.append(("Suggested Traits", trait_text))
+
+    if left_rows or right_rows:
         pieces.extend([
             r"\Needspace{0.9in}",
             r"{\fontsize{15}{16}\selectfont\bfseries\color{CMAccent} STARTING PACKAGE\par}",
-            r"\vspace{0.4mm}",
-            r"\begin{tabularx}{\linewidth}{>{\bfseries\color{CMMuted}}p{1.35in} X}",
+            r"\vspace{0.5mm}",
+            r"\begin{minipage}[t]{0.485\linewidth}",
+            r"\vspace{0pt}",
+            _package_column_tex(left_rows, "0.82in"),
+            r"\end{minipage}\hfill",
+            r"\begin{minipage}[t]{0.485\linewidth}",
+            r"\vspace{0pt}",
+            _package_column_tex(right_rows, "1.28in"),
+            r"\end{minipage}",
+            r"\vspace{0.8mm}",
         ])
-        if class_items:
-            pieces.append(rf"Class Items & {_reference_names(class_items)} \\")
-        for key, label in (("take", "Take"), ("choiceA", "Choice A"), ("choiceB", "Choice B")):
-            rows = inventory.get(key) if isinstance(inventory.get(key), list) else []
-            if rows:
-                pieces.append(rf"{label} & {_reference_names(rows)} \\")
-        primary = guide.get("suggestedPrimaryWeapon")
-        secondary = guide.get("suggestedSecondaryWeapon")
-        armor = guide.get("suggestedArmor")
-        if isinstance(primary, dict):
-            pieces.append(rf"Suggested Weapon & {latex_escape(primary.get('name'))} \\")
-        if isinstance(secondary, dict):
-            pieces.append(rf"Secondary Weapon & {latex_escape(secondary.get('name'))} \\")
-        if isinstance(armor, dict):
-            pieces.append(rf"Suggested Armor & {latex_escape(armor.get('name'))} \\")
-        traits = guide.get("suggestedTraits")
-        if isinstance(traits, dict) and traits:
-            trait_text = ", ".join(
-                f"{latex_escape(str(name).title())} {latex_escape(value)}"
-                for name, value in traits.items()
-            )
-            pieces.append(rf"Suggested Traits & {trait_text} \\")
-        pieces.extend([r"\end{tabularx}", r"\vspace{0.8mm}"])
 
     for field, label in (("backgroundQuestions", "Background Questions"), ("connections", "Connections")):
         values = cls.get(field)
@@ -170,7 +198,7 @@ def _subclass_tex(
 ) -> str:
     style = _style(config)
     name = latex_escape(subclass.get("name"))
-    description = latex_escape(subclass.get("description"))
+    description = latex_escape(_single_paragraph(subclass.get("description")))
     image = _tex_image_path(source_root, output_dir, str(subclass.get("image") or ""))
     art_width = max(0.25, min(0.44, style["subclass_art"]))
     text_width = 0.94 - art_width
@@ -196,7 +224,7 @@ def _subclass_tex(
             r"\colorbox{CMSubclass}{\parbox{0.90\linewidth}{\centering",
             rf"\fontsize{{10.5}}{{11.5}}\selectfont\bfseries\color{{CMInk}} SPELLCAST TRAIT: {latex_escape(trait.upper())}",
             r"}}",
-            r"\vspace{0.6mm}",
+            r"\vspace{2.0mm}",
         ])
     if description:
         pieces.append(rf"{{\fontsize{{10.5}}{{12.1}}\selectfont {description}\par}}")
