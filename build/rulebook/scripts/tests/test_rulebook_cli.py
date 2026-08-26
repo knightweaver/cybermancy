@@ -17,8 +17,13 @@ from rulebook_cli import expose_implementation, run_implementation
 
 _IMPL = '''
 import argparse
+from dataclasses import dataclass
 from pathlib import Path
 PUBLIC_FILE_NAME = Path(__file__).name
+
+@dataclass
+class Probe:
+    value: int = 7
 
 def main():
     parser = argparse.ArgumentParser()
@@ -80,6 +85,8 @@ class TestRulebookCli(unittest.TestCase):
             expose_implementation(target, public, impl, "fake")
         self.assertEqual(target["PUBLIC_FILE_NAME"], "fake.py")
         self.assertTrue(callable(target["main"]))
+        self.assertEqual(target["Probe"]().value, 7)
+        self.assertIn(target["Probe"].__module__, sys.modules)
 
 
 if __name__ == "__main__":
