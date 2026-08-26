@@ -1,5 +1,6 @@
 import copy
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -7,6 +8,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve()
 SCRIPT_DIR = HERE.parents[1]
+CLASS_PACKAGE_CLI = SCRIPT_DIR / "build-rulebook-class-package.py"
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
@@ -147,6 +149,7 @@ class TestStep6ClassPackage(unittest.TestCase):
             "chapter": 12,
             "title": "Classes and Subclasses",
             "partLabel": "CHARACTER OPTIONS",
+            "prototype": {"classSemanticId": "entity:classes:c1", "outputStem": "test-class-package"},
             "composition": {
                 "subclassProgressionOrder": ["foundation", "specialization", "mastery"]
             },
@@ -243,6 +246,38 @@ class TestStep6ClassPackage(unittest.TestCase):
             self.assertIn("test-class.png", tex)
             self.assertNotIn("docs/player-facing", tex)
             self.assertNotIn("modules/cybermancy", tex)
+
+    def test_cli_defaults_to_terse_pass_and_verbose_can_appear_after_command(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source_root, sidecar, config = self._fixture(root)
+            config_path = root / "config.json"
+            sidecar_path = root / "structured-entities.json"
+            report_path = root / "report.json"
+            config_path.write_text(json.dumps(config), encoding="utf-8")
+            sidecar_path.write_text(json.dumps(sidecar), encoding="utf-8")
+
+            base = [
+                sys.executable,
+                str(CLASS_PACKAGE_CLI),
+                "validate",
+                "--config", str(config_path),
+                "--sidecar", str(sidecar_path),
+                "--source-root", str(source_root),
+                "--report", str(report_path),
+            ]
+            terse = subprocess.run(base, text=True, capture_output=True)
+            self.assertEqual(terse.returncode, 0, terse.stdout + terse.stderr)
+            self.assertEqual(terse.stdout, "build-rulebook-class-package.py: PASS\n")
+
+            verbose = subprocess.run(
+                base[:3] + ["--verbose"] + base[3:],
+                text=True,
+                capture_output=True,
+            )
+            self.assertEqual(verbose.returncode, 0, verbose.stdout + verbose.stderr)
+            self.assertIn('"status": "PASS"', verbose.stdout)
+            self.assertIn('"classSemanticId": "entity:classes:c1"', verbose.stdout)
 
 
 if __name__ == "__main__":
