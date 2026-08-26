@@ -20,7 +20,8 @@
     "classFeatureOrder": [
       "hope",
       "class"
-    ]
+    ],
+    "subclassPageColumns": 2
   },
   "style": {
     "accentColor": "0B6573",
@@ -31,7 +32,10 @@
     "subclassBandColor": "DDEEF0",
     "pageMarginIn": 0.55,
     "classArtWidthFraction": 0.43,
-    "subclassArtWidthFraction": 0.34
+    "classArtMaxHeightIn": 3.9,
+    "subclassColumnWidthFraction": 0.485,
+    "subclassArtWidthFraction": 0.34,
+    "subclassArtMaxHeightIn": 1.55
   },
   "prototypePolicy": {
     "consumeStep4Only": true,
