@@ -16,9 +16,9 @@ from typing import Any
 from .foundry_folders import FOLDER_TIER_FAMILIES, register_folder_context
 
 
-STRUCTURED_DIGEST_VERSION = 3
+STRUCTURED_DIGEST_VERSION = 4
 STRUCTURED_DIGEST_ALGORITHM = (
-    "cybermancy-structured-family-digest-v3: "
+    "cybermancy-structured-family-digest-v4: "
     "sha256(sorted record-kind + tab + stable-source-id + tab + repo-path + tab + "
     "file-sha256 over logical publication entities, plus Foundry folder records "
     "for Equipment families with folder-derived publication semantics)"
@@ -91,7 +91,7 @@ def structured_family_snapshot(
     """Return the canonical logical snapshot for one structured family.
 
     Logical publication entities determine entity counts. Foundry folder
-    records remain non-entities. Beginning with digest v3, folder records are
+    records remain non-entities. Beginning with digest v4, folder records are
     included in the digest only for Equipment families whose publication
     semantics can derive Tier from Foundry folder ancestry.
 
