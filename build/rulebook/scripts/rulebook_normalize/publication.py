@@ -15,7 +15,7 @@ from .structured import (
 )
 
 
-SCHEMA_VERSION = "cybermancy-step4-structured-entities-v1.2"
+SCHEMA_VERSION = "cybermancy-step4-structured-entities-v1.3"
 _DAGGERHEART_FEATURE_SOURCE = Path(__file__).resolve().parents[4] / "daggerheart-mods" / "en.json"
 
 
@@ -237,11 +237,19 @@ def _resolved_publication_tier(doc: dict, metadata: dict) -> Any:
     return get_in(doc, "identity.tier") or system.get("tier")
 
 
+def _nonempty_strings(value: Any) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    return [str(item).strip() for item in value if str(item or "").strip()]
+
+
 def structured_publication_data(family: str, doc: dict, metadata: dict) -> dict:
     """Project a structured source record into stable publication semantics.
 
     The result is derived Step 4 data. It deliberately omits Foundry wiring and
     keeps only reader-facing values needed by later publication/layout stages.
+    Relationship-bearing Class/Subclass fields are resolved in the Step 4
+    relationship pass rather than copied here as Foundry UUIDs.
     """
     system = doc.get("system") if isinstance(doc.get("system"), dict) else {}
     identity_description = _description_value(get_in(doc, "identity.description"))
@@ -253,6 +261,24 @@ def structured_publication_data(family: str, doc: dict, metadata: dict) -> dict:
         "burden": system.get("burden"),
         "range": system.get("range"),
     }
+
+    if family == "classes":
+        result["hitPoints"] = system.get("hitPoints")
+        result["evasion"] = system.get("evasion")
+        result["domains"] = _nonempty_strings(system.get("domains"))
+        result["isMulticlass"] = bool(system.get("isMulticlass", False))
+        background_questions = _nonempty_strings(system.get("backgroundQuestions"))
+        connections = _nonempty_strings(system.get("connections"))
+        if background_questions:
+            result["backgroundQuestions"] = background_questions
+        if connections:
+            result["connections"] = connections
+
+    if family == "subclasses":
+        spellcasting_trait = str(system.get("spellcastingTrait") or "").strip()
+        if spellcasting_trait:
+            result["spellcastingTrait"] = spellcasting_trait
+        result["isMulticlass"] = bool(system.get("isMulticlass", False))
 
     if family == "weapons":
         attack = system.get("attack") if isinstance(system.get("attack"), dict) else {}
