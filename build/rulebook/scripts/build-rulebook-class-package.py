@@ -17,6 +17,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.class_package import compose_class_package, load_json
+from rulebook_layout.class_package_batch import class_package_output_stem, slugify_class_name
 from rulebook_layout.class_package_geometry import validate_class_package_pdf_geometry
 from rulebook_layout.class_package_refined import render_class_package_tex
 
@@ -156,9 +157,10 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
         return _emit(report, verbose)
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    prototype = config.get("prototype") if isinstance(config.get("prototype"), dict) else {}
-    stem = str(prototype.get("outputStem") or "Cybermancy_ClassPackage_Step6")
-    view_path = output_dir / "razz-hacker-class-package-view.json"
+    class_name = str(view.get("class", {}).get("name") or "Class")
+    slug = slugify_class_name(class_name)
+    stem = class_package_output_stem(class_name)
+    view_path = output_dir / f"{slug}-class-package-view.json"
     tex_path = output_dir / f"{stem}.tex"
     pdf_path = output_dir / f"{stem}.pdf"
 
