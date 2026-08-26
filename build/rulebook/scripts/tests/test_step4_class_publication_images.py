@@ -9,6 +9,7 @@ SCRIPT_DIR = HERE.parents[1]
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+from rulebook_normalize.assets import resolve_publication_source_asset
 from rulebook_normalize.validate import add_check, new_report
 from rulebook_step4_class_publication_images import (
     PUBLICATION_IMAGE_SCHEMA,
@@ -17,7 +18,15 @@ from rulebook_step4_class_publication_images import (
 
 
 class TestClassPublicationImages(unittest.TestCase):
-    def _fixture(self, root: Path, image_reference: str, create_asset: bool = True):
+    def _fixture(
+        self,
+        root: Path,
+        image_reference: str,
+        create_asset: bool = True,
+        *,
+        audience: str = "player",
+        asset_root: str = "docs/player-facing",
+    ):
         repo = root / "repo"
         outroot = root / "build" / "rulebook"
         metadata = outroot / "source" / "metadata"
@@ -40,7 +49,7 @@ class TestClassPublicationImages(unittest.TestCase):
         )
 
         if create_asset:
-            asset = repo / "assets" / "icons" / "classes" / "test-class.png"
+            asset = repo / asset_root / "assets" / "icons" / "classes" / "test-class.png"
             asset.parent.mkdir(parents=True)
             asset.write_bytes(b"class-publication-art")
 
@@ -54,7 +63,7 @@ class TestClassPublicationImages(unittest.TestCase):
                             "family": "classes",
                             "sourceId": "c1",
                             "name": "Test Class",
-                            "audience": "player",
+                            "audience": audience,
                             "sourcePath": source_rel,
                             "publicationData": {"description": "Test."},
                         }
@@ -75,7 +84,7 @@ class TestClassPublicationImages(unittest.TestCase):
         }
         return repo, outroot, metadata, config
 
-    def test_foundry_image_is_promoted_to_staged_step4_publication_path(self):
+    def test_player_docs_image_is_promoted_to_staged_step4_publication_path(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             repo, outroot, metadata, config = self._fixture(
@@ -102,6 +111,10 @@ class TestClassPublicationImages(unittest.TestCase):
                 "modules/cybermancy/",
                 json.dumps(entity["publicationData"]),
             )
+            self.assertNotIn(
+                "docs/player-facing/",
+                json.dumps(entity["publicationData"]),
+            )
             self.assertEqual(
                 sidecar["publicationImageSemantics"]["schema"],
                 PUBLICATION_IMAGE_SCHEMA,
@@ -117,6 +130,10 @@ class TestClassPublicationImages(unittest.TestCase):
             self.assertEqual(len(promoted), 1)
             self.assertEqual(promoted[0]["reference"], "assets/icons/classes/test-class.png")
             self.assertEqual(
+                promoted[0]["sourceRepoPath"],
+                "docs/player-facing/assets/icons/classes/test-class.png",
+            )
+            self.assertEqual(
                 promoted[0]["sourceReference"],
                 "modules/cybermancy/assets/icons/classes/test-class.png",
             )
@@ -124,7 +141,7 @@ class TestClassPublicationImages(unittest.TestCase):
             checks = {item["code"]: item for item in report["checks"]}
             self.assertEqual(checks["CLASS_PUBLICATION_IMAGES"]["status"], "PASS")
 
-    def test_missing_mapped_asset_fails_closed_and_does_not_publish_raw_path(self):
+    def test_missing_audience_asset_fails_closed_and_does_not_publish_raw_path(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             repo, outroot, metadata, config = self._fixture(
@@ -149,9 +166,12 @@ class TestClassPublicationImages(unittest.TestCase):
 
             checks = {item["code"]: item for item in report["checks"]}
             self.assertEqual(checks["CLASS_PUBLICATION_IMAGES"]["status"], "ERROR")
+            issues = checks["CLASS_PUBLICATION_IMAGES"]["details"]
+            self.assertIn("CLASS_PUBLICATION_IMAGE_MISSING", {issue["code"] for issue in issues})
+            missing = next(issue for issue in issues if issue["code"] == "CLASS_PUBLICATION_IMAGE_MISSING")
             self.assertIn(
-                "CLASS_PUBLICATION_IMAGE_MISSING",
-                {issue["code"] for issue in checks["CLASS_PUBLICATION_IMAGES"]["details"]},
+                "docs/player-facing/assets/icons/classes/missing.png",
+                missing["resolution"]["candidates"],
             )
 
     def test_remote_class_art_is_rejected_because_step4_cannot_stage_it(self):
@@ -176,6 +196,44 @@ class TestClassPublicationImages(unittest.TestCase):
             self.assertNotIn("image", sidecar["entities"][0]["publicationData"])
             checks = {item["code"]: item for item in report["checks"]}
             self.assertEqual(checks["CLASS_PUBLICATION_IMAGES"]["status"], "ERROR")
+
+    def test_generic_resolver_honors_gm_docs_root(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td) / "repo"
+            asset = repo / "docs/gm-facing/assets/icons/adversaries/test.png"
+            asset.parent.mkdir(parents=True)
+            asset.write_bytes(b"gm-art")
+
+            resolved = resolve_publication_source_asset(
+                repo,
+                "assets/icons/adversaries/test.png",
+                "gm",
+            )
+
+            self.assertEqual(resolved["status"], "resolved")
+            self.assertEqual(
+                resolved["sourceRepoPath"],
+                "docs/gm-facing/assets/icons/adversaries/test.png",
+            )
+
+    def test_conflicting_duplicate_sources_fail_as_ambiguous(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td) / "repo"
+            direct = repo / "assets/icons/classes/test-class.png"
+            docs = repo / "docs/player-facing/assets/icons/classes/test-class.png"
+            direct.parent.mkdir(parents=True)
+            docs.parent.mkdir(parents=True)
+            direct.write_bytes(b"old-copy")
+            docs.write_bytes(b"new-copy")
+
+            resolved = resolve_publication_source_asset(
+                repo,
+                "assets/icons/classes/test-class.png",
+                "player",
+            )
+
+            self.assertEqual(resolved["status"], "ambiguous")
+            self.assertEqual(len(resolved["existing"]), 2)
 
 
 if __name__ == "__main__":
