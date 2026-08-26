@@ -28,7 +28,7 @@ def is_remote_asset_reference(target: str) -> bool:
 
 
 def map_asset_reference(target: str, mappings: list[dict]) -> str | None:
-    """Map a reader-visible asset target to a repository-relative source path.
+    """Map a reader-visible asset target to a repository-relative logical path.
 
     Runtime-only image wiring is filtered before this function is called. Any
     non-remote image that remains reader-visible is treated as a publication
@@ -42,6 +42,80 @@ def map_asset_reference(target: str, mappings: list[dict]) -> str | None:
         if prefix and target.startswith(prefix):
             return (m.get('repoPrefix', '') + target[len(prefix):]).lstrip('/')
     return target.lstrip('/')
+
+
+def _audience_asset_roots(audience: str | None) -> tuple[str, ...]:
+    value = (audience or '').strip().lower()
+    if value in {'player', 'players', 'player-facing'}:
+        return ('docs/player-facing', 'docs/_shared')
+    if value in {'gm', 'game-master', 'gm-facing'}:
+        return ('docs/gm-facing', 'docs/_shared')
+    if value in {'shared', 'common', 'all'}:
+        return ('docs/_shared', 'docs/player-facing', 'docs/gm-facing')
+    return ('docs/_shared',)
+
+
+def resolve_publication_source_asset(
+    repo_root: Path,
+    logical_repo_rel: str,
+    audience: str | None = None,
+) -> dict:
+    """Resolve one logical publication asset to its checked-in repository file.
+
+    Canonical Foundry records can keep runtime references such as
+    ``modules/cybermancy/assets/...``. After runtime mapping reduces those to a
+    logical path such as ``assets/...``, this resolver looks first for a legacy
+    repository-root copy and then in the audience-specific documentation asset
+    roots. This lets the repository store large artwork once under ``docs``
+    while Step 4 still stages a self-contained publication corpus.
+
+    The result is deterministic and fail-closed. Multiple existing candidates
+    are accepted only when their file hashes are identical; conflicting copies
+    are reported as ambiguous rather than selected by incidental path order.
+    """
+    logical = unquote(logical_repo_rel or '').replace('\\', '/').lstrip('/')
+    candidates: list[str] = []
+
+    def add_candidate(value: str) -> None:
+        normalized = value.replace('\\', '/').lstrip('/')
+        if normalized and normalized not in candidates:
+            candidates.append(normalized)
+
+    add_candidate(logical)
+    if logical and not logical.startswith('docs/'):
+        for root in _audience_asset_roots(audience):
+            add_candidate(PurePosixPath(root, logical).as_posix())
+
+    existing = [candidate for candidate in candidates if (repo_root / candidate).is_file()]
+    if not existing:
+        return {
+            'status': 'missing',
+            'logicalPath': logical,
+            'audience': audience,
+            'candidates': candidates,
+        }
+
+    hashes = {candidate: sha256_file(repo_root / candidate) for candidate in existing}
+    unique_hashes = set(hashes.values())
+    if len(unique_hashes) > 1:
+        return {
+            'status': 'ambiguous',
+            'logicalPath': logical,
+            'audience': audience,
+            'candidates': candidates,
+            'existing': existing,
+            'hashes': hashes,
+        }
+
+    return {
+        'status': 'resolved',
+        'logicalPath': logical,
+        'audience': audience,
+        'sourceRepoPath': existing[0],
+        'candidates': candidates,
+        'equivalentSources': existing,
+        'sha256': hashes[existing[0]],
+    }
 
 
 def publication_asset_path(repo_rel: str) -> str:
