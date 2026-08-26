@@ -141,7 +141,7 @@ class TestStep4TierIntegration(unittest.TestCase):
             metadata["audience"] = "player"
             entity = sidecar_entity(metadata, publication)
 
-        self.assertEqual(SCHEMA_VERSION, "cybermancy-step4-structured-entities-v1.2")
+        self.assertEqual(SCHEMA_VERSION, "cybermancy-step4-structured-entities-v1.3")
         self.assertIn("| Tier | 1 |", markdown)
         self.assertEqual(publication["tier"], 1)
         self.assertEqual(entity["publicationData"]["tier"], 1)
