@@ -1,5 +1,16 @@
 {
   "schema": "cybermancy-step6-domain-package-config-v1.0",
+  "lifecycle": {
+    "version": "v1.0",
+    "status": "frozen",
+    "frozenAt": "2026-08-27",
+    "acceptance": {
+      "allDomainRegression": "PASS",
+      "visualReview": "ACCEPTED",
+      "domainCount": 3,
+      "cardCount": 73
+    }
+  },
   "chapter": 14,
   "partLabel": "CHARACTER OPTIONS",
   "title": "Domains and Domain Cards",
