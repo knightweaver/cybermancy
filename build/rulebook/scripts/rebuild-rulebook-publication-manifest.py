@@ -4,7 +4,7 @@ from pathlib import Path
 from rulebook_cli import expose_implementation, run_implementation
 
 _PUBLIC = Path(__file__).resolve()
-_IMPL = _PUBLIC.with_name("rebuild-rulebook-publication-manifest-v2.py.impl")
+_IMPL = _PUBLIC.with_name("build-rulebook-publication-manifest.py.impl")
 
 if __name__ == "__main__":
     raise SystemExit(run_implementation(_PUBLIC, _IMPL))
