@@ -45,8 +45,18 @@ def _style(config: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _tex_image_path(source_root: Path, output_dir: Path, publication_path: str) -> str:
-    absolute = source_root / Path(*PurePosixPath(publication_path).parts)
+def _tex_image_path(
+    source_root: Path,
+    output_dir: Path,
+    publication_path: str,
+    render_assets: dict[str, str] | None = None,
+) -> str:
+    mapped = (render_assets or {}).get(publication_path)
+    absolute = (
+        Path(mapped)
+        if mapped
+        else source_root / Path(*PurePosixPath(publication_path).parts)
+    )
     relative = os.path.relpath(absolute, output_dir).replace("\\", "/")
     return r"\detokenize{" + relative + "}"
 
@@ -70,11 +80,14 @@ def _card_tex(
     config: dict[str, Any],
     source_root: Path,
     output_dir: Path,
+    render_assets: dict[str, str] | None = None,
 ) -> str:
     style = _style(config)
     name = latex_escape(card.get("name"))
     description = latex_escape(card.get("description"))
-    image = _tex_image_path(source_root, output_dir, str(card.get("image") or ""))
+    image = _tex_image_path(
+        source_root, output_dir, str(card.get("image") or ""), render_assets
+    )
     level = int(card.get("level") or 0)
     recall = int(card.get("recallCost") or 0)
     in_vault = bool(card.get("inVault"))
@@ -123,11 +136,17 @@ def _identity_tex(
     config: dict[str, Any],
     source_root: Path,
     output_dir: Path,
+    render_assets: dict[str, str] | None = None,
 ) -> str:
     style = _style(config)
     domain = view.get("domain") if isinstance(view.get("domain"), dict) else {}
     name = latex_escape(domain.get("name"))
-    image = _tex_image_path(source_root, output_dir, str((domain.get("artwork") or {}).get("image") or ""))
+    image = _tex_image_path(
+        source_root,
+        output_dir,
+        str((domain.get("artwork") or {}).get("image") or ""),
+        render_assets,
+    )
     card_count = int(domain.get("cardCount") or 0)
     levels = [
         int(row.get("level"))
@@ -170,6 +189,7 @@ def _level_tex(
     config: dict[str, Any],
     source_root: Path,
     output_dir: Path,
+    render_assets: dict[str, str] | None = None,
 ) -> str:
     level = int(level_row.get("level") or 0)
     cards = level_row.get("cards") if isinstance(level_row.get("cards"), list) else []
@@ -190,7 +210,9 @@ def _level_tex(
     ]
     for card in cards:
         if isinstance(card, dict):
-            pieces.append(_card_tex(card, config, source_root, output_dir))
+            pieces.append(
+                _card_tex(card, config, source_root, output_dir, render_assets)
+            )
     pieces.extend([r"\end{multicols}", r"\vspace{0.5mm}"])
     return "\n".join(pieces)
 
@@ -200,14 +222,15 @@ def render_domain_package_tex(
     config: dict[str, Any],
     source_root: Path,
     output_dir: Path,
+    render_assets: dict[str, str] | None = None,
 ) -> str:
     """Render one standalone Step 6 DomainPackage visual prototype as LuaLaTeX."""
     style = _style(config)
     levels = view.get("levels") if isinstance(view.get("levels"), list) else []
     content = [
-        _identity_tex(view, config, source_root, output_dir),
+        _identity_tex(view, config, source_root, output_dir, render_assets),
         *[
-            _level_tex(row, config, source_root, output_dir)
+            _level_tex(row, config, source_root, output_dir, render_assets)
             for row in levels
             if isinstance(row, dict)
         ],
