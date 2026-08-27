@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "0f2bc470b1af99240bf4a928339ab02b3e992510"
+    "git_commit": "750d3d212057b9dc8da88036d2a891b16ba109e7"
   },
   "mkdocs_sites": {
     "player": {
@@ -18,13 +18,13 @@
     }
   },
   "counts": {
-    "total_files": 4786,
+    "total_files": 4785,
     "by_kind": {
       "asset": 1634,
       "code": 40,
       "config": 4,
       "data": 1873,
-      "document": 1060,
+      "document": 1059,
       "other": 166,
       "presentation": 9
     },
@@ -34,7 +34,7 @@
       "data": 15,
       "generator": 65,
       "gm": 959,
-      "player": 1454,
+      "player": 1453,
       "repository": 32,
       "shared-docs": 3,
       "structured-source": 2001
@@ -42,7 +42,7 @@
     "by_audience": {
       "developer": 67,
       "gm": 959,
-      "player": 1454,
+      "player": 1453,
       "shared": 2019,
       "unknown": 287
     },
@@ -50,29 +50,29 @@
       "campaign": 305,
       "developer": 86,
       "setting": 16,
-      "system": 2291,
+      "system": 2290,
       "unknown": 2088
     },
     "by_authorship": {
-      "generated": 1024,
+      "generated": 1023,
       "hand-authored-or-source": 1962,
       "unknown": 1800
     },
-    "documents": 1060,
-    "documents_player_site": 589,
+    "documents": 1059,
+    "documents_player_site": 588,
     "documents_gm_site": 459,
     "documents_player_nav": 20,
     "documents_gm_nav": 15,
-    "generated_documents": 998,
+    "generated_documents": 997,
     "hand_authored_documents": 62,
     "dynamic_documents": 18,
-    "documents_requiring_normalization": 1032,
+    "documents_requiring_normalization": 1031,
     "stub_documents": 3,
     "foundry_folder_records": 109,
     "organizational_files": 123,
     "known_exception_files": 139,
-    "flagged_files": 26,
-    "unresolved_dependency_files": 7,
+    "flagged_files": 25,
+    "unresolved_dependency_files": 6,
     "duplicate_content_groups": 245,
     "files_in_duplicate_content_groups": 580,
     "duplicate_content_files_by_kind": {
@@ -90,25 +90,23 @@
     "jinja-expression": 17,
     "jinja-statement": 17,
     "load-csv": 16,
-    "raw-html": 1034
+    "raw-html": 1033
   },
   "normalization_flag_counts": {
     "attribute-list": 32,
-    "html-heavy": 337,
+    "html-heavy": 336,
     "include-markdown": 1,
     "jinja-expression": 17,
     "jinja-statement": 17,
     "load-csv": 16,
-    "raw-html": 1034
+    "raw-html": 1033
   },
   "review_flag_counts": {
-    "orphan-generated-page": 1,
     "stub-document": 3,
     "title-collision-candidate": 16,
     "unresolved-local-dependency:../../../assets/icons/armors/kevlar-shirt.webp": 1,
     "unresolved-local-dependency:../../../assets/icons/weapons/adv-emp-grenade.webp": 1,
     "unresolved-local-dependency:../../../assets/icons/weapons/adv-fragmentation-grenade.webp": 1,
-    "unresolved-local-dependency:../../../assets/icons/weapons/assault-rigle-manual-build.webp": 1,
     "unresolved-local-dependency:assets/art/275637-Female%20Halfing%20Commoner%20C%20.png.webp": 1,
     "unresolved-local-dependency:stella-brownwalk.html": 1,
     "unresolved-local-dependency:worlds/cybermancer/assets/images/SelkaToken_sm.png": 1
@@ -1451,12 +1449,10 @@
       "source_entities": 47,
       "source_page_slugs": 47,
       "foundry_folders": 4,
-      "generated_pages": 48,
+      "generated_pages": 47,
       "missing_generated_pages": [],
       "organizational_generated_pages": [],
-      "orphan_generated_pages": [
-        "assault-rigle-manual-build"
-      ],
+      "orphan_generated_pages": [],
       "structured_slug_collision_count": 0,
       "structured_slug_collisions": []
     }
@@ -108984,75 +108980,6 @@
       "review_flags": []
     },
     {
-      "path": "docs/player-facing/items/weapons/assault-rigle-manual-build/index.md",
-      "extension": ".md",
-      "kind": "document",
-      "source_family": "player",
-      "audience": "player",
-      "content_scope": "system",
-      "authorship": "generated",
-      "generator_owner": "pyCybermancy/generate-docs.py",
-      "generator_type": "weapons",
-      "title": "Assault Rigle - Manual Build",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Assault Rigle - Manual Build"
-        },
-        {
-          "level": 4,
-          "text": "Stats"
-        },
-        {
-          "level": 4,
-          "text": "Actions"
-        },
-        {
-          "level": 4,
-          "text": "Effects"
-        },
-        {
-          "level": 4,
-          "text": "Weapon Features"
-        }
-      ],
-      "word_count": 68,
-      "mkdocs_features": [
-        "raw-html"
-      ],
-      "normalization_flags": [
-        "html-heavy",
-        "raw-html"
-      ],
-      "transclusions": [],
-      "includes": [],
-      "jinja_expression_count": 0,
-      "jinja_statement_count": 0,
-      "html_tag_count": 61,
-      "images": [
-        "../../../assets/icons/weapons/assault-rigle-manual-build.webp"
-      ],
-      "internal_links": [],
-      "external_links": [],
-      "data_dependencies": [
-        "docs/player-facing/assets/icons/weapons/assault-rigle-manual-build.webp"
-      ],
-      "site_targets": [
-        "player"
-      ],
-      "nav_targets": [],
-      "nav_paths": [],
-      "size_bytes": 1333,
-      "sha256": "b1cefcec2ba18ef565734244f2b07a8e20770c7a1b04587ed3b3f103b0760739",
-      "foundry_record_type": "",
-      "organizational": false,
-      "known_exceptions": [],
-      "review_flags": [
-        "orphan-generated-page",
-        "unresolved-local-dependency:../../../assets/icons/weapons/assault-rigle-manual-build.webp"
-      ]
-    },
-    {
       "path": "docs/player-facing/items/weapons/cluster-grenade/index.md",
       "extension": ".md",
       "kind": "document",
@@ -126458,7 +126385,7 @@
           "text": "Rulebook script notes"
         }
       ],
-      "word_count": 158,
+      "word_count": 103,
       "mkdocs_features": [],
       "normalization_flags": [],
       "transclusions": [],
@@ -126473,8 +126400,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1914,
-      "sha256": "da26284b57509a682734c91ffe951945f98d670157ce6ea20911894759fa64ce",
+      "size_bytes": 972,
+      "sha256": "2ddd24eac2f2a29024412830f79015f15fb826efdf0754f5cb7a67c3dee8d2d5",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
