@@ -5,8 +5,6 @@
 *<p class="Card-Feature"><strong>Spend 3 Hope</strong> to convert a Driving failure into a Driving success.</p>*
 
 ## Actions
-- <div markdown='1'>**Inspired Driving**<br>*Spend 3 Hope to convert a Driving failure into a Driving success.*</div>
-
 - <div markdown='1'>**Inspired Driving**<br>*Spend 3 Hope
 
  to convert a Driving failure into a Driving success. to convert a Driving failure into a Driving success.*</div>

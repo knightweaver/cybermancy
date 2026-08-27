@@ -5,29 +5,6 @@
   "system": {
     "description": "<p><em>The system eats your focus one grain at a time.</em><br /><br /></p><p class=\"Card-Feature\">This ICE does not block the hacker from making Infiltration or Control actions on this device.</p><p><br />While active, this ICE forces the hacker to Spend 1 Hope to make any Infiltration or Control action on this device.</p>",
     "actions": {
-      "Grinder": {
-        "type": "effect",
-        "systemPath": "actions",
-        "description": "<i>The system eats your focus one grain at a time.</i><br><br><p class=\"Card-Feature\">Erodes Hope or reduces Stress recovery for the rest of the Scene.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Grinder",
-        "img": "modules/cybermancy/assets/icons/ice/grinder.webp",
-        "range": "",
-        "_id": "tl5kK9Fyuxk7ocVo"
-      },
       "tl5kK9Fyuxk7ocVo": {
         "type": "effect",
         "systemPath": "actions",
@@ -72,11 +49,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911286,
-    "modifiedTime": 1763905945164,
+    "modifiedTime": 1787574145294,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "YmBHa1OdwmVEudlV",

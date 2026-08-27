@@ -7,8 +7,6 @@
 ## Actions
 - <div markdown='1'>**Reverb**<br>*Mark 1 Stress to cause ALL (from yourself, allies, and adversaries) magical effects within Close to do +d4 damage for the remainder of the Scene*</div>
 
-- <div markdown='1'>**Reverb**<br>*Mark 1 Stress to cause ALL (from yourself, allies, and adversaries) magical effects within Close to do +d4 damage for the remainder of the Scene*</div>
-
 ---
 
 <div class="meta" markdown="1">

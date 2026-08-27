@@ -7,10 +7,6 @@
 ## Actions
 - <div markdown='1'>**Black ICE**<br>*It doesn’t defend the system—it defends itself.
 
-Deals direct neural damage (Stress or HP) on failed hack attempts.*</div>
-
-- <div markdown='1'>**Black ICE**<br>*It doesn’t defend the system—it defends itself.
-
 While this ICE is active, a hacker must mark 1 Stress to perform any Infiltration or Control actions on this device.
 
 Spend 1 Fear to do 1 HP of direct damage to the hacker.*</div>

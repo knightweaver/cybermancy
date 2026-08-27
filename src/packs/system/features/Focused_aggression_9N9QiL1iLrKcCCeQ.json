@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.</p>",
     "actions": {
-      "Focused aggression": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "Spend 3 Hope to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Focused aggression",
-        "img": "modules/cybermancy/assets/icons/subclasses/focused-aggression.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "mA1Beu6Trvx1nizm",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "mA1Beu6Trvx1nizm": {
         "type": "attack",
         "systemPath": "actions",
@@ -124,12 +77,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761535702677,
-    "modifiedTime": 1761614745918,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145001,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "9N9QiL1iLrKcCCeQ",
   "sort": 0,

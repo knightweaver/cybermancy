@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\">All Driving checks are +1.</p>",
     "actions": {
-      "Driving expert": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "All Driving checks are +1.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Driving expert",
-        "img": "modules/cybermancy/assets/icons/subclasses/driving-expert.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "uHMyYJiWWYRi0zhJ",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "uHMyYJiWWYRi0zhJ": {
         "type": "attack",
         "systemPath": "actions",
@@ -165,12 +118,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761536584020,
-    "modifiedTime": 1761611530029,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145216,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "TvJE1WbFZuaHoO87",
   "sort": 100000,

@@ -5,8 +5,6 @@
 *<p class="Card-Feature">At the beginning of a Scene, designate 1 ally as your Primary Focus. If they are within Very Close of you, they get +2 Evasion. <br /><strong>Mark 1 Stress</strong> to change which ally is your focus.</p>*
 
 ## Actions
-- <div markdown='1'>**Protection assignment**<br>*At the beginning of a Scene, designate 1 ally as your Primary Focus.  If they are within Very Close of you, they get +2 Evasion.  Mark 1 Stress to change which ally is your focus.*</div>
-
 - <div markdown='1'>**Protection assignment**<br>*At the beginning of a Scene, designate 1 ally as your Primary Focus. If they are within Very Close of you, they get +2 Evasion. 
 Mark 1 Stress to change which ally is your focus.*</div>
 

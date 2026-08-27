@@ -7,8 +7,6 @@
 ## Actions
 - <div markdown='1'>**Expert maneuver**<br>*Spend 3 Hope to negate any Driving Environment Event.*</div>
 
-- <div markdown='1'>**Expert maneuver**<br>*Spend 3 Hope to negate any Driving Environment Event.*</div>
-
 ---
 
 <div class="meta" markdown="1">

@@ -7,10 +7,6 @@
 ## Actions
 - <div markdown='1'>**Ash Cloud**<br>*You move blind through data smoke and security ghosts.
 
-Obscures architecture; hack rolls suffer -1 until cleared.*</div>
-
-- <div markdown='1'>**Ash Cloud**<br>*You move blind through data smoke and security ghosts.
-
 Start a Countdown Clock (4)
 
 Spend 1 Fear to advance the Countdown Clock and advance the System Alert level by the value of the Countdown Clock.  As a Reaction, a hacker can make a Spellcasting (Hacking) check against the Difficulty of this ICE to prevent the System Alert level advancing.

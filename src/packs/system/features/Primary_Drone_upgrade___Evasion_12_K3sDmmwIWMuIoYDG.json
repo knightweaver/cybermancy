@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Your Primary Drone is almost as fast as you! Its Evasion is 12</p>",
     "actions": {
-      "Primary Drone upgrade": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "choose an additional upgrade for your Primary Drone",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Primary Drone upgrade",
-        "img": "modules/cybermancy/assets/icons/subclasses/primary-drone-upgrade.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "NMR93fNP7YKtKn24",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "NMR93fNP7YKtKn24": {
         "type": "attack",
         "systemPath": "actions",
@@ -167,12 +120,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761535753990,
-    "modifiedTime": 1761614546778,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145128,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "K3sDmmwIWMuIoYDG",
   "sort": 100000,

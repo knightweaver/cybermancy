@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Your drone pivots its gun toward you and waits.</i><br /><br /><p class=\"Card-Feature\">Attempts to seize control of your cyberware or drones for one Scene.</p>",
     "actions": {
-      "Kraken ICE": {
+      "YbWgQB87sy1eixyb": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Your drone pivots its gun toward you and waits.</i><br><br><p class=\"Card-Feature\">Attempts to seize control of your cyberware or drones for one Scene.",
@@ -26,7 +26,11 @@
         "name": "Kraken ICE",
         "img": "modules/cybermancy/assets/icons/ice/kraken-ice.webp",
         "range": "",
-        "_id": "YbWgQB87sy1eixyb"
+        "_id": "YbWgQB87sy1eixyb",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": {
@@ -49,11 +53,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911353,
-    "modifiedTime": 1763905742812,
+    "modifiedTime": 1787574145079,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "F7dRDvyvvqp8DDBL",

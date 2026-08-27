@@ -5,7 +5,7 @@
   "system": {
     "description": "Spend 1 Hope to gain +4 on your first Control roll against a device if and only if you have not made an Analysis check on it.  On a result of:o\tSucceed with Hope -  gain Control (access to all actions) and don’t raise the System alert level.o\tSucceed with Fear – gain Control (access to all actions) and raise the System alert level 1 step.o\tFail with Hope or Fear – don’t gain ontrol and raise the System alert level 2 steps.",
     "actions": {
-      "Kick open the front door": {
+      "1C951k3kIVQhf1iv": {
         "type": "attack",
         "systemPath": "actions",
         "description": "Spend 1 Hope to gain +4 on your first Control roll against a device if and only if you have not made an Analysis check on it.  On a result of:o\tSucceed with Hope -  gain Control (access to all actions) and don’t raise the System alert level.o\tSucceed with Fear – gain Control (access to all actions) and raise the System alert level 1 step.o\tFail with Hope or Fear – don’t gain ontrol and raise the System alert level 2 steps.",
@@ -28,7 +28,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -50,6 +51,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -68,12 +73,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761536920579,
-    "modifiedTime": 1761536920596,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145037,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "B2bEShaoOunURRM9",
   "sort": 300000,

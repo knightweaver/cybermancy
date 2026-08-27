@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Your interface can’t decide what’s real.</i><br /><br /><p class=\"Card-Feature\">Randomizes outputs—success and failure both become chaotic.</p>",
     "actions": {
-      "Scrambler Field": {
+      "oxYpc8b4YNJM9nM7": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Your interface can’t decide what’s real.</i><br><br><p class=\"Card-Feature\">Randomizes outputs—success and failure both become chaotic.",
@@ -26,7 +26,11 @@
         "name": "Scrambler Field",
         "img": "modules/cybermancy/assets/icons/ice/scrambler-field.webp",
         "range": "",
-        "_id": "oxYpc8b4YNJM9nM7"
+        "_id": "oxYpc8b4YNJM9nM7",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": {
@@ -49,11 +53,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911460,
-    "modifiedTime": 1763905769621,
+    "modifiedTime": 1787574145087,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "FCSIdOhNuB3zEhsW",

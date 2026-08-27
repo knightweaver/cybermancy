@@ -5,7 +5,7 @@
   "system": {
     "description": "Once per scene, unleash a burst of raw probability.  \no\tAll Devices within Very Close gain -2 to their Hacking Difficulty \no\tAll adversary electronic systems gain Disadvantage on their attack rolls until the GM spends 1 Fear to end that effect.",
     "actions": {
-      "Fractal Surge": {
+      "tt40Md3bD3gQ95nn": {
         "type": "attack",
         "systemPath": "actions",
         "description": "Once per scene, unleash a burst of raw probability.  \no\tAll Devices within Very Close gain -2 to their Hacking Difficulty \no\tAll adversary electronic systems gain Disadvantage on their attack rolls until the GM spends 1 Fear to end that effect.",
@@ -28,7 +28,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -50,6 +51,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -68,12 +73,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763004615095,
-    "modifiedTime": 1763004615115,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145405,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "fPmn2Mw3kcteJueH",
   "sort": 200000,

@@ -5,53 +5,6 @@
   "system": {
     "description": "You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.",
     "actions": {
-      "Heavy Ordinance": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Heavy Ordinance",
-        "img": "modules/cybermancy/assets/icons/subclasses/heavy-ordinance.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "6D3oPcNybpL9F6ey",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "6D3oPcNybpL9F6ey": {
         "type": "attack",
         "systemPath": "actions",
@@ -115,12 +68,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761535525350,
-    "modifiedTime": 1761615405690,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145386,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "eEk0FS9m8eRf3QFY",
   "sort": 100000,

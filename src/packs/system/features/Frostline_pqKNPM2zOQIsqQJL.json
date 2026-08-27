@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Packets crawl. Time dilates. The grid grows glacial.</i><br /><br /><p class=\"Card-Feature\">Freezes the network; all hack rolls suffer Disadvantage until thawed.</p>",
     "actions": {
-      "Frostline": {
+      "7MOOUu09CSDLXmVf": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Packets crawl. Time dilates. The grid grows glacial.</i><br><br><p class=\"Card-Feature\">Freezes the network; all hack rolls suffer Disadvantage until thawed.",
@@ -26,7 +26,11 @@
         "name": "Frostline",
         "img": "modules/cybermancy/assets/icons/ice/frostline.webp",
         "range": "",
-        "_id": "7MOOUu09CSDLXmVf"
+        "_id": "7MOOUu09CSDLXmVf",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": {
@@ -49,11 +53,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911259,
-    "modifiedTime": 1763905721658,
+    "modifiedTime": 1787574145561,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "pqKNPM2zOQIsqQJL",

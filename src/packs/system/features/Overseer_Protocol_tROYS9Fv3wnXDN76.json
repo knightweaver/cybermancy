@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>You feel the CEO’s signature pulsing in every file.</i><br /><br /><p class=\"Card-Feature\">Forces compliance mode; all hacking penalties are doubled until root is restored.</p>",
     "actions": {
-      "Overseer Protocol": {
+      "CScT2zT8B7IZKeW2": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>You feel the CEO’s signature pulsing in every file.</i><br><br><p class=\"Card-Feature\">Forces compliance mode; all hacking penalties are doubled until root is restored.",
@@ -26,7 +26,11 @@
         "name": "Overseer Protocol",
         "img": "modules/cybermancy/assets/icons/ice/overseer-protocol.webp",
         "range": "",
-        "_id": "CScT2zT8B7IZKeW2"
+        "_id": "CScT2zT8B7IZKeW2",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": {
@@ -49,11 +53,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911413,
-    "modifiedTime": 1763905762310,
+    "modifiedTime": 1787574145611,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "tROYS9Fv3wnXDN76",

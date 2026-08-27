@@ -7,10 +7,6 @@
 ## Actions
 - <div markdown='1'>**Daemon Host**<br>*It speaks your syntax and calls you by your old handle.
 
-Spawns a self-aware daemon that hunts you across systems until destroyed or appeased.*</div>
-
-- <div markdown='1'>**Daemon Host**<br>*It speaks your syntax and calls you by your old handle.
-
 Spawns a self-aware daemon that hounds and taunts across systems until removed.
 
 The ICE attempts to install a daemon on your computer.  As a Reaction, make a Spellcasting (Hacking) roll against the Difficulty of this ICE to prevent this installation.

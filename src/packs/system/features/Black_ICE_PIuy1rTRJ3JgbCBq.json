@@ -5,29 +5,6 @@
   "system": {
     "description": "<p><em>It doesn’t defend the system—it defends itself.</em><br /><br /></p><p class=\"Card-Feature\">While this ICE is active, a hacker must mark 1 Stress to perform any Infiltration or Control actions on this device.</p><p></p><p>Spend 1 Fear to do 1 HP of direct damage to the hacker.</p><p class=\"Card-Feature\"></p>",
     "actions": {
-      "Black ICE": {
-        "type": "effect",
-        "systemPath": "actions",
-        "description": "<i>It doesn’t defend the system—it defends itself.</i><br><br><p class=\"Card-Feature\">Deals direct neural damage (Stress or HP) on failed hack attempts.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Black ICE",
-        "img": "modules/cybermancy/assets/icons/ice/black-ice.webp",
-        "range": "",
-        "_id": "PQ0Zmr7XEbHuQna8"
-      },
       "PQ0Zmr7XEbHuQna8": {
         "type": "effect",
         "systemPath": "actions",
@@ -146,11 +123,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911040,
-    "modifiedTime": 1763904666212,
+    "modifiedTime": 1787574145185,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "PIuy1rTRJ3JgbCBq",

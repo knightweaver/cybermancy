@@ -7,8 +7,6 @@
 ## Actions
 - <div markdown='1'>**The right drone for the job**<br>*Once per long rest, change 1 mod on your Primary Drone*</div>
 
-- <div markdown='1'>**The right drone for the job**<br>*Once per long rest, change 1 mod on your Primary Drone*</div>
-
 ---
 
 <div class="meta" markdown="1">

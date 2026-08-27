@@ -5,7 +5,7 @@
   "system": {
     "description": "All allies within Close gain +1 Evasion.",
     "actions": {
-      "Schlieren patterns": {
+      "RTw0GVpYpScUkdDk": {
         "type": "attack",
         "systemPath": "actions",
         "description": "All allies within Close gain +1 Evasion.",
@@ -28,7 +28,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -50,6 +51,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -68,12 +73,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763004668663,
-    "modifiedTime": 1763004668663,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145499,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "lC6cn8pF2NoskZPX",
   "sort": 0,

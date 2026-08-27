@@ -5,8 +5,6 @@
 *<p class="Card-Feature">When you Spotlight an Action to Attack, you can attack any adversary within Melee of all allies within Very Close of you.</p>*
 
 ## Actions
-- <div markdown='1'>**Sphere of control**<br>*When you attack, you can attack any adversary within Melee of all allies within Very Close of you.*</div>
-
 - <div markdown='1'>**Sphere of control**<br>*When you Spotlight an Action to Attack, you can attack any adversary within Melee of all allies within Very Close of you.*</div>
 
 ---

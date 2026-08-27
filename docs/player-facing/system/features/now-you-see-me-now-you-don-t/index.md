@@ -5,8 +5,6 @@
 *<p>Once per Short Rest, after failing on an Infiltration roll, <strong>Mark 1 Stress</strong> to cause the ICE to react as if you had not made the Infiltration roll at all.</p>*
 
 ## Actions
-- <div markdown='1'>**Now you see me, now you don’t**<br>*If you fail on an Infiltration roll, Mark 1 Stress to cause the ICE to react as if you had not made the Infiltration roll at all.*</div>
-
 - <div markdown='1'>**Now you see me, now you don’t**<br>*Once per Short Rest, after failing on an Infiltration roll, Mark 1 Stress to cause the ICE to react as if you had not made the Infiltration roll at all.*</div>
 
 ---

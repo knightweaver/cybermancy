@@ -5,10 +5,10 @@
   "_id": "R10EoKmTReAZfLJ8",
   "img": "modules/cybermancy/assets/icons/ice/siren.webp",
   "system": {
-    "description": "",
+    "description": "<p>This is the simplest type of ICE and just tries to beat the runner into submission with audio stimulation and 1000 pop-up windows that all just say \"NO!\".</p><p></p><p>All subsequent ICE Difficulty is +3 unless this wall is disabled.</p>",
     "resource": {
       "type": "simple",
-      "value": 10,
+      "value": 14,
       "max": "",
       "icon": "fa-solid fa-microchip"
     },
@@ -27,11 +27,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763858755915,
-    "modifiedTime": 1763858868863,
+    "modifiedTime": 1787866692101,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!R10EoKmTReAZfLJ8"

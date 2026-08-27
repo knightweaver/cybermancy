@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to convert a Driving failure into a Driving success.</p>",
     "actions": {
-      "Inspired Driving": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "Spend 3 Hope to convert a Driving failure into a Driving success.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Inspired Driving",
-        "img": "modules/cybermancy/assets/icons/subclasses/inspired-driving.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "eV408UF4Mfk1hUdB",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "eV408UF4Mfk1hUdB": {
         "type": "attack",
         "systemPath": "actions",
@@ -124,12 +77,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761535840665,
-    "modifiedTime": 1761614415003,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145155,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "LZQ2OzAying27rrO",
   "sort": 200000,

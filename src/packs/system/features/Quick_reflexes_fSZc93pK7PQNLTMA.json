@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\">As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, <strong>Mark 1 Stress</strong> to make an Attack on the would-be attacker first.</p>",
     "actions": {
-      "Quick reflexes": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, Mark 1 Stress to make an Attack on the would-be attacker first.",
-        "chatDisplay": true,
-        "actionType": "reaction",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Quick reflexes",
-        "img": "modules/cybermancy/assets/icons/subclasses/quick-reflexes.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "YiVgGQtkzAlV1F5X",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "YiVgGQtkzAlV1F5X": {
         "type": "attack",
         "systemPath": "actions",
@@ -124,12 +77,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761535710291,
-    "modifiedTime": 1761614812219,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145415,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "fSZc93pK7PQNLTMA",
   "sort": 0,

@@ -5,7 +5,7 @@
   "system": {
     "description": "Spotlight an action to enter a quantum superposition state. While in Stillpoint, you cannot attack or move more than Very Close, but all allies within Very Close gain +2 Evasion and advantage on Reactions to spells, magical effects, and resonance-based effects from the Environment.  The state ends if you take damage or choose to release it.",
     "actions": {
-      "Stillpoint": {
+      "twEWriUCkrG7DcFr": {
         "type": "attack",
         "systemPath": "actions",
         "description": "Spotlight an action to enter a quantum superposition state. While in Stillpoint, you cannot attack or move more than Very Close, but all allies within Very Close gain +2 Evasion and advantage on Reactions to spells, magical effects, and resonance-based effects from the Environment.  The state ends if you take damage or choose to release it.",
@@ -28,7 +28,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -50,6 +51,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -68,12 +73,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763004706151,
-    "modifiedTime": 1763004706171,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145434,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "g0afZ0r0nVBEIY27",
   "sort": 200000,

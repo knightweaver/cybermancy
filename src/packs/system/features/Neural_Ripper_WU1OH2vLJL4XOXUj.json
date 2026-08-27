@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>It burns your nerves before you even see it.</i><br /><br /><p class=\"Card-Feature\">Targets wetware directly; roll physical defense or mark HP instead of Stress.</p>",
     "actions": {
-      "Neural Ripper": {
+      "IFAI5NxwVkeXCzLH": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>It burns your nerves before you even see it.</i><br><br><p class=\"Card-Feature\">Targets wetware directly; roll physical defense or mark HP instead of Stress.",
@@ -26,7 +26,11 @@
         "name": "Neural Ripper",
         "img": "modules/cybermancy/assets/icons/ice/neural-ripper.webp",
         "range": "",
-        "_id": "IFAI5NxwVkeXCzLH"
+        "_id": "IFAI5NxwVkeXCzLH",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": {
@@ -49,11 +53,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911392,
-    "modifiedTime": 1763905755493,
+    "modifiedTime": 1787574145249,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "WU1OH2vLJL4XOXUj",

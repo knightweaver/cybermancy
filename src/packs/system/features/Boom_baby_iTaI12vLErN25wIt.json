@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\">Detonate any Device you Control within Very Far. All targets within Very Close of the targeted Device must make a Reaction Roll (13). Targets who fail take <strong>d8+2</strong> physical damage using your Proficiency. Targets who succeed take half damage.<br />@Template[type:emanation|range:vc]</p>",
     "actions": {
-      "Boom baby": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "Detonate any Device you Control within Very Far.  All targets within Very Close of the targeted Device take d8+2 damage.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Boom baby",
-        "img": "modules/cybermancy/assets/icons/subclasses/boom-baby.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "ruezQwJUDwYHLtej",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "ruezQwJUDwYHLtej": {
         "type": "attack",
         "systemPath": "actions",
@@ -144,12 +97,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761536910821,
-    "modifiedTime": 1761610318899,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145479,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "iTaI12vLErN25wIt",
   "sort": 400000,

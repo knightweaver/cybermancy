@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Somewhere, your digital ghost keeps working.</i><br /><br /><p class=\"Card-Feature\">Copies a fragment of your consciousness into cold storage.</p>",
     "actions": {
-      "Soulcatcher": {
+      "CGHfBidJUjGudJsY": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Somewhere, your digital ghost keeps working.</i><br><br><p class=\"Card-Feature\">Copies a fragment of your consciousness into cold storage.",
@@ -26,7 +26,11 @@
         "name": "Soulcatcher",
         "img": "modules/cybermancy/assets/icons/ice/soulcatcher.webp",
         "range": "",
-        "_id": "CGHfBidJUjGudJsY"
+        "_id": "CGHfBidJUjGudJsY",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": {
@@ -49,11 +53,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911562,
-    "modifiedTime": 1763905782658,
+    "modifiedTime": 1787574145118,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Jkn495XsBqFNqmCb",

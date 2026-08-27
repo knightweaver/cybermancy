@@ -5,29 +5,6 @@
   "system": {
     "description": "<p><em>Every sound becomes light. Every color screams.</em><br /><br /></p><p class=\"Card-Feature\">On first contact, floods your neural link with raw sensory data</p><p><em>Every sound becomes light. Every color screams.</em><br /></p><p class=\"Card-Feature\">On first contact, floods your neural link with raw sensory data, as a Reaction roll Spellcasting (Hacking) at the difficulty of this device or Mark 1 Stress immediately.</p><p></p><p>Mark 1 Stress on any failed Spellcasting (Hacking) roll or Success with Fear outcome until this ICE is disabled.</p>",
     "actions": {
-      "Brainstorm": {
-        "type": "effect",
-        "systemPath": "actions",
-        "description": "<i>Every sound becomes light. Every color screams.</i><br><br><p class=\"Card-Feature\">On first contact, floods your neural link with raw sensory data; roll Fear or mark Stress.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Brainstorm",
-        "img": "modules/cybermancy/assets/icons/ice/brainstorm.webp",
-        "range": "",
-        "_id": "3yVnrj10PP8wfAQJ"
-      },
       "3yVnrj10PP8wfAQJ": {
         "type": "effect",
         "systemPath": "actions",
@@ -72,11 +49,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911064,
-    "modifiedTime": 1763855496686,
+    "modifiedTime": 1787574145205,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "TnUIH9OqR1o3iZaT",

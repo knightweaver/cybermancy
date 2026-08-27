@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `750d3d212057b9dc8da88036d2a891b16ba109e7`
+Git commit: `ffd19f36294cc49a3f1a18c5e79122bae47bfa5f`
 
 ## Scope
 
@@ -107,7 +107,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | Metric | Count |
 |---|---:|
 | attribute-list | 32 |
-| html-heavy | 336 |
+| html-heavy | 334 |
 | include-markdown | 1 |
 | jinja-expression | 17 |
 | jinja-statement | 17 |

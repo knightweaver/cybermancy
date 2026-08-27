@@ -5,7 +5,7 @@
   "system": {
     "description": "All adversaries within Very Close must Mark 1 Stress",
     "actions": {
-      "Chaos wave": {
+      "lPcEbs90oNQ7Cs2G": {
         "type": "attack",
         "systemPath": "actions",
         "description": "All adversaries within Very Close must Mark 1 Stress",
@@ -28,7 +28,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -50,6 +51,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -68,12 +73,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763004655257,
-    "modifiedTime": 1763004659540,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145508,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "mha9o1B4n8UE4sNp",
   "sort": 300000,

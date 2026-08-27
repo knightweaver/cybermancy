@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to make an adversary within Very Close your Primary Target. If that adversary attempts to leave Very Close range, you may move with them automatically on their Action. +2 to all your attacks and damage against that Primary Focus</p>",
     "actions": {
-      "You’re in my sights": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "Spend 1 Hope to make an adversary within Very Close your Primary Focus.  If that adversary attempts to leave Very Close range, you may move with them automatically on their Action. +2 to all your attacks and damage against that Primary Focus",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "You’re in my sights",
-        "img": "modules/cybermancy/assets/icons/subclasses/you’re-in-my-sights.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "OO9pBYtTHPBgr6iB",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "OO9pBYtTHPBgr6iB": {
         "type": "attack",
         "systemPath": "actions",
@@ -124,12 +77,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761535597524,
-    "modifiedTime": 1761615749107,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574145367,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "drKhLS2MGaCo4FyS",
   "sort": 200000,

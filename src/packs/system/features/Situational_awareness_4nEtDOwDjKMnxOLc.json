@@ -5,53 +5,6 @@
   "system": {
     "description": "<p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> and make an Instinct roll (13). On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).</p>",
     "actions": {
-      "Situational awareness": {
-        "type": "attack",
-        "systemPath": "actions",
-        "description": "Spend 1 Hope and make an Instinct roll (13).  On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Situational awareness",
-        "img": "modules/cybermancy/assets/icons/subclasses/situational-awareness.webp",
-        "range": "",
-        "damage": {
-          "parts": [],
-          "includeBase": false
-        },
-        "roll": {
-          "type": null,
-          "trait": null,
-          "difficulty": null,
-          "bonus": null,
-          "advState": "neutral",
-          "diceRolling": {
-            "multiplier": "prof",
-            "flatMultiplier": 1,
-            "dice": "d6",
-            "compare": null,
-            "treshold": null
-          },
-          "useDefault": false
-        },
-        "_id": "XkK1b1cTs0wuw026",
-        "save": {
-          "trait": null,
-          "difficulty": null,
-          "damageMod": "none"
-        }
-      },
       "XkK1b1cTs0wuw026": {
         "type": "attack",
         "systemPath": "actions",
@@ -124,12 +77,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761535665371,
-    "modifiedTime": 1761615126391,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144904,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "4nEtDOwDjKMnxOLc",
   "sort": 0,

@@ -5,29 +5,6 @@
   "system": {
     "description": "<p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\"><em style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\">The world outside goes silent—you’re inside the machine now.</em></span></p><p><span style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\"><br style=\"box-sizing:border-box;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track)\" /></span><span class=\"Card-Feature\" style=\"box-sizing:border-box;margin:0px;scrollbar-width:thin;scrollbar-color:var(--color-scrollbar) var(--color-scrollbar-track);color:rgb(239, 230, 216);font-family:Signika, 'Palatino Linotype', sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.376);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">The cognitive dissonance created by interacting with this ICE results in -2 on Evasion until you break this subroutine or disengage from the Device.</span></p>",
     "actions": {
-      "Eclipse Wall": {
-        "type": "effect",
-        "systemPath": "actions",
-        "description": "<i>The world outside goes silent—you’re inside the machine now.</i><br><br><p class=\"Card-Feature\">Cuts external connections; you are alone until it drops.",
-        "chatDisplay": true,
-        "actionType": "action",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Eclipse Wall",
-        "img": "modules/cybermancy/assets/icons/ice/eclipse-wall.webp",
-        "range": "",
-        "_id": "j9qWAhAXOzsnxEba"
-      },
       "j9qWAhAXOzsnxEba": {
         "type": "effect",
         "systemPath": "actions",
@@ -72,11 +49,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911159,
-    "modifiedTime": 1763855628742,
+    "modifiedTime": 1787574145648,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "xODPZVDWhtbdiyWb",

@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "750d3d212057b9dc8da88036d2a891b16ba109e7"
+    "git_commit": "ffd19f36294cc49a3f1a18c5e79122bae47bfa5f"
   },
   "mkdocs_sites": {
     "player": {
@@ -94,7 +94,7 @@
   },
   "normalization_flag_counts": {
     "attribute-list": 32,
-    "html-heavy": 336,
+    "html-heavy": 334,
     "include-markdown": 1,
     "jinja-expression": 17,
     "jinja-statement": 17,
@@ -10811,8 +10811,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 36072,
-      "sha256": "e42f470a2d0d768fbb7fa881c7e0ab60473c134799c3e38c4dce55a4a70255dd",
+      "size_bytes": 36316,
+      "sha256": "3e9b576673f9363fc9beaf67b81baa66a2b7d7583d3352332acbcdfeed06ddcd",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117421,7 +117421,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 171,
+      "word_count": 152,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117433,7 +117433,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 34,
+      "html_tag_count": 31,
       "images": [
         "../../../assets/icons/features/ash-cloud.webp"
       ],
@@ -117447,8 +117447,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1493,
-      "sha256": "6f333ea7bacd3317ea0ac2d88895f42b417ae63e6b165e360dcf513d05458471",
+      "size_bytes": 1328,
+      "sha256": "29a11d3f7e19848aa3da02dfaa45b0575aad67a140e99f5df4a21406a173298c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117479,7 +117479,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 92,
+      "word_count": 68,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117490,7 +117490,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/battle-bonded.webp"
       ],
@@ -117504,8 +117504,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 934,
-      "sha256": "89f30df7eaf5339b5d63cdda25b93ec2cea73c8720352689ad070da7a4ce5738",
+      "size_bytes": 759,
+      "sha256": "13e74c054c3e6921d6bc3445a21691bb9aa87d3440267c5fbcc413110ff71d0b",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117536,7 +117536,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 196,
+      "word_count": 159,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117548,7 +117548,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 38,
+      "html_tag_count": 35,
       "images": [
         "../../../assets/icons/features/become-one-with-the-matrix.webp"
       ],
@@ -117562,8 +117562,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1557,
-      "sha256": "c716a7fb46347f2faf6eb9940ff4bbd8b0152029b900f168c8d729d2f847f38e",
+      "size_bytes": 1315,
+      "sha256": "06966d362960ad51c50304dfd07cd2680fc0d604590f80910d8c0d6902e973cb",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117594,7 +117594,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 122,
+      "word_count": 101,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117606,7 +117606,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 29,
+      "html_tag_count": 26,
       "images": [
         "../../../assets/icons/features/black-ice.webp"
       ],
@@ -117620,8 +117620,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1177,
-      "sha256": "3c611f05d9901b95496a036fc3e4ca88c36db994a82adff1938547844874ecc7",
+      "size_bytes": 1007,
+      "sha256": "ffc3ba49071dd102c77aa15ff33f505420d066f219c00b22ca7e75e2184b9166",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117712,7 +117712,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 88,
+      "word_count": 65,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117723,7 +117723,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 17,
+      "html_tag_count": 14,
       "images": [
         "../../../assets/icons/features/boom-baby.webp"
       ],
@@ -117737,8 +117737,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 931,
-      "sha256": "a6c71c8d9f5fc456e484f3a72a8354b29ed026f4e5f88c1e2e230487f49c804d",
+      "size_bytes": 762,
+      "sha256": "00a779f4c9b1d163d7d153d04ed694edcf2911bcf87c79a3406086a4ebf9b467",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117769,7 +117769,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 164,
+      "word_count": 140,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117781,7 +117781,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 31,
+      "html_tag_count": 28,
       "images": [
         "../../../assets/icons/features/brainstorm.webp"
       ],
@@ -117795,8 +117795,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1501,
-      "sha256": "151ca4d3c6fc0e10a88170e89c2ff17495f22b9ef808b7915d23ade9ee5a74dc",
+      "size_bytes": 1310,
+      "sha256": "d2b05b079b0fde0e75ebcba937cd428f2f51fac00e8ff3c0f018007d8008ca25",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117941,7 +117941,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 81,
+      "word_count": 59,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117952,7 +117952,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 12,
+      "html_tag_count": 9,
       "images": [
         "../../../assets/icons/features/calm-in-the-storm.webp"
       ],
@@ -117966,8 +117966,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 812,
-      "sha256": "8ed5a79b7256db10d4888407ab3ab977e811b3553d958037830756542b81756f",
+      "size_bytes": 662,
+      "sha256": "df0985a9b7bd1491a83355006b41595044f8273d0e9b7649c457c75d76a9cb65",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118172,7 +118172,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 200,
+      "word_count": 139,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -118183,7 +118183,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 18,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/features/coming-through.webp"
       ],
@@ -118197,8 +118197,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1532,
-      "sha256": "9b135ec7a09c0690c3d0f3dfde19f2038733bdba4e6dab4f4abb03490cc0d92d",
+      "size_bytes": 1167,
+      "sha256": "7f30d1c8119ea9dd585ea79c1043ae2cdf000c134420635e958c0eb0c63d728f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118229,7 +118229,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 242,
+      "word_count": 216,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -118241,7 +118241,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 32,
+      "html_tag_count": 29,
       "images": [
         "../../../assets/icons/features/daemon-host.webp"
       ],
@@ -118255,8 +118255,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1968,
-      "sha256": "b137cc1f7350f472cffa3d64fe29e7677acf6fc570ab288ed37104432f0c55ac",
+      "size_bytes": 1773,
+      "sha256": "a7030ecaeaa524e4248234d4e42c884e1dcd59f1ce50ddb4cec5f52d8ea8c30a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118576,7 +118576,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 119,
+      "word_count": 99,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -118588,7 +118588,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 27,
+      "html_tag_count": 24,
       "images": [
         "../../../assets/icons/features/digital-wasteland.webp"
       ],
@@ -118602,8 +118602,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1143,
-      "sha256": "0e0ad1c9877478380e21adced70c104dfb75c66040058348a36e857b78d927c4",
+      "size_bytes": 987,
+      "sha256": "045e8db2237138bf0a2a229bab638999879e543bf9bc3663146a2a6dde2874b2",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118748,19 +118748,18 @@
           "text": "Actions"
         }
       ],
-      "word_count": 79,
+      "word_count": 59,
       "mkdocs_features": [
         "raw-html"
       ],
       "normalization_flags": [
-        "html-heavy",
         "raw-html"
       ],
       "transclusions": [],
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 22,
+      "html_tag_count": 19,
       "images": [
         "../../../assets/icons/features/don-t-worry-that-was-just-a-glitch.webp"
       ],
@@ -118774,8 +118773,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2531,
-      "sha256": "7c1e1c96dc53d9bd27e1518627148bc5145c641fd8b75e7a1e23e03371e1f4cc",
+      "size_bytes": 2394,
+      "sha256": "abbe61407067ca12c90fc14cd5c46af42163db0b9cb5afba0cda7782c2d9a819",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118806,7 +118805,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 34,
+      "word_count": 27,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -118817,7 +118816,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/driving-expert.webp"
       ],
@@ -118831,8 +118830,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 604,
-      "sha256": "b99271a144883560c6bde43db8b78a5dc09f55d7e0d0da1c4c67a9b5ea7ba032",
+      "size_bytes": 524,
+      "sha256": "75263cce110378f68cc2db9ee585a4ff5287acfb3617740a0803af8a5bd1bf4a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118863,7 +118862,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 145,
+      "word_count": 101,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -118874,7 +118873,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/drone-control.webp"
       ],
@@ -118888,8 +118887,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1251,
-      "sha256": "3d85628f3252bf2d2de38ae760e2adc2cf5eec4bbb609c2d085528262539a6b7",
+      "size_bytes": 958,
+      "sha256": "e45167084fd756f4f037192d63dfe9b53d81d69056d67048f8f655b64f1e4e80",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118922,7 +118921,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 101,
+      "word_count": 72,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -118933,7 +118932,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/dual-wielding.webp"
       ],
@@ -118947,8 +118946,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 988,
-      "sha256": "9dab18254dcce4edd52a2b7a6b00feee28329638dc066975e6a565fbb16088f6",
+      "size_bytes": 787,
+      "sha256": "c98af4d1bfa019565ebe71213d32a0977f8c11e2c380ae20ee1f780ddbf94988",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -118979,7 +118978,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 106,
+      "word_count": 85,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -118991,7 +118990,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 25,
+      "html_tag_count": 22,
       "images": [
         "../../../assets/icons/features/eclipse-wall.webp"
       ],
@@ -119005,8 +119004,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3186,
-      "sha256": "e3eb8d6d2b228b75a50106aed17d1cdef4efea6f7a1997b4e1ac06c78430f32c",
+      "size_bytes": 3010,
+      "sha256": "c88f6cdc00056e22e21c51187a71850532e011d192706996b0a9a9e5afe94448",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -119094,7 +119093,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 48,
+      "word_count": 37,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -119105,7 +119104,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/expert-maneuver.webp"
       ],
@@ -119119,8 +119118,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 720,
-      "sha256": "2a310ebf939843b02eb39ba103738b9d0700d3c3eb16c0564790033c3bb5186b",
+      "size_bytes": 612,
+      "sha256": "5add6b64491364e96befbd77dee5376388a8aded6ad4a7492dcd02860888042a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -119379,7 +119378,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 95,
+      "word_count": 79,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -119390,7 +119389,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 18,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/features/firewall-hydra.webp"
       ],
@@ -119404,8 +119403,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 992,
-      "sha256": "000e8ff6edda41a5373ba35eb264adf098107278a031334a131a204d8414deaa",
+      "size_bytes": 849,
+      "sha256": "7b92025f39cb7415754f30bb4f1dbcc169dd2e3baa400ef629c7b2af09afddce",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -119436,7 +119435,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 98,
+      "word_count": 70,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -119447,7 +119446,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/focused-aggression.webp"
       ],
@@ -119461,8 +119460,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 943,
-      "sha256": "f868c3a153fe0d5f58d8f2bfc88597a922b447747900153888e2f70e06034966",
+      "size_bytes": 762,
+      "sha256": "b58783f3a2ff697c0577a3930b302e3074141332d97c3791a2ad8160f25a2cb8",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -119607,7 +119606,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 180,
+      "word_count": 127,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -119618,7 +119617,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/get-behind-me.webp"
       ],
@@ -119632,8 +119631,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1413,
-      "sha256": "d8dba9cc38588c15249629c8e60986f56374d52862db9962034f151d83eda367",
+      "size_bytes": 1078,
+      "sha256": "c01908277c8968ef99287b35a9aa8de3e9e3282098ab063e9efc4080b38071f0",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -119724,7 +119723,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 131,
+      "word_count": 108,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -119736,7 +119735,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 23,
+      "html_tag_count": 20,
       "images": [
         "../../../assets/icons/features/grinder.webp"
       ],
@@ -119750,8 +119749,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1151,
-      "sha256": "8b9b4d189a0e3ed3e6d3a67a76e02d25487141b4b05144ae94ec94f42c231456",
+      "size_bytes": 988,
+      "sha256": "d87358b5925dc3199738be3185f241da0cbf6be4d7aa36141ae3fa92bd8f4c2a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -119782,19 +119781,18 @@
           "text": "Actions"
         }
       ],
-      "word_count": 126,
+      "word_count": 101,
       "mkdocs_features": [
         "raw-html"
       ],
       "normalization_flags": [
-        "html-heavy",
         "raw-html"
       ],
       "transclusions": [],
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 22,
+      "html_tag_count": 19,
       "images": [
         "../../../assets/icons/features/gun-trainer.webp"
       ],
@@ -119808,8 +119806,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1110,
-      "sha256": "334216144bc1f8be2ba67633ed93fc0b2fcd9996523d40d77a0be2b8846dfd45",
+      "size_bytes": 942,
+      "sha256": "3b14b7be9b8afb606a6685efb7bd14f2e331529662a27585e6d6812e4e3e08e4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -119842,7 +119840,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 73,
+      "word_count": 53,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -119853,7 +119851,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/hacking-insight.webp"
       ],
@@ -119867,8 +119865,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 849,
-      "sha256": "7dffad95e60696a39ea1f6adcf1a7ae132a314e513efaa1321b3e7eadbafe4eb",
+      "size_bytes": 695,
+      "sha256": "38e87122098aaea6ee772f1d97e807c1e6ac94ac084462915e688f79c104ae16",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -120013,7 +120011,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 257,
+      "word_count": 235,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -120025,7 +120023,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 76,
+      "html_tag_count": 73,
       "images": [
         "../../../assets/icons/features/heaven-s-gate.webp"
       ],
@@ -120039,8 +120037,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2297,
-      "sha256": "b181ce9f183583c7d7f846163e679db524951a627bbd63d52cd7b5501ba08af3",
+      "size_bytes": 2109,
+      "sha256": "4420c544e80c7cc01a26df66130fb458be8cadbd04eae817fccaddfe74d89311",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -120071,7 +120069,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 81,
+      "word_count": 59,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -120082,7 +120080,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 12,
+      "html_tag_count": 9,
       "images": [
         "../../../assets/icons/features/heavy-ordinance.webp"
       ],
@@ -120096,8 +120094,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 851,
-      "sha256": "72e4605d8758afc9769bbff33a1491968a3804a2a55e5184b487ae07eef6a03b",
+      "size_bytes": 686,
+      "sha256": "aaa75e1e3fee5c833ec06818810ad74b39e0264f4e2330802979c9aeb7358e62",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -120128,7 +120126,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 60,
+      "word_count": 45,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -120139,7 +120137,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 12,
+      "html_tag_count": 9,
       "images": [
         "../../../assets/icons/features/i-ve-driven-this-before.webp"
       ],
@@ -120153,8 +120151,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 752,
-      "sha256": "dcdf68a040f8219c251274ec56d00dedef4d4a614dbce8285913cf2178419277",
+      "size_bytes": 627,
+      "sha256": "7d81e893418f0f6eb02e6a6d5cdc74dc037f330171699ce6cd1fb4c846ae0658",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -120242,7 +120240,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 66,
+      "word_count": 52,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -120253,7 +120251,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/inspired-driving.webp"
       ],
@@ -120267,8 +120265,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 819,
-      "sha256": "3d79b8ce489959dc9d389d841dc930abeb6d8fbdec7105e5dfd5e82d91eb4b72",
+      "size_bytes": 698,
+      "sha256": "008ccb18af8c5042899486ae6a533ed0eaa6c782535afc994c86429387b3a940",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -120299,7 +120297,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 144,
+      "word_count": 142,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -120311,7 +120309,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 24,
+      "html_tag_count": 21,
       "images": [
         "../../../assets/icons/features/interference.webp"
       ],
@@ -120325,8 +120323,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1311,
-      "sha256": "d75a329ad023e043bf60a0e469afca76abe0da27302222c819e9bb69323211e7",
+      "size_bytes": 1258,
+      "sha256": "477b575ae3c4a3c0c53d980fb4557b2f40e4ff291003023ca357f4afcfcfde59",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -120477,7 +120475,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 167,
+      "word_count": 117,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -120488,7 +120486,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/joined-at-the-hip.webp"
       ],
@@ -120502,8 +120500,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1276,
-      "sha256": "bdcefd3f799cf143c58e277900a7f51a5fa990006da2a8d4a0380a6a671a7c91",
+      "size_bytes": 982,
+      "sha256": "95a40c60393466fdc58e1b33639b27b815cc3bfbf058be2c9d71b84a4bbe7790",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -121107,7 +121105,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 69,
+      "word_count": 51,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -121118,7 +121116,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/need-for-speed.webp"
       ],
@@ -121132,8 +121130,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 795,
-      "sha256": "ef1193e46f347194c342625580aa862c69d777c0d711439d3c2a347a6df00bf2",
+      "size_bytes": 661,
+      "sha256": "a7ef9f3b905f7bd3be46627121370f8983c81137bbfc02ab199507c058e4b8ad",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -121338,7 +121336,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 125,
+      "word_count": 91,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -121349,7 +121347,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/now-you-see-me-now-you-don-t.webp"
       ],
@@ -121363,8 +121361,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1075,
-      "sha256": "2adbbbaa9d4571740465ea680164c0c43f0d7c8b2e1ef1c0460f5aa6c3f2f8ba",
+      "size_bytes": 875,
+      "sha256": "ddf867b6d255cdfa7badef4944f5714883264af16c274f1289658c28ed69d600",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -121566,7 +121564,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 85,
+      "word_count": 61,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -121577,7 +121575,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/power-up.webp"
       ],
@@ -121591,8 +121589,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 900,
-      "sha256": "f01cfd3a1ca4802162b373e826cb8fef314376ba11e0066a84da30907567cf89",
+      "size_bytes": 721,
+      "sha256": "fcf9ca3208586913a0c68afac321f38dda24b23bf786246db8b7168d3c9a98a9",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -121794,7 +121792,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 56,
+      "word_count": 45,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -121805,7 +121803,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/primary-drone-upgrade-evasion-12.webp"
       ],
@@ -121819,8 +121817,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 793,
-      "sha256": "c6c1ee1577b3d3e6a647f5f4e1ea398dd35336ca49a8a76ca3afe6c770718fc2",
+      "size_bytes": 681,
+      "sha256": "6bee6b292cbe5218956314b24f3ee00041f4cbd0d6051c637d8544eaa9ff645d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -121851,7 +121849,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 56,
+      "word_count": 45,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -121862,7 +121860,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/primary-drone-upgrade-evasion-14.webp"
       ],
@@ -121876,8 +121874,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 793,
-      "sha256": "6e77ec44a1c0b5455775f4b53296701426bf97104ba33e4e7044276e244ff24e",
+      "size_bytes": 681,
+      "sha256": "b30779db839b52eabaa29ee61b87cdb7d480096d8a4fc685bf198ef9b8d86cfb",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -121908,7 +121906,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 126,
+      "word_count": 99,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -121920,7 +121918,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 31,
+      "html_tag_count": 28,
       "images": [
         "../../../assets/icons/features/primary-drone.webp"
       ],
@@ -121934,8 +121932,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1171,
-      "sha256": "04523528434289bb0346d6a19e937561137329af4a2e3a11faf0ecd43336e7df",
+      "size_bytes": 978,
+      "sha256": "6aa54a70a21a725810baf195cf3c88870249d45cf6a93d5754d1d2804649a77d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -121966,7 +121964,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 126,
+      "word_count": 89,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -121977,7 +121975,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 17,
+      "html_tag_count": 14,
       "images": [
         "../../../assets/icons/features/protection-assignment.webp"
       ],
@@ -121991,8 +121989,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1143,
-      "sha256": "1a123e5722af815a388fcc25cbb039a69a70f001df388c76950f8ec67e367d15",
+      "size_bytes": 903,
+      "sha256": "c86d50a2805b5acec27c772769eb7cd6428d1ee3e479b1a1667162ca653f1111",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -122137,7 +122135,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 86,
+      "word_count": 65,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -122148,7 +122146,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/quick-hack.webp"
       ],
@@ -122162,8 +122160,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 868,
-      "sha256": "a561bd16cbf75e655e24f567e595f82ca9b5f2af24b39009f268d0cdad06eccb",
+      "size_bytes": 718,
+      "sha256": "98f842a6ff59c46ef40fa6b688a09ddc0128a39338f3bd247b1aba549d503764",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -122196,7 +122194,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 113,
+      "word_count": 80,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -122207,7 +122205,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/quick-reflexes.webp"
       ],
@@ -122221,8 +122219,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1030,
-      "sha256": "87dc990c4bbe3ce454f5ccc81496efed2539432deb04977e8248981a49bf5a4d",
+      "size_bytes": 816,
+      "sha256": "bcf8842bd41c478a99e7256c8d89683ed32966a285146f8d3ff725c2ca0369ef",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -122367,7 +122365,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 77,
+      "word_count": 65,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -122378,7 +122376,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/reboot.webp"
       ],
@@ -122392,8 +122390,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 823,
-      "sha256": "7ec804050070de26a2e01999bac0a1c3e4c89e98acfe4e6e7e18dc6eaa5db43f",
+      "size_bytes": 710,
+      "sha256": "07a4f5b855aeb202f082ac6e39592a0f89fe0519d365a892c0bb7ac3ae21750e",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -122481,7 +122479,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 264,
+      "word_count": 181,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -122492,7 +122490,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/resolve.webp"
       ],
@@ -122506,8 +122504,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1783,
-      "sha256": "e5ae695c0cfa6edbe4bcc1536cc927292632631a7d5312c99c85bc9ff568e8a3",
+      "size_bytes": 1313,
+      "sha256": "36a686589b25061b6b4d1a26b2c24136e3decaa5d6f2a239a8d9fc3807c86fe1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -122595,7 +122593,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 92,
+      "word_count": 66,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -122606,7 +122604,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 12,
+      "html_tag_count": 9,
       "images": [
         "../../../assets/icons/features/reverb.webp"
       ],
@@ -122620,8 +122618,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 897,
-      "sha256": "0f8decb31bac3a2a876ebf019e0fc8c49d1faaee30e9b5130d933b6d40b6c779",
+      "size_bytes": 707,
+      "sha256": "1b142ff32d0035141ca31854359805a1d1ce7f4f2042bb0fc04e99e0154e2575",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123000,7 +122998,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 126,
+      "word_count": 89,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123011,7 +123009,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/situational-awareness.webp"
       ],
@@ -123025,8 +123023,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1188,
-      "sha256": "b1bf6de936eb41bb4e40daadb48018815f37e4c44f32afd4531dc22422075874",
+      "size_bytes": 931,
+      "sha256": "1c092795c8c8cad75344c912671129470961638090f8a83d1c4a3ec9c8f69135",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123234,7 +123232,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 86,
+      "word_count": 65,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123245,7 +123243,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/sphere-of-control.webp"
       ],
@@ -123259,8 +123257,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 901,
-      "sha256": "51a31d3ecf556174d1084f5736d342ff2cdec256eae5a3c061af4e18e17f9d43",
+      "size_bytes": 746,
+      "sha256": "9f2a61c5ce22c52b140a3054efcf009c4f2762accb219950dcdd9eacb1c9c22d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123465,7 +123463,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 89,
+      "word_count": 66,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123476,7 +123474,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 18,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/features/tar-pit.webp"
       ],
@@ -123490,8 +123488,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 968,
-      "sha256": "6003a1c7fbde33864554cb8e2ca4b85d201bf70a0b76b25580e22a77c28cbc1d",
+      "size_bytes": 780,
+      "sha256": "f65fa05ecdd9d3d00b640a1a1c6e05d9e899141dbf1c6c13a8b20fa5a477e5e4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123522,7 +123520,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 64,
+      "word_count": 47,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123533,7 +123531,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/the-right-drone-for-the-job.webp"
       ],
@@ -123547,8 +123545,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 766,
-      "sha256": "988afeefc62532195e0e4cec6db9a57490c1bc26d5f251d4db9b4e7dc0dcd96a",
+      "size_bytes": 645,
+      "sha256": "9383aa8109cb2ed38f69589ad1fce3493d2cacc2a3c9a2b6a1036a18bd1775b4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123579,7 +123577,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 69,
+      "word_count": 51,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123590,7 +123588,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 14,
+      "html_tag_count": 11,
       "images": [
         "../../../assets/icons/features/two-foci.webp"
       ],
@@ -123604,8 +123602,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 777,
-      "sha256": "1c7219875f2fbdbc60e47deb6d3940199bd307c1cda1719ac4b956b89ce4b50f",
+      "size_bytes": 639,
+      "sha256": "3efc60496f0f1f4f471be1237f456cae7c251733e0da156c6386b16a42b70be1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123696,7 +123694,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 18,
+      "word_count": 54,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123707,7 +123705,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 6,
+      "html_tag_count": 12,
       "images": [
         "../../../assets/icons/features/wall-of-no.webp"
       ],
@@ -123721,8 +123719,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 394,
-      "sha256": "077142c1c3e9c20adfadce3f927a81a16208bdd117472b6ab665aef54c571266",
+      "size_bytes": 613,
+      "sha256": "1caa3d47a481b845ebe48e5544bb71b9905c0b0c043cbd9915999164005b9634",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123810,7 +123808,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 150,
+      "word_count": 105,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123821,7 +123819,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/whirlwind.webp"
       ],
@@ -123835,8 +123833,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1265,
-      "sha256": "9131b9c73f2c8ab5db0feca8b26d9fc6507869207ced5eca65a3489516bac470",
+      "size_bytes": 971,
+      "sha256": "7d9600016c52f8b821f2e200a05c614a611de966543a8996b974a78c32dc21c9",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -123929,7 +123927,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 153,
+      "word_count": 107,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -123940,7 +123938,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 16,
+      "html_tag_count": 13,
       "images": [
         "../../../assets/icons/features/you-re-in-my-sights.webp"
       ],
@@ -123954,8 +123952,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1321,
-      "sha256": "ddaf582790222c3afe701d97415f5025d38b2bcc87fde8aee611da08ec84ad66",
+      "size_bytes": 1019,
+      "sha256": "4c3fca37b7e18cf73236159d044cfdb5889a298291214fd733c8cd47b71af0e1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -133098,8 +133096,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 71,
-      "sha256": "c5c62f6245d3e9876cb146eb53f76cbdfbabcff0ea395a943baa45aa81a215ba",
+      "size_bytes": 489,
+      "sha256": "a6f32cd1306275314b39af4157f3e017ebe197534bb5d555a6e1ce1ffae834ea",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192544,8 +192542,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3424,
-      "sha256": "fd2ba8d99ef4144b908f9ec78f0f7174d5aa5358cbf26da300daea3c1e67f10f",
+      "size_bytes": 2678,
+      "sha256": "ea1c58a1e6bde4076c9aa1e10e4ba71ee3f11c1f7f955764163d3b0fc2c4da0d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192578,8 +192576,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3821,
-      "sha256": "2c74f83939f3ccf45eff716b28f6ca928d22fe0edce14d3cd679b9a97a5e46ad",
+      "size_bytes": 2501,
+      "sha256": "c308c6a6fd2289820ae0dac29cd0412e47e7b5ecb035f9b987dda4195049e141",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192612,8 +192610,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4857,
-      "sha256": "8553913e10bee551d3e3beaf4580a29eac07d8c6d14e28efa82f004e91026bdf",
+      "size_bytes": 3225,
+      "sha256": "25b0f328eaa109632c59754351892b29cf1bae09d58888122be6d832cc2cdc23",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192646,8 +192644,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4765,
-      "sha256": "0b51b3071e8c52b4cf359cf5b38897b2331df25a564752a16776a9629e8daa49",
+      "size_bytes": 4014,
+      "sha256": "e07ebd8bf34bf87a7a35622abd1ffc1a3bcc36dbe1d80dc0913372b10de118e5",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192716,8 +192714,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4727,
-      "sha256": "443b8d8f01ab461cd76cd3d32be310a69ca2e08e4229537dfa7f75e480232844",
+      "size_bytes": 3421,
+      "sha256": "2b70acec729d8816ab8d30d6b5e6196b6b33c99db0a93a64388d0f014649813c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192750,8 +192748,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3210,
-      "sha256": "a1e971c258ee8cda9d5110541c9ba9a53afe3ea239cddc0e7c6cdce131dbc891",
+      "size_bytes": 2436,
+      "sha256": "1c9a163dfb411f9cfd36947c4736b7a8f53b78ca8763b5da287d4c1edf258434",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192852,8 +192850,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3495,
-      "sha256": "8f5087363331097e2a7c927ff0df7abf1f7bfa7a08406a22d749c29483aabad1",
+      "size_bytes": 2192,
+      "sha256": "ca7f4621be515a263ba8d8b6e33232d6d92f5272d7f52b359f03eecefbbc46c1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192886,8 +192884,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2075,
-      "sha256": "b9b7462100b91c7ca6550ce98d17f7091efd6e61247edbdb5ff919b548e9ecf0",
+      "size_bytes": 2207,
+      "sha256": "79c314b0f0836856b2bc951bdbd9a628b0ddcaf0d9a8bde079e5832ac637a0e2",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -192990,8 +192988,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4492,
-      "sha256": "2317f1585ef692677b18c5cd2fb3432713610892a208b3aceba793cd3631057b",
+      "size_bytes": 2980,
+      "sha256": "9b84be8b68246eefd4fb1712f4d7db11cfcab6d04086cb6222f8c4831a998423",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193060,8 +193058,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3699,
-      "sha256": "f029175ef38ead1adee2b57bde4124d510e4afc8164a24228cb42ffb3d1be507",
+      "size_bytes": 2919,
+      "sha256": "294266b9566dd1b5a62afb60898dbfc11661f008f8da2282e5428fc6835176a3",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193130,8 +193128,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1806,
-      "sha256": "83491c1022a6fb0025221d623b819aa242dc4246f938e00a06e1dc12610d2af3",
+      "size_bytes": 1911,
+      "sha256": "103ebe023029f37695c1cfe6f21edf32c8104ee746adf1c62b701a8e585c73c4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193164,8 +193162,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2153,
-      "sha256": "20058c2881ef6bc9a1821be9ec0babb770e98a7ac91ff5147c994cae3f0a444e",
+      "size_bytes": 2271,
+      "sha256": "82d3f7cb9922b6fe8d039dbfd77b49772df33b7d70502dfb3b5a3f3096ae63b1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193198,8 +193196,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2774,
-      "sha256": "c352e2c8f5badf02472f9ba9c3b4c4e29da74dec83a9c0633d6f07f5277e36d9",
+      "size_bytes": 2902,
+      "sha256": "b3afc1b5b9114fec77b9372f63aa55530e83d277d7ae9f27d9bfbf83c2b83d14",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193268,8 +193266,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 6011,
-      "sha256": "916f81782d3729d07379c1fb9869f664ef572ffcbb1ac821a4f3fa843bd6dc92",
+      "size_bytes": 4527,
+      "sha256": "3a7bada8c269818cbbc17db3bc8e66f84a7b934a217785270c84c26e3cb4a335",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193336,8 +193334,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4741,
-      "sha256": "a00a681ba6344738b01c67e233640d2c4efa9ef9a160e4391dd3b035203de8e5",
+      "size_bytes": 3254,
+      "sha256": "be09128e5c14d5460d26d6f312a72fd856349757f4e732c0468e35554292eb08",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193404,8 +193402,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2246,
-      "sha256": "e90fbbd16025bff6c6056de6d85f1ba92a64f350be780c19c97f4cd0832e6a90",
+      "size_bytes": 2374,
+      "sha256": "5c9f75759183718729ca590565807e2df9df75f718c465620deab84af14ea84c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193438,8 +193436,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 5469,
-      "sha256": "2e50da9d8e094bba13f94dc286ce1245ed1237b7de13a6c1b5eb101ebe7c2aa2",
+      "size_bytes": 4143,
+      "sha256": "a9c600b9e7e92c3b6b5108d2c1e28361123890409389497e38881ce7c0a32fcb",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193472,8 +193470,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4679,
-      "sha256": "c26d288cea36264ff65438b09186064bbf4b6825f6875a482a271cb087fb550b",
+      "size_bytes": 3452,
+      "sha256": "14fdd618b7daf56b1fcd692747d082bc17fe56fafb9eec19392622bdc5d3526a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193506,8 +193504,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4204,
-      "sha256": "5bd00095e8217357e1c4a8fd29023cc44261e5958230c4c60d2ff4062369465f",
+      "size_bytes": 2766,
+      "sha256": "ba73b60eb21c5ff7c4edfb137d7c9568dab52a5fb782426e17e8566a35e3370c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193540,8 +193538,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3929,
-      "sha256": "d4190824d5f07db648ca2c5f2d36e8b66b5a8c8d09fdd3498c0fe41b2a23e06b",
+      "size_bytes": 2583,
+      "sha256": "5e069b46547a513dd3d0d445c9704ef01aa51ff9db962c3ebe8de9912391d12d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193574,8 +193572,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4898,
-      "sha256": "7b86d880d373da9e6c7c1853c12b0ee4e02f092fff75fd19b96f69f95f02aa0d",
+      "size_bytes": 4135,
+      "sha256": "4cb924bdf0ba99f98ceed00f8c1728dff7398c022380e9ee4cce0e6bda2bb6ae",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193642,8 +193640,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3658,
-      "sha256": "ba2ab850033c81ad505ba41da1c5d22ba94e0be70d05f5cff37f29c4be6d9f8a",
+      "size_bytes": 2401,
+      "sha256": "31ab61d94a004000788326db67b2d76138ce0bb5afd2878bba7ed106e9ab52a8",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193710,8 +193708,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2147,
-      "sha256": "5b2966d0eb7ffa994bb1ea54a7dca1e15c9f5cbf6d3777e6b805c32d09418c8f",
+      "size_bytes": 2281,
+      "sha256": "ba288132e9f4ed40c5ad5531b9000afd475f9397525a4a6227f0cfe1e3252808",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193744,8 +193742,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2280,
-      "sha256": "e4fc62816821a14c47e21128e159410ce997ce6e22a5735d123f2dd57c1b2269",
+      "size_bytes": 2409,
+      "sha256": "5429820f9441d7cf7bf301d9ed456be589bde15a1d88183b10472cf8932abf2c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193778,8 +193776,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2181,
-      "sha256": "71a6850b73e1954ee55e59793dd21d559e11c992abdcb935de035e7f89ae1238",
+      "size_bytes": 2309,
+      "sha256": "64013ddf199da48573556181bb2eff7c49ae73916364660fb38ed3c438d29b03",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193812,8 +193810,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2702,
-      "sha256": "e0da71fb6b1a49a30e8b237942b2c000adcc6f3c4aab69dc871262ce3a8954bf",
+      "size_bytes": 1968,
+      "sha256": "60e4b9b70e55c5bb6036f1f1aa51c95fbb6b083a0c78b487344fa1769509f20c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193846,8 +193844,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3889,
-      "sha256": "465a8df78c12e78dec7218477a05e2a63ef37270734b36498b445fa6a2e7326c",
+      "size_bytes": 2553,
+      "sha256": "e0e42c85423ecba594b98ad087cecff9b4ebf4c63f0e089f0a547629872c9391",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193880,8 +193878,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2482,
-      "sha256": "dc2e879e5d32daf3d97e8122cf373b73ff74abce6b68012ffb238a9b7e344c46",
+      "size_bytes": 2611,
+      "sha256": "da0be6dbce18585a23a50c6dbf644c452dc0ed365e36f8cd0ff0218ad51ae4b1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193914,8 +193912,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1799,
-      "sha256": "43a54db6576d4f906f00dd8e97dc80f5afdcf29905134ebf42a44f36f23bddc2",
+      "size_bytes": 1905,
+      "sha256": "79c8700eff715caad7a04a5df55c1a4003c60fdf3f2284124c2a37dd3dd4587e",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -193948,8 +193946,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4129,
-      "sha256": "b21d5ee4cd7977bb15a8868ddbaa7d1e6148ec2061910d54e9a9cfc66f0fc9fc",
+      "size_bytes": 2649,
+      "sha256": "f3e22f2da5a76a5e8a00c92fd6b40b39a5a46f425b4e45b006033c5c45c82334",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194018,8 +194016,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2850,
-      "sha256": "82bed9b82da923205999eafbdce0c5039fcdb75032aeb8aca4866a393efa7427",
+      "size_bytes": 2110,
+      "sha256": "de96bb63df1bf7542d6786d73406074d89dfced491934ca42700f853ed979b23",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194052,8 +194050,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4222,
-      "sha256": "ec35e70d04c6a4465f2b9c89bf538af2100aa8d47dcccc96d8ac4ee38be86806",
+      "size_bytes": 2724,
+      "sha256": "13c85f1470402f421fa5cbecc8809fe3023cce577e99962ed4299f60d0f85689",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194120,8 +194118,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3801,
-      "sha256": "5e83e33f3c62c0e37b76eaefde8801f69c79acad82b15d3dc062ff90dfa81f3f",
+      "size_bytes": 2498,
+      "sha256": "39be637e7141c62e96a4a503b9ad1a16a1b126da928725a861e8ed2dee733d57",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194188,8 +194186,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2219,
-      "sha256": "5dd03f16d6f159fe9669a5e345e5d75c5a53329e311d36b481bfd88b45373cca",
+      "size_bytes": 2343,
+      "sha256": "992dfa5dc9da703436bd04a2dfb07c294314862a614ed22a520f0cd3c7b45b1d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194222,8 +194220,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 5416,
-      "sha256": "9305c8a4a39ef6eae4e247810d4ab8e196ad0abc451cbf00a0f6baaec66fb99d",
+      "size_bytes": 4635,
+      "sha256": "3a8dffaef81176c5c9c7fb62ad6f8c663d313ef20a39bace48730bc0ac7d3123",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194256,8 +194254,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3532,
-      "sha256": "0493127c6c2d5ddcd0cfbd281a121fc3b42415ab572e6d2298f314869d61b829",
+      "size_bytes": 2218,
+      "sha256": "c6092b9328680ba22056f1bbe8bb3e0add880f5b78ee75fe0da0a6432c1a30cf",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194290,8 +194288,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3440,
-      "sha256": "1f45aeae42b678a4dc1f227a6e73bb7521609ded4e76b10b2eba657d85adec76",
+      "size_bytes": 2146,
+      "sha256": "0b72ded76e8cc13db1f4a9dee893f27f37874cedd9c1b36ff92f86164746c324",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194324,8 +194322,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 5194,
-      "sha256": "da768df6464ecffe1fb509c4dcd9e738c4b75f2f601aa9e22a71c2de2a042d9b",
+      "size_bytes": 3435,
+      "sha256": "0cdf613f362a85106dc4a785bf42379e9585c1fb3c15439b58b69bef5add65d0",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194392,8 +194390,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3773,
-      "sha256": "ed9c6fe4d36243bd5d5ae764ef87e6ea3b589c4e8ddfcd782cb9660209c7e9be",
+      "size_bytes": 2501,
+      "sha256": "ae8bcd5519890697dbffa33939d8a37c23e87252ecc5de5e77a4216225d9ca2f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194426,8 +194424,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4590,
-      "sha256": "7f13dfc4eac3cb60ea9216c7529121eab5fbf1407a036a0f70f3896f665bc586",
+      "size_bytes": 3247,
+      "sha256": "86796ab3645e0b2f301f1b81a62e34d330a19a0bcca57ed952ca92c640f35f07",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194532,8 +194530,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3990,
-      "sha256": "07037b22f58dc3b0b84296fe8fec990cb11b302e151cd325c9bd6c4ef11b762e",
+      "size_bytes": 2543,
+      "sha256": "96fbef9dd4bde45104115599019def3d3b74bf7fceb8e1f1d9fce2cfd667b86c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194566,8 +194564,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2915,
-      "sha256": "acb4a6879890739c45ba34d61b053bfc743f2ecf069937ad6e7853ee7254cee0",
+      "size_bytes": 3033,
+      "sha256": "8b0771701b3b2d9ebf0a94500308ec79d81497b84a80d43e42b2908d73710d26",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194600,8 +194598,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1792,
-      "sha256": "409c57a7c93deff29c25c001e4ddd2dc7b272c1d557f163f0a855606b0f35176",
+      "size_bytes": 1897,
+      "sha256": "dd3e6ae756be937e191e81783b552a734424a3f6e3677691a962e384c7d8c901",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194874,8 +194872,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1793,
-      "sha256": "388074b43fb8bf7c9a175776e59127997511ff17812f61507cb731d939cdd6d4",
+      "size_bytes": 1897,
+      "sha256": "b4c79c07bc630dd8dd75c3b8a8c62221054d892e3bd1cf453a0d98a714e92046",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194908,8 +194906,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3523,
-      "sha256": "a3b1926aa3e7f68e63f8b477cb9816ddf3e3e163a579709ca463f392302ae356",
+      "size_bytes": 2242,
+      "sha256": "a6763f472c1fd385f8cb6530c800342584cbf86350f6a416669e6050e17015cf",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -194978,8 +194976,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1818,
-      "sha256": "3018a743db28af64a2864fab4d6f5e78abf41ce78f27b36024d7f0a50179acf3",
+      "size_bytes": 1920,
+      "sha256": "61f0f0fef0a7220c67e2724a1ef48298d35a045ce6742232f6cc9f4c5e0cd1d4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195046,8 +195044,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4005,
-      "sha256": "9285311fc0d61daea87e2992fd64a89fb4d227c7dc306436c9de8d47224dd745",
+      "size_bytes": 2624,
+      "sha256": "90936763c0c6ee9cc9f50fd342c68e175740908ca55ee670ba29c7fe256372be",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195080,8 +195078,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1864,
-      "sha256": "eb3a3dbec1d02bc9fbf27c266fcfe559d1b03c6a5823deacd735f4c4f394cf3f",
+      "size_bytes": 1962,
+      "sha256": "634190cf3d15bba6676ea8677836498c6bc1864f46d53ab1e70aba550781a367",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195182,8 +195180,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3848,
-      "sha256": "c2a9c63a14bb49ee49c9f9247a6b238ba9cb9ac944834d10fef8abadda898323",
+      "size_bytes": 2534,
+      "sha256": "581b6fb3e0f8b80f3eba60db5a99d22d84579057767bc4fba18625163f874141",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195216,8 +195214,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4397,
-      "sha256": "7acb855804bde01116862d7f9bd97a7180ef8261b4116beeb65abfe2ae16d031",
+      "size_bytes": 3059,
+      "sha256": "d199087d1eff5011c670ee80bacbab9a5101827f35f3b94cc8beb1d8647ca3d6",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195352,8 +195350,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4749,
-      "sha256": "5845d55f05c659cf4a39655032c21f9c869499492557be963a80eca20bafaaea",
+      "size_bytes": 3476,
+      "sha256": "42f430b17198f60d95409ff062d48560dbae0282cccebd9524f748a576e97cd3",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195386,8 +195384,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4745,
-      "sha256": "cadfbc59a836bfb7571057f26d262fe42fa1bbd30fa7fa7dfdc33a0328a41bb5",
+      "size_bytes": 3472,
+      "sha256": "c7976eaaf98d1ded75ebad00937884ac173334c653f009dd4e9b43c31eb7dda1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195420,8 +195418,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3875,
-      "sha256": "94a3b7c9c34cc2b0cfadd418509862e310bab83e033b0295e7521e85ed57e16a",
+      "size_bytes": 2474,
+      "sha256": "baca75cb285be0b6a2f28f670ee422ea982d81d10573ff44c1860e9cddedcf5e",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195488,8 +195486,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2426,
-      "sha256": "41e4a062474e66e6556f6d76a9201f09fe42eed7dfc6508081b796a4dda88f79",
+      "size_bytes": 2553,
+      "sha256": "55762a001a1d3b27dc6fdf4aed35e338fa1bacaf03f5c367862d5e2da4759ccc",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195522,8 +195520,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3817,
-      "sha256": "d49d1c8a571e5b753f4b7c9dd820ede37e48f8b936834267379c92cab154cfd7",
+      "size_bytes": 2528,
+      "sha256": "8383c1af0cfa8f241a5e8cd75ab6392a10c8e6e47ab0b950a2fae568a9c44f48",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195556,8 +195554,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3978,
-      "sha256": "a2e0ec563e370993537e0a3ed30b8d3dc23c14cd5240186222249ac4a3409e06",
+      "size_bytes": 2615,
+      "sha256": "c96544b1ab979c4f4d56486d9760a93f95f87379e7230b4f9e7501cd4f316169",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195660,8 +195658,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2345,
-      "sha256": "139fbb13e3e0ec05ceff3803a771e72c6f8d361cb08969c103e47a9fe1b40a4b",
+      "size_bytes": 2472,
+      "sha256": "0f870c2f6c6c3dc71e2529fde053384276238d47026c632fc90e5b660fe6076a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195694,8 +195692,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3766,
-      "sha256": "ff2674620e337ced298c152a846bce69c53256e9aef45f25bd3fbfa51ef12c17",
+      "size_bytes": 2522,
+      "sha256": "4490df72ba0720bbbab9d1822f66d31a2aacb15729c06b6bf88fe986c9286f6b",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195728,8 +195726,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2375,
-      "sha256": "bcfc3a1b1b9fe216d07efed00b1469475f0e0ff14118bbc96c23d3d454348c3b",
+      "size_bytes": 2500,
+      "sha256": "e83331e3206f400270b3e073463beb5542f347a9ebe744195e0c13296a8e175c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195762,8 +195760,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4500,
-      "sha256": "0edac4c15d2b312b9de072e7d9f23a7d737d63ec4f09112a019a75cf7302a4da",
+      "size_bytes": 2897,
+      "sha256": "562ca329dbfbf9d9b97ad88c0c8e6c78c2876328a8b3dbdf221d1f6abb25ee0a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195796,8 +195794,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2199,
-      "sha256": "c6d857181aafd7b9eb1c99034e3feed1c9e95c6bf59d529ba606ae2de768e6e4",
+      "size_bytes": 2323,
+      "sha256": "3eedec6ff6a128b17b6844f4734efb449f510ada046b82d7e24fbc2ed677f8db",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195830,8 +195828,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3571,
-      "sha256": "85e1052058f716fd071c311ff051d7ecab14e333ac415d299d4dffac83f05e19",
+      "size_bytes": 2249,
+      "sha256": "63daecbb9f58d92a7511e3d1c03ee0064aceb769ef7812f47c737b3ba4cc5e3a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195864,8 +195862,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2166,
-      "sha256": "b1860b42ead97c801f13e44cc8521a5214dc8153840372fd75af66f8400a11e4",
+      "size_bytes": 2295,
+      "sha256": "411e870869c8cd2ba1071b3d5ec5965ec68e08250d3c3cbce0da347d541ecc1e",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195934,8 +195932,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2086,
-      "sha256": "2e1e200a24f2ff1a77dc3cf25fb93133d882c4646773256be4902e3f8859fc51",
+      "size_bytes": 2210,
+      "sha256": "63cf102ac4967fef2942cc9309538c2de4fa5b4b13cf296e8e049b724c2dac5f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -195968,8 +195966,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1796,
-      "sha256": "e8b02ce5d05218f904800587a0d928a5dc6c213219926ea7f427d6f0f40a4b48",
+      "size_bytes": 1896,
+      "sha256": "7e53456d0fb1ad37ca65f386ae81f1a77838db4d473c7281d906b58a3e1b0e65",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196038,8 +196036,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1788,
-      "sha256": "3bfa2b2835c66a8003610d7fb55c83e37ac501743bb75ff09b84367f1f9cd6c5",
+      "size_bytes": 1898,
+      "sha256": "258e847a6d0abe51100376ba6c17eb6a4bdc62fca0d9a81008d289433077a372",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196072,8 +196070,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4134,
-      "sha256": "7d6893771b09bc9388318a8824a31d12267e96748c53d0f6e0210d158ac1ae59",
+      "size_bytes": 2716,
+      "sha256": "c23ed3821e8f08da47bc5d48d6d1a9dbfc1dd10512e0c489ed8e02014af91645",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196106,8 +196104,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2790,
-      "sha256": "0f8700eed037574dc9199efcc9099facab63ea5e6e378f35e3bcfd376546838f",
+      "size_bytes": 2894,
+      "sha256": "8eff15e27712f76dd5f74a621abba8b1b70328705720d85be48c11d506981526",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196140,8 +196138,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1770,
-      "sha256": "499d8170d569c72612d014986f6a5f1972c1958dba289ebfbaf8f6e1c1ccd60c",
+      "size_bytes": 1874,
+      "sha256": "790deb7687fce7abd4af0ce5a66c3b32dfc14f2bb6f5c74d2b89d8efd9fcc327",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196210,8 +196208,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3615,
-      "sha256": "b4712e84082dcf2dff87c02cc1341250e79943f886167e04e3562412237935b4",
+      "size_bytes": 2307,
+      "sha256": "fb674659cd0799a7a410cde37a494ee8ef02608e9ce8e60bfcd275e491c19b21",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196244,8 +196242,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2470,
-      "sha256": "1a2e3cc464fef3fa2ffe900437116174d2e6751aae370f0fc269c581a6889cad",
+      "size_bytes": 2591,
+      "sha256": "855d9d7411954005e963149abb3d2e0ffa00d25967406a535f4a3b780a6104b7",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196278,8 +196276,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2655,
-      "sha256": "e7e25baa050a0a17f708a5b15e73436ea1610a88de7762348c19de1156216dd1",
+      "size_bytes": 2787,
+      "sha256": "a5748fd98ccc156a14a0ece03f9848b0a13492f29f2e357a5fcbff57a922fab4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196348,8 +196346,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2685,
-      "sha256": "4a4e8e239020d56bc2f879fedc60bf4d681aaaaf6e89933819b9607885dde6aa",
+      "size_bytes": 1920,
+      "sha256": "75a973c158b76e604bd5e3465d9d31e63cfe10dc281435bc56433aa90717614d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196382,8 +196380,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3514,
-      "sha256": "dd8a412101a4d163a4249caeeb5ad18c11e89409e34973076e840b9b41d6a590",
+      "size_bytes": 2220,
+      "sha256": "0c3c21382422839198bee8771a94618affbc5872ba91dc8f6a4b6b6a74fd4fbc",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196416,8 +196414,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3482,
-      "sha256": "3ed5a0cbd6b42fc363841e4ab90562330e820696b514a6cc874d48e6b191057b",
+      "size_bytes": 2209,
+      "sha256": "d80d86b0dc51761db8841c1df3cb710fc2383bc93307b8962ebd9cfd416a0734",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196486,8 +196484,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 868,
-      "sha256": "d80178df90c4f26e8f231acb19116d8143cebf964ca6794ee02e192eafd85df0",
+      "size_bytes": 1110,
+      "sha256": "42248c10e792d378bde13eaf9e4f262f5efe3e87894d0c5dd6e101de14e12bf9",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196554,8 +196552,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4201,
-      "sha256": "fa146672f1b34889afadf64339326b6c5a7c7032d43c35d4bb891c55b4ea8378",
+      "size_bytes": 2770,
+      "sha256": "bab345178791325f30e59a6cf751df2ab7348a7b95df956c29c15de30d5e0519",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196624,8 +196622,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4263,
-      "sha256": "41fecd20a3112c2ad5f78b8b08ea84cd87b968c93f40ea353f0d7ffa7a90b5ed",
+      "size_bytes": 2800,
+      "sha256": "b3cb2d54b0b3443ee05a2ed6cac111bf47ac3cd74ef89582ca33a001b12afcf5",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -196658,8 +196656,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1772,
-      "sha256": "903a949d0927effd4ca7943c13fe6bd2f80b422839c3b8e4b2618248c9d41309",
+      "size_bytes": 1876,
+      "sha256": "0fdd2d5eaae9ac48c39f3c2e0c1874178474b9e1ffb13fcf4d81e2fac9bc35a1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],

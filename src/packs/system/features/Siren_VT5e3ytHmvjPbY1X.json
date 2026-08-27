@@ -5,7 +5,7 @@
   "system": {
     "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br /><br /><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.</p>",
     "actions": {
-      "Siren": {
+      "b6NEse2L26dcoLv7": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Your comm buzzes with your own voice: ‘Come home.’</i><br><br><p class=\"Card-Feature\">Generates perfect voices and prompts to lure you deeper into the system.",
@@ -26,7 +26,11 @@
         "name": "Siren",
         "img": "modules/cybermancy/assets/icons/ice/siren.webp",
         "range": "",
-        "_id": "b6NEse2L26dcoLv7"
+        "_id": "b6NEse2L26dcoLv7",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": {
@@ -49,11 +53,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1762170911502,
-    "modifiedTime": 1763905776221,
+    "modifiedTime": 1787574145237,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "VT5e3ytHmvjPbY1X",

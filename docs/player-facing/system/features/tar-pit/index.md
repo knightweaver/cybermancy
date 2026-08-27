@@ -7,10 +7,6 @@
 ## Actions
 - <div markdown='1'>**Tar Pit**<br>*Your thoughts drag like they’re knee-deep in code molasses.
 
-Locks your interface until you force-disconnect or spend Hope to break free.*</div>
-
-- <div markdown='1'>**Tar Pit**<br>*Your thoughts drag like they’re knee-deep in code molasses.
-
 Locks your interface until you force-disconnect or spend Hope to break free.
 
 Spend 1 Hope before attempting any hacking action.*</div>

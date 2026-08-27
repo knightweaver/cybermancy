@@ -7,8 +7,6 @@
 ## Actions
 - <div markdown='1'>**Heavy Ordinance**<br>*You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.*</div>
 
-- <div markdown='1'>**Heavy Ordinance**<br>*You are able to use any type of weaponry including heavy military ordinance that no other PC can normally use.*</div>
-
 ---
 
 <div class="meta" markdown="1">
