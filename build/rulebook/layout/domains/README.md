@@ -2,7 +2,7 @@
 
 This directory defines the **G.3 DomainPackage design proof and all-Domain regression phase** for Chapter 14, *Domains and Domain Cards*.
 
-Maker is the accepted visual reference fixture. Its three-column grammar has passed semantic validation, rendered regression, and visual review. The current milestone applies that grammar unchanged to every DomainPackage discovered from Step 4 before Chapter 14/Pandoc integration.
+Maker is the accepted structural visual reference fixture. Its three-column grammar has passed semantic validation and visual review. The final readability refinement raises all text inside each Domain Card entry to a **10.5 pt minimum** before the grammar is frozen and integrated into Chapter 14.
 
 ## Publication unit
 
@@ -63,9 +63,9 @@ Step 4 owns deterministic ordering: **level -> case-insensitive name -> stable s
 
 No Domain description is invented.
 
-## Accepted Maker visual grammar
+## Accepted DomainPackage visual structure
 
-The accepted standalone grammar is:
+The accepted standalone structure is:
 
 1. A compact Domain identity opener contains the Chapter/Part label, Domain name, derived card/level count, and staged Domain PNG artwork.
 2. The staged SVG mask remains part of the semantic identity contract but is not required for the current rendering grammar.
@@ -75,7 +75,7 @@ The accepted standalone grammar is:
 6. Card descriptions use the same first-line spacing fix accepted for Classes/Subclasses: the identity row is explicitly terminated, then rules text begins in its own zero-`parskip`, zero-`parindent` paragraph group with explicit font leading. Normalized line/paragraph whitespace is collapsed into one publication paragraph before rendering.
 7. Each card entry shows its image, name, Level, Recall Cost, optional `IN VAULT` marker, and rules text. Long rules text may continue naturally rather than being trapped in an unbreakable card box.
 8. The default `ability` classification is not repeated visually. `cardType` remains in the semantic view and appears only for a future non-default classification.
-9. Card body text is 9 pt with 11.3 pt leading; card names are 12 pt.
+9. **No text inside a Domain Card entry may render below 10.5 pt.** Rules text is 10.5 pt with 12.1 pt leading; Level and Recall Cost metadata are 10.5 pt; card names remain 12 pt. Level and Recall Cost are stacked on separate lines so the larger metadata remains wrap-safe in the three-column grammar.
 10. No Domain-specific or card-specific layout exceptions are permitted during all-Domain regression.
 
 The three-column flow uses `paracol`, matching the page-breakable parallel-column approach accepted for ClassPackage. A legacy two-column path remains only for older regression fixtures; the canonical DomainPackage configuration is three columns.
@@ -103,13 +103,15 @@ Every all-Domain `build` runs the same child validation used by Maker. A success
 - render-asset reconciliation;
 - LuaLaTeX compilation;
 - no overfull `hbox` or `vbox` warnings;
-- every card heading rendered exactly once;
-- every Level heading rendered exactly once and in view order;
-- each card heading associated with nearby Level/Recall Cost metadata;
+- every card heading rendered exactly once, including headings that wrap across multiple PDF text lines;
+- every Level heading resolved exactly once and in view order even though 10.5 pt card metadata now uses standalone `LEVEL N` lines;
+- each card heading associated with nearby Level/Recall Cost metadata, whether metadata is stacked or legacy-inline;
 - the configured three-column publication flow to produce the expected distinct column starts whenever enough cards are present;
 - the first card in every active column for a Level to begin on the same page and within the configured top-alignment tolerance;
-- the first-to-second description baseline to match configured body leading when measurable;
+- the first-to-second description baseline to match configured 12.1 pt body leading when measurable;
 - no intermediate PDF page between the first and last card page with zero card headings.
+
+The PDF geometry validator is deliberately wrap-aware so long names such as multi-line Circuit card titles do not produce false failures merely because `pdftotext` splits a visible heading across lines.
 
 The batch discovery layer also reconciles the number of discovered packages and total cards against Step 4 `domainSemantics` when those counts are present. It discovers Domain keys dynamically from `domainPackages`; Bullet, Circuit, and Maker are not hard-coded into the batch builder.
 
@@ -153,4 +155,4 @@ build/rulebook/layout/reports/domain-packages/<domain>.json
 
 ## Current boundary
 
-The immediate acceptance task is **all-Domain regression and visual review**, with particular attention to long-card stress cases and pagination density in the non-Maker packages. Do not replace Chapter 14 in the full rulebook until every discovered Domain passes the same grammar without Domain-specific exceptions. Once that succeeds, freeze DomainPackage v1 and proceed to Chapter 14/Pandoc integration.
+The immediate acceptance task is **one final all-Domain regression after the 10.5 pt readability refinement**. Do not replace Chapter 14 in the full rulebook until every discovered Domain passes the same grammar without Domain-specific exceptions. Once that succeeds and the enlarged card text is visually accepted, freeze DomainPackage v1 and proceed to Chapter 14/Pandoc integration.
