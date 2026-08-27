@@ -35,6 +35,7 @@
     "cardSoftColor": "F3F8F8",
     "ruleColor": "B9D9DC",
     "pageMarginIn": 0.55,
+    "pageBottomSafetyPt": 2.0,
     "identityArtWidthIn": 1.1,
     "cardArtWidthFraction": 0.24,
     "cardArtMaxHeightIn": 0.88,
