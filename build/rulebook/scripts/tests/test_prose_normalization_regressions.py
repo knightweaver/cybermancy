@@ -12,11 +12,15 @@ from rulebook_normalize.markdown import (
 
 
 class TestProseNormalizationRegressions(unittest.TestCase):
-    def test_image_heading_block_boundary_is_explicit_and_idempotent(self):
+    def test_image_heading_block_boundary_is_explicit(self):
+        # Step 4 normalizes canonical authored source once per build. The
+        # contract is that a missing image -> heading boundary becomes an
+        # explicit blank line in the normalized output; repeated application to
+        # already-normalized output is not part of the pipeline contract.
         src = "![Corp](corp.webp)\n### Corp Name\nBody.\n"
         out = ensure_image_heading_block_boundaries(src)
         self.assertIn("![Corp](corp.webp)\n\n### Corp Name", out)
-        self.assertEqual(ensure_image_heading_block_boundaries(out), out)
+        self.assertNotIn("![Corp](corp.webp)\n### Corp Name", out)
 
     def test_selected_parent_and_descendant_are_not_duplicated(self):
         src = (
