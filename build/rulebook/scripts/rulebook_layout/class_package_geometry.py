@@ -82,16 +82,20 @@ def _extract_pdf_lines(pdf_path: Path) -> tuple[list[PdfLine] | None, str | None
     return lines, None
 
 
-def _find_line(lines: list[PdfLine], prefix: str, *, page: int | None = None) -> PdfLine | None:
+def _find_lines(lines: list[PdfLine], prefix: str, *, page: int | None = None) -> list[PdfLine]:
     wanted = _normalize(prefix)
     if not wanted:
-        return None
-    for line in lines:
-        if page is not None and line.page != page:
-            continue
-        if _normalize(line.text).startswith(wanted):
-            return line
-    return None
+        return []
+    return [
+        line
+        for line in lines
+        if (page is None or line.page == page) and _normalize(line.text).startswith(wanted)
+    ]
+
+
+def _find_line(lines: list[PdfLine], prefix: str, *, page: int | None = None) -> PdfLine | None:
+    matches = _find_lines(lines, prefix, page=page)
+    return matches[0] if matches else None
 
 
 def _next_wrapped_line(lines: list[PdfLine], first: PdfLine) -> PdfLine | None:
@@ -137,6 +141,56 @@ def _starting_package_pairs(cls: dict[str, Any]) -> list[tuple[str, str]]:
     return pairs
 
 
+def _starting_package_scope(lines: list[PdfLine]) -> list[PdfLine]:
+    """Limit package matching to the rendered Starting Package section.
+
+    Short labels such as ``Take`` can legitimately occur in feature prose on an
+    earlier page. The renderer always emits STARTING PACKAGE before the first
+    SUBCLASS page, so use those structural markers to avoid cross-page false
+    matches while still allowing a package itself to move to a later class page.
+    """
+    header = next((line for line in lines if _normalize(line.text) == "starting package"), None)
+    if header is None:
+        return lines
+
+    subclass_pages = [
+        line.page
+        for line in lines
+        if _normalize(line.text) == "subclass" and line.page >= header.page
+    ]
+    end_page = min(subclass_pages) if subclass_pages else None
+
+    scoped: list[PdfLine] = []
+    for line in lines:
+        if line.page < header.page:
+            continue
+        if line.page == header.page and line.y_min < header.y_min:
+            continue
+        if end_page is not None and line.page >= end_page:
+            continue
+        scoped.append(line)
+    return scoped
+
+
+def _find_best_package_pair(lines: list[PdfLine], label: str, value: str) -> tuple[PdfLine | None, PdfLine | None]:
+    label_lines = _find_lines(lines, label)
+    value_lines = _find_lines(lines, _prefix(value, words=3))
+    if not label_lines or not value_lines:
+        return (label_lines[0] if label_lines else None, value_lines[0] if value_lines else None)
+
+    same_page = [
+        (abs(label_line.y_min - value_line.y_min), label_line.page, label_line.y_min, label_line, value_line)
+        for label_line in label_lines
+        for value_line in value_lines
+        if label_line.page == value_line.page
+    ]
+    if same_page:
+        _, _, _, label_line, value_line = min(same_page, key=lambda item: item[:3])
+        return label_line, value_line
+
+    return label_lines[0], value_lines[0]
+
+
 def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) -> dict[str, Any]:
     details: dict[str, Any] = {"descriptionLineSpacing": [], "startingPackageBaselines": []}
     errors: list[str] = []
@@ -177,9 +231,9 @@ def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) 
                 f"Subclass description first-line spacing for {subclass.get('name')} is {delta:.2f} pt; expected 10.0-13.8 pt."
             )
 
+    package_lines = _starting_package_scope(lines)
     for label, value in _starting_package_pairs(cls):
-        label_line = _find_line(lines, label)
-        value_line = _find_line(lines, _prefix(value, words=3))
+        label_line, value_line = _find_best_package_pair(package_lines, label, value)
         if label_line is None or value_line is None:
             errors.append(f"Could not locate rendered Starting Package pair: {label} / {value}.")
             continue

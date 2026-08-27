@@ -67,6 +67,26 @@ class TestStep6ClassPackageGeometry(unittest.TestCase):
         self.assertEqual(2, result["details"]["startingPackageBaselines"][0]["page"])
         self.assertEqual(3, result["details"]["descriptionLineSpacing"][1]["page"])
 
+    def test_geometry_ignores_earlier_feature_prose_that_starts_with_package_label(self):
+        lines = [
+            PdfLine(1, "First class line wraps into", 300.0, 100.0, 470.0, 110.0),
+            PdfLine(1, "another line for geometry validation.", 300.0, 112.3, 500.0, 122.3),
+            PdfLine(1, "Take a Reaction when the drone moves.", 40.0, 240.0, 280.0, 250.0),
+            PdfLine(2, "STARTING PACKAGE", 30.0, 80.0, 150.0, 90.0),
+            PdfLine(2, "Take", 30.0, 120.0, 60.0, 130.0),
+            PdfLine(2, "Pendant Lens", 130.0, 120.4, 210.0, 130.4),
+            PdfLine(3, "SUBCLASS", 40.0, 60.0, 100.0, 70.0),
+            PdfLine(3, "First subclass line wraps into", 40.0, 100.0, 220.0, 110.0),
+            PdfLine(3, "another line for geometry validation.", 40.0, 112.1, 240.0, 122.1),
+        ]
+
+        result = evaluate_class_package_geometry(lines, self._view())
+
+        self.assertEqual("PASS", result["status"])
+        baseline = result["details"]["startingPackageBaselines"][0]
+        self.assertEqual(2, baseline["page"])
+        self.assertEqual(0.4, baseline["deltaPoints"])
+
     def test_geometry_rejects_excessive_description_leading(self):
         lines = self._lines()
         lines[1] = replace(lines[1], y_min=116.0, y_max=126.0)
