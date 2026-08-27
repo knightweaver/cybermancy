@@ -151,8 +151,8 @@ def shift_headings(text: str, minimum_level: int = 3) -> str:
 
 
 _IMAGE_HEADING_ADJACENCY_RE = re.compile(
-    r'(?m)^(?P<image>\s*!\[[^\]\n]*\]\([^\n]+\)(?:\{[^\n}]*\})?\s*)\n'
-    r'(?P<heading>\s*#{1,6}\s+[^\n]+)$'
+    r'(?m)^(?P<image>[ \t]*!\[[^\]\n]*\]\([^\n]+\)(?:\{[^\n}]*\})?[ \t]*)\n'
+    r'(?P<heading>[ \t]*#{1,6}[ \t]+[^\n]+)$'
 )
 
 
