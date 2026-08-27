@@ -1,0 +1,159 @@
+{
+  "schema": "cybermancy-rulebook-prose-layout-v1",
+  "version": "1.0",
+  "status": "ACCEPTED",
+  "acceptedDate": "2026-08-27",
+  "scope": [
+    "part-i-world",
+    "part-v-gm-world"
+  ],
+  "sourceContract": {
+    "primary": "build/rulebook/source/assembled/complete-rulebook.md",
+    "assetRoot": "build/rulebook/source/assets",
+    "acceptedRegressionSnapshotCommit": "8d7782aff5dbe0f212910ecffa649acd2c0eb0cb",
+    "canonicalContentMutable": false,
+    "layoutMayRewriteCanonicalProse": false
+  },
+  "page": {
+    "size": "US Letter",
+    "bodyColumns": 2,
+    "marginsInches": {
+      "top": 0.72,
+      "bottom": 0.7,
+      "inner": 0.78,
+      "outer": 0.78
+    },
+    "columnGapInches": 0.24
+  },
+  "typography": {
+    "bodyFamily": "Noto Serif",
+    "bodySizePt": 10.3,
+    "bodyLeadingPt": 14.2,
+    "displayFamily": "Lato",
+    "paragraphStyle": "space-between-no-indent",
+    "bodyAlignment": "justified"
+  },
+  "palette": {
+    "paper": "F9F9F7",
+    "ink": "111B28",
+    "bodyText": "202833",
+    "cyan": "3CCBC7",
+    "teal": "1B7078",
+    "indigo": "5968D9",
+    "gmViolet": "6C55A6",
+    "paleCyan": "EAF6F5",
+    "paleViolet": "F0EDF7"
+  },
+  "partOpener": {
+    "standalonePage": true,
+    "darkBackground": true,
+    "rectoPolicy": "integration-decision-pending",
+    "playerAccent": "cyan",
+    "gmAccent": "gmViolet",
+    "bodyColumns": 1
+  },
+  "chapterOpener": {
+    "startsNewPage": true,
+    "integratedBodyPage": true,
+    "darkTitleBand": true,
+    "chapterNumberVisible": true,
+    "leadInference": false,
+    "titleBandSpansFullWidth": true
+  },
+  "body": {
+    "headingLevels": [
+      3,
+      4,
+      5
+    ],
+    "horizontalRulePrimitive": "section-separator",
+    "orphanHeadingProtection": true,
+    "widowOrphanMinimumLines": 3,
+    "lists": "compact-readable",
+    "columnBehavior": "ordinary prose and headings flow in two columns; Part openers, chapter title bands, wide artwork, and prose tables span full width"
+  },
+  "quotations": {
+    "ordinaryBlockQuote": "restrained-rule-box",
+    "fontStyle": "italic",
+    "attributionStyle": "roman",
+    "embeddedFactionQuotationStyle": "italic",
+    "pullQuote": "not-implemented-without-explicit-semantics",
+    "rule": "all semantic quotation text is italic; attribution remains roman"
+  },
+  "images": {
+    "placement": "source-order-no-free-floats",
+    "defaultTreatment": "column-width",
+    "captionInference": false,
+    "roleInference": false,
+    "semanticRoleRequiredForNondefaultTreatment": true,
+    "acceptedRegressionPresentationOverrides": {
+      "triune-sigil.png": "symbolic-column-art",
+      "council-vs-cabal.png": "full-width-wide-art",
+      "*/icons/corps/*": "compact-corporate-mark"
+    },
+    "productionAssetPolicy": "staged assets required",
+    "reviewEnvironmentMissingAssetPolicy": "fail-visible-placeholder",
+    "integrationRequirement": "If image roles require generalized automation, add explicit normalized image-role semantics rather than filename heuristics."
+  },
+  "tables": {
+    "primitive": "ordinary-prose-table",
+    "equipmentCatalogReuse": false,
+    "span": "full-width-across-both-columns",
+    "shortTable": "wrapped-cell editorial table",
+    "longTable": "paginate with repeated header",
+    "minimumBodySizePt": 8.2
+  },
+  "gmTreatment": {
+    "bodyBackgroundChanges": false,
+    "runningHeaderMarker": "GM MATERIAL",
+    "accent": "gmViolet",
+    "chapterOpenerAccent": true,
+    "persistentDarkPages": false
+  },
+  "pagination": {
+    "chapterStartsNewPage": true,
+    "partStartsStandalonePage": true,
+    "manualPageComposition": false,
+    "sourceOrderPreserved": true,
+    "deterministicWherePractical": true
+  },
+  "validation": {
+    "requiredChapters": [
+      1,
+      2,
+      3,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "detectMissingSource": true,
+    "detectWrongRouting": true,
+    "detectMissingAssets": true,
+    "detectRawHtmlLeakage": true,
+    "detectUnsupportedStructures": true,
+    "detectClippingOrPageEscape": true,
+    "detectBrokenGlyphs": true,
+    "visualInspectionRequired": true
+  },
+  "knownUpstreamRequirements": [],
+  "knownSourceDefects": [
+    {
+      "chapter": 2,
+      "classification": "editorial-residue",
+      "disposition": "report-only"
+    },
+    {
+      "chapter": 3,
+      "classification": "editorial-grammar",
+      "disposition": "report-only"
+    },
+    {
+      "chapter": 25,
+      "classification": "conversation-residue",
+      "disposition": "report-only"
+    }
+  ]
+}
