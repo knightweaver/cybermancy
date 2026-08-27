@@ -58,7 +58,18 @@ def select_named_sections(text: str, headings: list[str], include_preamble: bool
             if len(later.group('marks')) <= level:
                 end = later.start(); break
         selected_ranges.append((m.start(), end))
-    for start, end in selected_ranges:
+
+    # Requested sections may overlap when a selected parent heading contains a
+    # selected descendant heading. Merge those ranges before materializing them
+    # so descendant content is emitted exactly once.
+    merged_ranges = []
+    for start, end in sorted(selected_ranges):
+        if merged_ranges and start <= merged_ranges[-1][1]:
+            previous_start, previous_end = merged_ranges[-1]
+            merged_ranges[-1] = (previous_start, max(previous_end, end))
+        else:
+            merged_ranges.append((start, end))
+    for start, end in merged_ranges:
         chunks.append(text[start:end])
     return '\n\n'.join(x.rstrip() for x in chunks if x.strip()).rstrip() + '\n'
 
@@ -137,6 +148,26 @@ def shift_headings(text: str, minimum_level: int = 3) -> str:
         level = min(6, len(m.group('marks')) + delta)
         return '#' * level + ' ' + m.group('title')
     return HEADING_RE.sub(repl, text)
+
+
+_IMAGE_HEADING_ADJACENCY_RE = re.compile(
+    r'(?m)^(?P<image>\s*!\[[^\]\n]*\]\([^\n]+\)(?:\{[^\n}]*\})?\s*)\n'
+    r'(?P<heading>\s*#{1,6}\s+[^\n]+)$'
+)
+
+
+def ensure_image_heading_block_boundaries(text: str) -> str:
+    """Make standalone image -> heading transitions explicit Markdown blocks.
+
+    ATX headings can interrupt paragraphs in some Markdown dialects, but Pandoc
+    parsing of normalized image paragraphs is more deterministic with an
+    explicit blank line. This is a structural normalization only; it does not
+    change prose, image targets, heading text, or semantic IDs.
+    """
+    return _IMAGE_HEADING_ADJACENCY_RE.sub(
+        lambda m: f"{m.group('image')}\n\n{m.group('heading')}",
+        text,
+    )
 
 
 class _HTMLToMarkdown(HTMLParser):
@@ -298,6 +329,7 @@ def normalize_authored_markdown(path: str, text: str, assembly_record: dict) -> 
         raise ValueError(f'Unresolved Jinja remains after normalization: {path}')
     text = html_to_markdown(text)
     text = shift_headings(text, 3)
+    text = ensure_image_heading_block_boundaries(text)
     return text.strip() + '\n'
 
 
