@@ -1,6 +1,5 @@
 name,slug,description,tier,trait,range,burden,damage,weapon_feats,actions_flat
 Assault Rifle,assault-rifle,"The runner’s staple: reliable, lethal, and adaptable across every corporate warzone on Earth.",1,Strength,Far,Two Handed,d8+3,,
-Assault Rigle - Manual Build,assault-rigle-manual-build,"<p>Rebuilt by hand to inspect the difference between imported items and internally built items, particularly for the Actions node JSON</p>",1,Strength,Far,Two Handed,d8+3,,
 Cyber Spur,cyber-spur,"A retractable blade hidden in the user’s forearm, perfect for sudden, lethal strikes in close quarters.",1,Strength,Melee,One Handed,d8,,
 EMP Grenade,emp-grenade,"Pulse emitter that fries circuits, drones, and cyberware with a single electromagnetic burst.",1,Finesse,Far,One Handed,d8,,
 Fragmentation Grenade,fragmentation-grenade,A high-yield fragmentation device scattering lethal shrapnel in every direction.,1,Finesse,Far,One Handed,d12,,
@@ -14,9 +13,9 @@ SMG (Machine Pistol),smg-machine-pistol,"Lightweight submachine gun optimized fo
 Sniper Rifle,sniper-rifle,"Precision weapon built for the patient killer — silent, steady, and unerring over long distances.",1,Finesse,Very Far,Two Handed,d8+4,,
 Throwing Knives,throwing-knives,Balanced steel blades designed for silent takedowns or distraction in the shadows.,1,Agility,Close,One Handed,d6+1,,
 Vibro-Knife,vibro-knife,"A short combat blade that hums at ultrasonic speed, capable of piercing armor with surgical precision.",1,Agility,Melee,One Handed,d8+2,,
+Adv EMP Grenade,adv-emp-grenade,Improved electromagnetic charge capable of disabling entire comm grids in seconds.,2,Finesse,Far,One Handed,d10,,
+Adv Fragmentation Grenade,adv-fragmentation-grenade,Factory-tuned military variant with denser shrapnel spread and wider kill radius.,2,Finesse,Far,One Handed,d12+4,,
 Compact SMG,compact-smg,A miniaturized submachine gun favored by covert teams — concealable but vicious in a firefight.,2,Agility,Close,Two Handed,d6+6,,
-EMP Grenade+,emp-grenade,Improved electromagnetic charge capable of disabling entire comm grids in seconds.,2,Finesse,Far,One Handed,d10,,
-Fragmentation Grenade+,fragmentation-grenade,Factory-tuned military variant with denser shrapnel spread and wider kill radius.,2,Finesse,Far,One Handed,d12+4,,
 Improved Cyber Spur,improved-cyber-spur,"Enhanced retractable spurs forged from titanium alloy, near undetectable by security scanners.",2,Strength,Melee,One Handed,d8+4,,
 Improved Monofilament Whip,improved-monofilament-whip,A reinforced filament with servo control for higher cutting torque and unmatched lethality.,2,Finesse,Very Close,One Handed,d10+4,,
 Improved Shock Baton,improved-shock-baton,Upgraded battery coils deliver chained electrical arcs between multiple nearby targets.,2,Agility,Close,One Handed,d8+3,,

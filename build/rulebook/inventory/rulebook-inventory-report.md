@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `55b0ec1bd72e3e1129f7fc13cd6cada70b09befc`
+Git commit: `0f2bc470b1af99240bf4a928339ab02b3e992510`
 
 ## Scope
 
@@ -30,18 +30,18 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | Files with known exceptions | 139 |
 | Files with review flags | 26 |
 | Files with unresolved local dependencies | 7 |
-| Duplicate-content groups | 246 |
+| Duplicate-content groups | 245 |
 
 ## Files by source family
 
 | Metric | Count |
 |---|---:|
-| asset | 257 |
+| asset | 255 |
 | config | 2 |
 | data | 15 |
 | generator | 65 |
 | gm | 959 |
-| player | 1452 |
+| player | 1454 |
 | repository | 32 |
 | shared-docs | 3 |
 | structured-source | 2001 |
@@ -52,9 +52,9 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 |---|---:|
 | developer | 67 |
 | gm | 959 |
-| player | 1452 |
+| player | 1454 |
 | shared | 2019 |
-| unknown | 289 |
+| unknown | 287 |
 
 ## Files by content scope
 

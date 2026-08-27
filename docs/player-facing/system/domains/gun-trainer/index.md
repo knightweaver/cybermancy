@@ -21,8 +21,6 @@
 ## Actions
 - <div markdown='1'>**Gun Trainer**<br>*d10).  They may use this Bullet die in the same way as your Class or Subclass*</div>
 
-- <div markdown='1'>**Gun Trainer**<br>*d10).  They may use this Bullet die in the same way as your Class or Subclass*</div>
-
 ---
 
 <div class="meta" markdown="1">
