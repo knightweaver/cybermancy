@@ -6,6 +6,7 @@ from rulebook_step4_class_publication_images import (
     configure_step4_class_publication_images,
 )
 from rulebook_step4_class_relationships import configure_step4_class_relationships
+from rulebook_step4_domain_semantics import configure_step4_domain_semantics
 
 _PUBLIC = Path(__file__).resolve()
 _IMPL = _PUBLIC.with_name("build-rulebook-source.py.impl")
@@ -14,6 +15,7 @@ _IMPL = _PUBLIC.with_name("build-rulebook-source.py.impl")
 def _configure(namespace):
     configure_step4_class_relationships(namespace)
     configure_step4_class_publication_images(namespace)
+    configure_step4_domain_semantics(namespace)
 
 
 if __name__ == "__main__":
