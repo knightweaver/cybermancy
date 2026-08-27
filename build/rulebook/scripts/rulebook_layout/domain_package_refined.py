@@ -95,9 +95,9 @@ def _card_tex(
     return "\n".join(
         [
             r"\Needspace{1.55in}",
-            r"\noindent\begin{minipage}{\linewidth}",
             r"{\color{CMBright}\rule{\linewidth}{0.75pt}}",
             r"\vspace{1.2mm}",
+            r"\noindent\begin{minipage}{\linewidth}",
             rf"\begin{{minipage}}[t]{{{art_fraction:.3f}\linewidth}}",
             r"\vspace{0pt}\centering",
             rf"\includegraphics[width=\linewidth,height={style['card_art_height']:.3f}in,keepaspectratio]{{{image}}}",
@@ -108,12 +108,12 @@ def _card_tex(
             r"\vspace{0.8mm}",
             rf"{{\fontsize{{7.2}}{{8.3}}\selectfont\bfseries\color{{CMAccent}} LEVEL {level}\hspace{{0.8em}}\textbullet\hspace{{0.35em}}RECALL COST {recall}{marker_tex}\par}}",
             r"\end{minipage}",
+            r"\end{minipage}",
             r"\vspace{1.2mm}",
             rf"{{\fontsize{{{style['body_size']:.2f}}}{{{style['body_leading']:.2f}}}\selectfont\color{{CMInk}} {description}\par}}",
             r"\vspace{1.6mm}",
             r"{\color{CMRule}\rule{\linewidth}{0.35pt}}",
             r"\vspace{2.2mm}",
-            r"\end{minipage}",
         ]
     )
 
