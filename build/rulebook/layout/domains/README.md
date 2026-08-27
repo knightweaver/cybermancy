@@ -71,7 +71,7 @@ The standalone renderer currently uses this review grammar:
 2. The staged SVG mask remains part of the semantic identity contract but is not required for the first visual rendering pass.
 3. Level groups are full-width semantic dividers in ascending order.
 4. Cards flow in two balanced publication columns beneath each Level divider.
-5. Each card entry keeps its image, name, Level, Recall Cost, optional `IN VAULT` marker, and rules text together when practical.
+5. Each card entry keeps its image, name, Level, Recall Cost, optional `IN VAULT` marker, and the start of its rules text together when practical. Long rules text may continue naturally across a column/page boundary rather than producing an overfull card box.
 6. The default `ability` card classification is not repeated visually. The normalized `cardType` remains in the view model and is displayed only when a future card uses a non-default classification.
 7. Card body text is 9 pt with 11.3 pt configured leading; card names are 12.4 pt. These are prototype values subject to visual review.
 8. Level groups request enough remaining page space to avoid beginning a card pair immediately above a page break. A Level may still continue naturally onto the next page when its cards require more space.
@@ -79,17 +79,42 @@ The standalone renderer currently uses this review grammar:
 
 This visual grammar is **not accepted/frozen yet**. Maker PDF review is the acceptance gate.
 
+## LuaLaTeX render assets
+
+Step 4 currently stages many Domain Card illustrations as WebP. LuaLaTeX/`graphicx` does not directly consume WebP, so the DomainPackage builder performs the same kind of deterministic render-only conversion already used by the rulebook PDF pipeline:
+
+- PNG/JPEG/PDF publication assets are consumed directly from the Step 4 staged tree;
+- WebP/GIF/BMP/TIFF publication assets are converted to PNG;
+- converted files are written only below the DomainPackage prototype render tree;
+- Step 4 staged assets and canonical source assets are never modified;
+- the composed DomainPackage view continues to contain the normalized Step 4 publication path rather than a render-specific path.
+
+Derived Maker render assets are written beneath:
+
+```text
+build/rulebook/layout/domain-package-prototype/_render-assets/maker/
+```
+
+Raster conversion requires Pillow. If it is not installed, install it with:
+
+```powershell
+python -m pip install Pillow
+```
+
+The build report records direct, converted, missing, and unsupported render assets under `DOMAIN_PACKAGE_RENDER_ASSETS`.
+
 ## Rendered regression
 
 A successful `build` requires:
 
+- render-asset preparation to reconcile every publication image used by the visual prototype;
 - LuaLaTeX compilation;
 - no overfull `hbox` or `vbox` warnings;
 - every card heading rendered exactly once;
 - every Level heading rendered exactly once and in view order;
 - each card heading associated with nearby Level/Recall Cost metadata;
 - two distinct card-column start positions;
-- configured body leading within tolerance when `pdftotext` can measure wrapped descriptions;
+- configured body leading within tolerance when `pdftotext` can measure a sufficiently long wrapped description;
 - no intermediate PDF page between the first and last card page with zero card headings.
 
 If `pdftotext` is unavailable, geometry/content regression is reported as a warning rather than silently skipped.
@@ -102,7 +127,7 @@ python build\rulebook\scripts\build-rulebook-domain-package.py validate
 python build\rulebook\scripts\build-rulebook-domain-package.py build
 ```
 
-Use `--verbose` anywhere for the complete report. `build --tex-only` writes the view model and LaTeX without invoking LuaLaTeX. Another Domain can be selected with `--domain-key`, but Maker remains the only visual-acceptance fixture at this stage.
+Use `--verbose` anywhere for the complete report. `build --tex-only` prepares render assets and writes the view model and LaTeX without invoking LuaLaTeX. Another Domain can be selected with `--domain-key`, but Maker remains the only visual-acceptance fixture at this stage.
 
 Default prototype output:
 
@@ -111,6 +136,8 @@ build/rulebook/layout/domain-package-prototype/
     maker-domain-package-view.json
     Cybermancy_Chapter14_Maker_DomainPackage_Step6.tex
     Cybermancy_Chapter14_Maker_DomainPackage_Step6.pdf
+    _render-assets/
+        maker/
 ```
 
 Validation report:
