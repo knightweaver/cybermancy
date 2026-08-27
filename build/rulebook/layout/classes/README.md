@@ -20,7 +20,7 @@ It does **not** read canonical Foundry JSON, generated MkDocs pages, or `docs/..
 7. Each Subclass uses compact artwork, with Spellcast Trait and lead text aligned at the top of the identity row.
 8. Foundation, Specialization, and Mastery Feature groups begin immediately below the Subclass identity/art row and preserve variable-length progression arrays. Feature descriptions may break naturally across pages while headings retain enough following space to avoid obvious orphans.
 9. Description body text uses a 10.5 pt minimum; Feature names use 12 pt; Domains use 14 pt.
-10. Feature separator rules follow Feature descriptions.
+10. Feature separators belong to the semantic feature type, not to individual features. Hope Features and Class Features each end with one separator after their final feature. Each Subclass Foundation, Specialization, and Mastery group likewise ends with one separator after its final feature; multiple features inside the same group are separated by whitespace only. Class/Subclass identity rules are unchanged.
 11. Rendered geometry validation checks description leading and Starting Package baseline alignment when `pdftotext` is available.
 12. LuaLaTeX rendering requires the `paracol` package for page-breakable parallel Subclass columns. The builder preflights this dependency when `kpsewhich` or `findtexmf` is available and emits an explicit installation diagnostic if it is missing.
 
