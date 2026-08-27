@@ -13,6 +13,8 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.domain_package import compose_domain_package
+from rulebook_layout.domain_package_geometry import PdfLine, evaluate_domain_package_geometry
+from rulebook_layout.domain_package_refined import render_domain_package_tex
 
 
 class TestStep6DomainPackage(unittest.TestCase):
@@ -38,8 +40,13 @@ class TestStep6DomainPackage(unittest.TestCase):
             source_id=None,
             domain_key="maker",
             family="domains",
-            description="Useful rules text.",
+            description=None,
         ):
+            description = (
+                description
+                if description is not None
+                else f"{name} rules text begins here and continues with enough detail for a second rendered line."
+            )
             return {
                 "semanticId": semantic_id,
                 "family": family,
@@ -125,8 +132,19 @@ class TestStep6DomainPackage(unittest.TestCase):
         config = {
             "schema": "cybermancy-step6-domain-package-config-v1.0",
             "chapter": 14,
+            "partLabel": "CHARACTER OPTIONS",
             "title": "Domains and Domain Cards",
             "prototype": {"domainKey": "maker"},
+            "composition": {
+                "kind": "domain-package",
+                "pageColumns": 2,
+                "defaultCardType": "ability",
+            },
+            "style": {
+                "cardBodyFontPt": 9.0,
+                "cardBodyLeadingPt": 11.3,
+                "levelMinStartSpaceIn": 2.65,
+            },
             "prototypePolicy": {
                 "consumeStep4Only": True,
                 "requireStructuredSidecarSchema": "cybermancy-step4-structured-entities-v1.3",
@@ -248,6 +266,61 @@ class TestStep6DomainPackage(unittest.TestCase):
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_DOMAIN_SEMANTICS", {item["code"] for item in report["errors"]})
 
+    def test_renderer_uses_two_column_level_grammar_and_step4_assets(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source_root, sidecar, config = self._fixture(root)
+            output_dir = root / "build/rulebook/layout/domain-package-prototype"
+            output_dir.mkdir(parents=True)
+            view, report = compose_domain_package(sidecar, source_root, "maker", config)
+            self.assertEqual(report["status"], "PASS")
+
+            tex = render_domain_package_tex(view, config, source_root, output_dir)
+
+            self.assertIn("MAKER", tex)
+            self.assertIn("LEVEL 1", tex)
+            self.assertIn("LEVEL 2", tex)
+            self.assertIn("Alpha", tex)
+            self.assertIn("Beta", tex)
+            self.assertIn("Gamma", tex)
+            self.assertIn("RECALL COST 1", tex)
+            self.assertIn(r"\begin{multicols}{2}", tex)
+            self.assertIn("alpha.webp", tex)
+            self.assertNotIn("src/packs", tex)
+            self.assertNotIn("modules/cybermancy", tex)
+
+    def test_rendered_geometry_contract_checks_columns_levels_and_recall(self):
+        with tempfile.TemporaryDirectory() as td:
+            source_root, sidecar, config = self._fixture(Path(td))
+            view, report = compose_domain_package(sidecar, source_root, "maker", config)
+            self.assertEqual(report["status"], "PASS")
+
+            lines = [
+                PdfLine(1, "LEVEL 1", 40, 100, 100, 115),
+                PdfLine(1, "Alpha", 110, 150, 160, 165),
+                PdfLine(1, "LEVEL 1 • RECALL COST 1", 110, 170, 230, 180),
+                PdfLine(1, "Alpha rules text begins here and", 40, 205.0, 260, 215),
+                PdfLine(1, "continues with enough detail for", 40, 216.3, 260, 226),
+                PdfLine(1, "a second rendered line.", 40, 227.6, 210, 237),
+                PdfLine(1, "Beta", 385, 150, 430, 165),
+                PdfLine(1, "LEVEL 1 • RECALL COST 1", 385, 170, 505, 180),
+                PdfLine(1, "Beta rules text begins here and", 315, 205.0, 535, 215),
+                PdfLine(1, "continues with enough detail for", 315, 216.3, 535, 226),
+                PdfLine(1, "a second rendered line.", 315, 227.6, 485, 237),
+                PdfLine(1, "LEVEL 2", 40, 350, 100, 365),
+                PdfLine(1, "Gamma", 110, 400, 165, 415),
+                PdfLine(1, "LEVEL 2 • RECALL COST 1", 110, 420, 230, 430),
+                PdfLine(1, "Gamma rules text begins here and", 40, 455.0, 270, 465),
+                PdfLine(1, "continues with enough detail for", 40, 466.3, 260, 476),
+                PdfLine(1, "a second rendered line.", 40, 477.6, 210, 487),
+            ]
+
+            geometry = evaluate_domain_package_geometry(lines, view, config)
+
+            self.assertEqual(geometry["status"], "PASS", geometry)
+            self.assertEqual(geometry["details"]["columnStarts"], [110, 385])
+            self.assertEqual([row["level"] for row in geometry["details"]["levelHeadings"]], [1, 2])
+
     def test_cli_defaults_to_terse_pass_and_verbose_can_follow_command(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
@@ -284,6 +357,46 @@ class TestStep6DomainPackage(unittest.TestCase):
             self.assertEqual(verbose.returncode, 0, verbose.stdout + verbose.stderr)
             self.assertIn('"status": "PASS"', verbose.stdout)
             self.assertIn('"domainKey": "maker"', verbose.stdout)
+
+    def test_cli_build_tex_only_writes_visual_prototype_inputs(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source_root, sidecar, config = self._fixture(root)
+            config_path = root / "config.json"
+            sidecar_path = root / "structured-entities.json"
+            report_path = root / "report.json"
+            output_dir = root / "prototype"
+            config_path.write_text(json.dumps(config), encoding="utf-8")
+            sidecar_path.write_text(json.dumps(sidecar), encoding="utf-8")
+
+            proc = subprocess.run(
+                [
+                    sys.executable,
+                    str(DOMAIN_PACKAGE_CLI),
+                    "build",
+                    "--tex-only",
+                    "--config",
+                    str(config_path),
+                    "--sidecar",
+                    str(sidecar_path),
+                    "--source-root",
+                    str(source_root),
+                    "--output-dir",
+                    str(output_dir),
+                    "--report",
+                    str(report_path),
+                ],
+                text=True,
+                capture_output=True,
+            )
+
+            self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+            self.assertEqual(proc.stdout, "build-rulebook-domain-package.py: PASS\n")
+            self.assertTrue((output_dir / "maker-domain-package-view.json").is_file())
+            self.assertTrue(
+                (output_dir / "Cybermancy_Chapter14_Maker_DomainPackage_Step6.tex").is_file()
+            )
+            self.assertTrue(report_path.is_file())
 
 
 if __name__ == "__main__":
