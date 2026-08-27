@@ -240,7 +240,6 @@ def _level_tex(
     composition = config.get("composition") if isinstance(config.get("composition"), dict) else {}
     level_min_start = float(style_config.get("levelMinStartSpaceIn", 2.20) or 2.20)
     columns = max(1, int(composition.get("pageColumns") or 3))
-    groups = _partition_cards(cards, columns)
 
     pieces = [
         rf"\Needspace{{{level_min_start:.2f}in}}",
@@ -251,24 +250,36 @@ def _level_tex(
         r"\vspace{0.8mm}",
         r"{\color{CMRule}\rule{\linewidth}{0.55pt}}",
         r"\vspace{1.8mm}",
-        rf"\begin{{paracol}}{{{columns}}}",
     ]
-    for column_index, group in enumerate(groups):
-        if column_index:
-            pieces.append(r"\switchcolumn")
-        pieces.append(r"\vspace{0pt}")
-        for card_index, card in enumerate(group):
-            pieces.append(
-                _card_tex(
-                    card,
-                    config,
-                    source_root,
-                    output_dir,
-                    render_assets,
-                    first_in_column=card_index == 0,
+
+    if columns >= 3:
+        groups = _partition_cards(cards, columns)
+        pieces.append(rf"\begin{{paracol}}{{{columns}}}")
+        for column_index, group in enumerate(groups):
+            if column_index:
+                pieces.append(r"\switchcolumn")
+            pieces.append(r"\vspace{0pt}")
+            for card_index, card in enumerate(group):
+                pieces.append(
+                    _card_tex(
+                        card,
+                        config,
+                        source_root,
+                        output_dir,
+                        render_assets,
+                        first_in_column=card_index == 0,
+                    )
                 )
-            )
-    pieces.extend([r"\end{paracol}", r"\vspace{0.5mm}"])
+        pieces.append(r"\end{paracol}")
+    else:
+        # Preserve the earlier two-column prototype mode for regression fixtures;
+        # the accepted Maker visual grammar is configured to use three columns.
+        pieces.extend([rf"\begin{{multicols}}{{{columns}}}", r"\raggedcolumns"])
+        for card in cards:
+            pieces.append(_card_tex(card, config, source_root, output_dir, render_assets))
+        pieces.append(r"\end{multicols}")
+
+    pieces.append(r"\vspace{0.5mm}")
     return "\n".join(pieces)
 
 
@@ -298,6 +309,7 @@ def render_domain_package_tex(
 \usepackage{{graphicx}}
 \usepackage{{tabularx}}
 \usepackage{{array}}
+\usepackage{{multicol}}
 \usepackage{{paracol}}
 \usepackage{{needspace}}
 \setmainfont{{Latin Modern Roman}}
@@ -312,6 +324,8 @@ def render_domain_package_tex(
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{0pt}}
 \setlength{{\columnsep}}{{{style['column_sep']:.3f}in}}
+\setlength{{\multicolsep}}{{0pt}}
+\setlength{{\columnseprule}}{{0pt}}
 \pagestyle{{plain}}
 \begin{{document}}
 \sffamily
