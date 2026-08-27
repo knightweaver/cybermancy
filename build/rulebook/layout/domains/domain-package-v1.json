@@ -19,7 +19,30 @@
     "identityArtwork": [
       "image",
       "mask"
-    ]
+    ],
+    "pageColumns": 2,
+    "showCardType": "only-when-nondefault",
+    "defaultCardType": "ability",
+    "showInVault": "only-when-true"
+  },
+  "style": {
+    "accentColor": "0B6573",
+    "accentBrightColor": "18A7B5",
+    "inkColor": "183238",
+    "mutedColor": "58747A",
+    "softColor": "EAF4F5",
+    "cardSoftColor": "F3F8F8",
+    "ruleColor": "B9D9DC",
+    "pageMarginIn": 0.55,
+    "identityArtWidthIn": 1.1,
+    "cardArtWidthFraction": 0.24,
+    "cardArtMaxHeightIn": 0.88,
+    "columnSepIn": 0.26,
+    "cardBodyFontPt": 9.0,
+    "cardBodyLeadingPt": 11.3,
+    "cardTitleFontPt": 12.4,
+    "cardTitleLeadingPt": 13.4,
+    "levelMinStartSpaceIn": 2.65
   },
   "prototypePolicy": {
     "consumeStep4Only": true,
@@ -29,6 +52,8 @@
     "requireCardDescription": true,
     "failOnRawSourceReferences": true,
     "foundryFoldersAreNonAuthoritative": true,
+    "blockOnLatexOverflow": true,
+    "renderedContentRegression": true,
     "astIntegration": "deferred-until-domain-package-grammar-acceptance"
   }
 }
