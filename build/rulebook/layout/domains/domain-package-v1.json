@@ -1,0 +1,34 @@
+{
+  "schema": "cybermancy-step6-domain-package-config-v1.0",
+  "chapter": 14,
+  "partLabel": "CHARACTER OPTIONS",
+  "title": "Domains and Domain Cards",
+  "prototype": {
+    "domainKey": "maker"
+  },
+  "composition": {
+    "kind": "domain-package",
+    "primaryFamily": "domains",
+    "groupBy": "level",
+    "levelOrder": "ascending",
+    "cardOrder": [
+      "level",
+      "name",
+      "sourceId"
+    ],
+    "identityArtwork": [
+      "image",
+      "mask"
+    ]
+  },
+  "prototypePolicy": {
+    "consumeStep4Only": true,
+    "requireStructuredSidecarSchema": "cybermancy-step4-structured-entities-v1.3",
+    "requireDomainSemanticsSchema": "cybermancy-step4-domain-semantics-v1.0",
+    "requireStagedImages": true,
+    "requireCardDescription": true,
+    "failOnRawSourceReferences": true,
+    "foundryFoldersAreNonAuthoritative": true,
+    "astIntegration": "deferred-until-domain-package-grammar-acceptance"
+  }
+}
