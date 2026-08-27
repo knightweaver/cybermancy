@@ -21,14 +21,26 @@ class PdfLine:
 
 def _normalize(value: Any) -> str:
     text = unicodedata.normalize("NFKC", str(value or ""))
-    text = text.replace("\u00ad", "")
+    text = text.replace("\u00ad", "").replace("\u00a0", " ").replace("\u200b", "")
     for dash in ("\u2010", "\u2011", "\u2012", "\u2013", "\u2014"):
         text = text.replace(dash, "-")
+    for quote in ("\u2018", "\u2019", "\u2032"):
+        text = text.replace(quote, "'")
+    for quote in ("\u201c", "\u201d", "\u2033"):
+        text = text.replace(quote, '"')
+    text = text.replace("\u2026", "...")
     return " ".join(text.split()).casefold()
 
 
-def _prefix(value: Any, words: int = 5) -> str:
-    return " ".join(_normalize(value).split()[:words])
+def _loose_normalize(value: Any) -> str:
+    """Normalize extractor-sensitive punctuation around otherwise stable prose."""
+    text = _normalize(value)
+    return text.lstrip(" \t\r\n'\"`*_([{<.!?:;,-")
+
+
+def _prefix(value: Any, words: int = 5, *, loose: bool = False) -> str:
+    normalized = _loose_normalize(value) if loose else _normalize(value)
+    return " ".join(normalized.split()[:words])
 
 
 def _extract_pdf_lines(pdf_path: Path) -> tuple[list[PdfLine] | None, str | None]:
@@ -93,6 +105,18 @@ def _starts(lines: list[PdfLine], value: Any, *, page: int | None = None) -> lis
         line
         for line in lines
         if (page is None or line.page == page) and _normalize(line.text).startswith(wanted)
+    ]
+
+
+def _starts_loose(lines: list[PdfLine], value: Any, *, page: int | None = None) -> list[PdfLine]:
+    wanted = _loose_normalize(value)
+    if not wanted:
+        return []
+    return [
+        line
+        for line in lines
+        if (page is None or line.page == page)
+        and _loose_normalize(line.text).startswith(wanted)
     ]
 
 
@@ -162,10 +186,6 @@ def _card_heading_matches(
     exact = _exact(lines, name)
     candidates = exact
     if not candidates:
-        # A long title may wrap after one word or after two. Prefer the more
-        # specific two-word prefix, then fall back to the first word; metadata
-        # qualification below prevents ordinary prose from being mistaken for
-        # the card heading.
         word_count = len(_normalize(name).split())
         for words in (min(2, word_count), 1):
             if words <= 0:
@@ -191,19 +211,32 @@ def _description_first_line(
         return None
     for words in (5, 4, 3, 2, 1):
         prefix = _prefix(description, words)
-        if not prefix:
-            continue
-        candidates = [
-            line
-            for line in _starts(lines, prefix, page=heading.page)
-            if 0 < line.y_min - heading.y_min <= 180.0
-            and abs(line.x_min - heading.x_min) <= 120.0
-        ]
-        if candidates:
-            return min(
-                candidates,
-                key=lambda line: (abs(line.x_min - heading.x_min), line.y_min),
-            )
+        if prefix:
+            candidates = [
+                line
+                for line in _starts(lines, prefix, page=heading.page)
+                if 0 < line.y_min - heading.y_min <= 180.0
+                and abs(line.x_min - heading.x_min) <= 120.0
+            ]
+            if candidates:
+                return min(
+                    candidates,
+                    key=lambda line: (abs(line.x_min - heading.x_min), line.y_min),
+                )
+
+        loose_prefix = _prefix(description, words, loose=True)
+        if loose_prefix:
+            candidates = [
+                line
+                for line in _starts_loose(lines, loose_prefix, page=heading.page)
+                if 0 < line.y_min - heading.y_min <= 180.0
+                and abs(line.x_min - heading.x_min) <= 120.0
+            ]
+            if candidates:
+                return min(
+                    candidates,
+                    key=lambda line: (abs(line.x_min - heading.x_min), line.y_min),
+                )
     return None
 
 
@@ -234,6 +267,7 @@ def evaluate_domain_package_geometry(
         "levelHeadings": [],
         "recallAssociations": [],
         "descriptionLineSpacing": [],
+        "descriptionLineSpacingSkipped": [],
         "columnStarts": [],
         "columnTopAlignment": [],
         "cardsPerPage": {},
@@ -251,6 +285,7 @@ def evaluate_domain_package_geometry(
 
     heading_lines: list[PdfLine] = []
     heading_by_name: dict[str, PdfLine] = {}
+    descriptions_expected = 0
     for card in cards:
         name = str(card.get("name") or "")
         level = int(card.get("level") or 0)
@@ -289,9 +324,17 @@ def evaluate_domain_package_geometry(
             )
 
         description = str(card.get("description") or "").strip()
+        if description:
+            descriptions_expected += 1
         first = _description_first_line(lines, heading, description)
         if description and first is None:
-            errors.append(f"Could not locate the first rendered description line for {name!r}.")
+            details["descriptionLineSpacingSkipped"].append(
+                {
+                    "name": name,
+                    "page": heading.page,
+                    "reason": "first rendered description line could not be anchored reliably",
+                }
+            )
         elif first is not None:
             wrapped = sorted(
                 [
@@ -319,6 +362,19 @@ def evaluate_domain_package_geometry(
                         f"Card description first-line spacing for {name!r} is {delta:.2f} pt; "
                         f"expected {leading_min:.1f}-{leading_max:.1f} pt."
                     )
+            elif description:
+                details["descriptionLineSpacingSkipped"].append(
+                    {
+                        "name": name,
+                        "page": first.page,
+                        "reason": "description did not contain two measurable rendered baselines",
+                    }
+                )
+
+    if descriptions_expected and not details["descriptionLineSpacing"]:
+        errors.append(
+            "Rendered DomainPackage contains card descriptions but no measurable first-to-second-line body-leading sample."
+        )
 
     level_positions: list[tuple[int, float, int]] = []
     max_cards_in_level = 0
@@ -407,7 +463,7 @@ def evaluate_domain_package_geometry(
             f"Rendered DomainPackage geometry/content regression found {len(errors)} blocking issue(s)."
             if errors
             else (
-                "Rendered DomainPackage card headings, level order, recall metadata, first-line body leading, "
+                "Rendered DomainPackage card headings, level order, recall metadata, sampled first-line body leading, "
                 f"and {requested_columns}-column top alignment are consistent."
             )
         ),
