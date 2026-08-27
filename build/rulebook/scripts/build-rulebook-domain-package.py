@@ -23,6 +23,7 @@ from rulebook_layout.domain_package_refined import (
     domain_package_view_filename,
     render_domain_package_tex,
 )
+from rulebook_layout.render_assets import prepare_lualatex_render_assets
 
 
 DEFAULT_CONFIG = REPO_ROOT / "build/rulebook/layout/domains/domain-package-v1.json"
@@ -220,6 +221,28 @@ def _decorate_report(
     )
 
 
+def _publication_image_references(view: dict[str, Any]) -> list[str]:
+    references: list[str] = []
+    domain = view.get("domain") if isinstance(view.get("domain"), dict) else {}
+    artwork = domain.get("artwork") if isinstance(domain.get("artwork"), dict) else {}
+    identity_image = str(artwork.get("image") or "").strip()
+    if identity_image:
+        references.append(identity_image)
+
+    levels = view.get("levels") if isinstance(view.get("levels"), list) else []
+    for level in levels:
+        if not isinstance(level, dict):
+            continue
+        cards = level.get("cards") if isinstance(level.get("cards"), list) else []
+        for card in cards:
+            if not isinstance(card, dict):
+                continue
+            image = str(card.get("image") or "").strip()
+            if image:
+                references.append(image)
+    return references
+
+
 def _run(args: argparse.Namespace, verbose: bool) -> int:
     config, sidecar, source_root, output_dir, report_path, domain_key = _load_inputs(args)
     view, report = compose_domain_package(sidecar, source_root, domain_key, config)
@@ -256,17 +279,48 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
     view_path = output_dir / domain_package_view_filename(domain_name)
     tex_path = output_dir / f"{stem}.tex"
     pdf_path = output_dir / f"{stem}.pdf"
+    render_root = output_dir / "_render-assets" / domain_key
 
     _write_json(view_path, view)
-    tex_path.write_text(
-        render_domain_package_tex(view, config, source_root, output_dir),
-        encoding="utf-8",
-    )
     _append_check(
         report,
         "DOMAIN_PACKAGE_VIEW",
         "PASS",
         f"Wrote composed DomainPackage view to {view_path}.",
+    )
+
+    render_asset_map, render_asset_details = prepare_lualatex_render_assets(
+        _publication_image_references(view),
+        source_root,
+        render_root,
+    )
+    render_asset_ok = render_asset_details.get("status") == "PASS"
+    _append_check(
+        report,
+        "DOMAIN_PACKAGE_RENDER_ASSETS",
+        "PASS" if render_asset_ok else "ERROR",
+        (
+            f"Prepared {render_asset_details.get('converted', 0)} converted and "
+            f"{render_asset_details.get('direct', 0)} directly supported DomainPackage render asset(s)."
+            if render_asset_ok
+            else "DomainPackage render-asset preparation failed."
+        ),
+        render_asset_details,
+    )
+    report["renderAssets"] = render_asset_details
+    if not render_asset_ok:
+        _write_json(report_path, report)
+        return _emit(report, verbose)
+
+    tex_path.write_text(
+        render_domain_package_tex(
+            view,
+            config,
+            source_root,
+            output_dir,
+            render_asset_map,
+        ),
+        encoding="utf-8",
     )
     _append_check(
         report,
