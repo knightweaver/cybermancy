@@ -27,6 +27,7 @@ DEFAULT_SOURCE_ROOT = REPO_ROOT / "build/rulebook/source"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "build/rulebook/layout/class-package-prototype"
 DEFAULT_REPORT = REPO_ROOT / "build/rulebook/layout/reports/class-package-razz-hacker.json"
 SCRIPT_LABEL = SCRIPT_PATH.name
+REQUIRED_LATEX_PACKAGES = {"paracol.sty": "paracol"}
 
 
 def _path(value: str | None, default: Path) -> Path:
@@ -53,6 +54,98 @@ def _append_check(report: dict[str, Any], code: str, status: str, message: str, 
         report.setdefault("errors", []).append(item)
     elif status == "WARNING":
         report.setdefault("warnings", []).append(item)
+
+
+def _probe_latex_package(package_file: str) -> tuple[bool | None, list[dict[str, Any]]]:
+    probes: list[dict[str, Any]] = []
+    for tool in ("kpsewhich", "findtexmf"):
+        exe = shutil.which(tool)
+        if not exe:
+            continue
+        proc = subprocess.run(
+            [exe, package_file],
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        stdout = (proc.stdout or "").strip()
+        stderr = (proc.stderr or "").strip()
+        probes.append(
+            {
+                "tool": tool,
+                "returncode": proc.returncode,
+                "stdout": stdout,
+                "stderr": stderr,
+            }
+        )
+        if proc.returncode == 0 and stdout:
+            return True, probes
+    if probes:
+        return False, probes
+    return None, probes
+
+
+def _preflight_latex_dependencies(tex_path: Path) -> dict[str, Any]:
+    source = tex_path.read_text(encoding="utf-8")
+    required = [
+        package_file
+        for package_file, package_name in REQUIRED_LATEX_PACKAGES.items()
+        if rf"\usepackage{{{package_name}}}" in source
+    ]
+    details: dict[str, Any] = {"required": required, "packages": []}
+    if not required:
+        return {
+            "code": "CLASS_PACKAGE_LATEX_DEPENDENCIES",
+            "status": "PASS",
+            "message": "No additional ClassPackage LaTeX package dependencies were detected.",
+            "details": details,
+        }
+
+    missing: list[str] = []
+    unknown: list[str] = []
+    for package_file in required:
+        available, probes = _probe_latex_package(package_file)
+        details["packages"].append(
+            {
+                "package": package_file,
+                "available": available,
+                "probes": probes,
+            }
+        )
+        if available is False:
+            missing.append(package_file)
+        elif available is None:
+            unknown.append(package_file)
+
+    if missing:
+        names = ", ".join(REQUIRED_LATEX_PACKAGES[name] for name in missing)
+        return {
+            "code": "CLASS_PACKAGE_LATEX_DEPENDENCIES",
+            "status": "ERROR",
+            "message": (
+                "Required ClassPackage LaTeX package(s) are not installed: "
+                f"{names}. Install them in MiKTeX/TeX Live before rebuilding."
+            ),
+            "details": details,
+        }
+    if unknown:
+        return {
+            "code": "CLASS_PACKAGE_LATEX_DEPENDENCIES",
+            "status": "WARNING",
+            "message": (
+                "Could not preflight all ClassPackage LaTeX dependencies because neither kpsewhich nor "
+                "findtexmf was available; LuaLaTeX will resolve them during compilation."
+            ),
+            "details": details,
+        }
+    return {
+        "code": "CLASS_PACKAGE_LATEX_DEPENDENCIES",
+        "status": "PASS",
+        "message": "Required ClassPackage LaTeX package dependencies are available.",
+        "details": details,
+    }
 
 
 def _compile_lualatex(tex_path: Path) -> tuple[bool, str]:
@@ -172,6 +265,18 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
     if args.tex_only:
         _append_check(report, "CLASS_PACKAGE_PDF", "WARNING", "--tex-only requested; LuaLaTeX rendering was skipped.")
     else:
+        dependency = _preflight_latex_dependencies(tex_path)
+        _append_check(
+            report,
+            str(dependency.get("code") or "CLASS_PACKAGE_LATEX_DEPENDENCIES"),
+            str(dependency.get("status") or "ERROR"),
+            str(dependency.get("message") or "LaTeX dependency preflight returned no message."),
+            dependency.get("details"),
+        )
+        if report.get("status") != "PASS":
+            _write_json(report_path, report)
+            return _emit(report, verbose)
+
         ok, log = _compile_lualatex(tex_path)
         if ok and pdf_path.is_file():
             overfull = [
