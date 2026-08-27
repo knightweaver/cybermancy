@@ -1,8 +1,8 @@
 # Step 6 DomainPackage prototype
 
-This directory defines the **G.3 DomainPackage design proof** for Chapter 14, *Domains and Domain Cards*.
+This directory defines the **G.3 DomainPackage design proof and all-Domain regression phase** for Chapter 14, *Domains and Domain Cards*.
 
-Maker is the default regression fixture. The semantic composition contract is accepted; the current milestone adds a **standalone visual prototype** so the publication grammar can be reviewed before it is generalized to Bullet/Circuit or integrated into the full Chapter 14/Pandoc pipeline.
+Maker is the accepted visual reference fixture. Its three-column grammar has passed semantic validation, rendered regression, and visual review. The current milestone applies that grammar unchanged to every DomainPackage discovered from Step 4 before Chapter 14/Pandoc integration.
 
 ## Publication unit
 
@@ -63,55 +63,44 @@ Step 4 owns deterministic ordering: **level -> case-insensitive name -> stable s
 
 No Domain description is invented.
 
-## Provisional Maker visual grammar
+## Accepted Maker visual grammar
 
-The standalone renderer currently uses this review grammar:
+The accepted standalone grammar is:
 
 1. A compact Domain identity opener contains the Chapter/Part label, Domain name, derived card/level count, and staged Domain PNG artwork.
-2. The staged SVG mask remains part of the semantic identity contract but is not required for the first visual rendering pass.
+2. The staged SVG mask remains part of the semantic identity contract but is not required for the current rendering grammar.
 3. Level groups are full-width semantic dividers in ascending order.
-4. The accepted refinement prototype uses **three card columns** beneath each Level divider. Cards are partitioned into balanced contiguous column stacks so the first card in every active column begins at the same vertical origin.
-5. The previous horizontal rule across the top of every card entry has been removed. The light bottom separator remains between successive card entries.
-6. Card descriptions use the same first-line spacing fix accepted for Classes/Subclasses: the card identity row is explicitly terminated, then rules text begins in its own zero-`parskip`, zero-`parindent` paragraph group with explicit font leading. Normalized line/paragraph whitespace is collapsed into one publication paragraph before LaTeX rendering.
-7. Each card entry keeps its image, name, Level, Recall Cost, optional `IN VAULT` marker, and the start of its rules text together when practical. Long rules text may continue naturally across a column/page boundary rather than producing an overfull card box.
-8. The default `ability` card classification is not repeated visually. The normalized `cardType` remains in the view model and is displayed only when a future card uses a non-default classification.
-9. Card body text is 9 pt with 11.3 pt configured leading; card names are 12 pt. These remain prototype values subject to visual review.
-10. Level groups request enough remaining page space to avoid opening immediately above a page break. A Level may still continue naturally onto the next page when its cards require more space.
-11. No per-card special casing is permitted; the same renderer must eventually work for every DomainPackage.
+4. Cards render in **three columns** beneath each Level divider. Cards are partitioned into balanced contiguous column stacks so the first card in every active column begins at the same vertical origin.
+5. There is no horizontal rule across the top of a card entry. A light bottom separator remains between successive card entries.
+6. Card descriptions use the same first-line spacing fix accepted for Classes/Subclasses: the identity row is explicitly terminated, then rules text begins in its own zero-`parskip`, zero-`parindent` paragraph group with explicit font leading. Normalized line/paragraph whitespace is collapsed into one publication paragraph before rendering.
+7. Each card entry shows its image, name, Level, Recall Cost, optional `IN VAULT` marker, and rules text. Long rules text may continue naturally rather than being trapped in an unbreakable card box.
+8. The default `ability` classification is not repeated visually. `cardType` remains in the semantic view and appears only for a future non-default classification.
+9. Card body text is 9 pt with 11.3 pt leading; card names are 12 pt.
+10. No Domain-specific or card-specific layout exceptions are permitted during all-Domain regression.
 
-The three-column flow uses `paracol`, matching the page-breakable parallel-column approach already accepted for ClassPackage. A legacy two-column prototype mode remains available only for regression fixtures; the canonical Maker config is three columns.
-
-This visual grammar is **not accepted/frozen yet**. Maker PDF review remains the acceptance gate.
+The three-column flow uses `paracol`, matching the page-breakable parallel-column approach accepted for ClassPackage. A legacy two-column path remains only for older regression fixtures; the canonical DomainPackage configuration is three columns.
 
 ## LuaLaTeX render assets
 
-Step 4 currently stages many Domain Card illustrations as WebP. LuaLaTeX/`graphicx` does not directly consume WebP, so the DomainPackage builder performs the same kind of deterministic render-only conversion already used by the rulebook PDF pipeline:
+Step 4 stages many Domain Card illustrations as WebP. LuaLaTeX/`graphicx` does not directly consume WebP, so the DomainPackage builder performs deterministic render-only conversion:
 
 - PNG/JPEG/PDF publication assets are consumed directly from the Step 4 staged tree;
 - WebP/GIF/BMP/TIFF publication assets are converted to PNG;
-- converted files are written only below the DomainPackage prototype render tree;
+- converted files are written only below the DomainPackage render tree;
 - Step 4 staged assets and canonical source assets are never modified;
 - the composed DomainPackage view continues to contain the normalized Step 4 publication path rather than a render-specific path.
 
-Derived Maker render assets are written beneath:
-
-```text
-build/rulebook/layout/domain-package-prototype/_render-assets/maker/
-```
-
-Raster conversion requires Pillow. If it is not installed, install it with:
+Raster conversion requires Pillow:
 
 ```powershell
 python -m pip install Pillow
 ```
 
-The build report records direct, converted, missing, and unsupported render assets under `DOMAIN_PACKAGE_RENDER_ASSETS`.
-
 ## Rendered regression
 
-A successful `build` requires:
+Every all-Domain `build` runs the same child validation used by Maker. A successful DomainPackage requires:
 
-- render-asset preparation to reconcile every publication image used by the visual prototype;
+- render-asset reconciliation;
 - LuaLaTeX compilation;
 - no overfull `hbox` or `vbox` warnings;
 - every card heading rendered exactly once;
@@ -119,12 +108,12 @@ A successful `build` requires:
 - each card heading associated with nearby Level/Recall Cost metadata;
 - the configured three-column publication flow to produce the expected distinct column starts whenever enough cards are present;
 - the first card in every active column for a Level to begin on the same page and within the configured top-alignment tolerance;
-- the **first-to-second description baseline** to match configured body leading when `pdftotext` can measure it;
+- the first-to-second description baseline to match configured body leading when measurable;
 - no intermediate PDF page between the first and last card page with zero card headings.
 
-If `pdftotext` is unavailable, geometry/content regression is reported as a warning rather than silently skipped.
+The batch discovery layer also reconciles the number of discovered packages and total cards against Step 4 `domainSemantics` when those counts are present. It discovers Domain keys dynamically from `domainPackages`; Bullet, Circuit, and Maker are not hard-coded into the batch builder.
 
-## Maker commands
+## Single-Domain commands
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-domain-package.py inspect
@@ -132,25 +121,36 @@ python build\rulebook\scripts\build-rulebook-domain-package.py validate
 python build\rulebook\scripts\build-rulebook-domain-package.py build
 ```
 
-Use `--verbose` anywhere for the complete report. `build --tex-only` prepares render assets and writes the view model and LaTeX without invoking LuaLaTeX. Another Domain can be selected with `--domain-key`, but Maker remains the only visual-acceptance fixture at this stage.
+Another Domain may be selected with `--domain-key`.
 
-Default prototype output:
+## All-Domain commands
 
-```text
-build/rulebook/layout/domain-package-prototype/
-    maker-domain-package-view.json
-    Cybermancy_Chapter14_Maker_DomainPackage_Step6.tex
-    Cybermancy_Chapter14_Maker_DomainPackage_Step6.pdf
-    _render-assets/
-        maker/
+```powershell
+python build\rulebook\scripts\build-rulebook-all-domain-packages.py inspect
+python build\rulebook\scripts\build-rulebook-all-domain-packages.py validate
+python build\rulebook\scripts\build-rulebook-all-domain-packages.py build
 ```
 
-Validation report:
+Use `--verbose` anywhere for the complete aggregate report. `build --tex-only` generates every Domain view model and LaTeX file but skips LuaLaTeX.
+
+Default all-Domain output:
 
 ```text
-build/rulebook/layout/reports/domain-package-maker.json
+build/rulebook/layout/domain-packages/
+    <domain>-domain-package-view.json
+    Cybermancy_Chapter14_<Domain>_DomainPackage_Step6.tex
+    Cybermancy_Chapter14_<Domain>_DomainPackage_Step6.pdf
+    _render-assets/
+        <domain>/
+```
+
+Aggregate and per-Domain reports:
+
+```text
+build/rulebook/layout/reports/domain-packages-all.json
+build/rulebook/layout/reports/domain-packages/<domain>.json
 ```
 
 ## Current boundary
 
-The immediate acceptance task is **Maker visual review**. Do not generalize to all Domains and do not replace Chapter 14 in the full rulebook until the Maker grammar is visually accepted. Once accepted, freeze DomainPackage v1, add all-Domain regression, and only then perform Chapter 14/Pandoc integration.
+The immediate acceptance task is **all-Domain regression and visual review**, with particular attention to long-card stress cases and pagination density in the non-Maker packages. Do not replace Chapter 14 in the full rulebook until every discovered Domain passes the same grammar without Domain-specific exceptions. Once that succeeds, freeze DomainPackage v1 and proceed to Chapter 14/Pandoc integration.
