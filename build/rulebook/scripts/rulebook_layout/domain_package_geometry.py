@@ -119,6 +119,88 @@ def _cluster_x(values: list[float], tolerance: float = 10.0) -> list[float]:
     return [round(sum(cluster) / len(cluster), 1) for cluster in clusters]
 
 
+def _nearby_card_meta(
+    lines: list[PdfLine],
+    heading: PdfLine,
+    level: int,
+    recall: int,
+) -> tuple[PdfLine | None, PdfLine | None]:
+    level_prefix = f"LEVEL {level}"
+    recall_prefix = f"RECALL COST {recall}"
+    level_lines = [
+        line
+        for line in _starts(lines, level_prefix, page=heading.page)
+        if 0 <= line.y_min - heading.y_min <= 65.0
+        and abs(line.x_min - heading.x_min) <= 70.0
+    ]
+    combined = next(
+        (
+            line
+            for line in level_lines
+            if f"recall cost {recall}" in _normalize(line.text)
+        ),
+        None,
+    )
+    if combined is not None:
+        return combined, combined
+
+    recall_lines = [
+        line
+        for line in _starts(lines, recall_prefix, page=heading.page)
+        if 0 <= line.y_min - heading.y_min <= 80.0
+        and abs(line.x_min - heading.x_min) <= 70.0
+    ]
+    return (level_lines[0] if level_lines else None, recall_lines[0] if recall_lines else None)
+
+
+def _card_heading_matches(
+    lines: list[PdfLine],
+    name: str,
+    level: int,
+    recall: int,
+) -> list[PdfLine]:
+    exact = _exact(lines, name)
+    candidates = exact
+    if not candidates:
+        # Long card names can wrap across multiple pdftotext lines. The first
+        # rendered line is enough to identify the card when it is followed by
+        # that card's Level/Recall metadata.
+        words = max(1, min(2, len(_normalize(name).split())))
+        candidates = _starts(lines, _prefix(name, words))
+
+    qualified: list[PdfLine] = []
+    for candidate in candidates:
+        level_line, recall_line = _nearby_card_meta(lines, candidate, level, recall)
+        if level_line is not None and recall_line is not None:
+            qualified.append(candidate)
+    return qualified or candidates
+
+
+def _description_first_line(
+    lines: list[PdfLine],
+    heading: PdfLine,
+    description: str,
+) -> PdfLine | None:
+    if not description.strip():
+        return None
+    for words in (5, 4, 3, 2, 1):
+        prefix = _prefix(description, words)
+        if not prefix:
+            continue
+        candidates = [
+            line
+            for line in _starts(lines, prefix, page=heading.page)
+            if 0 < line.y_min - heading.y_min <= 180.0
+            and abs(line.x_min - heading.x_min) <= 120.0
+        ]
+        if candidates:
+            return min(
+                candidates,
+                key=lambda line: (abs(line.x_min - heading.x_min), line.y_min),
+            )
+    return None
+
+
 def evaluate_domain_package_geometry(
     lines: list[PdfLine],
     view: dict[str, Any],
@@ -127,13 +209,21 @@ def evaluate_domain_package_geometry(
     config = config or {}
     style = config.get("style") if isinstance(config.get("style"), dict) else {}
     composition = config.get("composition") if isinstance(config.get("composition"), dict) else {}
-    expected_leading = float(style.get("cardBodyLeadingPt", 11.3) or 11.3)
+    minimum_font = float(style.get("minimumCardTextFontPt", 10.5) or 10.5)
+    body_font = max(minimum_font, float(style.get("cardBodyFontPt", minimum_font) or minimum_font))
+    expected_leading = max(
+        body_font + 1.6,
+        float(style.get("cardBodyLeadingPt", body_font + 1.6) or (body_font + 1.6)),
+    )
     leading_min = max(7.0, expected_leading - 1.5)
     leading_max = expected_leading + 1.8
     requested_columns = max(1, int(composition.get("pageColumns") or 3))
     top_tolerance = float(style.get("columnTopAlignmentTolerancePt", 2.0) or 2.0)
 
     details: dict[str, Any] = {
+        "minimumCardTextFontPt": minimum_font,
+        "cardBodyFontPt": body_font,
+        "cardBodyLeadingPt": expected_leading,
         "cardHeadings": [],
         "levelHeadings": [],
         "recallAssociations": [],
@@ -157,7 +247,9 @@ def evaluate_domain_package_geometry(
     heading_by_name: dict[str, PdfLine] = {}
     for card in cards:
         name = str(card.get("name") or "")
-        matches = _exact(lines, name)
+        level = int(card.get("level") or 0)
+        recall = int(card.get("recallCost") or 0)
+        matches = _card_heading_matches(lines, name, level, recall)
         details["cardHeadings"].append(
             {"name": name, "count": len(matches), "pages": [line.page for line in matches]}
         )
@@ -170,41 +262,28 @@ def evaluate_domain_package_geometry(
         details["cardsPerPage"].setdefault(str(heading.page), 0)
         details["cardsPerPage"][str(heading.page)] += 1
 
-        meta_prefix = f"LEVEL {int(card.get('level') or 0)}"
-        nearby_meta = [
-            line
-            for line in _starts(lines, meta_prefix, page=heading.page)
-            if 0 <= line.y_min - heading.y_min <= 30.0
-            and abs(line.x_min - heading.x_min) <= 50.0
-        ]
-        wanted_recall = f"recall cost {int(card.get('recallCost') or 0)}"
-        meta_match = next(
-            (line for line in nearby_meta if wanted_recall in _normalize(line.text)),
-            None,
-        )
+        level_line, recall_line = _nearby_card_meta(lines, heading, level, recall)
+        matched = None
+        if level_line is not None and recall_line is not None:
+            matched = (
+                level_line.text
+                if level_line is recall_line
+                else f"{level_line.text} / {recall_line.text}"
+            )
         details["recallAssociations"].append(
             {
                 "name": name,
                 "page": heading.page,
-                "matched": meta_match.text if meta_match else None,
+                "matched": matched,
             }
         )
-        if meta_match is None:
+        if matched is None:
             errors.append(
                 f"Could not associate {name!r} with nearby LEVEL/RECALL COST metadata on the rendered page."
             )
 
         description = str(card.get("description") or "").strip()
-        description_candidates = [
-            line
-            for line in _starts(lines, _prefix(description), page=heading.page)
-            if line.y_min > heading.y_min and line.y_min - heading.y_min <= 140.0
-        ]
-        first = min(
-            description_candidates,
-            key=lambda line: (abs(line.x_min - heading.x_min), line.y_min),
-            default=None,
-        )
+        first = _description_first_line(lines, heading, description)
         if description and first is None:
             errors.append(f"Could not locate the first rendered description line for {name!r}.")
         elif first is not None:
@@ -214,20 +293,17 @@ def evaluate_domain_package_geometry(
                     for line in lines
                     if line.page == first.page
                     and line.y_min >= first.y_min
-                    and line.y_min - first.y_min <= 75.0
-                    and abs(line.x_min - first.x_min) <= 30.0
+                    and line.y_min - first.y_min <= 90.0
+                    and abs(line.x_min - first.x_min) <= 35.0
                 ],
                 key=lambda line: line.y_min,
             )
             deltas = [
                 wrapped[i + 1].y_min - wrapped[i].y_min
                 for i in range(len(wrapped) - 1)
-                if 7.0 <= wrapped[i + 1].y_min - wrapped[i].y_min <= 18.0
+                if 7.0 <= wrapped[i + 1].y_min - wrapped[i].y_min <= 20.0
             ]
             if deltas:
-                # The accepted ClassPackage fix makes the first transition reliable
-                # by terminating the preceding layout box and rendering prose in its
-                # own zero-parskip paragraph block. Check that first baseline here.
                 delta = deltas[0]
                 details["descriptionLineSpacing"].append(
                     {"name": name, "page": first.page, "points": round(delta, 3)}
@@ -246,14 +322,22 @@ def evaluate_domain_package_geometry(
         value = int(level.get("level") or 0)
         level_cards = [card for card in (level.get("cards") or []) if isinstance(card, dict)]
         max_cards_in_level = max(max_cards_in_level, len(level_cards))
-        matches = _exact(lines, f"LEVEL {value}")
+        raw_matches = _exact(lines, f"LEVEL {value}")
+        # Card metadata is now intentionally allowed to be its own LEVEL line at
+        # 10.5 pt. The full-width Level divider is the leftmost exact occurrence.
+        divider = min(raw_matches, key=lambda line: (line.x_min, line.page, line.y_min), default=None)
         details["levelHeadings"].append(
-            {"level": value, "count": len(matches), "pages": [line.page for line in matches]}
+            {
+                "level": value,
+                "count": 1 if divider is not None else 0,
+                "rawCount": len(raw_matches),
+                "pages": [divider.page] if divider is not None else [],
+            }
         )
-        if len(matches) != 1:
-            errors.append(f"Level heading LEVEL {value} rendered {len(matches)} times; expected exactly once.")
+        if divider is None:
+            errors.append(f"Level heading LEVEL {value} rendered 0 times; expected exactly once.")
         else:
-            level_positions.append((matches[0].page, matches[0].y_min, value))
+            level_positions.append((divider.page, divider.y_min, value))
 
         starts = _partition_start_indexes(len(level_cards), requested_columns)
         first_lines = [
