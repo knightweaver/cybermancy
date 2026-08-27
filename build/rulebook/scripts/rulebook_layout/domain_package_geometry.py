@@ -162,11 +162,17 @@ def _card_heading_matches(
     exact = _exact(lines, name)
     candidates = exact
     if not candidates:
-        # Long card names can wrap across multiple pdftotext lines. The first
-        # rendered line is enough to identify the card when it is followed by
-        # that card's Level/Recall metadata.
-        words = max(1, min(2, len(_normalize(name).split())))
-        candidates = _starts(lines, _prefix(name, words))
+        # A long title may wrap after one word or after two. Prefer the more
+        # specific two-word prefix, then fall back to the first word; metadata
+        # qualification below prevents ordinary prose from being mistaken for
+        # the card heading.
+        word_count = len(_normalize(name).split())
+        for words in (min(2, word_count), 1):
+            if words <= 0:
+                continue
+            candidates = _starts(lines, _prefix(name, words))
+            if candidates:
+                break
 
     qualified: list[PdfLine] = []
     for candidate in candidates:
@@ -323,8 +329,6 @@ def evaluate_domain_package_geometry(
         level_cards = [card for card in (level.get("cards") or []) if isinstance(card, dict)]
         max_cards_in_level = max(max_cards_in_level, len(level_cards))
         raw_matches = _exact(lines, f"LEVEL {value}")
-        # Card metadata is now intentionally allowed to be its own LEVEL line at
-        # 10.5 pt. The full-width Level divider is the leftmost exact occurrence.
         divider = min(raw_matches, key=lambda line: (line.x_min, line.page, line.y_min), default=None)
         details["levelHeadings"].append(
             {
