@@ -103,7 +103,7 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
 
     def test_subclass_trait_terminates_before_description_block(self):
         tex = self._render()
-        path_a = tex[tex.index("PATH A") : tex.index("PATH B")]
+        path_a = tex[tex.index("PATH A") : tex.index("\\switchcolumn")]
         self.assertIn(
             "SPELLCAST TRAIT: INSTINCT\n}}\n\\par\n\\vspace{2.0mm}\n\\begingroup",
             path_a,
@@ -113,14 +113,14 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
 
     def test_blank_subclass_lead_uses_same_paragraph_structure(self):
         tex = self._render()
-        path_b = tex[tex.index("PATH B") :]
+        path_b = tex[tex.index("PATH B") : tex.index("\\end{paracol}")]
         self.assertIn("\\setlength{\\parskip}{0pt}", path_b)
         self.assertIn("\\fontsize{10.5}{12.1}\\selectfont\\itshape\\color{CMMuted}", path_b)
         self.assertIn("\\noindent No subclass lead text is currently supplied by Step 4.\\par", path_b)
 
     def test_starting_package_rows_are_top_aligned_minipage_pairs(self):
         tex = self._render()
-        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\clearpage")]
+        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\Needspace{2.6in}")]
         self.assertNotIn("\\begin{tabularx}", package)
         self.assertIn("\\begin{minipage}[t]{0.300\\linewidth}", package)
         self.assertIn("\\begin{minipage}[t]{0.660\\linewidth}", package)
@@ -134,8 +134,18 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
 
     def test_starting_package_preserves_zero_valued_traits(self):
         tex = self._render()
-        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\clearpage")]
+        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\Needspace{2.6in}")]
         self.assertIn("Agility 0, Finesse 1, Instinct 2", package)
+
+    def test_refined_renderer_uses_parallel_breakable_subclass_flow_without_forced_clearpage(self):
+        tex = self._render()
+        self.assertIn("\\usepackage{paracol}", tex)
+        self.assertIn("\\begin{paracol}{2}", tex)
+        self.assertIn("\\switchcolumn", tex)
+        self.assertIn("\\end{paracol}", tex)
+        self.assertNotIn("\\clearpage", tex)
+        self.assertLess(tex.index("STARTING PACKAGE"), tex.index("\\Needspace{2.6in}"))
+        self.assertLess(tex.index("\\Needspace{2.6in}"), tex.index("\\begin{paracol}{2}"))
 
     def test_refined_renderer_restores_base_helpers_after_use(self):
         import rulebook_layout.class_package_compact as base
