@@ -15,15 +15,21 @@ if str(SCRIPT_DIR) not in sys.path:
 from rulebook_layout.domain_package import compose_domain_package
 from rulebook_layout.domain_package_geometry import PdfLine, evaluate_domain_package_geometry
 from rulebook_layout.domain_package_refined import render_domain_package_tex
+from rulebook_layout.render_assets import prepare_lualatex_render_assets
+
+try:
+    from PIL import Image
+except ImportError:  # pragma: no cover - exercised as a skip on minimal environments.
+    Image = None
 
 
 class TestStep6DomainPackage(unittest.TestCase):
     def _fixture(self, root: Path):
         source_root = root / "build/rulebook/source"
         for rel in (
-            "assets/cards/alpha.webp",
-            "assets/cards/beta.webp",
-            "assets/cards/gamma.webp",
+            "assets/cards/alpha.png",
+            "assets/cards/beta.png",
+            "assets/cards/gamma.png",
             "assets/icons/domains/maker.png",
             "assets/icons/domains/maker.svg",
         ):
@@ -78,21 +84,21 @@ class TestStep6DomainPackage(unittest.TestCase):
                     "entity:domains:a",
                     "Alpha",
                     1,
-                    "assets/cards/alpha.webp",
+                    "assets/cards/alpha.png",
                     source_id="a",
                 ),
                 card(
                     "entity:domains:b",
                     "Beta",
                     1,
-                    "assets/cards/beta.webp",
+                    "assets/cards/beta.png",
                     source_id="b",
                 ),
                 card(
                     "entity:domains:c",
                     "Gamma",
                     2,
-                    "assets/cards/gamma.webp",
+                    "assets/cards/gamma.png",
                     source_id="c",
                 ),
             ],
@@ -179,9 +185,7 @@ class TestStep6DomainPackage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             source_root, sidecar, config = self._fixture(Path(td))
             sidecar["entities"].append(copy.deepcopy(sidecar["entities"][0]))
-
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_ENTITY_IDENTITY", {item["code"] for item in report["errors"]})
 
@@ -189,9 +193,7 @@ class TestStep6DomainPackage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             source_root, sidecar, config = self._fixture(Path(td))
             sidecar["entities"][0]["family"] = "features"
-
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_REFERENCE_FAMILY", {item["code"] for item in report["errors"]})
 
@@ -199,9 +201,7 @@ class TestStep6DomainPackage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             source_root, sidecar, config = self._fixture(Path(td))
             sidecar["entities"][0]["publicationData"]["domainKey"] = "bullet"
-
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_CARD_DOMAIN", {item["code"] for item in report["errors"]})
 
@@ -213,19 +213,15 @@ class TestStep6DomainPackage(unittest.TestCase):
                 "entity:domains:a",
                 "entity:domains:c",
             ]
-
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_LEVEL_MISMATCH", {item["code"] for item in report["errors"]})
 
     def test_missing_staged_card_image_fails_closed(self):
         with tempfile.TemporaryDirectory() as td:
             source_root, sidecar, config = self._fixture(Path(td))
-            (source_root / "assets/cards/beta.webp").unlink()
-
+            (source_root / "assets/cards/beta.png").unlink()
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_ASSET", {item["code"] for item in report["errors"]})
 
@@ -240,9 +236,7 @@ class TestStep6DomainPackage(unittest.TestCase):
                 "entity:domains:b",
                 "entity:domains:a",
             ]
-
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_CARD_ORDER", {item["code"] for item in report["errors"]})
 
@@ -250,9 +244,7 @@ class TestStep6DomainPackage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             source_root, sidecar, config = self._fixture(Path(td))
             sidecar["entities"][0]["publicationData"]["description"] = "See Compendium.cybermancy.foo"
-
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_NO_SOURCE_LEAKAGE", {item["code"] for item in report["errors"]})
 
@@ -260,9 +252,7 @@ class TestStep6DomainPackage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             source_root, sidecar, config = self._fixture(Path(td))
             sidecar["domainSemantics"]["schema"] = "obsolete"
-
             _, report = compose_domain_package(sidecar, source_root, "maker", config)
-
             self.assertEqual(report["status"], "FAIL")
             self.assertIn("DOMAIN_PACKAGE_DOMAIN_SEMANTICS", {item["code"] for item in report["errors"]})
 
@@ -285,7 +275,7 @@ class TestStep6DomainPackage(unittest.TestCase):
             self.assertIn("Gamma", tex)
             self.assertIn("RECALL COST 1", tex)
             self.assertIn(r"\begin{multicols}{2}", tex)
-            self.assertIn("alpha.webp", tex)
+            self.assertIn("alpha.png", tex)
             self.assertNotIn("src/packs", tex)
             self.assertNotIn("modules/cybermancy", tex)
 
@@ -314,9 +304,7 @@ class TestStep6DomainPackage(unittest.TestCase):
                 PdfLine(1, "continues with enough detail for", 40, 466.3, 260, 476),
                 PdfLine(1, "a second rendered line.", 40, 477.6, 210, 487),
             ]
-
             geometry = evaluate_domain_package_geometry(lines, view, config)
-
             self.assertEqual(geometry["status"], "PASS", geometry)
             self.assertEqual(geometry["details"]["columnStarts"], [110, 385])
             self.assertEqual([row["level"] for row in geometry["details"]["levelHeadings"]], [1, 2])
@@ -397,6 +385,34 @@ class TestStep6DomainPackage(unittest.TestCase):
                 (output_dir / "Cybermancy_Chapter14_Maker_DomainPackage_Step6.tex").is_file()
             )
             self.assertTrue(report_path.is_file())
+
+    @unittest.skipIf(Image is None, "Pillow is not installed")
+    def test_render_asset_preparation_converts_webp_without_mutating_step4_assets(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source_root = root / "source"
+            webp_path = source_root / "assets/cards/domain-card.webp"
+            png_path = source_root / "assets/icons/domains/maker.png"
+            webp_path.parent.mkdir(parents=True)
+            png_path.parent.mkdir(parents=True)
+            Image.new("RGB", (24, 24), (100, 120, 140)).save(webp_path, format="WEBP")
+            Image.new("RGB", (24, 24), (20, 40, 60)).save(png_path, format="PNG")
+            original_webp = webp_path.read_bytes()
+
+            mapping, details = prepare_lualatex_render_assets(
+                ["assets/cards/domain-card.webp", "assets/icons/domains/maker.png"],
+                source_root,
+                root / "render",
+            )
+
+            self.assertEqual(details["status"], "PASS", details)
+            self.assertEqual(details["converted"], 1)
+            self.assertEqual(details["direct"], 1)
+            converted = Path(mapping["assets/cards/domain-card.webp"])
+            self.assertEqual(converted.suffix.lower(), ".png")
+            self.assertTrue(converted.is_file())
+            self.assertEqual(webp_path.read_bytes(), original_webp)
+            self.assertEqual(mapping["assets/icons/domains/maker.png"], str(png_path.resolve()))
 
 
 if __name__ == "__main__":
