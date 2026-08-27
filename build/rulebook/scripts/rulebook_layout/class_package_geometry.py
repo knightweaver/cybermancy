@@ -146,7 +146,7 @@ def _starting_package_scope(lines: list[PdfLine]) -> list[PdfLine]:
 
     Short labels such as ``Take`` can legitimately occur in feature prose on an
     earlier page. The renderer always emits STARTING PACKAGE before the first
-    SUBCLASS page, so use those structural markers to avoid cross-page false
+    SUBCLASS section, so use those structural markers to avoid cross-page false
     matches while still allowing a package itself to move to a later class page.
     """
     header = next((line for line in lines if _normalize(line.text) == "starting package"), None)
@@ -191,8 +191,17 @@ def _find_best_package_pair(lines: list[PdfLine], label: str, value: str) -> tup
     return label_lines[0], value_lines[0]
 
 
+def _subclass_description_text(subclass: dict[str, Any]) -> str:
+    description = str(subclass.get("description") or "").strip()
+    return description or "No subclass lead text is currently supplied by Step 4."
+
+
 def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) -> dict[str, Any]:
-    details: dict[str, Any] = {"descriptionLineSpacing": [], "startingPackageBaselines": []}
+    details: dict[str, Any] = {
+        "descriptionLineSpacing": [],
+        "startingPackageBaselines": [],
+        "subclassParallelStarts": [],
+    }
     errors: list[str] = []
 
     cls = view.get("class") if isinstance(view.get("class"), dict) else {}
@@ -211,11 +220,11 @@ def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) 
                 errors.append(f"Class description first-line spacing is {delta:.2f} pt; expected 10.0-13.8 pt.")
 
     subclasses = view.get("subclasses") if isinstance(view.get("subclasses"), list) else []
+    subclass_first_lines: list[tuple[dict[str, Any], PdfLine | None]] = []
     for subclass in subclasses:
-        description = str(subclass.get("description") or "").strip()
-        if not description:
-            description = "No subclass lead text is currently supplied by Step 4."
+        description = _subclass_description_text(subclass)
         first = _find_line(lines, _prefix(description))
+        subclass_first_lines.append((subclass, first))
         if first is None:
             errors.append(f"Could not locate the first rendered Subclass-description line for {subclass.get('name')}.")
             continue
@@ -229,6 +238,35 @@ def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) 
         if not 10.0 <= delta <= 13.8:
             errors.append(
                 f"Subclass description first-line spacing for {subclass.get('name')} is {delta:.2f} pt; expected 10.0-13.8 pt."
+            )
+
+    for offset in range(0, len(subclass_first_lines) - 1, 2):
+        left_subclass, left = subclass_first_lines[offset]
+        right_subclass, right = subclass_first_lines[offset + 1]
+        if left is None or right is None:
+            continue
+        page_aligned = left.page == right.page
+        horizontal_delta = abs(left.x_min - right.x_min) if page_aligned else None
+        details["subclassParallelStarts"].append(
+            {
+                "left": str(left_subclass.get("name") or "Subclass"),
+                "right": str(right_subclass.get("name") or "Subclass"),
+                "leftPage": left.page,
+                "rightPage": right.page,
+                "xDeltaPoints": round(horizontal_delta, 3) if horizontal_delta is not None else None,
+            }
+        )
+        if not page_aligned:
+            errors.append(
+                "Subclass pair did not begin in parallel columns: "
+                f"{left_subclass.get('name')} begins on page {left.page}, while "
+                f"{right_subclass.get('name')} begins on page {right.page}."
+            )
+        elif horizontal_delta is not None and horizontal_delta < 100.0:
+            errors.append(
+                "Subclass pair did not begin in distinct parallel columns: "
+                f"{left_subclass.get('name')} / {right_subclass.get('name')} first-line x positions differ by "
+                f"only {horizontal_delta:.2f} pt."
             )
 
     package_lines = _starting_package_scope(lines)
@@ -257,7 +295,7 @@ def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) 
         "message": (
             f"Rendered ClassPackage geometry found {len(errors)} blocking alignment issue(s)."
             if errors
-            else "Rendered ClassPackage description leading and Starting Package baselines are aligned."
+            else "Rendered ClassPackage description leading, parallel Subclass starts, and Starting Package baselines are aligned."
         ),
         "details": {**details, "errors": errors} if errors else details,
     }
