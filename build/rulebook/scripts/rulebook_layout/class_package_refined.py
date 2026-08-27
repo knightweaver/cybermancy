@@ -7,6 +7,11 @@ from . import class_package_compact as base
 from .class_package import latex_escape
 
 
+def _latex_escape_value(value: Any) -> str:
+    """Escape publication values without treating numeric zero as blank."""
+    return latex_escape("" if value is None else str(value))
+
+
 def _description_block_tex(description: str, leading: str, *, italic: bool = False) -> str:
     style = r"\itshape\color{CMMuted}" if italic else ""
     font_line = rf"\fontsize{{10.5}}{{{leading}}}\selectfont"
@@ -85,7 +90,7 @@ def _class_opening_tex(
         r"\begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X}",
         r"\rowcolor{CMSoft}",
         r"{\fontsize{10.5}{11.5}\selectfont\bfseries\color{CMMuted} HIT POINTS} & {\fontsize{10.5}{11.5}\selectfont\bfseries\color{CMMuted} EVASION} \\",
-        rf"{{\fontsize{{21}}{{22}}\selectfont\bfseries\color{{CMInk}} {latex_escape(cls.get('hitPoints'))}}} & {{\fontsize{{21}}{{22}}\selectfont\bfseries\color{{CMInk}} {latex_escape(cls.get('evasion'))}}} \\",
+        rf"{{\fontsize{{21}}{{22}}\selectfont\bfseries\color{{CMInk}} {_latex_escape_value(cls.get('hitPoints'))}}} & {{\fontsize{{21}}{{22}}\selectfont\bfseries\color{{CMInk}} {_latex_escape_value(cls.get('evasion'))}}} \\",
         r"\end{tabularx}",
         r"\par",
         r"\vspace{3.0mm}",
@@ -176,11 +181,12 @@ def render_class_package_tex(
     output_dir: Path,
 ) -> str:
     """Apply the approved structural alignment refinements to the compact renderer."""
-    original = (base._class_opening_tex, base._subclass_tex, base._package_column_tex)
+    original = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
     base._class_opening_tex = _class_opening_tex
     base._subclass_tex = _subclass_tex
     base._package_column_tex = _package_column_tex
+    base.latex_escape = _latex_escape_value
     try:
         return base.render_class_package_tex(view, config, source_root, output_dir)
     finally:
-        base._class_opening_tex, base._subclass_tex, base._package_column_tex = original
+        base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape = original
