@@ -24,12 +24,7 @@ def latex_escape(value: Any) -> str:
 
 
 def _single_paragraph(value: Any) -> str:
-    """Collapse normalized publication prose to one LaTeX paragraph.
-
-    This mirrors the accepted ClassPackage description treatment so the first
-    baseline is governed by the declared leading rather than inherited paragraph
-    glue from an immediately preceding layout box.
-    """
+    """Collapse normalized publication prose to one LaTeX paragraph."""
     return " ".join(str(value or "").split())
 
 
@@ -39,6 +34,7 @@ def _description_block_tex(description: str, body_size: float, body_leading: flo
             r"\begingroup",
             r"\setlength{\parskip}{0pt}",
             r"\setlength{\parindent}{0pt}",
+            r"\setlength{\emergencystretch}{1.5em}",
             rf"\fontsize{{{body_size:.2f}}}{{{body_leading:.2f}}}\selectfont\color{{CMInk}}",
             rf"\noindent {description}\par",
             r"\endgroup",
@@ -48,6 +44,22 @@ def _description_block_tex(description: str, body_size: float, body_leading: flo
 
 def _style(config: dict[str, Any]) -> dict[str, Any]:
     source = config.get("style") if isinstance(config.get("style"), dict) else {}
+    minimum = float(source.get("minimumCardTextFontPt", 10.5) or 10.5)
+    body_size = max(minimum, float(source.get("cardBodyFontPt", minimum) or minimum))
+    body_leading = max(
+        body_size + 1.6,
+        float(source.get("cardBodyLeadingPt", body_size + 1.6) or (body_size + 1.6)),
+    )
+    meta_size = max(minimum, float(source.get("cardMetaFontPt", minimum) or minimum))
+    meta_leading = max(
+        meta_size + 1.0,
+        float(source.get("cardMetaLeadingPt", meta_size + 1.0) or (meta_size + 1.0)),
+    )
+    title_size = max(minimum, float(source.get("cardTitleFontPt", 12.0) or 12.0))
+    title_leading = max(
+        title_size + 1.0,
+        float(source.get("cardTitleLeadingPt", title_size + 1.0) or (title_size + 1.0)),
+    )
     return {
         "accent": str(source.get("accentColor", "0B6573")),
         "bright": str(source.get("accentBrightColor", "18A7B5")),
@@ -61,10 +73,13 @@ def _style(config: dict[str, Any]) -> dict[str, Any]:
         "card_art_fraction": float(source.get("cardArtWidthFraction", 0.24) or 0.24),
         "card_art_height": float(source.get("cardArtMaxHeightIn", 0.88) or 0.88),
         "column_sep": float(source.get("columnSepIn", 0.18) or 0.18),
-        "body_size": float(source.get("cardBodyFontPt", 9.0) or 9.0),
-        "body_leading": float(source.get("cardBodyLeadingPt", 11.3) or 11.3),
-        "title_size": float(source.get("cardTitleFontPt", 12.0) or 12.0),
-        "title_leading": float(source.get("cardTitleLeadingPt", 13.0) or 13.0),
+        "minimum_card_text": minimum,
+        "body_size": body_size,
+        "body_leading": body_leading,
+        "meta_size": meta_size,
+        "meta_leading": meta_leading,
+        "title_size": title_size,
+        "title_leading": title_leading,
     }
 
 
@@ -140,13 +155,10 @@ def _card_tex(
         markers.append(latex_escape(card_type.upper()))
     if in_vault:
         markers.append("IN VAULT")
-    marker_tex = "".join(
-        rf"\hspace{{0.65em}}\textbullet\hspace{{0.30em}}{marker}" for marker in markers
-    )
 
     pieces: list[str] = []
     if not first_in_column:
-        pieces.append(r"\Needspace{1.35in}")
+        pieces.append(r"\Needspace{1.55in}")
     pieces.extend(
         [
             r"\noindent\begin{minipage}[t]{\linewidth}",
@@ -156,10 +168,19 @@ def _card_tex(
             rf"\includegraphics[width=\linewidth,height={style['card_art_height']:.3f}in,keepaspectratio]{{{image}}}",
             r"\end{minipage}\hfill",
             rf"\begin{{minipage}}[t]{{{text_fraction:.3f}\linewidth}}",
-            r"\vspace{0pt}",
+            r"\vspace{0pt}\raggedright",
             rf"{{\fontsize{{{style['title_size']:.2f}}}{{{style['title_leading']:.2f}}}\selectfont\bfseries\color{{CMInk}} {name}\par}}",
             r"\vspace{0.55mm}",
-            rf"{{\fontsize{{6.9}}{{8.0}}\selectfont\bfseries\color{{CMAccent}} LEVEL {level}\hspace{{0.60em}}\textbullet\hspace{{0.28em}}RECALL COST {recall}{marker_tex}\par}}",
+            rf"{{\fontsize{{{style['meta_size']:.2f}}}{{{style['meta_leading']:.2f}}}\selectfont\bfseries\color{{CMAccent}} LEVEL {level}\par}}",
+            rf"{{\fontsize{{{style['meta_size']:.2f}}}{{{style['meta_leading']:.2f}}}\selectfont\bfseries\color{{CMAccent}} RECALL COST {recall}\par}}",
+        ]
+    )
+    if markers:
+        pieces.append(
+            rf"{{\fontsize{{{style['meta_size']:.2f}}}{{{style['meta_leading']:.2f}}}\selectfont\bfseries\color{{CMAccent}} {' / '.join(markers)}\par}}"
+        )
+    pieces.extend(
+        [
             r"\end{minipage}",
             r"\end{minipage}",
             r"\par",
@@ -272,8 +293,6 @@ def _level_tex(
                 )
         pieces.append(r"\end{paracol}")
     else:
-        # Preserve the earlier two-column prototype mode for regression fixtures;
-        # the accepted Maker visual grammar is configured to use three columns.
         pieces.extend([rf"\begin{{multicols}}{{{columns}}}", r"\raggedcolumns"])
         for card in cards:
             pieces.append(_card_tex(card, config, source_root, output_dir, render_assets))
