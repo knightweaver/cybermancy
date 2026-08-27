@@ -143,7 +143,7 @@ def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) 
 
     cls = view.get("class") if isinstance(view.get("class"), dict) else {}
     class_description = str(cls.get("description") or "")
-    class_first = _find_line(lines, _prefix(class_description), page=1)
+    class_first = _find_line(lines, _prefix(class_description))
     if class_first is None:
         errors.append("Could not locate the first rendered Class-description line.")
     else:
@@ -161,7 +161,7 @@ def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) 
         description = str(subclass.get("description") or "").strip()
         if not description:
             description = "No subclass lead text is currently supplied by Step 4."
-        first = _find_line(lines, _prefix(description), page=2)
+        first = _find_line(lines, _prefix(description))
         if first is None:
             errors.append(f"Could not locate the first rendered Subclass-description line for {subclass.get('name')}.")
             continue
@@ -178,14 +178,19 @@ def evaluate_class_package_geometry(lines: list[PdfLine], view: dict[str, Any]) 
             )
 
     for label, value in _starting_package_pairs(cls):
-        label_line = _find_line(lines, label, page=1)
-        value_line = _find_line(lines, _prefix(value, words=3), page=1)
+        label_line = _find_line(lines, label)
+        value_line = _find_line(lines, _prefix(value, words=3))
         if label_line is None or value_line is None:
             errors.append(f"Could not locate rendered Starting Package pair: {label} / {value}.")
             continue
+        if label_line.page != value_line.page:
+            errors.append(
+                f"Starting Package label/value pair {label} / {value} rendered on different pages."
+            )
+            continue
         delta = abs(label_line.y_min - value_line.y_min)
         details["startingPackageBaselines"].append(
-            {"label": label, "value": value, "deltaPoints": round(delta, 3)}
+            {"label": label, "value": value, "page": label_line.page, "deltaPoints": round(delta, 3)}
         )
         if delta > 1.5:
             errors.append(

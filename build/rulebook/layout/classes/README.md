@@ -1,34 +1,32 @@
-# Step 6 ClassPackage prototype
+# Step 6 ClassPackage grammar
 
-This directory contains the first Chapter 12 publication-design proof for Cybermancy Classes and Subclasses.
+This directory contains the accepted Chapter 12 publication grammar for Cybermancy Classes and Subclasses.
 
-The prototype is deliberately isolated from the accepted Equipment layout grammar. It consumes only the Step 4 normalized corpus:
+The grammar was established and visually accepted using the Razz Hacker ClassPackage. It is deliberately separate from the Equipment layout grammar and consumes only the Step 4 normalized corpus:
 
 - `build/rulebook/source/metadata/structured-entities.json`
 - staged publication images below `build/rulebook/source/assets/`
 
 It does **not** read canonical Foundry JSON, generated MkDocs pages, or `docs/...` artwork directly. Step 4 owns those source interpretations and exposes only normalized semantic IDs, publication data, and staged publication assets to Step 6.
 
-## Prototype target
-
-`class-package-v1.json` currently selects the Razz Hacker Class entity as the design proof. The composition is generic: the renderer follows the Class semantic relationships to its Class/Hope Features, linked Subclasses, each Subclass progression group, and referenced starting equipment.
-
-The current compact prototype grammar is:
+## Accepted ClassPackage grammar
 
 1. Class identity, domains, and full-height Class art establish the opening.
-2. HP and Evasion begin at the top of the text column, aligned with the top of the Class art; Class lead text follows them.
+2. HP and Evasion begin at the top of the text column, aligned with the top of the Class art; the Class lead follows as a distinct paragraph block.
 3. Hope Features begin immediately below the Class-art row, followed directly by Class Features.
-4. Starting package, character-guide recommendations, Background Questions, and Connections follow when present.
-5. The linked Subclasses begin together on a new page and are paired in parallel half-page columns when two are available.
-6. Each Subclass uses artwork at roughly half the original page footprint, with Spellcast Trait and lead text aligned to the top of the artwork.
+4. Starting Package uses paired columns with label/value baseline alignment; character-guide recommendations, Background Questions, and Connections follow when present.
+5. Linked Subclasses begin together on a new page and are paired in parallel half-page columns when two are available.
+6. Each Subclass uses compact artwork, with Spellcast Trait and lead text aligned at the top of the identity row.
 7. Foundation, Specialization, and Mastery Feature groups begin immediately below the Subclass identity/art row and preserve variable-length progression arrays.
-8. If a Class eventually has more Subclasses than fit the configured column count, additional pairs continue on subsequent pages without changing the Class/Subclass semantic model.
+8. Description body text uses a 10.5 pt minimum; Feature names use 12 pt; Domains use 14 pt.
+9. Feature separator rules follow Feature descriptions.
+10. Rendered geometry validation checks description leading and Starting Package baseline alignment when `pdftotext` is available.
 
-Blank optional content is omitted cleanly. A blank Subclass description is a warning, not a pipeline failure. Broken semantic references, wrong-family references, parent mismatches, unstaged images, unsupported Step 4 schemas, and raw Foundry-reference leakage are blocking errors.
+Blank optional content is omitted cleanly. A blank Subclass description is a warning, not a pipeline failure. Broken semantic references, wrong-family references, parent mismatches, unstaged images, unsupported Step 4 schemas, raw Foundry-reference leakage, LaTeX overflow, and rendered-geometry failures are blocking errors.
 
-## Commands
+## Single-Class commands
 
-From the repository root:
+`class-package-v1.json` retains Razz Hacker as the default single-Class regression fixture:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-class-package.py inspect
@@ -36,14 +34,40 @@ python build\rulebook\scripts\build-rulebook-class-package.py validate
 python build\rulebook\scripts\build-rulebook-class-package.py build
 ```
 
-All commands use the rulebook pipeline's terse CLI convention. Add `--verbose` anywhere for the complete JSON report:
+A different Class can be selected with `--class-id`; artifact names are derived from the resolved Class name.
+
+## All-Class regression
+
+The next Step 6 production stage applies the accepted grammar to every Class entity present in the Step 4 semantic corpus:
 
 ```powershell
-python build\rulebook\scripts\build-rulebook-class-package.py build --tex-only --verbose
+python build\rulebook\scripts\build-rulebook-all-class-packages.py inspect
+python build\rulebook\scripts\build-rulebook-all-class-packages.py validate
+python build\rulebook\scripts\build-rulebook-all-class-packages.py build
 ```
 
-`build` writes generated prototype artifacts beneath `build/rulebook/layout/class-package-prototype/` and the validation report beneath `build/rulebook/layout/reports/`.
+The batch build discovers Classes dynamically from Step 4 rather than hard-coding the current count. It writes all generated ClassPackage PDFs, TeX files, and view models beneath:
 
-## D boundary
+```text
+build/rulebook/layout/class-packages/
+```
 
-This is a **standalone Step 6 design prototype**. It intentionally does not yet replace Chapter 12 inside the full Pandoc AST or full-book PDF build. That integration is deferred until the ClassPackage publication grammar is reviewed and accepted. Once the grammar is accepted, the same semantic composer can be applied to all five Classes and integrated into the chapter-level Step 6 AST transformation without creating a duplicate authoring stream.
+Per-Class validation reports are written beneath:
+
+```text
+build/rulebook/layout/reports/class-packages/
+```
+
+with the aggregate report at:
+
+```text
+build/rulebook/layout/reports/class-packages-all.json
+```
+
+All commands use the rulebook pipeline's terse CLI convention. Add `--verbose` anywhere for the complete aggregate report. `build --tex-only` generates every Class view model and LaTeX file without invoking LuaLaTeX.
+
+## Current boundary
+
+The Razz Hacker design proof is complete and the publication grammar is accepted. The current task is **all-Class regression**: confirm that the same grammar handles every Class, Class Feature set, Starting Package, Subclass pair, and variable-length progression in the canonical Step 4 corpus.
+
+Full Chapter 12/Pandoc AST integration remains deferred until this all-Class regression is reviewed and accepted. No alternate authoring stream is introduced.

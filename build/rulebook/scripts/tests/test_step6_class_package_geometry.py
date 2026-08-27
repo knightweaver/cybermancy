@@ -54,6 +54,19 @@ class TestStep6ClassPackageGeometry(unittest.TestCase):
             result["details"]["startingPackageBaselines"][0]["deltaPoints"],
         )
 
+    def test_geometry_finds_package_and_subclass_on_later_pages(self):
+        lines = self._lines()
+        lines[2] = replace(lines[2], page=2)
+        lines[3] = replace(lines[3], page=2)
+        lines[4] = replace(lines[4], page=3)
+        lines[5] = replace(lines[5], page=3)
+
+        result = evaluate_class_package_geometry(lines, self._view())
+
+        self.assertEqual("PASS", result["status"])
+        self.assertEqual(2, result["details"]["startingPackageBaselines"][0]["page"])
+        self.assertEqual(3, result["details"]["descriptionLineSpacing"][1]["page"])
+
     def test_geometry_rejects_excessive_description_leading(self):
         lines = self._lines()
         lines[1] = replace(lines[1], y_min=116.0, y_max=126.0)
