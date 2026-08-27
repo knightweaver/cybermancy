@@ -36,7 +36,7 @@ def _nonempty(value: Any) -> bool:
     return value not in (None, "", [], {})
 
 
-def _plain(value: Any) -> str:
+def _markdown(value: Any) -> str:
     if value in (None, ""):
         return ""
     return html_to_markdown(str(value)).strip()
@@ -55,12 +55,16 @@ def _iter_action_values(node: Any):
 
 def _semantic_action_score(action: dict) -> tuple[int, int, str]:
     """Prefer the richer canonical duplicate without depending on Foundry keys."""
-    description = _plain(action.get("description"))
+    description = _markdown(action.get("description"))
     semantic_fields = 0
     for key in ("cost", "uses", "damage", "effects", "target", "range"):
         if _nonempty(action.get(key)):
             semantic_fields += 1
-    return (len(description), semantic_fields, json.dumps(action, sort_keys=True, ensure_ascii=False))
+    return (
+        len(description),
+        semantic_fields,
+        json.dumps(action, sort_keys=True, ensure_ascii=False),
+    )
 
 
 def _action_identity(action: dict) -> str:
@@ -72,7 +76,7 @@ def _action_identity(action: dict) -> str:
             "name": action.get("name"),
             "type": action.get("type"),
             "actionType": action.get("actionType"),
-            "description": _plain(action.get("description")),
+            "description": _markdown(action.get("description")),
         },
         sort_keys=True,
         ensure_ascii=False,
@@ -93,7 +97,11 @@ def _normalize_costs(value: Any) -> list[dict]:
             "step": item.get("step"),
             "consumeOnSuccess": bool(item.get("consumeOnSuccess", False)),
         }
-        record = {key: val for key, val in record.items() if _nonempty(val) or val is False}
+        record = {
+            key: val
+            for key, val in record.items()
+            if _nonempty(val) or val is False
+        }
         if record:
             out.append(record)
     return out
@@ -108,7 +116,11 @@ def _normalize_uses(value: Any) -> dict | None:
         "recovery": value.get("recovery"),
         "consumeOnSuccess": bool(value.get("consumeOnSuccess", False)),
     }
-    out = {key: val for key, val in out.items() if _nonempty(val) or val is False}
+    out = {
+        key: val
+        for key, val in out.items()
+        if _nonempty(val) or val is False
+    }
     return out or None
 
 
@@ -132,11 +144,17 @@ def _normalize_damage(value: Any) -> dict | None:
         }
         if custom.get("enabled") and _nonempty(custom.get("formula")):
             damage_value["customFormula"] = custom.get("formula")
-        damage_value = {key: val for key, val in damage_value.items() if _nonempty(val)}
+        damage_value = {
+            key: val for key, val in damage_value.items() if _nonempty(val)
+        }
 
         record = {
             "applyTo": part.get("applyTo"),
-            "types": list(part.get("type") or []) if isinstance(part.get("type"), list) else part.get("type"),
+            "types": (
+                list(part.get("type") or [])
+                if isinstance(part.get("type"), list)
+                else part.get("type")
+            ),
             "base": bool(part.get("base", False)),
             "resultBased": bool(part.get("resultBased", False)),
             "value": damage_value,
@@ -144,7 +162,8 @@ def _normalize_damage(value: Any) -> dict | None:
         record = {
             key: val
             for key, val in record.items()
-            if _nonempty(val) or (key in {"base", "resultBased"} and val is False)
+            if _nonempty(val)
+            or (key in {"base", "resultBased"} and val is False)
         }
         if record:
             normalized_parts.append(record)
@@ -183,7 +202,7 @@ def normalize_actions(system: dict) -> list[dict]:
             record["type"] = str(action.get("type"))
         if _nonempty(action.get("actionType")):
             record["actionType"] = str(action.get("actionType"))
-        rules_markdown = _plain(action.get("description"))
+        rules_markdown = _markdown(action.get("description"))
         if rules_markdown:
             record["rulesMarkdown"] = rules_markdown
         costs = _normalize_costs(action.get("cost"))
@@ -243,9 +262,12 @@ def has_reader_rules(publication_data: dict) -> bool:
 
 
 def resolve_ice_folders(feature_root: Path) -> tuple[dict[str, str], list[dict]]:
-    """Resolve the canonical Sentry/Wall folder IDs by folder records, not names of entities."""
-    found: dict[str, list[dict]] = {name: [] for name in ICE_FOLDER_NAMES}
-    errors: list[dict] = []
+    """Resolve ICE types through canonical Foundry folder records.
+
+    Entity names never determine membership. The two accepted ICE folders must
+    exist exactly once and share the canonical Device Features parent.
+    """
+    folder_records: dict[str, list[dict]] = {}
     for path in sorted(feature_root.glob("*.json")):
         try:
             doc = _load_json(path)
@@ -255,13 +277,36 @@ def resolve_ice_folders(feature_root: Path) -> tuple[dict[str, str], list[dict]]
         if not isinstance(key, str) or "!folders!" not in key:
             continue
         name = doc.get("name")
-        if name in found:
-            found[name].append({"path": path, "document": doc})
+        if isinstance(name, str):
+            folder_records.setdefault(name, []).append(doc)
+
+    errors: list[dict] = []
+    device_matches = folder_records.get("Device Features", [])
+    device_folder_id: str | None = None
+    if len(device_matches) != 1:
+        errors.append(
+            {
+                "code": "ICE_PARENT_FOLDER_RESOLUTION",
+                "folderName": "Device Features",
+                "matchCount": len(device_matches),
+                "message": "Expected exactly one canonical Device Features folder record.",
+            }
+        )
+    else:
+        raw_id = device_matches[0].get("_id")
+        if isinstance(raw_id, str) and raw_id:
+            device_folder_id = raw_id
+        else:
+            errors.append(
+                {
+                    "code": "ICE_PARENT_FOLDER_ID_MISSING",
+                    "folderName": "Device Features",
+                }
+            )
 
     resolved: dict[str, str] = {}
-    parents: dict[str, Any] = {}
     for folder_name, ice_type in ICE_FOLDER_NAMES.items():
-        matches = found[folder_name]
+        matches = folder_records.get(folder_name, [])
         if len(matches) != 1:
             errors.append(
                 {
@@ -272,7 +317,7 @@ def resolve_ice_folders(feature_root: Path) -> tuple[dict[str, str], list[dict]]
                 }
             )
             continue
-        doc = matches[0]["document"]
+        doc = matches[0]
         folder_id = doc.get("_id")
         if not isinstance(folder_id, str) or not folder_id:
             errors.append(
@@ -283,17 +328,18 @@ def resolve_ice_folders(feature_root: Path) -> tuple[dict[str, str], list[dict]]
                 }
             )
             continue
+        if device_folder_id is not None and doc.get("folder") != device_folder_id:
+            errors.append(
+                {
+                    "code": "ICE_FOLDER_PARENT_MISMATCH",
+                    "folderName": folder_name,
+                    "expectedParent": device_folder_id,
+                    "actualParent": doc.get("folder"),
+                    "message": "ICE folder is not a direct child of Device Features.",
+                }
+            )
+            continue
         resolved[folder_id] = ice_type
-        parents[ice_type] = doc.get("folder")
-
-    if len(parents) == 2 and len(set(parents.values())) != 1:
-        errors.append(
-            {
-                "code": "ICE_FOLDER_PARENT_MISMATCH",
-                "parents": parents,
-                "message": "Sentry ICE and Wall ICE must share one canonical parent folder.",
-            }
-        )
     return resolved, errors
 
 
@@ -304,7 +350,7 @@ def classify_ice_document(doc: dict, folder_types: dict[str, str]) -> str | None
 
 def ice_publication_data(doc: dict, ice_type: str) -> dict:
     system = doc.get("system") if isinstance(doc.get("system"), dict) else {}
-    rules_markdown = _plain(system.get("description"))
+    rules_markdown = _markdown(system.get("description"))
     out: dict[str, Any] = {
         "featureCategory": "ice",
         "iceType": ice_type,
@@ -321,7 +367,10 @@ def ice_publication_data(doc: dict, ice_type: str) -> dict:
     return out
 
 
-def _feature_source_document(repo_root: Path, entity: dict) -> tuple[dict | None, dict | None]:
+def _feature_source_document(
+    repo_root: Path,
+    entity: dict,
+) -> tuple[dict | None, dict | None]:
     source_path = entity.get("sourcePath")
     if not isinstance(source_path, str) or not source_path:
         return None, {
@@ -392,7 +441,13 @@ def _postprocess_materialization(
                 "message": "structured-entities.json has no entities array.",
             }
         )
-        add_check(report, "ICE_SEMANTICS", "ERROR", "ICE sidecar is invalid.", errors)
+        add_check(
+            report,
+            "ICE_SEMANTICS",
+            "ERROR",
+            "ICE sidecar is invalid.",
+            errors,
+        )
         _write_json(validation_path, report)
         return
 
@@ -427,7 +482,10 @@ def _postprocess_materialization(
                     "name": entity.get("name"),
                     "iceType": ice_type,
                     "sourcePath": entity.get("sourcePath"),
-                    "message": "ICE has neither reader-facing rules text nor a meaningful normalized action.",
+                    "message": (
+                        "ICE has neither reader-facing rules text nor a meaningful "
+                        "normalized action."
+                    ),
                 }
             )
 
@@ -493,7 +551,8 @@ def configure_step4_ice_semantics(namespace: dict[str, Any]) -> None:
     original_render_entity = pipeline.render_entity
     original_materialize = pipeline.materialize
 
-    feature_root = Path(namespace.get("__file__", "")).resolve().parents[3] / "src" / "packs" / "system" / "features"
+    repo_root = Path(__file__).resolve().parents[3]
+    feature_root = repo_root / "src" / "packs" / "system" / "features"
     folder_types, folder_errors = resolve_ice_folders(feature_root)
 
     def render_entity(family: str, doc: dict, *args: Any, **kwargs: Any):
@@ -518,7 +577,14 @@ def configure_step4_ice_semantics(namespace: dict[str, Any]) -> None:
         config: dict,
         base_report: dict | None = None,
     ) -> dict:
-        report = original_materialize(repo_root, outroot, pub, asm, config, base_report)
+        report = original_materialize(
+            repo_root,
+            outroot,
+            pub,
+            asm,
+            config,
+            base_report,
+        )
         _postprocess_materialization(
             repo_root,
             outroot,
