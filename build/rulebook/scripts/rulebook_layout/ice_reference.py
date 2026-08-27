@@ -65,8 +65,14 @@ def _index_entities(
 ) -> dict[str, dict[str, Any]]:
     rows = sidecar.get("entities")
     if not isinstance(rows, list):
-        _add_check(report, "ICE_REFERENCE_ENTITIES", "ERROR", "Step 4 sidecar has no entities array.")
+        _add_check(
+            report,
+            "ICE_REFERENCE_ENTITIES",
+            "ERROR",
+            "Step 4 sidecar has no entities array.",
+        )
         return {}
+
     index: dict[str, dict[str, Any]] = {}
     duplicates: list[str] = []
     for row in rows:
@@ -79,11 +85,16 @@ def _index_entities(
             duplicates.append(semantic_id)
         else:
             index[semantic_id] = row
+
     _add_check(
         report,
         "ICE_REFERENCE_ENTITY_IDENTITY",
         "ERROR" if duplicates else "PASS",
-        "Step 4 sidecar contains duplicate semantic IDs." if duplicates else f"Indexed {len(index)} unique Step 4 semantic entities.",
+        (
+            "Step 4 sidecar contains duplicate semantic IDs."
+            if duplicates
+            else f"Indexed {len(index)} unique Step 4 semantic entities."
+        ),
         sorted(set(duplicates)) if duplicates else None,
     )
     return index
@@ -94,10 +105,20 @@ def _ice_semantics(
     config: dict[str, Any],
     report: dict[str, Any],
 ) -> tuple[list[str], dict[str, int]]:
-    policy = config.get("prototypePolicy") if isinstance(config.get("prototypePolicy"), dict) else {}
-    required_schema = str(policy.get("requireIceSemanticsSchema") or SUPPORTED_ICE_SEMANTICS_SCHEMA)
+    policy = (
+        config.get("prototypePolicy")
+        if isinstance(config.get("prototypePolicy"), dict)
+        else {}
+    )
+    required_schema = str(
+        policy.get("requireIceSemanticsSchema") or SUPPORTED_ICE_SEMANTICS_SCHEMA
+    )
     required_status = str(policy.get("requireIceSemanticsStatus") or "PASS")
-    semantics = sidecar.get("iceSemantics") if isinstance(sidecar.get("iceSemantics"), dict) else {}
+    semantics = (
+        sidecar.get("iceSemantics")
+        if isinstance(sidecar.get("iceSemantics"), dict)
+        else {}
+    )
     schema = str(semantics.get("schema") or "")
     status = str(semantics.get("status") or "")
     ok = schema == required_schema and status == required_status
@@ -105,53 +126,142 @@ def _ice_semantics(
         report,
         "ICE_REFERENCE_ICE_SEMANTICS",
         "PASS" if ok else "ERROR",
-        "Step 4 ICE semantics are available for ICEReferencePackage composition." if ok else "Step 4 ICE semantics are missing, stale, or failed.",
-        {"actualSchema": schema, "requiredSchema": required_schema, "actualStatus": status, "requiredStatus": required_status},
+        (
+            "Step 4 ICE semantics are available for ICEReferencePackage composition."
+            if ok
+            else "Step 4 ICE semantics are missing, stale, or failed."
+        ),
+        {
+            "actualSchema": schema,
+            "requiredSchema": required_schema,
+            "actualStatus": status,
+            "requiredStatus": required_status,
+        },
     )
+
     raw_ids = semantics.get("semanticIds")
-    semantic_ids = [str(value).strip() for value in raw_ids if str(value).strip()] if isinstance(raw_ids, list) else []
+    semantic_ids = (
+        [str(value).strip() for value in raw_ids if str(value).strip()]
+        if isinstance(raw_ids, list)
+        else []
+    )
     if not semantic_ids:
-        _add_check(report, "ICE_REFERENCE_SEMANTIC_IDS", "ERROR", "Step 4 iceSemantics.semanticIds is missing or empty.")
-    raw_counts = semantics.get("counts")
+        _add_check(
+            report,
+            "ICE_REFERENCE_SEMANTIC_IDS",
+            "ERROR",
+            "Step 4 iceSemantics.semanticIds is missing or empty.",
+        )
+
+    # Canonical Step 4 v1.0 emits direct summary fields:
+    # iceCount, sentryCount, wallCount. The nested `counts` form is retained
+    # only as compatibility for early H2 fixtures created before the live
+    # Step 4 sidecar shape was exercised.
     counts: dict[str, int] = {}
-    if isinstance(raw_counts, dict):
-        for ice_type in ICE_TYPES:
+    direct_fields = {"sentry": "sentryCount", "wall": "wallCount"}
+    raw_counts = semantics.get("counts")
+    for ice_type in ICE_TYPES:
+        count = _integer(semantics.get(direct_fields[ice_type]))
+        if count is None and isinstance(raw_counts, dict):
             count = _integer(raw_counts.get(ice_type))
-            if count is not None:
-                counts[ice_type] = count
-    expected_counts = policy.get("expectedIceCounts") if isinstance(policy.get("expectedIceCounts"), dict) else {}
+        if count is not None:
+            counts[ice_type] = count
+
+    summary_total = _integer(semantics.get("iceCount"))
+    if summary_total is None:
+        summary_total = len(semantic_ids)
+
+    expected_counts = (
+        policy.get("expectedIceCounts")
+        if isinstance(policy.get("expectedIceCounts"), dict)
+        else {}
+    )
     expected_total = _integer(policy.get("expectedIceTotal"))
     count_errors: list[dict[str, Any]] = []
+
     for ice_type in ICE_TYPES:
         expected = _integer(expected_counts.get(ice_type))
         if expected is not None and counts.get(ice_type) != expected:
-            count_errors.append({"iceType": ice_type, "expected": expected, "actual": counts.get(ice_type)})
-    if expected_total is not None and len(semantic_ids) != expected_total:
-        count_errors.append({"iceType": "total", "expected": expected_total, "actual": len(semantic_ids)})
+            count_errors.append(
+                {
+                    "iceType": ice_type,
+                    "expected": expected,
+                    "actual": counts.get(ice_type),
+                }
+            )
+
+    if expected_total is not None and summary_total != expected_total:
+        count_errors.append(
+            {"iceType": "total", "expected": expected_total, "actual": summary_total}
+        )
+    if summary_total != len(semantic_ids):
+        count_errors.append(
+            {
+                "iceType": "semanticIds",
+                "expected": summary_total,
+                "actual": len(semantic_ids),
+            }
+        )
+
     _add_check(
         report,
         "ICE_REFERENCE_CORPUS_COUNT",
         "ERROR" if count_errors else "PASS",
-        "Step 4 ICE corpus counts do not match the H2 contract." if count_errors else f"Step 4 exposes {len(semantic_ids)} ICE entities with the expected type counts.",
-        count_errors if count_errors else {"counts": counts, "total": len(semantic_ids)},
+        (
+            "Step 4 ICE corpus counts do not match the H2 contract."
+            if count_errors
+            else (
+                f"Step 4 exposes {summary_total} ICE entities with the expected "
+                "type counts."
+            )
+        ),
+        (
+            count_errors
+            if count_errors
+            else {"counts": counts, "total": summary_total}
+        ),
     )
     return semantic_ids, counts
 
 
-def _selected_ids(all_ice_ids: list[str], config: dict[str, Any], report: dict[str, Any]) -> list[str]:
-    prototype = config.get("prototype") if isinstance(config.get("prototype"), dict) else {}
+def _selected_ids(
+    all_ice_ids: list[str],
+    config: dict[str, Any],
+    report: dict[str, Any],
+) -> list[str]:
+    prototype = (
+        config.get("prototype") if isinstance(config.get("prototype"), dict) else {}
+    )
     raw = prototype.get("semanticIds")
     if not isinstance(raw, list) or not raw:
         return list(all_ice_ids)
+
     selected = [str(value).strip() for value in raw if str(value).strip()]
     duplicates = sorted({sid for sid in selected if selected.count(sid) > 1})
     unknown = sorted(set(selected) - set(all_ice_ids))
     if duplicates:
-        _add_check(report, "ICE_REFERENCE_PROTOTYPE_DUPLICATE", "ERROR", "H2 prototype selection contains duplicate semantic IDs.", duplicates)
+        _add_check(
+            report,
+            "ICE_REFERENCE_PROTOTYPE_DUPLICATE",
+            "ERROR",
+            "H2 prototype selection contains duplicate semantic IDs.",
+            duplicates,
+        )
     if unknown:
-        _add_check(report, "ICE_REFERENCE_PROTOTYPE_SCOPE", "ERROR", "H2 prototype selection contains entities outside Step 4 ICE semantics.", unknown)
+        _add_check(
+            report,
+            "ICE_REFERENCE_PROTOTYPE_SCOPE",
+            "ERROR",
+            "H2 prototype selection contains entities outside Step 4 ICE semantics.",
+            unknown,
+        )
     if not duplicates and not unknown:
-        _add_check(report, "ICE_REFERENCE_PROTOTYPE_SCOPE", "PASS", f"Selected {len(selected)} representative ICE entities for the H2 proof.")
+        _add_check(
+            report,
+            "ICE_REFERENCE_PROTOTYPE_SCOPE",
+            "PASS",
+            f"Selected {len(selected)} representative ICE entities for the H2 proof.",
+        )
     return selected
 
 
@@ -164,14 +274,30 @@ def _has_reader_rules(publication: dict[str, Any]) -> bool:
     for action in actions:
         if not isinstance(action, dict):
             continue
-        if str(action.get("rulesMarkdown") or "").strip() or action.get("damage") or action.get("cost") or action.get("range") or action.get("target"):
+        if (
+            str(action.get("rulesMarkdown") or "").strip()
+            or action.get("damage")
+            or action.get("cost")
+            or action.get("range")
+            or action.get("target")
+        ):
             return True
     return False
 
 
 def _public_action(action: dict[str, Any]) -> dict[str, Any]:
     result: dict[str, Any] = {}
-    for key in ("name", "type", "actionType", "rulesMarkdown", "cost", "uses", "range", "target", "damage"):
+    for key in (
+        "name",
+        "type",
+        "actionType",
+        "rulesMarkdown",
+        "cost",
+        "uses",
+        "range",
+        "target",
+        "damage",
+    ):
         value = action.get(key)
         if value not in (None, "", [], {}):
             result[key] = value
@@ -192,6 +318,7 @@ def _entry_view(
     audience = str(entity.get("audience") or "").strip()
     publication = _publication(entity)
     errors: list[str] = []
+
     if family != "features":
         errors.append(f"family={family!r}")
     if require_gm and audience != "gm":
@@ -207,11 +334,23 @@ def _entry_view(
         errors.append("name is missing")
     if require_rules and not _has_reader_rules(publication):
         errors.append("reader-facing rules are missing")
+
     if errors:
-        _add_check(report, "ICE_REFERENCE_ENTRY_SEMANTICS", "ERROR", f"{semantic_id or '<unknown ICE>'} is not publication-complete.", errors)
+        _add_check(
+            report,
+            "ICE_REFERENCE_ENTRY_SEMANTICS",
+            "ERROR",
+            f"{semantic_id or '<unknown ICE>'} is not publication-complete.",
+            errors,
+        )
         return None
+
     actions = publication.get("actions")
-    public_actions = [_public_action(action) for action in actions if isinstance(action, dict)] if isinstance(actions, list) else []
+    public_actions = (
+        [_public_action(action) for action in actions if isinstance(action, dict)]
+        if isinstance(actions, list)
+        else []
+    )
     result: dict[str, Any] = {
         "semanticId": semantic_id,
         "name": name,
@@ -221,14 +360,29 @@ def _entry_view(
     }
     resource = publication.get("resource")
     if isinstance(resource, dict) and resource:
-        result["resource"] = {key: resource.get(key) for key in ("type", "value", "max") if resource.get(key) not in (None, "")}
+        result["resource"] = {
+            key: resource.get(key)
+            for key in ("type", "value", "max")
+            if resource.get(key) not in (None, "")
+        }
     result["_sortSourceId"] = source_id
     return result
 
 
 def _source_leakage(view: dict[str, Any]) -> list[str]:
     raw = json.dumps(view, ensure_ascii=False)
-    forbidden = ("Compendium.", "modules/", "worlds/", "src/packs/", "src-loadable/", "docs/", "!folders!", "systemPath", "chatDisplay", "originItem")
+    forbidden = (
+        "Compendium.",
+        "modules/",
+        "worlds/",
+        "src/packs/",
+        "src-loadable/",
+        "docs/",
+        "!folders!",
+        "systemPath",
+        "chatDisplay",
+        "originItem",
+    )
     return [token for token in forbidden if token in raw]
 
 
@@ -239,15 +393,29 @@ def compose_ice_reference(
     """Compose the H2 ICEReferencePackage proof entirely from Step 4 semantics."""
     report = new_report()
     config = config or {}
-    policy = config.get("prototypePolicy") if isinstance(config.get("prototypePolicy"), dict) else {}
-    required_sidecar_schema = str(policy.get("requireStructuredSidecarSchema") or SUPPORTED_SIDECAR_SCHEMA)
+    policy = (
+        config.get("prototypePolicy")
+        if isinstance(config.get("prototypePolicy"), dict)
+        else {}
+    )
+    required_sidecar_schema = str(
+        policy.get("requireStructuredSidecarSchema") or SUPPORTED_SIDECAR_SCHEMA
+    )
     actual_sidecar_schema = str(sidecar.get("schema") or "")
-    _add_check(report, "ICE_REFERENCE_SIDECAR_SCHEMA", "PASS" if actual_sidecar_schema == required_sidecar_schema else "ERROR", f"Step 4 sidecar schema is {actual_sidecar_schema or '<missing>'}.", {"required": required_sidecar_schema})
+    _add_check(
+        report,
+        "ICE_REFERENCE_SIDECAR_SCHEMA",
+        "PASS" if actual_sidecar_schema == required_sidecar_schema else "ERROR",
+        f"Step 4 sidecar schema is {actual_sidecar_schema or '<missing>'}.",
+        {"required": required_sidecar_schema},
+    )
+
     all_ice_ids, counts = _ice_semantics(sidecar, config, report)
     index = _index_entities(sidecar, report)
     selected_ids = _selected_ids(all_ice_ids, config, report)
     require_gm = bool(policy.get("requireGmAudience", True))
     require_rules = bool(policy.get("requireReaderRules", True))
+
     entries: list[dict[str, Any]] = []
     missing: list[str] = []
     for semantic_id in selected_ids:
@@ -255,32 +423,82 @@ def compose_ice_reference(
         if entity is None:
             missing.append(semantic_id)
             continue
-        entry = _entry_view(entity, report, require_gm=require_gm, require_rules=require_rules)
+        entry = _entry_view(
+            entity,
+            report,
+            require_gm=require_gm,
+            require_rules=require_rules,
+        )
         if entry is not None:
             entries.append(entry)
+
     if missing:
-        _add_check(report, "ICE_REFERENCE_RESOLUTION", "ERROR", "One or more selected ICE semantic IDs do not resolve in Step 4 entities.", missing)
-    composition = config.get("composition") if isinstance(config.get("composition"), dict) else {}
+        _add_check(
+            report,
+            "ICE_REFERENCE_RESOLUTION",
+            "ERROR",
+            "One or more selected ICE semantic IDs do not resolve in Step 4 entities.",
+            missing,
+        )
+
+    composition = (
+        config.get("composition") if isinstance(config.get("composition"), dict) else {}
+    )
     group_order = composition.get("groupOrder")
     if not isinstance(group_order, list) or not group_order:
         group_order = list(ICE_TYPES)
     clean_group_order = [str(value).strip().casefold() for value in group_order]
     if clean_group_order != list(ICE_TYPES):
-        _add_check(report, "ICE_REFERENCE_GROUP_ORDER", "ERROR", "ICEReferencePackage v1 group order must be Sentry ICE then Wall ICE.", {"actual": clean_group_order, "required": list(ICE_TYPES)})
-    group_titles = composition.get("groupTitles") if isinstance(composition.get("groupTitles"), dict) else {}
+        _add_check(
+            report,
+            "ICE_REFERENCE_GROUP_ORDER",
+            "ERROR",
+            "ICEReferencePackage v1 group order must be Sentry ICE then Wall ICE.",
+            {"actual": clean_group_order, "required": list(ICE_TYPES)},
+        )
+
+    group_titles = (
+        composition.get("groupTitles")
+        if isinstance(composition.get("groupTitles"), dict)
+        else {}
+    )
     groups: list[dict[str, Any]] = []
     for ice_type in ICE_TYPES:
         group_entries = [entry for entry in entries if entry["iceType"] == ice_type]
-        group_entries.sort(key=lambda row: (str(row.get("name") or "").casefold(), str(row.get("_sortSourceId") or ""), str(row.get("semanticId") or "")))
+        group_entries.sort(
+            key=lambda row: (
+                str(row.get("name") or "").casefold(),
+                str(row.get("_sortSourceId") or ""),
+                str(row.get("semanticId") or ""),
+            )
+        )
         for entry in group_entries:
             entry.pop("_sortSourceId", None)
-        groups.append({
-            "iceType": ice_type,
-            "title": str(group_titles.get(ice_type) or ("Sentry ICE" if ice_type == "sentry" else "Wall ICE")),
-            "entries": group_entries,
-        })
+        groups.append(
+            {
+                "iceType": ice_type,
+                "title": str(
+                    group_titles.get(ice_type)
+                    or ("Sentry ICE" if ice_type == "sentry" else "Wall ICE")
+                ),
+                "entries": group_entries,
+            }
+        )
+
     if entries and not report["errors"]:
-        _add_check(report, "ICE_REFERENCE_ORDERING", "PASS", "ICE entries are grouped Sentry/Wall and sorted by case-insensitive name with stable source-ID tie-break.")
+        _add_check(
+            report,
+            "ICE_REFERENCE_ORDERING",
+            "PASS",
+            (
+                "ICE entries are grouped Sentry/Wall and sorted by case-insensitive "
+                "name with stable source-ID tie-break."
+            ),
+        )
+
+    prototype = (
+        config.get("prototype") if isinstance(config.get("prototype"), dict) else {}
+    )
     view: dict[str, Any] = {
         "schema": VIEW_SCHEMA,
         "chapter": int(config.get("chapter") or 29),
@@ -290,17 +508,35 @@ def compose_ice_reference(
         "chapterIntro": str(config.get("chapterIntro") or "").strip(),
         "audience": "gm",
         "prototype": {
-            "mode": str((config.get("prototype") if isinstance(config.get("prototype"), dict) else {}).get("mode") or "representative-proof"),
+            "mode": str(prototype.get("mode") or "representative-proof"),
             "entryCount": sum(len(group["entries"]) for group in groups),
             "fullIceCount": len(all_ice_ids),
             "fullIceCounts": counts,
         },
         "groups": groups,
     }
+
     if bool(policy.get("failOnRawSourceReferences", True)):
         leakage = _source_leakage(view)
-        _add_check(report, "ICE_REFERENCE_NO_SOURCE_LEAKAGE", "ERROR" if leakage else "PASS", "ICEReferencePackage view contains raw implementation/source references." if leakage else "ICEReferencePackage view contains no raw Foundry/source references.", leakage if leakage else None)
+        _add_check(
+            report,
+            "ICE_REFERENCE_NO_SOURCE_LEAKAGE",
+            "ERROR" if leakage else "PASS",
+            (
+                "ICEReferencePackage view contains raw implementation/source references."
+                if leakage
+                else "ICEReferencePackage view contains no raw Foundry/source references."
+            ),
+            leakage if leakage else None,
+        )
+
     expected_selected = len(selected_ids)
     actual_selected = sum(len(group["entries"]) for group in groups)
-    _add_check(report, "ICE_REFERENCE_PROOF_COUNT", "PASS" if expected_selected == actual_selected else "ERROR", f"H2 proof contains {actual_selected} of {expected_selected} selected ICE entries.", {"expected": expected_selected, "actual": actual_selected})
+    _add_check(
+        report,
+        "ICE_REFERENCE_PROOF_COUNT",
+        "PASS" if expected_selected == actual_selected else "ERROR",
+        f"H2 proof contains {actual_selected} of {expected_selected} selected ICE entries.",
+        {"expected": expected_selected, "actual": actual_selected},
+    )
     return (view if report["status"] == "PASS" else None), report
