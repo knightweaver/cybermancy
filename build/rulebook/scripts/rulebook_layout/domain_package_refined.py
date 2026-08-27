@@ -23,6 +23,29 @@ def latex_escape(value: Any) -> str:
     return "".join(replacements.get(ch, ch) for ch in text)
 
 
+def _single_paragraph(value: Any) -> str:
+    """Collapse normalized publication prose to one LaTeX paragraph.
+
+    This mirrors the accepted ClassPackage description treatment so the first
+    baseline is governed by the declared leading rather than inherited paragraph
+    glue from an immediately preceding layout box.
+    """
+    return " ".join(str(value or "").split())
+
+
+def _description_block_tex(description: str, body_size: float, body_leading: float) -> str:
+    return "\n".join(
+        [
+            r"\begingroup",
+            r"\setlength{\parskip}{0pt}",
+            r"\setlength{\parindent}{0pt}",
+            rf"\fontsize{{{body_size:.2f}}}{{{body_leading:.2f}}}\selectfont\color{{CMInk}}",
+            rf"\noindent {description}\par",
+            r"\endgroup",
+        ]
+    )
+
+
 def _style(config: dict[str, Any]) -> dict[str, Any]:
     source = config.get("style") if isinstance(config.get("style"), dict) else {}
     return {
@@ -37,11 +60,11 @@ def _style(config: dict[str, Any]) -> dict[str, Any]:
         "identity_art": float(source.get("identityArtWidthIn", 1.10) or 1.10),
         "card_art_fraction": float(source.get("cardArtWidthFraction", 0.24) or 0.24),
         "card_art_height": float(source.get("cardArtMaxHeightIn", 0.88) or 0.88),
-        "column_sep": float(source.get("columnSepIn", 0.26) or 0.26),
+        "column_sep": float(source.get("columnSepIn", 0.18) or 0.18),
         "body_size": float(source.get("cardBodyFontPt", 9.0) or 9.0),
         "body_leading": float(source.get("cardBodyLeadingPt", 11.3) or 11.3),
-        "title_size": float(source.get("cardTitleFontPt", 12.4) or 12.4),
-        "title_leading": float(source.get("cardTitleLeadingPt", 13.4) or 13.4),
+        "title_size": float(source.get("cardTitleFontPt", 12.0) or 12.0),
+        "title_leading": float(source.get("cardTitleLeadingPt", 13.0) or 13.0),
     }
 
 
@@ -75,24 +98,40 @@ def domain_package_view_filename(domain_name: Any) -> str:
     return f"{_slug(domain_name)}-domain-package-view.json"
 
 
+def _partition_cards(cards: list[dict[str, Any]], columns: int) -> list[list[dict[str, Any]]]:
+    """Partition in publication order into balanced, top-aligned column stacks."""
+    columns = max(1, columns)
+    count = len(cards)
+    base, extra = divmod(count, columns)
+    sizes = [base + (1 if index < extra else 0) for index in range(columns)]
+    groups: list[list[dict[str, Any]]] = []
+    offset = 0
+    for size in sizes:
+        groups.append(cards[offset : offset + size])
+        offset += size
+    return groups
+
+
 def _card_tex(
     card: dict[str, Any],
     config: dict[str, Any],
     source_root: Path,
     output_dir: Path,
     render_assets: dict[str, str] | None = None,
+    *,
+    first_in_column: bool = False,
 ) -> str:
     style = _style(config)
     name = latex_escape(card.get("name"))
-    description = latex_escape(card.get("description"))
+    description = latex_escape(_single_paragraph(card.get("description")))
     image = _tex_image_path(
         source_root, output_dir, str(card.get("image") or ""), render_assets
     )
     level = int(card.get("level") or 0)
     recall = int(card.get("recallCost") or 0)
     in_vault = bool(card.get("inVault"))
-    art_fraction = max(0.18, min(0.34, style["card_art_fraction"]))
-    text_fraction = 0.965 - art_fraction
+    art_fraction = max(0.20, min(0.32, style["card_art_fraction"]))
+    text_fraction = 0.955 - art_fraction
     composition = config.get("composition") if isinstance(config.get("composition"), dict) else {}
     default_card_type = str(composition.get("defaultCardType") or "ability").strip().casefold()
     card_type = str(card.get("cardType") or "").strip()
@@ -102,15 +141,16 @@ def _card_tex(
     if in_vault:
         markers.append("IN VAULT")
     marker_tex = "".join(
-        rf"\hspace{{0.8em}}\textbullet\hspace{{0.35em}}{marker}" for marker in markers
+        rf"\hspace{{0.65em}}\textbullet\hspace{{0.30em}}{marker}" for marker in markers
     )
 
-    return "\n".join(
+    pieces: list[str] = []
+    if not first_in_column:
+        pieces.append(r"\Needspace{1.35in}")
+    pieces.extend(
         [
-            r"\Needspace{1.55in}",
-            r"{\color{CMBright}\rule{\linewidth}{0.75pt}}",
-            r"\vspace{1.2mm}",
-            r"\noindent\begin{minipage}{\linewidth}",
+            r"\noindent\begin{minipage}[t]{\linewidth}",
+            r"\vspace{0pt}",
             rf"\begin{{minipage}}[t]{{{art_fraction:.3f}\linewidth}}",
             r"\vspace{0pt}\centering",
             rf"\includegraphics[width=\linewidth,height={style['card_art_height']:.3f}in,keepaspectratio]{{{image}}}",
@@ -118,17 +158,19 @@ def _card_tex(
             rf"\begin{{minipage}}[t]{{{text_fraction:.3f}\linewidth}}",
             r"\vspace{0pt}",
             rf"{{\fontsize{{{style['title_size']:.2f}}}{{{style['title_leading']:.2f}}}\selectfont\bfseries\color{{CMInk}} {name}\par}}",
-            r"\vspace{0.8mm}",
-            rf"{{\fontsize{{7.2}}{{8.3}}\selectfont\bfseries\color{{CMAccent}} LEVEL {level}\hspace{{0.8em}}\textbullet\hspace{{0.35em}}RECALL COST {recall}{marker_tex}\par}}",
+            r"\vspace{0.55mm}",
+            rf"{{\fontsize{{6.9}}{{8.0}}\selectfont\bfseries\color{{CMAccent}} LEVEL {level}\hspace{{0.60em}}\textbullet\hspace{{0.28em}}RECALL COST {recall}{marker_tex}\par}}",
             r"\end{minipage}",
             r"\end{minipage}",
-            r"\vspace{1.2mm}",
-            rf"{{\fontsize{{{style['body_size']:.2f}}}{{{style['body_leading']:.2f}}}\selectfont\color{{CMInk}} {description}\par}}",
-            r"\vspace{1.6mm}",
+            r"\par",
+            r"\vspace{1.0mm}",
+            _description_block_tex(description, style["body_size"], style["body_leading"]),
+            r"\vspace{1.35mm}",
             r"{\color{CMRule}\rule{\linewidth}{0.35pt}}",
-            r"\vspace{2.2mm}",
+            r"\vspace{1.8mm}",
         ]
     )
+    return "\n".join(pieces)
 
 
 def _identity_tex(
@@ -192,10 +234,14 @@ def _level_tex(
     render_assets: dict[str, str] | None = None,
 ) -> str:
     level = int(level_row.get("level") or 0)
-    cards = level_row.get("cards") if isinstance(level_row.get("cards"), list) else []
+    cards = [card for card in (level_row.get("cards") or []) if isinstance(card, dict)]
     count_label = "CARD" if len(cards) == 1 else "CARDS"
     style_config = config.get("style") if isinstance(config.get("style"), dict) else {}
-    level_min_start = float(style_config.get("levelMinStartSpaceIn", 2.65) or 2.65)
+    composition = config.get("composition") if isinstance(config.get("composition"), dict) else {}
+    level_min_start = float(style_config.get("levelMinStartSpaceIn", 2.20) or 2.20)
+    columns = max(1, int(composition.get("pageColumns") or 3))
+    groups = _partition_cards(cards, columns)
+
     pieces = [
         rf"\Needspace{{{level_min_start:.2f}in}}",
         r"\vspace{1.0mm}",
@@ -205,15 +251,24 @@ def _level_tex(
         r"\vspace{0.8mm}",
         r"{\color{CMRule}\rule{\linewidth}{0.55pt}}",
         r"\vspace{1.8mm}",
-        r"\begin{multicols}{2}",
-        r"\raggedcolumns",
+        rf"\begin{{paracol}}{{{columns}}}",
     ]
-    for card in cards:
-        if isinstance(card, dict):
+    for column_index, group in enumerate(groups):
+        if column_index:
+            pieces.append(r"\switchcolumn")
+        pieces.append(r"\vspace{0pt}")
+        for card_index, card in enumerate(group):
             pieces.append(
-                _card_tex(card, config, source_root, output_dir, render_assets)
+                _card_tex(
+                    card,
+                    config,
+                    source_root,
+                    output_dir,
+                    render_assets,
+                    first_in_column=card_index == 0,
+                )
             )
-    pieces.extend([r"\end{multicols}", r"\vspace{0.5mm}"])
+    pieces.extend([r"\end{paracol}", r"\vspace{0.5mm}"])
     return "\n".join(pieces)
 
 
@@ -243,7 +298,7 @@ def render_domain_package_tex(
 \usepackage{{graphicx}}
 \usepackage{{tabularx}}
 \usepackage{{array}}
-\usepackage{{multicol}}
+\usepackage{{paracol}}
 \usepackage{{needspace}}
 \setmainfont{{Latin Modern Roman}}
 \setsansfont{{Latin Modern Sans}}
@@ -257,8 +312,6 @@ def render_domain_package_tex(
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{0pt}}
 \setlength{{\columnsep}}{{{style['column_sep']:.3f}in}}
-\setlength{{\multicolsep}}{{0pt}}
-\setlength{{\columnseprule}}{{0pt}}
 \pagestyle{{plain}}
 \begin{{document}}
 \sffamily
