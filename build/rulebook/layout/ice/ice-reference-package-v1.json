@@ -1,0 +1,93 @@
+{
+  "schema": "cybermancy-step6-ice-reference-package-config-v1.0",
+  "lifecycle": {
+    "version": "v1.0",
+    "status": "prototype",
+    "workstream": "Step H2",
+    "acceptance": {
+      "semanticRegression": "PENDING",
+      "renderedProof": "PENDING",
+      "visualReview": "PENDING"
+    }
+  },
+  "chapter": 29,
+  "chapterId": "ch29-ice-reference",
+  "partLabel": "GM ENCOUNTER TOOLKIT",
+  "title": "ICE Reference",
+  "chapterIntro": "Use this chapter as a GM reference for ICE encountered during netrunning.",
+  "prototype": {
+    "mode": "representative-proof",
+    "semanticIds": [
+      "entity:features:3dikGZKpf3RcF80E",
+      "entity:features:XxZmo4GpEMnzMS5n",
+      "entity:features:PIuy1rTRJ3JgbCBq",
+      "entity:features:DtCHCxPKWAwK89kq",
+      "entity:features:CgKgSlZKkyC2nul1",
+      "entity:features:R10EoKmTReAZfLJ8"
+    ]
+  },
+  "composition": {
+    "kind": "ice-reference-package",
+    "primaryFamily": "features",
+    "featureCategory": "ice",
+    "groupBy": "iceType",
+    "groupOrder": [
+      "sentry",
+      "wall"
+    ],
+    "groupTitles": {
+      "sentry": "Sentry ICE",
+      "wall": "Wall ICE"
+    },
+    "entryOrder": [
+      "name",
+      "sourceId"
+    ],
+    "pageColumns": 2,
+    "columnFlow": "natural-page-breakable",
+    "showActions": "when-present",
+    "showResource": "when-present",
+    "showImplementationMetadata": false
+  },
+  "style": {
+    "accentColor": "0B6573",
+    "accentBrightColor": "18A7B5",
+    "inkColor": "183238",
+    "mutedColor": "58747A",
+    "softColor": "EAF4F5",
+    "ruleColor": "B9D9DC",
+    "pageMarginIn": 0.55,
+    "columnSepIn": 0.24,
+    "minimumEntryTextFontPt": 10.5,
+    "entryBodyFontPt": 10.5,
+    "entryBodyLeadingPt": 12.6,
+    "entryTitleFontPt": 13.0,
+    "entryTitleLeadingPt": 14.0,
+    "entryTypeFontPt": 9.5,
+    "entryTypeLeadingPt": 10.5,
+    "actionTitleFontPt": 10.5,
+    "actionTitleLeadingPt": 11.5,
+    "metadataFontPt": 9.5,
+    "metadataLeadingPt": 10.5,
+    "entryMinStartSpaceIn": 0.72,
+    "actionMinStartSpaceIn": 0.42
+  },
+  "prototypePolicy": {
+    "consumeStep4Only": true,
+    "requireStructuredSidecarSchema": "cybermancy-step4-structured-entities-v1.3",
+    "requireIceSemanticsSchema": "cybermancy-step4-ice-semantics-v1.0",
+    "requireIceSemanticsStatus": "PASS",
+    "expectedIceTotal": 13,
+    "expectedIceCounts": {
+      "sentry": 6,
+      "wall": 7
+    },
+    "requireGmAudience": true,
+    "requireReaderRules": true,
+    "failOnRawSourceReferences": true,
+    "foundryFoldersAreNonAuthoritative": true,
+    "blockOnLatexOverflow": true,
+    "renderedContentRegression": true,
+    "astIntegration": "deferred-until-ice-reference-package-grammar-acceptance"
+  }
+}
