@@ -141,32 +141,37 @@ def _starting_package_pairs(cls: dict[str, Any]) -> list[tuple[str, str]]:
     return pairs
 
 
+def _line_position(line: PdfLine) -> tuple[int, float]:
+    return line.page, line.y_min
+
+
 def _starting_package_scope(lines: list[PdfLine]) -> list[PdfLine]:
     """Limit package matching to the rendered Starting Package section.
 
     Short labels such as ``Take`` can legitimately occur in feature prose on an
-    earlier page. The renderer always emits STARTING PACKAGE before the first
-    SUBCLASS section, so use those structural markers to avoid cross-page false
-    matches while still allowing a package itself to move to a later class page.
+    earlier page. Starting Package may now share a page with the Subclass spread,
+    so scope by both page and vertical position rather than excluding the entire
+    first Subclass page.
     """
     header = next((line for line in lines if _normalize(line.text) == "starting package"), None)
     if header is None:
         return lines
 
-    subclass_pages = [
-        line.page
+    subclass_markers = [
+        line
         for line in lines
-        if _normalize(line.text) == "subclass" and line.page >= header.page
+        if _normalize(line.text) == "subclass" and _line_position(line) > _line_position(header)
     ]
-    end_page = min(subclass_pages) if subclass_pages else None
+    end = min(subclass_markers, key=_line_position, default=None)
 
     scoped: list[PdfLine] = []
     for line in lines:
-        if line.page < header.page:
+        position = _line_position(line)
+        if position < _line_position(header):
             continue
         if line.page == header.page and line.y_min < header.y_min:
             continue
-        if end_page is not None and line.page >= end_page:
+        if end is not None and position >= _line_position(end):
             continue
         scoped.append(line)
     return scoped
