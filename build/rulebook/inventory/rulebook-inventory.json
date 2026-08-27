@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "ffd19f36294cc49a3f1a18c5e79122bae47bfa5f"
+    "git_commit": "877672bdf21417099eedb8184fbea4321f1242c6"
   },
   "mkdocs_sites": {
     "player": {
