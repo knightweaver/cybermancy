@@ -1,8 +1,8 @@
-# Step 6 DomainPackage semantic contract
+# Step 6 DomainPackage prototype
 
 This directory defines the **G.3 DomainPackage design proof** for Chapter 14, *Domains and Domain Cards*.
 
-The current implementation is intentionally limited to **semantic composition and validation**. It does not yet define or render the final visual grammar. Maker is the default prototype fixture.
+Maker is the default regression fixture. The semantic composition contract is accepted; the current milestone adds a **standalone visual prototype** so the publication grammar can be reviewed before it is generalized to Bullet/Circuit or integrated into the full Chapter 14/Pandoc pipeline.
 
 ## Publication unit
 
@@ -32,49 +32,18 @@ build/rulebook/source/metadata/structured-entities.json
 build/rulebook/source/assets/...
 ```
 
-It does **not** read:
+It does **not** read canonical Foundry JSON, generated MkDocs pages, Foundry folder organization, or runtime asset paths. Foundry Domain folders remain a Step 4 validation cross-check only.
 
-- canonical Foundry JSON under `src/packs/...`;
-- generated MkDocs pages under `docs/...`;
-- Foundry folder names, hierarchy, colors, or UUIDs;
-- Foundry runtime asset paths such as `modules/...` or `worlds/...`.
+## Semantic view
 
-Foundry Domain folders remain a Step 4 validation cross-check only. Intrinsic Domain Card semantics normalized by Step 4 are authoritative.
-
-## Step 4 contract consumed
-
-The composer requires:
-
-- sidecar schema `cybermancy-step4-structured-entities-v1.3`;
-- Domain semantics schema `cybermancy-step4-domain-semantics-v1.0` with status `PASS`;
-- a unique `domainPackages[]` row for the requested Domain;
-- Domain identity `artwork.image` and `artwork.mask` staged below `build/rulebook/source/assets/`;
-- every referenced card to resolve to family `domains`;
-- card `publicationData` containing:
-  - `domainKey`;
-  - `level`;
-  - `recallCost`;
-  - `cardType`;
-  - `inVault`;
-  - normalized `description`;
-  - staged `image`.
-
-No Domain description is invented. The Domain identity view contains only normalized identity and artwork supplied by Step 4.
-
-## DomainPackage view
-
-The semantic composer emits:
+The composer emits `cybermancy-step6-domain-package-view-v1.0`:
 
 ```text
-schema
-chapter
-title
 domain
     key
     name
-    artwork
-        image
-        mask
+    artwork.image
+    artwork.mask
     cardCount
 levels[]
     level
@@ -90,60 +59,61 @@ levels[]
         image
 ```
 
-The current view schema is:
+Step 4 owns deterministic ordering: **level -> case-insensitive name -> stable source ID**. The composer validates package membership, level buckets, card count, ordering, Domain/Level agreement, normalized mechanics, staged artwork, and source-reference leakage.
 
-```text
-cybermancy-step6-domain-package-view-v1.0
-```
+No Domain description is invented.
 
-## Ordering contract
+## Provisional Maker visual grammar
 
-Step 4 owns deterministic card order:
+The standalone renderer currently uses this review grammar:
 
-```text
-level → case-insensitive name → stable source ID
-```
+1. A compact Domain identity opener contains the Chapter/Part label, Domain name, derived card/level count, and staged Domain PNG artwork.
+2. The staged SVG mask remains part of the semantic identity contract but is not required for the first visual rendering pass.
+3. Level groups are full-width semantic dividers in ascending order.
+4. Cards flow in two balanced publication columns beneath each Level divider.
+5. Each card entry keeps its image, name, Level, Recall Cost, optional `IN VAULT` marker, and rules text together when practical.
+6. The default `ability` card classification is not repeated visually. The normalized `cardType` remains in the view model and is displayed only when a future card uses a non-default classification.
+7. Card body text is 9 pt with 11.3 pt configured leading; card names are 12.4 pt. These are prototype values subject to visual review.
+8. Level groups request enough remaining page space to avoid beginning a card pair immediately above a page break. A Level may still continue naturally onto the next page when its cards require more space.
+9. No per-card special casing is permitted; the same renderer must eventually work for every DomainPackage.
 
-The DomainPackage composer validates that:
+This visual grammar is **not accepted/frozen yet**. Maker PDF review is the acceptance gate.
 
-1. the package `cards` array follows this order;
-2. `levels` are ascending;
-3. flattening `levels[].cards` reproduces the package card order exactly;
-4. every card appears exactly once;
-5. each level bucket agrees with the card's normalized `publicationData.level`.
+## Rendered regression
 
-Step 6 does not silently reorder a malformed Step 4 package.
+A successful `build` requires:
 
-## Blocking validation
+- LuaLaTeX compilation;
+- no overfull `hbox` or `vbox` warnings;
+- every card heading rendered exactly once;
+- every Level heading rendered exactly once and in view order;
+- each card heading associated with nearby Level/Recall Cost metadata;
+- two distinct card-column start positions;
+- configured body leading within tolerance when `pdftotext` can measure wrapped descriptions;
+- no intermediate PDF page between the first and last card page with zero card headings.
 
-The semantic prototype fails closed on:
+If `pdftotext` is unavailable, geometry/content regression is reported as a warning rather than silently skipped.
 
-- unsupported Step 4 sidecar or Domain-semantics schema;
-- Domain semantics status other than `PASS`;
-- duplicate semantic IDs or duplicate DomainPackage keys;
-- missing or wrong-family card references;
-- package card-count mismatches;
-- duplicate card membership;
-- malformed/out-of-order level groups;
-- level-bucket/card-level disagreement;
-- card Domain mismatch;
-- invalid Recall Cost, card type, or `inVault` semantics;
-- missing normalized card description;
-- unstaged or non-normalized Domain/card artwork;
-- raw Foundry, MkDocs, or canonical source-tree references leaking into the Step 6 view.
-
-## Maker prototype commands
-
-Maker is selected by default in `domain-package-v1.json`.
+## Maker commands
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-domain-package.py inspect
 python build\rulebook\scripts\build-rulebook-domain-package.py validate
+python build\rulebook\scripts\build-rulebook-domain-package.py build
 ```
 
-Use `--verbose` anywhere to print the complete validation report. Another Domain can be selected with `--domain-key`.
+Use `--verbose` anywhere for the complete report. `build --tex-only` writes the view model and LaTeX without invoking LuaLaTeX. Another Domain can be selected with `--domain-key`, but Maker remains the only visual-acceptance fixture at this stage.
 
-The validation report defaults to:
+Default prototype output:
+
+```text
+build/rulebook/layout/domain-package-prototype/
+    maker-domain-package-view.json
+    Cybermancy_Chapter14_Maker_DomainPackage_Step6.tex
+    Cybermancy_Chapter14_Maker_DomainPackage_Step6.pdf
+```
+
+Validation report:
 
 ```text
 build/rulebook/layout/reports/domain-package-maker.json
@@ -151,6 +121,4 @@ build/rulebook/layout/reports/domain-package-maker.json
 
 ## Current boundary
 
-This milestone freezes the **DomainPackage semantic composition contract**, not the visual grammar.
-
-The next implementation task is the Maker visual prototype: define the Chapter 14 Domain identity treatment, level dividers, page-breakable card-entry grammar, LuaLaTeX renderer, and rendered geometry/content regression. Only after Maker is visually accepted should the grammar be generalized to every Domain and later integrated into the full Chapter 14/Pandoc pipeline.
+The immediate acceptance task is **Maker visual review**. Do not generalize to all Domains and do not replace Chapter 14 in the full rulebook until the Maker grammar is visually accepted. Once accepted, freeze DomainPackage v1, add all-Domain regression, and only then perform Chapter 14/Pandoc integration.
