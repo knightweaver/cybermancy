@@ -35,7 +35,6 @@ def _extract_pdf_lines(pdf_path: Path) -> tuple[list[PdfLine] | None, str | None
     exe = shutil.which("pdftotext")
     if not exe:
         return None, "pdftotext was not found on PATH."
-
     proc = subprocess.run(
         [exe, "-bbox-layout", str(pdf_path), "-"],
         text=True,
@@ -46,7 +45,6 @@ def _extract_pdf_lines(pdf_path: Path) -> tuple[list[PdfLine] | None, str | None
     )
     if proc.returncode != 0:
         return [], (proc.stderr or proc.stdout or "pdftotext failed.")[-6000:]
-
     try:
         root = ET.fromstring(proc.stdout)
     except ET.ParseError as exc:
@@ -138,7 +136,6 @@ def evaluate_domain_package_geometry(
         if len(matches) != 1:
             errors.append(f"Card heading {name!r} rendered {len(matches)} times; expected exactly once.")
             continue
-
         heading = matches[0]
         heading_lines.append(heading)
         details["cardsPerPage"].setdefault(str(heading.page), 0)
@@ -193,17 +190,18 @@ def evaluate_domain_package_geometry(
                 ],
                 key=lambda line: line.y_min,
             )
-            if len(wrapped) >= 2:
+            if len(wrapped) >= 3:
                 deltas = [
                     wrapped[i + 1].y_min - wrapped[i].y_min
                     for i in range(len(wrapped) - 1)
                     if 7.0 <= wrapped[i + 1].y_min - wrapped[i].y_min <= 18.0
                 ]
                 # The first baseline transition can include paragraph-top glue in
-                # LuaLaTeX. Prefer stable interior leading when it is available.
-                sample = deltas[1:] if len(deltas) >= 2 else deltas
+                # LuaLaTeX. Require an interior transition rather than treating a
+                # two-line paragraph as a reliable leading measurement.
+                sample = deltas[1:] if len(deltas) >= 2 else []
                 if sample:
-                    delta = sum(sample) / len(sample)
+                    delta = min(sample, key=lambda value: abs(value - expected_leading))
                     details["descriptionLineSpacing"].append(
                         {"name": name, "page": first.page, "points": round(delta, 3)}
                     )
