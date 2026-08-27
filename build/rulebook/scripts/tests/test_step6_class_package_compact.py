@@ -100,32 +100,43 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         )
         self.assertLess(tex.index("HIT POINTS"), tex.index("HOPE FEATURE"))
         self.assertLess(tex.index("HOPE FEATURE"), tex.index("CLASS FEATURES"))
-        self.assertLess(tex.index("CLASS FEATURES"), tex.index("\\clearpage"))
+        self.assertLess(tex.index("CLASS FEATURES"), tex.index("\\begin{paracol}{2}"))
 
-    def test_two_subclasses_share_one_page_in_parallel_columns(self):
+    def test_two_subclasses_use_page_breakable_parallel_columns(self):
         tex = self._render()
-        subclass_page = tex[tex.index("\\clearpage") :]
+        subclass_flow = tex[tex.index("\\begin{paracol}{2}") : tex.index("\\end{paracol}")]
 
-        self.assertEqual(tex.count("\\clearpage"), 1)
-        self.assertEqual(subclass_page.count("\\begin{minipage}[t]{0.485\\linewidth}"), 2)
-        self.assertIn("PATH A", subclass_page)
-        self.assertIn("PATH B", subclass_page)
-        between = subclass_page[subclass_page.index("PATH A") : subclass_page.index("PATH B")]
-        self.assertNotIn("\\clearpage", between)
-        self.assertIn("\\hfill", between)
+        self.assertIn("\\usepackage{paracol}", tex)
+        self.assertEqual(tex.count("\\begin{paracol}{2}"), 1)
+        self.assertEqual(tex.count("\\end{paracol}"), 1)
+        self.assertEqual(subclass_flow.count("\\switchcolumn"), 1)
+        self.assertIn("PATH A", subclass_flow)
+        self.assertIn("PATH B", subclass_flow)
+        self.assertLess(subclass_flow.index("PATH A"), subclass_flow.index("\\switchcolumn"))
+        self.assertLess(subclass_flow.index("\\switchcolumn"), subclass_flow.index("PATH B"))
+        self.assertNotIn("\\clearpage", tex)
 
-    def test_long_subclass_content_switches_entire_subclass_spread_to_breakable_full_width_pages(self):
+    def test_long_subclass_content_remains_in_parallel_breakable_columns(self):
         view, config = self._fixture()
         view["subclasses"][1]["description"] = " ".join(["Long subclass publication text."] * 180)
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             tex = render_class_package_tex(view, config, root / "source", root / "out")
 
-        subclass_page = tex[tex.index("\\clearpage") :]
-        self.assertEqual(tex.count("\\clearpage"), 2)
-        self.assertNotIn("\\begin{minipage}[t]{0.485\\linewidth}", subclass_page)
-        between = subclass_page[subclass_page.index("PATH A") : subclass_page.index("PATH B")]
-        self.assertIn("\\clearpage", between)
+        subclass_flow = tex[tex.index("\\begin{paracol}{2}") : tex.index("\\end{paracol}")]
+        self.assertEqual(tex.count("\\begin{paracol}{2}"), 1)
+        self.assertEqual(subclass_flow.count("\\switchcolumn"), 1)
+        self.assertIn("Long subclass publication text.", subclass_flow)
+        self.assertNotIn("\\clearpage", tex)
+        self.assertFalse(hasattr(compact, "MAX_TWO_COLUMN_SUBCLASS_LINES"))
+
+    def test_subclass_flow_can_follow_starting_package_without_forced_page_break(self):
+        tex = self._render()
+        package_to_subclasses = tex[tex.index("STARTING PACKAGE") : tex.index("\\begin{paracol}{2}")]
+
+        self.assertNotIn("\\clearpage", package_to_subclasses)
+        self.assertIn("\\Needspace{2.6in}", package_to_subclasses)
+        self.assertIn("\\setlength{\\columnsep}{0.030\\linewidth}", package_to_subclasses)
 
     def test_webp_assets_are_converted_to_render_only_pngs_for_lualatex(self):
         with tempfile.TemporaryDirectory() as td:
@@ -159,8 +170,8 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         tex = self._render()
 
         self.assertEqual(tex.count("height=1.55in"), 2)
-        self.assertGreaterEqual(tex.count("\\vspace{0pt}"), 7)
-        path_a = tex[tex.index("PATH A") : tex.index("PATH B")]
+        self.assertGreaterEqual(tex.count("\\vspace{0pt}"), 5)
+        path_a = tex[tex.index("PATH A") : tex.index("\\switchcolumn")]
         self.assertLess(path_a.index("height=1.55in"), path_a.index("SPELLCAST TRAIT: INSTINCT"))
         self.assertLess(path_a.index("SPELLCAST TRAIT: INSTINCT"), path_a.index("FOUNDATION"))
         self.assertLess(path_a.index("FOUNDATION"), path_a.index("SPECIALIZATION"))
@@ -182,7 +193,7 @@ class TestStep6CompactClassPackage(unittest.TestCase):
             "\\end{tabularx}\n\\vspace{3.0mm}\n{\\fontsize{10.5}{12.3}\\selectfont First class sentence.",
             tex,
         )
-        path_a = tex[tex.index("PATH A") : tex.index("PATH B")]
+        path_a = tex[tex.index("PATH A") : tex.index("\\switchcolumn")]
         self.assertIn(
             "SPELLCAST TRAIT: INSTINCT\n}}\n\\vspace{2.0mm}\n{\\fontsize{10.5}{12.1}\\selectfont First subclass sentence.",
             path_a,
@@ -190,7 +201,7 @@ class TestStep6CompactClassPackage(unittest.TestCase):
 
     def test_starting_package_uses_two_aligned_columns(self):
         tex = self._render()
-        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\clearpage")]
+        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\Needspace{2.6in}")]
 
         self.assertEqual(package.count("\\begin{minipage}[t]{0.485\\linewidth}"), 2)
         self.assertIn("\\end{minipage}\\hfill", package)
