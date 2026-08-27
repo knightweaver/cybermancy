@@ -73,6 +73,9 @@ def _style(config: dict[str, Any]) -> dict[str, Any]:
         "card_art_fraction": float(source.get("cardArtWidthFraction", 0.24) or 0.24),
         "card_art_height": float(source.get("cardArtMaxHeightIn", 0.88) or 0.88),
         "column_sep": float(source.get("columnSepIn", 0.18) or 0.18),
+        "page_bottom_safety_pt": max(
+            0.0, float(source.get("pageBottomSafetyPt", 2.0) or 2.0)
+        ),
         "minimum_card_text": minimum,
         "body_size": body_size,
         "body_leading": body_leading,
@@ -345,7 +348,9 @@ def render_domain_package_tex(
 \setlength{{\columnsep}}{{{style['column_sep']:.3f}in}}
 \setlength{{\multicolsep}}{{0pt}}
 \setlength{{\columnseprule}}{{0pt}}
+\addtolength{{\textheight}}{{-{style['page_bottom_safety_pt']:.2f}pt}}
 \pagestyle{{plain}}
+\raggedbottom
 \begin{{document}}
 \sffamily
 {chr(10).join(content)}
