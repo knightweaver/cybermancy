@@ -29,6 +29,51 @@ def _description_block_tex(description: str, leading: str, *, italic: bool = Fal
     )
 
 
+def _feature_tex(feature: dict[str, Any], *, compact: bool = False) -> str:
+    """Render one feature without a section separator.
+
+    Separators belong to the enclosing feature type (Hope, Class Features,
+    Foundation, Specialization, Mastery), not to individual features.
+    """
+    name = _latex_escape_value(feature.get("name"))
+    description = _latex_escape_value(feature.get("description"))
+    needspace = "0.52in" if compact else "0.62in"
+    between_space = "0.7mm" if compact else "1.0mm"
+
+    lines = [
+        rf"\Needspace{{{needspace}}}",
+        rf"{{\fontsize{{12}}{{13.2}}\selectfont\bfseries\color{{CMInk}} {name}\par}}",
+        r"\vspace{0.15mm}",
+    ]
+    if description:
+        lines.append(rf"{{\fontsize{{10.5}}{{12.1}}\selectfont {description}\par}}")
+    else:
+        lines.append(
+            r"{\fontsize{10.5}{12.1}\selectfont\itshape\color{CMMuted} No publication description supplied.\par}"
+        )
+    lines.append(rf"\vspace{{{between_space}}}")
+    return "\n".join(lines)
+
+
+def _feature_group_separator_tex(*, compact: bool = False) -> str:
+    line_width = "0.35pt" if compact else "0.45pt"
+    bottom_space = "0.7mm" if compact else "1.0mm"
+    return "\n".join(
+        [
+            r"\vspace{0.25mm}",
+            rf"{{\color{{CMBright}}\rule{{\linewidth}}{{{line_width}}}}}",
+            rf"\vspace{{{bottom_space}}}",
+        ]
+    )
+
+
+def _feature_group_tex(rows: list[dict[str, Any]], *, compact: bool = False) -> str:
+    """Render all features in one semantic type followed by one separator."""
+    pieces = [_feature_tex(row, compact=compact) for row in rows]
+    pieces.append(_feature_group_separator_tex(compact=compact))
+    return "\n".join(pieces)
+
+
 def _package_column_tex(rows: list[tuple[str, str]], label_width: str) -> str:
     if label_width == "0.82in":
         label_fraction, value_fraction = 0.300, 0.660
@@ -101,6 +146,86 @@ def _class_opening_tex(
     return "\n".join(pieces)
 
 
+def _class_support_tex(cls: dict[str, Any]) -> str:
+    pieces: list[str] = []
+    features = cls.get("features") if isinstance(cls.get("features"), dict) else {}
+    for key, label in (("hope", "Hope Feature"), ("class", "Class Features")):
+        rows = features.get(key) if isinstance(features.get(key), list) else []
+        if not rows:
+            continue
+        pieces.extend(
+            [
+                r"\Needspace{0.5in}",
+                rf"{{\fontsize{{15}}{{16}}\selectfont\bfseries\color{{CMAccent}} {label.upper()}\par}}",
+                r"\vspace{0.35mm}",
+                _feature_group_tex(rows),
+            ]
+        )
+
+    inventory = cls.get("startingInventory") if isinstance(cls.get("startingInventory"), dict) else {}
+    guide = cls.get("characterGuide") if isinstance(cls.get("characterGuide"), dict) else {}
+    class_items = cls.get("classItems") if isinstance(cls.get("classItems"), list) else []
+
+    left_rows: list[tuple[str, str]] = []
+    right_rows: list[tuple[str, str]] = []
+
+    if class_items:
+        left_rows.append(("Class Items", base._reference_names(class_items)))
+    for key, label in (("take", "Take"), ("choiceA", "Choice A"), ("choiceB", "Choice B")):
+        rows = inventory.get(key) if isinstance(inventory.get(key), list) else []
+        if rows:
+            left_rows.append((label, base._reference_names(rows)))
+
+    primary = guide.get("suggestedPrimaryWeapon")
+    secondary = guide.get("suggestedSecondaryWeapon")
+    armor = guide.get("suggestedArmor")
+    if isinstance(primary, dict):
+        right_rows.append(("Suggested Weapon", _latex_escape_value(primary.get("name"))))
+    if isinstance(secondary, dict):
+        right_rows.append(("Secondary Weapon", _latex_escape_value(secondary.get("name"))))
+    if isinstance(armor, dict):
+        right_rows.append(("Suggested Armor", _latex_escape_value(armor.get("name"))))
+    traits = guide.get("suggestedTraits")
+    if isinstance(traits, dict) and traits:
+        trait_text = ", ".join(
+            f"{_latex_escape_value(str(name).title())} {_latex_escape_value(value)}"
+            for name, value in traits.items()
+        )
+        right_rows.append(("Suggested Traits", trait_text))
+
+    if left_rows or right_rows:
+        pieces.extend(
+            [
+                r"\Needspace{0.9in}",
+                r"{\fontsize{15}{16}\selectfont\bfseries\color{CMAccent} STARTING PACKAGE\par}",
+                r"\vspace{0.5mm}",
+                r"\begin{minipage}[t]{0.485\linewidth}",
+                r"\vspace{0pt}",
+                _package_column_tex(left_rows, "0.82in"),
+                r"\end{minipage}\hfill",
+                r"\begin{minipage}[t]{0.485\linewidth}",
+                r"\vspace{0pt}",
+                _package_column_tex(right_rows, "1.28in"),
+                r"\end{minipage}",
+                r"\vspace{0.8mm}",
+            ]
+        )
+
+    for field, label in (("backgroundQuestions", "Background Questions"), ("connections", "Connections")):
+        values = cls.get(field)
+        if not isinstance(values, list) or not values:
+            continue
+        pieces.extend(
+            [
+                rf"{{\fontsize{{13}}{{14}}\selectfont\bfseries\color{{CMAccent}} {label.upper()}\par}}",
+                r"\begin{itemize}",
+                *[rf"\item {_latex_escape_value(value)}" for value in values],
+                r"\end{itemize}",
+            ]
+        )
+    return "\n".join(pieces)
+
+
 def _subclass_tex(
     subclass: dict[str, Any],
     config: dict[str, Any],
@@ -166,10 +291,13 @@ def _subclass_tex(
             ]
         )
         if rows:
-            pieces.extend(base._feature_tex(row, compact=True) for row in rows)
+            pieces.append(_feature_group_tex(rows, compact=True))
         else:
-            pieces.append(
-                r"{\fontsize{10.5}{12.1}\selectfont\itshape\color{CMMuted} No features at this progression stage.\par}"
+            pieces.extend(
+                [
+                    r"{\fontsize{10.5}{12.1}\selectfont\itshape\color{CMMuted} No features at this progression stage.\par}",
+                    _feature_group_separator_tex(compact=True),
+                ]
             )
     return "\n".join(pieces)
 
@@ -181,12 +309,25 @@ def render_class_package_tex(
     output_dir: Path,
 ) -> str:
     """Apply the approved structural alignment refinements to the compact renderer."""
-    original = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
+    original = (
+        base._class_opening_tex,
+        base._class_support_tex,
+        base._subclass_tex,
+        base._package_column_tex,
+        base.latex_escape,
+    )
     base._class_opening_tex = _class_opening_tex
+    base._class_support_tex = _class_support_tex
     base._subclass_tex = _subclass_tex
     base._package_column_tex = _package_column_tex
     base.latex_escape = _latex_escape_value
     try:
         return base.render_class_package_tex(view, config, source_root, output_dir)
     finally:
-        base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape = original
+        (
+            base._class_opening_tex,
+            base._class_support_tex,
+            base._subclass_tex,
+            base._package_column_tex,
+            base.latex_escape,
+        ) = original
