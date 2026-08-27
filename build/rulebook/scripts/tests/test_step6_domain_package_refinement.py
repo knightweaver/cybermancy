@@ -36,6 +36,8 @@ class TestStep6DomainPackageRefinement(unittest.TestCase):
             },
             "levels": [{"level": 3, "cards": cards}],
         }
+        # Intentionally request values below the accepted minimum so this fixture
+        # proves the renderer enforces the 10.5 pt card-text floor.
         config = {
             "chapter": 14,
             "partLabel": "CHARACTER OPTIONS",
@@ -45,8 +47,11 @@ class TestStep6DomainPackageRefinement(unittest.TestCase):
             },
             "style": {
                 "columnSepIn": 0.18,
+                "minimumCardTextFontPt": 10.5,
                 "cardBodyFontPt": 9.0,
                 "cardBodyLeadingPt": 11.3,
+                "cardMetaFontPt": 8.0,
+                "cardMetaLeadingPt": 9.0,
             },
         }
         with tempfile.TemporaryDirectory() as td:
@@ -78,7 +83,6 @@ class TestStep6DomainPackageRefinement(unittest.TestCase):
     def test_card_header_rule_is_removed(self):
         tex = self._render()
         self.assertNotIn(r"\rule{\linewidth}{0.75pt}", tex)
-        # The lighter bottom separator between card entries remains.
         self.assertIn(r"\rule{\linewidth}{0.35pt}", tex)
 
     def test_card_description_uses_classpackage_zero_parskip_fix(self):
@@ -86,11 +90,28 @@ class TestStep6DomainPackageRefinement(unittest.TestCase):
         alpha = tex[tex.index("Alpha") : tex.index("Beta")]
         self.assertIn(r"\setlength{\parskip}{0pt}", alpha)
         self.assertIn(r"\setlength{\parindent}{0pt}", alpha)
-        self.assertIn(r"\fontsize{9.00}{11.30}\selectfont\color{CMInk}", alpha)
+        self.assertIn(r"\setlength{\emergencystretch}{1.5em}", alpha)
+        self.assertIn(r"\fontsize{10.50}{12.10}\selectfont\color{CMInk}", alpha)
         self.assertIn(
             r"\noindent Alpha first sentence. Alpha second sentence continues the same published card text.\par",
             alpha,
         )
+
+    def test_all_text_inside_card_respects_10_5pt_floor(self):
+        tex = self._render()
+        alpha = tex[tex.index("Alpha") : tex.index("Beta")]
+        self.assertIn(r"\fontsize{12.00}{13.00}\selectfont", alpha)
+        self.assertGreaterEqual(alpha.count(r"\fontsize{10.50}{11.50}\selectfont"), 2)
+        self.assertNotIn(r"\fontsize{9.00}", alpha)
+        self.assertNotIn(r"\fontsize{8.00}", alpha)
+        self.assertNotIn(r"\fontsize{6.9}", alpha)
+
+    def test_card_metadata_is_stacked_to_avoid_narrow_column_overflow(self):
+        tex = self._render()
+        alpha = tex[tex.index("Alpha") : tex.index("Beta")]
+        self.assertIn("LEVEL 3\\par", alpha)
+        self.assertIn("RECALL COST 1\\par", alpha)
+        self.assertNotIn(r"\textbullet", alpha)
 
 
 if __name__ == "__main__":
