@@ -25,7 +25,10 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
                 "image": "assets/icons/classes/test-class.png",
                 "features": {
                     "hope": [feature("Hope Signal", "Hope feature text.")],
-                    "class": [feature("Class Engine", "Class feature text.")],
+                    "class": [
+                        feature("Class Engine", "First class feature text."),
+                        feature("Class Relay", "Second class feature text."),
+                    ],
                 },
                 "classItems": [],
                 "startingInventory": {
@@ -46,7 +49,10 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
                     "image": "assets/icons/subclasses/path-a.png",
                     "spellcastingTrait": "instinct",
                     "progression": {
-                        "foundation": [feature("A Foundation", "Foundation A.")],
+                        "foundation": [
+                            feature("A Foundation", "Foundation A."),
+                            feature("A Foundation Two", "Foundation A2."),
+                        ],
                         "specialization": [feature("A Specialization", "Specialization A.")],
                         "mastery": [feature("A Mastery", "Mastery A.")],
                     },
@@ -137,6 +143,46 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
         package = tex[tex.index("STARTING PACKAGE") : tex.index("\\Needspace{2.6in}")]
         self.assertIn("Agility 0, Finesse 1, Instinct 2", package)
 
+    def test_feature_separators_render_once_per_class_feature_type(self):
+        tex = self._render()
+        hope = tex[tex.index("HOPE FEATURE") : tex.index("CLASS FEATURES")]
+        class_features = tex[tex.index("CLASS FEATURES") : tex.index("STARTING PACKAGE")]
+
+        self.assertEqual(1, hope.count(r"\rule{\linewidth}{0.45pt}"))
+        self.assertEqual(1, class_features.count(r"\rule{\linewidth}{0.45pt}"))
+        between_features = class_features[
+            class_features.index("Class Engine") : class_features.index("Class Relay")
+        ]
+        self.assertNotIn(r"\rule{\linewidth}{0.45pt}", between_features)
+        self.assertLess(
+            class_features.index("Class Relay"),
+            class_features.index(r"\rule{\linewidth}{0.45pt}"),
+        )
+
+    def test_feature_separators_render_once_per_subclass_progression_type(self):
+        tex = self._render()
+        path_a = tex[tex.index("PATH A") : tex.index("\\switchcolumn")]
+        foundation = path_a[path_a.index("FOUNDATION") : path_a.index("SPECIALIZATION")]
+        specialization = path_a[path_a.index("SPECIALIZATION") : path_a.index("MASTERY")]
+        mastery = path_a[path_a.index("MASTERY") :]
+
+        self.assertEqual(1, foundation.count(r"\rule{\linewidth}{0.35pt}"))
+        self.assertEqual(1, specialization.count(r"\rule{\linewidth}{0.35pt}"))
+        self.assertEqual(1, mastery.count(r"\rule{\linewidth}{0.35pt}"))
+        between_foundation_features = foundation[
+            foundation.index("A Foundation") : foundation.index("A Foundation Two")
+        ]
+        self.assertNotIn(r"\rule{\linewidth}{0.35pt}", between_foundation_features)
+        self.assertLess(
+            foundation.index("A Foundation Two"),
+            foundation.index(r"\rule{\linewidth}{0.35pt}"),
+        )
+
+    def test_non_feature_identity_separator_is_preserved(self):
+        tex = self._render()
+        path_a = tex[tex.index("PATH A") : tex.index("FOUNDATION")]
+        self.assertIn(r"\rule{\linewidth}{0.55pt}", path_a)
+
     def test_refined_renderer_uses_parallel_breakable_subclass_flow_without_forced_clearpage(self):
         tex = self._render()
         self.assertIn("\\usepackage{paracol}", tex)
@@ -150,11 +196,29 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
     def test_refined_renderer_restores_base_helpers_after_use(self):
         import rulebook_layout.class_package_compact as base
 
-        before = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
+        before = (
+            base._class_opening_tex,
+            base._class_support_tex,
+            base._subclass_tex,
+            base._package_column_tex,
+            base.latex_escape,
+        )
         first = self._render()
-        after_first = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
+        after_first = (
+            base._class_opening_tex,
+            base._class_support_tex,
+            base._subclass_tex,
+            base._package_column_tex,
+            base.latex_escape,
+        )
         second = self._render()
-        after_second = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
+        after_second = (
+            base._class_opening_tex,
+            base._class_support_tex,
+            base._subclass_tex,
+            base._package_column_tex,
+            base.latex_escape,
+        )
         self.assertEqual(before, after_first)
         self.assertEqual(before, after_second)
         self.assertEqual(first, second)
