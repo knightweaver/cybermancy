@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 import os
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -8,6 +9,9 @@ from .class_package import latex_escape
 
 
 MIN_BODY_SIZE = 10.5
+DIRECT_GRAPHICS_EXTENSIONS = {".png", ".jpg", ".jpeg", ".pdf"}
+PILLOW_CONVERT_EXTENSIONS = {".webp", ".gif", ".bmp", ".tif", ".tiff"}
+MAX_TWO_COLUMN_SUBCLASS_LINES = 58
 
 
 def _style(config: dict[str, Any]) -> dict[str, Any]:
@@ -28,8 +32,36 @@ def _style(config: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _convert_raster_to_png(source: Path, destination: Path) -> None:
+    """Create a deterministic LuaLaTeX-safe PNG without changing Step 4 assets."""
+    try:
+        from PIL import Image, ImageOps
+    except ImportError as exc:
+        raise RuntimeError(
+            "Pillow is required to convert WebP/GIF/BMP/TIFF ClassPackage assets for LuaLaTeX. "
+            "Install it with: python -m pip install Pillow"
+        ) from exc
+
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(source) as im:
+        im = ImageOps.exif_transpose(im)
+        has_alpha = "A" in im.getbands() or (im.mode == "P" and "transparency" in im.info)
+        prepared = im.convert("RGBA" if has_alpha else "RGB")
+        prepared.save(destination, format="PNG", compress_level=9, optimize=False)
+
+
 def _tex_image_path(source_root: Path, output_dir: Path, publication_path: str) -> str:
-    absolute = source_root / Path(*PurePosixPath(publication_path).parts)
+    publication = Path(*PurePosixPath(publication_path).parts)
+    absolute = source_root / publication
+    ext = absolute.suffix.lower()
+
+    if ext in PILLOW_CONVERT_EXTENSIONS and absolute.is_file():
+        destination = output_dir / "_render-assets" / publication.with_suffix(".png")
+        _convert_raster_to_png(absolute, destination)
+        absolute = destination
+    elif ext and ext not in DIRECT_GRAPHICS_EXTENSIONS and absolute.is_file():
+        raise RuntimeError(f"Unsupported LuaLaTeX ClassPackage graphics extension: {ext}")
+
     relative = os.path.relpath(absolute, output_dir).replace("\\", "/")
     return r"\detokenize{" + relative + "}"
 
@@ -37,6 +69,32 @@ def _tex_image_path(source_root: Path, output_dir: Path, publication_path: str) 
 def _single_paragraph(value: Any) -> str:
     """Collapse authored paragraph/line boundaries for compact Class/Subclass lead text."""
     return " ".join(str(value or "").split())
+
+
+def _estimated_wrapped_lines(value: Any, chars_per_line: int = 56) -> int:
+    text = _single_paragraph(value)
+    if not text:
+        return 1
+    return max(1, math.ceil(len(text) / chars_per_line))
+
+
+def _subclass_half_width_line_estimate(subclass: dict[str, Any], config: dict[str, Any]) -> int:
+    """Estimate whether a complete Subclass can safely remain an unbreakable half-page column."""
+    lines = 11 + _estimated_wrapped_lines(subclass.get("description"))
+    progression = subclass.get("progression") if isinstance(subclass.get("progression"), dict) else {}
+    for stage in (config.get("composition") or {}).get(
+        "subclassProgressionOrder", ["foundation", "specialization", "mastery"]
+    ):
+        rows = progression.get(str(stage)) if isinstance(progression.get(str(stage)), list) else []
+        lines += 2
+        if not rows:
+            lines += 2
+            continue
+        for feature in rows:
+            if not isinstance(feature, dict):
+                continue
+            lines += 3 + _estimated_wrapped_lines(feature.get("description"))
+    return lines
 
 
 def _feature_tex(feature: dict[str, Any], *, compact: bool = False) -> str:
@@ -261,9 +319,19 @@ def _subclass_pages_tex(
     composition = config.get("composition") if isinstance(config.get("composition"), dict) else {}
     columns = int(composition.get("subclassPageColumns", 2) or 2)
     columns = max(1, min(2, columns))
+
+    if columns > 1 and any(
+        _subclass_half_width_line_estimate(subclass, config) > MAX_TWO_COLUMN_SUBCLASS_LINES
+        for subclass in subclasses
+    ):
+        columns = 1
+
+    if columns == 1:
+        pages = [_subclass_tex(subclass, config, source_root, output_dir) for subclass in subclasses]
+        return "\n\\clearpage\n".join(pages)
+
     style = _style(config)
-    column_width = style["subclass_column"] if columns > 1 else 1.0
-    column_width = max(0.45, min(0.495, column_width)) if columns > 1 else 1.0
+    column_width = max(0.45, min(0.495, style["subclass_column"]))
 
     pages: list[str] = []
     for offset in range(0, len(subclasses), columns):
