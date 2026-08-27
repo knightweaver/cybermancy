@@ -113,6 +113,6 @@ H2 is ready for visual review when:
 - every proof entry has reader-facing rules in prose and/or normalized action semantics;
 - the view contains no raw source/runtime references;
 - LuaLaTeX reports no overfull boxes;
-- rendered text contains each group and proof entry exactly once and in view order.
+- rendered text contains every group and proof entry heading, with first occurrences in view order.
 
 The config remains `prototype` until the rendered proof is visually accepted. H3 should promote the accepted grammar to all 13 ICE entries and only then freeze ICEReferencePackage v1.

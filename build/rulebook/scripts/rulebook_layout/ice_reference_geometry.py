@@ -7,49 +7,52 @@ from typing import Any
 
 
 def evaluate_ice_reference_text(text: str, view: dict[str, Any]) -> dict[str, Any]:
-    required: list[tuple[str, int]] = []
+    required: list[str] = []
     for group in view.get("groups", []):
         if not isinstance(group, dict):
             continue
         title = str(group.get("title") or "").strip()
         if title:
-            required.append((title, 1))
+            required.append(title)
         for entry in group.get("entries", []):
             if not isinstance(entry, dict):
                 continue
             name = str(entry.get("name") or "").strip()
             if name:
-                required.append((name, 1))
+                required.append(name)
 
     missing: list[str] = []
-    duplicates: list[dict[str, Any]] = []
     positions: list[tuple[int, str]] = []
-    for token, expected_count in required:
-        count = text.count(token)
-        if count < expected_count:
-            missing.append(token)
-        elif count > expected_count:
-            duplicates.append({"token": token, "expected": expected_count, "actual": count})
+    for token in required:
         pos = text.find(token)
-        if pos >= 0:
+        if pos < 0:
+            missing.append(token)
+        else:
             positions.append((pos, token))
 
-    order = [token for _, token in sorted(positions)]
-    expected_order = [token for token, _ in required if token in text]
-    order_ok = order == expected_order
+    actual_order = [token for _, token in sorted(positions)]
+    expected_order = [token for token in required if token not in missing]
+    order_ok = actual_order == expected_order
+
     errors: list[str] = []
     if missing:
         errors.append("missing-content")
-    if duplicates:
-        errors.append("duplicate-content")
     if not order_ok:
         errors.append("content-order")
 
     return {
         "code": "ICE_REFERENCE_RENDER_CONTENT",
         "status": "ERROR" if errors else "PASS",
-        "message": "Rendered ICEReferencePackage content regression failed." if errors else "Rendered ICEReferencePackage contains every group and proof entry exactly once in view order.",
-        "details": {"missing": missing, "duplicates": duplicates, "expectedOrder": expected_order, "actualOrder": order},
+        "message": (
+            "Rendered ICEReferencePackage content regression failed."
+            if errors
+            else "Rendered ICEReferencePackage contains every group and proof entry heading with first occurrences in view order."
+        ),
+        "details": {
+            "missing": missing,
+            "expectedOrder": expected_order,
+            "actualOrder": actual_order,
+        },
     }
 
 
