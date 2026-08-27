@@ -65,7 +65,11 @@ def _configure_class_package(namespace: dict[str, Any]) -> None:
         "primaryFamily": "classes",
         "nestedFamily": "subclasses",
         "relationshipResolutionStage": "Step 4",
-        "renderRule":": "Resolve each Subclass to exactly one linked Class and render the full Subclass structure beneath that Class; do not create an independent Subclass reference chapter.",
+        "renderRule": (
+            "Resolve each Subclass to exactly one linked Class and render the full "
+            "Subclass structure beneath that Class; do not create an independent "
+            "Subclass reference chapter."
+        ),
     }
     class_chapter["assemblyNote"] = (
         "Classes and Subclasses form one publication unit. Chapter 13 is reserved "
@@ -179,6 +183,7 @@ def _configure_ice_reference(namespace: dict[str, Any]) -> None:
         for record in records:
             if record.get("familyId") != "features":
                 continue
+            record["audience"] = "gm"
             record["materialization"] = "normalize-all-publish-selected-subset"
             record["recordFilter"] = (
                 "Normalize all logical Feature entities required by dependent mechanics; "
