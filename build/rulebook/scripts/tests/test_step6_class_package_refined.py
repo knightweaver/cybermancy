@@ -132,14 +132,19 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
         self.assertIn("\\strut Light Pistol\\par", package)
         self.assertGreaterEqual(package.count("\\vspace{0pt}"), 10)
 
+    def test_starting_package_preserves_zero_valued_traits(self):
+        tex = self._render()
+        package = tex[tex.index("STARTING PACKAGE") : tex.index("\\clearpage")]
+        self.assertIn("Agility 0, Finesse 1, Instinct 2", package)
+
     def test_refined_renderer_restores_base_helpers_after_use(self):
         import rulebook_layout.class_package_compact as base
 
-        before = (base._class_opening_tex, base._subclass_tex, base._package_column_tex)
+        before = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
         first = self._render()
-        after_first = (base._class_opening_tex, base._subclass_tex, base._package_column_tex)
+        after_first = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
         second = self._render()
-        after_second = (base._class_opening_tex, base._subclass_tex, base._package_column_tex)
+        after_second = (base._class_opening_tex, base._subclass_tex, base._package_column_tex, base.latex_escape)
         self.assertEqual(before, after_first)
         self.assertEqual(before, after_second)
         self.assertEqual(first, second)
