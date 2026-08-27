@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import math
 import os
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -11,7 +10,7 @@ from .class_package import latex_escape
 MIN_BODY_SIZE = 10.5
 DIRECT_GRAPHICS_EXTENSIONS = {".png", ".jpg", ".jpeg", ".pdf"}
 PILLOW_CONVERT_EXTENSIONS = {".webp", ".gif", ".bmp", ".tif", ".tiff"}
-MAX_TWO_COLUMN_SUBCLASS_LINES = 58
+SUBCLASS_START_NEEDSPACE_IN = 2.6
 
 
 def _style(config: dict[str, Any]) -> dict[str, Any]:
@@ -69,32 +68,6 @@ def _tex_image_path(source_root: Path, output_dir: Path, publication_path: str) 
 def _single_paragraph(value: Any) -> str:
     """Collapse authored paragraph/line boundaries for compact Class/Subclass lead text."""
     return " ".join(str(value or "").split())
-
-
-def _estimated_wrapped_lines(value: Any, chars_per_line: int = 56) -> int:
-    text = _single_paragraph(value)
-    if not text:
-        return 1
-    return max(1, math.ceil(len(text) / chars_per_line))
-
-
-def _subclass_half_width_line_estimate(subclass: dict[str, Any], config: dict[str, Any]) -> int:
-    """Estimate whether a complete Subclass can safely remain an unbreakable half-page column."""
-    lines = 11 + _estimated_wrapped_lines(subclass.get("description"))
-    progression = subclass.get("progression") if isinstance(subclass.get("progression"), dict) else {}
-    for stage in (config.get("composition") or {}).get(
-        "subclassProgressionOrder", ["foundation", "specialization", "mastery"]
-    ):
-        rows = progression.get(str(stage)) if isinstance(progression.get(str(stage)), list) else []
-        lines += 2
-        if not rows:
-            lines += 2
-            continue
-        for feature in rows:
-            if not isinstance(feature, dict):
-                continue
-            lines += 3 + _estimated_wrapped_lines(feature.get("description"))
-    return lines
 
 
 def _feature_tex(feature: dict[str, Any], *, compact: bool = False) -> str:
@@ -297,7 +270,7 @@ def _subclass_tex(
         stage_name = str(stage)
         rows = progression.get(stage_name) if isinstance(progression.get(stage_name), list) else []
         pieces.extend([
-            r"\Needspace{0.45in}",
+            r"\Needspace{0.72in}",
             rf"{{\fontsize{{12.5}}{{13.5}}\selectfont\bfseries\color{{CMAccent}} {latex_escape(stage_name.upper())}\par}}",
             r"\vspace{0.2mm}",
         ])
@@ -306,6 +279,33 @@ def _subclass_tex(
         else:
             pieces.append(r"{\fontsize{10.5}{12.1}\selectfont\itshape\color{CMMuted} No features at this progression stage.\par}")
     return "\n".join(pieces)
+
+
+def _subclass_pair_tex(
+    left: dict[str, Any],
+    right: dict[str, Any],
+    config: dict[str, Any],
+    source_root: Path,
+    output_dir: Path,
+) -> str:
+    style = _style(config)
+    column_width = max(0.45, min(0.495, style["subclass_column"]))
+    gap_fraction = max(0.01, min(0.10, 1.0 - (2.0 * column_width)))
+    return "\n".join(
+        [
+            r"\par",
+            rf"\Needspace{{{SUBCLASS_START_NEEDSPACE_IN:g}in}}",
+            rf"\setlength{{\columnsep}}{{{gap_fraction:.3f}\linewidth}}",
+            r"\begin{paracol}{2}",
+            r"\setlength{\parskip}{0.7mm}",
+            _subclass_tex(left, config, source_root, output_dir),
+            r"\switchcolumn",
+            r"\setlength{\parskip}{0.7mm}",
+            _subclass_tex(right, config, source_root, output_dir),
+            r"\end{paracol}",
+            r"\par\vspace{1.0mm}",
+        ]
+    )
 
 
 def _subclass_pages_tex(
@@ -320,37 +320,33 @@ def _subclass_pages_tex(
     columns = int(composition.get("subclassPageColumns", 2) or 2)
     columns = max(1, min(2, columns))
 
-    if columns > 1 and any(
-        _subclass_half_width_line_estimate(subclass, config) > MAX_TWO_COLUMN_SUBCLASS_LINES
-        for subclass in subclasses
-    ):
-        columns = 1
-
+    pieces: list[str] = []
     if columns == 1:
-        pages = [_subclass_tex(subclass, config, source_root, output_dir) for subclass in subclasses]
-        return "\n\\clearpage\n".join(pages)
-
-    style = _style(config)
-    column_width = max(0.45, min(0.495, style["subclass_column"]))
-
-    pages: list[str] = []
-    for offset in range(0, len(subclasses), columns):
-        group = subclasses[offset : offset + columns]
-        blocks: list[str] = []
-        for subclass in group:
-            blocks.append(
-                "\n".join(
-                    [
-                        rf"\begin{{minipage}}[t]{{{column_width:.3f}\linewidth}}",
-                        r"\vspace{0pt}",
-                        r"\setlength{\parskip}{0.7mm}",
-                        _subclass_tex(subclass, config, source_root, output_dir),
-                        r"\end{minipage}",
-                    ]
-                )
+        for subclass in subclasses:
+            pieces.extend(
+                [
+                    r"\par",
+                    rf"\Needspace{{{SUBCLASS_START_NEEDSPACE_IN:g}in}}",
+                    _subclass_tex(subclass, config, source_root, output_dir),
+                    r"\par\vspace{1.0mm}",
+                ]
             )
-        pages.append("\n\\hfill\n".join(blocks))
-    return "\n\\clearpage\n".join(pages)
+        return "\n".join(pieces)
+
+    for offset in range(0, len(subclasses), 2):
+        group = subclasses[offset : offset + 2]
+        if len(group) == 2:
+            pieces.append(_subclass_pair_tex(group[0], group[1], config, source_root, output_dir))
+        else:
+            pieces.extend(
+                [
+                    r"\par",
+                    rf"\Needspace{{{SUBCLASS_START_NEEDSPACE_IN:g}in}}",
+                    _subclass_tex(group[0], config, source_root, output_dir),
+                    r"\par\vspace{1.0mm}",
+                ]
+            )
+    return "\n".join(pieces)
 
 
 def render_class_package_tex(
@@ -359,7 +355,7 @@ def render_class_package_tex(
     source_root: Path,
     output_dir: Path,
 ) -> str:
-    """Render the compact D ClassPackage design proof as LuaLaTeX."""
+    """Render the accepted ClassPackage grammar as LuaLaTeX."""
     style = _style(config)
     preamble = rf"""\documentclass[11pt]{{article}}
 \usepackage[letterpaper,margin={style['margin']:g}in]{{geometry}}
@@ -371,6 +367,7 @@ def render_class_package_tex(
 \usepackage{{ragged2e}}
 \usepackage{{microtype}}
 \usepackage{{needspace}}
+\usepackage{{paracol}}
 \pagestyle{{empty}}
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{1.35mm}}
@@ -394,9 +391,6 @@ def render_class_package_tex(
     ]
     subclasses = view.get("subclasses") if isinstance(view.get("subclasses"), list) else []
     if subclasses:
-        pieces.extend([
-            r"\clearpage",
-            _subclass_pages_tex(subclasses, config, source_root, output_dir),
-        ])
+        pieces.append(_subclass_pages_tex(subclasses, config, source_root, output_dir))
     pieces.extend([r"\end{document}", ""])
     return "\n".join(pieces)
