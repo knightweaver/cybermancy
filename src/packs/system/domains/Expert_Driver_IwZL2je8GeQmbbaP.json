@@ -1,7 +1,7 @@
 {
   "name": "Expert Driver",
   "type": "domainCard",
-  "img": "modules/cybermancy/assets/icons/domains/maker/expert-driver.webp",
+  "img": "modules/cybermancy/assets/icons/domains/maker/fixer.webp",
   "system": {
     "description": "<i>Speed racer's got nothing on you!</i><p class=\"Card-Feature\">All Driving checks are +2.  Each time you are Spotlighted while Driving, you may also take an Attack Action.</p>",
     "level": 3,
@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Expert Driver": {
+      "18LKxqTrtaq3uf0J": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Speed racer's got nothing on you!</i><p class=\"Card-Feature\">All Driving checks are +2.  Each time you are Spotlighted while Driving, you may also take an Attack Action.",
@@ -31,7 +31,11 @@
         "name": "Expert Driver",
         "img": "modules/cybermancy/assets/icons/domains/maker/expert-driver.webp",
         "range": "",
-        "_id": "18LKxqTrtaq3uf0J"
+        "_id": "18LKxqTrtaq3uf0J",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621714185,
-    "modifiedTime": 1761621714185,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787832103402,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!IwZL2je8GeQmbbaP"
 }

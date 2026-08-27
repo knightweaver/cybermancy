@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Fixer": {
+      "FgD7xwtBfovU6neZ": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>The streets remember your name.</i><p class=\"Card-Feature\">You have a contact for weapons. Weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.",
@@ -31,7 +31,11 @@
         "name": "Fixer",
         "img": "modules/cybermancy/assets/icons/domains/bullet/fixer.webp",
         "range": "",
-        "_id": "FgD7xwtBfovU6neZ"
+        "_id": "FgD7xwtBfovU6neZ",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621483578,
-    "modifiedTime": 1761621483578,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144344,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!CJ6dICMm2FAH9quH"
 }

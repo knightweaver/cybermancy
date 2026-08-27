@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Improvised Mod": {
+      "6AyXzGNMuUHdoyhx": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>Improvise, adapt, overclock.</i><p class=\"Card-Feature\">Once per long rest, <strong>Spend 2 Hope</strong> to add a temporary extra mod to your <b>Primary Drone</b> for the current scene.  At the end of the Scene, remove 1 mod.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621714185,
-    "modifiedTime": 1761621714185,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144651,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!er935GcCStlCQutj"
 }

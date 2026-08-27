@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Strobe Effect": {
+      "oFEvN3t5HA8zbuG3": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“Flash ’em, crash ’em, and walk out glowing.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The creature must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621621441,
-    "modifiedTime": 1761621621441,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144411,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!F1FhWzs2nQwZaZcR"
 }

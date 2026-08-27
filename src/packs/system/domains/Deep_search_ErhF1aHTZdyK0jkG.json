@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Deep search": {
+      "CtdHLuesl6hkQ8M9": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“The Grid whispers, if you know how to listen.”</i><p class=\"Card-Feature\"><strong>Spend 2 Hope</strong> to know something about an creature.  As the GM up to 3 yes/no questions.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 2,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621623097,
-    "modifiedTime": 1761621623097,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144385,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!ErhF1aHTZdyK0jkG"
 }

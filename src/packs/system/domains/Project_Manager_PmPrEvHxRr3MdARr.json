@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Project Manager": {
+      "Iej1SOIAtSNaUmOR": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Leadership through logistics.</i><p class=\"Card-Feature\">Once per rest, <strong>Spend 1 Hope</strong> before a Group Action to grant +2 to the roll.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -40,7 +40,11 @@
         "name": "Project Manager",
         "img": "modules/cybermancy/assets/icons/domains/maker/project-manager.webp",
         "range": "",
-        "_id": "Iej1SOIAtSNaUmOR"
+        "_id": "Iej1SOIAtSNaUmOR",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -58,12 +62,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621714185,
-    "modifiedTime": 1761621714185,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144519,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!PmPrEvHxRr3MdARr"
 }

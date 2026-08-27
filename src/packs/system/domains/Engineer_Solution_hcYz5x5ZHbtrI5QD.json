@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Engineer Solution": {
+      "K2U5ED4pfqZEwhiW": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Innovation given form.</i><p class=\"Card-Feature\">With one day of prep, you can construct nearly any practical device needed (GM discretion).",
@@ -31,7 +31,11 @@
         "name": "Engineer Solution",
         "img": "modules/cybermancy/assets/icons/domains/maker/engineer-solution.webp",
         "range": "",
-        "_id": "K2U5ED4pfqZEwhiW"
+        "_id": "K2U5ED4pfqZEwhiW",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621722692,
-    "modifiedTime": 1761621722692,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144695,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!hcYz5x5ZHbtrI5QD"
 }

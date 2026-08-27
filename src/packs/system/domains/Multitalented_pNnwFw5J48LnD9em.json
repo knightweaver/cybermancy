@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Multitalented": {
+      "34KrSJDffzq77Fs6": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Expertise knows no boundaries.</i><p class=\"Card-Feature\">You may add one Domain card from Circuit, Codex, or Bullet to your loadout of Level 4 or less.",
@@ -31,7 +31,11 @@
         "name": "Multitalented",
         "img": "modules/cybermancy/assets/icons/domains/maker/multitalented.webp",
         "range": "",
-        "_id": "34KrSJDffzq77Fs6"
+        "_id": "34KrSJDffzq77Fs6",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621718700,
-    "modifiedTime": 1761621718700,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144772,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!pNnwFw5J48LnD9em"
 }

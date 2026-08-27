@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Knee Slide": {
+      "0jTFt3eg0akzknD7": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>The floor is your runway.</i><p class=\"Card-Feature\"><strong>Spend 3 Hope</strong> to move up to Far in a straight line; Attack all creatures passed. Gun is emptied afterward and you must take an Action to reload before you can make another Attack action.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 3,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621481843,
-    "modifiedTime": 1761621481843,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144584,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!XLEIxw2rUnqx61Df"
 }

@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Air Support": {
+      "oAzj3n846rOfOo6K": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>The sky belongs to you.</i><p class=\"Card-Feature\">One per long rest, you launch and control drones that provide tactical overwatch. Spotlight an Action to shift the drones between Offensive mode and Defensive mode: <p><b>Defensive mode</b>: You have +2 Evasion and all allies have +1 Evasion</p><b>Offensive mode</b>: You have +2 to your attacks and all allies have +1 to their attacks",
@@ -31,7 +31,11 @@
         "name": "Air Support",
         "img": "modules/cybermancy/assets/icons/domains/maker/air-support.webp",
         "range": "",
-        "_id": "oAzj3n846rOfOo6K"
+        "_id": "oAzj3n846rOfOo6K",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621714185,
-    "modifiedTime": 1761621714185,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144544,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!TVho5v8FfzdaXL4z"
 }

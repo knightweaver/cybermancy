@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Patience Young Padawan": {
+      "b3PNCY3PzcdN4fga": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>“Turns out, rushing a hack only impresses the ICE.”</i><p class=\"Card-Feature\">If you take at least 1 minute to study a device before attempting to hack it, gain advantage on your next Spellcasting (Hacking) roll against that system this scene.",
@@ -31,7 +31,11 @@
         "name": "Patience Young Padawan",
         "img": "modules/cybermancy/assets/icons/domains/circuit/patience-young-padawan.webp",
         "range": "",
-        "_id": "b3PNCY3PzcdN4fga"
+        "_id": "b3PNCY3PzcdN4fga",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621619558,
-    "modifiedTime": 1761621619558,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144661,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!fR7UgTfVz2w5lWt4"
 }

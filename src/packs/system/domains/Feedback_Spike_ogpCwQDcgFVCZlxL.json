@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Feedback Spike": {
+      "hFgIiaRJKCFEjUMz": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“Return to sender.”</i><p class=\"Card-Feature\">As a Reaction, <strong>Spend 1 Hope</strong> when taking damage from a digital or ranged source to reflect part of it back — attacker marks 2 Stress.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621628510,
-    "modifiedTime": 1761621628510,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144756,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!ogpCwQDcgFVCZlxL"
 }

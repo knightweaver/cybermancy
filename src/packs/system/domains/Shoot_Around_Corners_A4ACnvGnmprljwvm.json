@@ -1,7 +1,7 @@
 {
   "name": "Shoot Around Corners",
   "type": "domainCard",
-  "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corners.webp",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corner.webp",
   "system": {
     "description": "<i>Geometry is your ally.</i><p class=\"Card-Feature\">Hit a target around a 45° corner with disadvantage.</p>",
     "level": 8,
@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Shoot Around Corners": {
+      "boLrg3r61aRU4HsD": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Geometry is your ally.</i><p class=\"Card-Feature\">Hit a target around a 45° corner with disadvantage.",
@@ -31,7 +31,11 @@
         "name": "Shoot Around Corners",
         "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corners.webp",
         "range": "",
-        "_id": "boLrg3r61aRU4HsD"
+        "_id": "boLrg3r61aRU4HsD",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621487807,
-    "modifiedTime": 1761621487807,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787831974616,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!A4ACnvGnmprljwvm"
 }

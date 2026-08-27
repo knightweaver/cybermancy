@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Good Maintenance": {
+      "cZKHCyNQRt1iWCcc": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>A well-oiled machine never quits.</i><p class=\"Card-Feature\">Your weapons and <b>Primary Drone</b> cannot malfunction except through magical effects.",
@@ -31,7 +31,11 @@
         "name": "Good Maintenance",
         "img": "modules/cybermancy/assets/icons/domains/maker/good-maintenance.webp",
         "range": "",
-        "_id": "cZKHCyNQRt1iWCcc"
+        "_id": "cZKHCyNQRt1iWCcc",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621718700,
-    "modifiedTime": 1761621718700,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144749,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!oJ7xKuaOquiMJ24W"
 }

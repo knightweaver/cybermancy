@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Quick Change": {
+      "zj1aHmQHX4GUULSY": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>The right tool for the wrong moment.</i><p class=\"Card-Feature\">Once per Scene, <strong>Mark 1 Stress</strong> to replace one module on your <b>Primary Drone</b> instantly.",
@@ -20,10 +20,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -40,7 +40,11 @@
         "name": "Quick Change",
         "img": "modules/cybermancy/assets/icons/domains/maker/quick-change.webp",
         "range": "",
-        "_id": "zj1aHmQHX4GUULSY"
+        "_id": "zj1aHmQHX4GUULSY",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -58,12 +62,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621716054,
-    "modifiedTime": 1761621716054,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144635,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!bRsbQjZUsjnNjfTm"
 }

@@ -10,29 +10,6 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Gun Trainer": {
-        "type": "effect",
-        "systemPath": "actions",
-        "description": "<i>You teach death politely.</i><p class=\"Card-Feature\">As a downtime action you train each of your allies to better use their guns.  Give each ally a <b>Bullet die</b> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10).  They may use this <b>Bullet die</b> in the same way as your Class or Subclass",
-        "chatDisplay": true,
-        "actionType": "passive",
-        "cost": [],
-        "uses": {
-          "value": null,
-          "max": "",
-          "recovery": null,
-          "consumeOnSuccess": false
-        },
-        "effects": [],
-        "target": {
-          "type": "any",
-          "amount": null
-        },
-        "name": "Gun Trainer",
-        "img": "modules/cybermancy/assets/icons/domains/bullet/gun-trainer.webp",
-        "range": "",
-        "_id": "GErrc3LJXoclSTrj"
-      },
       "GErrc3LJXoclSTrj": {
         "type": "effect",
         "systemPath": "actions",
@@ -122,12 +99,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621423579,
-    "modifiedTime": 1761621936484,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144460,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!KgZuwV3bl2KWRqpE"
 }

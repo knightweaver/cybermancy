@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Field Experience": {
+      "pX5n0P6xg7ZFXvPW": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>“You’ve seen this circuit before — probably in the wreckage of your last run.”</i><p class=\"Card-Feature\">Once per Long Rest, put tokens on this card equal to your Spellcasting (Hacking) to gain one of the following effect: +1 on next Hack action, +1 on Evasion as a Reaction, Gain 1 Hope, Clear 1 Stress",
@@ -31,7 +31,11 @@
         "name": "Field Experience",
         "img": "modules/cybermancy/assets/icons/domains/circuit/field-experience.webp",
         "range": "",
-        "_id": "pX5n0P6xg7ZFXvPW"
+        "_id": "pX5n0P6xg7ZFXvPW",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621619558,
-    "modifiedTime": 1761621619558,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144577,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!X3s2FTBgALiuhk2w"
 }

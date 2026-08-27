@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Assess Equipment": {
+      "wEbK30mQG2bf5vfP": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Every circuit tells a secret.</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> after 10 minutes of inspection to ask the GM 3 yes/no questions about the device.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -40,7 +40,11 @@
         "name": "Assess Equipment",
         "img": "modules/cybermancy/assets/icons/domains/maker/assess-equipment.webp",
         "range": "",
-        "_id": "wEbK30mQG2bf5vfP"
+        "_id": "wEbK30mQG2bf5vfP",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -58,12 +62,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621716054,
-    "modifiedTime": 1761621716054,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144269,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!1Oyhwao0UTFTe0EO"
 }

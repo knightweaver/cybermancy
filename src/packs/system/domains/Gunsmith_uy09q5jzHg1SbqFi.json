@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Gunsmith": {
+      "pmC74DJb3cKfvhJu": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Your tools are extensions of your will.</i><p class=\"Card-Feature\">Gain +1 mod slot for each firearm you own.",
@@ -31,7 +31,11 @@
         "name": "Gunsmith",
         "img": "modules/cybermancy/assets/icons/domains/bullet/gunsmith.webp",
         "range": "",
-        "_id": "pmC74DJb3cKfvhJu"
+        "_id": "pmC74DJb3cKfvhJu",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621483578,
-    "modifiedTime": 1761621483578,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144835,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!uy09q5jzHg1SbqFi"
 }

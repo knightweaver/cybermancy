@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Quick Reload": {
+      "GQQztwpzV1LCJHRK": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Reloading is for amateurs.</i><p class=\"Card-Feature\">Swap ammunition types without spending an action.",
@@ -31,7 +31,11 @@
         "name": "Quick Reload",
         "img": "modules/cybermancy/assets/icons/domains/bullet/quick-reload.webp",
         "range": "",
-        "_id": "GQQztwpzV1LCJHRK"
+        "_id": "GQQztwpzV1LCJHRK",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621423579,
-    "modifiedTime": 1761621423579,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144594,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!XfvQpCZ7AWV6oJ4x"
 }

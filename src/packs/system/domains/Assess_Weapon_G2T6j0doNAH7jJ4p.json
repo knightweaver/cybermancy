@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Assess Weapon": {
+      "p6OTvH6OyyFJfUvs": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Every gun tells a story.</i><p class=\"Card-Feature\">Identify the weapon type and potential weaknesses or modifications of one visible gun within Far",
@@ -31,7 +31,11 @@
         "name": "Assess Weapon",
         "img": "modules/cybermancy/assets/icons/domains/bullet/assess-weapon.webp",
         "range": "",
-        "_id": "p6OTvH6OyyFJfUvs"
+        "_id": "p6OTvH6OyyFJfUvs",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -49,12 +53,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621423579,
-    "modifiedTime": 1761621423579,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144427,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!G2T6j0doNAH7jJ4p"
 }

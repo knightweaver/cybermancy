@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Deep fake": {
+      "sBeySaP1Z4JDtaGq": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“The universe called — it wants its encryption key back.”</i><p class=\"Card-Feature\">Spend up to 5 Hope to make up something about a character or adversary and (GM descretion) it becomes true.  The more Hope spent, the more outlanding the thing made up can be.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621634477,
-    "modifiedTime": 1761621634477,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144727,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!kaEPWxvpVac4kd2L"
 }

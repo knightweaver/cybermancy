@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Ghost Signal": {
+      "J6FlFdwp9oON2EuX": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“Sometimes your best ally is a flickering echo of bad code.”</i><p class=\"Card-Feature\">Target 1 weapon within Far, <strong>Spend 1 Hope</strong> and make a Spellcasting check (12).  On a success, any non-primative weapon malfunctions and requires an action to clear it, and thereafter has a -1 for any Action using it.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621621441,
-    "modifiedTime": 1761621621441,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144763,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!pGb8QNSITCJhmnd7"
 }

@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Ghost Protocol": {
+      "2Xthl11zADHk1wGy": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“Being off the grid never felt so literal.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to temporarily erase your digital and heat signatures. Until the end of the Scene, you cannot be tracked by sensors or cameras, and Devices or creatures targeting you have a -2 to hit.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621626603,
-    "modifiedTime": 1761621626603,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144552,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!UGrRtRb9uHMqf4BZ"
 }

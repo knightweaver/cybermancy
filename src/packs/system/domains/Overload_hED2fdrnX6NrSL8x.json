@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Overload": {
+      "f9lXTTDZu0vzo6aB": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“Push it past the redline — what’s the worst that could happen?”</i><p class=\"Card-Feature\">Make a Spellcasting roll (15) to make a device you Control explode causing all Adversaries within Very Close of the Device to take 2d6 damage, and all within Close take 1d6",
@@ -33,7 +33,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -55,6 +56,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -73,12 +78,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621623097,
-    "modifiedTime": 1761621623097,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144685,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!hED2fdrnX6NrSL8x"
 }

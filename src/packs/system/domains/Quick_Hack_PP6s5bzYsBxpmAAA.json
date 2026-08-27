@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Quick Hack": {
+      "unT0MGfX0ch5Gizk": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>“For when you don’t have time to be subtle… or alive.”</i><p class=\"Card-Feature\">Once per Scene, when you trigger an ICE countermeasure or trace feature, you can <strong>Mark 1 Stress</strong> to use your Reaction against the Device difficulty to avoid the effect, or <strong>Mark 2 Stress</strong> to avoid it without a roll.",
@@ -20,10 +20,10 @@
           {
             "key": "stress",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621619558,
-    "modifiedTime": 1761621619558,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144511,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!PP6s5bzYsBxpmAAA"
 }

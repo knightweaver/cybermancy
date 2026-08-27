@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Intimidation": {
+      "B8Fp5JR1PQ34V2P8": {
         "type": "attack",
         "systemPath": "actions",
         "description": "<i>Fear is the first bullet.</i><p class=\"Card-Feature\">With a visible gun, make Presence rolls at  +d4.  Once per Scene, <strong>Spend 1 Hope</strong> to re-roll a Presence roll.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -42,7 +42,8 @@
         "range": "",
         "damage": {
           "parts": [],
-          "includeBase": false
+          "includeBase": false,
+          "direct": false
         },
         "roll": {
           "type": null,
@@ -64,6 +65,10 @@
           "trait": null,
           "difficulty": null,
           "damageMod": "none"
+        },
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
         }
       }
     },
@@ -82,12 +87,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621485404,
-    "modifiedTime": 1761621485404,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144644,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!eiIwNl0VLdvJywjN"
 }

@@ -10,7 +10,7 @@
     "type": "ability",
     "inVault": false,
     "actions": {
-      "Stealth Drone": {
+      "wEpBTbA2Vu8u2A0X": {
         "type": "effect",
         "systemPath": "actions",
         "description": "<i>Your eyes are everywhere.</i><p class=\"Card-Feature\">Once per Scene, <strong>Spend 1 Hope</strong> to launch a tiny <b>Stealth Drone</b> within Very Far.  The drone provide audio within Very Close and visual signal.  When you take an Action, you can reposition the drone anywhere within Very Far.  creatures within Very Close can take an action to make an <b>Instinct</b> roll (Difficulty 15) to detect the drone, and if detected destroy the drone.",
@@ -20,10 +20,10 @@
           {
             "key": "hope",
             "value": 1,
-            "keyIsID": false,
             "scalable": false,
             "step": null,
-            "consumeOnSuccess": false
+            "consumeOnSuccess": false,
+            "itemId": null
           }
         ],
         "uses": {
@@ -40,7 +40,11 @@
         "name": "Stealth Drone",
         "img": "modules/cybermancy/assets/icons/domains/maker/stealth-drone.webp",
         "range": "",
-        "_id": "wEpBTbA2Vu8u2A0X"
+        "_id": "wEpBTbA2Vu8u2A0X",
+        "baseAction": false,
+        "originItem": {
+          "type": "itemCollection"
+        }
       }
     },
     "resource": null
@@ -58,12 +62,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1761621716054,
-    "modifiedTime": 1761621716054,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1787574144802,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!r3bd36CIk4QJKR2v"
 }
