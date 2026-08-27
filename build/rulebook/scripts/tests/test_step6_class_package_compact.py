@@ -3,12 +3,14 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve()
 SCRIPT_DIR = HERE.parents[1]
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import rulebook_layout.class_package_compact as compact
 from rulebook_layout.class_package_compact import render_class_package_tex
 
 
@@ -111,6 +113,47 @@ class TestStep6CompactClassPackage(unittest.TestCase):
         between = subclass_page[subclass_page.index("PATH A") : subclass_page.index("PATH B")]
         self.assertNotIn("\\clearpage", between)
         self.assertIn("\\hfill", between)
+
+    def test_long_subclass_content_switches_entire_subclass_spread_to_breakable_full_width_pages(self):
+        view, config = self._fixture()
+        view["subclasses"][1]["description"] = " ".join(["Long subclass publication text."] * 180)
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            tex = render_class_package_tex(view, config, root / "source", root / "out")
+
+        subclass_page = tex[tex.index("\\clearpage") :]
+        self.assertEqual(tex.count("\\clearpage"), 2)
+        self.assertNotIn("\\begin{minipage}[t]{0.485\\linewidth}", subclass_page)
+        between = subclass_page[subclass_page.index("PATH A") : subclass_page.index("PATH B")]
+        self.assertIn("\\clearpage", between)
+
+    def test_webp_assets_are_converted_to_render_only_pngs_for_lualatex(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            source_root = root / "source"
+            output_dir = root / "out"
+            source = source_root / "assets" / "icons" / "classes" / "cybermancer.webp"
+            source.parent.mkdir(parents=True)
+            source.write_bytes(b"webp fixture")
+
+            def fake_convert(source_path, destination_path):
+                self.assertEqual(source_path, source)
+                destination_path.parent.mkdir(parents=True, exist_ok=True)
+                destination_path.write_bytes(b"png fixture")
+
+            with patch.object(compact, "_convert_raster_to_png", side_effect=fake_convert) as convert:
+                tex_path = compact._tex_image_path(
+                    source_root,
+                    output_dir,
+                    "assets/icons/classes/cybermancer.webp",
+                )
+
+            convert.assert_called_once()
+            self.assertEqual(
+                tex_path,
+                r"\detokenize{_render-assets/assets/icons/classes/cybermancer.png}",
+            )
+            self.assertTrue((output_dir / "_render-assets/assets/icons/classes/cybermancer.png").is_file())
 
     def test_subclass_art_is_half_height_and_trait_starts_at_art_top(self):
         tex = self._render()
