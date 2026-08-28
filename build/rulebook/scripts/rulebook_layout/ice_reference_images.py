@@ -31,39 +31,72 @@ def attach_ice_reference_images(
     config: dict[str, Any],
     report: dict[str, Any],
 ) -> None:
-    """Attach staged Step 4 ICE publication images to an already composed H2 view.
+    """Attach staged Step 4 ICE images, using a deterministic blank fallback.
 
-    The semantic composer remains responsible for ICE selection/rules. This pass
-    only reconciles each selected semantic ID to publicationData.image and copies
-    the normalized staged path into the Step 6 view. No Foundry/runtime paths are
-    consulted here.
+    ICE artwork is decorative publication material rather than reader-facing rule
+    semantics. Missing or invalid artwork may therefore fall back to a blank
+    identity block when the package policy explicitly permits it. Runtime paths
+    are still never passed through to Step 6.
     """
     if view is None:
         return
 
     policy = config.get("prototypePolicy") if isinstance(config.get("prototypePolicy"), dict) else {}
-    # Canonical H2.2 explicitly enables both requirements. Defaults remain false
-    # so older unit fixtures and alternate experimental configs do not silently
-    # acquire a new publication-image dependency.
+    composition = config.get("composition") if isinstance(config.get("composition"), dict) else {}
     require_images = bool(policy.get("requireStagedImages", False))
     require_summary = bool(policy.get("requirePublicationImageSemanticsPass", False))
+    fallback_kind = str(composition.get("missingImageFallback") or "").strip()
+    fallback_enabled = bool(policy.get("allowMissingImagesWithBlankFallback", False)) and fallback_kind == "blank-block"
 
     summary = sidecar.get("icePublicationImageSemantics")
     if not isinstance(summary, dict):
         summary = {}
     actual_schema = str(summary.get("schema") or "")
     actual_status = str(summary.get("status") or "")
-    summary_ok = actual_schema == SUPPORTED_IMAGE_SCHEMA and actual_status == "PASS"
-    if require_summary:
+    schema_ok = actual_schema == SUPPORTED_IMAGE_SCHEMA
+    summary_ok = schema_ok and actual_status == "PASS"
+
+    if not schema_ok:
         _add_check(
             report,
             "ICE_REFERENCE_IMAGE_SEMANTICS",
-            "PASS" if summary_ok else "ERROR",
-            (
-                "Step 4 ICE publication image semantics are available."
-                if summary_ok
-                else "Step 4 ICE publication image semantics are missing, stale, or failed."
-            ),
+            "ERROR",
+            "Step 4 ICE publication image semantics are missing or use an unsupported schema.",
+            {
+                "actualSchema": actual_schema,
+                "requiredSchema": SUPPORTED_IMAGE_SCHEMA,
+                "actualStatus": actual_status,
+            },
+        )
+    elif summary_ok:
+        _add_check(
+            report,
+            "ICE_REFERENCE_IMAGE_SEMANTICS",
+            "PASS",
+            "Step 4 ICE publication image semantics are available.",
+            {
+                "actualSchema": actual_schema,
+                "actualStatus": actual_status,
+            },
+        )
+    elif fallback_enabled and not require_summary:
+        _add_check(
+            report,
+            "ICE_REFERENCE_IMAGE_SEMANTICS",
+            "WARNING",
+            "Step 4 ICE publication image semantics are incomplete; missing artwork will use the approved blank-block fallback.",
+            {
+                "actualSchema": actual_schema,
+                "actualStatus": actual_status,
+                "fallback": fallback_kind,
+            },
+        )
+    else:
+        _add_check(
+            report,
+            "ICE_REFERENCE_IMAGE_SEMANTICS",
+            "ERROR",
+            "Step 4 ICE publication image semantics are missing, stale, or failed.",
             {
                 "actualSchema": actual_schema,
                 "requiredSchema": SUPPORTED_IMAGE_SCHEMA,
@@ -83,6 +116,7 @@ def attach_ice_reference_images(
                 index[semantic_id] = entity
 
     missing: list[dict[str, str]] = []
+    fallback: list[dict[str, str]] = []
     attached = 0
     for group in view.get("groups", []):
         if not isinstance(group, dict):
@@ -95,27 +129,51 @@ def attach_ice_reference_images(
             publication = entity.get("publicationData") if isinstance(entity, dict) else None
             image = str(publication.get("image") or "").strip() if isinstance(publication, dict) else ""
             image = image.replace("\\", "/")
+            reason = ""
             if image:
                 pure = PurePosixPath(image)
                 if pure.is_absolute() or ".." in pure.parts or image.startswith(("modules/", "worlds/", "docs/", "src/")):
-                    missing.append({"semanticId": semantic_id, "reason": "non-publication-path", "image": image})
+                    reason = "non-publication-path"
+                else:
+                    entry["image"] = image
+                    attached += 1
                     continue
-                entry["image"] = image
-                attached += 1
-            elif require_images:
-                missing.append({"semanticId": semantic_id, "reason": "missing"})
+            else:
+                reason = "missing"
 
-    _add_check(
-        report,
-        "ICE_REFERENCE_IMAGES",
-        "ERROR" if missing else "PASS",
-        (
-            f"{len(missing)} selected ICE image(s) are missing or invalid."
-            if missing
-            else f"Attached staged publication images to {attached} selected ICE entries."
-        ),
-        missing or {"attached": attached},
-    )
+            detail = {"semanticId": semantic_id, "reason": reason}
+            if image:
+                detail["image"] = image
+            if fallback_enabled:
+                entry["imageFallback"] = fallback_kind
+                fallback.append(detail)
+            elif require_images:
+                missing.append(detail)
+
+    if missing:
+        _add_check(
+            report,
+            "ICE_REFERENCE_IMAGES",
+            "ERROR",
+            f"{len(missing)} selected ICE image(s) are missing or invalid.",
+            missing,
+        )
+    elif fallback:
+        _add_check(
+            report,
+            "ICE_REFERENCE_IMAGES",
+            "WARNING",
+            f"Attached {attached} staged ICE image(s); {len(fallback)} selected ICE entry/entries will use a blank image block.",
+            {"attached": attached, "fallback": fallback},
+        )
+    else:
+        _add_check(
+            report,
+            "ICE_REFERENCE_IMAGES",
+            "PASS",
+            f"Attached staged publication images to {attached} selected ICE entries.",
+            {"attached": attached},
+        )
 
 
 def ice_reference_publication_images(view: dict[str, Any] | None) -> list[str]:
