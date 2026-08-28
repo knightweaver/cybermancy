@@ -2,21 +2,24 @@
   "schema": "cybermancy-step6-encounter-package-config-v1",
   "family": "adversaries",
   "title": "Chapter 30 - Adversaries",
-  "subtitle": "Phase C Encounter Toolkit proof package",
+  "subtitle": "Encounter Toolkit",
   "columns": 1,
-  "selection": {
-    "names": [
-      "Sleep-deprived Student",
-      "Security Drone",
-      "Cascade Burrowtail",
-      "Cavelor Finn",
-      "Clevermask",
-      "Abraxas Cult Leader",
-      "Bella",
-      "Microdrone Swarm Dispenser"
-    ]
+  "lifecycle": {
+    "version": "v1.0",
+    "status": "frozen",
+    "approvedPhase": "Phase C",
+    "approvedAt": "2026-08-28"
   },
-  "artworkPolicy": "optional; omit without invented replacement",
+  "selection": {
+    "mode": "full-corpus"
+  },
+  "publicationPolicy": {
+    "requireFullCorpusSelection": true,
+    "expectedEntryCount": 106,
+    "ordering": ["tier", "classification", "name", "semanticId"]
+  },
+  "artworkPolicy": "optional for legacy corpus; omit without invented replacement",
   "fastPlayPolicy": "render structured Fast Play only when present",
-  "featurePolicy": "inline-complete"
+  "featurePolicy": "inline-complete",
+  "missingContentPolicy": "omit absent canonical fields; do not invent publication content"
 }
