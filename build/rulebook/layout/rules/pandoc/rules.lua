@@ -30,9 +30,19 @@ local function image_meta(img)
   }
 end
 
+-- Each chapter fragment is converted by its own Pandoc process. Step 4 shifts
+-- the authored document-root H1 to normalized H3, while Step 6 already renders
+-- the authoritative publication title in CMChapterBanner. Suppress only that
+-- first H3 in the fragment; later H3 headings remain visible section headings.
+local root_h3_suppressed = false
+
 function Header(el)
   local tex = inline_latex(el.content)
   if el.level == 3 then
+    if not root_h3_suppressed then
+      root_h3_suppressed = true
+      return {}
+    end
     return pandoc.RawBlock('latex', '\\CMHThree{' .. tex .. '}')
   elseif el.level == 4 then
     return pandoc.RawBlock('latex', '\\CMHFour{' .. tex .. '}')
