@@ -78,6 +78,10 @@ class TestEncounterLayout(unittest.TestCase):
         self.assertIn("FAST PLAY", tex)
         self.assertIn("Proof Feature", tex)
         self.assertIn(r"\textbf{Passive.}", tex)
+        self.assertIn(r"\begin{minipage}[t]{0.17\textwidth}", tex)
+        self.assertIn(r"\begin{minipage}[t]{0.80\textwidth}", tex)
+        self.assertLess(tex.index("NO PUBLICATION ART"), tex.index(r"STANDARD \textbullet\ TIER 1"))
+        self.assertIn(r"STANDARD \textbullet\ TIER 1}\\[2.5pt]", tex)
 
         env_tex, env_report = render_package(
             sidecar,
@@ -87,6 +91,8 @@ class TestEncounterLayout(unittest.TestCase):
         self.assertEqual(env_report["entryCount"], 1)
         self.assertIn("No canonical description supplied.", env_tex)
         self.assertIn("No canonical impulses supplied.", env_tex)
+        self.assertLess(env_tex.index("NO PUBLICATION ART"), env_tex.index(r"UNCLASSIFIED \textbullet\ TIER 1"))
+        self.assertIn(r"UNCLASSIFIED \textbullet\ TIER 1}\\[2.5pt]", env_tex)
 
     def test_feature_semantic_id_selection_preserves_duplicate_variants(self):
         sidecar = self._sidecar()
