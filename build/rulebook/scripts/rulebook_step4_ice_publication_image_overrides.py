@@ -25,18 +25,16 @@ def configure_step4_ice_publication_image_overrides(namespace: dict[str, Any]) -
     checked-in publication asset. This hook only handles individually approved
     exceptions where the Foundry runtime reference is third-party while a stable
     Cybermancy publication asset already exists in the repository.
+
+    The canonical source document is never edited. The staging pass receives a
+    shallow in-memory copy whose ``img`` value is replaced by the explicit logical
+    publication path, after which the normal mapping/resolution/staging pipeline
+    runs unchanged.
     """
     import rulebook_step4_ice_publication_images as images
 
     if getattr(images, "_ice_publication_image_overrides_patch", False):
         return
-
-    original_mapped_logical_image = images._mapped_logical_image
-
-    def mapped_logical_image(raw_image: Any, mappings: list[dict]):
-        # Preserve normal behavior here. Entity-specific override selection is
-        # injected through a tiny helper consumed by the staging loop below.
-        return original_mapped_logical_image(raw_image, mappings)
 
     original_source_document = images._source_document
 
@@ -45,18 +43,9 @@ def configure_step4_ice_publication_image_overrides(namespace: dict[str, Any]) -
         if error is None and isinstance(document, dict):
             override = publication_image_override(entity.get("semanticId"))
             if override:
-                # Add publication-only provenance without rewriting canonical img.
                 document = dict(document)
-                document["_publicationImageOverride"] = override
+                document["img"] = override
         return document, error
 
-    original_mapper = images._mapped_logical_image
-
-    def override_aware_mapper(raw_image: Any, mappings: list[dict]):
-        # Kept as a normal mapping function; staging resolves the override marker
-        # immediately before calling this function.
-        return original_mapper(raw_image, mappings)
-
     images._source_document = source_document
-    images._mapped_logical_image = override_aware_mapper
     images._ice_publication_image_overrides_patch = True
