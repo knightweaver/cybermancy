@@ -85,6 +85,19 @@ def rules_document_preamble() -> str:
   \par\endgroup\vspace{2pt}\par
 }
 \newenvironment{CMRulesTable}{\begin{CMProseTable}}{\end{CMProseTable}}
+
+% Rules chapters are denser than long-form prose. Standard source-order art is
+% therefore capped more tightly so a single illustration does not create an
+% orphan continuation page. This is a lane-wide layout rule, not chapter-specific
+% semantic inference; wide/mark/symbolic/portrait roles remain inherited.
+\renewcommand{\CMStandardImage}[1]{%
+  \par\vspace{2pt}%
+  \begin{center}%
+    \includegraphics[width=\columnwidth,height=0.20\textheight,keepaspectratio]{#1}%
+  \end{center}%
+  \vspace{3pt}%
+}
+
 \setlist[enumerate,1]{%
   label=\textcolor{CMTeal}{\sffamily\bfseries\arabic*.},%
   leftmargin=1.45em,itemsep=2.8pt,topsep=3.5pt
@@ -178,7 +191,7 @@ def _report_shell(paths) -> dict[str, Any]:
     report = _BASE_REPORT_SHELL(paths)
     report["schema"] = "cybermancy-step6-rules-layout-validation-v1.0-prototype"
     report["implementation"] = "rules-layout-prototype-on-accepted-prose-engine"
-    report["implementationPatch"] = "phase-b-design-proof-glyph-and-quote-flow"
+    report["implementationPatch"] = "phase-b-design-proof-root-heading-and-compact-art-flow"
     return report
 
 
@@ -206,6 +219,8 @@ def run_build(args: argparse.Namespace) -> dict[str, Any]:
         "crossProfile": str(Path(args.cross_profile).resolve()),
         "semanticPolicy": "no wording-, filename-, or chapter-specific semantic inference",
         "deferredSemantics": ["rulesCallout.kind", "imageRole=chapter-lead", "stateTrack.label+states"],
+        "chapterRootHeadingPolicy": "suppress first normalized H3 because CMChapterBanner owns the publication chapter title",
+        "standardRulesImageMaxHeight": "0.20 textheight",
     })
     paths.report.parent.mkdir(parents=True, exist_ok=True)
     paths.report.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
