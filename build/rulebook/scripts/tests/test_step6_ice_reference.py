@@ -255,7 +255,7 @@ class TestStep6IceReference(unittest.TestCase):
         self.assertEqual([entry["name"] for entry in view["groups"][0]["entries"]], ["Black ICE", "Heaven's Gate", "Tar Pit"])
         self.assertEqual([entry["name"] for entry in view["groups"][1]["entries"]], ["Sleaze Gate", "Wall of No!", "Wall of Static"])
         raw = json.dumps(view)
-        for token in ("internal-action-id", "src/packs/", "modules/", "Compendium.", "!folders!", "systemPath", "hitPoints", '"applyTo"', '"readerFacing"'):
+        for token in ("internal-action-id", "src/packs/", "modules/", "Compendium.", "!folders!", "systemPath", "hitPoints", '"applyTo"', '"readerFacing"', "customFormula", "flatMultiplier"):
             self.assertNotIn(token, raw)
 
     def test_parent_action_overlap_is_suppressed_deterministically(self):
@@ -285,6 +285,7 @@ class TestStep6IceReference(unittest.TestCase):
         black = next(entry for group in view["groups"] for entry in group["entries"] if entry["name"] == "Black ICE")
         damage = next(action["damage"] for action in black["actions"] if "damage" in action)
         part = damage["parts"][0]
+        self.assertEqual(part["formula"], "1")
         self.assertEqual(part["target"], "HP")
         self.assertEqual(part["types"], ["Physical"])
         self.assertNotIn("applyTo", part)
@@ -340,13 +341,29 @@ class TestStep6IceReference(unittest.TestCase):
         self.assertNotIn("Target: any", tex)
         self.assertIn("Damage:} 1 Physical HP", tex)
 
-    def test_rendered_text_regression_requires_headings_in_order(self):
+    def test_rendered_text_regression_requires_shell_and_headings_in_order(self):
         sidecar, config = self._fixture()
         view, report = compose_ice_reference(sidecar, config)
         self.assertEqual(report["status"], "PASS", report)
-        text = "\n".join(["Sentry ICE", "Black ICE", "Heaven's Gate", "Tar Pit", "Wall ICE", "Sleaze Gate", "Wall of No!", "Wall of Static"])
+        text = "\n".join(
+            [
+                "CYBERMANCY // ICE REFERENCE",
+                "GM MATERIAL",
+                "Sentry ICE",
+                "Black ICE",
+                "Heaven's Gate",
+                "Tar Pit",
+                "Wall ICE",
+                "Sleaze Gate",
+                "Wall of No!",
+                "Wall of Static",
+            ]
+        )
         rendered = evaluate_ice_reference_text(text, view)
         self.assertEqual(rendered["status"], "PASS", rendered)
+        leaked = evaluate_ice_reference_text(text + "\nTarget: any", view)
+        self.assertEqual(leaked["status"], "ERROR")
+        self.assertIn("target: any", leaked["details"]["forbiddenRendered"])
 
     def test_cli_validate_and_tex_only_build(self):
         sidecar, config = self._fixture()
