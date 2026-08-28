@@ -1,4 +1,4 @@
--- Cybermancy Step 6 Character Origins Pandoc filter v1.0.1 (draft)
+-- Cybermancy Step 6 Character Origins Pandoc filter v1.0.2 (draft)
 -- Consumes only the derived entry annotations produced from Step 4 normalized
 -- Chapters 10-11. Long-Form Prose v1.0 supplies the surrounding publication shell.
 --
@@ -6,7 +6,8 @@
 -- in the TeX macro \CMRunningAccent, while its fancyhdr definition references
 -- the literal xcolor name CMRunningAccent. Chapters 10-11 are player material,
 -- so this lane defines that xcolor alias locally without modifying the frozen
--- Prose implementation.
+-- Prose implementation. The alias must be global because each chapter body is
+-- rendered inside a multicols group; xcolor definitions are local by default.
 
 local function esc_tex(s)
   s = tostring(s or '')
@@ -165,7 +166,7 @@ local function Pandoc(doc)
   table.insert(
     doc.blocks,
     1,
-    pandoc.RawBlock('latex', '\\colorlet{CMRunningAccent}{CMCyan}')
+    pandoc.RawBlock('latex', '\\xglobal\\colorlet{CMRunningAccent}{CMCyan}')
   )
   return doc
 end
