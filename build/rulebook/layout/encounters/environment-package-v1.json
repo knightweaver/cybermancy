@@ -2,19 +2,24 @@
   "schema": "cybermancy-step6-encounter-package-config-v1",
   "family": "environments",
   "title": "Chapter 31 - Environments",
-  "subtitle": "Phase C Encounter Toolkit proof package",
+  "subtitle": "Encounter Toolkit",
   "columns": 1,
-  "selection": {
-    "names": [
-      "Cascadia Mountain Valley",
-      "Abraxas ritual cave",
-      "Seattle Underflow Grid",
-      "Midnight Streets",
-      "Neon Diner Environment",
-      "The Eternal Night"
-    ]
+  "lifecycle": {
+    "version": "v1.0",
+    "status": "frozen",
+    "approvedPhase": "Phase C",
+    "approvedAt": "2026-08-28"
   },
-  "artworkPolicy": "optional; omit without invented replacement",
+  "selection": {
+    "mode": "full-corpus"
+  },
+  "publicationPolicy": {
+    "requireFullCorpusSelection": true,
+    "expectedEntryCount": 8,
+    "ordering": ["tier", "classification", "name", "semanticId"]
+  },
+  "artworkPolicy": "optional for legacy corpus; omit without invented replacement",
   "fastPlayPolicy": "render structured Fast Play only when present",
-  "featurePolicy": "inline-complete"
+  "featurePolicy": "inline-complete",
+  "missingContentPolicy": "omit absent canonical fields; do not invent publication content"
 }
