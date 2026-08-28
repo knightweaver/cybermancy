@@ -27,13 +27,14 @@ Each normalized entry is derived from the existing horizontal-rule / image / H4 
 
 1. The entry artwork wraps on the left at 36% of the inherited prose column.
 2. The H4 entry title and opening flavor text begin beside the artwork, aligned with its top, with an effective 4% horizontal gap.
-3. When the opening flavor paragraph clears the bottom of the artwork, that same paragraph automatically expands back to the full inherited prose-column width. Additional flavor paragraphs use ordinary Long-Form Prose flow.
-4. The renderer keeps enough vertical space for the artwork, entry heading, and opening wrapped lines, but does not box the complete first flavor paragraph into a fixed narrow identity row.
-5. Ancestory `Features` and Community `Community Feature — <name>` markers are converted into layout-only Feature-group semantics in temporary build Markdown.
-6. Feature names use the accepted Part III feature hierarchy; rules text retains inherited prose body typography.
-7. Feature descriptions remain page/column breakable and return to ordinary full-column flow after the wrapped artwork has cleared.
-8. Entry order, prose, mechanics, emphasis, artwork relationships, and source wording remain unchanged.
-9. No entry-specific layout exceptions are permitted in v1.
+3. When the opening flavor paragraph clears the bottom of the artwork, that same paragraph automatically expands back to the full inherited prose-column width.
+4. The artwork wrap is explicitly terminated at the end of that opening flavor paragraph. Any additional flavor paragraphs and all Feature-group content use ordinary full-column Long-Form Prose flow and do not inherit the figure wrap.
+5. The renderer keeps enough vertical space for the artwork, entry heading, and opening wrapped lines, but does not box the complete first flavor paragraph into a fixed narrow identity row.
+6. Ancestory `Features` and Community `Community Feature — <name>` markers are converted into layout-only Feature-group semantics in temporary build Markdown.
+7. Feature names use the accepted Part III feature hierarchy; rules text retains inherited prose body typography.
+8. Feature descriptions remain page/column breakable at the normal inherited column width.
+9. Entry order, prose, mechanics, emphasis, artwork relationships, and source wording remain unchanged.
+10. No entry-specific layout exceptions are permitted in v1.
 
 The wrapped-art treatment is a Character Origins-only delta. The frozen Long-Form Prose v1.0 shell remains unchanged.
 
@@ -88,6 +89,6 @@ The next required step is local regression:
 
 1. run `inspect`;
 2. run `build`;
-3. inspect the generated Chapters 10-11 PDF across all 27 entries, with particular attention to wrapped artwork near column/page boundaries;
+3. inspect the generated Chapters 10-11 PDF across all 27 entries, with particular attention to wrapped artwork near column/page boundaries and confirmation that Feature text remains full-column;
 4. adjust only the Character Option Entry delta if necessary;
 5. freeze v1 only after visual acceptance.
