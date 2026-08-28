@@ -18,10 +18,16 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from rulebook_layout.ice_reference import compose_ice_reference, load_json
 from rulebook_layout.ice_reference_geometry import validate_ice_reference_pdf
+from rulebook_layout.ice_reference_images import (
+    attach_ice_reference_images,
+    ice_reference_publication_images,
+)
 from rulebook_layout.ice_reference_refined import render_ice_reference_tex
+from rulebook_layout.render_assets import prepare_lualatex_render_assets
 
 DEFAULT_CONFIG = REPO_ROOT / "build/rulebook/layout/ice/ice-reference-package-v1.json"
 DEFAULT_SIDECAR = REPO_ROOT / "build/rulebook/source/metadata/structured-entities.json"
+DEFAULT_SOURCE_ROOT = REPO_ROOT / "build/rulebook/source"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "build/rulebook/layout/ice-reference-prototype"
 DEFAULT_REPORT = REPO_ROOT / "build/rulebook/layout/reports/ice-reference-package-h2.json"
 SCRIPT_LABEL = SCRIPT_PATH.name
@@ -95,9 +101,10 @@ def _load_inputs(args: argparse.Namespace) -> tuple[dict[str, Any], dict[str, An
 def _run(args: argparse.Namespace, verbose: bool) -> int:
     config, sidecar, output_dir, report_path = _load_inputs(args)
     view, report = compose_ice_reference(sidecar, config)
+    attach_ice_reference_images(view, sidecar, config, report)
     report["command"] = args.command
     report["prototypeScope"] = (
-        "Standalone Step H2 ICEReferencePackage design proof consuming only Step 4 normalized ICE semantics. "
+        "Standalone Step H2 ICEReferencePackage design proof consuming only Step 4 normalized ICE semantics and staged publication images. "
         "Full Chapter 29/Pandoc integration is deferred until the proof grammar is visually accepted."
     )
 
@@ -111,7 +118,14 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
                     {
                         "iceType": row.get("iceType"),
                         "title": row.get("title"),
-                        "entries": [entry.get("name") for entry in row.get("entries", []) if isinstance(entry, dict)],
+                        "entries": [
+                            {
+                                "name": entry.get("name"),
+                                "image": entry.get("image"),
+                            }
+                            for entry in row.get("entries", [])
+                            if isinstance(entry, dict)
+                        ],
                     }
                     for row in view.get("groups", []) if isinstance(row, dict)
                 ],
@@ -130,10 +144,31 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
     view_path = output_dir / "ice-reference-package-view.json"
     tex_path = output_dir / "Cybermancy_Chapter29_ICE_Reference_H2.tex"
     pdf_path = output_dir / "Cybermancy_Chapter29_ICE_Reference_H2.pdf"
+    render_root = output_dir / "_render-assets" / "ice"
+
+    render_assets, asset_report = prepare_lualatex_render_assets(
+        ice_reference_publication_images(view),
+        DEFAULT_SOURCE_ROOT,
+        render_root,
+    )
+    _append_check(
+        report,
+        "ICE_REFERENCE_RENDER_ASSETS",
+        "PASS" if asset_report.get("status") == "PASS" else "ERROR",
+        (
+            f"Prepared {asset_report.get('references', 0)} ICE publication image(s) for LuaLaTeX."
+            if asset_report.get("status") == "PASS"
+            else "ICE publication images could not be prepared for LuaLaTeX."
+        ),
+        asset_report,
+    )
+    if report.get("status") != "PASS":
+        _write_json(report_path, report)
+        return _emit(report, verbose)
 
     _write_json(view_path, view)
     _append_check(report, "ICE_REFERENCE_VIEW", "PASS", f"Wrote composed ICEReferencePackage view to {view_path}.")
-    tex_path.write_text(render_ice_reference_tex(view, config), encoding="utf-8")
+    tex_path.write_text(render_ice_reference_tex(view, config, render_assets), encoding="utf-8")
     _append_check(report, "ICE_REFERENCE_LATEX", "PASS", f"Wrote standalone H2 ICEReferencePackage LaTeX to {tex_path}.")
 
     if args.tex_only:
@@ -154,7 +189,7 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
 
 
 def parser() -> argparse.ArgumentParser:
-    root = argparse.ArgumentParser(description="Cybermancy Step H2 ICEReferencePackage proof builder. Consumes Step 4 normalized ICE semantics only.")
+    root = argparse.ArgumentParser(description="Cybermancy Step H2 ICEReferencePackage proof builder. Consumes Step 4 normalized ICE semantics and staged publication images only.")
     sub = root.add_subparsers(dest="command", required=True)
     for command in ("inspect", "validate", "build"):
         p = sub.add_parser(command)
