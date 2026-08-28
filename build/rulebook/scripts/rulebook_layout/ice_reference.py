@@ -224,10 +224,26 @@ def _reader_damage(value: Any) -> dict[str, Any] | None:
             else:
                 types = []
 
-        damage_value = raw.get("value") if isinstance(raw.get("value"), dict) else {}
+        source_value = raw.get("value") if isinstance(raw.get("value"), dict) else {}
+        formula = ""
+        if source_value.get("customFormula") not in (None, ""):
+            formula = str(source_value.get("customFormula"))
+        else:
+            dice = source_value.get("dice")
+            bonus = source_value.get("bonus")
+            if dice not in (None, ""):
+                formula = str(dice)
+            if bonus not in (None, "", 0):
+                sign = "+" if isinstance(bonus, (int, float)) and bonus > 0 else ""
+                formula += f"{sign}{bonus}"
+            multiplier = source_value.get("multiplier")
+            if multiplier not in (None, "", 1):
+                label = "Proficiency" if str(multiplier).casefold() == "prof" else str(multiplier)
+                formula = f"{formula} × {label}" if formula else label
+
         part: dict[str, Any] = {}
-        if damage_value:
-            part["value"] = damage_value
+        if formula:
+            part["formula"] = formula
         if types:
             part["types"] = types
         if target:
@@ -235,6 +251,39 @@ def _reader_damage(value: Any) -> dict[str, Any] | None:
         if part:
             parts.append(part)
     return {"parts": parts} if parts else None
+
+
+def _public_cost(value: Any) -> list[dict[str, Any]]:
+    if not isinstance(value, list):
+        return []
+    rows: list[dict[str, Any]] = []
+    for source in value:
+        if not isinstance(source, dict):
+            continue
+        row: dict[str, Any] = {}
+        if source.get("key") not in (None, ""):
+            row["key"] = source.get("key")
+        if source.get("value") not in (None, ""):
+            row["value"] = source.get("value")
+        if source.get("scalable") is True:
+            row["scalable"] = True
+        if source.get("consumeOnSuccess") is True:
+            row["consumeOnSuccess"] = True
+        if row:
+            rows.append(row)
+    return rows
+
+
+def _public_uses(value: Any) -> dict[str, Any] | None:
+    if not isinstance(value, dict):
+        return None
+    row: dict[str, Any] = {}
+    for key in ("value", "max", "recovery"):
+        if value.get(key) not in (None, ""):
+            row[key] = value.get(key)
+    if value.get("consumeOnSuccess") is True:
+        row["consumeOnSuccess"] = True
+    return row or None
 
 
 def _public_action(action: dict[str, Any], parent_rules: str) -> dict[str, Any]:
@@ -253,10 +302,14 @@ def _public_action(action: dict[str, Any], parent_rules: str) -> dict[str, Any]:
     rules = _strip_parent_overlap(parent_rules, str(action.get("rulesMarkdown") or ""))
     if rules:
         result["rulesMarkdown"] = rules
-    for key in ("cost", "uses", "range"):
-        value = action.get(key)
-        if value not in (None, "", [], {}):
-            result[key] = value
+    cost = _public_cost(action.get("cost"))
+    if cost:
+        result["cost"] = cost
+    uses = _public_uses(action.get("uses"))
+    if uses:
+        result["uses"] = uses
+    if action.get("range") not in (None, ""):
+        result["range"] = action.get("range")
 
     target = action.get("target") if isinstance(action.get("target"), dict) else {}
     target_type = str(target.get("type") or "").strip()
@@ -331,6 +384,7 @@ def _source_leakage(view: dict[str, Any]) -> list[str]:
     forbidden = (
         "Compendium.", "modules/", "worlds/", "src/packs/", "src-loadable/", "docs/", "!folders!",
         "systemPath", "chatDisplay", "originItem", '"sourceId"', '"applyTo"', "hitPoints", '"readerFacing"',
+        "customFormula", "flatMultiplier", '"multiplier"',
     )
     return [token for token in forbidden if token in raw]
 
