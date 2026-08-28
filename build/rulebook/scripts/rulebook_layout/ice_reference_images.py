@@ -190,3 +190,55 @@ def ice_reference_publication_images(view: dict[str, Any] | None) -> list[str]:
             if image:
                 images.append(image)
     return images
+
+
+def _install_blank_fallback_renderer() -> None:
+    """Teach the H2 renderer to reserve the image slot even without artwork.
+
+    The rules body remains outside the identity-row minipages, so the fallback
+    affects only the same compact Name/ICE Type row used by real images.
+    """
+    from rulebook_layout import ice_reference_refined as refined
+
+    if getattr(refined, "_ice_blank_image_fallback_patch", False):
+        return
+
+    original = refined._entry_identity_tex
+
+    def entry_identity_tex(entry, style, render_assets):
+        image_ref = str(entry.get("image") or "").strip().replace("\\", "/")
+        render_path = str(render_assets.get(image_ref) or "").strip().replace("\\", "/")
+        fallback = str(entry.get("imageFallback") or "").strip()
+        if image_ref and render_path:
+            return original(entry, style, render_assets)
+        if fallback != "blank-block":
+            return original(entry, style, render_assets)
+
+        title_entry = dict(entry)
+        title_entry.pop("image", None)
+        title_entry.pop("imageFallback", None)
+        title_block = original(title_entry, style, {})
+        image_height = float(style["identity_image_height"])
+        gap = float(style["identity_image_gap"])
+        reserved = image_height + gap
+        return "\n".join(
+            [
+                r"\noindent%",
+                rf"\begin{{minipage}}[c]{{{image_height:.3f}in}}",
+                r"\centering",
+                r"\begingroup\setlength{\fboxsep}{0pt}%",
+                rf"\colorbox{{CMSoft}}{{\parbox[c][{image_height:.3f}in][c]{{{image_height:.3f}in}}{{}}}}%",
+                r"\endgroup",
+                r"\end{minipage}%",
+                rf"\hspace{{{gap:.3f}in}}%",
+                rf"\begin{{minipage}}[c]{{\dimexpr\linewidth-{reserved:.3f}in\relax}}",
+                title_block,
+                r"\end{minipage}\par",
+            ]
+        )
+
+    refined._entry_identity_tex = entry_identity_tex
+    refined._ice_blank_image_fallback_patch = True
+
+
+_install_blank_fallback_renderer()
