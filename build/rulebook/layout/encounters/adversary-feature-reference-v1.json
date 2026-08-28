@@ -1,0 +1,28 @@
+{
+  "schema": "cybermancy-step6-encounter-package-config-v1",
+  "family": "adversaries-features",
+  "title": "Chapter 32 - Adversary Feature Reference",
+  "subtitle": "Phase C compact-reference proof package",
+  "columns": 2,
+  "selection": {
+    "semanticIds": [
+      "entity:adversaries-features:6pbI8qgu4sJ9zVUj",
+      "entity:adversaries-features:gWVJew9tClVkCGCK",
+      "entity:adversaries-features:OYaDRJf1nEsqnDds",
+      "entity:adversaries-features:hYm7kNLqse40X9do",
+      "entity:adversaries-features:0LFzAKLqwqtoT0oC",
+      "entity:adversaries-features:EH2Wyf2Qv66oI09D",
+      "entity:adversaries-features:PM9pNiYSUrXqMScs",
+      "entity:adversaries-features:fcoJRDpQCHrwBtsx",
+      "entity:adversaries-features:1dJ6y07fv00L09Ua",
+      "entity:adversaries-features:4eOtdJpu4DxzPm2X",
+      "entity:adversaries-features:7vnYkzt0dvjMzwdh",
+      "entity:adversaries-features:9Bi10syZ26Fzup0n",
+      "entity:adversaries-features:9zMsNiyEl3HTZT8n",
+      "entity:adversaries-features:UgJH2RoMQSzSvfEY",
+      "entity:adversaries-features:A8FpQ8OeIgv5dBM2"
+    ]
+  },
+  "ordering": "normalized feature name, semanticId tie-breaker",
+  "duplicatePolicy": "preserve distinct same-name canonical entities"
+}
