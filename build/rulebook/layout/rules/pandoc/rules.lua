@@ -46,6 +46,21 @@ function HorizontalRule(el)
   return pandoc.RawBlock('latex', '\\CMSectionRule')
 end
 
+-- Noto Serif does not reliably provide the directional-arrow glyphs used by
+-- normalized rules text on every LuaLaTeX installation. Preserve the authored
+-- character semantically while emitting deterministic TeX math arrows.
+function Str(el)
+  local text = el.text or ''
+  if not (text:find('→', 1, true) or text:find('←', 1, true) or text:find('↔', 1, true)) then
+    return el
+  end
+  local tex = esc_tex(text)
+  tex = tex:gsub('→', '\\ensuremath{\\rightarrow}')
+  tex = tex:gsub('←', '\\ensuremath{\\leftarrow}')
+  tex = tex:gsub('↔', '\\ensuremath{\\leftrightarrow}')
+  return pandoc.RawInline('latex', tex)
+end
+
 function BlockQuote(el)
   local blocks = {pandoc.RawBlock('latex', '\\begin{CMRulesQuote}')}
   for _, b in ipairs(el.content) do table.insert(blocks, b) end
