@@ -1,0 +1,118 @@
+{
+  "schema": "cybermancy-rulebook-character-origins-layout-v1",
+  "version": "1.0",
+  "status": "DRAFT",
+  "scope": [
+    "ch10-ancestories",
+    "ch11-communities"
+  ],
+  "inherits": {
+    "layoutContract": "build/rulebook/layout/prose/prose-layout-v1.json",
+    "version": "1.0",
+    "rule": "Long-Form Prose v1.0 remains authoritative for page geometry, typography, chapter banners, running furniture, body columns, ordinary prose, asset staging, and Pandoc/LuaLaTeX production behavior. This contract defines only the Chapter 10-11 entry delta."
+  },
+  "sourceContract": {
+    "completeRulebook": "build/rulebook/source/assembled/complete-rulebook.md",
+    "playerGuide": "build/rulebook/source/assembled/player-guide.md",
+    "assetRoot": "build/rulebook/source/assets",
+    "canonicalContentMutable": false,
+    "layoutMayRewriteCanonicalProse": false,
+    "profileEquivalenceRequired": true
+  },
+  "entryGrammar": {
+    "name": "Character Option Entry",
+    "sourceDerivation": "normalized prose structure only",
+    "sourceOrderPreserved": true,
+    "entryBoundary": "normalized horizontal-rule-delimited block containing one staged image followed by one H4 entry heading",
+    "identityRow": {
+      "keptTogether": true,
+      "imageColumnFraction": 0.36,
+      "gapColumnFraction": 0.04,
+      "textColumnFraction": 0.6,
+      "imageMaxHeightInches": 1.48,
+      "contains": [
+        "entry artwork",
+        "entry heading",
+        "first flavor paragraph"
+      ],
+      "titleSizePt": 13.2,
+      "titleLeadingPt": 14.8
+    },
+    "remainingFlavor": "ordinary inherited prose flow",
+    "featureGroup": {
+      "labelStyle": "compact uppercase teal label",
+      "featureNameSizePt": 11.6,
+      "featureNameLeadingPt": 13.2,
+      "rulesText": "inherited prose body size and leading",
+      "breakability": "feature descriptions remain page/column breakable",
+      "ancestryMarker": "Features",
+      "communityMarker": "Community Feature — <name>"
+    },
+    "separator": "subtle inherited teal section rule",
+    "entrySpecificExceptions": false
+  },
+  "expectedCorpus": {
+    "10": {
+      "title": "Ancestories",
+      "entryKind": "ancestory",
+      "entryCount": 18,
+      "featuresPerEntry": 2,
+      "entries": [
+        "Clank (Cybermancy)",
+        "Drakona (Cybermancy)",
+        "Dwarf (Cybermancy)",
+        "Elf (Cybermancy)",
+        "Faerie (Cybermancy)",
+        "Faun (Cybermancy)",
+        "Firbolg (Cybermancy)",
+        "Fungril (Cybermancy)",
+        "Galapa (Cybermancy)",
+        "Giant (Cybermancy)",
+        "Goblin (Cybermancy)",
+        "Halfling (Cybermancy)",
+        "Human (Cybermancy)",
+        "Infernis (Cybermancy)",
+        "Katari (Cybermancy)",
+        "Orc (Cybermancy)",
+        "Ribbet (Cybermancy)",
+        "Simiah (Cybermancy)"
+      ]
+    },
+    "11": {
+      "title": "Communities",
+      "entryKind": "community",
+      "entryCount": 9,
+      "featuresPerEntry": 1,
+      "entries": [
+        "Executiveborn",
+        "Databorne",
+        "Directiveborn",
+        "Skyborne",
+        "Currentborn",
+        "Streetborn",
+        "Substrataborn",
+        "Nomadborn",
+        "Greenborn"
+      ]
+    }
+  },
+  "validation": {
+    "requiredChapters": [
+      10,
+      11
+    ],
+    "requireExactEntryIdentityAndOrder": true,
+    "requireExactFeatureCounts": true,
+    "requireOneArtworkPerEntry": true,
+    "requireCompletePlayerProfileEquivalence": true,
+    "rejectRawMkDocsWrappers": true,
+    "rejectUnsupportedEntryStructures": true,
+    "detectMissingAssets": true,
+    "detectOverfullBoxes": true,
+    "visualInspectionRequiredBeforeFreeze": true
+  },
+  "freeze": {
+    "status": "not-frozen",
+    "condition": "Freeze only after rendered all-entry regression and user visual acceptance."
+  }
+}
