@@ -19,6 +19,11 @@
   "designProofChapters": [4, 6, 8, 9],
   "primitives": {
     "ordinaryRulesProse": "inherited-long-form-prose",
+    "chapterRootHeading": {
+      "sourceStructure": "first normalized level-3 heading in each chapter fragment",
+      "treatment": "suppressed because the publication chapter banner owns the chapter title",
+      "semanticInference": false
+    },
     "procedure": {
       "sourceStructure": "ordered-list",
       "treatment": "compact-accented-number-sequence",
@@ -37,6 +42,14 @@
       "italicByDefault": false,
       "semanticSubtypeInference": false
     },
+    "standardImage": {
+      "sourceStructure": "standard source-order image",
+      "treatment": "compact-centered-rules-image",
+      "maxHeight": "0.20 textheight",
+      "maxWidth": "columnwidth",
+      "preserveAspectRatio": true,
+      "semanticInference": false
+    },
     "workedExample": {
       "dedicatedPrimitive": false,
       "policy": "compose from ordinary prose, lists, tables, and blockquotes until explicit semantics justify a separate primitive"
@@ -47,7 +60,7 @@
     },
     "chapterLeadArt": {
       "status": "deferred-semantic-gate",
-      "policy": "preserve source order and inherited standard image treatment; do not reconstruct MkDocs grid semantics"
+      "policy": "preserve source order; use the compact standard-image treatment unless explicit chapter-lead semantics are added; do not reconstruct MkDocs grid semantics"
     }
   },
   "semanticBacklog": [
