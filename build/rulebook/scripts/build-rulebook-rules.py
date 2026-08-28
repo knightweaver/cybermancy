@@ -62,6 +62,11 @@ def rules_document_preamble() -> str:
     text = text.replace("STEP 6 // LONG-FORM PROSE // V1.0", "STEP 6 // CYBERMANCY RULES // PROTOTYPE")
     text = text.replace("\\newcommand{\\CMRunningMarker}{PLAYER WORLD}", "\\newcommand{\\CMRunningMarker}{CYBERMANCY RULES}")
     text = text.replace("\\renewcommand{\\CMRunningMarker}{PLAYER WORLD}", "\\renewcommand{\\CMRunningMarker}{CYBERMANCY RULES}")
+    # The accepted prose preamble uses CMRunningAccent as a command that stores
+    # a color name, but its fancyhdr definitions pass the command name to xcolor
+    # literally. Expand the command when the rules lane inherits the preamble.
+    # This remains lane-local and does not mutate the frozen prose implementation.
+    text = text.replace(r"\color{CMRunningAccent}", r"\color{\CMRunningAccent}")
     extension = r'''
 % ---- Part II Rules Layout prototype extensions ----
 \newenvironment{CMRulesQuote}{%
@@ -171,7 +176,7 @@ def _report_shell(paths) -> dict[str, Any]:
     report = _BASE_REPORT_SHELL(paths)
     report["schema"] = "cybermancy-step6-rules-layout-validation-v1.0-prototype"
     report["implementation"] = "rules-layout-prototype-on-accepted-prose-engine"
-    report["implementationPatch"] = "phase-b-design-proof"
+    report["implementationPatch"] = "phase-b-design-proof-running-header-color-expansion"
     return report
 
 
