@@ -8,11 +8,14 @@ ICEReferencePackage consumes only the Step 4 normalized corpus:
 
 ```text
 build/rulebook/source/metadata/structured-entities.json
+build/rulebook/source/assets/...
 ```
 
-It does not read canonical Foundry Feature JSON, generated MkDocs Feature pages, Feature folders, or runtime action metadata during Step 6 composition.
+It does not read canonical Foundry Feature JSON, generated MkDocs Feature pages, Feature folders, or runtime action/image metadata during Step 6 composition.
 
-Step 4 remains responsible for determining which Feature entities are ICE and for exposing normalized reader-facing ICE semantics. Step 6 consumes `iceSemantics`, `publicationData.featureCategory`, `publicationData.iceType`, `rulesMarkdown`, and normalized actions. Foundry `system.resource` state remains normalized for semantic completeness, but unlabeled resource internals are explicitly non-reader-facing and are omitted from the ICEReferencePackage view.
+Step 4 remains responsible for determining which Feature entities are ICE and for exposing normalized reader-facing ICE semantics. H2.2 also promotes each ICE's canonical Foundry `img` reference into a staged `publicationData.image` path. The artwork currently lives under the legacy player-facing publication asset tree, so the ICE image pass treats the art itself as shared source material and stages a neutral copy below `build/rulebook/source/assets/`; the ICE entities remain GM-only and are still excluded from the Player Guide.
+
+Foundry `system.resource` state remains normalized for semantic completeness, but unlabeled resource internals are explicitly non-reader-facing and are omitted from the ICEReferencePackage view.
 
 ## H2 proof corpus
 
@@ -45,10 +48,10 @@ Within each group, entries are ordered by case-insensitive name with stable sour
 Each entry renders:
 
 ```text
-ICE NAME
-SENTRY ICE | WALL ICE
+[ICE IMAGE]  ICE NAME
+             SENTRY ICE | WALL ICE
 
-rules text
+rules text at full column width
 
 ACTIONS
 Action Name [non-default type only]
@@ -56,22 +59,25 @@ action-specific rules text only
 Cost / Range / constrained Target / reader-facing Damage / Uses
 ```
 
+The image participates only in the compact identity row. Its bounding box is sized to approximately the combined vertical height of the Name and ICE Type lines; once that identity row ends, rules and action text return to the full reference-column width. The image never creates a persistent narrow text rail beside the body copy.
+
 Empty optional fields are omitted. The default Foundry action classification `action`, generic `Target: any`, raw damage targets such as `hitPoints`, Foundry IDs, folder IDs, source paths, action IDs, runtime image paths, and implementation-only action wiring are prohibited from the reader-facing view.
 
 When an action repeats its parent ICE rules exactly, the duplicate action prose is suppressed. When the action begins with the complete parent rules and then adds action-specific text, only that exact trailing remainder is published. This is deterministic exact/prefix/block equality only; no fuzzy rewriting is permitted.
 
 ## Step 4 publication cleanup
 
-H2.1 adds targeted normalization required by the first visual proof:
+H2.1/H2.2 targeted normalization includes:
 
 - Foundry `<li><p>...</p></li>` structures are repaired after generic HTML conversion so list markers remain attached to their text and nested indentation is preserved.
 - `target={type:any, amount:null}` is recognized as default runtime targeting and is omitted from reader semantics.
 - normalized damage retains machine semantics for validation while adding reader labels (`hitPoints` -> `HP`, `stress` -> `Stress`, `physical` -> `Physical`). Step 6 publishes only the reader-safe projection.
 - unlabeled `system.resource` state is retained with `readerFacing: false`; it is not printed until an authoritative reader-facing label/meaning exists.
+- each ICE canonical image is mapped through the Step 4 Foundry-runtime asset mapping, resolved against checked-in publication artwork, staged into the self-contained Step 4 source corpus, and exposed only as `publicationData.image`.
 
-## H2.1 visual rules
+## H2.2 visual rules
 
-The compact structured-reference interior is retained, but it now sits inside the accepted Cybermancy rulebook shell:
+The compact structured-reference interior sits inside the accepted Cybermancy rulebook shell:
 
 - warm `F9F9F7` paper;
 - Lato display typography and Noto Serif rules text;
@@ -82,16 +88,20 @@ The compact structured-reference interior is retained, but it now sits inside th
 - full-width Sentry/Wall group headers;
 - two-column natural page flow for entries;
 - minimum entry text size 10.5 pt;
+- a compact staged ICE image appears to the left of Name + ICE Type only;
+- the image defaults to a 0.38-inch square bounding box with a 0.07-inch gap to the identity text;
+- rules and actions resume at full column width below the identity row;
 - title/type/first content protected from orphaning with `needspace`;
 - action label/first content protected similarly;
 - long entries may break naturally across columns/pages;
 - nested Step 4 Markdown lists are preserved as nested LaTeX lists;
-- no card boxes and no entry-specific layout exceptions;
-- no artwork requirement for H2.
+- no card boxes and no ICE-specific layout exceptions.
+
+LuaLaTeX cannot consume the current WebP ICE artwork directly. The builder therefore reuses the shared Step 6 render-asset pipeline: staged WebP/GIF/BMP/TIFF publication assets are deterministically converted to PNG beneath the proof output tree, while PNG/JPEG/PDF assets are consumed directly. The normalized Step 4 image path remains unchanged in the view model.
 
 ## Commands
 
-Because H2.1 changes Step 4 publication semantics, rebuild Step 4 before regenerating the proof:
+Because H2.2 adds Step 4 publication-image semantics, rebuild Step 4 before regenerating the proof:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-source.py validate
@@ -115,6 +125,7 @@ build/rulebook/layout/ice-reference-prototype/
     ice-reference-package-view.json
     Cybermancy_Chapter29_ICE_Reference_H2.tex
     Cybermancy_Chapter29_ICE_Reference_H2.pdf
+    _render-assets/ice/...
 ```
 
 Validation report:
@@ -125,15 +136,18 @@ build/rulebook/layout/reports/ice-reference-package-h2.json
 
 ## H2 acceptance gate
 
-H2 is ready for the second visual review when:
+H2 is ready for the next visual review when:
 
 - Step 4 ICE semantics are `PASS`;
+- Step 4 ICE publication-image semantics are `PASS`;
 - the complete Step 4 ICE corpus reconciles to 13 entries: 6 Sentry / 7 Wall;
-- all six proof entries resolve from the Step 4 ICE semantic ID set;
+- all 13 ICE entities have a staged publication image;
+- all six proof entries resolve from the Step 4 ICE semantic ID set and have a staged image;
 - every proof entry has reader-facing rules in prose and/or normalized action semantics;
 - nested list markers remain attached to their text;
 - duplicate parent/action prose is absent;
 - generic `Target: any`, raw `hitPoints`, and unlabeled `Resource: simple; value ...` text are absent;
+- each proof ICE shows its image only beside Name + ICE Type and body text returns to full column width below it;
 - the PDF uses the accepted Cybermancy GM chapter shell, Lato/Noto typography, and warm paper treatment;
 - LuaLaTeX reports no overfull boxes;
 - rendered text contains every group and proof entry heading, with first occurrences in view order.
