@@ -19,6 +19,8 @@ build/rulebook/source/assets/**
 
 It does **not** read `docs/**`, Foundry JSON, generated MkDocs pages, or canonical source artwork directly. The Complete Rulebook and Player Guide representations of Chapters 10-11 must be byte-equivalent at the normalized chapter-fragment level before a build can pass.
 
+Step 4's assembled-manuscript safety pass rewrites body `---` thematic breaks to `***` so Pandoc cannot confuse them with YAML delimiters. Character Origins builder v0.1.1 accepts both `***` and `---` at its normalized-input boundary and emits `***` in temporary annotated Markdown.
+
 ## Character Option Entry grammar
 
 Each normalized entry is derived from the existing horizontal-rule / image / H4 / prose / Feature structure. Step 6 does not invent or rewrite game content.
