@@ -74,6 +74,20 @@ class TestStep6IceReferenceImages(unittest.TestCase):
             },
         }
 
+    def test_image_layer_is_optional_when_package_does_not_enable_it(self):
+        view = self._view()
+        report = {"status": "PASS", "errors": [], "warnings": [], "checks": []}
+        attach_ice_reference_images(
+            view,
+            {"entities": []},
+            {"prototypePolicy": {}, "composition": {}, "style": {}},
+            report,
+        )
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(report["checks"][-1]["code"], "ICE_REFERENCE_IMAGES")
+        self.assertEqual(report["checks"][-1]["details"], {"enabled": False})
+        self.assertNotIn("image", view["groups"][0]["entries"][0])
+
     def test_selected_ice_receives_only_staged_publication_image_path(self):
         view = self._view()
         report = {"status": "PASS", "errors": [], "warnings": [], "checks": []}
