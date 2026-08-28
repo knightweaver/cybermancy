@@ -8,13 +8,16 @@ from rulebook_layout.ice_reference_refined import _chapter_header, _group_tex
 
 
 def runtime_config(config: dict[str, Any]) -> dict[str, Any]:
-    """Translate the frozen v1 publication contract to the legacy internal keys.
+    """Translate the frozen v1 publication contract to legacy internal keys.
 
     H2/H3 used ``prototype`` / ``prototypePolicy`` internally. The frozen v1
     contract removes that terminology, but the accepted semantic composer and
-    image reconciler remain stable. This compatibility projection is intentionally
-    private to Step 6 execution and never appears in the generated package view.
+    image reconciler remain stable. Legacy synthetic test configs are passed
+    through unchanged so the freeze does not invalidate historical unit fixtures.
     """
+    if "selection" not in config and "publicationPolicy" not in config:
+        return copy.deepcopy(config)
+
     result = copy.deepcopy(config)
     selection = result.get("selection") if isinstance(result.get("selection"), dict) else {}
     policy = result.get("publicationPolicy") if isinstance(result.get("publicationPolicy"), dict) else {}
@@ -53,7 +56,7 @@ def compose_ice_reference_package(
     sidecar: dict[str, Any],
     config: dict[str, Any],
 ) -> tuple[dict[str, Any] | None, dict[str, Any], dict[str, Any]]:
-    """Compose frozen ICEReferencePackage v1 from Step 4 normalized semantics."""
+    """Compose ICEReferencePackage v1 from Step 4 normalized semantics."""
     compat = runtime_config(config)
     view, report = compose_ice_reference(sidecar, compat)
     _productionize_report(report)
@@ -61,9 +64,11 @@ def compose_ice_reference_package(
         package = view.pop("prototype", {})
         if not isinstance(package, dict):
             package = {}
-        package["version"] = str(config.get("lifecycle", {}).get("version") or "v1.0")
-        package["status"] = str(config.get("lifecycle", {}).get("status") or "frozen")
-        package["mode"] = str(config.get("selection", {}).get("mode") or package.get("mode") or "full-corpus")
+        lifecycle = config.get("lifecycle") if isinstance(config.get("lifecycle"), dict) else {}
+        selection = config.get("selection") if isinstance(config.get("selection"), dict) else {}
+        package["version"] = str(lifecycle.get("version") or "v1.0")
+        package["status"] = str(lifecycle.get("status") or "test-fixture")
+        package["mode"] = str(selection.get("mode") or package.get("mode") or "full-corpus")
         view["package"] = package
     return view, report, compat
 
