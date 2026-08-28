@@ -4,7 +4,7 @@
     "version": "v1.0",
     "status": "prototype",
     "workstream": "Step H2",
-    "alignmentRevision": "H2.1",
+    "alignmentRevision": "H2.2",
     "acceptance": {
       "semanticRegression": "PENDING",
       "renderedProof": "PENDING",
@@ -47,6 +47,7 @@
     ],
     "pageColumns": 2,
     "columnFlow": "natural-page-breakable",
+    "showImage": "identity-row-left",
     "showActions": "when-present",
     "showResource": "when-reader-facing",
     "showImplementationMetadata": false
@@ -75,6 +76,8 @@
     "entryTitleLeadingPt": 14.0,
     "entryTypeFontPt": 9.5,
     "entryTypeLeadingPt": 10.5,
+    "entryIdentityImageHeightIn": 0.38,
+    "entryIdentityImageGapIn": 0.07,
     "actionTitleFontPt": 10.5,
     "actionTitleLeadingPt": 11.5,
     "metadataFontPt": 9.5,
@@ -87,6 +90,8 @@
     "requireStructuredSidecarSchema": "cybermancy-step4-structured-entities-v1.3",
     "requireIceSemanticsSchema": "cybermancy-step4-ice-semantics-v1.0",
     "requireIceSemanticsStatus": "PASS",
+    "requirePublicationImageSemanticsPass": true,
+    "requireStagedImages": true,
     "expectedIceTotal": 13,
     "expectedIceCounts": {
       "sentry": 6,
