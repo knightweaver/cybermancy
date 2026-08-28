@@ -2,13 +2,19 @@
   "schema": "cybermancy-step6-ice-reference-package-config-v1.0",
   "lifecycle": {
     "version": "v1.0",
-    "status": "candidate",
-    "workstream": "Step H3",
-    "alignmentRevision": "H3.0",
+    "status": "frozen",
+    "workstream": "Step H",
+    "alignmentRevision": "H3.0-accepted",
+    "acceptedOn": "2026-08-28",
     "acceptance": {
-      "semanticRegression": "PENDING",
-      "renderedFullCorpus": "PENDING",
-      "visualReview": "PENDING"
+      "semanticRegression": "PASS",
+      "renderedFullCorpus": "PASS",
+      "visualReview": "ACCEPTED"
+    },
+    "acceptanceCorpus": {
+      "total": 13,
+      "sentry": 6,
+      "wall": 7
     }
   },
   "chapter": 29,
@@ -17,7 +23,7 @@
   "title": "ICE Reference",
   "footerLabel": "STEP 6 // ICE REFERENCE PACKAGE V1",
   "chapterIntro": "Use this chapter as a GM reference for ICE encountered during netrunning.",
-  "prototype": {
+  "selection": {
     "mode": "full-corpus"
   },
   "composition": {
@@ -78,7 +84,7 @@
     "entryMinStartSpaceIn": 0.72,
     "actionMinStartSpaceIn": 0.42
   },
-  "prototypePolicy": {
+  "publicationPolicy": {
     "consumeStep4Only": true,
     "requireStructuredSidecarSchema": "cybermancy-step4-structured-entities-v1.3",
     "requireIceSemanticsSchema": "cybermancy-step4-ice-semantics-v1.0",
@@ -98,6 +104,6 @@
     "foundryFoldersAreNonAuthoritative": true,
     "blockOnLatexOverflow": true,
     "renderedContentRegression": true,
-    "astIntegration": "deferred-until-ice-reference-package-full-corpus-acceptance"
+    "astIntegration": "chapter29-family-features-replacement"
   }
 }
