@@ -37,6 +37,10 @@ def attach_ice_reference_images(
     semantics. Missing or invalid artwork may therefore fall back to a blank
     identity block when the package policy explicitly permits it. Runtime paths
     are still never passed through to Step 6.
+
+    Image processing is opt-in. Semantic-only fixtures or alternate package
+    configs that do not request images must not acquire a Step 4 image-sidecar
+    dependency merely because this reconciliation pass is wired into the CLI.
     """
     if view is None:
         return
@@ -47,6 +51,18 @@ def attach_ice_reference_images(
     require_summary = bool(policy.get("requirePublicationImageSemanticsPass", False))
     fallback_kind = str(composition.get("missingImageFallback") or "").strip()
     fallback_enabled = bool(policy.get("allowMissingImagesWithBlankFallback", False)) and fallback_kind == "blank-block"
+    show_image = str(composition.get("showImage") or "").strip()
+
+    image_feature_enabled = bool(show_image or require_images or require_summary or fallback_enabled)
+    if not image_feature_enabled:
+        _add_check(
+            report,
+            "ICE_REFERENCE_IMAGES",
+            "PASS",
+            "ICE publication images are not enabled for this package configuration.",
+            {"enabled": False},
+        )
+        return
 
     summary = sidecar.get("icePublicationImageSemantics")
     if not isinstance(summary, dict):
