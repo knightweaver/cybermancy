@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Cybermancy Step 6 Part II Rules Layout prototype builder.
+"""Cybermancy Step 6 Part II Rules Layout v1.0 builder.
 
 Reuses the accepted Long-Form Prose v1.0 Pandoc + LuaLaTeX engine while
-changing only Part II routing and the approved rules-specific proof grammar.
+changing only Part II routing and the accepted rules-specific grammar.
 """
 from __future__ import annotations
 
@@ -59,7 +59,7 @@ _BASE_REPORT_SHELL = BASE.report_shell
 
 def rules_document_preamble() -> str:
     text = _BASE_PREAMBLE()
-    text = text.replace("STEP 6 // LONG-FORM PROSE // V1.0", "STEP 6 // CYBERMANCY RULES // PROTOTYPE")
+    text = text.replace("STEP 6 // LONG-FORM PROSE // V1.0", "STEP 6 // CYBERMANCY RULES // V1.0")
     text = text.replace("\\newcommand{\\CMRunningMarker}{PLAYER WORLD}", "\\newcommand{\\CMRunningMarker}{CYBERMANCY RULES}")
     text = text.replace("\\renewcommand{\\CMRunningMarker}{PLAYER WORLD}", "\\renewcommand{\\CMRunningMarker}{CYBERMANCY RULES}")
     # The accepted prose preamble uses CMRunningAccent as a command that stores
@@ -68,7 +68,7 @@ def rules_document_preamble() -> str:
     # This remains lane-local and does not mutate the frozen prose implementation.
     text = text.replace(r"\color{CMRunningAccent}", r"\color{\CMRunningAccent}")
     extension = r'''
-% ---- Part II Rules Layout prototype extensions ----
+% ---- Part II Rules Layout v1.0 extensions ----
 % Mechanical blockquotes must remain flowable. A list + Needspace wrapper caused
 % a nearly blank page when a short callout fell between full-width rules tables.
 % Use paragraph indentation only: neutral visual treatment, no semantic subtype,
@@ -126,10 +126,10 @@ def _rules_validate_inputs(paths, report):
         return None
     config = BASE.load_json(paths.config)
     valid = (config.get("schema") == "cybermancy-rulebook-rules-layout-v1"
-             and config.get("version") == "1.0-prototype"
-             and config.get("status") == "PROTOTYPE")
+             and config.get("version") == "1.0"
+             and config.get("status") == "ACCEPTED")
     BASE.add_check(report, "LAYOUT_VERSION", "PASS" if valid else "ERROR",
-                   "Rules Layout v1 prototype loaded" if valid else "Expected Rules Layout v1 prototype contract")
+                   "Accepted Rules Layout v1.0 loaded" if valid else "Expected accepted Rules Layout v1.0 contract")
     BASE.add_check(report, "INHERITED_PROSE_CONTRACT", "PASS",
                    "Rules lane inherits Long-Form Prose v1.0 production grammar and toolchain")
     return config if valid else None
@@ -144,9 +144,9 @@ def _rules_validate_structure(parts: list[dict[str, Any]], report: dict[str, Any
     missing_parts = sorted({PART_ID} - found_parts)
     missing_chapters = sorted(DESIGN_PROOF_CHAPTERS - found_chapters)
     BASE.add_check(
-        report, "DESIGN_PROOF_ROUTING", "ERROR" if (missing_parts or missing_chapters) else "PASS",
-        "Part II design-proof routing is incomplete" if (missing_parts or missing_chapters)
-        else "Part II design-proof chapters 4, 6, 8, and 9 resolved",
+        report, "ACCEPTED_PROOF_ROUTING", "ERROR" if (missing_parts or missing_chapters) else "PASS",
+        "Part II accepted-proof routing is incomplete" if (missing_parts or missing_chapters)
+        else "Part II accepted-proof chapters 4, 6, 8, and 9 resolved",
         {"missingParts": missing_parts, "missingChapters": missing_chapters, "found": sorted(found_chapters)},
     )
 
@@ -189,9 +189,9 @@ def _validate_profiles(source: Path, cross_profile: Path, report: dict[str, Any]
 
 def _report_shell(paths) -> dict[str, Any]:
     report = _BASE_REPORT_SHELL(paths)
-    report["schema"] = "cybermancy-step6-rules-layout-validation-v1.0-prototype"
-    report["implementation"] = "rules-layout-prototype-on-accepted-prose-engine"
-    report["implementationPatch"] = "phase-b-design-proof-root-heading-and-compact-art-flow"
+    report["schema"] = "cybermancy-step6-rules-layout-validation-v1.0"
+    report["implementation"] = "rules-layout-v1.0-on-accepted-prose-engine"
+    report["implementationPatch"] = "accepted-v1.0"
     return report
 
 
@@ -213,7 +213,7 @@ def run_build(args: argparse.Namespace) -> dict[str, Any]:
     _validate_profiles(paths.source, Path(args.cross_profile).resolve(), report)
     report.setdefault("implementationDetails", {}).update({
         "lane": "Part II Cybermancy Rules",
-        "designProofChapters": sorted(DESIGN_PROOF_CHAPTERS),
+        "acceptedProofChapters": sorted(DESIGN_PROOF_CHAPTERS),
         "requiredPartIIChapters": sorted(ALL_PART_II_CHAPTERS),
         "primaryProfile": str(paths.source),
         "crossProfile": str(Path(args.cross_profile).resolve()),
