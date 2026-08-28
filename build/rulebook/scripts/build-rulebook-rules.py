@@ -26,7 +26,7 @@ DEFAULT_SOURCE = RULEBOOK_DIR / "source" / "assembled" / "player-guide.md"
 DEFAULT_CROSS_PROFILE = RULEBOOK_DIR / "source" / "assembled" / "complete-rulebook.md"
 DEFAULT_ASSET_ROOT = RULEBOOK_DIR / "source" / "assets"
 DEFAULT_OUTPUT = LAYOUT_DIR / "output" / "Cybermancy_Part_II_Rules_Design_Proof_v1.pdf"
-DEFAULT_REPORT = LAYOUT_DIR / "reports" / "rules-design-proof-v1.json"
+DEFAULT_REPORT = LAYOUT_DIR / "rules-design-proof-v1.json"
 DEFAULT_WORK = LAYOUT_DIR / "work" / "pandoc-lualatex-v1"
 
 PART_ID = "section:part-ii-rules"
@@ -72,9 +72,10 @@ def rules_document_preamble() -> str:
 % Mechanical blockquotes must remain flowable. A list + Needspace wrapper caused
 % a nearly blank page when a short callout fell between full-width rules tables.
 % Use paragraph indentation only: neutral visual treatment, no semantic subtype,
-% and no artificial page/column reservation.
+% and no artificial page/column reservation. Keep the vertical surround compact
+% so a short final callout line is not stranded before the next full-width table.
 \newenvironment{CMRulesQuote}{%
-  \par\vspace{3pt}%
+  \par\vspace{0.5pt}%
   \begingroup
   \leftskip=0.12in%
   \rightskip=0.02in%
@@ -82,7 +83,7 @@ def rules_document_preamble() -> str:
   \parskip=2pt%
   \color{CMBody}\fontsize{9.6}{13.0}\selectfont
 }{%
-  \par\endgroup\vspace{2pt}\par
+  \par\endgroup\vspace{0.5pt}\par
 }
 \newenvironment{CMRulesTable}{\begin{CMProseTable}}{\end{CMProseTable}}
 
@@ -191,7 +192,7 @@ def _report_shell(paths) -> dict[str, Any]:
     report = _BASE_REPORT_SHELL(paths)
     report["schema"] = "cybermancy-step6-rules-layout-validation-v1.0"
     report["implementation"] = "rules-layout-v1.0-on-accepted-prose-engine"
-    report["implementationPatch"] = "accepted-v1.0"
+    report["implementationPatch"] = "accepted-v1.0-flow-tightened-rules-quote-spacing"
     return report
 
 
@@ -221,6 +222,7 @@ def run_build(args: argparse.Namespace) -> dict[str, Any]:
         "deferredSemantics": ["rulesCallout.kind", "imageRole=chapter-lead", "stateTrack.label+states"],
         "chapterRootHeadingPolicy": "suppress first normalized H3 because CMChapterBanner owns the publication chapter title",
         "standardRulesImageMaxHeight": "0.20 textheight",
+        "rulesBlockquoteVerticalSpacing": "0.5pt before and after",
     })
     paths.report.parent.mkdir(parents=True, exist_ok=True)
     paths.report.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
