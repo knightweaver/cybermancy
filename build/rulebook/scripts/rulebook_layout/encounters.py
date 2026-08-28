@@ -206,11 +206,11 @@ def _art_block(pdata: dict[str, Any], source_root: Path, width: str = "0.96\\lin
     art = pdata.get("publicationArt") if isinstance(pdata.get("publicationArt"), dict) else {}
     rel = str(art.get("image") or pdata.get("image") or "").strip()
     if not rel:
-        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height=32mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}NO PUBLICATION ART\end{{tcolorbox}}'''
+        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height=28mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}NO PUBLICATION ART\end{{tcolorbox}}'''
     path = source_root / rel
     if not path.is_file():
-        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height=32mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}ART NOT STAGED\\{esc(rel)}\end{{tcolorbox}}'''
-    return rf'''\includegraphics[width={width},height=39mm,keepaspectratio]{{{esc(path.as_posix())}}}'''
+        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height=28mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}ART NOT STAGED\\{esc(rel)}\end{{tcolorbox}}'''
+    return rf'''\includegraphics[width={width},height=30mm,keepaspectratio]{{{esc(path.as_posix())}}}'''
 
 
 def _stat(value: Any, label: str) -> str:
@@ -305,11 +305,12 @@ def _adversary_entry(entity: dict[str, Any], source_root: Path) -> str:
     return rf'''
 \Needspace{{14\baselineskip}}
 \vspace{{4mm}}
-\noindent\begin{{minipage}}[t]{{0.68\textwidth}}
-{{\sffamily\bfseries\small\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[-1pt]
+\noindent\begin{{minipage}}[t]{{0.17\textwidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill
+\begin{{minipage}}[t]{{0.80\textwidth}}\vspace{{0pt}}
+{{\sffamily\bfseries\small\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[2.5pt]
 {{\sffamily\bfseries\fontsize{{21}}{{22}}\selectfont\color{{CMInk}} {name}}}\\[3pt]
 {{\sffamily\small {' \\quad '.join(header_stats)}}}
-\end{{minipage}}\hfill\begin{{minipage}}[t]{{0.29\textwidth}}\raggedleft {art}\end{{minipage}}
+\end{{minipage}}
 \vspace{{2mm}}{{\color{{CMTeal}}\hrule height 0.7pt}}\vspace{{2mm}}
 {desc if desc else r'{\itshape\color{CMInk!60}No canonical description supplied.}'}
 {rf'\par\textbf{{Attack:}} {esc(" / ".join(attack_parts))}' if attack_parts else ''}
@@ -335,11 +336,12 @@ def _environment_entry(entity: dict[str, Any], source_root: Path) -> str:
     art = _art_block(p, source_root, "0.96\\linewidth")
     return rf'''
 \clearpage
-\noindent\begin{{minipage}}[t]{{0.62\textwidth}}
-{{\sffamily\bfseries\small\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[-1pt]
-{{\sffamily\bfseries\fontsize{{21}}{{22}}\selectfont\color{{CMInk}} {name}}}\\[2pt]
+\noindent\begin{{minipage}}[t]{{0.17\textwidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill
+\begin{{minipage}}[t]{{0.80\textwidth}}\vspace{{0pt}}
+{{\sffamily\bfseries\small\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[2.5pt]
+{{\sffamily\bfseries\fontsize{{21}}{{22}}\selectfont\color{{CMInk}} {name}}}\\[3pt]
 {{\sffamily\small\textbf{{Difficulty}} {esc(p.get("difficulty") if p.get("difficulty") is not None else "-")}}}
-\end{{minipage}}\hfill\begin{{minipage}}[t]{{0.35\textwidth}}\raggedleft {art}\end{{minipage}}
+\end{{minipage}}
 \vspace{{2mm}}{{\color{{CMTeal}}\hrule height 0.7pt}}\vspace{{2mm}}
 {desc if desc else r'{\itshape\color{CMInk!60}No canonical description supplied.}'}
 {rf'\par\textbf{{Impulses:}} {impulses}' if impulses else r'\par{\itshape\color{CMInk!60}No canonical impulses supplied.}'}
