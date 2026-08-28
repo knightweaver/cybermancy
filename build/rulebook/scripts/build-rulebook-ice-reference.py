@@ -98,14 +98,72 @@ def _load_inputs(args: argparse.Namespace) -> tuple[dict[str, Any], dict[str, An
     return load_json(config_path), load_json(sidecar_path), output_dir, report_path
 
 
+def _enforce_full_corpus_selection(
+    view: dict[str, Any] | None,
+    config: dict[str, Any],
+    report: dict[str, Any],
+) -> None:
+    """Fail H3 if a representative subset accidentally remains configured."""
+    policy = config.get("prototypePolicy") if isinstance(config.get("prototypePolicy"), dict) else {}
+    if not bool(policy.get("requireFullCorpusSelection", False)):
+        return
+    if view is None:
+        return
+
+    meta = view.get("prototype") if isinstance(view.get("prototype"), dict) else {}
+    actual = int(meta.get("entryCount") or 0)
+    full = int(meta.get("fullIceCount") or 0)
+    expected = policy.get("expectedIceTotal")
+    try:
+        expected_int = int(expected)
+    except (TypeError, ValueError):
+        expected_int = full
+
+    groups = view.get("groups") if isinstance(view.get("groups"), list) else []
+    actual_by_type = {
+        str(group.get("iceType") or ""): len(group.get("entries") or [])
+        for group in groups
+        if isinstance(group, dict)
+    }
+    expected_by_type = policy.get("expectedIceCounts") if isinstance(policy.get("expectedIceCounts"), dict) else {}
+
+    ok = actual == full == expected_int
+    for ice_type, expected_count in expected_by_type.items():
+        try:
+            required = int(expected_count)
+        except (TypeError, ValueError):
+            continue
+        if actual_by_type.get(str(ice_type)) != required:
+            ok = False
+
+    _append_check(
+        report,
+        "ICE_REFERENCE_FULL_CORPUS_SELECTION",
+        "PASS" if ok else "ERROR",
+        (
+            f"H3 selected the complete {actual}-entry Step 4 ICE corpus."
+            if ok
+            else "H3 requires the complete Step 4 ICE corpus; a subset or incomplete group was selected."
+        ),
+        {
+            "selected": actual,
+            "fullIceCount": full,
+            "expectedTotal": expected_int,
+            "selectedByType": actual_by_type,
+            "expectedByType": expected_by_type,
+        },
+    )
+
+
 def _run(args: argparse.Namespace, verbose: bool) -> int:
     config, sidecar, output_dir, report_path = _load_inputs(args)
     view, report = compose_ice_reference(sidecar, config)
     attach_ice_reference_images(view, sidecar, config, report)
+    _enforce_full_corpus_selection(view, config, report)
     report["command"] = args.command
     report["prototypeScope"] = (
-        "Standalone Step H2 ICEReferencePackage design proof consuming only Step 4 normalized ICE semantics and staged publication images. "
-        "Full Chapter 29/Pandoc integration is deferred until the proof grammar is visually accepted."
+        "Standalone Step H3 ICEReferencePackage full-corpus candidate consuming only Step 4 normalized ICE semantics and staged publication images. "
+        "Chapter 29/Pandoc integration is deferred until the 13-entry candidate is accepted."
     )
 
     if args.command == "inspect":
@@ -122,6 +180,7 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
                             {
                                 "name": entry.get("name"),
                                 "image": entry.get("image"),
+                                "imageFallback": entry.get("imageFallback"),
                             }
                             for entry in row.get("entries", [])
                             if isinstance(entry, dict)
@@ -169,7 +228,7 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
     _write_json(view_path, view)
     _append_check(report, "ICE_REFERENCE_VIEW", "PASS", f"Wrote composed ICEReferencePackage view to {view_path}.")
     tex_path.write_text(render_ice_reference_tex(view, config, render_assets), encoding="utf-8")
-    _append_check(report, "ICE_REFERENCE_LATEX", "PASS", f"Wrote standalone H2 ICEReferencePackage LaTeX to {tex_path}.")
+    _append_check(report, "ICE_REFERENCE_LATEX", "PASS", f"Wrote standalone H3 ICEReferencePackage LaTeX to {tex_path}.")
 
     if args.tex_only:
         _append_check(report, "ICE_REFERENCE_PDF", "WARNING", "--tex-only requested; LuaLaTeX rendering was skipped.")
@@ -177,27 +236,27 @@ def _run(args: argparse.Namespace, verbose: bool) -> int:
         ok, log = _compile_lualatex(tex_path)
         if ok and pdf_path.is_file():
             overfull = [line.strip() for line in log.splitlines() if "Overfull \\hbox" in line or "Overfull \\vbox" in line]
-            _append_check(report, "ICE_REFERENCE_PDF", "PASS", f"Rendered standalone H2 ICEReferencePackage proof to {pdf_path}.")
+            _append_check(report, "ICE_REFERENCE_PDF", "PASS", f"Rendered standalone H3 ICEReferencePackage candidate to {pdf_path}.")
             _append_check(report, "ICE_REFERENCE_LATEX_OVERFLOW", "ERROR" if overfull else "PASS", f"{len(overfull)} overfull LaTeX box warning(s) detected." if overfull else "No overfull LaTeX boxes detected.", overfull or None)
             rendered = validate_ice_reference_pdf(pdf_path, view)
             _append_check(report, str(rendered.get("code") or "ICE_REFERENCE_RENDER_CONTENT"), str(rendered.get("status") or "ERROR"), str(rendered.get("message") or "Rendered content validation returned no message."), rendered.get("details"))
         else:
-            _append_check(report, "ICE_REFERENCE_PDF", "ERROR", "LuaLaTeX failed to render the standalone H2 ICEReferencePackage proof.", log[-12000:])
+            _append_check(report, "ICE_REFERENCE_PDF", "ERROR", "LuaLaTeX failed to render the standalone H3 ICEReferencePackage candidate.", log[-12000:])
 
     _write_json(report_path, report)
     return _emit(report, verbose)
 
 
 def parser() -> argparse.ArgumentParser:
-    root = argparse.ArgumentParser(description="Cybermancy Step H2 ICEReferencePackage proof builder. Consumes Step 4 normalized ICE semantics and staged publication images only.")
+    root = argparse.ArgumentParser(description="Cybermancy Step H3 ICEReferencePackage full-corpus candidate builder. Consumes Step 4 normalized ICE semantics and staged publication images only.")
     sub = root.add_subparsers(dest="command", required=True)
     for command in ("inspect", "validate", "build"):
         p = sub.add_parser(command)
-        p.add_argument("--config", help="ICEReferencePackage v1 H2 config.")
+        p.add_argument("--config", help="ICEReferencePackage v1 H3 config.")
         p.add_argument("--sidecar", help="Step 4 structured-entities.json.")
         p.add_argument("--report", help="Validation report JSON path.")
         if command == "build":
-            p.add_argument("--output-dir", help="Standalone H2 proof output directory.")
+            p.add_argument("--output-dir", help="Standalone H3 candidate output directory.")
             p.add_argument("--tex-only", action="store_true", help="Generate view-model JSON and LaTeX but skip LuaLaTeX.")
     root.epilog = "Global option: --verbose may appear anywhere and prints the complete JSON report."
     return root
