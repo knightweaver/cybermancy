@@ -1,9 +1,26 @@
 from __future__ import annotations
 
+import re
 import shutil
 import subprocess
 from pathlib import Path
 from typing import Any
+
+
+REQUIRED_SHELL_TOKENS = (
+    "CYBERMANCY // ICE REFERENCE",
+    "GM MATERIAL",
+)
+FORBIDDEN_READER_TOKENS = (
+    "resource: simple",
+    "target: any",
+    "hitpoints",
+    "simple; value",
+)
+
+
+def _normalized(value: str) -> str:
+    return re.sub(r"\s+", " ", str(value or "")).strip()
 
 
 def evaluate_ice_reference_text(text: str, view: dict[str, Any]) -> dict[str, Any]:
@@ -34,24 +51,35 @@ def evaluate_ice_reference_text(text: str, view: dict[str, Any]) -> dict[str, An
     expected_order = [token for token in required if token not in missing]
     order_ok = actual_order == expected_order
 
+    normalized_upper = _normalized(text).upper()
+    missing_shell = [token for token in REQUIRED_SHELL_TOKENS if token not in normalized_upper]
+    normalized_casefold = _normalized(text).casefold()
+    forbidden_rendered = [token for token in FORBIDDEN_READER_TOKENS if token.casefold() in normalized_casefold]
+
     errors: list[str] = []
     if missing:
         errors.append("missing-content")
     if not order_ok:
         errors.append("content-order")
+    if missing_shell:
+        errors.append("missing-rulebook-shell")
+    if forbidden_rendered:
+        errors.append("reader-metadata-leakage")
 
     return {
         "code": "ICE_REFERENCE_RENDER_CONTENT",
         "status": "ERROR" if errors else "PASS",
         "message": (
-            "Rendered ICEReferencePackage content regression failed."
+            "Rendered ICEReferencePackage content/style regression failed."
             if errors
-            else "Rendered ICEReferencePackage contains every group and proof entry heading with first occurrences in view order."
+            else "Rendered ICEReferencePackage contains the proof corpus in order, the Cybermancy GM shell, and no prohibited runtime metadata."
         ),
         "details": {
             "missing": missing,
             "expectedOrder": expected_order,
             "actualOrder": actual_order,
+            "missingShell": missing_shell,
+            "forbiddenRendered": forbidden_rendered,
         },
     }
 
