@@ -1,6 +1,6 @@
--- Cybermancy Step 6 Part II rules Pandoc filter v1 prototype
--- Extends the accepted prose grammar with neutral rules blockquotes and
--- explicit rules-table handling. It does not infer semantic subtypes from text.
+-- Cybermancy Step 6 Part II rules Pandoc filter v1.0
+-- Extends the accepted prose grammar with the accepted Part II rules layout.
+-- It does not infer semantic subtypes from text.
 
 local function esc_tex(s)
   s = tostring(s or '')
