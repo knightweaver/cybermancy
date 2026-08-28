@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from rulebook_normalize.markdown import html_to_markdown
+from rulebook_normalize.publication_markdown import html_to_publication_markdown
 
 
 ICE_SEMANTICS_SCHEMA = "cybermancy-step4-ice-semantics-v1.0"
@@ -18,6 +18,18 @@ EXPECTED_ICE_COUNTS = {
     "wall": 7,
 }
 EXPECTED_ICE_TOTAL = 13
+
+DAMAGE_TARGET_LABELS = {
+    "hitpoints": "HP",
+    "hit_points": "HP",
+    "hp": "HP",
+    "stress": "Stress",
+}
+DAMAGE_TYPE_LABELS = {
+    "physical": "Physical",
+    "magic": "Magic",
+    "magical": "Magic",
+}
 
 
 def _load_json(path: Path) -> Any:
@@ -39,7 +51,7 @@ def _nonempty(value: Any) -> bool:
 def _markdown(value: Any) -> str:
     if value in (None, ""):
         return ""
-    return html_to_markdown(str(value)).strip()
+    return html_to_publication_markdown(str(value)).strip()
 
 
 def _iter_action_values(node: Any):
@@ -124,6 +136,23 @@ def _normalize_uses(value: Any) -> dict | None:
     return out or None
 
 
+def _reader_damage_target(value: Any) -> str:
+    raw = str(value or "").strip()
+    if not raw:
+        return ""
+    return DAMAGE_TARGET_LABELS.get(raw.casefold(), raw)
+
+
+def _reader_damage_types(value: Any) -> list[str]:
+    if isinstance(value, list):
+        raw_values = [str(item).strip() for item in value if str(item).strip()]
+    elif _nonempty(value):
+        raw_values = [str(value).strip()]
+    else:
+        raw_values = []
+    return [DAMAGE_TYPE_LABELS.get(item.casefold(), item) for item in raw_values]
+
+
 def _normalize_damage(value: Any) -> dict | None:
     if not isinstance(value, dict):
         return None
@@ -148,13 +177,19 @@ def _normalize_damage(value: Any) -> dict | None:
             key: val for key, val in damage_value.items() if _nonempty(val)
         }
 
+        raw_apply_to = part.get("applyTo")
+        raw_types = (
+            list(part.get("type") or [])
+            if isinstance(part.get("type"), list)
+            else part.get("type")
+        )
         record = {
-            "applyTo": part.get("applyTo"),
-            "types": (
-                list(part.get("type") or [])
-                if isinstance(part.get("type"), list)
-                else part.get("type")
-            ),
+            # Preserve normalized machine semantics for deterministic downstream
+            # validation while also exposing publication-safe labels.
+            "applyTo": raw_apply_to,
+            "readerTarget": _reader_damage_target(raw_apply_to),
+            "types": raw_types,
+            "readerTypes": _reader_damage_types(raw_types),
             "base": bool(part.get("base", False)),
             "resultBased": bool(part.get("resultBased", False)),
             "value": damage_value,
@@ -213,14 +248,22 @@ def normalize_actions(system: dict) -> list[dict]:
             record["uses"] = uses
         if _nonempty(action.get("range")):
             record["range"] = action.get("range")
+
         target = action.get("target") if isinstance(action.get("target"), dict) else {}
-        target_out = {
-            key: target.get(key)
-            for key in ("type", "amount")
-            if _nonempty(target.get(key))
-        }
-        if target_out:
-            record["target"] = target_out
+        target_type = str(target.get("type") or "").strip()
+        target_amount = target.get("amount")
+        # Foundry's default target={type:any, amount:null} is runtime wiring, not
+        # a useful reader rule. Preserve only targeting that conveys a constraint.
+        generic_any = target_type.casefold() == "any" and not _nonempty(target_amount)
+        if not generic_any:
+            target_out = {
+                key: target.get(key)
+                for key in ("type", "amount")
+                if _nonempty(target.get(key))
+            }
+            if target_out:
+                record["target"] = target_out
+
         damage = _normalize_damage(action.get("damage"))
         if damage:
             record["damage"] = damage
@@ -230,6 +273,7 @@ def normalize_actions(system: dict) -> list[dict]:
 
 
 def normalize_resource(system: dict) -> dict | None:
+    """Preserve ICE resource state without claiming unlabeled runtime data is publishable."""
     resource = system.get("resource")
     if not isinstance(resource, dict):
         return None
@@ -238,7 +282,10 @@ def normalize_resource(system: dict) -> dict | None:
         for key in ("type", "value", "max")
         if _nonempty(resource.get(key))
     }
-    return out or None
+    if not out:
+        return None
+    out["readerFacing"] = False
+    return out
 
 
 def _has_meaningful_action(action: dict) -> bool:
@@ -517,6 +564,7 @@ def _postprocess_materialization(
         "sentryCount": counts.get("sentry", 0),
         "wallCount": counts.get("wall", 0),
         "semanticIds": sorted(ice_ids),
+        "resourcePublicationPolicy": "omit-unlabeled-runtime-resource",
         "status": "FAIL" if errors else "PASS",
     }
     sidecar["iceSemantics"] = summary
