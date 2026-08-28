@@ -69,18 +69,20 @@ def rules_document_preamble() -> str:
     text = text.replace(r"\color{CMRunningAccent}", r"\color{\CMRunningAccent}")
     extension = r'''
 % ---- Part II Rules Layout prototype extensions ----
+% Mechanical blockquotes must remain flowable. A list + Needspace wrapper caused
+% a nearly blank page when a short callout fell between full-width rules tables.
+% Use paragraph indentation only: neutral visual treatment, no semantic subtype,
+% and no artificial page/column reservation.
 \newenvironment{CMRulesQuote}{%
-  \par\Needspace{3\baselineskip}\vspace{3pt}%
-  \begin{list}{}{%
-    \setlength{\leftmargin}{0.12in}%
-    \setlength{\rightmargin}{0.02in}%
-    \setlength{\itemindent}{0pt}%
-    \setlength{\listparindent}{0pt}%
-    \setlength{\parsep}{2pt}%
-  }%
-  \item\relax\color{CMBody}\fontsize{9.6}{13.0}\selectfont
+  \par\vspace{3pt}%
+  \begingroup
+  \leftskip=0.12in%
+  \rightskip=0.02in%
+  \parindent=0pt%
+  \parskip=2pt%
+  \color{CMBody}\fontsize{9.6}{13.0}\selectfont
 }{%
-  \end{list}\vspace{2pt}\par
+  \par\endgroup\vspace{2pt}\par
 }
 \newenvironment{CMRulesTable}{\begin{CMProseTable}}{\end{CMProseTable}}
 \setlist[enumerate,1]{%
@@ -176,7 +178,7 @@ def _report_shell(paths) -> dict[str, Any]:
     report = _BASE_REPORT_SHELL(paths)
     report["schema"] = "cybermancy-step6-rules-layout-validation-v1.0-prototype"
     report["implementation"] = "rules-layout-prototype-on-accepted-prose-engine"
-    report["implementationPatch"] = "phase-b-design-proof-running-header-color-expansion"
+    report["implementationPatch"] = "phase-b-design-proof-glyph-and-quote-flow"
     return report
 
 
