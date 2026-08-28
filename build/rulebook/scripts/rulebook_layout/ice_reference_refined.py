@@ -185,18 +185,10 @@ def _format_damage(value: Any) -> str:
     for part in value["parts"]:
         if not isinstance(part, dict):
             continue
+        formula = str(part.get("formula") or "").strip()
         target = str(part.get("target") or "").strip()
         types = part.get("types")
         type_text = "/".join(str(item) for item in types if str(item)) if isinstance(types, list) else str(types or "").strip()
-        damage_value = part.get("value") if isinstance(part.get("value"), dict) else {}
-        if damage_value.get("customFormula") not in (None, ""):
-            formula = str(damage_value.get("customFormula"))
-        else:
-            dice, bonus = damage_value.get("dice"), damage_value.get("bonus")
-            formula = str(dice) if dice not in (None, "") else ""
-            if bonus not in (None, "", 0):
-                sign = "+" if isinstance(bonus, (int, float)) and bonus > 0 else ""
-                formula += f"{sign}{bonus}"
         chunks = [chunk for chunk in (formula, type_text, target) if chunk]
         if chunks:
             rendered.append(" ".join(chunks))
