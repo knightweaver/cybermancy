@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cybermancy Step 6 Character Origins builder v0.1.1.
+"""Cybermancy Step 6 Character Origins builder v0.1.2.
 
 Implements the approved Outcome B prose-derived entry grammar for Chapters 10-11.
 Consumes only Step 4 assembled publication profiles and staged assets, while
@@ -9,6 +9,12 @@ Patch 0.1.1 aligns entry parsing with the Step 4 Pandoc-safety contract: Step 4
 rewrites body `---` thematic breaks to `***` after assembly. Character Origins
 accepts either spelling at its input boundary and emits `***` in temporary
 annotated Markdown.
+
+Patch 0.1.2 makes rendered-PDF semantic validation presence-based. pdftotext
+reading order is not stable for the inherited two-column/minipage layout, so
+canonical entry order remains validated from the normalized corpus while the
+rendered-PDF check verifies that every entry heading and Feature name survived
+into extractable PDF text.
 """
 from __future__ import annotations
 
@@ -23,7 +29,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-SCRIPT_VERSION = "0.1.1"
+SCRIPT_VERSION = "0.1.2"
 SCRIPT_PATH = Path(__file__).resolve()
 SCRIPT_DIR = SCRIPT_PATH.parent
 RULEBOOK_DIR = SCRIPT_DIR.parent
@@ -124,7 +130,7 @@ def report_shell(paths: Paths, command: str) -> dict[str, Any]:
         "status": "PASS",
         "command": command,
         "builderVersion": SCRIPT_VERSION,
-        "implementationPatch": "0.1.1-step4-thematic-break-compatibility",
+        "implementationPatch": "0.1.2-pdf-text-presence-validation",
         "layoutContract": str(paths.config),
         "inherits": str(paths.prose_config),
         "checks": [],
@@ -633,17 +639,22 @@ def validate_pdf_text(paths: Paths, prose: Any, report: dict[str, Any]) -> None:
         )
         return
 
+    # pdf text extraction order is not a reliable proxy for visual/source order
+    # in a two-column document containing minipages. Canonical order is already
+    # asserted by CH10/CH11_ENTRY_IDENTITY before rendering. Here we only verify
+    # that the expected semantic labels survived into extractable PDF text.
     text = re.sub(r"\s+", " ", p.stdout or "").strip()
-    cursor = -1
     missing: list[str] = []
+    checked_entries = 0
+    checked_features = 0
     for chapter_number in map(str, TARGET_CHAPTERS):
-        for entry in report.get("inspection", {}).get(chapter_number, {}).get("entries", []):
-            position = text.find(entry["name"], cursor + 1)
-            if position < 0:
+        entries = report.get("inspection", {}).get(chapter_number, {}).get("entries", [])
+        for entry in entries:
+            checked_entries += 1
+            if entry["name"] not in text:
                 missing.append(entry["name"])
-            else:
-                cursor = position
             for feature_name in entry.get("features", []):
+                checked_features += 1
                 if feature_name not in text:
                     missing.append(f"{entry['name']} :: {feature_name}")
 
@@ -653,8 +664,14 @@ def validate_pdf_text(paths: Paths, prose: Any, report: dict[str, Any]) -> None:
         "ERROR" if missing else "PASS",
         "Rendered PDF is missing expected entry/Feature text"
         if missing
-        else "All 27 entry headings and Feature names are present in canonical entry order",
-        missing or None,
+        else (
+            f"All {checked_entries} entry headings and {checked_features} Feature names "
+            "are present in extracted PDF text"
+        ),
+        missing or {
+            "entryOrderValidatedBy": "normalized corpus + deterministic annotation/Pandoc block order",
+            "pdfTextValidation": "presence only; pdftotext stream order is not stable for multicolumn/minipage layouts",
+        },
     )
 
 
@@ -852,6 +869,7 @@ def build(paths: Paths) -> dict[str, Any]:
         "missingAssetCount": len(unique_missing),
         "temporaryAnnotationsAreCanonical": False,
         "step4ThematicBreakCompatibility": "accepts *** and ---; temporary fragments emit ***",
+        "pdfTextSemanticPolicy": "presence-only; canonical order is validated from normalized corpus because pdftotext order is unstable for multicolumn/minipage layouts",
         "diagnosticArtifacts": {
             "generatedTex": str(tex_path),
             "annotatedMarkdownDirectory": str(fragments),
