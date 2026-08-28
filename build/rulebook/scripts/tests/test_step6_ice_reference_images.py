@@ -38,18 +38,21 @@ class TestStep6IceReferenceImages(unittest.TestCase):
             ],
         }
 
-    def _sidecar(self, image="assets/icons/ice/test.webp"):
+    def _sidecar(self, image="assets/icons/ice/test.webp", status="PASS"):
+        publication = {}
+        if image is not None:
+            publication["image"] = image
         return {
             "icePublicationImageSemantics": {
                 "schema": "cybermancy-step4-ice-publication-images-v1.0",
-                "status": "PASS",
+                "status": status,
                 "iceCount": 1,
-                "publicationImageCount": 1,
+                "publicationImageCount": 1 if image else 0,
             },
             "entities": [
                 {
                     "semanticId": "entity:features:test",
-                    "publicationData": {"image": image},
+                    "publicationData": publication,
                 }
             ],
         }
@@ -57,10 +60,14 @@ class TestStep6IceReferenceImages(unittest.TestCase):
     def _config(self):
         return {
             "prototypePolicy": {
-                "requirePublicationImageSemanticsPass": True,
-                "requireStagedImages": True,
+                "requirePublicationImageSemanticsPass": False,
+                "requireStagedImages": False,
+                "allowMissingImagesWithBlankFallback": True,
             },
-            "composition": {"pageColumns": 2},
+            "composition": {
+                "pageColumns": 2,
+                "missingImageFallback": "blank-block",
+            },
             "style": {
                 "entryIdentityImageHeightIn": 0.38,
                 "entryIdentityImageGapIn": 0.07,
@@ -75,17 +82,30 @@ class TestStep6IceReferenceImages(unittest.TestCase):
         self.assertEqual(view["groups"][0]["entries"][0]["image"], "assets/icons/ice/test.webp")
         self.assertEqual(ice_reference_publication_images(view), ["assets/icons/ice/test.webp"])
 
-    def test_runtime_image_path_fails_closed(self):
+    def test_missing_image_uses_blank_block_without_failing_package(self):
+        view = self._view()
+        report = {"status": "PASS", "errors": [], "warnings": [], "checks": []}
+        attach_ice_reference_images(view, self._sidecar(None, status="FAIL"), self._config(), report)
+        entry = view["groups"][0]["entries"][0]
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(entry.get("imageFallback"), "blank-block")
+        self.assertNotIn("image", entry)
+        self.assertEqual(ice_reference_publication_images(view), [])
+        self.assertTrue(report["warnings"])
+
+    def test_runtime_image_path_uses_blank_block_instead_of_leaking_runtime_reference(self):
         view = self._view()
         report = {"status": "PASS", "errors": [], "warnings": [], "checks": []}
         attach_ice_reference_images(
             view,
-            self._sidecar("modules/cybermancy/assets/icons/ice/test.webp"),
+            self._sidecar("modules/cybermancy/assets/icons/ice/test.webp", status="FAIL"),
             self._config(),
             report,
         )
-        self.assertEqual(report["status"], "FAIL")
-        self.assertNotIn("image", view["groups"][0]["entries"][0])
+        entry = view["groups"][0]["entries"][0]
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual(entry.get("imageFallback"), "blank-block")
+        self.assertNotIn("image", entry)
 
     def test_renderer_places_image_only_in_identity_row(self):
         view = self._view()
@@ -97,6 +117,16 @@ class TestStep6IceReferenceImages(unittest.TestCase):
         )
         self.assertIn(r"\usepackage{graphicx}", tex)
         self.assertIn(r"\includegraphics[height=0.380in,width=0.380in,keepaspectratio]", tex)
+        self.assertIn(r"\begin{minipage}[c]{\dimexpr\linewidth-0.450in\relax}", tex)
+        identity_end = tex.index(r"\end{minipage}\par")
+        rules_pos = tex.index("Reader-facing rules.")
+        self.assertGreater(rules_pos, identity_end)
+
+    def test_renderer_uses_soft_blank_block_in_same_identity_slot(self):
+        view = self._view()
+        view["groups"][0]["entries"][0]["imageFallback"] = "blank-block"
+        tex = render_ice_reference_tex(view, self._config(), {})
+        self.assertIn(r"\colorbox{CMSoft}{\parbox[c][0.380in][c]{0.380in}{}}", tex)
         self.assertIn(r"\begin{minipage}[c]{\dimexpr\linewidth-0.450in\relax}", tex)
         identity_end = tex.index(r"\end{minipage}\par")
         rules_pos = tex.index("Reader-facing rules.")
