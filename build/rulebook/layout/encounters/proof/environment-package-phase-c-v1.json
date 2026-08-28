@@ -1,0 +1,20 @@
+{
+  "schema": "cybermancy-step6-encounter-package-config-v1",
+  "family": "environments",
+  "title": "Chapter 31 - Environments",
+  "subtitle": "Phase C Encounter Toolkit proof package",
+  "columns": 1,
+  "selection": {
+    "names": [
+      "Cascadia Mountain Valley",
+      "Abraxas ritual cave",
+      "Seattle Underflow Grid",
+      "Midnight Streets",
+      "Neon Diner Environment",
+      "The Eternal Night"
+    ]
+  },
+  "artworkPolicy": "optional; omit without invented replacement",
+  "fastPlayPolicy": "render structured Fast Play only when present",
+  "featurePolicy": "inline-complete"
+}
