@@ -26,7 +26,7 @@ DEFAULT_SOURCE = RULEBOOK_DIR / "source" / "assembled" / "player-guide.md"
 DEFAULT_CROSS_PROFILE = RULEBOOK_DIR / "source" / "assembled" / "complete-rulebook.md"
 DEFAULT_ASSET_ROOT = RULEBOOK_DIR / "source" / "assets"
 DEFAULT_OUTPUT = LAYOUT_DIR / "output" / "Cybermancy_Part_II_Rules_Design_Proof_v1.pdf"
-DEFAULT_REPORT = LAYOUT_DIR / "rules-design-proof-v1.json"
+DEFAULT_REPORT = LAYOUT_DIR / "reports" / "rules-design-proof-v1.json"
 DEFAULT_WORK = LAYOUT_DIR / "work" / "pandoc-lualatex-v1"
 
 PART_ID = "section:part-ii-rules"
