@@ -7,6 +7,7 @@ from rulebook_step4_class_publication_images import (
 )
 from rulebook_step4_class_relationships import configure_step4_class_relationships
 from rulebook_step4_domain_semantics import configure_step4_domain_semantics
+from rulebook_step4_encounter_semantics import configure_step4_encounter_semantics
 from rulebook_step4_ice_publication_image_overrides import (
     configure_step4_ice_publication_image_overrides,
 )
@@ -28,6 +29,7 @@ def _configure(namespace):
     configure_step4_ice_semantics(namespace)
     configure_step4_ice_publication_image_overrides(namespace)
     configure_step4_ice_publication_images(namespace)
+    configure_step4_encounter_semantics(namespace)
 
 
 if __name__ == "__main__":
