@@ -1,7 +1,8 @@
 {
   "schema": "cybermancy-rulebook-rules-layout-v1",
-  "version": "1.0-prototype",
-  "status": "PROTOTYPE",
+  "version": "1.0",
+  "status": "ACCEPTED",
+  "acceptedDate": "2026-08-28",
   "scope": ["part-ii-rules"],
   "inherits": {
     "contract": "build/rulebook/layout/prose/prose-layout-v1.json",
@@ -12,11 +13,12 @@
     "primary": "build/rulebook/source/assembled/player-guide.md",
     "crossProfile": "build/rulebook/source/assembled/complete-rulebook.md",
     "assetRoot": "build/rulebook/source/assets",
+    "acceptedRegressionSnapshotCommit": "9800f925bae0e644b6fe4670ec2fb97a984a0128",
     "canonicalContentMutable": false,
     "layoutMayRewriteCanonicalProse": false
   },
   "requiredChapters": [4, 5, 6, 7, 8, 9],
-  "designProofChapters": [4, 6, 8, 9],
+  "acceptedProofChapters": [4, 6, 8, 9],
   "primitives": {
     "ordinaryRulesProse": "inherited-long-form-prose",
     "chapterRootHeading": {
@@ -74,6 +76,14 @@
     "requireAllPartIIChapters": true,
     "rejectImageHeadingAdjacencyDefects": true,
     "rejectRawHtmlLeakage": true,
+    "detectBrokenGlyphs": true,
     "visualInspectionRequired": true
-  }
+  },
+  "knownSourceDefects": [
+    {
+      "chapter": 4,
+      "classification": "developmental-editorial-residue-and-typos",
+      "disposition": "upstream-content-cleanup; not a Step 6 layout defect"
+    }
+  ]
 }
