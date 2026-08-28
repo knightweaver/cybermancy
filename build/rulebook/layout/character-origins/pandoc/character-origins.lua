@@ -1,4 +1,4 @@
--- Cybermancy Step 6 Character Origins Pandoc filter v1.0.2 (draft)
+-- Cybermancy Step 6 Character Origins Pandoc filter v1.0.3 (draft)
 -- Consumes only the derived entry annotations produced from Step 4 normalized
 -- Chapters 10-11. Long-Form Prose v1.0 supplies the surrounding publication shell.
 --
@@ -76,7 +76,13 @@ local function identity_div(el)
   local lead_blocks = {}
   for i = 3, #el.content do table.insert(lead_blocks, el.content[i]) end
   local lead = blocks_latex(lead_blocks)
-  return pandoc.RawBlock('latex', '\\CMOriginIdentity{' .. image_tex .. '}{' .. title .. '}{' .. lead .. '}')
+
+  -- wrapfig can leave its paragraph-shape state active beyond the identity block
+  -- when used with the inherited multicols/RaggedRight prose shell. Explicitly
+  -- clear it here so only the opening flavor paragraph participates in the image
+  -- wrap; all subsequent flavor and Feature blocks return to full column width.
+  local identity_tex = '\\CMOriginIdentity{' .. image_tex .. '}{' .. title .. '}{' .. lead .. '}'
+  return pandoc.RawBlock('latex', identity_tex .. '\n\\WFclear')
 end
 
 local function feature_label_div(el)
