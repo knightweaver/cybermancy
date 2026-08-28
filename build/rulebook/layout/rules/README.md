@@ -1,8 +1,9 @@
-# Cybermancy Rulebook Step 6 — Part II Rules Layout v1 Prototype
+# Cybermancy Rulebook Step 6 — Part II Rules Layout v1.0
 
-**Status:** PROTOTYPE  
+**Status:** ACCEPTED  
+**Accepted:** 2026-08-28  
 **Scope:** Part II — Cybermancy Rules, Chapters 4–9  
-**Design proof:** Chapters 4, 6, 8, and 9
+**Accepted proof:** Chapters 4, 6, 8, and 9
 
 This lane extends the accepted **Long-Form Prose Layout v1.0** rather than creating a separate publication stack. It uses the same Pandoc + LuaLaTeX engine, page geometry, typography, two-column body flow, chapter banners, source-order pagination, and staged Step 4 assets.
 
@@ -30,16 +31,27 @@ The builder verifies that Chapters 4–9 exist in the player profile and, when t
 
 Step 6 does not read canonical authored Markdown or Foundry data directly and does not rewrite rule text.
 
-## Prototype grammar
+The accepted visual regression snapshot corresponds to repository commit:
 
-The prototype adds only the approved rules-specific structures:
+```text
+9800f925bae0e644b6fe4670ec2fb97a984a0128
+```
+
+## Accepted Rules grammar
 
 ```text
 Long-Form Prose v1.0
+    + suppressed normalized chapter-root heading
     + compact accented ordered-list procedures
     + full-width rules reference tables
-    + neutral rules blockquotes
+    + neutral flowable rules blockquotes
+    + compact standard source-order rules artwork
+    + deterministic directional-arrow rendering
 ```
+
+### Chapter root heading
+
+Step 4 shifts an authored document-root H1 to normalized H3. Because Step 6 already renders the authoritative chapter title in the chapter banner, the first H3 in each chapter fragment is suppressed. Later H3 headings remain normal section headings. This is structural and does not compare or infer heading text.
 
 ### Procedure
 
@@ -51,11 +63,19 @@ Pandoc tables use the accepted full-width prose-table infrastructure with repeat
 
 ### Neutral rules blockquote
 
-Part II blockquotes are not automatically interpreted as quotations, examples, formulas, warnings, or principles. They receive a restrained neutral treatment until explicit publication semantics justify subtype-specific rendering.
+Part II blockquotes are not automatically interpreted as quotations, examples, formulas, warnings, or principles. They receive a restrained, flowable treatment until explicit publication semantics justify subtype-specific rendering. The implementation deliberately avoids `Needspace` or list-based reservation that can create artificial blank pages around full-width tables.
+
+### Standard rules artwork
+
+Standard source-order images are centered within the current column and capped at `0.20\textheight`, preserving aspect ratio. This denser Part II treatment prevents ordinary artwork from creating unnecessary continuation pages. Explicit wide/mark/symbolic/portrait roles remain inherited from the prose lane.
+
+### Directional arrows
+
+Normalized directional arrows are preserved semantically and emitted as deterministic LaTeX math arrows so rendering does not depend on installed font glyph coverage.
 
 ## Deliberately deferred semantics
 
-The prototype must not infer these from source wording, filenames, or chapter-specific rules:
+The accepted v1.0 lane must not infer these from source wording, filenames, or chapter-specific rules:
 
 ```text
 rulesCallout.kind
@@ -65,15 +85,15 @@ stateTrack.label + stateTrack.states
 
 Accordingly:
 
-- Chapter 5–7 artwork remains in source order with inherited standard image treatment.
+- Chapter 5–7 artwork remains in source order with the accepted compact standard-image treatment unless explicit image-role semantics are added.
 - Netrunning state tracks remain faithful source text rather than automatically generated horizontal widgets.
 - Examples and principles compose from existing prose/list/table/blockquote structures.
 
-If visual review demonstrates a material reader benefit, these become explicit Step 4 semantic proposals before richer Step 6 components are implemented.
+If future visual requirements justify richer treatment, these should become explicit Step 4 publication semantics before richer Step 6 components are implemented.
 
-## Design-proof corpus
+## Accepted proof corpus
 
-The initial PDF renders:
+The accepted PDF proof renders:
 
 ```text
 Part II opener
@@ -83,9 +103,9 @@ Chapter 8 — Driving and Chases
 Chapter 9 — Netrunning and Device Intrusion
 ```
 
-This combination tests the ordinary-prose baseline, source-order artwork, ordered procedures, nested rules, dense mechanical prose, decision/reference tables, numeric matrices, blockquotes, consequence tracks, Fear-spend tables, and quick-reference material.
+This corpus validates ordinary rules prose, source-order artwork, ordered procedures, nested rules, dense mechanical prose, decision/reference tables, numeric matrices, mechanical blockquotes, consequence tracks, Fear-spend tables, and quick-reference material.
 
-Chapters 5 and 7 remain required in the normalized Part II corpus even though they are not included in this first design-proof PDF.
+Chapters 5 and 7 remain required in the normalized Part II corpus even though they are not part of the accepted proof fixture.
 
 ## Commands
 
@@ -116,26 +136,27 @@ build/rulebook/layout/rules/reports/
     rules-design-proof-v1.json
 ```
 
-Intermediate Markdown, Pandoc-generated LaTeX, staged raster conversions, and LuaLaTeX diagnostics are isolated beneath:
+Intermediate Markdown, Pandoc-generated LaTeX, staged raster conversions, and LuaLaTeX diagnostics remain isolated beneath:
 
 ```text
 build/rulebook/layout/rules/work/pandoc-lualatex-v1/
 ```
 
-## Acceptance gate for the next phase
+## Accepted validation gate
 
-The prototype is ready for visual review when:
+The v1.0 contract requires:
 
-- the Rules Layout v1 prototype config validates;
-- all Chapters 4–9 exist in the primary player profile;
-- the complete-rulebook Part II corpus matches when that profile is available;
-- Chapters 4, 6, 8, and 9 route into the proof;
-- Step 4 contains no image/heading adjacency defects;
-- Pandoc and LuaLaTeX complete successfully;
-- no material clipping, overfull content, broken glyphs, or table failures remain;
-- visual review confirms that procedures, tables, and neutral blockquotes are sufficiently distinct without over-componentizing the rules.
+- all Chapters 4–9 in the primary player profile;
+- Part II profile equivalence against the complete rulebook when available;
+- accepted proof Chapters 4, 6, 8, and 9 route correctly;
+- no Step 4 image/heading adjacency defects;
+- successful Pandoc and LuaLaTeX processing;
+- no material clipping, broken glyphs, table failures, or artificial blank-page flow defects;
+- successful visual review.
 
-Only after that review should the contract be promoted from `PROTOTYPE` toward an accepted Part II Rules Layout v1.0.
+## Known upstream content issue
+
+Chapter 4 still contains developmental/editorial residue and obvious prose errors. These are canonical-source issues and must be corrected upstream and propagated through Step 4; Step 6 must not patch them.
 
 ## Ownership boundary
 
