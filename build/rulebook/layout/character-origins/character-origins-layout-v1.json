@@ -25,7 +25,10 @@
     "sourceOrderPreserved": true,
     "entryBoundary": "normalized horizontal-rule-delimited block containing one staged image followed by one H4 entry heading",
     "identityRow": {
-      "keptTogether": true,
+      "keptTogether": false,
+      "wrapMode": "left-artwork-auto-wrap",
+      "wrapsFlavorBelowArtwork": true,
+      "minimumKeepTogether": "entry artwork + entry heading + opening wrapped lines",
       "imageColumnFraction": 0.36,
       "gapColumnFraction": 0.04,
       "textColumnFraction": 0.6,
@@ -35,10 +38,11 @@
         "entry heading",
         "first flavor paragraph"
       ],
+      "flow": "entry heading and opening flavor begin beside the artwork; the same paragraph automatically widens to the full inherited prose column after clearing the artwork",
       "titleSizePt": 13.2,
       "titleLeadingPt": 14.8
     },
-    "remainingFlavor": "ordinary inherited prose flow",
+    "remainingFlavor": "first flavor paragraph wraps around artwork, then all remaining flavor uses ordinary inherited full-column prose flow",
     "featureGroup": {
       "labelStyle": "compact uppercase teal label",
       "featureNameSizePt": 11.6,
