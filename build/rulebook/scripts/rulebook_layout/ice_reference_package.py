@@ -49,6 +49,7 @@ def _productionize_report(report: dict[str, Any]) -> None:
             message = str(row.get("message") or "")
             message = message.replace("H2 prototype", "ICEReferencePackage")
             message = message.replace("H2 proof", "ICEReferencePackage")
+            message = message.replace("H2 contract", "ICEReferencePackage contract")
             row["message"] = message
 
 
@@ -121,7 +122,11 @@ def integrate_chapter29_ast(
     and exactly one Feature-family Div body. The Feature family outside this
     independent GM publication remains normalized upstream for dependent rules.
     """
-    header_ids = {"ch29-ice-reference", "section:ch29-ice-reference"}
+    header_ids = {
+        "ch29-ice-reference",
+        "section:ch29-ice-reference",
+        r"section\:ch29-ice-reference",
+    }
     counts = {"chapterHeader": 0, "familyFeatures": 0}
 
     def walk(value: Any) -> None:
