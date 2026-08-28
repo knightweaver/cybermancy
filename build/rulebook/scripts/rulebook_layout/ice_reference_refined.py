@@ -119,6 +119,8 @@ def _style(config: dict[str, Any]) -> dict[str, float | str]:
         "meta_leading": meta_leading,
         "entry_needspace": float(source.get("entryMinStartSpaceIn", 0.72) or 0.72),
         "action_needspace": float(source.get("actionMinStartSpaceIn", 0.42) or 0.42),
+        "identity_image_height": float(source.get("entryIdentityImageHeightIn", 0.38) or 0.38),
+        "identity_image_gap": float(source.get("entryIdentityImageGapIn", 0.07) or 0.07),
     }
 
 
@@ -257,14 +259,51 @@ def _resource_tex(resource: Any, style: dict[str, Any]) -> str:
     return rf"{{\fontsize{{{style['meta']:.2f}}}{{{style['meta_leading']:.2f}}}\selectfont\color{{CMMuted}}\textbf{{{_inline_tex(label)}:}} {_inline_tex('; '.join(values))}\par}}"
 
 
-def _entry_tex(entry: dict[str, Any], config: dict[str, Any]) -> str:
-    style = _style(config)
+def _entry_identity_tex(
+    entry: dict[str, Any],
+    style: dict[str, Any],
+    render_assets: dict[str, str],
+) -> str:
     name = str(entry.get("name") or "").strip()
     type_label = "SENTRY ICE" if str(entry.get("iceType") or "").strip().casefold() == "sentry" else "WALL ICE"
+    title_block = "\n".join(
+        [
+            rf"{{\CMDisplay\fontsize{{{style['title']:.2f}}}{{{style['title_leading']:.2f}}}\selectfont\bfseries\color{{CMInk}} {_inline_tex(name)}\par}}",
+            rf"{{\CMDisplay\fontsize{{{style['type']:.2f}}}{{{style['type_leading']:.2f}}}\selectfont\bfseries\color{{CMAccent}} {type_label}\par}}",
+        ]
+    )
+    image_ref = str(entry.get("image") or "").strip().replace("\\", "/")
+    render_path = str(render_assets.get(image_ref) or "").strip().replace("\\", "/")
+    if not image_ref or not render_path:
+        return title_block
+
+    image_height = float(style["identity_image_height"])
+    gap = float(style["identity_image_gap"])
+    reserved = image_height + gap
+    return "\n".join(
+        [
+            r"\noindent%",
+            rf"\begin{{minipage}}[c]{{{image_height:.3f}in}}",
+            r"\centering",
+            rf"\includegraphics[height={image_height:.3f}in,width={image_height:.3f}in,keepaspectratio]{{\detokenize{{{render_path}}}}}",
+            r"\end{minipage}%",
+            rf"\hspace{{{gap:.3f}in}}%",
+            rf"\begin{{minipage}}[c]{{\dimexpr\linewidth-{reserved:.3f}in\relax}}",
+            title_block,
+            r"\end{minipage}\par",
+        ]
+    )
+
+
+def _entry_tex(
+    entry: dict[str, Any],
+    config: dict[str, Any],
+    render_assets: dict[str, str],
+) -> str:
+    style = _style(config)
     pieces = [
         rf"\Needspace{{{style['entry_needspace']:.2f}in}}",
-        rf"{{\CMDisplay\fontsize{{{style['title']:.2f}}}{{{style['title_leading']:.2f}}}\selectfont\bfseries\color{{CMInk}} {_inline_tex(name)}\par}}",
-        rf"{{\CMDisplay\fontsize{{{style['type']:.2f}}}{{{style['type_leading']:.2f}}}\selectfont\bfseries\color{{CMAccent}} {type_label}\par}}",
+        _entry_identity_tex(entry, style, render_assets),
         r"\vspace{0.8mm}",
     ]
     rules = markdown_to_tex(entry.get("rulesMarkdown"))
@@ -342,7 +381,11 @@ def _chapter_header(view: dict[str, Any], config: dict[str, Any]) -> str:
     return "\n".join(band)
 
 
-def _group_tex(group: dict[str, Any], config: dict[str, Any]) -> str:
+def _group_tex(
+    group: dict[str, Any],
+    config: dict[str, Any],
+    render_assets: dict[str, str],
+) -> str:
     style = _style(config)
     title = _inline_tex(group.get("title"))
     entries = [row for row in group.get("entries", []) if isinstance(row, dict)]
@@ -362,17 +405,22 @@ def _group_tex(group: dict[str, Any], config: dict[str, Any]) -> str:
         rf"\setlength{{\columnsep}}{{{style['column_sep']:.3f}in}}",
     ]
     for entry in entries:
-        pieces.append(_entry_tex(entry, config))
+        pieces.append(_entry_tex(entry, config, render_assets))
     pieces.extend([r"\end{multicols}", r"\vspace{1.0mm}"])
     return "\n".join(pieces)
 
 
-def render_ice_reference_tex(view: dict[str, Any], config: dict[str, Any]) -> str:
+def render_ice_reference_tex(
+    view: dict[str, Any],
+    config: dict[str, Any],
+    render_assets: dict[str, str] | None = None,
+) -> str:
     style = _style(config)
+    render_assets = render_assets or {}
     groups = [row for row in view.get("groups", []) if isinstance(row, dict)]
     body = [_chapter_header(view, config)]
     for group in groups:
-        body.append(_group_tex(group, config))
+        body.append(_group_tex(group, config, render_assets))
 
     running_title = _inline_tex(view.get("title") or config.get("title") or "ICE Reference")
     footer_label = _inline_tex(str(config.get("footerLabel") or "STEP 6 // ICE REFERENCE PACKAGE V1"))
@@ -382,6 +430,7 @@ def render_ice_reference_tex(view: dict[str, Any], config: dict[str, Any]) -> st
             rf"\usepackage[letterpaper,left={style['margin']:.3f}in,right={style['margin']:.3f}in,top={style['top_margin']:.3f}in,bottom={style['bottom_margin']:.3f}in,headheight=16pt,headsep=10pt,footskip=24pt]{{geometry}}",
             r"\usepackage{fontspec}",
             r"\usepackage{xcolor}",
+            r"\usepackage{graphicx}",
             r"\usepackage{multicol}",
             r"\usepackage{needspace}",
             r"\usepackage{fancyhdr}",
