@@ -42,8 +42,11 @@ def attach_ice_reference_images(
         return
 
     policy = config.get("prototypePolicy") if isinstance(config.get("prototypePolicy"), dict) else {}
-    require_images = bool(policy.get("requireStagedImages", True))
-    require_summary = bool(policy.get("requirePublicationImageSemanticsPass", True))
+    # Canonical H2.2 explicitly enables both requirements. Defaults remain false
+    # so older unit fixtures and alternate experimental configs do not silently
+    # acquire a new publication-image dependency.
+    require_images = bool(policy.get("requireStagedImages", False))
+    require_summary = bool(policy.get("requirePublicationImageSemanticsPass", False))
 
     summary = sidecar.get("icePublicationImageSemantics")
     if not isinstance(summary, dict):
@@ -109,7 +112,7 @@ def attach_ice_reference_images(
         (
             f"{len(missing)} selected ICE image(s) are missing or invalid."
             if missing
-            else f"Attached staged publication images to all {attached} selected ICE entries."
+            else f"Attached staged publication images to {attached} selected ICE entries."
         ),
         missing or {"attached": attached},
     )
