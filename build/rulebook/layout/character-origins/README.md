@@ -19,20 +19,23 @@ build/rulebook/source/assets/**
 
 It does **not** read `docs/**`, Foundry JSON, generated MkDocs pages, or canonical source artwork directly. The Complete Rulebook and Player Guide representations of Chapters 10-11 must be byte-equivalent at the normalized chapter-fragment level before a build can pass.
 
-Step 4's assembled-manuscript safety pass rewrites body `---` thematic breaks to `***` so Pandoc cannot confuse them with YAML delimiters. Character Origins builder v0.1.1 accepts both `***` and `---` at its normalized-input boundary and emits `***` in temporary annotated Markdown.
+Step 4's assembled-manuscript safety pass rewrites body `---` thematic breaks to `***` so Pandoc cannot confuse them with YAML delimiters. Character Origins accepts both `***` and `---` at its normalized-input boundary and emits `***` in temporary annotated Markdown.
 
 ## Character Option Entry grammar
 
 Each normalized entry is derived from the existing horizontal-rule / image / H4 / prose / Feature structure. Step 6 does not invent or rewrite game content.
 
-1. The entry artwork, H4 entry title, and first flavor paragraph form one non-breaking identity row.
-2. Artwork occupies 36% of the inherited prose column; identity text occupies 60%, with a 4% gap.
-3. Additional flavor paragraphs return to ordinary Long-Form Prose flow beneath the identity row.
-4. Ancestory `Features` and Community `Community Feature — <name>` markers are converted into layout-only Feature-group semantics in temporary build Markdown.
-5. Feature names use the accepted Part III feature hierarchy; rules text retains inherited prose body typography.
-6. Feature descriptions remain page/column breakable. Only the identity row is boxed together.
-7. Entry order, prose, mechanics, emphasis, artwork relationships, and source wording remain unchanged.
-8. No entry-specific layout exceptions are permitted in v1.
+1. The entry artwork wraps on the left at 36% of the inherited prose column.
+2. The H4 entry title and opening flavor text begin beside the artwork, aligned with its top, with an effective 4% horizontal gap.
+3. When the opening flavor paragraph clears the bottom of the artwork, that same paragraph automatically expands back to the full inherited prose-column width. Additional flavor paragraphs use ordinary Long-Form Prose flow.
+4. The renderer keeps enough vertical space for the artwork, entry heading, and opening wrapped lines, but does not box the complete first flavor paragraph into a fixed narrow identity row.
+5. Ancestory `Features` and Community `Community Feature — <name>` markers are converted into layout-only Feature-group semantics in temporary build Markdown.
+6. Feature names use the accepted Part III feature hierarchy; rules text retains inherited prose body typography.
+7. Feature descriptions remain page/column breakable and return to ordinary full-column flow after the wrapped artwork has cleared.
+8. Entry order, prose, mechanics, emphasis, artwork relationships, and source wording remain unchanged.
+9. No entry-specific layout exceptions are permitted in v1.
+
+The wrapped-art treatment is a Character Origins-only delta. The frozen Long-Form Prose v1.0 shell remains unchanged.
 
 ## Commands
 
@@ -85,6 +88,6 @@ The next required step is local regression:
 
 1. run `inspect`;
 2. run `build`;
-3. inspect the generated Chapters 10-11 PDF across all 27 entries;
+3. inspect the generated Chapters 10-11 PDF across all 27 entries, with particular attention to wrapped artwork near column/page boundaries;
 4. adjust only the Character Option Entry delta if necessary;
 5. freeze v1 only after visual acceptance.
