@@ -253,6 +253,19 @@ def _merge_environment_chapter_opener(tex_text: str) -> tuple[str, bool]:
     return tex_text[:index] + tex_text[index + len(marker):], True
 
 
+def _make_adversary_needspace_multicol_safe(tex_text: str) -> tuple[str, int]:
+    """Use the multicol-safe needspace form for Chapter 30 flow guards.
+
+    Uppercase ``\\Needspace`` uses an explicit break when space is short. Inside
+    ``multicols`` that break can terminate the entire page instead of advancing
+    to the next column, leaving nearly blank pages. Lowercase ``\\needspace``
+    uses penalty/glue-based reservation and lets multicol advance naturally.
+    """
+    marker = r"\Needspace{"
+    count = tex_text.count(marker)
+    return tex_text.replace(marker, r"\needspace{"), count
+
+
 def build_one(
     command: str,
     kind: str,
@@ -292,6 +305,10 @@ def build_one(
     tex_text, report = render_package(sidecar, config, source_root)
     output.mkdir(parents=True, exist_ok=True)
     stem = (PROOF_STEMS if command == "proof" else BUILD_STEMS)[kind]
+
+    if kind == "adversary":
+        tex_text, rewrites = _make_adversary_needspace_multicol_safe(tex_text)
+        report["multicolNeedspaceRewrites"] = rewrites
 
     if kind == "environment":
         tex_text, merged = _merge_environment_chapter_opener(tex_text)
