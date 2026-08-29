@@ -32,6 +32,7 @@ from rulebook_layout.rendered_regression import (
     sha256_file,
     stage160_pdf_hash,
 )
+from rulebook_production.publication_shell import locate_rendered_publication_shell
 
 DEFAULT_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
 DEFAULT_STAGE160_ROOT = RULEBOOK_DIR / "layout" / "integration" / "output" / "stage160"
@@ -39,6 +40,7 @@ DEFAULT_OUTPUT_ROOT = RULEBOOK_DIR / "layout" / "integration" / "output" / "stag
 DEFAULT_WORK_ROOT = RULEBOOK_DIR / "layout" / "integration" / "work" / "stage170"
 DEFAULT_REPORTS = RULEBOOK_DIR / "layout" / "integration" / "reports"
 DEFAULT_PROSE_BUILDER = SCRIPT_DIR / "build-rulebook-prose.py"
+DEFAULT_PRODUCTION_CONTRACT = RULEBOOK_DIR / "production" / "production-renderer-v1.json"
 
 PROFILE_STEMS = {
     "player-guide": "Cybermancy_Player_Guide_Step6_Integrated",
@@ -315,6 +317,26 @@ def _run(args: argparse.Namespace) -> int:
         structure,
     )
 
+    if args.production_contract:
+        production_contract_path = _resolve(
+            args.production_contract, DEFAULT_PRODUCTION_CONTRACT
+        )
+        production_contract = _load_json(production_contract_path)
+        production_shell = locate_rendered_publication_shell(
+            layout["pages"], production_contract, args.profile
+        )
+        report["productionPublicationShell"] = production_shell
+        shell_ok = production_shell.get("status") == "PASS"
+        _check(
+            report,
+            "STAGE170_PRODUCTION_PUBLICATION_SHELL",
+            shell_ok,
+            "Rendered title, TOC, recto Part/Appendix starts, Appendix B, and deferred-appendix exclusions match Phase D."
+            if shell_ok
+            else "Rendered Phase D publication-shell evidence is incomplete or invalid.",
+            production_shell,
+        )
+
     deferred = deferred_output_vboxes(stage160_report)
     deferred_ok = bounds.get("status") == "PASS" and geometry.get("status") == "PASS"
     _check(
@@ -425,6 +447,7 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--output-pdf")
     p.add_argument("--report")
     p.add_argument("--preview-dpi", type=int, default=72)
+    p.add_argument("--production-contract")
     p.add_argument("--verbose", action="store_true")
     return p
 

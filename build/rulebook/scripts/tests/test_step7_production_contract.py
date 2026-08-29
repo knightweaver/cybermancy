@@ -24,7 +24,7 @@ class ProductionContractTests(unittest.TestCase):
     def test_profiles_and_release_names_are_frozen(self):
         self.assertEqual(
             self.contract["implementationStatus"],
-            "PHASE_C_OFFICIAL_ENTRY_POINT",
+            "PHASE_D_PUBLICATION_SHELL",
         )
         self.assertEqual(
             set(self.contract["profiles"]), {"complete-rulebook", "player-guide"}
@@ -41,6 +41,18 @@ class ProductionContractTests(unittest.TestCase):
             self.metadata["profiles"]["complete-rulebook"]["releaseFilename"],
             "Cybermancy_Core_Rulebook.pdf",
         )
+
+    def test_phase_d_publication_shell_decisions_are_accepted(self):
+        shell = self.contract["publicationShell"]
+        self.assertEqual(shell["status"], "ACCEPTED")
+        self.assertEqual(shell["title"], "Cybermancy")
+        self.assertEqual(shell["profileSubtitles"]["complete-rulebook"], "Core Rulebook")
+        self.assertEqual(shell["readerFacingVersion"], "Version 1.0")
+        self.assertFalse(shell["titlePageNumberVisible"])
+        self.assertEqual(shell["frontMatterNumbering"], "lowercase-roman")
+        self.assertEqual(shell["mainMatterNumbering"], "arabic-from-part-i")
+        self.assertEqual(shell["rectoStarts"], ["part", "appendix"])
+        self.assertEqual(self.metadata["status"], "ACCEPTED")
 
     def test_step4_is_validated_but_not_rebuilt(self):
         readiness = self.contract["upstreamReadiness"]

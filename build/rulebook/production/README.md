@@ -5,9 +5,8 @@ accepted Step 6 chapter grammars or make generated Step 4 source canonical.
 
 ## Current phase
 
-Phase C establishes the authoritative production CLI and conservative
-orchestration of the accepted Step 6 stages. The final publication shell remains
-Phase D work.
+Phase D adds the accepted reader-facing publication shell to the authoritative
+production CLI while preserving the accepted Step 6 stages and handoffs.
 
 ## Official commands
 
@@ -72,8 +71,11 @@ page, TOC entry, or bookmark.
 Production builds validate the existing Step 4 output and fail if it is absent,
 invalid, incompatible, or stale. They do not rebuild Step 4 automatically.
 
-## Next phase
+## Phase D shell
 
-Phase D completes the reader-facing publication shell: title/front matter, TOC,
-bookmarks, page numbering, and the appendix framework. Appendix A and Appendix C
-remain deferred; Appendix B remains planned from publication semantics.
+The title page reads `Cybermancy — Core Rulebook — Version 1.0` for the complete
+profile and uses the corresponding Player Guide subtitle for that profile. The
+title page has no visible number, front matter uses lowercase Roman numerals,
+and Arabic numbering begins with Part I. Parts and generated appendices begin on
+recto pages. Appendix B is generated deterministically from the Step 4
+publication sidecar. Appendix A and Appendix C remain deferred.

@@ -1,21 +1,23 @@
 {
   "schema": "cybermancy-publication-metadata-v1",
   "version": "1.0",
-  "status": "PARTIALLY_APPROVED",
+  "status": "ACCEPTED",
   "title": "Cybermancy",
   "profiles": {
     "complete-rulebook": {
       "readerFacingName": "Cybermancy Core Rulebook",
+      "subtitle": "Core Rulebook",
       "releaseFilename": "Cybermancy_Core_Rulebook.pdf"
     },
     "player-guide": {
       "readerFacingName": "Cybermancy Player Guide",
+      "subtitle": "Player Guide",
       "releaseFilename": "Cybermancy_Player_Guide.pdf"
     }
   },
   "edition": null,
   "subtitle": null,
-  "readerFacingVersion": null,
+  "readerFacingVersion": "Version 1.0",
   "credits": null,
   "copyrightNotice": null,
   "compatibilityNotice": null,

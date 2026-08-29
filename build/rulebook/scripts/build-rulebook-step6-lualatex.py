@@ -32,6 +32,7 @@ from rulebook_layout.unified_lualatex import (
     sha256_tree,
     validate_static_graphics,
 )
+from rulebook_production.publication_shell import bookmark_structure
 
 DEFAULT_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
 DEFAULT_STAGE150_ROOT = RULEBOOK_DIR / "layout" / "integration" / "output" / "stage150"
@@ -39,6 +40,7 @@ DEFAULT_OUTPUT_ROOT = RULEBOOK_DIR / "layout" / "integration" / "output" / "stag
 DEFAULT_WORK_ROOT = RULEBOOK_DIR / "layout" / "integration" / "work" / "stage160"
 DEFAULT_REPORTS = RULEBOOK_DIR / "layout" / "integration" / "reports"
 DEFAULT_PROSE_BUILDER = SCRIPT_DIR / "build-rulebook-prose.py"
+DEFAULT_PRODUCTION_CONTRACT = RULEBOOK_DIR / "production" / "production-renderer-v1.json"
 
 PROFILE_STEMS = {
     "player-guide": "Cybermancy_Player_Guide_Step6_Integrated",
@@ -381,6 +383,33 @@ def _run(args: argparse.Namespace) -> int:
         _write_json(report_path, report)
         return _emit(report, args.verbose)
 
+    if args.production_contract:
+        production_contract_path = _resolve(
+            args.production_contract, DEFAULT_PRODUCTION_CONTRACT
+        )
+        production_contract = _load_json(production_contract_path)
+        bookmark_report = bookmark_structure(
+            work_dir / f"{compile_tex.stem}.out",
+            work_dir / f"{compile_tex.stem}.toc",
+            production_contract,
+            contract,
+            args.profile,
+        )
+        report["bookmarkStructure"] = bookmark_report
+        bookmark_ok = bookmark_report.get("status") == "PASS"
+        _append_check(
+            report,
+            "STAGE160_PRODUCTION_BOOKMARKS",
+            bookmark_ok,
+            "PDF bookmark evidence contains only Parts, Chapters, and Appendix B."
+            if bookmark_ok
+            else "Production bookmark evidence is incomplete or contains lower-level headings.",
+            bookmark_report,
+        )
+        if not bookmark_ok:
+            _write_json(report_path, report)
+            return _emit(report, args.verbose)
+
     diagnostics = compilation.get("diagnostics") if isinstance(compilation.get("diagnostics"), dict) else {}
     blocking_overfull = (
         diagnostics.get("blockingOverfull")
@@ -529,6 +558,7 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--output-pdf")
     p.add_argument("--report")
     p.add_argument("--passes", type=int, default=DEFAULT_PASSES)
+    p.add_argument("--production-contract")
     p.add_argument("--verbose", action="store_true")
     return p
 

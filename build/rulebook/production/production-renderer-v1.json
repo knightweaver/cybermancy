@@ -2,7 +2,7 @@
   "schema": "cybermancy-production-renderer-contract-v1",
   "version": "1.0",
   "contractStatus": "ACCEPTED",
-  "implementationStatus": "PHASE_C_OFFICIAL_ENTRY_POINT",
+  "implementationStatus": "PHASE_D_PUBLICATION_SHELL",
   "purpose": "Define the authoritative release-build boundary around the accepted Step 6 whole-book renderer without changing frozen chapter publication grammars.",
   "frozenBindingHashAlgorithm": "sha256-utf8-normalized-lf-v1",
   "authorities": {
@@ -140,6 +140,19 @@
     "routineLowerLevelHeadings": false,
     "semanticStructureRequired": true,
     "reservedChapter13Allowed": false
+  },
+  "publicationShell": {
+    "status": "ACCEPTED",
+    "title": "Cybermancy",
+    "readerFacingVersion": "Version 1.0",
+    "profileSubtitles": {
+      "complete-rulebook": "Core Rulebook",
+      "player-guide": "Player Guide"
+    },
+    "titlePageNumberVisible": false,
+    "frontMatterNumbering": "lowercase-roman",
+    "mainMatterNumbering": "arabic-from-part-i",
+    "rectoStarts": ["part", "appendix"]
   },
   "appendices": {
     "appendix-a-rules-quick-reference": {"status": "DEFERRED", "generate": false},

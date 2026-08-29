@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
 import json
 import shutil
@@ -20,6 +21,7 @@ if str(SCRIPT_DIR) not in sys.path:
 from rulebook_layout.integration_ast import canonical_ast_sha256
 from rulebook_layout.integrated_latex import EQUIPMENT_FAMILIES, generate_integrated_latex
 from rulebook_layout.post_transform_validation import validate_post_transform
+from rulebook_production.publication_shell import apply_publication_shell
 
 DEFAULT_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
 DEFAULT_INPUT_ROOT = RULEBOOK_DIR / "layout" / "integration" / "output"
@@ -35,6 +37,9 @@ DEFAULT_DOMAIN_CONFIG = RULEBOOK_DIR / "layout" / "domains" / "domain-package-v1
 DEFAULT_EQUIPMENT_REGISTRY = RULEBOOK_DIR / "layout" / "equipment" / "equipment-section-v1.json"
 DEFAULT_EQUIPMENT_CONFIG_DIR = RULEBOOK_DIR / "layout" / "equipment"
 DEFAULT_ICE_CONFIG = RULEBOOK_DIR / "layout" / "ice" / "ice-reference-package-v1.json"
+DEFAULT_PRODUCTION_CONTRACT = RULEBOOK_DIR / "production" / "production-renderer-v1.json"
+DEFAULT_PUBLICATION_METADATA = RULEBOOK_DIR / "production" / "publication-metadata-v1.json"
+DEFAULT_SIDECAR = RULEBOOK_DIR / "source" / "metadata" / "structured-entities.json"
 
 
 def _resolve(value: str | None, default: Path) -> Path:
@@ -385,6 +390,53 @@ def _run(args: argparse.Namespace) -> int:
             ],
         }
         document = None
+
+    if document is not None and args.production_contract:
+        try:
+            production_contract_path = _resolve(
+                args.production_contract, DEFAULT_PRODUCTION_CONTRACT
+            )
+            metadata_path = _resolve(
+                args.publication_metadata, DEFAULT_PUBLICATION_METADATA
+            )
+            sidecar_path = _resolve(args.sidecar, DEFAULT_SIDECAR)
+            production_contract = _load_json(production_contract_path)
+            metadata = _load_json(metadata_path)
+            sidecar = _load_json(sidecar_path)
+            document, shell_report = apply_publication_shell(
+                document,
+                args.profile,
+                production_contract,
+                metadata,
+                sidecar,
+            )
+            output_tex = Path(str(generation.get("outputTex") or ""))
+            output_tex.write_text(document, encoding="utf-8")
+            output_sha = hashlib.sha256(output_tex.read_bytes()).hexdigest()
+            generation["outputTexSha256"] = output_sha
+            for check in generation.get("checks", []):
+                if check.get("code") == "STAGE150_TEX_OUTPUT" and isinstance(
+                    check.get("details"), dict
+                ):
+                    check["details"]["sha256"] = output_sha
+            generation["productionShell"] = shell_report
+            generation["checks"].append(
+                {
+                    "code": "STAGE150_PRODUCTION_PUBLICATION_SHELL",
+                    "status": "PASS",
+                    "message": "Applied the accepted Phase D title, navigation, pagination, and Appendix B shell.",
+                    "details": shell_report,
+                }
+            )
+        except Exception as exc:
+            generation["status"] = "FAIL"
+            generation.setdefault("errors", []).append(
+                {
+                    "code": "STAGE150_PRODUCTION_PUBLICATION_SHELL",
+                    "status": "ERROR",
+                    "message": f"{type(exc).__name__}: {exc}",
+                }
+            )
     report["generation"] = generation
 
     for item in generation.get("checks", []):
@@ -452,6 +504,9 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--equipment-registry")
     p.add_argument("--equipment-config-dir")
     p.add_argument("--ice-config")
+    p.add_argument("--production-contract")
+    p.add_argument("--publication-metadata")
+    p.add_argument("--sidecar")
     p.add_argument("--verbose", action="store_true")
     return p
 

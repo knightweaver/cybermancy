@@ -29,12 +29,15 @@ def stage_commands(repo_root: Path, contract: dict, paths: ProfilePaths) -> list
     profile = paths.profile
     stem = PROFILE_STEMS[profile]
     stage160_pdf = paths.stage160_output / f"{stem}.pdf"
+    production_contract = repo_root / "build/rulebook/production/production-renderer-v1.json"
+    publication_metadata = repo_root / "build/rulebook/production/publication-metadata-v1.json"
+    sidecar = repo_root / "build/rulebook/source/metadata/structured-entities.json"
     return [
         (130, [sys.executable, str(scripts / "build-rulebook-step6-publication-shell.py"), "--profile", profile, "--contract", str(step6_contract), "--ast-output", str(paths.stage130_ast), "--report", str(paths.report(130)), "--work-dir", str(paths.work)]),
         (140, [sys.executable, str(scripts / "build-rulebook-step6-post-transform-validation.py"), "--profile", profile, "--contract", str(step6_contract), "--ast-input", str(paths.stage130_ast), "--ast-output", str(paths.stage140_ast), "--report", str(paths.report(140))]),
-        (150, [sys.executable, str(scripts / "build-rulebook-step6-integrated-latex.py"), "--profile", profile, "--contract", str(step6_contract), "--ast-input", str(paths.stage140_ast), "--output-dir", str(paths.stage150_output), "--work-dir", str(paths.stage150_work), "--integration-work-root", str(paths.work), "--report", str(paths.report(150))]),
-        (160, [sys.executable, str(scripts / "build-rulebook-step6-lualatex.py"), "--profile", profile, "--contract", str(step6_contract), "--stage150-dir", str(paths.stage150_output), "--stage150-report", str(paths.report(150)), "--work-dir", str(paths.stage160_work), "--output-dir", str(paths.stage160_output), "--report", str(paths.report(160))]),
-        (170, [sys.executable, str(scripts / "build-rulebook-step6-rendered-regression.py"), "--profile", profile, "--contract", str(step6_contract), "--stage160-dir", str(paths.stage160_output), "--stage160-report", str(paths.report(160)), "--pdf-input", str(stage160_pdf), "--work-dir", str(paths.stage170_work), "--output-dir", str(paths.stage170_work), "--output-pdf", str(paths.release_candidate), "--report", str(paths.report(170))]),
+        (150, [sys.executable, str(scripts / "build-rulebook-step6-integrated-latex.py"), "--profile", profile, "--contract", str(step6_contract), "--ast-input", str(paths.stage140_ast), "--output-dir", str(paths.stage150_output), "--work-dir", str(paths.stage150_work), "--integration-work-root", str(paths.work), "--report", str(paths.report(150)), "--production-contract", str(production_contract), "--publication-metadata", str(publication_metadata), "--sidecar", str(sidecar)]),
+        (160, [sys.executable, str(scripts / "build-rulebook-step6-lualatex.py"), "--profile", profile, "--contract", str(step6_contract), "--stage150-dir", str(paths.stage150_output), "--stage150-report", str(paths.report(150)), "--work-dir", str(paths.stage160_work), "--output-dir", str(paths.stage160_output), "--report", str(paths.report(160)), "--production-contract", str(production_contract)]),
+        (170, [sys.executable, str(scripts / "build-rulebook-step6-rendered-regression.py"), "--profile", profile, "--contract", str(step6_contract), "--stage160-dir", str(paths.stage160_output), "--stage160-report", str(paths.report(160)), "--pdf-input", str(stage160_pdf), "--work-dir", str(paths.stage170_work), "--output-dir", str(paths.stage170_work), "--output-pdf", str(paths.release_candidate), "--report", str(paths.report(170)), "--production-contract", str(production_contract)]),
     ]
 
 
@@ -91,6 +94,8 @@ def build_signature(paths: ProfilePaths) -> dict[str, Any]:
             "heightPt": pdf_info.get("pageHeightPt"),
         },
         "renderedStructure": stage170.get("renderedStructure"),
+        "publicationShell": stage170.get("productionPublicationShell"),
+        "bookmarkStructure": stage160.get("bookmarkStructure"),
     }
 
 
@@ -144,6 +149,7 @@ def build_profile(
 
     if report["status"] == "PASS" and len(report["stages"]) == 5:
         publish_release(paths.release_candidate, paths.release_pdf, paths.release_root)
+        stage150 = load_json(paths.report(150))
         stage160 = load_json(paths.report(160))
         stage170 = load_json(paths.report(170))
         preflight_path = repo_root / contract["workspace"]["reportRoot"] / "preflight.json"
@@ -160,6 +166,8 @@ def build_profile(
         report["outputPath"] = repo_relative(paths.release_pdf, repo_root)
         report["outputSha256"] = _sha256(paths.release_pdf)
         report["signature"] = build_signature(paths)
+        report["publicationShell"] = stage150.get("generation", {}).get("productionShell")
+        report["bookmarkStructure"] = stage160.get("bookmarkStructure")
         report["readerFacingName"] = metadata["profiles"][profile]["readerFacingName"]
         add_check(report, "RELEASE_PUBLISH", "PASS", "Validated release candidate published atomically.", report["outputPath"])
     else:
