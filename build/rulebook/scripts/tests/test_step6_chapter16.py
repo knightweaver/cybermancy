@@ -177,7 +177,7 @@ class TestCompleteChapter16Composition(unittest.TestCase):
         self.assertEqual(family.count(r"\Needspace{1.25in}"), 6)
         self.assertGreaterEqual(family.count(r"\par\addvspace{10pt}"), 5)
         self.assertIn(r"\usepackage{needspace}", chapter)
-        self.assertIn("CHAPTER 16 / EQUIPMENT", chapter)
+        self.assertIn("CHAPTER 15 / EQUIPMENT", chapter)
         self.assertIn("WEAPONS", chapter)
         self.assertIn(r"\begin{document}", chapter)
         self.assertIn(r"\end{document}", chapter)
