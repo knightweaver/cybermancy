@@ -164,6 +164,31 @@ class PublicationShellTests(unittest.TestCase):
         self.assertTrue(repeated.idempotent)
         self.assertEqual(before, canonical_ast_sha256(ast))
 
+    def test_semantic_chapter_title_is_canonicalized_by_stage130(self) -> None:
+        contract = _contract()
+        ast = _synthetic_phase_c("player-guide")
+        chapter_one = next(
+            node
+            for node in ast["blocks"]
+            if isinstance(node, dict)
+            and node.get("t") == "Header"
+            and "ch01-welcome" in str(node)
+        )
+        chapter_one["c"][2] = _words("Chapter 1 — Welcome to Cybermancy")
+
+        result = lower_publication_shell(ast, contract, "player-guide")
+        self.assertEqual(result.status, "PASS", result.as_dict())
+        title_canonicalizations = result.readiness["checks"][2]["details"]["titleCanonicalizations"]
+        self.assertEqual(len(title_canonicalizations), 1)
+        self.assertEqual(title_canonicalizations[0]["chapterId"], "ch01-welcome")
+        self.assertEqual(title_canonicalizations[0]["canonicalTitle"], "Welcome to Cybermancy")
+        self.assertTrue(
+            any(
+                "\\CMIntegratedChapter{1}{Welcome to Cybermancy}{player}{ch01-welcome}" in raw
+                for raw in _top_level_raw_latex(ast)
+            )
+        )
+
     def test_complete_lowering_preserves_gm_front_matter_and_package_headers(self) -> None:
         contract = _contract()
         ast = _synthetic_phase_c("complete-rulebook")
