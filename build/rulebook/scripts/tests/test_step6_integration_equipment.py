@@ -221,6 +221,34 @@ class Step6EquipmentCompositionTests(unittest.TestCase):
         self.assertEqual(payloads, [])
         self.assertEqual(report["status"], "FAIL")
 
+    def test_early_weapon_render_failure_does_not_poison_later_family_statuses(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            config_dir = Path(td)
+            for chapter, family, config_name in EQUIPMENT_FAMILIES:
+                config = _config(chapter, family)
+                if family == "weapons":
+                    # Force a weapon-only render contract failure after the
+                    # ordinary family preconditions have passed.
+                    config["expectedTierCounts"] = {"1": 2}
+                (config_dir / config_name).write_text(
+                    json.dumps(config),
+                    encoding="utf-8",
+                )
+            payloads, report = compose_equipment_stage(
+                _sidecar(),
+                _registry(),
+                config_dir,
+                _contract(),
+            )
+
+        self.assertEqual(payloads, [])
+        self.assertEqual(report["status"], "FAIL")
+        family_reports = {item["family"]: item for item in report["families"]}
+        self.assertEqual(family_reports["weapons"]["status"], "FAIL")
+        for _chapter, family, _config_name in EQUIPMENT_FAMILIES[1:]:
+            self.assertEqual(family_reports[family]["status"], "PASS", family_reports[family])
+            self.assertIn("payload", family_reports[family])
+
 
 class Step6IntegratedParserEquipmentTests(unittest.TestCase):
     def test_integrate_equipment_command_is_exposed(self) -> None:
