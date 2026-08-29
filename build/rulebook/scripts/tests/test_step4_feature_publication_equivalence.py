@@ -82,6 +82,26 @@ class TestFeaturePublicationEquivalence(unittest.TestCase):
             ],
         }
 
+    def test_frozen_decision_file_contract_is_419_to_344(self):
+        decisions = json.loads((SCRIPT_DIR / "data" / "adversary-feature-equivalence-decisions-v1.json").read_text(encoding="utf-8"))
+        self.assertEqual(decisions["schema"], DECISIONS_SCHEMA)
+        self.assertEqual(decisions["status"], "approved")
+        self.assertEqual(decisions["sourceFeatureCount"], 419)
+        self.assertEqual(decisions["expectedPublicationRepresentativeCount"], 344)
+        self.assertEqual(len(decisions["groups"]), 29)
+
+        seen = set()
+        redundant = 0
+        for group in decisions["groups"]:
+            members = group["memberSourceIds"]
+            self.assertGreaterEqual(len(members), 2)
+            self.assertIn(group["representativeSourceId"], members)
+            self.assertFalse(seen.intersection(members))
+            seen.update(members)
+            redundant += len(members) - 1
+        self.assertEqual(redundant, 75)
+        self.assertEqual(decisions["sourceFeatureCount"] - redundant, 344)
+
     def test_applies_reviewed_groups_without_deleting_canonical_entities(self):
         sidecar = self._sidecar()
         selection, errors = apply_feature_publication_equivalence(sidecar, self._decisions())
