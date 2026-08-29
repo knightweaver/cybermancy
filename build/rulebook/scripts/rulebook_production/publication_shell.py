@@ -8,8 +8,6 @@ from typing import Any
 
 
 FAMILY_CHAPTERS = {
-    "ancestories": (10, "Ancestories"),
-    "communities": (11, "Communities"),
     "classes": (12, "Classes"),
     "subclasses": (12, "Subclasses"),
     "domains": (14, "Domains and Domain Cards"),
@@ -87,6 +85,17 @@ def entity_index(
     if not isinstance(entities, list):
         raise ValueError("Step 4 structured sidecar has no entities list")
 
+    ice_semantics = sidecar.get("iceSemantics")
+    ice_ids = {
+        str(value).strip()
+        for value in (
+            ice_semantics.get("semanticIds", [])
+            if isinstance(ice_semantics, dict)
+            else []
+        )
+        if str(value).strip()
+    }
+
     rows: list[dict[str, Any]] = []
     family_counts: dict[str, int] = {}
     for entity in entities:
@@ -96,6 +105,12 @@ def entity_index(
         if family not in FAMILY_CHAPTERS:
             continue
         if profile == "player-guide" and family in GM_FAMILIES:
+            continue
+        # The Step 4 `features` family contains every system feature. Chapter
+        # 29 publishes only the canonical ICE subset identified by the
+        # accepted Step 4 ICE semantics, so Appendix B must use that same
+        # selection rather than indexing unrelated class/system features.
+        if family == "features" and str(entity.get("semanticId") or "") not in ice_ids:
             continue
         if family == "adversaries-features" and not _is_published_feature(entity):
             continue
@@ -116,8 +131,6 @@ def entity_index(
         family_counts[family] = family_counts.get(family, 0) + 1
 
     expected_by_family = {
-        "ancestories": int(expectations["ancestories"]),
-        "communities": int(expectations["communities"]),
         "classes": int(expectations["classes"]),
         "subclasses": int(expectations["subclasses"]),
         "domains": int(expectations["domains"]) + int(expectations["domainCards"]),

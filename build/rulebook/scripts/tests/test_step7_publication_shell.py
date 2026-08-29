@@ -56,6 +56,20 @@ def _expectations(**updates: int) -> dict:
 
 
 class EntityIndexTests(unittest.TestCase):
+    def test_authored_origin_counts_are_outside_the_structured_sidecar_index(self):
+        sidecar = {
+            "entities": [
+                {"family": "classes", "name": "Razzhacker", "semanticId": "entity:classes:r"},
+            ]
+        }
+        result = entity_index(
+            sidecar,
+            "player-guide",
+            _expectations(ancestories=18, communities=9, classes=1),
+        )
+        self.assertEqual(result["entryCount"], 1)
+        self.assertEqual(result["expectedEntryCount"], 1)
+
     def test_index_is_sorted_profile_scoped_and_reconciled(self):
         sidecar = {
             "entities": [
@@ -100,6 +114,23 @@ class EntityIndexTests(unittest.TestCase):
             _expectations(adversaryFeaturesPublished=2),
         )
         self.assertEqual([row["name"] for row in result["rows"]], ["Published Keep", "Standalone"])
+
+    def test_complete_rulebook_indexes_only_step4_canonical_ice_features(self):
+        sidecar = {
+            "iceSemantics": {
+                "semanticIds": ["entity:features:ice"],
+            },
+            "entities": [
+                {"family": "features", "name": "Sentry ICE", "semanticId": "entity:features:ice"},
+                {"family": "features", "name": "Class Feature", "semanticId": "entity:features:class"},
+            ],
+        }
+        result = entity_index(
+            sidecar,
+            "complete-rulebook",
+            _expectations(ice=1),
+        )
+        self.assertEqual([row["name"] for row in result["rows"]], ["Sentry ICE"])
 
 
 class PublicationShellGenerationTests(unittest.TestCase):
