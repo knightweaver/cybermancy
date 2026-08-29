@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import shutil
 import subprocess
@@ -93,6 +94,18 @@ def _tier_sort(value: Any) -> int:
         return 10**9
 
 
+def _feature_reference_display_name(entity: dict[str, Any]) -> str:
+    pdata = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
+    reference = pdata.get("referenceEntry") if isinstance(pdata.get("referenceEntry"), dict) else {}
+    return str(reference.get("name") or entity.get("name") or "")
+
+
+def _feature_is_publication_representative(entity: dict[str, Any]) -> bool:
+    pdata = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
+    equivalence = pdata.get("publicationEquivalence") if isinstance(pdata.get("publicationEquivalence"), dict) else {}
+    return equivalence.get("isRepresentative") is not False
+
+
 def _ordered_full_corpus(sidecar: dict[str, Any], family: str) -> tuple[list[str], list[str]]:
     rows = [
         entity
@@ -100,9 +113,10 @@ def _ordered_full_corpus(sidecar: dict[str, Any], family: str) -> tuple[list[str
         if isinstance(entity, dict) and str(entity.get("family") or "") == family
     ]
     if family == "adversaries-features":
+        rows = [entity for entity in rows if _feature_is_publication_representative(entity)]
         rows.sort(
             key=lambda entity: (
-                str(entity.get("name") or "").casefold(),
+                _feature_reference_display_name(entity).casefold(),
                 str(entity.get("semanticId") or ""),
             )
         )
@@ -155,6 +169,10 @@ def _productionize_config(
     if not bool(policy.get("requireFullCorpusSelection", False)):
         errors.append("Production Encounter Toolkit config must require full-corpus selection.")
 
+    semantics = sidecar.get("encounterSemantics") if isinstance(sidecar.get("encounterSemantics"), dict) else {}
+    if str(semantics.get("status") or "").upper() == "FAIL":
+        errors.append("Step 4 encounterSemantics status is FAIL; production build is blocked.")
+
     semantic_ids, identity_errors = _ordered_full_corpus(sidecar, family)
     errors.extend(identity_errors)
 
@@ -166,12 +184,30 @@ def _productionize_config(
         errors.append("Production Encounter Toolkit config is missing integer publicationPolicy.expectedEntryCount.")
     if expected_count >= 0 and len(semantic_ids) != expected_count:
         errors.append(
-            f"{family} full corpus contains {len(semantic_ids)} entities; frozen contract expects {expected_count}."
+            f"{family} publication corpus contains {len(semantic_ids)} representatives; frozen contract expects {expected_count}."
         )
 
-    semantics = sidecar.get("encounterSemantics") if isinstance(sidecar.get("encounterSemantics"), dict) else {}
-    if str(semantics.get("status") or "").upper() == "FAIL":
-        errors.append("Step 4 encounterSemantics status is FAIL; production build is blocked.")
+    feature_publication_status = None
+    if kind == "feature-reference":
+        feature_equivalence = (
+            semantics.get("adversaryFeatureEquivalence")
+            if isinstance(semantics.get("adversaryFeatureEquivalence"), dict)
+            else {}
+        )
+        feature_publication_status = str(feature_equivalence.get("publicationStatus") or "")
+        if feature_publication_status != "APPLIED":
+            errors.append(
+                "Chapter 32 requires Step 4 approved Adversary Feature publication equivalence with publicationStatus='APPLIED'."
+            )
+        applied_count = feature_equivalence.get("publicationRepresentativeCount")
+        try:
+            applied_count = int(applied_count)
+        except (TypeError, ValueError):
+            applied_count = -1
+        if expected_count >= 0 and applied_count != expected_count:
+            errors.append(
+                f"Step 4 reports {applied_count} Chapter 32 representatives; frozen contract expects {expected_count}."
+            )
 
     runtime = dict(config)
     runtime["selection"] = {"mode": "full-corpus", "semanticIds": semantic_ids}
@@ -184,7 +220,33 @@ def _productionize_config(
         "ordering": policy.get("ordering"),
         "step4EncounterStatus": semantics.get("status"),
     }
+    if kind == "feature-reference":
+        contract["step4FeaturePublicationStatus"] = feature_publication_status
     return runtime, contract, errors
+
+
+def _prepare_feature_reference_sidecar(sidecar: dict[str, Any]) -> dict[str, Any]:
+    """Project Step 4 reader-neutral referenceEntry values into the existing renderer view.
+
+    The canonical entity name/rules remain untouched in the saved Step 4 sidecar;
+    only this in-memory Chapter 32 render view is overridden.
+    """
+    rendered = copy.deepcopy(sidecar)
+    for entity in rendered.get("entities") or []:
+        if not isinstance(entity, dict) or str(entity.get("family") or "") != "adversaries-features":
+            continue
+        pdata = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
+        reference = pdata.get("referenceEntry") if isinstance(pdata.get("referenceEntry"), dict) else None
+        if reference is None:
+            continue
+        if str(reference.get("name") or "").strip():
+            entity["name"] = str(reference["name"])
+        if str(reference.get("rulesMarkdown") or "").strip():
+            pdata["rulesMarkdown"] = str(reference["rulesMarkdown"])
+            pdata["description"] = str(reference["rulesMarkdown"])
+        if "actions" in reference and isinstance(reference.get("actions"), list):
+            pdata["actions"] = copy.deepcopy(reference["actions"])
+    return rendered
 
 
 def _selected_publication_art_references(
@@ -302,7 +364,8 @@ def build_one(
             report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             return report
 
-    tex_text, report = render_package(sidecar, config, source_root)
+    render_sidecar = _prepare_feature_reference_sidecar(sidecar) if kind == "feature-reference" else sidecar
+    tex_text, report = render_package(render_sidecar, config, source_root)
     output.mkdir(parents=True, exist_ok=True)
     stem = (PROOF_STEMS if command == "proof" else BUILD_STEMS)[kind]
 
@@ -316,7 +379,7 @@ def build_one(
 
     tex_text, render_assets = _prepare_render_assets(
         tex_text,
-        sidecar,
+        render_sidecar,
         report,
         source_root,
         output,
