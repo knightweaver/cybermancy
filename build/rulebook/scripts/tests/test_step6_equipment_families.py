@@ -46,7 +46,7 @@ class TestAmmunitionFamilyConfig(unittest.TestCase):
     def test_ammo_config_is_first_generic_single_catalog_family(self):
         self.assertEqual(self.config["layoutMode"], "single-catalog")
         self.assertEqual(self.config["family"], "ammo")
-        self.assertEqual(self.config["chapter"], 17)
+        self.assertEqual(self.config["chapter"], 16)
         self.assertEqual(self.config["expectedEntityCount"], 13)
         self.assertEqual(self.config["tierMode"], "absent")
         self.assertEqual(self.config["expectedColumnLabels"], ["Name", "Effect"])
@@ -64,7 +64,7 @@ class TestAmmunitionFamilyConfig(unittest.TestCase):
         rows = build_catalog_rows([self.ammo_entity(1)], self.config)
         family_latex = render_equipment_catalog_latex(rows, self.config)
         chapter = render_equipment_chapter_document(family_latex, self.config)
-        self.assertIn("CHAPTER 17 / EQUIPMENT", chapter)
+        self.assertIn("CHAPTER 16 / EQUIPMENT", chapter)
         self.assertIn("AMMUNITION", chapter)
 
 
@@ -98,7 +98,7 @@ class TestGenericEquipmentValidation(unittest.TestCase):
                 "ammo", config_path, sidecar_path, manuscript_path
             )
         self.assertEqual(report["status"], "PASS")
-        self.assertEqual(config["chapter"], 17)
+        self.assertEqual(config["chapter"], 16)
         self.assertEqual(len(rows), 13)
         checks = {check["code"]: check["status"] for check in report["checks"]}
         self.assertEqual(checks["EQUIPMENT_ENTITY_COUNT"], "PASS")
