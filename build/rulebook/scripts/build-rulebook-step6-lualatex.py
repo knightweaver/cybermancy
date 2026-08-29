@@ -16,10 +16,13 @@ REPO_ROOT = RULEBOOK_DIR.parent.parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+from rulebook_layout.stage160_policy import (
+    compile_unified_lualatex_stage160,
+    strip_publication_provenance_residue,
+)
 from rulebook_layout.unified_lualatex import (
     DEFAULT_PASSES,
     STAGE_ORDER,
-    compile_unified_lualatex,
     contract_stage,
     copy_compiled_pdf,
     pdf_page_count,
@@ -295,6 +298,27 @@ def _run(args: argparse.Namespace) -> int:
         return _emit(report, args.verbose)
 
     compile_tex = Path(prepared["compileTex"])
+    provenance_cleanup = strip_publication_provenance_residue(
+        compile_tex, args.profile
+    )
+    prepared["publicationProvenanceCleanup"] = provenance_cleanup
+    prepared["compileTexSha256"] = sha256_file(compile_tex)
+    provenance_ok = provenance_cleanup.get("status") == "PASS"
+    _append_check(
+        report,
+        "STAGE160_PROVENANCE_RESIDUE",
+        provenance_ok,
+        "Removed the exact generated publication-provenance residue from the isolated compile copy while preserving the accepted Stage 150 handoff."
+        if provenance_cleanup.get("stripped")
+        else "No generated publication-provenance residue required removal from the isolated compile copy."
+        if provenance_ok
+        else "Publication provenance-like residue did not match the exact fail-closed Stage 160 cleanup contract.",
+        provenance_cleanup,
+    )
+    if not provenance_ok:
+        _write_json(report_path, report)
+        return _emit(report, args.verbose)
+
     tex_text = compile_tex.read_text(encoding="utf-8")
     graphics = validate_static_graphics(tex_text, work_dir)
     report["graphicsPreflight"] = graphics
@@ -331,7 +355,7 @@ def _run(args: argparse.Namespace) -> int:
         return _emit(report, args.verbose)
 
     try:
-        compilation = compile_unified_lualatex(
+        compilation = compile_unified_lualatex_stage160(
             compile_tex,
             str(lualatex),
             work_dir,
@@ -358,15 +382,40 @@ def _run(args: argparse.Namespace) -> int:
         return _emit(report, args.verbose)
 
     diagnostics = compilation.get("diagnostics") if isinstance(compilation.get("diagnostics"), dict) else {}
-    overfull = diagnostics.get("overfull") if isinstance(diagnostics.get("overfull"), list) else []
+    blocking_overfull = (
+        diagnostics.get("blockingOverfull")
+        if isinstance(diagnostics.get("blockingOverfull"), list)
+        else diagnostics.get("overfull")
+        if isinstance(diagnostics.get("overfull"), list)
+        else []
+    )
+    output_routine_vboxes = (
+        diagnostics.get("outputRoutineVboxes")
+        if isinstance(diagnostics.get("outputRoutineVboxes"), list)
+        else []
+    )
     missing_characters = diagnostics.get("missingCharacters") if isinstance(diagnostics.get("missingCharacters"), list) else []
     _append_check(
         report,
         "STAGE160_OVERFULL_BOXES",
-        not overfull,
-        "Unified LuaLaTeX emitted no overfull hbox/vbox diagnostics.",
-        overfull or None,
+        not blocking_overfull,
+        "Unified LuaLaTeX emitted no blocking overfull hboxes or non-output-routine vboxes.",
+        blocking_overfull or None,
     )
+    if output_routine_vboxes:
+        _append_warning(
+            report,
+            "STAGE160_OUTPUT_ROUTINE_VBOXES",
+            f"LuaLaTeX emitted {len(output_routine_vboxes)} output-routine overfull vbox diagnostic(s). They are preserved for Stage 170 rendered/page-level regression rather than suppressed or treated as a Stage 160 compile failure.",
+            output_routine_vboxes,
+        )
+    else:
+        _append_check(
+            report,
+            "STAGE160_OUTPUT_ROUTINE_VBOXES",
+            True,
+            "LuaLaTeX emitted no output-routine overfull vbox diagnostics requiring Stage 170 review.",
+        )
     _append_check(
         report,
         "STAGE160_MISSING_CHARACTERS",
