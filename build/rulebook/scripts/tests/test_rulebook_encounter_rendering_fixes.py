@@ -29,6 +29,18 @@ class TestEncounterRenderingFixes(unittest.TestCase):
         self.assertTrue(merged)
         self.assertEqual(rendered, r"TITLE FIRST ENVIRONMENT\clearpage SECOND ENVIRONMENT")
 
+    def test_adversary_needspace_is_rewritten_for_multicol_flow(self):
+        source = (
+            r"\Needspace{10\baselineskip} HEADER "
+            r"\Needspace{5\baselineskip} FEATURES"
+        )
+        rendered, rewrites = self.builder._make_adversary_needspace_multicol_safe(source)
+        self.assertEqual(rewrites, 2)
+        self.assertNotIn(r"\Needspace{", rendered)
+        self.assertEqual(rendered.count(r"\needspace{"), 2)
+        self.assertIn(r"\needspace{10\baselineskip}", rendered)
+        self.assertIn(r"\needspace{5\baselineskip}", rendered)
+
     def test_render_asset_rewrite_replaces_webp_source_with_png_render_path(self):
         source_root = Path("/tmp/cybermancy-step4-source")
         reference = "assets/adversaries/example.webp"
