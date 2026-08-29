@@ -50,7 +50,7 @@ def _section(entries: list[tuple[int, str, str]]) -> dict:
 
 
 class TestEquipmentAllDiscovery(unittest.TestCase):
-    def test_repository_section_contract_is_chapters_16_through_23(self):
+    def test_repository_section_contract_is_chapters_15_through_22(self):
         config_dir = HERE.parents[2] / "layout" / "equipment"
         registry = config_dir / "equipment-section-v1.json"
         resolved, errors = resolve_equipment_section(registry, config_dir)
@@ -58,14 +58,14 @@ class TestEquipmentAllDiscovery(unittest.TestCase):
         self.assertEqual(
             [(item["chapter"], item["family"]) for item in resolved],
             [
-                (16, "weapons"),
-                (17, "ammo"),
-                (18, "armors"),
-                (19, "cybernetics"),
-                (20, "drones-devices"),
-                (21, "consumables"),
-                (22, "mods"),
-                (23, "loot"),
+                (15, "weapons"),
+                (16, "ammo"),
+                (17, "armors"),
+                (18, "cybernetics"),
+                (19, "drones-devices"),
+                (20, "consumables"),
+                (21, "mods"),
+                (22, "loot"),
             ],
         )
         by_family = {item["family"]: item for item in resolved}
