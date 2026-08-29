@@ -1,0 +1,200 @@
+{
+  "schema": "cybermancy-production-renderer-contract-v1",
+  "version": "1.0",
+  "contractStatus": "ACCEPTED",
+  "implementationStatus": "PHASE_B_CONTRACT_ONLY",
+  "purpose": "Define the authoritative release-build boundary around the accepted Step 6 whole-book renderer without changing frozen chapter publication grammars.",
+  "authorities": {
+    "publicationManifest": {
+      "directory": "build/rulebook/manifests",
+      "pattern": "cybermancy-rulebook-publication-manifest-v*.json",
+      "tracked": true,
+      "selection": "single highest compatible accepted version"
+    },
+    "assemblyManifest": {
+      "directory": "build/rulebook/manifests",
+      "pattern": "cybermancy-rulebook-assembly-manifest-v*.json",
+      "tracked": true,
+      "selection": "version compatible with the selected publication manifest"
+    },
+    "normalizationConfig": {
+      "directory": "build/rulebook/manifests",
+      "pattern": "cybermancy-rulebook-normalization-config-v*.json",
+      "tracked": true,
+      "selection": "version compatible with the selected assembly manifest"
+    },
+    "step6IntegrationContract": {
+      "path": "build/rulebook/layout/integration/step6-integration-v1.json",
+      "sha256": "0f9539e4063bab1a3f79fa4f0d4462a87c854713789ade679af32af392f304bc",
+      "status": "accepted"
+    },
+    "generatedPublicationSource": {
+      "path": "build/rulebook/source",
+      "tracked": false,
+      "producer": "Step 4",
+      "mutationAllowed": false
+    }
+  },
+  "upstreamReadiness": {
+    "mode": "validate-existing-step4-output",
+    "automaticStep4Rebuild": false,
+    "failClosed": true,
+    "requiredArtifacts": [
+      "build/rulebook/source/assembled/player-guide.md",
+      "build/rulebook/source/assembled/complete-rulebook.md",
+      "build/rulebook/source/metadata/validation.json",
+      "build/rulebook/source/metadata/source-hashes.json",
+      "build/rulebook/source/metadata/structured-entities.json",
+      "build/rulebook/source/metadata/adversary-feature-publication-selection.json",
+      "build/rulebook/source/assets"
+    ],
+    "freshnessRules": [
+      "The selected accepted manifests and normalization config must be present, mutually compatible, and tracked by Git.",
+      "Step 4 validation.json must have status PASS.",
+      "The Step 4 source commit and manifest provenance must match the selected freeze artifacts.",
+      "Current canonical authored and structured-source digests must match the selected publication manifest.",
+      "The normalized source-hashes inventory must match the selected manifest authority and current canonical inputs.",
+      "The Adversary Feature publication-selection status must be APPLIED and reconcile 419 canonical entries to 344 representatives."
+    ]
+  },
+  "profiles": {
+    "complete-rulebook": {
+      "audiences": ["shared", "player", "gm"],
+      "parts": ["part-i", "part-ii", "part-iii", "part-iv", "part-v", "part-vi"],
+      "releaseFilename": "Cybermancy_Core_Rulebook.pdf",
+      "gmDividerCount": 1
+    },
+    "player-guide": {
+      "audiences": ["shared", "player"],
+      "parts": ["part-i", "part-ii", "part-iii", "part-iv"],
+      "releaseFilename": "Cybermancy_Player_Guide.pdf",
+      "gmDividerCount": 0,
+      "forbiddenAudiences": ["gm"]
+    }
+  },
+  "transformOrder": [
+    {"order": 10, "stage": "structural-preflight"},
+    {"order": 20, "stage": "prose-player"},
+    {"order": 30, "stage": "rules"},
+    {"order": 40, "stage": "character-origins"},
+    {"order": 50, "stage": "classes"},
+    {"order": 60, "stage": "domains"},
+    {"order": 70, "stage": "equipment"},
+    {"order": 80, "stage": "prose-gm", "profiles": ["complete-rulebook"]},
+    {"order": 90, "stage": "ice-reference", "profiles": ["complete-rulebook"]},
+    {"order": 100, "stage": "adversaries", "profiles": ["complete-rulebook"]},
+    {"order": 110, "stage": "environments", "profiles": ["complete-rulebook"]},
+    {"order": 120, "stage": "adversary-features", "profiles": ["complete-rulebook"]},
+    {"order": 130, "stage": "publication-shell-lowering"},
+    {"order": 140, "stage": "post-transform-validation"},
+    {"order": 150, "stage": "integrated-latex"},
+    {"order": 160, "stage": "lualatex"},
+    {"order": 170, "stage": "rendered-regression"}
+  ],
+  "frozenPackageBindings": [
+    {"path": "build/rulebook/layout/prose/prose-layout-v1.json", "sha256": "ccbeb0cbd538deb303e239595ec14f0e4185e15fc477dd0189b9f7b466cbe92c"},
+    {"path": "build/rulebook/layout/rules/rules-layout-v1.json", "sha256": "cf80671f232f64ed0b7906f7bbb5f65299d8f4b9d0509ef50d9cfead02615413"},
+    {"path": "build/rulebook/layout/character-origins/character-origins-layout-v1.json", "sha256": "3f9dca0f76c32f9b93b6616ff70915263ad34f37ddb5ef3b44d06797c66c4b6c"},
+    {"path": "build/rulebook/layout/classes/class-package-v1.json", "sha256": "bfbb53f0d3c5f5833a94b8aea3507b56da07f4bf3ea25c85553f124f075ea616"},
+    {"path": "build/rulebook/layout/domains/domain-package-v1.json", "sha256": "9897bced4efa303fca11dcacf498ed347d95d3f7c2a8689a041ddda446b03aaa"},
+    {"path": "build/rulebook/layout/equipment/equipment-section-v1.json", "sha256": "67edee307416352a7e609123e621e8c5b7e33a9ba4bb057897622c92ebcb444b"},
+    {"path": "build/rulebook/layout/equipment/weapons-v1.json", "sha256": "70f1f97ce4acfee32e862c1298ec9990a8b4a2e442d9f58107e71d29c8e500f8"},
+    {"path": "build/rulebook/layout/equipment/ammo-v1.json", "sha256": "f4c3c46057123942d7a04d9f84ac75fce1751c0e25fc66c363abe4cf929661ec"},
+    {"path": "build/rulebook/layout/equipment/armors-v1.json", "sha256": "7598a12940650913f29f354e98b5d6e16b691ce7a9158ca21131e8d01cbd5bc4"},
+    {"path": "build/rulebook/layout/equipment/cybernetics-v1.json", "sha256": "3f1053df6509c933a94e8091c458bbcfcdf1070628b71f042678cf36b8eed798"},
+    {"path": "build/rulebook/layout/equipment/drones-devices-v1.json", "sha256": "4d74002f3f204334f4aaba62dbd23199c06712fbceb50e23539359cca14d139c"},
+    {"path": "build/rulebook/layout/equipment/consumables-v1.json", "sha256": "351694663e0e265b7c0b67fb1dc2bbbdc43d42008d811bbb5dae9b548944fdeb"},
+    {"path": "build/rulebook/layout/equipment/mods-v1.json", "sha256": "242b1985eb2cc6fbc0e8b65f6b16d571457fbba143bd26a3da03c3cbe45975f2"},
+    {"path": "build/rulebook/layout/equipment/loot-v1.json", "sha256": "492228f7356973c5122c5000161e58df9abf4842a5afde680e6a9465cf05be4e"},
+    {"path": "build/rulebook/layout/ice/ice-reference-package-v1.json", "sha256": "8975aaade40d17058be3a4849c4767572af839751da84ffc18a2ef8d4ace9722"},
+    {"path": "build/rulebook/layout/encounters/adversary-package-v1.json", "sha256": "209d841631b5c7948698d2c79c18475b6b47d3f5a01e628255ab8b4f95e542e8"},
+    {"path": "build/rulebook/layout/encounters/environment-package-v1.json", "sha256": "07527e9737bcb8b44acc4de8e7412457c740089a9731a8003ca12720dbee4061"},
+    {"path": "build/rulebook/layout/encounters/adversary-feature-reference-v1.json", "sha256": "1baa4a3aaa34581451f220f2ac6ce221c320b1f7ea0c361146c76a901931e4cc"}
+  ],
+  "structuredExpectations": {
+    "ancestories": 18,
+    "communities": 9,
+    "characterOriginArtwork": 27,
+    "classes": 5,
+    "subclasses": 10,
+    "domains": 3,
+    "domainCards": 73,
+    "weapons": 47,
+    "ammo": 13,
+    "armors": 36,
+    "cybernetics": 103,
+    "dronesDevices": 19,
+    "consumables": 59,
+    "mods": 20,
+    "loot": 60,
+    "ice": 13,
+    "adversaries": 106,
+    "environments": 8,
+    "adversaryFeaturesCanonical": 419,
+    "adversaryFeaturesPublished": 344
+  },
+  "navigation": {
+    "tocLevels": ["part", "chapter", "appendix"],
+    "bookmarkLevels": ["part", "chapter", "appendix"],
+    "routineLowerLevelHeadings": false,
+    "semanticStructureRequired": true,
+    "reservedChapter13Allowed": false
+  },
+  "appendices": {
+    "appendix-a-rules-quick-reference": {"status": "DEFERRED", "generate": false},
+    "appendix-b-entity-index": {"status": "PLANNED", "generate": true, "authority": "publication semantics"},
+    "appendix-c-attribution-publication-notice": {"status": "DEFERRED", "generate": false, "reason": "approved legal and credits text is not yet available"}
+  },
+  "workspace": {
+    "workRoot": "build/rulebook/work",
+    "reportRoot": "build/rulebook/reports",
+    "releaseRoot": "build/rulebook/output",
+    "cleanProfileBeforeBuild": true,
+    "removeTargetReleaseBeforeBuild": true,
+    "atomicReleasePublish": true,
+    "generatedPathsTracked": false
+  },
+  "requiredTools": ["python", "pandoc", "lualatex", "pdfinfo", "pdftotext", "pdffonts"],
+  "validationGates": [
+    {"id": "A", "name": "upstream-source-readiness", "blocking": true},
+    {"id": "B", "name": "semantic-architecture", "blocking": true},
+    {"id": "C", "name": "package-entity-reconciliation", "blocking": true},
+    {"id": "D", "name": "asset-readiness", "blocking": true},
+    {"id": "E", "name": "ast-transformation", "blocking": true},
+    {"id": "F", "name": "latex-generation", "blocking": true},
+    {"id": "G", "name": "pdf-compilation", "blocking": true},
+    {"id": "H", "name": "rendered-output-regression", "blocking": true},
+    {"id": "I", "name": "release-package-readiness", "blocking": true}
+  ],
+  "warningPolicy": {
+    "allowedResults": ["PASS", "WARNING", "FAIL"],
+    "blocking": ["missing-required-asset", "entity-count-mismatch", "audience-leakage", "unresolved-package-target", "blocking-overflow", "stale-upstream-output"],
+    "nonBlocking": ["canonical-missing-content-debt", "editorial-content-warning"]
+  },
+  "reproducibility": {
+    "contract": "semantic-and-render-structure-equivalence",
+    "pdfByteEqualityRequired": false,
+    "requiredComparisons": ["semantic-content", "chapter-and-entity-counts", "transform-order", "asset-resolution", "page-count", "page-text", "page-geometry", "bookmark-structure"],
+    "metadataTimestampDifferencesAllowed": true
+  },
+  "buildReportRequiredFields": [
+    "profile",
+    "buildTimestamp",
+    "rendererVersion",
+    "gitCommit",
+    "manifestVersions",
+    "normalizationVersion",
+    "step6IntegrationContractVersion",
+    "pandocVersion",
+    "lualatexVersion",
+    "chapterCount",
+    "structuredEntityCounts",
+    "pageCount",
+    "validationResult",
+    "outputPath"
+  ],
+  "pendingDecisions": [
+    "Title-page subtitle, edition label, and reader-facing version text.",
+    "Front-matter numbering and recto/verso policy."
+  ]
+}

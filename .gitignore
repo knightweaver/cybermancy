@@ -18,6 +18,10 @@ build/rulebook/*
 !build/rulebook/layout/**
 !build/rulebook/scripts/
 !build/rulebook/scripts/**
+!build/rulebook/manifests/
+!build/rulebook/manifests/**
+!build/rulebook/production/
+!build/rulebook/production/**
 
 # ---- Rulebook generated layout artifacts ----
 # Standalone/prototype chapter render directories.

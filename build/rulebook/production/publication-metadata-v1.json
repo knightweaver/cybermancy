@@ -1,0 +1,27 @@
+{
+  "schema": "cybermancy-publication-metadata-v1",
+  "version": "1.0",
+  "status": "PARTIALLY_APPROVED",
+  "title": "Cybermancy",
+  "profiles": {
+    "complete-rulebook": {
+      "readerFacingName": "Cybermancy Core Rulebook",
+      "releaseFilename": "Cybermancy_Core_Rulebook.pdf"
+    },
+    "player-guide": {
+      "readerFacingName": "Cybermancy Player Guide",
+      "releaseFilename": "Cybermancy_Player_Guide.pdf"
+    }
+  },
+  "edition": null,
+  "subtitle": null,
+  "readerFacingVersion": null,
+  "credits": null,
+  "copyrightNotice": null,
+  "compatibilityNotice": null,
+  "policies": {
+    "inventMissingLegalLanguage": false,
+    "exposeBuildMachinePaths": false,
+    "exposeImplementationMetadata": false
+  }
+}
