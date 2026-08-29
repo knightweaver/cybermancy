@@ -2,8 +2,8 @@
   "schema": "cybermancy-step6-encounter-package-config-v1",
   "family": "adversaries",
   "title": "Chapter 30 - Adversaries",
-  "subtitle": "Phase C Encounter Toolkit proof package",
-  "columns": 1,
+  "subtitle": "Phase C Encounter Toolkit v1.1 proof package",
+  "columns": 2,
   "selection": {
     "names": [
       "Sleep-deprived Student",
@@ -16,7 +16,7 @@
       "Microdrone Swarm Dispenser"
     ]
   },
-  "artworkPolicy": "optional; omit without invented replacement",
+  "artworkPolicy": "optional; compact header art capped to the identity-block height; omit without invented replacement",
   "fastPlayPolicy": "render structured Fast Play only when present",
   "featurePolicy": "inline-complete"
 }
