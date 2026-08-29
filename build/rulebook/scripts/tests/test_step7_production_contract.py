@@ -23,6 +23,10 @@ class ProductionContractTests(unittest.TestCase):
 
     def test_profiles_and_release_names_are_frozen(self):
         self.assertEqual(
+            self.contract["implementationStatus"],
+            "PHASE_C_OFFICIAL_ENTRY_POINT",
+        )
+        self.assertEqual(
             set(self.contract["profiles"]), {"complete-rulebook", "player-guide"}
         )
         self.assertEqual(

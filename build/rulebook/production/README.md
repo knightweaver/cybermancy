@@ -5,9 +5,23 @@ accepted Step 6 chapter grammars or make generated Step 4 source canonical.
 
 ## Current phase
 
-Phase B defines Production Renderer v1 in
-`production-renderer-v1.json`. The contract is accepted; the authoritative CLI
-and final publication shell are not implemented by this phase.
+Phase C establishes the authoritative production CLI and conservative
+orchestration of the accepted Step 6 stages. The final publication shell remains
+Phase D work.
+
+## Official commands
+
+```powershell
+python build\rulebook\scripts\build-rulebook.py preflight
+python build\rulebook\scripts\build-rulebook.py build --profile complete-rulebook
+python build\rulebook\scripts\build-rulebook.py build --profile player-guide
+python build\rulebook\scripts\build-rulebook.py build --profile all
+python build\rulebook\scripts\build-rulebook.py reproducibility --profile all
+```
+
+Every build runs preflight first. A profile build removes its old release target,
+uses isolated work and report directories, executes accepted stages 130–170 in
+order, and publishes the final PDF atomically only after every stage passes.
 
 ## Authority boundary
 
@@ -60,7 +74,6 @@ invalid, incompatible, or stale. They do not rebuild Step 4 automatically.
 
 ## Next phase
 
-Phase C implements the single official `build-rulebook.py` entry point with
-`preflight`, per-profile and all-profile builds, and reproducibility checking.
-It should orchestrate the accepted Step 6 lanes conservatively and emit one
-aggregate PASS/WARNING/FAIL report per profile.
+Phase D completes the reader-facing publication shell: title/front matter, TOC,
+bookmarks, page numbering, and the appendix framework. Appendix A and Appendix C
+remain deferred; Appendix B remains planned from publication semantics.
