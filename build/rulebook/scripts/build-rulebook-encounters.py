@@ -49,6 +49,11 @@ FAMILY_BY_KIND = {
     "environment": "environments",
     "feature-reference": "adversaries-features",
 }
+EXPECTED_PACKAGE_VERSIONS = {
+    "adversary": "v1.1",
+    "environment": "v1.0",
+    "feature-reference": "v1.0",
+}
 
 
 def _resolve(value: str | None, default: Path) -> Path:
@@ -140,8 +145,11 @@ def _productionize_config(
 
     if str(lifecycle.get("status") or "") != "frozen":
         errors.append("Production Encounter Toolkit config must have lifecycle.status='frozen'.")
-    if str(lifecycle.get("version") or "") != "v1.0":
-        errors.append("Production Encounter Toolkit config must have lifecycle.version='v1.0'.")
+    expected_version = EXPECTED_PACKAGE_VERSIONS[kind]
+    if str(lifecycle.get("version") or "") != expected_version:
+        errors.append(
+            f"Production Encounter Toolkit {kind} config must have lifecycle.version='{expected_version}'."
+        )
     if str(selection.get("mode") or "") != "full-corpus":
         errors.append("Production Encounter Toolkit config must select mode='full-corpus'.")
     if not bool(policy.get("requireFullCorpusSelection", False)):
@@ -339,7 +347,7 @@ def main() -> int:
     p = argparse.ArgumentParser(
         description=(
             "Build Cybermancy Part VI Encounter Toolkit packages from Step 4 structured semantics. "
-            "'proof' reproduces the approved Phase C test corpus; 'build' enforces the frozen v1 "
+            "'proof' reproduces the approved Phase C test corpus; 'build' enforces the frozen "
             "full-corpus contracts for Chapters 30-32."
         )
     )
