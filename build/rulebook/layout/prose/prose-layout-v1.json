@@ -47,7 +47,7 @@
   "partOpener": {
     "standalonePage": true,
     "darkBackground": true,
-    "rectoPolicy": "integration-decision-pending",
+    "rectoPolicy": "preserve-current-clearpage",
     "playerAccent": "cyan",
     "gmAccent": "gmViolet",
     "bodyColumns": 1
@@ -122,12 +122,12 @@
       1,
       2,
       3,
+      23,
       24,
       25,
       26,
       27,
-      28,
-      29
+      28
     ],
     "detectMissingSource": true,
     "detectWrongRouting": true,
@@ -151,7 +151,7 @@
       "disposition": "report-only"
     },
     {
-      "chapter": 25,
+      "chapter": 24,
       "classification": "conversation-residue",
       "disposition": "report-only"
     }

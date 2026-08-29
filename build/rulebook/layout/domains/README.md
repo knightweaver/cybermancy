@@ -171,4 +171,4 @@ build/rulebook/layout/reports/domain-packages/<domain>.json
 
 **Step G — Domains and Domain Cards is complete and accepted.** DomainPackage v1 is frozen. The semantic and visual design work for Chapter 14 should not be reopened during ordinary rulebook assembly.
 
-Full Chapter 14/Pandoc AST integration is now **unblocked** and may be performed as part of the later Part III integration step. The next independent design/production workstream is Step H, Chapter 15 Feature Reference.
+Chapter 14/Pandoc AST integration is now unblocked. The accepted integration target is replacement of the `family:domains` semantic container within Chapter 14 using the frozen DomainPackage v1 grammar. The former Chapter 15 all-Feature reference is obsolete; independent Feature publication is the GM-only Chapter 29 ICE Reference defined by the current Step 3 architecture.

@@ -1,5 +1,5 @@
 {
-  "chapter": 23,
+  "chapter": 22,
   "columns": [
     {
       "align": "left",
@@ -24,7 +24,7 @@
       "widthIn": 5.332
     }
   ],
-  "configStatus": "scaffold",
+  "configStatus": "accepted",
   "deck": "",
   "display": {
     "groupUppercase": true,
@@ -43,7 +43,7 @@
     "tool": "init-equipment"
   },
   "layoutMode": "tiered-catalog",
-  "outputStem": "Cybermancy_Chapter23_Loot_Step6",
+  "outputStem": "Cybermancy_Chapter22_Loot_Step6",
   "pagination": {
     "continuationLabel": "Loot",
     "continuationTemplate": "{label} — CONTINUED",

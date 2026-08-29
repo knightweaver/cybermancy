@@ -1,5 +1,5 @@
 {
-  "chapter": 21,
+  "chapter": 20,
   "columns": [
     {
       "align": "left",
@@ -24,7 +24,7 @@
       "widthIn": 5.332
     }
   ],
-  "configStatus": "scaffold",
+  "configStatus": "accepted",
   "deck": "",
   "display": {
     "groupUppercase": true,
@@ -43,7 +43,7 @@
     "tool": "init-equipment"
   },
   "layoutMode": "tiered-catalog",
-  "outputStem": "Cybermancy_Chapter21_Consumables_Step6",
+  "outputStem": "Cybermancy_Chapter20_Consumables_Step6",
   "pagination": {
     "continuationLabel": "Consumables",
     "continuationTemplate": "{label} — CONTINUED",

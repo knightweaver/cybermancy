@@ -1,5 +1,5 @@
 {
-  "chapter": 22,
+  "chapter": 21,
   "columns": [
     {
       "align": "left",
@@ -17,7 +17,7 @@
       "widthIn": 5.881
     }
   ],
-  "configStatus": "scaffold",
+  "configStatus": "accepted",
   "deck": "",
   "display": {
     "groupUppercase": true,
@@ -35,7 +35,7 @@
     "tool": "init-equipment"
   },
   "layoutMode": "single-catalog",
-  "outputStem": "Cybermancy_Chapter22_Mods_Step6",
+  "outputStem": "Cybermancy_Chapter21_Mods_Step6",
   "pagination": {
     "continuationLabel": "Mods",
     "continuationTemplate": "{label} — CONTINUED",

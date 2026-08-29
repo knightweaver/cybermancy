@@ -2,11 +2,11 @@
   "schema": "cybermancy-step6-equipment-catalog-config-v1.1",
   "layoutMode": "single-catalog",
   "family": "ammo",
-  "chapter": 17,
+  "chapter": 16,
   "partLabel": "EQUIPMENT & TECHNOLOGY",
   "title": "Ammunition",
   "deck": "",
-  "outputStem": "Cybermancy_Chapter17_Ammunition_Step6",
+  "outputStem": "Cybermancy_Chapter16_Ammunition_Step6",
   "expectedEntityCount": 13,
   "expectedColumnLabels": [
     "Name",

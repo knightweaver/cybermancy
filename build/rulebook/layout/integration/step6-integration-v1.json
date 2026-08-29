@@ -1,0 +1,87 @@
+{
+  "schema": "cybermancy-step6-integration-contract-v1",
+  "version": "1.0",
+  "status": "accepted",
+  "architectureAuthority": "generated Step 3 assembly manifest",
+  "purpose": "Bind frozen Step 6 package grammars to the accepted whole-book chapter architecture without redefining book structure.",
+  "profiles": {
+    "complete-rulebook": {
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
+      "audiences": ["shared", "player", "gm"],
+      "gmDividerCount": 1
+    },
+    "player-guide": {
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+      "audiences": ["shared", "player"],
+      "gmDividerCount": 0
+    }
+  },
+  "reservedChapters": {
+    "13": {
+      "status": "reserved",
+      "chapterNodeAllowed": false,
+      "placeholderAllowed": false
+    }
+  },
+  "structuredTargets": [
+    {"chapter": 12, "chapterId": "ch12-classes", "families": ["classes", "subclasses"], "adapter": "class-package"},
+    {"chapter": 14, "chapterId": "ch14-domains", "families": ["domains"], "adapter": "domain-package"},
+    {"chapter": 15, "chapterId": "ch15-weapons", "families": ["weapons"], "adapter": "equipment"},
+    {"chapter": 16, "chapterId": "ch16-ammunition", "families": ["ammo"], "adapter": "equipment"},
+    {"chapter": 17, "chapterId": "ch17-armor", "families": ["armors"], "adapter": "equipment"},
+    {"chapter": 18, "chapterId": "ch18-cybernetics", "families": ["cybernetics"], "adapter": "equipment"},
+    {"chapter": 19, "chapterId": "ch19-drones-devices", "families": ["drones-devices"], "adapter": "equipment"},
+    {"chapter": 20, "chapterId": "ch20-consumables", "families": ["consumables"], "adapter": "equipment"},
+    {"chapter": 21, "chapterId": "ch21-mods", "families": ["mods"], "adapter": "equipment"},
+    {"chapter": 22, "chapterId": "ch22-loot", "families": ["loot"], "adapter": "equipment"},
+    {"chapter": 29, "chapterId": "ch29-ice-reference", "families": ["features"], "adapter": "ice-reference", "profiles": ["complete-rulebook"]},
+    {"chapter": 30, "chapterId": "ch30-adversaries", "families": ["adversaries"], "adapter": "adversary-package", "profiles": ["complete-rulebook"]},
+    {"chapter": 31, "chapterId": "ch31-environments", "families": ["environments"], "adapter": "environment-package", "profiles": ["complete-rulebook"]},
+    {"chapter": 32, "chapterId": "ch32-adversary-features", "families": ["adversaries-features"], "adapter": "adversary-feature-reference", "profiles": ["complete-rulebook"]}
+  ],
+  "transformationOrder": [
+    {"order": 10, "stage": "structural-preflight"},
+    {"order": 20, "stage": "prose-player", "chapters": [1, 2, 3]},
+    {"order": 30, "stage": "rules", "chapters": [4, 5, 6, 7, 8, 9]},
+    {"order": 40, "stage": "character-origins", "chapters": [10, 11]},
+    {"order": 50, "stage": "classes", "chapters": [12]},
+    {"order": 60, "stage": "domains", "chapters": [14]},
+    {"order": 70, "stage": "equipment", "chapters": [15, 16, 17, 18, 19, 20, 21, 22]},
+    {"order": 80, "stage": "prose-gm", "chapters": [23, 24, 25, 26, 27, 28], "profiles": ["complete-rulebook"]},
+    {"order": 90, "stage": "ice-reference", "chapters": [29], "profiles": ["complete-rulebook"]},
+    {"order": 100, "stage": "adversaries", "chapters": [30], "profiles": ["complete-rulebook"]},
+    {"order": 110, "stage": "environments", "chapters": [31], "profiles": ["complete-rulebook"]},
+    {"order": 120, "stage": "adversary-features", "chapters": [32], "profiles": ["complete-rulebook"]},
+    {"order": 130, "stage": "publication-shell-lowering"},
+    {"order": 140, "stage": "post-transform-validation"},
+    {"order": 150, "stage": "integrated-latex"},
+    {"order": 160, "stage": "lualatex"},
+    {"order": 170, "stage": "rendered-regression"}
+  ],
+  "regressionExpectations": {
+    "characterOrigins": {"ancestories": 18, "communities": 9, "artwork": 27},
+    "domains": {"domains": 3, "cards": 73},
+    "equipment": {
+      "weapons": 47,
+      "ammo": 13,
+      "armors": 36,
+      "cybernetics": 103,
+      "drones-devices": 19,
+      "consumables": 59,
+      "mods": 20,
+      "loot": 60
+    },
+    "ice": {"entries": 13},
+    "adversaries": {"entries": 106},
+    "environments": {"entries": 8},
+    "adversaryFeatures": {"publishedRepresentatives": 344, "canonicalSourceEntries": 419}
+  },
+  "integrationPolicies": {
+    "oneBasePandocAstPerProfile": true,
+    "semanticReplacementBeforeShellLowering": true,
+    "failClosed": true,
+    "preserveFrozenPackageGrammar": true,
+    "rectoPolicy": "preserve-current-clearpage",
+    "generatedArtifactsCanonical": false
+  }
+}

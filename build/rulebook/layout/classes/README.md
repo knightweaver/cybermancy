@@ -70,6 +70,6 @@ All commands use the rulebook pipeline's terse CLI convention. Add `--verbose` a
 
 ## Current boundary
 
-The Razz Hacker design proof is complete and the publication grammar is accepted. The current task is **all-Class regression**: confirm that the same grammar handles every Class, Class Feature set, Starting Package, Subclass pair, and variable-length progression in the canonical Step 4 corpus without reverting to alternate layouts or creating avoidable dead whitespace.
+The Razz Hacker design proof and all-Class regression are complete and the Chapter 12 ClassPackage publication grammar is accepted. Ordinary whole-book assembly must consume this frozen grammar without introducing Class-specific or Subclass-specific layout alternatives.
 
-Full Chapter 12/Pandoc AST integration remains deferred until this all-Class regression is reviewed and accepted. No alternate authoring stream is introduced.
+Chapter 12/Pandoc AST integration is now unblocked. The accepted integration target is replacement of the `family:classes` and `family:subclasses` semantic containers within Chapter 12 as one ClassPackage publication unit. No alternate authoring stream is introduced.

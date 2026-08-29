@@ -72,7 +72,7 @@ TARGET_PARTS: dict[str, tuple[str, str, str]] = {
         "Hidden history, faction truth, and the forces behind the visible world.",
     ),
 }
-TARGET_CHAPTERS = {1, 2, 3, 24, 25, 26, 27, 28, 29}
+TARGET_CHAPTERS = {1, 2, 3, 23, 24, 25, 26, 27, 28}
 DIRECT_GRAPHICS_EXTENSIONS = {".png", ".jpg", ".jpeg", ".pdf"}
 PILLOW_CONVERT_EXTENSIONS = {".webp", ".gif", ".bmp", ".tif", ".tiff"}
 WARNING_PATTERNS = (
@@ -324,7 +324,7 @@ def image_role(source: str, chapter: int) -> str:
         return "wide"
     if name == "triune-sigil.png":
         return "symbolic"
-    if chapter == 24:
+    if chapter == 23:
         return "wide"
     return "standard"
 

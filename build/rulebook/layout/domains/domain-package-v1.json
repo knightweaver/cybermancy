@@ -71,6 +71,6 @@
     "foundryFoldersAreNonAuthoritative": true,
     "blockOnLatexOverflow": true,
     "renderedContentRegression": true,
-    "astIntegration": "deferred-until-domain-package-grammar-acceptance"
+    "astIntegration": "chapter14-family-domains-replacement"
   }
 }

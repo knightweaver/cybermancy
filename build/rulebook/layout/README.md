@@ -60,21 +60,21 @@ build/rulebook/layout/equipment/equipment-section-v1.json
 It defines the complete Equipment & Technology sequence:
 
 ```text
-16  weapons
-17  ammo
-18  armors
-19  cybernetics
-20  drones-devices
-21  consumables
-22  mods
-23  loot
+15  weapons
+16  ammo
+17  armors
+18  cybernetics
+19  drones-devices
+20  consumables
+21  mods
+22  loot
 ```
 
 Family configs are implemented separately, for example:
 
 ```text
-build/rulebook/layout/equipment/weapons-v1.json  # Chapter 16
-build/rulebook/layout/equipment/ammo-v1.json     # Chapter 17
+build/rulebook/layout/equipment/weapons-v1.json  # Chapter 15
+build/rulebook/layout/equipment/ammo-v1.json     # Chapter 16
 ```
 
 ## Generic family commands
@@ -88,7 +88,7 @@ python build\rulebook\scripts\build-rulebook-layout.py validate-equipment --fami
 python build\rulebook\scripts\build-rulebook-layout.py build-equipment --family <family>
 ```
 
-For example, Chapter 18 Armor:
+For example, Chapter 17 Armor:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-layout.py inspect-equipment --family armors
@@ -169,10 +169,14 @@ python build\rulebook\scripts\build-rulebook-layout.py init-equipment --all --re
 
 `--refresh-scaffolds` overwrites only configs recognized as initializer-generated
 scaffolds. It also recognizes the conservative v1.0 initializer shape created
-before `configStatus: scaffold` was introduced, so already-generated Armor,
-Cybernetics, Drones/Devices, Consumables, Mods, and Loot scaffolds can migrate to
-the new Tier-aware sidecar. Accepted hand-tuned contracts such as Weapons and
-Ammunition are not recognized as scaffolds and are reported as `PRESERVED`.
+before `configStatus: scaffold` was introduced. Accepted contracts are not
+recognized as scaffolds and are reported as `PRESERVED`.
+
+The current Armor, Cybernetics, Drones/Devices, Consumables, Mods, and Loot
+contracts were originally initializer-generated and retain their `generatedBy`
+provenance, but have been explicitly promoted to `configStatus: accepted` as the
+Step 6 integration baseline. They must not be silently refreshed by scaffold
+initialization.
 
 Initialization reports are written to:
 
@@ -186,9 +190,9 @@ The complete initialization pass is:
 python build\rulebook\scripts\build-rulebook-layout.py init-equipment --all
 ```
 
-`--all` walks Chapters 16–23 in section order, preserves existing configs such
-as Weapons and Ammunition, and creates only missing family configs whose bootstrap
-inspection passes. Its aggregate report is:
+`--all` walks Chapters 15–22 in section order, preserves existing configs, and
+creates only missing family configs whose bootstrap inspection passes. Its
+aggregate report is:
 
 ```text
 build/rulebook/layout/reports/equipment-init-all.json
@@ -200,15 +204,17 @@ repeatable starting contract, not permission to bypass semantic review; validati
 must still pass and the rendered chapter should still be reviewed before the
 family contract is treated as final.
 
-The existing Chapter 16 commands remain supported:
+The historical Weapons compatibility commands remain supported:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-layout.py validate-chapter16
 python build\rulebook\scripts\build-rulebook-layout.py build-chapter16
 ```
 
-The generic interface also accepts `--family weapons` and routes it through the
-specialized Chapter 16 validation/reference contract.
+Those command names predate the accepted Chapter 15–22 renumbering. They still
+route to the Weapons family for backward compatibility and must not be interpreted
+as current chapter identity. The generic interface should be preferred for new
+automation.
 
 ## Batch commands
 
@@ -222,7 +228,7 @@ python build\rulebook\scripts\build-rulebook-layout.py build-equipment --all
 ```
 
 Batch validation/build mode reads `equipment-section-v1.json`, reports every
-required Chapter 16–23 family, and marks a family whose config does not exist as
+required Chapter 15–22 family, and marks a family whose config does not exist as
 `BLOCKED`. Missing configs therefore remain visible rather than being silently
 omitted.
 
@@ -245,7 +251,7 @@ Individual family reports remain unchanged.
 
 A family whose config has not yet been implemented is also reported as `BLOCKED`,
 but it does not prevent already implemented families from being validated or
-built. Until every required Chapter 16–23 config exists, the aggregate command
+built. Until every required Chapter 15–22 config exists, the aggregate command
 still exits non-zero and `equipment-all.json` remains `FAIL` because the section
 is incomplete. This allows progressive implementation without falsely reporting
 that the complete Equipment section is finished.
@@ -273,7 +279,7 @@ The reusable Equipment Catalog primitive supports:
 - family/tier continuation labels on continuation pages;
 - semantic Pandoc-AST replacement of `family:<family>`.
 
-## Chapter 16 — Weapons
+## Chapter 15 — Weapons
 
 Weapons retain their approved nine-column contract:
 
@@ -286,12 +292,12 @@ and Actions for the Action column, and publish separate Weapon Actions and
 Critical Effects reference sections. The complete Weapons chapter uses flowing
 pagination rather than one forced table per page.
 
-## Chapter 17 — Ammunition
+## Chapter 16 — Ammunition
 
 The canonical Ammunition pack currently contains 13 records. Those records do
 not carry canonical Tier values and are not organized beneath recognized Tier
 folders, so Step 4 leaves their Tier absent and Step 6 does not invent tiers or
-tier groups. The Chapter 17 publication contract is:
+tier groups. The Chapter 16 publication contract is:
 
 ```text
 Name | Effect
@@ -301,16 +307,9 @@ Name | Effect
 alphabetically by Name. If the catalog crosses a page boundary, the continuation
 page repeats the Ammunition continuation label and the table header.
 
-Expected outputs are written to:
-
-```text
-build/rulebook/layout/chapter17/
-    Cybermancy_Chapter17_Ammunition_Step6.tex
-    Cybermancy_Chapter17_Ammunition_Step6.pdf
-    ammo-family-step6.tex
-    ammo-rows.json
-    player-guide-step6-ammo.ast.json
-```
+Expected outputs are written to a generated chapter-specific render directory;
+those render products are reproducible outputs and are not canonical layout
+contracts.
 
 The validation report is:
 
@@ -320,8 +319,11 @@ build/rulebook/layout/reports/equipment-ammo.json
 
 ## Scope boundary
 
-The section registry defines which chapters must ultimately exist. Initialization
-can create deterministic first-pass configs from normalized Step 4 fields, but it
-does not invent family-specific mechanics. Armor, Cybernetics, Drones and Devices,
-Consumables, Mods, and Loot may still require Step 4 semantic enrichment or manual
-config refinement after their generated first-pass layouts are inspected.
+The section registry defines the accepted Chapter 15–22 publication sequence and
+every family now has an explicit tracked contract. The generic initializer remains
+a bootstrap/recovery tool for missing or future family contracts; it is not an
+authority to overwrite accepted Step 6 contracts.
+
+Whole-book assembly must consume these family contracts through semantic
+`family:<family>` replacement and preserve their accepted field, ordering, and
+layout decisions unless a versioned design change is explicitly approved.

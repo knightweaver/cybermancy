@@ -1,5 +1,5 @@
 {
-  "chapter": 18,
+  "chapter": 17,
   "columns": [
     {
       "align": "left",
@@ -24,7 +24,7 @@
       "widthIn": 5.332
     }
   ],
-  "configStatus": "scaffold",
+  "configStatus": "accepted",
   "deck": "",
   "display": {
     "groupUppercase": true,
@@ -43,7 +43,7 @@
     "tool": "init-equipment"
   },
   "layoutMode": "tiered-catalog",
-  "outputStem": "Cybermancy_Chapter18_Armor_Step6",
+  "outputStem": "Cybermancy_Chapter17_Armor_Step6",
   "pagination": {
     "continuationLabel": "Armor",
     "continuationTemplate": "{label} — CONTINUED",

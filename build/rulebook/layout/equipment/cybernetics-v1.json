@@ -1,5 +1,5 @@
 {
-  "chapter": 19,
+  "chapter": 18,
   "columns": [
     {
       "align": "left",
@@ -24,7 +24,7 @@
       "widthIn": 5.332
     }
   ],
-  "configStatus": "scaffold",
+  "configStatus": "accepted",
   "deck": "",
   "display": {
     "groupUppercase": true,
@@ -43,7 +43,7 @@
     "tool": "init-equipment"
   },
   "layoutMode": "tiered-catalog",
-  "outputStem": "Cybermancy_Chapter19_Cybernetics_Step6",
+  "outputStem": "Cybermancy_Chapter18_Cybernetics_Step6",
   "pagination": {
     "continuationLabel": "Cybernetics",
     "continuationTemplate": "{label} — CONTINUED",

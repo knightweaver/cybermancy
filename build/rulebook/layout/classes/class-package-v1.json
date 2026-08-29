@@ -44,6 +44,6 @@
     "requireStagedImages": true,
     "failOnRawFoundryReferences": true,
     "allowBlankSubclassDescription": true,
-    "astIntegration": "deferred-until-class-package-grammar-acceptance"
+    "astIntegration": "chapter12-family-classes-subclasses-replacement"
   }
 }

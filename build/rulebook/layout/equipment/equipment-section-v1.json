@@ -2,13 +2,13 @@
   "schema": "cybermancy-step6-equipment-section-v1.0",
   "partLabel": "EQUIPMENT & TECHNOLOGY",
   "families": [
-    {"chapter": 16, "family": "weapons", "title": "Weapons", "config": "weapons-v1.json"},
-    {"chapter": 17, "family": "ammo", "title": "Ammunition", "config": "ammo-v1.json"},
-    {"chapter": 18, "family": "armors", "title": "Armor", "config": "armors-v1.json"},
-    {"chapter": 19, "family": "cybernetics", "title": "Cybernetics", "config": "cybernetics-v1.json"},
-    {"chapter": 20, "family": "drones-devices", "title": "Drones and Devices", "config": "drones-devices-v1.json"},
-    {"chapter": 21, "family": "consumables", "title": "Consumables", "config": "consumables-v1.json"},
-    {"chapter": 22, "family": "mods", "title": "Mods", "config": "mods-v1.json"},
-    {"chapter": 23, "family": "loot", "title": "Loot", "config": "loot-v1.json"}
+    {"chapter": 15, "family": "weapons", "title": "Weapons", "config": "weapons-v1.json"},
+    {"chapter": 16, "family": "ammo", "title": "Ammunition", "config": "ammo-v1.json"},
+    {"chapter": 17, "family": "armors", "title": "Armor", "config": "armors-v1.json"},
+    {"chapter": 18, "family": "cybernetics", "title": "Cybernetics", "config": "cybernetics-v1.json"},
+    {"chapter": 19, "family": "drones-devices", "title": "Drones and Devices", "config": "drones-devices-v1.json"},
+    {"chapter": 20, "family": "consumables", "title": "Consumables", "config": "consumables-v1.json"},
+    {"chapter": 21, "family": "mods", "title": "Mods", "config": "mods-v1.json"},
+    {"chapter": 22, "family": "loot", "title": "Loot", "config": "loot-v1.json"}
   ]
 }
