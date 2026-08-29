@@ -61,17 +61,60 @@ def _top_level_header_indices(ast: dict[str, Any], chapter_id: str) -> list[int]
     return result
 
 
+def _top_level_part_indices_after(ast: dict[str, Any], start: int) -> list[int]:
+    """Return top-level Part H1 indices after *start*.
+
+    Chapter-body replacement must stop at an intervening Part header.  Using the
+    next Chapter H2 alone crosses Part II/III/VI boundaries for Chapters 3, 9,
+    and 28 and would delete the publication architecture that stage 130 needs.
+    """
+    blocks = ast.get("blocks")
+    if not isinstance(blocks, list):
+        return []
+    result: list[int] = []
+    for index in range(start + 1, len(blocks)):
+        node = blocks[index]
+        if not isinstance(node, dict) or node.get("t") != "Header":
+            continue
+        content = node.get("c")
+        level = content[0] if isinstance(content, list) and content else None
+        if level == 1:
+            result.append(index)
+    return result
+
+
+def _chapter_bounds(
+    ast: dict[str, Any], chapter_id: str, next_chapter_id: str
+) -> tuple[int, int] | None:
+    """Return the exact chapter-body slice without crossing an H1 Part boundary."""
+    starts = _top_level_header_indices(ast, chapter_id)
+    ends = _top_level_header_indices(ast, next_chapter_id)
+    if len(starts) != 1 or len(ends) > 1:
+        return None
+    start = starts[0]
+    candidates: list[int] = []
+    if len(ends) == 1 and ends[0] > start:
+        candidates.append(ends[0])
+    parts = _top_level_part_indices_after(ast, start)
+    if parts:
+        candidates.append(parts[0])
+    if not candidates:
+        return None
+    end = min(candidates)
+    return (start, end) if start < end else None
+
+
 def _chapter_body(
     ast: dict[str, Any], chapter_id: str, next_chapter_id: str
 ) -> list[Any] | None:
     blocks = ast.get("blocks")
     if not isinstance(blocks, list):
         return None
-    starts = _top_level_header_indices(ast, chapter_id)
-    ends = _top_level_header_indices(ast, next_chapter_id)
-    if len(starts) != 1 or len(ends) != 1 or starts[0] >= ends[0]:
+    bounds = _chapter_bounds(ast, chapter_id, next_chapter_id)
+    if bounds is None:
         return None
-    return blocks[starts[0] + 1 : ends[0]]
+    start, end = bounds
+    return blocks[start + 1 : end]
 
 
 def _body_exact(
@@ -86,13 +129,11 @@ def _unresolved_count(
     ast: dict[str, Any], chapter_id: str, next_chapter_id: str, latex: str
 ) -> int:
     starts = _top_level_header_indices(ast, chapter_id)
-    ends = _top_level_header_indices(ast, next_chapter_id)
     if len(starts) != 1:
         return len(starts)
-    if len(ends) != 1:
-        return len(ends)
-    if starts[0] >= ends[0]:
-        return 0
+    bounds = _chapter_bounds(ast, chapter_id, next_chapter_id)
+    if bounds is None:
+        return -1
     return 0 if _body_exact(ast, chapter_id, next_chapter_id, latex) else 1
 
 
@@ -102,11 +143,11 @@ def _replace_body(
     blocks = ast.get("blocks")
     if not isinstance(blocks, list):
         return 0
-    starts = _top_level_header_indices(ast, chapter_id)
-    ends = _top_level_header_indices(ast, next_chapter_id)
-    if len(starts) != 1 or len(ends) != 1 or starts[0] >= ends[0]:
+    bounds = _chapter_bounds(ast, chapter_id, next_chapter_id)
+    if bounds is None:
         return 0
-    blocks[starts[0] + 1 : ends[0]] = [
+    start, end = bounds
+    blocks[start + 1 : end] = [
         {"t": "RawBlock", "c": ["latex", latex]}
     ]
     return 1
