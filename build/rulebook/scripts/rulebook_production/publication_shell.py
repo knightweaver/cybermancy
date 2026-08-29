@@ -133,7 +133,10 @@ def entity_index(
     expected_by_family = {
         "classes": int(expectations["classes"]),
         "subclasses": int(expectations["subclasses"]),
-        "domains": int(expectations["domains"]) + int(expectations["domainCards"]),
+        # `domains` is the count of organizational domain groupings. The Step 4
+        # structured sidecar's `domains` family contains the individually
+        # publishable domain-card entities only.
+        "domains": int(expectations["domainCards"]),
         "weapons": int(expectations["weapons"]),
         "ammo": int(expectations["ammo"]),
         "armors": int(expectations["armors"]),

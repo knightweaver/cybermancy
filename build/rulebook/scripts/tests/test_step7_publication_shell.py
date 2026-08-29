@@ -70,6 +70,24 @@ class EntityIndexTests(unittest.TestCase):
         self.assertEqual(result["entryCount"], 1)
         self.assertEqual(result["expectedEntryCount"], 1)
 
+    def test_domain_group_count_is_not_added_to_domain_card_entities(self):
+        sidecar = {
+            "entities": [
+                {
+                    "family": "domains",
+                    "name": "Arcane Barrage",
+                    "semanticId": "entity:domains:arcane-barrage",
+                },
+            ]
+        }
+        result = entity_index(
+            sidecar,
+            "player-guide",
+            _expectations(domains=3, domainCards=1),
+        )
+        self.assertEqual(result["entryCount"], 1)
+        self.assertEqual(result["expectedEntryCount"], 1)
+
     def test_index_is_sorted_profile_scoped_and_reconciled(self):
         sidecar = {
             "entities": [
