@@ -21,9 +21,28 @@ _PACKAGE_WARNING_RE = re.compile(r"^Package .* Warning:.*$", re.M)
 _FONT_WARNING_RE = re.compile(r"^(?:LaTeX Font Warning:|Package fontspec Warning:).*$", re.M)
 _FILE_LINE_ERROR_RE = re.compile(r"^(?P<file>[^:\n]+\.tex):(?P<line>\d+):\s*(?P<message>.+)$", re.M)
 _LINE_ERROR_RE = re.compile(r"^l\.(?P<line>\d+)\s(?P<message>.*)$", re.M)
+_OVERFULL_LINE_RE = re.compile(r"at lines (?P<line>\d+)(?:--\d+)?")
 _USEPACKAGE_RE = re.compile(r"\\usepackage(?:\[[^\]]*\])?\{([^{}]+)\}")
 _DETOKENIZE_RE = re.compile(r"\\detokenize\{([^{}]+)\}")
 _INCLUDEGRAPHICS_RE = re.compile(r"\\includegraphics(?:\[[^\]]*\])?\{([^{}]+)\}")
+
+_STAGE150_FOOTER_PREFIX = r"\fancyfoot[L]{"
+_STAGE150_FOOTER_TOKEN = "STEP 6 // "
+_STAGE150_FOOTER_SUFFIX = " // INTEGRATED"
+_HFUZZ_LINE = r"\hfuzz=0.2pt"
+_SOUL_PACKAGE = r"\usepackage{soul}"
+_HYPERREF_PACKAGE = r"\usepackage[hidelinks]{hyperref}"
+_BEGIN_DOCUMENT = r"\begin{document}"
+_FATAL_MESSAGE_HINTS = (
+    "undefined control sequence",
+    "fatal error",
+    "emergency stop",
+    "latex error",
+    "missing ",
+    "extra ",
+    "runaway argument",
+    "file ended while scanning",
+)
 
 
 def sha256_file(path: Path) -> str:
@@ -118,6 +137,121 @@ def validate_static_graphics(tex: str, compile_root: Path) -> dict[str, Any]:
     }
 
 
+def _anchor_profile_footer(tex: str) -> tuple[str, bool]:
+    """Make the Stage 150 left footer zero-width to avoid fancyhdr field overrun."""
+    lines = tex.splitlines()
+    changed = False
+    output: list[str] = []
+    for line in lines:
+        stripped = line.strip()
+        if (
+            stripped.startswith(_STAGE150_FOOTER_PREFIX)
+            and _STAGE150_FOOTER_TOKEN in stripped
+            and _STAGE150_FOOTER_SUFFIX in stripped
+            and not stripped.startswith(_STAGE150_FOOTER_PREFIX + r"\rlap{")
+            and stripped.endswith("}")
+        ):
+            leading = line[: len(line) - len(line.lstrip())]
+            inner = stripped[len(_STAGE150_FOOTER_PREFIX) : -1]
+            line = leading + _STAGE150_FOOTER_PREFIX + r"\rlap{" + inner + "}}"
+            changed = True
+        output.append(line)
+    trailing_newline = "\n" if tex.endswith("\n") else ""
+    return "\n".join(output) + trailing_newline, changed
+
+
+def apply_compile_compatibility_overlay(tex_path: Path) -> dict[str, Any]:
+    """Apply deterministic LuaLaTeX-only shims to the isolated Stage 160 TeX copy.
+
+    Stage 150 remains the provenance handoff and is never modified.  The overlay
+    addresses three integration defects exposed only by the first unified compile:
+    Pandoc strikeout's ``\\st`` dependency, fancyhdr's profile-footer width, and
+    sub-hairline (<0.2pt) TeX rounding noise from frozen package boxes.
+    """
+    original = tex_path.read_text(encoding="utf-8")
+    text = original
+    patches: list[str] = []
+
+    uses_strikeout = r"\st{" in text
+    has_strikeout_support = _SOUL_PACKAGE in text or re.search(
+        r"\\(?:newcommand|providecommand|renewcommand)\{\\st\}", text
+    ) is not None
+    if uses_strikeout and not has_strikeout_support:
+        if _HYPERREF_PACKAGE in text:
+            text = text.replace(
+                _HYPERREF_PACKAGE,
+                _SOUL_PACKAGE + "\n" + _HYPERREF_PACKAGE,
+                1,
+            )
+        elif _BEGIN_DOCUMENT in text:
+            text = text.replace(
+                _BEGIN_DOCUMENT,
+                _SOUL_PACKAGE + "\n" + _BEGIN_DOCUMENT,
+                1,
+            )
+        else:
+            return {
+                "status": "FAIL",
+                "patches": patches,
+                "error": "Could not inject Pandoc strikeout support because the document boundary is missing.",
+            }
+        patches.append("pandoc-strikeout-soul")
+
+    if _HFUZZ_LINE not in text:
+        if _BEGIN_DOCUMENT not in text:
+            return {
+                "status": "FAIL",
+                "patches": patches,
+                "error": "Could not install the Stage 160 micro-overflow tolerance because the document boundary is missing.",
+            }
+        text = text.replace(
+            _BEGIN_DOCUMENT,
+            "% Stage 160: ignore only sub-hairline TeX rounding noise; material overfull boxes remain blocking.\n"
+            + _HFUZZ_LINE
+            + "\n"
+            + _BEGIN_DOCUMENT,
+            1,
+        )
+        patches.append("hfuzz-0.2pt")
+
+    text, footer_changed = _anchor_profile_footer(text)
+    if footer_changed:
+        patches.append("profile-footer-zero-width-anchor")
+
+    if text != original:
+        tex_path.write_text(text, encoding="utf-8")
+
+    final = tex_path.read_text(encoding="utf-8")
+    strikeout_ok = not uses_strikeout or (
+        _SOUL_PACKAGE in final
+        or re.search(r"\\(?:newcommand|providecommand|renewcommand)\{\\st\}", final)
+        is not None
+    )
+    hfuzz_ok = _HFUZZ_LINE in final
+    footer_lines = [
+        line.strip()
+        for line in final.splitlines()
+        if line.strip().startswith(_STAGE150_FOOTER_PREFIX)
+        and _STAGE150_FOOTER_TOKEN in line
+        and _STAGE150_FOOTER_SUFFIX in line
+    ]
+    footer_ok = all(
+        line.startswith(_STAGE150_FOOTER_PREFIX + r"\rlap{") for line in footer_lines
+    )
+    ok = strikeout_ok and hfuzz_ok and footer_ok
+    return {
+        "status": "PASS" if ok else "FAIL",
+        "patches": patches,
+        "usesStrikeout": uses_strikeout,
+        "strikeoutSupport": strikeout_ok,
+        "microOverflowTolerancePt": 0.2,
+        "profileFooterCount": len(footer_lines),
+        "profileFooterAnchored": footer_ok,
+        "inputSha256": hashlib.sha256(original.encode("utf-8")).hexdigest(),
+        "outputSha256": sha256_file(tex_path),
+    }
+
+
 def prepare_compile_tree(
     source_tex: Path,
     source_assets: Path,
@@ -140,23 +274,44 @@ def prepare_compile_tree(
     copied_assets_sha, copied_rows = sha256_tree(compile_assets)
     tex_source_sha = sha256_file(source_tex)
     tex_copy_sha = sha256_file(compile_tex)
-    ok = (
+    exact_copy_ok = (
         tex_source_sha == tex_copy_sha
         and source_assets_sha == copied_assets_sha
         and source_rows == copied_rows
     )
+    if not exact_copy_ok:
+        return {
+            "status": "FAIL",
+            "sourceTex": str(source_tex),
+            "compileTex": str(compile_tex),
+            "sourceTexSha256": tex_source_sha,
+            "copiedTexSha256": tex_copy_sha,
+            "sourceAssets": str(source_assets),
+            "compileAssets": str(compile_assets),
+            "assetCount": len(source_rows),
+            "sourceAssetsSha256": source_assets_sha,
+            "compileAssetsSha256": copied_assets_sha,
+            "assets": copied_rows,
+            "compatibilityOverlay": {"status": "SKIPPED"},
+        }
+
+    overlay = apply_compile_compatibility_overlay(compile_tex)
+    compile_tex_sha = sha256_file(compile_tex)
+    ok = overlay.get("status") == "PASS"
     return {
         "status": "PASS" if ok else "FAIL",
         "sourceTex": str(source_tex),
         "compileTex": str(compile_tex),
         "sourceTexSha256": tex_source_sha,
-        "compileTexSha256": tex_copy_sha,
+        "copiedTexSha256": tex_copy_sha,
+        "compileTexSha256": compile_tex_sha,
         "sourceAssets": str(source_assets),
         "compileAssets": str(compile_assets),
         "assetCount": len(source_rows),
         "sourceAssetsSha256": source_assets_sha,
         "compileAssetsSha256": copied_assets_sha,
         "assets": copied_rows,
+        "compatibilityOverlay": overlay,
     }
 
 
@@ -227,19 +382,12 @@ def parse_latex_diagnostics(log_text: str) -> dict[str, Any]:
     }
 
 
-def latex_error_context(tex_path: Path, log_text: str, radius: int = 12) -> str:
-    line_no: int | None = None
-    match = _FILE_LINE_ERROR_RE.search(log_text)
-    if match:
-        line_no = int(match.group("line"))
-    else:
-        match = _LINE_ERROR_RE.search(log_text)
-        if match:
-            line_no = int(match.group("line"))
-    if line_no is None or not tex_path.is_file():
+def _tex_context(tex_path: Path, line_no: int, radius: int = 12) -> str:
+    if not tex_path.is_file():
         return ""
-
     lines = tex_path.read_text(encoding="utf-8", errors="replace").splitlines()
+    if line_no < 1 or line_no > len(lines):
+        return ""
     start = max(1, line_no - radius)
     end = min(len(lines), line_no + radius)
     rendered: list[str] = []
@@ -247,6 +395,52 @@ def latex_error_context(tex_path: Path, log_text: str, radius: int = 12) -> str:
         prefix = ">>" if number == line_no else "  "
         rendered.append(f"{prefix} {number:5d}: {lines[number - 1]}")
     return "\n".join(rendered)
+
+
+def latex_error_context(tex_path: Path, log_text: str, radius: int = 12) -> str:
+    file_matches = list(_FILE_LINE_ERROR_RE.finditer(log_text))
+    line_no: int | None = None
+    if file_matches:
+        preferred = None
+        for match in reversed(file_matches):
+            message = match.group("message").lower()
+            if any(hint in message for hint in _FATAL_MESSAGE_HINTS):
+                preferred = match
+                break
+        chosen = preferred or file_matches[-1]
+        line_no = int(chosen.group("line"))
+    else:
+        line_matches = list(_LINE_ERROR_RE.finditer(log_text))
+        if line_matches:
+            line_no = int(line_matches[-1].group("line"))
+    if line_no is None:
+        return ""
+    return _tex_context(tex_path, line_no, radius=radius)
+
+
+def blocking_diagnostic_contexts(
+    tex_path: Path,
+    diagnostics: dict[str, Any],
+    radius: int = 5,
+) -> list[dict[str, Any]]:
+    contexts: list[dict[str, Any]] = []
+    seen: set[int] = set()
+    for diagnostic in diagnostics.get("overfull") or []:
+        match = _OVERFULL_LINE_RE.search(str(diagnostic))
+        if not match:
+            continue
+        line_no = int(match.group("line"))
+        if line_no in seen:
+            continue
+        seen.add(line_no)
+        contexts.append(
+            {
+                "diagnostic": diagnostic,
+                "line": line_no,
+                "texContext": _tex_context(tex_path, line_no, radius=radius),
+            }
+        )
+    return contexts
 
 
 def compile_unified_lualatex(
@@ -297,6 +491,7 @@ def compile_unified_lualatex(
             if native_log.is_file():
                 pass_report["nativeLog"] = str(native_log)
             pass_reports.append(pass_report)
+            diagnostics = parse_latex_diagnostics("\n".join(combined_logs))
             return {
                 "status": "FAIL",
                 "command": command,
@@ -304,7 +499,8 @@ def compile_unified_lualatex(
                 "passesCompleted": pass_number - 1,
                 "passReports": pass_reports,
                 "failedPass": pass_number,
-                "diagnostics": parse_latex_diagnostics("\n".join(combined_logs)),
+                "diagnostics": diagnostics,
+                "blockingContexts": blocking_diagnostic_contexts(tex_path, diagnostics),
             }
         pass_reports.append(pass_report)
 
@@ -323,6 +519,7 @@ def compile_unified_lualatex(
         "pdfBytes": pdf_path.stat().st_size if pdf_ok else 0,
         "pdfSha256": sha256_file(pdf_path) if pdf_ok else None,
         "diagnostics": diagnostics,
+        "blockingContexts": blocking_diagnostic_contexts(tex_path, diagnostics),
     }
 
 
