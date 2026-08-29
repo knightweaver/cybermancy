@@ -1,0 +1,79 @@
+{
+  "chapter": 19,
+  "columns": [
+    {
+      "align": "left",
+      "bold": true,
+      "key": "name",
+      "label": "Name",
+      "verticalPaddingPt": 2,
+      "widthIn": 1.5
+    },
+    {
+      "align": "center",
+      "key": "publicationData.tier",
+      "label": "Tier",
+      "verticalPaddingPt": 2,
+      "widthIn": 0.48
+    },
+    {
+      "align": "left",
+      "key": "publicationData.description",
+      "label": "Description",
+      "verticalPaddingPt": 2,
+      "widthIn": 5.332
+    }
+  ],
+  "configStatus": "scaffold",
+  "deck": "",
+  "display": {
+    "groupUppercase": true,
+    "missing": "—"
+  },
+  "expectedColumnLabels": [
+    "Name",
+    "Tier",
+    "Description"
+  ],
+  "expectedEntityCount": 103,
+  "family": "cybernetics",
+  "generatedBy": {
+    "basisSidecarSchema": "cybermancy-step4-structured-entities-v1.2",
+    "initSchema": "cybermancy-rulebook-step6-equipment-init-v1.1",
+    "tool": "init-equipment"
+  },
+  "layoutMode": "tiered-catalog",
+  "outputStem": "Cybermancy_Chapter19_Cybernetics_Step6",
+  "pagination": {
+    "continuationLabel": "Cybernetics",
+    "continuationTemplate": "{label} — CONTINUED",
+    "interTableSpacePt": 10,
+    "tierStartNeedspaceIn": 1.25
+  },
+  "partLabel": "EQUIPMENT & TECHNOLOGY",
+  "requiredPublicationFields": [
+    "publicationData.tier",
+    "publicationData.description"
+  ],
+  "schema": "cybermancy-step6-equipment-catalog-config-v1.1",
+  "sort": [
+    "publicationData.tier",
+    "name"
+  ],
+  "style": {
+    "alternateRowColor": "EEF7F8",
+    "groupBandColor": "DDEEF0",
+    "headerColor": "0B6573",
+    "ruleColor": "18A7B5",
+    "textDarkColor": "183238"
+  },
+  "tableStyle": {
+    "arrayStretch": 1.08,
+    "fontSizePt": 7.4,
+    "leadingPt": 8.8,
+    "tabcolsepPt": 2.5
+  },
+  "tierLabel": "TIER {tier}",
+  "tierMode": "present",
+  "title": "Cybernetics"
+}

@@ -1,0 +1,69 @@
+{
+  "chapter": 22,
+  "columns": [
+    {
+      "align": "left",
+      "bold": true,
+      "key": "name",
+      "label": "Name",
+      "verticalPaddingPt": 2,
+      "widthIn": 1.5
+    },
+    {
+      "align": "left",
+      "key": "publicationData.description",
+      "label": "Description",
+      "verticalPaddingPt": 2,
+      "widthIn": 5.881
+    }
+  ],
+  "configStatus": "scaffold",
+  "deck": "",
+  "display": {
+    "groupUppercase": true,
+    "missing": "—"
+  },
+  "expectedColumnLabels": [
+    "Name",
+    "Description"
+  ],
+  "expectedEntityCount": 20,
+  "family": "mods",
+  "generatedBy": {
+    "basisSidecarSchema": "cybermancy-step4-structured-entities-v1.2",
+    "initSchema": "cybermancy-rulebook-step6-equipment-init-v1.1",
+    "tool": "init-equipment"
+  },
+  "layoutMode": "single-catalog",
+  "outputStem": "Cybermancy_Chapter22_Mods_Step6",
+  "pagination": {
+    "continuationLabel": "Mods",
+    "continuationTemplate": "{label} — CONTINUED",
+    "interTableSpacePt": 10,
+    "tierStartNeedspaceIn": 1.25
+  },
+  "partLabel": "EQUIPMENT & TECHNOLOGY",
+  "requiredPublicationFields": [
+    "publicationData.description"
+  ],
+  "schema": "cybermancy-step6-equipment-catalog-config-v1.1",
+  "sort": [
+    "name"
+  ],
+  "style": {
+    "alternateRowColor": "EEF7F8",
+    "groupBandColor": "DDEEF0",
+    "headerColor": "0B6573",
+    "ruleColor": "18A7B5",
+    "textDarkColor": "183238"
+  },
+  "tableStyle": {
+    "arrayStretch": 1.08,
+    "fontSizePt": 7.4,
+    "leadingPt": 8.8,
+    "tabcolsepPt": 2.5
+  },
+  "tierLabel": "TIER {tier}",
+  "tierMode": "absent",
+  "title": "Mods"
+}
