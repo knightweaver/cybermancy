@@ -1,11 +1,12 @@
-# Step 6 Character Origins — Outcome B Design Proof
+# Step 6 Character Origins — Frozen v1.0
 
-**Status:** DRAFT  
+**Status:** ACCEPTED / FROZEN  
+**Accepted:** 2026-08-28  
 **Scope:** Chapter 10 — Ancestories; Chapter 11 — Communities
 
 This lane implements the approved **Outcome B: prose-derived entry grammar**. It inherits the frozen Long-Form Prose v1.0 publication shell and adds one compact Part III primitive: the **Character Option Entry**.
 
-It is intentionally not frozen yet. Freeze requires an all-entry rendered regression and user visual acceptance.
+The full 27-entry corpus regression passed and the rendered Chapters 10-11 proof was visually accepted. The Character Origins v1.0 grammar is therefore frozen; future grammar changes require an intentional versioned revision.
 
 ## Source boundary
 
@@ -38,6 +39,28 @@ Each normalized entry is derived from the existing horizontal-rule / image / H4 
 
 The wrapped-art treatment is a Character Origins-only delta. The frozen Long-Form Prose v1.0 shell remains unchanged.
 
+## Accepted corpus regression
+
+The frozen v1.0 contract requires:
+
+- Chapter 10: exactly **18 Ancestories**, preserved in canonical order.
+- Chapter 11: exactly **9 Communities**, preserved in canonical order.
+- Chapter 10: exactly **2 Features per entry**.
+- Chapter 11: exactly **1 Community Feature per entry**.
+- Complete Rulebook and Player Guide normalized Chapter 10-11 fragments must match.
+- All **27 staged artwork references** must resolve.
+- Raw MkDocs wrappers are rejected.
+- Missing assets and overfull TeX boxes are production failures.
+- Rendered semantic validation verifies every entry and Feature name.
+
+Acceptance status:
+
+```text
+semantic regression: PASS
+rendered full corpus: PASS
+visual review: ACCEPTED
+```
+
 ## Commands
 
 From repository root:
@@ -48,7 +71,7 @@ python build\rulebook\scripts\build-rulebook-character-origins.py validate
 python build\rulebook\scripts\build-rulebook-character-origins.py build
 ```
 
-`inspect` performs corpus/profile validation without requiring Pandoc or LuaLaTeX. It must report exactly **18 Ancestories** and **9 Communities**, in the frozen source order encoded by the draft layout contract.
+`inspect` performs corpus/profile validation without requiring Pandoc or LuaLaTeX. It must report exactly **18 Ancestories** and **9 Communities** in canonical order.
 
 `validate` additionally preflights the existing Pandoc/LuaLaTeX toolchain and the Character Origins Lua filter.
 
@@ -83,12 +106,8 @@ build/rulebook/scripts/build-rulebook-character-origins.py
 
 It must not modify the frozen Prose v1 contract, Step 4 normalized source, manifests, canonical Chapters 10-11, ClassPackage, DomainPackage, Equipment grammar, or unrelated build infrastructure.
 
-## Current acceptance gate
+## Freeze disposition
 
-The next required step is local regression:
+**Character Origins v1.0 is frozen.**
 
-1. run `inspect`;
-2. run `build`;
-3. inspect the generated Chapters 10-11 PDF across all 27 entries, with particular attention to wrapped artwork near column/page boundaries and confirmation that Feature text remains full-column;
-4. adjust only the Character Option Entry delta if necessary;
-5. freeze v1 only after visual acceptance.
+Chapters 10-11 are closed for Step 6 design. Their next work is later Part III / Complete Rulebook AST integration alongside ClassPackage and DomainPackage; do not reopen the Character Option Entry grammar unless a deliberate v2 revision is requested.
