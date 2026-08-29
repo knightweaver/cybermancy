@@ -202,15 +202,29 @@ def _end() -> str:
     return "\\end{document}\n"
 
 
-def _art_block(pdata: dict[str, Any], source_root: Path, width: str = "0.96\\linewidth") -> str:
+def _mm(value: float | int) -> str:
+    numeric = float(value)
+    return str(int(numeric)) if numeric.is_integer() else f"{numeric:g}"
+
+
+def _art_block(
+    pdata: dict[str, Any],
+    source_root: Path,
+    width: str = "0.96\\linewidth",
+    *,
+    max_height_mm: float = 30,
+    placeholder_height_mm: float = 28,
+) -> str:
     art = pdata.get("publicationArt") if isinstance(pdata.get("publicationArt"), dict) else {}
     rel = str(art.get("image") or pdata.get("image") or "").strip()
+    placeholder_height = _mm(placeholder_height_mm)
+    max_height = _mm(max_height_mm)
     if not rel:
-        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height=28mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}NO PUBLICATION ART\end{{tcolorbox}}'''
+        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height={placeholder_height}mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}NO PUBLICATION ART\end{{tcolorbox}}'''
     path = source_root / rel
     if not path.is_file():
-        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height=28mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}ART NOT STAGED\\{esc(rel)}\end{{tcolorbox}}'''
-    return rf'''\includegraphics[width={width},height=30mm,keepaspectratio]{{{esc(path.as_posix())}}}'''
+        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height={placeholder_height}mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}ART NOT STAGED\\{esc(rel)}\end{{tcolorbox}}'''
+    return rf'''\includegraphics[width={width},height={max_height}mm,keepaspectratio]{{{esc(path.as_posix())}}}'''
 
 
 def _stat(value: Any, label: str) -> str:
@@ -280,7 +294,10 @@ def _adversary_entry(entity: dict[str, Any], source_root: Path) -> str:
     thresholds = p.get("damageThresholds") if isinstance(p.get("damageThresholds"), dict) else {}
     threshold_text = " / ".join(str(thresholds.get(k)) for k in ("major", "severe") if thresholds.get(k) not in (None, ""))
     header_stats = [
-        _stat(difficulty, "Difficulty"), _stat(threshold_text, "Thresholds"), _stat(p.get("hitPoints"), "HP"), _stat(p.get("stress"), "Stress")
+        _stat(difficulty, "Difficulty"),
+        _stat(threshold_text, "Thresholds"),
+        _stat(p.get("hitPoints"), "HP"),
+        _stat(p.get("stress"), "Stress"),
     ]
     header_stats = [x for x in header_stats if x]
     attack = p.get("attack") if isinstance(p.get("attack"), dict) else {}
@@ -296,28 +313,38 @@ def _adversary_entry(entity: dict[str, Any], source_root: Path) -> str:
         if dmg:
             attack_parts.append((dmg + (f" {dtypes}" if dtypes else "")).strip())
     exps = p.get("experiences") if isinstance(p.get("experiences"), list) else []
-    exp_text = ", ".join(f"{e.get('name')} +{e.get('value')}" if e.get("value") not in (None, "") else str(e.get("name")) for e in exps if isinstance(e, dict) and e.get("name"))
+    exp_text = ", ".join(
+        f"{e.get('name')} +{e.get('value')}" if e.get("value") not in (None, "") else str(e.get("name"))
+        for e in exps
+        if isinstance(e, dict) and e.get("name")
+    )
     desc = md(p.get("descriptionMarkdown") or p.get("description") or "")
     motives = md(p.get("motivesAndTactics") or "")
     features = _features(p.get("features"))
     fp = _fast_play(p.get("fastPlay"))
-    art = _art_block(p, source_root)
+    art = _art_block(
+        p,
+        source_root,
+        "0.96\\linewidth",
+        max_height_mm=18,
+        placeholder_height_mm=18,
+    )
     return rf'''
-\Needspace{{14\baselineskip}}
-\vspace{{4mm}}
-\noindent\begin{{minipage}}[t]{{0.17\textwidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill
-\begin{{minipage}}[t]{{0.80\textwidth}}\vspace{{0pt}}
-{{\sffamily\bfseries\small\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[2.5pt]
-{{\sffamily\bfseries\fontsize{{21}}{{22}}\selectfont\color{{CMInk}} {name}}}\\[3pt]
-{{\sffamily\small {' \\quad '.join(header_stats)}}}
+\Needspace{{10\baselineskip}}
+\vspace{{3mm}}
+\noindent\begin{{minipage}}[t]{{0.20\linewidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill
+\begin{{minipage}}[t]{{0.76\linewidth}}\vspace{{0pt}}
+{{\sffamily\bfseries\scriptsize\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[1.5pt]
+{{\sffamily\bfseries\fontsize{{15.5}}{{16.5}}\selectfont\color{{CMInk}} {name}}}\\[2pt]
+{{\sffamily\scriptsize {' \\hspace{0.65em} '.join(header_stats)}}}
 \end{{minipage}}
-\vspace{{2mm}}{{\color{{CMTeal}}\hrule height 0.7pt}}\vspace{{2mm}}
+\vspace{{1.5mm}}{{\color{{CMTeal}}\hrule height 0.7pt}}\vspace{{1.5mm}}
 {desc if desc else r'{\itshape\color{CMInk!60}No canonical description supplied.}'}
 {rf'\par\textbf{{Attack:}} {esc(" / ".join(attack_parts))}' if attack_parts else ''}
 {rf'\par\textbf{{Motives \& Tactics:}} {motives}' if motives else ''}
 {rf'\par\textbf{{Experiences:}} {esc(exp_text)}' if exp_text else ''}
 {fp}
-\Needspace{{7\baselineskip}}{{\sffamily\bfseries\large\color{{CMInk}} FEATURES}}\par
+\Needspace{{5\baselineskip}}{{\sffamily\bfseries\normalsize\color{{CMInk}} FEATURES}}\par
 {features}
 '''
 
@@ -382,8 +409,11 @@ def render_package(sidecar: dict[str, Any], config: dict[str, Any], source_root:
     if proof_note:
         tex.append(rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMViolet,boxrule=0.55pt]\sffamily\small\textbf{{PHASE C PROOF.}} {esc(proof_note)}\end{{tcolorbox}}''')
     if family == "adversaries":
-        tex.append(r"\clearpage")
+        if columns > 1:
+            tex.append(rf'''\setlength{{\columnsep}}{{0.22in}}\begin{{multicols}}{{{columns}}}\raggedcolumns''')
         tex.extend(_adversary_entry(entity, source_root) for entity in entities)
+        if columns > 1:
+            tex.append(r'''\end{multicols}''')
     elif family == "environments":
         tex.extend(_environment_entry(entity, source_root) for entity in entities)
     else:
