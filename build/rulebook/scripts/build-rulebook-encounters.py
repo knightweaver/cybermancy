@@ -6,7 +6,7 @@ import json
 import shutil
 import subprocess
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 SCRIPT = Path(__file__).resolve()
@@ -15,7 +15,8 @@ REPO_ROOT = SCRIPT_DIR.parents[2]
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from rulebook_layout.encounters import load_json, render_package, validate_sidecar
+from rulebook_layout.encounters import esc, load_json, render_package, validate_sidecar
+from rulebook_layout.render_assets import prepare_lualatex_render_assets
 
 DEFAULT_SIDECAR = REPO_ROOT / "build/rulebook/source/metadata/structured-entities.json"
 DEFAULT_SOURCE_ROOT = REPO_ROOT / "build/rulebook/source"
@@ -178,6 +179,72 @@ def _productionize_config(
     return runtime, contract, errors
 
 
+def _selected_publication_art_references(
+    sidecar: dict[str, Any],
+    semantic_ids: list[Any],
+) -> list[str]:
+    wanted = {str(value) for value in semantic_ids if str(value or "").strip()}
+    references: set[str] = set()
+    for entity in sidecar.get("entities") or []:
+        if not isinstance(entity, dict) or str(entity.get("semanticId") or "") not in wanted:
+            continue
+        publication = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
+        art = publication.get("publicationArt") if isinstance(publication.get("publicationArt"), dict) else {}
+        reference = str(art.get("image") or publication.get("image") or "").strip().replace("\\", "/")
+        if reference:
+            references.add(reference)
+    return sorted(references)
+
+
+def _source_asset_path(source_root: Path, reference: str) -> Path:
+    return source_root / Path(*PurePosixPath(reference).parts)
+
+
+def _rewrite_render_asset_paths(
+    tex_text: str,
+    mapping: dict[str, str],
+    source_root: Path,
+) -> str:
+    rewritten = tex_text
+    for reference, render_path in mapping.items():
+        source = _source_asset_path(source_root, reference).resolve()
+        render = Path(render_path).resolve()
+        rewritten = rewritten.replace(
+            esc(source.as_posix()),
+            esc(render.as_posix()),
+        )
+    return rewritten
+
+
+def _prepare_render_assets(
+    tex_text: str,
+    sidecar: dict[str, Any],
+    report: dict[str, Any],
+    source_root: Path,
+    output: Path,
+    kind: str,
+) -> tuple[str, dict[str, Any]]:
+    references = _selected_publication_art_references(
+        sidecar,
+        report.get("selectedSemanticIds") if isinstance(report.get("selectedSemanticIds"), list) else [],
+    )
+    mapping, details = prepare_lualatex_render_assets(
+        references,
+        source_root,
+        output / "_render-assets" / kind,
+    )
+    return _rewrite_render_asset_paths(tex_text, mapping, source_root), details
+
+
+def _merge_environment_chapter_opener(tex_text: str) -> tuple[str, bool]:
+    """Keep the Chapter 31 title block on the same page as the first Environment."""
+    marker = r"\clearpage"
+    index = tex_text.find(marker)
+    if index < 0:
+        return tex_text, False
+    return tex_text[:index] + tex_text[index + len(marker):], True
+
+
 def build_one(
     command: str,
     kind: str,
@@ -217,6 +284,27 @@ def build_one(
     tex_text, report = render_package(sidecar, config, source_root)
     output.mkdir(parents=True, exist_ok=True)
     stem = (PROOF_STEMS if command == "proof" else BUILD_STEMS)[kind]
+
+    if kind == "environment":
+        tex_text, merged = _merge_environment_chapter_opener(tex_text)
+        report["chapterOpenerMergedWithFirstEntry"] = merged
+
+    tex_text, render_assets = _prepare_render_assets(
+        tex_text,
+        sidecar,
+        report,
+        source_root,
+        output,
+        kind,
+    )
+    report["renderAssets"] = render_assets
+    if render_assets.get("status") != "PASS":
+        report["status"] = "FAIL"
+        report.setdefault("errors", []).append(
+            "Publication artwork could not be prepared for LuaLaTeX. "
+            "See renderAssets.missing/unsupported for details."
+        )
+
     tex_path = output / f"{stem}.tex"
     tex_path.write_text(tex_text, encoding="utf-8")
 
