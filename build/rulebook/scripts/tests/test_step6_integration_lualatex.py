@@ -15,6 +15,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from rulebook_layout.unified_lualatex import (
     STAGE_ORDER,
+    apply_compile_compatibility_overlay,
     compile_unified_lualatex,
     contract_stage,
     extract_usepackages,
@@ -44,13 +45,14 @@ class Stage160ContractTests(unittest.TestCase):
 
 
 class Stage160CompileTreeTests(unittest.TestCase):
-    def test_prepare_compile_tree_copies_exact_tex_and_assets(self) -> None:
+    def test_prepare_compile_tree_verifies_exact_copy_before_compile_overlay(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             source = root / "stage150"
             source.mkdir()
             tex = source / "book.tex"
-            tex.write_text("\\documentclass{article}\n\\begin{document}x\\end{document}\n", encoding="utf-8")
+            original = "\\documentclass{article}\n\\begin{document}x\\end{document}\n"
+            tex.write_text(original, encoding="utf-8")
             assets = source / "assets"
             nested = assets / "nested"
             nested.mkdir(parents=True)
@@ -61,11 +63,51 @@ class Stage160CompileTreeTests(unittest.TestCase):
             result = prepare_compile_tree(tex, assets, work)
 
             self.assertEqual(result["status"], "PASS", result)
-            self.assertEqual(result["sourceTexSha256"], result["compileTexSha256"])
+            self.assertEqual(result["sourceTexSha256"], result["copiedTexSha256"])
+            self.assertNotEqual(result["sourceTexSha256"], result["compileTexSha256"])
             self.assertEqual(result["sourceAssetsSha256"], result["compileAssetsSha256"])
             self.assertEqual(result["assetCount"], 2)
-            self.assertEqual(sha256_file(tex), sha256_file(work / "book.tex"))
+            self.assertEqual(tex.read_text(encoding="utf-8"), original)
+            self.assertIn(r"\hfuzz=0.2pt", (work / "book.tex").read_text(encoding="utf-8"))
             self.assertEqual(sha256_tree(assets)[0], sha256_tree(work / "assets")[0])
+            self.assertEqual(result["compatibilityOverlay"]["status"], "PASS")
+
+    def test_compile_overlay_adds_strikeout_support_anchors_footer_and_is_idempotent(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            tex = Path(td) / "book.tex"
+            tex.write_text(
+                "\n".join(
+                    [
+                        r"\documentclass{article}",
+                        r"\usepackage[hidelinks]{hyperref}",
+                        r"\fancyfoot[L]{\sffamily\fontsize{7.0}{8.5}\selectfont\color{CMTeal}STEP 6 // COMPLETE RULEBOOK // INTEGRATED}",
+                        r"\begin{document}",
+                        r"\st{1. \textbf{World Foundations}}",
+                        r"\end{document}",
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+
+            first = apply_compile_compatibility_overlay(tex)
+            rendered = tex.read_text(encoding="utf-8")
+            second = apply_compile_compatibility_overlay(tex)
+
+            self.assertEqual(first["status"], "PASS", first)
+            self.assertEqual(
+                first["patches"],
+                [
+                    "pandoc-strikeout-soul",
+                    "hfuzz-0.2pt",
+                    "profile-footer-zero-width-anchor",
+                ],
+            )
+            self.assertIn(r"\usepackage{soul}", rendered)
+            self.assertIn(r"\hfuzz=0.2pt", rendered)
+            self.assertIn(r"\fancyfoot[L]{\rlap{", rendered)
+            self.assertEqual(second["status"], "PASS", second)
+            self.assertEqual(second["patches"], [])
 
 
 class Stage160GraphicsPreflightTests(unittest.TestCase):
@@ -173,25 +215,34 @@ class Stage160CompileTests(unittest.TestCase):
             self.assertTrue((work / "logs" / "lualatex-pass-2.txt").is_file())
             self.assertTrue((work / "book.pdf").is_file())
 
-    def test_compile_fails_closed_on_first_pass_error_with_tex_context(self) -> None:
+    def test_compile_fails_closed_on_first_pass_error_with_fatal_tex_context(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             work = Path(td)
             tex = work / "book.tex"
             tex.write_text("line one\nline two\nline three\n", encoding="utf-8")
 
             def runner(command: list[str], cwd: Path):
-                return _completed(command, 1, stdout="book.tex:2: Undefined control sequence.\nl.2 line two\n")
+                return _completed(
+                    command,
+                    1,
+                    stdout=(
+                        "book.tex:2: Infinite glue shrinkage found in box being split\n"
+                        "book.tex:3: Undefined control sequence.\n"
+                        "l.3 line three\n"
+                    ),
+                )
 
             report = compile_unified_lualatex(tex, "lualatex", work, passes=2, runner=runner)
             self.assertEqual(report["status"], "FAIL")
             self.assertEqual(report["failedPass"], 1)
-            self.assertIn("line two", report["passReports"][0]["texContext"])
+            self.assertIn("line three", report["passReports"][0]["texContext"])
+            self.assertIn(">>     3:", report["passReports"][0]["texContext"])
 
     def test_compile_fails_closed_on_overfull_output_even_when_lualatex_returns_zero(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             work = Path(td)
             tex = work / "book.tex"
-            tex.write_text("test", encoding="utf-8")
+            tex.write_text("\n".join(f"line {n}" for n in range(1, 13)) + "\n", encoding="utf-8")
 
             def runner(command: list[str], cwd: Path):
                 (cwd / "book.pdf").write_bytes(b"%PDF-1.7\nsynthetic\n")
@@ -204,6 +255,8 @@ class Stage160CompileTests(unittest.TestCase):
             report = compile_unified_lualatex(tex, "lualatex", work, passes=2, runner=runner)
             self.assertEqual(report["status"], "FAIL")
             self.assertEqual(report["diagnostics"]["blockingCount"], 1)
+            self.assertEqual(report["blockingContexts"][0]["line"], 10)
+            self.assertIn("line 10", report["blockingContexts"][0]["texContext"])
 
 
 if __name__ == "__main__":
