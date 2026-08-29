@@ -94,6 +94,7 @@
   ],
   "regressionExpectations": {
     "characterOrigins": {"ancestories": 18, "communities": 9, "artwork": 27},
+    "classes": {"classes": 5, "subclasses": 10},
     "domains": {"domains": 3, "cards": 73},
     "equipment": {
       "weapons": 47,
