@@ -24,6 +24,23 @@ The renderer consumes `build/rulebook/source/metadata/structured-entities.json` 
 - Publication artwork is optional for legacy entities and is loaded only from staged Step 4 paths. LuaLaTeX-incompatible raster formats are converted into caller-owned temporary render assets without mutating Step 4 source assets.
 - Production builds fail closed if the Step 4 corpus count drifts from the frozen contract: 106 Adversaries, 8 Environments, 419 standalone Adversary Features.
 
+## Chapter 32 publication-equivalence audit
+
+Deduplication of standalone Adversary Features is owned by Step 4 publication semantics, not the Step 6 renderer. The Step 4 pipeline now emits an advisory equivalence audit after encounter enrichment:
+
+- `build/rulebook/source/metadata/adversary-feature-equivalence-audit.json`
+- `build/rulebook/source/metadata/adversary-feature-equivalence-review.md`
+
+The audit preserves all canonical Foundry/source entities. It identifies exact and trivial-normalization equivalence groups, recommends a deterministic publication representative, and separately identifies high-similarity same-name pairs for human review. Fuzzy candidates never auto-collapse. Until the review is approved, Chapter 32 remains unchanged at the frozen 419-entry full-corpus contract.
+
+The audit is generated automatically by a normal Step 4 build, or it can be regenerated from an existing current Step 4 sidecar without rebuilding the rest of Step 4:
+
+```powershell
+python build\rulebook\scripts\audit-adversary-feature-equivalence.py
+```
+
+After review, the next implementation stage is to encode approved publication representative decisions in Step 4, rebuild Step 4, update Chapter 32's frozen expected count, and regenerate Chapter 32. Canonical source cleanup is a separate stronger action and should only be used when a duplicate is determined to be an erroneous canonical entity rather than merely redundant for publication.
+
 ## Approved Phase C proofs
 
 The approved proof selections are retained under `build/rulebook/layout/encounters/proof/` for visual regression. The Chapter 30 proof now exercises the v1.1 two-column grammar; Chapters 31-32 retain their approved v1.0 proof grammars.
