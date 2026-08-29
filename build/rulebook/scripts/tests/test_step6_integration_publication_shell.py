@@ -13,7 +13,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout import prose_adapters, rules_adapters
-from rulebook_layout.integration_ast import canonical_ast_sha256, node_classes
+from rulebook_layout.integration_ast import canonical_ast_sha256, document_text, node_classes
 from rulebook_layout.publication_shell import (
     COLUMN_CHAPTERS,
     PACKAGE_HEADER_CHAPTERS,
@@ -169,7 +169,7 @@ class PublicationShellTests(unittest.TestCase):
         self.assertEqual(result.replaced["columnEnds"], 17)
         self.assertEqual(result.replaced["gmDivider"], 1)
         rendered = json.dumps(ast, ensure_ascii=False)
-        self.assertIn("Preserved GM front matter.", rendered)
+        self.assertIn("Preserved GM front matter.", document_text(ast))
         for header in package_headers:
             self.assertIn(header, rendered)
 
