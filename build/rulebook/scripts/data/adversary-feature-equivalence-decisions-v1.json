@@ -1,0 +1,461 @@
+{
+  "schema": "cybermancy-step4-adversary-feature-equivalence-decisions-v1.0",
+  "status": "approved",
+  "approvedAt": "2026-08-28",
+  "authority": "User-approved Chapter 32 publication equivalence review, refined with Cybermancy Feature Library v1.0.0 family/parameter semantics.",
+  "sourceFeatureCount": 419,
+  "expectedPublicationRepresentativeCount": 344,
+  "canonicalSourceMutation": false,
+  "policy": {
+    "preserveCanonicalEntities": true,
+    "collapseExactPublicationDuplicates": true,
+    "collapseFeatureLibraryFamiliesOnlyWhenMechanicallyMeaningfulParametersMatch": true,
+    "ignoredTemplateParameters": [
+      "adversary"
+    ],
+    "fuzzySimilarityIsNotAnApprovalBasis": true,
+    "mechanicallyDistinctSameNameVariantsRemainSeparate": true,
+    "explicitDistinctFamilies": [
+      "group-attack",
+      "split"
+    ],
+    "terrifyingCloseRangeVariantRemainsDistinct": true,
+    "referenceEntryPolicy": "Feature-Library-backed groups use reader-neutral rules text; exact-only groups retain representative source text/actions."
+  },
+  "groups": [
+    {
+      "groupId": "afpub-5a00b6d9974c",
+      "basis": "feature-library-family-parameters",
+      "familyId": "acidic-form",
+      "name": "Acidic Form",
+      "representativeSourceId": "Sk9GgZtCrJLm4wP3",
+      "memberSourceIds": ["Sk9GgZtCrJLm4wP3", "okArm6htqwyNXHtR", "v4W8e9P06S5YjMFy"],
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "acidic-form",
+        "templateParameters": ["adversary"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When {adversary} makes a successful attack, the target must mark an Armor Slot without receiving its benefits (they can still use armor to reduce the damage). If they can’t mark an Armor Slot, they must mark an additional HP."
+      },
+      "publicationEntry": {
+        "name": "Acidic Form",
+        "rulesMarkdown": "When this adversary makes a successful attack, the target must mark an Armor Slot without receiving its benefits (they can still use armor to reduce the damage). If they can't mark an Armor Slot, they must mark an additional HP.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-50ee4aa2f9ea",
+      "basis": "exact-publication-semantics",
+      "familyId": "death-quake",
+      "name": "Death Quake",
+      "representativeSourceId": "NKhSicfnUXpys4cM",
+      "memberSourceIds": ["NKhSicfnUXpys4cM", "nOhi70Q5mwaqyWqB"]
+    },
+    {
+      "groupId": "afpub-dbd47ed0f8ea",
+      "basis": "exact-publication-semantics",
+      "familyId": "divine-flight",
+      "name": "Divine Flight",
+      "representativeSourceId": "EIG6Jc2jZA95pBmO",
+      "memberSourceIds": ["EIG6Jc2jZA95pBmO", "kUGl89tJogJNsu5j"]
+    },
+    {
+      "groupId": "afpub-5e0f65a6bd43",
+      "basis": "exact-publication-semantics",
+      "familyId": "doombringer",
+      "name": "Doombringer",
+      "representativeSourceId": "Ef4peCglIIEAc9lC",
+      "memberSourceIds": ["Ef4peCglIIEAc9lC", "Of8XAKOxYp6PIXEH"]
+    },
+    {
+      "groupId": "afpub-4f51539013af",
+      "basis": "exact-publication-semantics",
+      "familyId": "envelop",
+      "name": "Envelop",
+      "representativeSourceId": "2vKJungfmQ4F45hD",
+      "memberSourceIds": ["2vKJungfmQ4F45hD", "Uko9ktHvsMh2uKeC"]
+    },
+    {
+      "groupId": "afpub-8d5bdb5343f1",
+      "basis": "exact-publication-semantics",
+      "familyId": "from-above",
+      "name": "From Above",
+      "representativeSourceId": "OWu4a4FK9Ql0mcao",
+      "memberSourceIds": ["OWu4a4FK9Ql0mcao", "VOhQ6THNg66s13ur"]
+    },
+    {
+      "groupId": "afpub-bba55d2b3d93",
+      "basis": "feature-library-family-parameters",
+      "familyId": "ghost",
+      "name": "Ghost",
+      "representativeSourceId": "Fhe9hBrQ70Bl9Avg",
+      "memberSourceIds": ["Fhe9hBrQ70Bl9Avg", "gj72szTmU1RKdWRh", "i4hLG0l7R4QmkeIk"],
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "ghost",
+        "templateParameters": ["adversary"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} has resistance to physical damage. Mark a Stress to move up to Close range through solid objects."
+      },
+      "publicationEntry": {
+        "name": "Ghost",
+        "rulesMarkdown": "This adversary has resistance to physical damage. **Mark a Stress** to move up to Close range through solid objects.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-ad371d30f0a5",
+      "basis": "exact-publication-semantics",
+      "familyId": "group-attack",
+      "name": "Group Attack",
+      "representativeSourceId": "0iky5UWysiVhWNyE",
+      "memberSourceIds": ["0iky5UWysiVhWNyE", "zX1VYqUxkWDix077"]
+    },
+    {
+      "groupId": "afpub-dcd5d096557d",
+      "basis": "exact-publication-semantics",
+      "familyId": "hallucinatory-breath",
+      "name": "Hallucinatory Breath",
+      "representativeSourceId": "GBpukczD3Yr85VhC",
+      "memberSourceIds": ["GBpukczD3Yr85VhC", "KPciAwtJZOOWyE46"]
+    },
+    {
+      "groupId": "afpub-e379e6226046",
+      "basis": "feature-library-family-parameters",
+      "familyId": "horde",
+      "name": "Horde (1d4+1)",
+      "representativeSourceId": "Gm3FZAt3Z6mOQ6a2",
+      "memberSourceIds": ["Gm3FZAt3Z6mOQ6a2", "Iz4PSncDHlvBl1LH", "qENvIjShb9ZR4KJY"],
+      "mechanicalParameters": {"reducedDamage": "1d4+1"},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "horde",
+        "templateParameters": ["adversary", "reducedDamage"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When {adversary} have marked half or more of their HP, their standard attack deals {reducedDamage} damage instead."
+      },
+      "publicationEntry": {
+        "name": "Horde (1d4+1)",
+        "rulesMarkdown": "When this adversary has marked half or more of their HP, their standard attack deals **1d4+1** physical damage instead.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-7353e7b93b83",
+      "basis": "feature-library-family-parameters",
+      "familyId": "horde",
+      "name": "Horde (1d4+2)",
+      "representativeSourceId": "0XttwmCkTlisKDYX",
+      "memberSourceIds": ["0XttwmCkTlisKDYX", "qzLPJOe4bSx9v3pq"],
+      "mechanicalParameters": {"reducedDamage": "1d4+2"},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "horde",
+        "templateParameters": ["adversary", "reducedDamage"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When {adversary} have marked half or more of their HP, their standard attack deals {reducedDamage} damage instead."
+      },
+      "publicationEntry": {
+        "name": "Horde (1d4+2)",
+        "rulesMarkdown": "When this adversary has marked half or more of their HP, their standard attack deals **1d4+2** physical damage instead.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-acde91338680",
+      "basis": "feature-library-family-parameters",
+      "familyId": "horde",
+      "name": "Horde (2d4+1)",
+      "representativeSourceId": "G4aTE8HIZ8k5UaW5",
+      "memberSourceIds": ["G4aTE8HIZ8k5UaW5", "G6RTmCpH1RuOxdGu"],
+      "mechanicalParameters": {"reducedDamage": "2d4+1"},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "horde",
+        "templateParameters": ["adversary", "reducedDamage"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When {adversary} have marked half or more of their HP, their standard attack deals {reducedDamage} damage instead."
+      },
+      "publicationEntry": {
+        "name": "Horde (2d4+1)",
+        "rulesMarkdown": "When this adversary has marked half or more of their HP, their standard attack deals **2d4+1** physical damage instead.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-6a2649035213",
+      "basis": "exact-publication-semantics",
+      "familyId": "mind-dance",
+      "name": "Mind Dance",
+      "representativeSourceId": "gHOeE7VAF6RMggg6",
+      "memberSourceIds": ["gHOeE7VAF6RMggg6", "njsWwXlOdwIamSUI"]
+    },
+    {
+      "groupId": "afpub-53c46bb0ab23",
+      "basis": "feature-library-family-parameters",
+      "familyId": "minion",
+      "name": "Minion (13)",
+      "representativeSourceId": "0Iqu6EbbsBQ7PjFu",
+      "memberSourceIds": ["0Iqu6EbbsBQ7PjFu", "VOCc9KmaQpsYTlwk"],
+      "mechanicalParameters": {"damagePerAdditional": 13},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "minion",
+        "templateParameters": ["adversary", "damagePerAdditional"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} is defeated when they take any damage. For every {damagePerAdditional} damage a PC deals to {adversary}, defeat an additional Minion within range the attack would succeed against."
+      },
+      "publicationEntry": {
+        "name": "Minion (13)",
+        "rulesMarkdown": "This adversary is defeated when they take any damage. For every 13 damage a PC deals to this adversary, defeat an additional Minion within range the attack would succeed against.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-e59519f442a0",
+      "basis": "feature-library-family-parameters",
+      "familyId": "minion",
+      "name": "Minion (3)",
+      "representativeSourceId": "5i8kS5yxV38MsKy3",
+      "memberSourceIds": ["5i8kS5yxV38MsKy3", "C67DYWJY868U90RK", "l0A6mOcJTjhpKBIT"],
+      "mechanicalParameters": {"damagePerAdditional": 3},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "minion",
+        "templateParameters": ["adversary", "damagePerAdditional"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} is defeated when they take any damage. For every {damagePerAdditional} damage a PC deals to {adversary}, defeat an additional Minion within range the attack would succeed against."
+      },
+      "publicationEntry": {
+        "name": "Minion (3)",
+        "rulesMarkdown": "This adversary is defeated when they take any damage. For every 3 damage a PC deals to this adversary, defeat an additional Minion within range the attack would succeed against.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-d31dca03b484",
+      "basis": "feature-library-family-parameters",
+      "familyId": "minion",
+      "name": "Minion (4)",
+      "representativeSourceId": "4bdpK8jfozYDbbvk",
+      "memberSourceIds": ["4bdpK8jfozYDbbvk", "rvouzpizXOAz7v9u", "s8tURqZ35sdP3qVD"],
+      "mechanicalParameters": {"damagePerAdditional": 4},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "minion",
+        "templateParameters": ["adversary", "damagePerAdditional"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} is defeated when they take any damage. For every {damagePerAdditional} damage a PC deals to {adversary}, defeat an additional Minion within range the attack would succeed against."
+      },
+      "publicationEntry": {
+        "name": "Minion (4)",
+        "rulesMarkdown": "This adversary is defeated when they take any damage. For every 4 damage a PC deals to this adversary, defeat an additional Minion within range the attack would succeed against.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-97fb4a244930",
+      "basis": "feature-library-family-parameters",
+      "familyId": "minion",
+      "name": "Minion (6)",
+      "representativeSourceId": "93ywTQRRNvx9lQf9",
+      "memberSourceIds": ["93ywTQRRNvx9lQf9", "G8r0kV1ssNhxYfEV", "XtZBmKGzVwBsFEaB", "bVCBaBJaNS4ocswN"],
+      "mechanicalParameters": {"damagePerAdditional": 6},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "minion",
+        "templateParameters": ["adversary", "damagePerAdditional"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} is defeated when they take any damage. For every {damagePerAdditional} damage a PC deals to {adversary}, defeat an additional Minion within range the attack would succeed against."
+      },
+      "publicationEntry": {
+        "name": "Minion (6)",
+        "rulesMarkdown": "This adversary is defeated when they take any damage. For every 6 damage a PC deals to this adversary, defeat an additional Minion within range the attack would succeed against.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-eaa2b1d62bba",
+      "basis": "feature-library-family-parameters",
+      "familyId": "momentum",
+      "name": "Momentum",
+      "representativeSourceId": "1dJ6y07fv00L09Ua",
+      "memberSourceIds": ["1dJ6y07fv00L09Ua", "4eOtdJpu4DxzPm2X", "7vnYkzt0dvjMzwdh", "9Bi10syZ26Fzup0n", "A19Y8C9K5sOoi2No", "C4k511d7r96qT7DO", "DcFL1McmNIlflQm4", "FSHGQPVhgZwMiZyS", "J6fn8ifEq2fpCjwj", "Tyum4d0E1FpkO532", "UBU3RPNln4u9dPm6", "Y5dHY5x821KQUT8C", "Zw7KDCbho6XWjLyT", "dQDoJbglhvD4Oi3i", "fo0LtPyfh45oOLUU", "gGuXn1wSswJeaPFH", "kczwqZUJFNx0znQW", "mK4V3CxLZjuvjbqH", "oayD4fnGyyuq96hr", "pPeCxa4Pb5mpt5Dk", "pV8VL8HaDpbUVtcL", "x8GlPRjOF4rgzkkm", "x8fxgbXPMuX6aql0"],
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "momentum",
+        "templateParameters": ["adversary"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When {adversary} makes a successful attack against a PC, you gain a Fear."
+      },
+      "publicationEntry": {
+        "name": "Momentum",
+        "rulesMarkdown": "When this adversary makes a successful attack against a PC, you gain a Fear.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-34e7ae74e766",
+      "basis": "exact-publication-semantics",
+      "familyId": "overwhelm",
+      "name": "Overwhelm",
+      "representativeSourceId": "8n5pyI76FxWWtbr0",
+      "memberSourceIds": ["8n5pyI76FxWWtbr0", "c3Taud3Ij5tkcs2O"]
+    },
+    {
+      "groupId": "afpub-5ba8bdb01186",
+      "basis": "exact-publication-semantics",
+      "familyId": "ramp-up",
+      "name": "Ramp Up",
+      "representativeSourceId": "dkz4K4yYpD7iqg8A",
+      "memberSourceIds": ["dkz4K4yYpD7iqg8A", "qgvK6tcyNXscfUVn"]
+    },
+    {
+      "groupId": "afpub-6369807cf1f6",
+      "basis": "feature-library-family-parameters",
+      "familyId": "relentless",
+      "name": "Relentless (2)",
+      "representativeSourceId": "310OcvxQeb3qgj5O",
+      "memberSourceIds": ["310OcvxQeb3qgj5O", "K3VuqUqNSNqotdOF", "KPrmKXwmKw2LIWyv", "UVxWLgpXL1fH26TT", "Vt6OrYB2wKXZQdJP", "jPnruHfSKXSUAfOC", "peApnKaFP3Y2GfLj", "rm0Nda9Biu7MvGHK"],
+      "mechanicalParameters": {"activations": "2"},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "relentless",
+        "templateParameters": ["adversary", "activations"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} can be spotlighted up to {activations} times per GM turn. Spend Fear as usual to spotlight them."
+      },
+      "publicationEntry": {
+        "name": "Relentless (2)",
+        "rulesMarkdown": "This adversary can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-e6fbd4e04995",
+      "basis": "feature-library-family-parameters",
+      "familyId": "relentless",
+      "name": "Relentless (3)",
+      "representativeSourceId": "6vHOF1rbKKNcWrZe",
+      "memberSourceIds": ["6vHOF1rbKKNcWrZe", "6z2c4Gx8RZOm9mLd", "EuTymUh9bsOPfnsf", "RDn0YmfJvYyqcjXo", "jzGlB2mZL5siVfB1", "kjG14tb0KaGNwxvK", "krpXYIGOXs2QbLo3"],
+      "mechanicalParameters": {"activations": "3"},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "relentless",
+        "templateParameters": ["adversary", "activations"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} can be spotlighted up to {activations} times per GM turn. Spend Fear as usual to spotlight them."
+      },
+      "publicationEntry": {
+        "name": "Relentless (3)",
+        "rulesMarkdown": "This adversary can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-4278a5e119ef",
+      "basis": "feature-library-family-parameters",
+      "familyId": "relentless",
+      "name": "Relentless (4)",
+      "representativeSourceId": "ROqwdVMoopiptVcV",
+      "memberSourceIds": ["ROqwdVMoopiptVcV", "lG1TBfgfDCmqU0VB"],
+      "mechanicalParameters": {"activations": "4"},
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "relentless",
+        "templateParameters": ["adversary", "activations"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "{adversary} can be spotlighted up to {activations} times per GM turn. Spend Fear as usual to spotlight them."
+      },
+      "publicationEntry": {
+        "name": "Relentless (4)",
+        "rulesMarkdown": "This adversary can be spotlighted up to four times per GM turn. Spend Fear as usual to spotlight them.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-a84fb7cb1ecb",
+      "basis": "exact-publication-semantics",
+      "familyId": "scapegoat",
+      "name": "Scapegoat",
+      "representativeSourceId": "5o1TchTEzcgrvJKP",
+      "memberSourceIds": ["5o1TchTEzcgrvJKP", "lzcjBoYLZY3y7oFf"]
+    },
+    {
+      "groupId": "afpub-37db9aab2173",
+      "basis": "feature-library-family-parameters",
+      "familyId": "slow",
+      "name": "Slow",
+      "representativeSourceId": "0LFzAKLqwqtoT0oC",
+      "memberSourceIds": ["0LFzAKLqwqtoT0oC", "EH2Wyf2Qv66oI09D", "PM9pNiYSUrXqMScs", "fcoJRDpQCHrwBtsx"],
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "slow",
+        "templateParameters": ["adversary"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When you spotlight {adversary} and they don’t have a token on their stat block, they can’t act yet. Place a token on their stat block and describe what they’re preparing to do. When you spotlight {adversary} and they have a token on their stat block, clear the token and they can act."
+      },
+      "publicationEntry": {
+        "name": "Slow",
+        "rulesMarkdown": "When you spotlight this adversary and they don't have a token on their stat block, they can't act yet. Place a token on their stat block and describe what they're preparing to do. When you spotlight this adversary and they have a token on their stat block, clear the token and they can act.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-ec511a27cb38",
+      "basis": "exact-publication-semantics",
+      "familyId": "split",
+      "name": "Split",
+      "representativeSourceId": "UIDgKIFFxE12RtKG",
+      "memberSourceIds": ["UIDgKIFFxE12RtKG", "hRJKCbA4Y8cuwFph"]
+    },
+    {
+      "groupId": "afpub-a485626505df",
+      "basis": "feature-library-family-parameters",
+      "familyId": "swashbuckler",
+      "name": "Swashbuckler",
+      "representativeSourceId": "4mdv5Qa8lIdcgoRj",
+      "memberSourceIds": ["4mdv5Qa8lIdcgoRj", "JsH3JllGoi1CnasQ", "VBpDaSAkc1GekJrd"],
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "swashbuckler",
+        "templateParameters": ["adversary"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When {adversary} marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress."
+      },
+      "publicationEntry": {
+        "name": "Swashbuckler",
+        "rulesMarkdown": "When this adversary marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-cf2d02caeb7c",
+      "basis": "feature-library-family-template",
+      "familyId": "terrifying",
+      "name": "Terrifying",
+      "representativeSourceId": "56SCXr5a10c529PR",
+      "memberSourceIds": ["56SCXr5a10c529PR", "S4Csiw9mguzPkFRH", "boUZUotTsOhxw0oX", "rNMM4uet2EokLlPG", "saKXj4gcN4uK7bsM", "teUtZvzmUSXksfct"],
+      "featureLibraryEvidence": {
+        "libraryVersion": "1.0.0",
+        "familyId": "terrifying",
+        "templateParameters": ["adversary"],
+        "ignoredTemplateParameters": ["adversary"],
+        "descriptionTemplate": "When {adversary} makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear."
+      },
+      "publicationEntry": {
+        "name": "Terrifying",
+        "rulesMarkdown": "When this adversary makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.",
+        "actions": []
+      }
+    },
+    {
+      "groupId": "afpub-844e160d3db9",
+      "basis": "exact-publication-semantics",
+      "familyId": "trample",
+      "name": "Trample",
+      "representativeSourceId": "9kekcNBNcGf6chzE",
+      "memberSourceIds": ["9kekcNBNcGf6chzE", "QGo63XIiUw2SLHLl"]
+    }
+  ]
+}
