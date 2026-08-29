@@ -112,6 +112,25 @@ def _replace_body(
     return 1
 
 
+def _payload_failure(
+    adapter: ExactAdapterSpec, profile: str, error: str
+) -> AdapterResult:
+    empty = {key: 0 for key in adapter.expected}
+    return AdapterResult(
+        adapter=adapter.name,
+        order=adapter.order,
+        profile=profile,
+        status="FAIL",
+        expected=dict(adapter.expected),
+        found=dict(empty),
+        replaced=dict(empty),
+        remaining=dict(empty),
+        integrated=dict(empty),
+        idempotent=False,
+        error=error,
+    )
+
+
 def _integrate_prose_payload(
     ast: dict[str, Any],
     profile: str,
@@ -121,33 +140,19 @@ def _integrate_prose_payload(
     chapters: tuple[int, ...],
 ) -> AdapterResult:
     if payload.stage != expected_stage or payload.order != adapter.order:
-        return AdapterResult(
-            name=adapter.name,
-            order=adapter.order,
-            profile=profile,
-            status="FAIL",
-            message=(
+        return _payload_failure(
+            adapter,
+            profile,
+            (
                 f"Prose payload does not match adapter: payload stage/order="
                 f"{payload.stage}/{payload.order}, expected={expected_stage}/{adapter.order}."
             ),
-            expected=dict(adapter.expected),
-            before={},
-            mutations={},
-            after={},
-            idempotent=False,
         )
     if tuple(payload.chapters) != tuple(chapters) or sorted(payload.chapter_latex) != list(chapters):
-        return AdapterResult(
-            name=adapter.name,
-            order=adapter.order,
-            profile=profile,
-            status="FAIL",
-            message="Prose payload chapter coverage does not match adapter scope.",
-            expected=dict(adapter.expected),
-            before={},
-            mutations={},
-            after={},
-            idempotent=False,
+        return _payload_failure(
+            adapter,
+            profile,
+            "Prose payload chapter coverage does not match adapter scope.",
         )
 
     def unresolved_probe(value: dict[str, Any]) -> dict[str, int]:
