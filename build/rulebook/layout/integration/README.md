@@ -61,7 +61,9 @@ Stage **130 publication-shell lowering is accepted** after cumulative Player Gui
 
 Stage **140 post-transform semantic validation is accepted** after both real-corpus profiles passed the non-mutating structural/semantic validation gate.
 
-Stage **150 integrated LaTeX generation is implemented and awaiting real-corpus acceptance**. It consumes the accepted Stage 140 AST, revalidates Stage 140, creates a noncanonical generation AST, resolves all document-level dependencies/assets, and emits one body-complete TeX document without invoking LuaLaTeX.
+Stage **150 integrated LaTeX generation is accepted** after both real-corpus profiles produced clean, deterministic, body-complete, self-contained TeX documents with one document shell and one graphics root.
+
+Stage **160 unified LuaLaTeX compilation is implemented and awaiting real-corpus acceptance**. It consumes only the accepted Stage 150 handoff, verifies provenance, compiles in an isolated work root, and emits the first complete Player Guide and Complete Rulebook PDFs.
 
 See:
 
@@ -73,6 +75,7 @@ encounter-toolkit-phase-c.md
 publication-shell-stage130.md
 post-transform-validation-stage140.md
 integrated-latex-stage150.md
+lualatex-stage160.md
 ```
 
 ## Cumulative integration corrections discovered at Stage 130
@@ -131,6 +134,8 @@ Stage 140 then verifies the fully lowered cumulative AST without changing it. Va
 
 Stage 150 re-runs Stage 140 before generation and fails closed on unresolved family wrappers, graphics paths, nested document shells, undefined Cybermancy custom commands/environments, profile shell-count drift, or mutation of the accepted Stage 140 input.
 
+Stage 160 verifies the exact Stage 150 TeX SHA, copies the TeX/assets into an isolated compile root, validates concrete graphics references, optionally preflights LaTeX packages through `kpsewhich`, and fails closed on LuaLaTeX errors, overfull boxes, missing characters, invalid PDF output, or mutation of the accepted Stage 150 handoff.
+
 ## Publication-shell lowering
 
 Stage 130 lowers the remaining semantic publication nodes to stable intermediate macros:
@@ -159,7 +164,21 @@ Because independently proven chapter lanes created graphics paths relative to di
 build/rulebook/layout/integration/output/stage150/<profile>/assets/
 ```
 
-The generated TeX therefore does not depend on user-specific absolute repository paths or on the Stage 130 proof working directory. LuaLaTeX compilation remains Stage 160.
+The generated TeX therefore does not depend on user-specific absolute repository paths or on the Stage 130 proof working directory.
+
+Stage 160 treats each Stage 150 profile directory as an immutable generated handoff and compiles an exact copy beneath:
+
+```text
+build/rulebook/layout/integration/work/stage160/<profile>/
+```
+
+Successful unified PDFs are emitted beneath:
+
+```text
+build/rulebook/layout/integration/output/stage160/<profile>/
+```
+
+Stage 170 remains responsible for rendered-output regression rather than document generation or compilation.
 
 ## Regression anchors
 
@@ -174,16 +193,16 @@ The integration contract records these current corpus expectations:
 - Environments: 8 entries.
 - Adversary Feature Reference: 344 published representatives from 419 canonical source entries.
 
-## Stage 150 proof commands
+## Stage 160 proof commands
 
-From repository root, after the accepted Stage 140 outputs exist:
+From repository root, after the accepted Stage 150 outputs exist:
 
 ```powershell
-python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_integrated_latex.py" -v
+python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_lualatex.py" -v
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_*.py" -v
 
-python build\rulebook\scripts\build-rulebook-step6-integrated-latex.py --profile player-guide --verbose
-python build\rulebook\scripts\build-rulebook-step6-integrated-latex.py --profile complete-rulebook --verbose
+python build\rulebook\scripts\build-rulebook-step6-lualatex.py --profile player-guide --verbose
+python build\rulebook\scripts\build-rulebook-step6-lualatex.py --profile complete-rulebook --verbose
 ```
 
-Generated ASTs, TeX, work files, staged render assets, and reports remain noncanonical outputs beneath `build/rulebook/layout/integration/{output,work,reports}/`.
+Generated ASTs, TeX, work files, staged render assets, compiler logs, PDFs, and reports remain noncanonical outputs beneath `build/rulebook/layout/integration/{output,work,reports}/`.
