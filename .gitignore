@@ -1,7 +1,50 @@
 # ---- Core Node / Foundry build output ----
 node_modules/
 dist/
-build/
+
+# ---- Build output ----
+# Ignore build output by default.
+build/*
+
+# Rulebook production code and layout contracts are canonical source.
+!build/rulebook/
+
+# Within rulebook, continue ignoring generated working/output directories
+# unless explicitly allowed below.
+build/rulebook/*
+
+# Canonical rulebook layout specifications and production code.
+!build/rulebook/layout/
+!build/rulebook/layout/**
+!build/rulebook/scripts/
+!build/rulebook/scripts/**
+
+# ---- Rulebook generated layout artifacts ----
+# Standalone/prototype chapter render directories.
+build/rulebook/layout/chapter*/
+build/rulebook/layout/*-prototype/
+build/rulebook/layout/prototype/
+
+# Generated package render directories.
+build/rulebook/layout/class-packages/
+build/rulebook/layout/domain-packages/
+build/rulebook/layout/ice-reference/
+
+# Generated regression/build directories inside canonical layout packages.
+build/rulebook/layout/**/output/
+build/rulebook/layout/**/work/
+build/rulebook/layout/**/reports/
+build/rulebook/layout/**/_render-assets/
+
+# Generated aggregate layout reports.
+build/rulebook/layout/reports/
+
+# Encounter chapter rendering output.
+build/rulebook/layout/encounters/chapter-output/
+
+# Temporary historical patches are not production source.
+build/rulebook/scripts/*.patch
+
 .cache/
 npm-debug.log*
 yarn-debug.log*
