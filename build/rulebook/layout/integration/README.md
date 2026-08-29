@@ -72,6 +72,8 @@ The Phase C runtime is implemented by:
 build/rulebook/scripts/build-rulebook-step6-integrated.py
 build/rulebook/scripts/rulebook_layout/integration.py
 build/rulebook/scripts/rulebook_layout/integration_ast.py
+build/rulebook/scripts/rulebook_layout/character_options_integration.py
+build/rulebook/scripts/rulebook_layout/character_options_adapters.py
 build/rulebook/scripts/rulebook_layout/equipment_integration.py
 build/rulebook/scripts/rulebook_layout/equipment_adapters.py
 ```
@@ -88,9 +90,23 @@ The structural preflight is fail-closed. Before any package adapter runs it veri
 
 The common exact-adapter runtime records `expected`, `found`, `replaced`, `remaining`, and integrated-postcondition counts. Mutations are staged on a deep copy and committed only after all postconditions pass, so a failed adapter does not leave a partially modified AST. Reapplying an already integrated adapter must be a byte-stable no-op.
 
+### Character Options proof — Chapters 12 and 14
+
+The order-50/60 Character Options stage integrates the already accepted all-Class ClassPackage grammar and all-Domain DomainPackage grammar without introducing a second layout implementation or standalone document shell.
+
+Chapter 12 consumes exactly the current frozen **5 Classes and 10 Subclasses** from the Step 4 semantic corpus. Each Class is composed through the existing ClassPackage semantic composer, including linked Subclasses, Class/Subclass Features, staged publication artwork, Starting Package data, and Character Guide references. The accepted refined ClassPackage body helpers are reused directly. Standalone `documentclass`, geometry, font setup, color definitions, and `\begin{document}`/`\end{document}` are not inserted into the whole-book AST.
+
+The `family:classes` body contains the complete deterministic sequence of ClassPackages. Because Subclasses are already rendered inside their owning ClassPackage, the independent `family:subclasses` body is replaced with an exact raw-LaTeX marker rather than rendering the same Subclasses a second time. The semantic wrapper remains present for deterministic postconditions and source-family traceability. Coverage validation requires every Class and every Subclass to be consumed exactly once.
+
+Chapter 14 consumes the frozen **3 Domains / 73 Domain Cards** from Step 4 `domainPackages` and `domainSemantics`. The existing accepted DomainPackage identity, level-group, card, and artwork grammar is reused as body-only LaTeX, with LuaLaTeX-safe render assets staged beneath the integration work directory. No standalone DomainPackage shell is introduced.
+
+Orders 50 and 60 form one transaction for this proof. The runtime deep-copies the base AST once, applies the Chapter 12 adapter, then the Chapter 14 adapter. If Chapter 14 fails after Chapter 12 has staged successfully, both mutations are discarded. A second successful application must report both adapters idempotent and leave the AST SHA-256 unchanged.
+
+Character Options applies to both `player-guide` and `complete-rulebook`.
+
 ### Equipment proof — Chapters 15–22
 
-Equipment is the second Phase C production proof. The integration composer consumes the current Step 4 `cybermancy-step4-structured-entities-v1.3` sidecar, the accepted Equipment registry, and the eight accepted family configs. It validates the frozen corpus counts and config contracts, then renders only the accepted family-body grammar—never the standalone Equipment document shell.
+Equipment is the accepted order-70 Phase C production proof. The integration composer consumes the current Step 4 `cybermancy-step4-structured-entities-v1.3` sidecar, the accepted Equipment registry, and the eight accepted family configs. It validates the frozen corpus counts and config contracts, then renders only the accepted family-body grammar—never the standalone Equipment document shell.
 
 The order-70 Equipment stage targets exactly:
 
@@ -113,13 +129,15 @@ Equipment applies to both `player-guide` and `complete-rulebook`.
 
 ### Chapter 29 ICE proof
 
-Chapter 29 remains the first Complete-only package proof. It reuses the frozen ICEReferencePackage v1 composer and integration fragments, requires the complete 13-entry ICE corpus, and replaces exactly the Chapter 29 semantic heading plus the `family:features` body.
+Chapter 29 is the accepted first Complete-only package proof. It reuses the frozen ICEReferencePackage v1 composer and integration fragments, requires the complete 13-entry ICE corpus, and replaces exactly the Chapter 29 semantic heading plus the `family:features` body.
 
 Default proof commands consume the current Step 4 assembled manuscript and generate one Pandoc JSON AST for the selected profile:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-step6-integrated.py preflight --profile player-guide
 python build\rulebook\scripts\build-rulebook-step6-integrated.py preflight --profile complete-rulebook
+python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-character-options --profile player-guide
+python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-character-options --profile complete-rulebook
 python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-equipment --profile player-guide
 python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-equipment --profile complete-rulebook
 python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-ice --profile complete-rulebook
@@ -131,7 +149,9 @@ Generated Phase C ASTs, work files, render-only assets, and reports remain nonca
 
 ## Current boundary
 
-This milestone proves structural preflight, Equipment Chapters 15–22, and Chapter 29 as isolated package-integration stages. It does **not** yet apply ClassPackage Chapter 12, DomainPackage Chapter 14, Chapters 1–11 or 23–28 layout transforms, Chapters 30–32 encounter adapters, publication-shell lowering, the unified LuaLaTeX shell, or final PDFs. Those remain subsequent Phase C/Phase D work.
+This milestone implements structural preflight, Character Options Chapters 12 and 14, Equipment Chapters 15–22, and Chapter 29 as isolated package-integration stages. Chapters 12/14 still require real-corpus Player Guide and Complete Rulebook proof runs before they are accepted as completed integration proofs.
+
+It does **not** yet apply Chapters 1–11 other than Chapter 12, Chapters 23–28 layout transforms, Chapters 30–32 encounter adapters, publication-shell lowering, the unified LuaLaTeX shell, or final PDFs. Those remain subsequent Phase C/Phase D work.
 
 Frozen package grammars remain authoritative and must not be silently redesigned during integration. Local standalone package shells, geometry, preambles, and temporary render directories are not whole-book architecture.
 
@@ -142,6 +162,7 @@ The accepted recto policy for this integration baseline is `preserve-current-cle
 The integration contract records current accepted corpus expectations so whole-book integration can fail closed on silent omissions or duplication:
 
 - Character Origins: 18 Ancestories, 9 Communities, 27 staged artwork items.
+- Classes and Subclasses: 5 Classes, 10 Subclasses.
 - Domains: 3 Domains, 73 Domain Cards.
 - Equipment: 47 Weapons, 13 Ammunition, 36 Armor, 103 Cybernetics, 19 Drones/Devices, 59 Consumables, 20 Mods, 60 Loot.
 - ICE Reference: 13 entries.
@@ -149,4 +170,4 @@ The integration contract records current accepted corpus expectations so whole-b
 - Environments: 8 entries.
 - Adversary Feature Reference: 344 published representatives from 419 canonical source entries.
 
-`build/rulebook/scripts/tests/test_step6_integration_contract.py` validates the static contract. `test_step6_integration_runtime.py` validates structural preflight, common exact-adapter behavior, profile gating, and Chapter 29 idempotency. `test_step6_integration_equipment.py` validates Equipment composition, atomic stage rollback, both-profile gating, and Equipment idempotency.
+`build/rulebook/scripts/tests/test_step6_integration_contract.py` validates the static contract. `test_step6_integration_runtime.py` validates structural preflight, common exact-adapter behavior, profile gating, and Chapter 29 idempotency. `test_step6_integration_character_options.py` validates the Chapter 12/14 exact replacements, cross-stage rollback, both-profile gating, frozen Class/Subclass counts, and combined idempotency. `test_step6_integration_equipment.py` validates Equipment composition, atomic stage rollback, both-profile gating, and Equipment idempotency.
