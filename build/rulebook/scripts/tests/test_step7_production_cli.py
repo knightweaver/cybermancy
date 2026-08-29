@@ -6,6 +6,7 @@ import unittest
 from copy import deepcopy
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
@@ -15,6 +16,7 @@ if str(SCRIPTS) not in sys.path:
 
 from rulebook_production.contract import canonical_text_sha256, load_production_contract
 from rulebook_production.orchestrator import build_profile, stage_commands
+from rulebook_production.preflight import _run_step4_validate
 from rulebook_production.reporting import write_json
 from rulebook_production.reproducibility import compare_signatures
 from rulebook_production.workspace import profile_paths, remove_path
@@ -65,6 +67,44 @@ class ProductionCliTests(unittest.TestCase):
     def test_hash_contract_is_cross_platform(self):
         lf = b"one\ntwo\n"
         self.assertEqual(canonical_text_sha256(lf), canonical_text_sha256(lf.replace(b"\n", b"\r\n")))
+
+    def test_step4_validation_requests_verbose_structured_output(self):
+        completed = SimpleNamespace(
+            returncode=0,
+            stdout=json.dumps({"status": "PASS", "checks": []}),
+            stderr="Could not find platform independent libraries <prefix>\n",
+        )
+        with patch("rulebook_production.preflight.subprocess.run", return_value=completed) as run:
+            result = _run_step4_validate(REPO_ROOT)
+
+        command = run.call_args.args[0]
+        self.assertEqual(command[-2:], ["--verbose", "validate"])
+        self.assertEqual(result["status"], "PASS")
+        self.assertEqual(result["report"]["status"], "PASS")
+        self.assertIn("platform independent libraries", result["stderr"])
+
+    def test_step4_validation_fails_closed_on_malformed_output(self):
+        completed = SimpleNamespace(
+            returncode=0,
+            stdout="build-rulebook-source.py: PASS\n",
+            stderr="",
+        )
+        with patch("rulebook_production.preflight.subprocess.run", return_value=completed):
+            result = _run_step4_validate(REPO_ROOT)
+
+        self.assertEqual(result["status"], "FAIL")
+        self.assertIn("structured JSON", result["report"]["error"])
+
+    def test_step4_validation_requires_zero_exit_code_and_pass_status(self):
+        cases = [
+            SimpleNamespace(returncode=2, stdout=json.dumps({"status": "PASS"}), stderr=""),
+            SimpleNamespace(returncode=0, stdout=json.dumps({"status": "FAIL"}), stderr=""),
+        ]
+        for completed in cases:
+            with self.subTest(returncode=completed.returncode, stdout=completed.stdout):
+                with patch("rulebook_production.preflight.subprocess.run", return_value=completed):
+                    result = _run_step4_validate(REPO_ROOT)
+                self.assertEqual(result["status"], "FAIL")
 
     def test_workspace_removal_rejects_root_and_outside(self):
         with tempfile.TemporaryDirectory() as temporary:

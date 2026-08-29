@@ -69,7 +69,7 @@ def _check_source_hashes(repo_root: Path, path: Path) -> tuple[bool, dict[str, A
 def _run_step4_validate(repo_root: Path) -> dict[str, Any]:
     script = repo_root / "build/rulebook/scripts/build-rulebook-source.py"
     result = subprocess.run(
-        [sys.executable, str(script), "validate"],
+        [sys.executable, str(script), "--verbose", "validate"],
         cwd=repo_root,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -83,6 +83,7 @@ def _run_step4_validate(repo_root: Path) -> dict[str, Any]:
     except json.JSONDecodeError:
         payload = {
             "status": "FAIL",
+            "error": "Step 4 validator did not emit the required structured JSON report.",
             "stdout": result.stdout[-12000:],
             "stderr": result.stderr[-12000:],
         }
