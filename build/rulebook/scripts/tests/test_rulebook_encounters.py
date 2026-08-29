@@ -27,6 +27,9 @@ class TestEncounterLayout(unittest.TestCase):
                         "tier": 1,
                         "classification": "standard",
                         "difficulty": 13,
+                        "damageThresholds": {"major": 5, "severe": 8},
+                        "hitPoints": 5,
+                        "stress": 2,
                         "descriptionMarkdown": "A compact proof adversary.",
                         "features": [
                             {"name": "Proof Feature", "rulesMarkdown": "**Passive.** Preserve structure.", "actions": []}
@@ -67,30 +70,47 @@ class TestEncounterLayout(unittest.TestCase):
         bad.pop("encounterSemantics")
         self.assertTrue(validate_sidecar(bad))
 
-    def test_adversary_fast_play_and_missing_content_fallbacks_render(self):
+    def test_adversary_v11_two_column_header_and_fast_play_render(self):
         sidecar = self._sidecar()
         tex, report = render_package(
             sidecar,
-            {"family": "adversaries", "title": "Adversaries", "selection": {"names": ["Proof Adversary"]}},
+            {
+                "family": "adversaries",
+                "title": "Adversaries",
+                "columns": 2,
+                "selection": {"names": ["Proof Adversary"]},
+            },
             Path("/does/not/exist"),
         )
         self.assertEqual(report["entryCount"], 1)
         self.assertIn("FAST PLAY", tex)
         self.assertIn("Proof Feature", tex)
         self.assertIn(r"\textbf{Passive.}", tex)
-        self.assertIn(r"\begin{minipage}[t]{0.17\textwidth}", tex)
-        self.assertIn(r"\begin{minipage}[t]{0.80\textwidth}", tex)
+        self.assertIn(r"\begin{multicols}{2}\raggedcolumns", tex)
+        self.assertIn(r"\setlength{\columnsep}{0.22in}", tex)
+        self.assertIn(r"\begin{minipage}[t]{0.20\linewidth}", tex)
+        self.assertIn(r"\begin{minipage}[t]{0.76\linewidth}", tex)
+        self.assertNotIn(r"0.17\textwidth", tex)
+        self.assertNotIn(r"0.80\textwidth", tex)
+        self.assertIn("height=18mm", tex)
+        self.assertIn(r"\Needspace{10\baselineskip}", tex)
         self.assertLess(tex.index("NO PUBLICATION ART"), tex.index(r"STANDARD \textbullet\ TIER 1"))
-        self.assertIn(r"STANDARD \textbullet\ TIER 1}\\[2.5pt]", tex)
+        self.assertIn(r"STANDARD \textbullet\ TIER 1}\\[1.5pt]", tex)
+        self.assertNotIn(r"\clearpage", tex)
 
+    def test_environment_grammar_remains_one_column_and_unchanged(self):
+        sidecar = self._sidecar()
         env_tex, env_report = render_package(
             sidecar,
-            {"family": "environments", "title": "Environments", "selection": {"names": ["Sparse Environment"]}},
+            {"family": "environments", "title": "Environments", "columns": 1, "selection": {"names": ["Sparse Environment"]}},
             Path("/does/not/exist"),
         )
         self.assertEqual(env_report["entryCount"], 1)
         self.assertIn("No canonical description supplied.", env_tex)
         self.assertIn("No canonical impulses supplied.", env_tex)
+        self.assertIn(r"\begin{minipage}[t]{0.17\textwidth}", env_tex)
+        self.assertIn(r"\begin{minipage}[t]{0.80\textwidth}", env_tex)
+        self.assertNotIn(r"\begin{multicols}{2}\raggedcolumns", env_tex)
         self.assertLess(env_tex.index("NO PUBLICATION ART"), env_tex.index(r"UNCLASSIFIED \textbullet\ TIER 1"))
         self.assertIn(r"UNCLASSIFIED \textbullet\ TIER 1}\\[2.5pt]", env_tex)
 
