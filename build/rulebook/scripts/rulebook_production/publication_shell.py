@@ -202,6 +202,7 @@ def _index_tex(index: dict[str, Any]) -> str:
 def _production_macros(title: str, subtitle: str, version: str, footer: str) -> str:
     return rf"""
 % ---- Production Renderer Phase D publication shell ----
+\definecolor{{CMProductionMuted}}{{HTML}}{{58747A}}
 \newcommand{{\CMProductionRecto}}{{%
   \clearpage
   \ifodd\value{{page}}\else\null\thispagestyle{{empty}}\newpage\fi
@@ -260,7 +261,7 @@ def _production_macros(title: str, subtitle: str, version: str, footer: str) -> 
 \newcommand{{\CMEntityIndexLetter}}[1]{{\par\Needspace{{4\baselineskip}}\vspace{{5pt}}{{\sffamily\fontsize{{12}}{{14}}\selectfont\bfseries\color{{CMTeal}}#1\par}}\vspace{{1pt}}}}
 \newcommand{{\CMEntityIndexEntry}}[3]{{%
   \par\Needspace{{2\baselineskip}}\noindent
-  \parbox[t]{{0.66\columnwidth}}{{\raggedright\sffamily\fontsize{{8.1}}{{9.4}}\selectfont\bfseries #1\\{{\fontsize{{6.8}}{{8.0}}\selectfont\color{{CMMuted}}#2}}}}\hfill
+  \parbox[t]{{0.66\columnwidth}}{{\raggedright\sffamily\fontsize{{8.1}}{{9.4}}\selectfont\bfseries #1\\{{\fontsize{{6.8}}{{8.0}}\selectfont\color{{CMProductionMuted}}#2}}}}\hfill
   \parbox[t]{{0.30\columnwidth}}{{\raggedleft\sffamily\fontsize{{7.1}}{{8.5}}\selectfont Chapter #3\\p.~\pageref{{cm-chapter-#3}}}}\par\vspace{{1.2pt}}
 }}
 \renewcommand{{\contentsname}}{{Contents}}
