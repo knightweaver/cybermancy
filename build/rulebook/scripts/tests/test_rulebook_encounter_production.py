@@ -29,6 +29,10 @@ class TestEncounterProductionContracts(unittest.TestCase):
             "encounterSemantics": {
                 "schema": "cybermancy-step4-encounter-semantics-v1.0",
                 "status": "WARNING",
+                "adversaryFeatureEquivalence": {
+                    "publicationStatus": "APPLIED",
+                    "publicationRepresentativeCount": 2,
+                },
             },
             "entities": [
                 {
@@ -53,7 +57,13 @@ class TestEncounterProductionContracts(unittest.TestCase):
                     "semanticId": "entity:adversaries-features:S2",
                     "family": "adversaries-features",
                     "name": "Slow",
-                    "publicationData": {"rulesMarkdown": "Second."},
+                    "publicationData": {
+                        "rulesMarkdown": "Second.",
+                        "publicationEquivalence": {
+                            "isRepresentative": False,
+                            "representativeSemanticId": "entity:adversaries-features:S1",
+                        },
+                    },
                 },
                 {
                     "semanticId": "entity:adversaries-features:F1",
@@ -64,8 +74,20 @@ class TestEncounterProductionContracts(unittest.TestCase):
                 {
                     "semanticId": "entity:adversaries-features:S1",
                     "family": "adversaries-features",
-                    "name": "Slow",
-                    "publicationData": {"rulesMarkdown": "First."},
+                    "name": "Slow (Ooze)",
+                    "publicationData": {
+                        "rulesMarkdown": "First.",
+                        "actions": [{"name": "Runtime Mirror", "rulesMarkdown": "First."}],
+                        "publicationEquivalence": {
+                            "isRepresentative": True,
+                            "representativeSemanticId": "entity:adversaries-features:S1",
+                        },
+                        "referenceEntry": {
+                            "name": "Slow",
+                            "rulesMarkdown": "When you spotlight this adversary, resolve Slow.",
+                            "actions": [],
+                        },
+                    },
                 },
             ],
         }
@@ -99,7 +121,7 @@ class TestEncounterProductionContracts(unittest.TestCase):
             ],
         )
 
-    def test_feature_full_corpus_preserves_same_name_variants(self):
+    def test_feature_full_corpus_uses_step4_publication_representatives(self):
         ids, errors = self.builder._ordered_full_corpus(self._sidecar(), "adversaries-features")
         self.assertEqual(errors, [])
         self.assertEqual(
@@ -107,9 +129,19 @@ class TestEncounterProductionContracts(unittest.TestCase):
             [
                 "entity:adversaries-features:F1",
                 "entity:adversaries-features:S1",
-                "entity:adversaries-features:S2",
             ],
         )
+
+    def test_feature_reference_render_view_uses_reader_neutral_override(self):
+        sidecar = self._sidecar()
+        rendered = self.builder._prepare_feature_reference_sidecar(sidecar)
+        source = next(entity for entity in sidecar["entities"] if entity.get("semanticId", "").endswith(":S1"))
+        view = next(entity for entity in rendered["entities"] if entity.get("semanticId", "").endswith(":S1"))
+        self.assertEqual(source["name"], "Slow (Ooze)")
+        self.assertEqual(source["publicationData"]["rulesMarkdown"], "First.")
+        self.assertEqual(view["name"], "Slow")
+        self.assertEqual(view["publicationData"]["rulesMarkdown"], "When you spotlight this adversary, resolve Slow.")
+        self.assertEqual(view["publicationData"]["actions"], [])
 
     def test_frozen_adversary_v11_contract_accepts_warning_step4_status(self):
         runtime, contract, errors = self.builder._productionize_config(
@@ -123,6 +155,36 @@ class TestEncounterProductionContracts(unittest.TestCase):
         self.assertEqual(contract["expectedEntryCount"], 3)
         self.assertEqual(runtime["selection"]["mode"], "full-corpus")
         self.assertEqual(len(runtime["selection"]["semanticIds"]), 3)
+
+    def test_frozen_feature_reference_requires_applied_step4_equivalence(self):
+        runtime, contract, errors = self.builder._productionize_config(
+            self._sidecar(),
+            self._config(
+                "adversaries-features",
+                2,
+                ["normalized-name", "semanticId"],
+                version="v1.0",
+            ),
+            "feature-reference",
+        )
+        self.assertEqual(errors, [])
+        self.assertEqual(contract["actualEntryCount"], 2)
+        self.assertEqual(contract["step4FeaturePublicationStatus"], "APPLIED")
+        self.assertEqual(len(runtime["selection"]["semanticIds"]), 2)
+
+        sidecar = self._sidecar()
+        sidecar["encounterSemantics"]["adversaryFeatureEquivalence"]["publicationStatus"] = "REVIEW_REQUIRED"
+        _, _, errors = self.builder._productionize_config(
+            sidecar,
+            self._config(
+                "adversaries-features",
+                2,
+                ["normalized-name", "semanticId"],
+                version="v1.0",
+            ),
+            "feature-reference",
+        )
+        self.assertTrue(any("publicationStatus='APPLIED'" in message for message in errors))
 
     def test_adversary_v10_is_rejected_after_v11_freeze(self):
         _, _, errors = self.builder._productionize_config(
