@@ -42,17 +42,18 @@ The exact Stage 150 TeX and complete `assets/` tree are copied into that root an
 
 The Stage 150 TeX and asset tree are hashed again after compilation. Any mutation of the Stage 150 source handoff fails Stage 160.
 
-## Stage 160 compile compatibility overlay
+## Stage 160 compile compatibility and generated-residue handling
 
-The first real unified compilations exposed three issues that do not change rulebook content or any frozen chapter grammar but do affect the LuaLaTeX compile copy:
+The first real unified compilations exposed issues that do not change rulebook content or any frozen chapter grammar but do affect the isolated LuaLaTeX compile copy:
 
-1. The Complete Rulebook body contains Pandoc strikeout output using `\st{...}`. The standalone Prose-derived shell did not include Pandoc's normal strikeout dependency, causing an `Undefined control sequence` failure. When the generated body actually uses `\st`, Stage 160 now adds `\usepackage{soul}` to the isolated compile copy before package preflight.
-2. The Stage 150 profile footer is a long left `fancyhdr` field. In the integrated geometry lanes it generated a large false field-width overrun even though the footer text itself is short enough to render safely. Stage 160 anchors that left footer with `\rlap{...}` in the isolated compile copy so it no longer contributes spurious width to the `fancyhdr` alignment box.
-3. Five shared package boxes produced numerical overfull diagnostics between approximately 0.10 and 0.12 pt. These are sub-hairline TeX rounding artifacts rather than materially out-of-bounds content. The isolated compile copy therefore sets `\hfuzz=0.2pt`. Any overfull box larger than 0.2 pt is still emitted by TeX and remains fully blocking.
+1. The Step 4 publication corpus leaves a generated provenance line immediately before the first integrated Part shell. Pandoc renders that line as ordinary prose, producing a large false overfull box in both profiles. Stage 160 now recognizes only the exact generated form — publication title, matching profile, 40-character source commit, and its preceding horizontal-rule artifact — and removes it from the isolated compile copy. If provenance-like residue is present but does not match that exact profile-specific shape, Stage 160 fails closed rather than deleting arbitrary content.
+2. The Complete Rulebook body contains Pandoc strikeout output using `\st{...}`. The standalone Prose-derived shell did not include Pandoc's normal strikeout dependency, causing an `Undefined control sequence` failure. When the generated body actually uses `\st`, Stage 160 adds `\usepackage{soul}` to the isolated compile copy before package preflight.
+3. The Stage 150 profile footer is a long left `fancyhdr` field. In the integrated geometry lanes it generated a false field-width overrun even though the footer text itself is short enough to render safely. Stage 160 anchors that left footer with `\rlap{...}` in the isolated compile copy so it no longer contributes spurious width to the `fancyhdr` alignment box.
+4. Five shared package boxes produced numerical overfull diagnostics between approximately 0.10 and 0.12 pt. These are sub-hairline TeX rounding artifacts rather than materially out-of-bounds content. The isolated compile copy therefore sets `\hfuzz=0.2pt`. Any material horizontal overflow larger than 0.2 pt is still emitted by TeX and remains blocking.
 
-This compatibility overlay is deterministic and idempotent. Its patch names and before/after compile-copy SHA-256 values are recorded beneath `compileTree.compatibilityOverlay` in the Stage 160 report.
+The compatibility overlay and provenance cleanup are deterministic and idempotent. Their patch/cleanup results and before/after compile-copy SHA-256 values are recorded in the Stage 160 report.
 
-The overlay applies **only** to the isolated Stage 160 compile copy. It never edits the accepted Stage 150 TeX, staged assets, Stage 140 AST, canonical rulebook content, or frozen package implementations.
+These operations apply **only** to the isolated Stage 160 compile copy. They never edit the accepted Stage 150 TeX, staged assets, Stage 140 AST, canonical rulebook content, or frozen package implementations. Consequently the accepted Stage 150 outputs do not need to be regenerated for these corrections.
 
 ## Toolchain
 
@@ -66,7 +67,7 @@ The same resolver already supports environment overrides, PATH, Windows App Path
 
 ## LaTeX package preflight
 
-The compile-copy TeX is inspected for every `\usepackage{...}` dependency after the compatibility overlay is applied. If `kpsewhich` is available, Stage 160 verifies that each corresponding `.sty` file is resolvable before compilation.
+The compile-copy TeX is inspected for every `\usepackage{...}` dependency after the compatibility overlay and provenance cleanup are applied. If `kpsewhich` is available, Stage 160 verifies that each corresponding `.sty` file is resolvable before compilation.
 
 This means `soul.sty` is required only for a profile whose body actually contains Pandoc strikeout output.
 
@@ -110,25 +111,34 @@ If LuaLaTeX returns nonzero, Stage 160 stops immediately and reports:
 - the last compiler output lines;
 - generated-TeX source context around the most relevant fatal file/line diagnostic when available.
 
-When LuaLaTeX exits successfully but Stage 160 blocks on an overfull diagnostic, the report also includes `blockingContexts` with generated-TeX context for each unique reported overfull line. This avoids requiring another diagnostic build simply to identify the corresponding generated source.
+When LuaLaTeX exits successfully but Stage 160 blocks on a line-addressable overfull diagnostic, the report includes `blockingContexts` with generated-TeX context for each unique reported line.
 
 The `--passes` option exists for diagnostic use and accepts 1–4 passes, but two passes are the production default.
 
-## Blocking compiler diagnostics
+## Compiler diagnostics and Stage ownership
 
 A zero LuaLaTeX exit code is necessary but not sufficient for Stage 160 acceptance.
 
-The following are blocking:
+The following remain **blocking at Stage 160**:
 
-- every `Overfull \hbox` or `Overfull \vbox` that LuaLaTeX emits after the explicit `\hfuzz=0.2pt` numerical tolerance;
+- every emitted `Overfull \hbox` after the explicit `\hfuzz=0.2pt` numerical tolerance;
+- any overfull `\vbox` that is not an output-routine/page-construction diagnostic;
 - any `Missing character:` diagnostic;
 - failure to create a non-empty PDF.
 
-Thus Stage 160 still fails closed on material overflow. The 0.2 pt `\hfuzz` setting exists only to prevent sub-hairline engine rounding noise from masquerading as a visible layout defect.
+TeX can also emit diagnostics of this exact form while constructing a page:
+
+```text
+Overfull \vbox (...pt too high) has occurred while \output is active
+```
+
+Those output-routine vboxes do not identify a specific source line and, by themselves, do not prove that content was clipped or that page geometry is broken. Stage 160 therefore **does not suppress them** and does **not** silently classify them as clean. Instead it records them verbatim as `STAGE160_OUTPUT_ROUTINE_VBOXES` warnings and hands them to Stage 170, whose explicit responsibility is rendered/page-level regression: clipped content, broken geometry, pathological page breaks, and package-boundary layout defects.
+
+This division keeps Stage 160 fail-closed for material compiler errors while preventing a page-construction warning from substituting for the rendered inspection that Stage 170 is designed to perform.
 
 Underfull boxes are recorded in the detailed compiler diagnostics but do not block Stage 160.
 
-Ordinary LaTeX, package, and font warnings are retained as non-blocking warnings for Stage 170 review. Stage 170 will decide whether any of those warnings correspond to rendered-output defects.
+Ordinary LaTeX, package, and font warnings are retained as non-blocking warnings for Stage 170 review.
 
 ## Output
 
@@ -160,10 +170,12 @@ STAGE150_INPUTS
 STAGE150_PROVENANCE
 STAGE160_LUALATEX_AVAILABLE
 STAGE160_COMPILE_TREE
+STAGE160_PROVENANCE_RESIDUE
 STAGE160_GRAPHICS_PREFLIGHT
 STAGE160_TEX_DEPENDENCIES
 STAGE160_LUALATEX
 STAGE160_OVERFULL_BOXES
+STAGE160_OUTPUT_ROUTINE_VBOXES
 STAGE160_MISSING_CHARACTERS
 STAGE160_MATERIAL_WARNINGS
 STAGE160_PDF_OUTPUT
@@ -171,7 +183,7 @@ STAGE160_PAGE_COUNT
 STAGE160_STAGE150_IMMUTABILITY
 ```
 
-`STAGE160_MATERIAL_WARNINGS` and an unavailable page count may be warnings without making the stage fail. All other structural/compiler gates are blocking.
+`STAGE160_OUTPUT_ROUTINE_VBOXES`, `STAGE160_MATERIAL_WARNINGS`, and an unavailable page count may be warnings without making the compile stage fail. The output-routine vbox warning is a mandatory Stage 170 review input, not an ignored condition. All other structural/compiler gates above are blocking.
 
 ## Reports
 
@@ -189,12 +201,13 @@ From repository root:
 
 ```powershell
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_lualatex.py" -v
+python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_stage160_policy.py" -v
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_*.py" -v
 
 python build\rulebook\scripts\build-rulebook-step6-lualatex.py --profile player-guide --verbose
 python build\rulebook\scripts\build-rulebook-step6-lualatex.py --profile complete-rulebook --verbose
 ```
 
-The existing accepted Stage 150 outputs do not need to be regenerated for this correction because the compatibility changes are applied only after Stage 150 provenance is verified in the isolated Stage 160 compile root.
+The existing accepted Stage 150 outputs do not need to be regenerated because all corrections in this increment occur only after Stage 150 provenance has been verified in the isolated Stage 160 compile root.
 
-Both real-corpus profile compilations must pass before Stage 160 is accepted and before Stage 170 rendered-output regression begins.
+Both real-corpus profile compilations must pass before Stage 160 is accepted and before Stage 170 rendered-output regression begins. Any Complete Rulebook output-routine vbox warnings must be carried into Stage 170 and inspected at the rendered page level before the integration proof is complete.
