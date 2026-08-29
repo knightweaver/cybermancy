@@ -3,8 +3,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
-import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -18,6 +16,8 @@ REPO_ROOT = RULEBOOK_DIR.parent.parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+from rulebook_layout.equipment_adapters import integrate_equipment_stage
+from rulebook_layout.equipment_integration import compose_equipment_stage
 from rulebook_layout.ice_reference import load_json
 from rulebook_layout.ice_reference_images import (
     attach_ice_reference_images,
@@ -38,6 +38,8 @@ from rulebook_layout.toolchain import resolve_tool
 
 DEFAULT_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
 DEFAULT_ICE_CONFIG = RULEBOOK_DIR / "layout" / "ice" / "ice-reference-package-v1.json"
+DEFAULT_EQUIPMENT_REGISTRY = RULEBOOK_DIR / "layout" / "equipment" / "equipment-section-v1.json"
+DEFAULT_EQUIPMENT_CONFIG_DIR = RULEBOOK_DIR / "layout" / "equipment"
 DEFAULT_SIDECAR = RULEBOOK_DIR / "source" / "metadata" / "structured-entities.json"
 DEFAULT_SOURCE_ROOT = RULEBOOK_DIR / "source"
 DEFAULT_WORK = RULEBOOK_DIR / "layout" / "integration" / "work"
@@ -105,7 +107,7 @@ def _report(profile: str, command: str) -> dict[str, Any]:
         "schema": "cybermancy-step6-integration-runtime-v1",
         "status": "PASS",
         "phase": "C",
-        "milestone": "structural-preflight-common-adapter-ch29-proof",
+        "milestone": "structural-preflight-common-adapters-equipment-ch29-proofs",
         "command": command,
         "profile": profile,
         "checks": [],
@@ -203,6 +205,48 @@ def _merge_preflight(report: dict[str, Any], preflight: dict[str, Any]) -> None:
     )
 
 
+def _compose_equipment(
+    args: argparse.Namespace,
+    contract: dict[str, Any],
+    report: dict[str, Any],
+):
+    sidecar_path = _resolve(args.sidecar, DEFAULT_SIDECAR)
+    registry_path = _resolve(args.equipment_registry, DEFAULT_EQUIPMENT_REGISTRY)
+    config_dir = _resolve(args.equipment_config_dir, DEFAULT_EQUIPMENT_CONFIG_DIR)
+
+    for code, path in (
+        ("STRUCTURED_SIDECAR", sidecar_path),
+        ("EQUIPMENT_REGISTRY", registry_path),
+    ):
+        if not path.is_file():
+            _append_check(report, code, "ERROR", f"Required integration input is missing: {path}")
+    if not config_dir.is_dir():
+        _append_check(report, "EQUIPMENT_CONFIG_DIR", "ERROR", f"Equipment config directory is missing: {config_dir}")
+    if report["status"] != "PASS":
+        return None
+
+    try:
+        sidecar = load_json(sidecar_path)
+        registry = load_json(registry_path)
+        payloads, composition = compose_equipment_stage(sidecar, registry, config_dir, contract)
+    except Exception as exc:
+        _append_check(report, "EQUIPMENT_STAGE_COMPOSITION", "ERROR", f"Equipment composition raised an exception: {exc}")
+        return None
+
+    report["equipmentComposition"] = composition
+    ok = composition.get("status") == "PASS" and len(payloads) == 8
+    _append_check(
+        report,
+        "EQUIPMENT_STAGE_COMPOSITION",
+        "PASS" if ok else "ERROR",
+        "Composed all eight frozen Equipment family bodies from the Step 4 v1.3 sidecar."
+        if ok
+        else "Equipment stage composition failed its metadata, corpus, or rendering contract.",
+        [payload.summary() for payload in payloads] if payloads else composition.get("errors"),
+    )
+    return payloads if ok else None
+
+
 def _compose_ice(args: argparse.Namespace, report: dict[str, Any]) -> tuple[str, str] | None:
     config_path = _resolve(args.ice_config, DEFAULT_ICE_CONFIG)
     sidecar_path = _resolve(args.sidecar, DEFAULT_SIDECAR)
@@ -264,6 +308,142 @@ def _compose_ice(args: argparse.Namespace, report: dict[str, Any]) -> tuple[str,
     return render_integration_fragments(view, config, render_assets)
 
 
+def _write_integrated_ast(
+    args: argparse.Namespace,
+    profile: str,
+    ast: dict[str, Any],
+    report: dict[str, Any],
+    default_name: str,
+    message: str,
+) -> None:
+    output_path = _resolve(args.ast_output, DEFAULT_OUTPUT / default_name)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_bytes(canonical_ast_bytes(ast))
+    report["paths"]["outputAst"] = str(output_path)
+    report["outputAstSha256"] = canonical_ast_sha256(ast)
+    _append_check(
+        report,
+        "INTEGRATED_AST_OUTPUT",
+        "PASS",
+        message,
+        {"path": str(output_path), "sha256": report["outputAstSha256"]},
+    )
+
+
+def _run_equipment_proof(
+    args: argparse.Namespace,
+    contract: dict[str, Any],
+    ast: dict[str, Any],
+    report: dict[str, Any],
+) -> None:
+    payloads = _compose_equipment(args, contract, report)
+    if payloads is None or report["status"] != "PASS":
+        return
+
+    stage = integrate_equipment_stage(ast, args.profile, payloads)
+    report["equipmentStage"] = stage
+    report["adapters"].extend(stage.get("adapters") or [])
+    _append_check(
+        report,
+        "EQUIPMENT_STAGE_ADAPTER",
+        "PASS" if stage.get("status") == "PASS" else "ERROR",
+        "Equipment Chapters 15–22 were replaced atomically through the common exact-adapter contract."
+        if stage.get("status") == "PASS"
+        else "Equipment stage failed; its staged AST mutation was discarded.",
+        stage,
+    )
+    if report["status"] != "PASS":
+        return
+
+    digest_before_repeat = canonical_ast_sha256(ast)
+    repeated = integrate_equipment_stage(ast, args.profile, payloads)
+    digest_after_repeat = canonical_ast_sha256(ast)
+    idempotent_ok = (
+        repeated.get("status") == "PASS"
+        and bool(repeated.get("idempotent"))
+        and digest_before_repeat == digest_after_repeat
+    )
+    _append_check(
+        report,
+        "EQUIPMENT_STAGE_IDEMPOTENCY",
+        "PASS" if idempotent_ok else "ERROR",
+        "Repeated Equipment stage execution is a byte-stable no-op."
+        if idempotent_ok
+        else "Repeated Equipment stage execution was not a byte-stable no-op.",
+        repeated,
+    )
+    if report["status"] != "PASS":
+        return
+
+    _write_integrated_ast(
+        args,
+        args.profile,
+        ast,
+        report,
+        f"{args.profile}-phase-c-equipment.ast.json",
+        "Wrote deterministic Phase C AST with Equipment Chapters 15–22 integrated.",
+    )
+
+
+def _run_ice_proof(
+    args: argparse.Namespace,
+    ast: dict[str, Any],
+    report: dict[str, Any],
+) -> None:
+    if args.profile != "complete-rulebook":
+        _append_check(
+            report,
+            "ICE_REFERENCE_PROFILE",
+            "ERROR",
+            "Chapter 29 ICE Reference is Complete Rulebook only.",
+        )
+        return
+
+    fragments = _compose_ice(args, report)
+    if fragments is None or report["status"] != "PASS":
+        return
+
+    header_latex, body_latex = fragments
+    adapter = integrate_chapter29_with_adapter(ast, args.profile, header_latex, body_latex)
+    report["adapters"].append(adapter.as_dict())
+    _append_check(
+        report,
+        "ICE_REFERENCE_ADAPTER",
+        "PASS" if adapter.status == "PASS" else "ERROR",
+        "Chapter 29 adapter satisfied exact semantic replacement and postconditions."
+        if adapter.status == "PASS"
+        else "Chapter 29 adapter failed exact semantic replacement; integrated AST was not written.",
+        adapter.as_dict(),
+    )
+    if report["status"] != "PASS":
+        return
+
+    digest_before_repeat = canonical_ast_sha256(ast)
+    repeated = integrate_chapter29_with_adapter(ast, args.profile, header_latex, body_latex)
+    digest_after_repeat = canonical_ast_sha256(ast)
+    idempotent_ok = repeated.status == "PASS" and repeated.idempotent and digest_before_repeat == digest_after_repeat
+    _append_check(
+        report,
+        "ICE_REFERENCE_ADAPTER_IDEMPOTENCY",
+        "PASS" if idempotent_ok else "ERROR",
+        "Repeated Chapter 29 adapter execution is a byte-stable no-op."
+        if idempotent_ok
+        else "Repeated Chapter 29 adapter execution was not a byte-stable no-op.",
+        repeated.as_dict(),
+    )
+    if report["status"] != "PASS":
+        return
+
+    _write_integrated_ast(
+        args,
+        args.profile,
+        ast,
+        report,
+        f"{args.profile}-phase-c-ch29.ast.json",
+        "Wrote deterministic Phase C AST with Chapter 29 integrated.",
+    )
+
+
 def _run(args: argparse.Namespace) -> int:
     profile = args.profile
     report = _report(profile, args.command)
@@ -302,69 +482,29 @@ def _run(args: argparse.Namespace) -> int:
         _write_json(report_path, report)
         return _emit(report, args.verbose)
 
-    report["paths"] = {"contract": str(contract_path), "baseAstOrSource": str(ast_source) if ast_source else None}
+    report["paths"] = {
+        "contract": str(contract_path),
+        "baseAstOrSource": str(ast_source) if ast_source else None,
+    }
     preflight = structural_preflight(ast, contract, profile)
     _merge_preflight(report, preflight)
-    if report["status"] != "PASS" or args.command == "preflight":
-        if args.command == "preflight" and report["status"] == "PASS":
-            output_path = _resolve(args.ast_output, DEFAULT_OUTPUT / f"{profile}-preflight.ast.json")
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_path.write_bytes(canonical_ast_bytes(ast))
-            report["paths"]["outputAst"] = str(output_path)
-            report["outputAstSha256"] = canonical_ast_sha256(ast)
-        _write_json(report_path, report)
-        return _emit(report, args.verbose)
-
-    fragments = _compose_ice(args, report)
-    if fragments is None or report["status"] != "PASS":
-        _write_json(report_path, report)
-        return _emit(report, args.verbose)
-
-    header_latex, body_latex = fragments
-    adapter = integrate_chapter29_with_adapter(ast, profile, header_latex, body_latex)
-    report["adapters"].append(adapter.as_dict())
-    _append_check(
-        report,
-        "ICE_REFERENCE_ADAPTER",
-        "PASS" if adapter.status == "PASS" else "ERROR",
-        "Chapter 29 adapter satisfied exact semantic replacement and postconditions."
-        if adapter.status == "PASS"
-        else "Chapter 29 adapter failed exact semantic replacement; integrated AST was not written.",
-        adapter.as_dict(),
-    )
     if report["status"] != "PASS":
         _write_json(report_path, report)
         return _emit(report, args.verbose)
 
-    digest_before_repeat = canonical_ast_sha256(ast)
-    repeated = integrate_chapter29_with_adapter(ast, profile, header_latex, body_latex)
-    digest_after_repeat = canonical_ast_sha256(ast)
-    idempotent_ok = repeated.status == "PASS" and repeated.idempotent and digest_before_repeat == digest_after_repeat
-    _append_check(
-        report,
-        "ICE_REFERENCE_ADAPTER_IDEMPOTENCY",
-        "PASS" if idempotent_ok else "ERROR",
-        "Repeated Chapter 29 adapter execution is a byte-stable no-op."
-        if idempotent_ok
-        else "Repeated Chapter 29 adapter execution was not a byte-stable no-op.",
-        repeated.as_dict(),
-    )
-    if report["status"] != "PASS":
-        _write_json(report_path, report)
-        return _emit(report, args.verbose)
-
-    output_path = _resolve(args.ast_output, DEFAULT_OUTPUT / f"{profile}-phase-c-ch29.ast.json")
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_bytes(canonical_ast_bytes(ast))
-    report["paths"]["outputAst"] = str(output_path)
-    report["outputAstSha256"] = canonical_ast_sha256(ast)
-    _append_check(
-        report,
-        "INTEGRATED_AST_OUTPUT",
-        "PASS",
-        "Wrote deterministic Phase C AST with Chapter 29 integrated.",
-        {"path": str(output_path), "sha256": report["outputAstSha256"]},
-    )
+    if args.command == "preflight":
+        _write_integrated_ast(
+            args,
+            profile,
+            ast,
+            report,
+            f"{profile}-preflight.ast.json",
+            "Wrote deterministic preflight AST without package mutation.",
+        )
+    elif args.command == "integrate-equipment":
+        _run_equipment_proof(args, contract, ast, report)
+    elif args.command == "integrate-ice":
+        _run_ice_proof(args, ast, report)
 
     _write_json(report_path, report)
     return _emit(report, args.verbose)
@@ -373,11 +513,11 @@ def _run(args: argparse.Namespace) -> int:
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         description=(
-            "Cybermancy Rulebook Step 6 Phase C integration runtime: structural preflight "
-            "and Chapter 29 first adapter proof."
+            "Cybermancy Rulebook Step 6 Phase C integration runtime: structural preflight, "
+            "Equipment Chapters 15–22, and Chapter 29 adapter proofs."
         )
     )
-    p.add_argument("command", choices=["preflight", "integrate-ice"])
+    p.add_argument("command", choices=["preflight", "integrate-equipment", "integrate-ice"])
     p.add_argument("--profile", choices=["complete-rulebook", "player-guide"], required=True)
     p.add_argument("--contract")
     p.add_argument("--source")
@@ -386,6 +526,8 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--work-dir")
     p.add_argument("--report")
     p.add_argument("--ice-config")
+    p.add_argument("--equipment-registry")
+    p.add_argument("--equipment-config-dir")
     p.add_argument("--sidecar")
     p.add_argument("--source-root")
     p.add_argument("--verbose", action="store_true")
