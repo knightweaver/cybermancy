@@ -9,6 +9,12 @@ CONTRACT_PATH = REPO_ROOT / "build/rulebook/production/production-renderer-v1.js
 METADATA_PATH = REPO_ROOT / "build/rulebook/production/publication-metadata-v1.json"
 
 
+def canonical_text_sha256(payload: bytes) -> str:
+    text = payload.decode("utf-8")
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
 class ProductionContractTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -66,13 +72,24 @@ class ProductionContractTests(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_frozen_contract_hashes_match_repository(self):
+        self.assertEqual(
+            self.contract["frozenBindingHashAlgorithm"],
+            "sha256-utf8-normalized-lf-v1",
+        )
         bindings = [self.contract["authorities"]["step6IntegrationContract"]]
         bindings.extend(self.contract["frozenPackageBindings"])
         for binding in bindings:
             path = REPO_ROOT / binding["path"]
             with self.subTest(path=binding["path"]):
                 self.assertTrue(path.is_file())
-                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), binding["sha256"])
+                self.assertEqual(canonical_text_sha256(path.read_bytes()), binding["sha256"])
+
+    def test_frozen_contract_hashes_are_line_ending_independent(self):
+        lf = b'{\n  "status": "accepted"\n}\n'
+        crlf = lf.replace(b"\n", b"\r\n")
+        cr = lf.replace(b"\n", b"\r")
+        self.assertEqual(canonical_text_sha256(lf), canonical_text_sha256(crlf))
+        self.assertEqual(canonical_text_sha256(lf), canonical_text_sha256(cr))
 
 
 if __name__ == "__main__":

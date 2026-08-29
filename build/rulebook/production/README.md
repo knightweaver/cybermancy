@@ -26,6 +26,10 @@ files. `.gitignore` now permits them, but they must be imported from the accepte
 freeze rather than regenerated or invented during Step 7. Until they are
 present, upstream readiness is a blocking failure by contract.
 
+Frozen JSON contract bindings use SHA-256 over UTF-8 text after normalizing
+CRLF and CR newlines to LF. This keeps the bindings stable across Git checkouts
+on Windows and Unix-like systems.
+
 ## Approved profile and release names
 
 | Profile ID | Reader-facing book | Release file |
