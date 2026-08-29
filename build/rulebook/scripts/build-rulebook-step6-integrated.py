@@ -16,6 +16,11 @@ REPO_ROOT = RULEBOOK_DIR.parent.parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+from rulebook_layout.character_options_adapters import integrate_character_options_stage
+from rulebook_layout.character_options_integration import (
+    compose_class_stage,
+    compose_domain_stage,
+)
 from rulebook_layout.equipment_adapters import integrate_equipment_stage
 from rulebook_layout.equipment_integration import compose_equipment_stage
 from rulebook_layout.ice_reference import load_json
@@ -37,6 +42,8 @@ from rulebook_layout.toolchain import resolve_tool
 
 
 DEFAULT_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
+DEFAULT_CLASS_CONFIG = RULEBOOK_DIR / "layout" / "classes" / "class-package-v1.json"
+DEFAULT_DOMAIN_CONFIG = RULEBOOK_DIR / "layout" / "domains" / "domain-package-v1.json"
 DEFAULT_ICE_CONFIG = RULEBOOK_DIR / "layout" / "ice" / "ice-reference-package-v1.json"
 DEFAULT_EQUIPMENT_REGISTRY = RULEBOOK_DIR / "layout" / "equipment" / "equipment-section-v1.json"
 DEFAULT_EQUIPMENT_CONFIG_DIR = RULEBOOK_DIR / "layout" / "equipment"
@@ -67,7 +74,10 @@ def _resolve(value: str | None, default: Path) -> Path:
 
 def _write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(value, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 def _emit(report: dict[str, Any], verbose: bool) -> int:
@@ -107,7 +117,7 @@ def _report(profile: str, command: str) -> dict[str, Any]:
         "schema": "cybermancy-step6-integration-runtime-v1",
         "status": "PASS",
         "phase": "C",
-        "milestone": "structural-preflight-common-adapters-equipment-ch29-proofs",
+        "milestone": "structural-preflight-character-options-equipment-ch29-proofs",
         "command": command,
         "profile": profile,
         "checks": [],
@@ -137,7 +147,9 @@ def _pandoc_ast(source: Path) -> dict[str, Any]:
         stderr=subprocess.PIPE,
     )
     if proc.returncode != 0:
-        tail = "\n".join(((proc.stdout or "") + "\n" + (proc.stderr or "")).splitlines()[-80:])
+        tail = "\n".join(
+            ((proc.stdout or "") + "\n" + (proc.stderr or "")).splitlines()[-80:]
+        )
         raise RuntimeError(f"Pandoc AST generation failed for {source}:\n{tail}")
     value = json.loads(proc.stdout)
     if not isinstance(value, dict):
@@ -153,19 +165,40 @@ def _load_base_ast(
     if args.ast_input:
         ast_path = _resolve(args.ast_input, Path(args.ast_input))
         if not ast_path.is_file():
-            _append_check(report, "BASE_AST_INPUT", "ERROR", f"Pandoc AST input does not exist: {ast_path}")
+            _append_check(
+                report,
+                "BASE_AST_INPUT",
+                "ERROR",
+                f"Pandoc AST input does not exist: {ast_path}",
+            )
             return None, None
         try:
             ast = load_json(ast_path)
         except Exception as exc:
-            _append_check(report, "BASE_AST_INPUT", "ERROR", f"Could not load Pandoc AST input: {exc}")
+            _append_check(
+                report,
+                "BASE_AST_INPUT",
+                "ERROR",
+                f"Could not load Pandoc AST input: {exc}",
+            )
             return None, ast_path
-        _append_check(report, "BASE_AST_INPUT", "PASS", f"Loaded one base Pandoc AST for {profile}.", str(ast_path))
+        _append_check(
+            report,
+            "BASE_AST_INPUT",
+            "PASS",
+            f"Loaded one base Pandoc AST for {profile}.",
+            str(ast_path),
+        )
         return ast, ast_path
 
     source_path = _resolve(args.source, PROFILE_SOURCE[profile])
     if not source_path.is_file():
-        _append_check(report, "ASSEMBLED_SOURCE", "ERROR", f"Step 4 assembled source is missing: {source_path}")
+        _append_check(
+            report,
+            "ASSEMBLED_SOURCE",
+            "ERROR",
+            f"Step 4 assembled source is missing: {source_path}",
+        )
         return None, source_path
     try:
         ast = _pandoc_ast(source_path)
@@ -201,8 +234,131 @@ def _merge_preflight(report: dict[str, Any], preflight: dict[str, Any]) -> None:
         "Structural preflight passed; package adapters may run."
         if preflight.get("status") == "PASS"
         else "Structural preflight failed; no package adapter was run.",
-        {"inputAstSha256": preflight.get("inputAstSha256"), "inventory": preflight.get("inventory")},
+        {
+            "inputAstSha256": preflight.get("inputAstSha256"),
+            "inventory": preflight.get("inventory"),
+        },
     )
+
+
+def _compose_character_options(
+    args: argparse.Namespace,
+    contract: dict[str, Any],
+    report: dict[str, Any],
+):
+    sidecar_path = _resolve(args.sidecar, DEFAULT_SIDECAR)
+    class_config_path = _resolve(args.class_config, DEFAULT_CLASS_CONFIG)
+    domain_config_path = _resolve(args.domain_config, DEFAULT_DOMAIN_CONFIG)
+    source_root = _resolve(args.source_root, DEFAULT_SOURCE_ROOT)
+    work_dir = _resolve(args.work_dir, DEFAULT_WORK) / "character-options"
+
+    for code, path in (
+        ("STRUCTURED_SIDECAR", sidecar_path),
+        ("CLASS_CONFIG", class_config_path),
+        ("DOMAIN_CONFIG", domain_config_path),
+    ):
+        if not path.is_file():
+            _append_check(
+                report,
+                code,
+                "ERROR",
+                f"Required integration input is missing: {path}",
+            )
+    if not source_root.is_dir():
+        _append_check(
+            report,
+            "SOURCE_ROOT",
+            "ERROR",
+            f"Step 4 source root is missing: {source_root}",
+        )
+    if report["status"] != "PASS":
+        return None
+
+    work_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        sidecar = load_json(sidecar_path)
+        class_config = load_json(class_config_path)
+        domain_config = load_json(domain_config_path)
+    except Exception as exc:
+        _append_check(
+            report,
+            "CHARACTER_OPTIONS_INPUTS",
+            "ERROR",
+            f"Could not load Character Options integration inputs: {exc}",
+        )
+        return None
+
+    try:
+        class_payload, class_composition = compose_class_stage(
+            sidecar,
+            class_config,
+            source_root,
+            work_dir,
+            contract,
+        )
+    except Exception as exc:
+        class_payload = None
+        class_composition = {
+            "status": "FAIL",
+            "errors": [
+                {
+                    "code": "CLASS_STAGE_EXCEPTION",
+                    "status": "ERROR",
+                    "message": f"{type(exc).__name__}: {exc}",
+                }
+            ],
+        }
+    report["classComposition"] = class_composition
+    class_ok = (
+        class_payload is not None and class_composition.get("status") == "PASS"
+    )
+    _append_check(
+        report,
+        "CLASS_STAGE_COMPOSITION",
+        "PASS" if class_ok else "ERROR",
+        "Composed the complete frozen Chapter 12 ClassPackage publication body."
+        if class_ok
+        else "Chapter 12 ClassPackage composition failed its semantic, corpus, or rendering contract.",
+        class_payload.summary() if class_payload else class_composition.get("errors"),
+    )
+
+    try:
+        domain_payload, domain_composition = compose_domain_stage(
+            sidecar,
+            domain_config,
+            source_root,
+            work_dir,
+            contract,
+        )
+    except Exception as exc:
+        domain_payload = None
+        domain_composition = {
+            "status": "FAIL",
+            "errors": [
+                {
+                    "code": "DOMAIN_STAGE_EXCEPTION",
+                    "status": "ERROR",
+                    "message": f"{type(exc).__name__}: {exc}",
+                }
+            ],
+        }
+    report["domainComposition"] = domain_composition
+    domain_ok = (
+        domain_payload is not None and domain_composition.get("status") == "PASS"
+    )
+    _append_check(
+        report,
+        "DOMAIN_STAGE_COMPOSITION",
+        "PASS" if domain_ok else "ERROR",
+        "Composed the complete frozen Chapter 14 DomainPackage publication body."
+        if domain_ok
+        else "Chapter 14 DomainPackage composition failed its semantic, corpus, or rendering contract.",
+        domain_payload.summary() if domain_payload else domain_composition.get("errors"),
+    )
+
+    if not class_ok or not domain_ok or report["status"] != "PASS":
+        return None
+    return class_payload, domain_payload
 
 
 def _compose_equipment(
@@ -219,18 +375,35 @@ def _compose_equipment(
         ("EQUIPMENT_REGISTRY", registry_path),
     ):
         if not path.is_file():
-            _append_check(report, code, "ERROR", f"Required integration input is missing: {path}")
+            _append_check(
+                report,
+                code,
+                "ERROR",
+                f"Required integration input is missing: {path}",
+            )
     if not config_dir.is_dir():
-        _append_check(report, "EQUIPMENT_CONFIG_DIR", "ERROR", f"Equipment config directory is missing: {config_dir}")
+        _append_check(
+            report,
+            "EQUIPMENT_CONFIG_DIR",
+            "ERROR",
+            f"Equipment config directory is missing: {config_dir}",
+        )
     if report["status"] != "PASS":
         return None
 
     try:
         sidecar = load_json(sidecar_path)
         registry = load_json(registry_path)
-        payloads, composition = compose_equipment_stage(sidecar, registry, config_dir, contract)
+        payloads, composition = compose_equipment_stage(
+            sidecar, registry, config_dir, contract
+        )
     except Exception as exc:
-        _append_check(report, "EQUIPMENT_STAGE_COMPOSITION", "ERROR", f"Equipment composition raised an exception: {exc}")
+        _append_check(
+            report,
+            "EQUIPMENT_STAGE_COMPOSITION",
+            "ERROR",
+            f"Equipment composition raised an exception: {exc}",
+        )
         return None
 
     report["equipmentComposition"] = composition
@@ -242,20 +415,33 @@ def _compose_equipment(
         "Composed all eight frozen Equipment family bodies from the Step 4 v1.3 sidecar."
         if ok
         else "Equipment stage composition failed its metadata, corpus, or rendering contract.",
-        [payload.summary() for payload in payloads] if payloads else composition.get("errors"),
+        [payload.summary() for payload in payloads]
+        if payloads
+        else composition.get("errors"),
     )
     return payloads if ok else None
 
 
-def _compose_ice(args: argparse.Namespace, report: dict[str, Any]) -> tuple[str, str] | None:
+def _compose_ice(
+    args: argparse.Namespace,
+    report: dict[str, Any],
+) -> tuple[str, str] | None:
     config_path = _resolve(args.ice_config, DEFAULT_ICE_CONFIG)
     sidecar_path = _resolve(args.sidecar, DEFAULT_SIDECAR)
     source_root = _resolve(args.source_root, DEFAULT_SOURCE_ROOT)
     work_dir = _resolve(args.work_dir, DEFAULT_WORK)
 
-    for code, path in (("ICE_CONFIG", config_path), ("STRUCTURED_SIDECAR", sidecar_path)):
+    for code, path in (
+        ("ICE_CONFIG", config_path),
+        ("STRUCTURED_SIDECAR", sidecar_path),
+    ):
         if not path.is_file():
-            _append_check(report, code, "ERROR", f"Required integration input is missing: {path}")
+            _append_check(
+                report,
+                code,
+                "ERROR",
+                f"Required integration input is missing: {path}",
+            )
     if report["status"] != "PASS":
         return None
 
@@ -266,7 +452,11 @@ def _compose_ice(args: argparse.Namespace, report: dict[str, Any]) -> tuple[str,
 
     package_ok = package_report.get("status") == "PASS" and isinstance(view, dict)
     if package_ok:
-        policy = config.get("publicationPolicy") if isinstance(config.get("publicationPolicy"), dict) else {}
+        policy = (
+            config.get("publicationPolicy")
+            if isinstance(config.get("publicationPolicy"), dict)
+            else {}
+        )
         package = view.get("package") if isinstance(view.get("package"), dict) else {}
         expected_total = int(policy.get("expectedIceTotal") or 0)
         actual_total = int(package.get("entryCount") or 0)
@@ -282,7 +472,9 @@ def _compose_ice(args: argparse.Namespace, report: dict[str, Any]) -> tuple[str,
         else "Frozen Chapter 29 ICEReferencePackage did not satisfy its semantic/corpus contract.",
         {
             "packageReport": package_report,
-            "entryCount": (view or {}).get("package", {}).get("entryCount") if isinstance(view, dict) else None,
+            "entryCount": (view or {}).get("package", {}).get("entryCount")
+            if isinstance(view, dict)
+            else None,
         },
     )
     if not package_ok or not isinstance(view, dict):
@@ -327,6 +519,133 @@ def _write_integrated_ast(
         "PASS",
         message,
         {"path": str(output_path), "sha256": report["outputAstSha256"]},
+    )
+
+
+def _adapter_by_name(stage: dict[str, Any], name: str) -> dict[str, Any] | None:
+    for item in stage.get("adapters") or []:
+        if isinstance(item, dict) and item.get("adapter") == name:
+            return item
+    return None
+
+
+def _run_character_options_proof(
+    args: argparse.Namespace,
+    contract: dict[str, Any],
+    ast: dict[str, Any],
+    report: dict[str, Any],
+) -> None:
+    payloads = _compose_character_options(args, contract, report)
+    if payloads is None or report["status"] != "PASS":
+        return
+    class_payload, domain_payload = payloads
+
+    stage = integrate_character_options_stage(
+        ast,
+        args.profile,
+        class_payload,
+        domain_payload,
+    )
+    report["characterOptionsStage"] = stage
+    report["adapters"].extend(stage.get("adapters") or [])
+    class_adapter = _adapter_by_name(stage, "class-package")
+    domain_adapter = _adapter_by_name(stage, "domain-package")
+
+    _append_check(
+        report,
+        "CLASS_STAGE_ADAPTER",
+        "PASS" if class_adapter and class_adapter.get("status") == "PASS" else "ERROR",
+        "Chapter 12 ClassPackage replaced family:classes and family:subclasses exactly."
+        if class_adapter and class_adapter.get("status") == "PASS"
+        else "Chapter 12 ClassPackage adapter did not satisfy exact replacement postconditions.",
+        class_adapter or stage,
+    )
+    _append_check(
+        report,
+        "DOMAIN_STAGE_ADAPTER",
+        "PASS" if domain_adapter and domain_adapter.get("status") == "PASS" else "ERROR",
+        "Chapter 14 DomainPackage replaced family:domains exactly."
+        if domain_adapter and domain_adapter.get("status") == "PASS"
+        else "Chapter 14 DomainPackage adapter did not satisfy exact replacement postconditions.",
+        domain_adapter or stage,
+    )
+    _append_check(
+        report,
+        "CHARACTER_OPTIONS_STAGE_ADAPTER",
+        "PASS" if stage.get("status") == "PASS" else "ERROR",
+        "Orders 50 and 60 committed atomically through the common exact-adapter contract."
+        if stage.get("status") == "PASS"
+        else "Character Options stage failed; all staged Class/Domain AST mutations were discarded.",
+        stage,
+    )
+    if report["status"] != "PASS":
+        return
+
+    digest_before_repeat = canonical_ast_sha256(ast)
+    repeated = integrate_character_options_stage(
+        ast,
+        args.profile,
+        class_payload,
+        domain_payload,
+    )
+    digest_after_repeat = canonical_ast_sha256(ast)
+    repeated_class = _adapter_by_name(repeated, "class-package")
+    repeated_domain = _adapter_by_name(repeated, "domain-package")
+    class_idempotent = bool(
+        repeated_class
+        and repeated_class.get("status") == "PASS"
+        and repeated_class.get("idempotent")
+    )
+    domain_idempotent = bool(
+        repeated_domain
+        and repeated_domain.get("status") == "PASS"
+        and repeated_domain.get("idempotent")
+    )
+    stage_idempotent = (
+        repeated.get("status") == "PASS"
+        and bool(repeated.get("idempotent"))
+        and class_idempotent
+        and domain_idempotent
+        and digest_before_repeat == digest_after_repeat
+    )
+
+    _append_check(
+        report,
+        "CLASS_STAGE_IDEMPOTENCY",
+        "PASS" if class_idempotent else "ERROR",
+        "Repeated Chapter 12 ClassPackage execution is an exact no-op."
+        if class_idempotent
+        else "Repeated Chapter 12 ClassPackage execution was not idempotent.",
+        repeated_class or repeated,
+    )
+    _append_check(
+        report,
+        "DOMAIN_STAGE_IDEMPOTENCY",
+        "PASS" if domain_idempotent else "ERROR",
+        "Repeated Chapter 14 DomainPackage execution is an exact no-op."
+        if domain_idempotent
+        else "Repeated Chapter 14 DomainPackage execution was not idempotent.",
+        repeated_domain or repeated,
+    )
+    _append_check(
+        report,
+        "CHARACTER_OPTIONS_STAGE_IDEMPOTENCY",
+        "PASS" if stage_idempotent else "ERROR",
+        "Repeated combined Class/Domain stage execution is a byte-stable no-op."
+        if stage_idempotent
+        else "Repeated combined Class/Domain stage execution was not a byte-stable no-op.",
+        repeated,
+    )
+    if report["status"] != "PASS":
+        return
+
+    _write_integrated_ast(
+        args,
+        args.profile,
+        ast,
+        report,
+        f"{args.profile}-phase-c-character-options.ast.json",
+        "Wrote deterministic Phase C AST with Chapters 12 and 14 integrated.",
     )
 
 
@@ -404,7 +723,9 @@ def _run_ice_proof(
         return
 
     header_latex, body_latex = fragments
-    adapter = integrate_chapter29_with_adapter(ast, args.profile, header_latex, body_latex)
+    adapter = integrate_chapter29_with_adapter(
+        ast, args.profile, header_latex, body_latex
+    )
     report["adapters"].append(adapter.as_dict())
     _append_check(
         report,
@@ -419,9 +740,15 @@ def _run_ice_proof(
         return
 
     digest_before_repeat = canonical_ast_sha256(ast)
-    repeated = integrate_chapter29_with_adapter(ast, args.profile, header_latex, body_latex)
+    repeated = integrate_chapter29_with_adapter(
+        ast, args.profile, header_latex, body_latex
+    )
     digest_after_repeat = canonical_ast_sha256(ast)
-    idempotent_ok = repeated.status == "PASS" and repeated.idempotent and digest_before_repeat == digest_after_repeat
+    idempotent_ok = (
+        repeated.status == "PASS"
+        and repeated.idempotent
+        and digest_before_repeat == digest_after_repeat
+    )
     _append_check(
         report,
         "ICE_REFERENCE_ADAPTER_IDEMPOTENCY",
@@ -448,10 +775,18 @@ def _run(args: argparse.Namespace) -> int:
     profile = args.profile
     report = _report(profile, args.command)
     contract_path = _resolve(args.contract, DEFAULT_CONTRACT)
-    report_path = _resolve(args.report, DEFAULT_REPORTS / f"{profile}-{args.command}.json")
+    report_path = _resolve(
+        args.report,
+        DEFAULT_REPORTS / f"{profile}-{args.command}.json",
+    )
 
     if not contract_path.is_file():
-        _append_check(report, "INTEGRATION_CONTRACT", "ERROR", f"Step 6 integration contract is missing: {contract_path}")
+        _append_check(
+            report,
+            "INTEGRATION_CONTRACT",
+            "ERROR",
+            f"Step 6 integration contract is missing: {contract_path}",
+        )
         _write_json(report_path, report)
         return _emit(report, args.verbose)
 
@@ -465,7 +800,9 @@ def _run(args: argparse.Namespace) -> int:
         report,
         "INTEGRATION_CONTRACT",
         "PASS" if contract_ok else "ERROR",
-        "Accepted Step 6 integration contract v1.0 loaded." if contract_ok else "Step 6 integration contract is not accepted v1.0.",
+        "Accepted Step 6 integration contract v1.0 loaded."
+        if contract_ok
+        else "Step 6 integration contract is not accepted v1.0.",
         str(contract_path),
     )
     if report["status"] != "PASS":
@@ -473,7 +810,12 @@ def _run(args: argparse.Namespace) -> int:
         return _emit(report, args.verbose)
 
     if profile not in (contract.get("profiles") or {}):
-        _append_check(report, "PROFILE_CONTRACT", "ERROR", f"Profile is not defined by the integration contract: {profile}")
+        _append_check(
+            report,
+            "PROFILE_CONTRACT",
+            "ERROR",
+            f"Profile is not defined by the integration contract: {profile}",
+        )
         _write_json(report_path, report)
         return _emit(report, args.verbose)
 
@@ -501,6 +843,8 @@ def _run(args: argparse.Namespace) -> int:
             f"{profile}-preflight.ast.json",
             "Wrote deterministic preflight AST without package mutation.",
         )
+    elif args.command == "integrate-character-options":
+        _run_character_options_proof(args, contract, ast, report)
     elif args.command == "integrate-equipment":
         _run_equipment_proof(args, contract, ast, report)
     elif args.command == "integrate-ice":
@@ -513,18 +857,33 @@ def _run(args: argparse.Namespace) -> int:
 def parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         description=(
-            "Cybermancy Rulebook Step 6 Phase C integration runtime: structural preflight, "
-            "Equipment Chapters 15–22, and Chapter 29 adapter proofs."
+            "Cybermancy Rulebook Step 6 Phase C integration runtime: structural "
+            "preflight, Character Options Chapters 12/14, Equipment Chapters "
+            "15–22, and Chapter 29 adapter proofs."
         )
     )
-    p.add_argument("command", choices=["preflight", "integrate-equipment", "integrate-ice"])
-    p.add_argument("--profile", choices=["complete-rulebook", "player-guide"], required=True)
+    p.add_argument(
+        "command",
+        choices=[
+            "preflight",
+            "integrate-character-options",
+            "integrate-equipment",
+            "integrate-ice",
+        ],
+    )
+    p.add_argument(
+        "--profile",
+        choices=["complete-rulebook", "player-guide"],
+        required=True,
+    )
     p.add_argument("--contract")
     p.add_argument("--source")
     p.add_argument("--ast-input")
     p.add_argument("--ast-output")
     p.add_argument("--work-dir")
     p.add_argument("--report")
+    p.add_argument("--class-config")
+    p.add_argument("--domain-config")
     p.add_argument("--ice-config")
     p.add_argument("--equipment-registry")
     p.add_argument("--equipment-config-dir")
