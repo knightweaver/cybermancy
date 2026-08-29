@@ -70,10 +70,10 @@ class TestEncounterProductionContracts(unittest.TestCase):
             ],
         }
 
-    def _config(self, family, expected, ordering):
+    def _config(self, family, expected, ordering, *, version="v1.1"):
         return {
             "family": family,
-            "lifecycle": {"version": "v1.0", "status": "frozen"},
+            "lifecycle": {"version": version, "status": "frozen"},
             "selection": {"mode": "full-corpus"},
             "publicationPolicy": {
                 "requireFullCorpusSelection": True,
@@ -81,6 +81,11 @@ class TestEncounterProductionContracts(unittest.TestCase):
                 "ordering": ordering,
             },
         }
+
+    def test_package_versions_are_explicit_per_family(self):
+        self.assertEqual(self.builder.EXPECTED_PACKAGE_VERSIONS["adversary"], "v1.1")
+        self.assertEqual(self.builder.EXPECTED_PACKAGE_VERSIONS["environment"], "v1.0")
+        self.assertEqual(self.builder.EXPECTED_PACKAGE_VERSIONS["feature-reference"], "v1.0")
 
     def test_adversary_full_corpus_order_is_tier_classification_name(self):
         ids, errors = self.builder._ordered_full_corpus(self._sidecar(), "adversaries")
@@ -106,17 +111,26 @@ class TestEncounterProductionContracts(unittest.TestCase):
             ],
         )
 
-    def test_frozen_contract_accepts_warning_step4_status(self):
+    def test_frozen_adversary_v11_contract_accepts_warning_step4_status(self):
         runtime, contract, errors = self.builder._productionize_config(
             self._sidecar(),
             self._config("adversaries", 3, ["tier", "classification", "name", "semanticId"]),
             "adversary",
         )
         self.assertEqual(errors, [])
+        self.assertEqual(contract["version"], "v1.1")
         self.assertEqual(contract["actualEntryCount"], 3)
         self.assertEqual(contract["expectedEntryCount"], 3)
         self.assertEqual(runtime["selection"]["mode"], "full-corpus")
         self.assertEqual(len(runtime["selection"]["semanticIds"]), 3)
+
+    def test_adversary_v10_is_rejected_after_v11_freeze(self):
+        _, _, errors = self.builder._productionize_config(
+            self._sidecar(),
+            self._config("adversaries", 3, ["tier", "classification", "name", "semanticId"], version="v1.0"),
+            "adversary",
+        )
+        self.assertTrue(any("adversary config must have lifecycle.version='v1.1'" in message for message in errors))
 
     def test_frozen_contract_fails_closed_on_count_drift(self):
         _, contract, errors = self.builder._productionize_config(
