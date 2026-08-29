@@ -41,7 +41,7 @@ Semantic replacement occurs before publication-shell lowering while chapter/fami
 
 ## Current accepted integration state
 
-The following chapter-layout transforms have been individually proven against the real Step 4 corpus and accepted:
+All Phase C chapter-layout transforms have been individually proven against the real Step 4 corpus and accepted:
 
 ```text
 20   Chapters 1–3     Long-Form Player Prose
@@ -57,7 +57,9 @@ The following chapter-layout transforms have been individually proven against th
 120  Chapter 32       Adversary Feature Reference
 ```
 
-Stage **130 publication-shell lowering is implemented and awaiting cumulative real-corpus acceptance**. Its proof driver intentionally assembles orders 20–120 on one AST in the normative order before applying the shell transform.
+Stage **130 publication-shell lowering is accepted** after cumulative Player Guide and Complete Rulebook proofs passed against one deterministic AST per profile.
+
+Stage **140 post-transform semantic validation is implemented and awaiting real-corpus acceptance**. It consumes the deterministic Stage 130 AST without mutation and emits a byte-identical validated AST for Stage 150.
 
 See:
 
@@ -67,9 +69,10 @@ rules-phase-c.md
 character-origins-phase-c.md
 encounter-toolkit-phase-c.md
 publication-shell-stage130.md
+post-transform-validation-stage140.md
 ```
 
-## Cumulative integration correction discovered at Stage 130
+## Cumulative integration corrections discovered at Stage 130
 
 The first cumulative assembly exposed a boundary defect that isolated chapter proofs could not reveal. The original prose/rules body adapters used the next Chapter H2 as the only body boundary, so the last chapter of a Part could cross and consume the intervening Part H1.
 
@@ -78,7 +81,9 @@ The corrected integration boundary is the earliest of:
 - the next authoritative Chapter H2; or
 - an intervening top-level Part H1.
 
-This protects the Part boundaries after Chapters 3, 9, and 28 without changing any accepted chapter grammar or rulebook content. Stage 130 regression tests explicitly preserve these boundaries.
+This protects the Part boundaries after Chapters 3, 9, and 28 without changing any accepted chapter grammar or rulebook content.
+
+Stage 130 also established that semantic H2 display text is not itself the publication-title authority. Exact semantic chapter ID/order and audience remain routing preconditions; Stage 130 canonicalizes the visible integrated Chapter title from the accepted Step 6 integration contract.
 
 ## Structured package targets
 
@@ -119,6 +124,8 @@ Common exact adapters stage mutations on a deep copy and commit only after exact
 
 Stage 130 adds a cumulative readiness gate requiring all Part boundaries to survive orders 20–120, all generic prose/rules/origin bodies to be exact accepted LaTeX fragments, all applicable structured family bodies to be exact accepted LaTeX fragments, and package-owned Chapter 29–32 headers to have already been lowered.
 
+Stage 140 then verifies the fully lowered cumulative AST without changing it. Validation includes exact shell counts, canonical landmark order, absence of semantic Part/Chapter residue, Chapter 13 exclusion, structured-family integrity, package-owned header preservation, multicolumn balance, profile audience separation, and absence of standalone LaTeX document-shell leakage.
+
 ## Publication-shell lowering
 
 Stage 130 lowers the remaining semantic publication nodes to stable intermediate macros:
@@ -148,16 +155,16 @@ The integration contract records these current corpus expectations:
 - Environments: 8 entries.
 - Adversary Feature Reference: 344 published representatives from 419 canonical source entries.
 
-## Stage 130 proof commands
+## Stage 140 proof commands
 
-From repository root:
+From repository root, after the accepted Stage 130 outputs exist:
 
 ```powershell
-python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_publication_shell.py" -v
+python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_post_transform_validation.py" -v
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_*.py" -v
 
-python build\rulebook\scripts\build-rulebook-step6-publication-shell.py --profile player-guide --verbose
-python build\rulebook\scripts\build-rulebook-step6-publication-shell.py --profile complete-rulebook --verbose
+python build\rulebook\scripts\build-rulebook-step6-post-transform-validation.py --profile player-guide --verbose
+python build\rulebook\scripts\build-rulebook-step6-post-transform-validation.py --profile complete-rulebook --verbose
 ```
 
 Generated ASTs, work files, render-only assets, and reports remain noncanonical outputs beneath `build/rulebook/layout/integration/{output,work,reports}/`.
