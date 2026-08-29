@@ -13,7 +13,7 @@ The integration layer supports exactly two publication profiles:
 
 Chapter 13 remains reserved. It has no chapter node and no placeholder.
 
-The contract now carries the explicit chapter ID/title/audience map used by Phase C structural preflight. This is a runtime binding of the accepted Step 3 architecture, not a second book-architecture authority.
+The contract carries the explicit chapter ID/title/audience map used by Phase C structural preflight. This is a runtime binding of the accepted Step 3 architecture, not a second book-architecture authority.
 
 ## Structured package targets
 
@@ -64,14 +64,16 @@ Step 6 integration is defined as one base Pandoc JSON AST per profile followed b
 
 Semantic replacement occurs before publication-shell lowering while chapter/family semantics remain intact.
 
-## Phase C runtime — first integration proof
+## Phase C runtime
 
-The first Phase C milestone is implemented by:
+The Phase C runtime is implemented by:
 
 ```text
 build/rulebook/scripts/build-rulebook-step6-integrated.py
 build/rulebook/scripts/rulebook_layout/integration.py
 build/rulebook/scripts/rulebook_layout/integration_ast.py
+build/rulebook/scripts/rulebook_layout/equipment_integration.py
+build/rulebook/scripts/rulebook_layout/equipment_adapters.py
 ```
 
 The structural preflight is fail-closed. Before any package adapter runs it verifies:
@@ -86,13 +88,40 @@ The structural preflight is fail-closed. Before any package adapter runs it veri
 
 The common exact-adapter runtime records `expected`, `found`, `replaced`, `remaining`, and integrated-postcondition counts. Mutations are staged on a deep copy and committed only after all postconditions pass, so a failed adapter does not leave a partially modified AST. Reapplying an already integrated adapter must be a byte-stable no-op.
 
-Chapter 29 is the first production proof. It reuses the frozen ICEReferencePackage v1 composer and integration fragments, requires the complete 13-entry ICE corpus, and replaces exactly the Chapter 29 semantic heading plus the `family:features` body. It is Complete Rulebook only.
+### Equipment proof — Chapters 15–22
 
-Default commands consume the current Step 4 assembled manuscript and generate one Pandoc JSON AST for the selected profile:
+Equipment is the second Phase C production proof. The integration composer consumes the current Step 4 `cybermancy-step4-structured-entities-v1.3` sidecar, the accepted Equipment registry, and the eight accepted family configs. It validates the frozen corpus counts and config contracts, then renders only the accepted family-body grammar—never the standalone Equipment document shell.
+
+The order-70 Equipment stage targets exactly:
+
+```text
+15  family:weapons
+16  family:ammo
+17  family:armors
+18  family:cybernetics
+19  family:drones-devices
+20  family:consumables
+21  family:mods
+22  family:loot
+```
+
+Weapons reuse the accepted four-Tier catalog plus Weapon Actions and Critical Effects reference grammar. The remaining families reuse the accepted generic catalog grammar. No local `documentclass`, geometry, font setup, chapter wrapper, or other standalone shell is inserted into the integrated AST.
+
+The eight replacements are transactional as one stage: all changes occur on a staged AST copy. If a later Equipment family is missing, duplicated, invalid, or fails its postconditions, earlier staged replacements are discarded and the original AST remains untouched. A second successful application of the entire Equipment stage must be a byte-stable no-op.
+
+Equipment applies to both `player-guide` and `complete-rulebook`.
+
+### Chapter 29 ICE proof
+
+Chapter 29 remains the first Complete-only package proof. It reuses the frozen ICEReferencePackage v1 composer and integration fragments, requires the complete 13-entry ICE corpus, and replaces exactly the Chapter 29 semantic heading plus the `family:features` body.
+
+Default proof commands consume the current Step 4 assembled manuscript and generate one Pandoc JSON AST for the selected profile:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-step6-integrated.py preflight --profile player-guide
 python build\rulebook\scripts\build-rulebook-step6-integrated.py preflight --profile complete-rulebook
+python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-equipment --profile player-guide
+python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-equipment --profile complete-rulebook
 python build\rulebook\scripts\build-rulebook-step6-integrated.py integrate-ice --profile complete-rulebook
 ```
 
@@ -102,7 +131,7 @@ Generated Phase C ASTs, work files, render-only assets, and reports remain nonca
 
 ## Current boundary
 
-This milestone does **not** yet integrate Chapters 1–28 or 30–32 through their package adapters, and it does not implement publication-shell lowering, the unified LuaLaTeX shell, or final PDFs. Those remain subsequent Phase C/Phase D work.
+This milestone proves structural preflight, Equipment Chapters 15–22, and Chapter 29 as isolated package-integration stages. It does **not** yet apply ClassPackage Chapter 12, DomainPackage Chapter 14, Chapters 1–11 or 23–28 layout transforms, Chapters 30–32 encounter adapters, publication-shell lowering, the unified LuaLaTeX shell, or final PDFs. Those remain subsequent Phase C/Phase D work.
 
 Frozen package grammars remain authoritative and must not be silently redesigned during integration. Local standalone package shells, geometry, preambles, and temporary render directories are not whole-book architecture.
 
@@ -120,4 +149,4 @@ The integration contract records current accepted corpus expectations so whole-b
 - Environments: 8 entries.
 - Adversary Feature Reference: 344 published representatives from 419 canonical source entries.
 
-`build/rulebook/scripts/tests/test_step6_integration_contract.py` validates the static contract, while `test_step6_integration_runtime.py` validates structural preflight, fail-closed adapter behavior, profile gating, and Chapter 29 idempotency.
+`build/rulebook/scripts/tests/test_step6_integration_contract.py` validates the static contract. `test_step6_integration_runtime.py` validates structural preflight, common exact-adapter behavior, profile gating, and Chapter 29 idempotency. `test_step6_integration_equipment.py` validates Equipment composition, atomic stage rollback, both-profile gating, and Equipment idempotency.
