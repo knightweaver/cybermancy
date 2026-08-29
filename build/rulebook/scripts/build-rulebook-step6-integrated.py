@@ -33,6 +33,7 @@ from rulebook_layout.integration import (
 )
 from rulebook_layout.integration_ast import canonical_ast_bytes, canonical_ast_sha256
 from rulebook_layout.render_assets import prepare_lualatex_render_assets
+from rulebook_layout.toolchain import resolve_tool
 
 
 DEFAULT_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
@@ -115,16 +116,16 @@ def _report(profile: str, command: str) -> dict[str, Any]:
 
 
 def _pandoc_executable() -> str | None:
-    override = os.environ.get("CYBERMANCY_PANDOC_PATH")
-    if override and Path(override).is_file():
-        return str(Path(override).resolve())
-    return shutil.which("pandoc")
+    return resolve_tool("pandoc")
 
 
 def _pandoc_ast(source: Path) -> dict[str, Any]:
     pandoc = _pandoc_executable()
     if not pandoc:
-        raise RuntimeError("Pandoc was not found. Set CYBERMANCY_PANDOC_PATH or install Pandoc.")
+        raise RuntimeError(
+            "Pandoc was not found in CYBERMANCY_PANDOC_PATH, PATH, Windows App Paths, "
+            "or common Pandoc/WinGet install locations."
+        )
     proc = subprocess.run(
         [pandoc, "--from", PANDOC_FROM, "--to=json", "--wrap=none", str(source)],
         text=True,
@@ -179,7 +180,12 @@ def _load_base_ast(
         "BASE_AST_GENERATION",
         "PASS",
         f"Generated exactly one base Pandoc AST for {profile}.",
-        {"source": str(source_path), "ast": str(base_path), "sha256": canonical_ast_sha256(ast)},
+        {
+            "source": str(source_path),
+            "ast": str(base_path),
+            "pandoc": _pandoc_executable(),
+            "sha256": canonical_ast_sha256(ast),
+        },
     )
     return ast, base_path
 
