@@ -3,11 +3,11 @@
   "family": "adversaries",
   "title": "Chapter 30 - Adversaries",
   "subtitle": "Encounter Toolkit",
-  "columns": 1,
+  "columns": 2,
   "lifecycle": {
-    "version": "v1.0",
+    "version": "v1.1",
     "status": "frozen",
-    "approvedPhase": "Phase C",
+    "approvedPhase": "Phase C Revision",
     "approvedAt": "2026-08-28"
   },
   "selection": {
@@ -18,7 +18,7 @@
     "expectedEntryCount": 106,
     "ordering": ["tier", "classification", "name", "semanticId"]
   },
-  "artworkPolicy": "optional for legacy corpus; omit without invented replacement",
+  "artworkPolicy": "optional for legacy corpus; compact header art capped to the identity-block height; omit without invented replacement",
   "fastPlayPolicy": "render structured Fast Play only when present",
   "featurePolicy": "inline-complete",
   "missingContentPolicy": "omit absent canonical fields; do not invent publication content"
