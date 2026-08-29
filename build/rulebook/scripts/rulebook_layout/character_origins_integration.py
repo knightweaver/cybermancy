@@ -11,8 +11,18 @@ from typing import Any
 
 
 EXPECTED = {
-    10: {"chapterId": "ch10-ancestories", "entryKind": "ancestory", "entryCount": 18, "featuresPerEntry": 2},
-    11: {"chapterId": "ch11-communities", "entryKind": "community", "entryCount": 9, "featuresPerEntry": 1},
+    10: {
+        "chapterId": "ch10-ancestories",
+        "entryKind": "ancestory",
+        "entryCount": 18,
+        "featuresPerEntry": 2,
+    },
+    11: {
+        "chapterId": "ch11-communities",
+        "entryKind": "community",
+        "entryCount": 9,
+        "featuresPerEntry": 1,
+    },
 }
 
 
@@ -88,16 +98,48 @@ def _pandoc_latex(
         stderr=subprocess.PIPE,
     )
     if proc.returncode != 0:
-        tail = "\n".join(((proc.stdout or "") + "\n" + (proc.stderr or "")).splitlines()[-80:])
-        raise RuntimeError(f"Character Origins Pandoc fragment generation failed:\n{tail}")
+        tail = "\n".join(
+            ((proc.stdout or "") + "\n" + (proc.stderr or "")).splitlines()[-80:]
+        )
+        raise RuntimeError(
+            f"Character Origins Pandoc fragment generation failed:\n{tail}"
+        )
     latex = (proc.stdout or "").strip() + "\n"
-    forbidden = (r"\documentclass", r"\usepackage", r"\begin{document}", r"\end{document}")
+    forbidden = (
+        r"\documentclass",
+        r"\usepackage",
+        r"\begin{document}",
+        r"\end{document}",
+    )
     leaked = [token for token in forbidden if token in latex]
     if leaked:
-        raise RuntimeError(f"Standalone publication shell leaked into Character Origins fragment: {leaked}")
+        raise RuntimeError(
+            f"Standalone publication shell leaked into Character Origins fragment: {leaked}"
+        )
     if not latex.strip():
         raise RuntimeError("Character Origins Pandoc fragment is empty.")
     return latex
+
+
+def _stage_assets(
+    prose: Any,
+    annotated: str,
+    chapter: int,
+    asset_root: Path,
+    asset_cache: Path,
+    missing: list[dict[str, Any]],
+) -> tuple[str, int]:
+    """Use the frozen Long-Form Prose asset-staging runtime.
+
+    Character Origins intentionally inherits the Prose v1 asset resolver/stager;
+    the Character Origins builder owns entry annotation, not generic asset staging.
+    """
+    stage = getattr(prose, "stage_markdown_assets", None)
+    if not callable(stage):
+        raise RuntimeError(
+            "Accepted Long-Form Prose runtime does not expose stage_markdown_assets."
+        )
+    return stage(annotated, chapter, asset_root, asset_cache, missing)
 
 
 def compose_character_origins_stage(
@@ -120,6 +162,7 @@ def compose_character_origins_stage(
         "checks": [],
         "errors": [],
         "chapters": [],
+        "assetStagingOwner": "long-form-prose-v1",
     }
 
     for label, path, is_dir in (
@@ -134,19 +177,31 @@ def compose_character_origins_stage(
         exists = path.is_dir() if is_dir else path.is_file()
         if not exists:
             report["status"] = "FAIL"
-            report["errors"].append(f"Required Character Origins integration input is missing: {label}={path}")
+            report["errors"].append(
+                f"Required Character Origins integration input is missing: {label}={path}"
+            )
     if report["status"] != "PASS":
         return None, report
 
     stage = _stage_spec(contract)
-    if not isinstance(stage, dict) or int(stage.get("order") or -1) != 40 or stage.get("chapters") != [10, 11]:
+    if (
+        not isinstance(stage, dict)
+        or int(stage.get("order") or -1) != 40
+        or stage.get("chapters") != [10, 11]
+    ):
         report["status"] = "FAIL"
-        report["errors"].append("Integration contract does not define Character Origins as order 40 for Chapters 10-11.")
+        report["errors"].append(
+            "Integration contract does not define Character Origins as order 40 for Chapters 10-11."
+        )
         return None, report
 
     config = _load_json(config_path)
     frozen = config.get("freeze") if isinstance(config.get("freeze"), dict) else {}
-    acceptance = frozen.get("acceptanceCorpus") if isinstance(frozen.get("acceptanceCorpus"), dict) else {}
+    acceptance = (
+        frozen.get("acceptanceCorpus")
+        if isinstance(frozen.get("acceptanceCorpus"), dict)
+        else {}
+    )
     if (
         config.get("schema") != "cybermancy-rulebook-character-origins-layout-v1"
         or config.get("version") != "1.0"
@@ -155,11 +210,21 @@ def compose_character_origins_stage(
         or frozen.get("version") != "v1.0"
     ):
         report["status"] = "FAIL"
-        report["errors"].append("Character Origins layout contract is not the accepted frozen v1.0 contract.")
+        report["errors"].append(
+            "Character Origins layout contract is not the accepted frozen v1.0 contract."
+        )
         return None, report
 
-    regression = contract.get("regressionExpectations") if isinstance(contract.get("regressionExpectations"), dict) else {}
-    origin_regression = regression.get("characterOrigins") if isinstance(regression.get("characterOrigins"), dict) else {}
+    regression = (
+        contract.get("regressionExpectations")
+        if isinstance(contract.get("regressionExpectations"), dict)
+        else {}
+    )
+    origin_regression = (
+        regression.get("characterOrigins")
+        if isinstance(regression.get("characterOrigins"), dict)
+        else {}
+    )
     anchors = {
         "ancestories": int(origin_regression.get("ancestories") or 0),
         "communities": int(origin_regression.get("communities") or 0),
@@ -170,26 +235,39 @@ def compose_character_origins_stage(
         "communities": int(acceptance.get("communities") or 0),
         "artwork": int(acceptance.get("stagedArtwork") or 0),
     }
-    if anchors != frozen_anchors or anchors != {"ancestories": 18, "communities": 9, "artwork": 27}:
+    if anchors != frozen_anchors or anchors != {
+        "ancestories": 18,
+        "communities": 9,
+        "artwork": 27,
+    }:
         report["status"] = "FAIL"
         report["errors"].append(
             f"Character Origins regression anchors drifted: integration={anchors}, frozen={frozen_anchors}."
         )
         return None, report
 
-    origin = _load_module(builder_script, "cybermancy_character_origins_integration_source")
+    origin = _load_module(
+        builder_script, "cybermancy_character_origins_integration_source"
+    )
     prose = _load_module(prose_builder_script, "cybermancy_prose_integration_source")
-    complete = origin.extract_target_chapters(prose, complete_source.read_text(encoding="utf-8"))
-    player = origin.extract_target_chapters(prose, player_source.read_text(encoding="utf-8"))
+
+    complete = origin.extract_target_chapters(
+        prose, complete_source.read_text(encoding="utf-8")
+    )
+    player = origin.extract_target_chapters(
+        prose, player_source.read_text(encoding="utf-8")
+    )
     if sorted(complete) != [10, 11] or sorted(player) != [10, 11]:
         report["status"] = "FAIL"
-        report["errors"].append("Complete Rulebook and Player Guide must each contain exactly Chapters 10 and 11 for this stage.")
+        report["errors"].append(
+            "Complete Rulebook and Player Guide must each contain exactly Chapters 10 and 11 for this stage."
+        )
         return None, report
 
     work_dir.mkdir(parents=True, exist_ok=True)
     asset_cache = work_dir / "assets"
     fragments: dict[int, str] = {}
-    all_source = []
+    all_source: list[str] = []
     artwork_count = 0
 
     for chapter in (10, 11):
@@ -206,12 +284,18 @@ def compose_character_origins_stage(
         errors: list[str] = []
 
         if complete_md != player_md:
-            errors.append("Complete Rulebook and Player Guide normalized chapter fragments are not byte-equivalent.")
+            errors.append(
+                "Complete Rulebook and Player Guide normalized chapter fragments are not byte-equivalent."
+            )
         if origin.RAW_MKDOCS_RE.search(complete_md):
-            errors.append("Raw MkDocs wrapper reached Character Origins integration input.")
+            errors.append(
+                "Raw MkDocs wrapper reached Character Origins integration input."
+            )
 
         try:
-            annotated, entries = origin.annotate_chapter(complete_md, chapter, str(spec["entryKind"]))
+            annotated, entries = origin.annotate_chapter(
+                complete_md, chapter, str(spec["entryKind"])
+            )
         except Exception as exc:
             annotated, entries = "", []
             errors.append(f"Frozen Character Origins annotation failed: {exc}")
@@ -220,9 +304,13 @@ def compose_character_origins_stage(
         titles = [str(entry.get("title") or "") for entry in entries]
         expected_titles = [str(value) for value in expected_config.get("entries") or []]
         if len(entries) != int(spec["entryCount"]):
-            errors.append(f"Chapter {chapter} contains {len(entries)} entries; expected {spec['entryCount']}.")
+            errors.append(
+                f"Chapter {chapter} contains {len(entries)} entries; expected {spec['entryCount']}."
+            )
         if titles != expected_titles:
-            errors.append(f"Chapter {chapter} entry identity/order differs from the frozen v1.0 corpus.")
+            errors.append(
+                f"Chapter {chapter} entry identity/order differs from the frozen v1.0 corpus."
+            )
         wrong_features = [
             str(entry.get("title") or "")
             for entry in entries
@@ -235,7 +323,8 @@ def compose_character_origins_stage(
 
         missing: list[dict[str, Any]] = []
         try:
-            staged, resolved = origin.stage_markdown_assets(
+            staged, resolved = _stage_assets(
+                prose,
                 annotated,
                 chapter,
                 asset_root,
@@ -245,8 +334,11 @@ def compose_character_origins_stage(
         except Exception as exc:
             staged, resolved = "", 0
             errors.append(f"Character Origins asset staging failed: {exc}")
+
         if missing:
-            errors.append(f"Chapter {chapter} has missing staged publication artwork: {missing}")
+            errors.append(
+                f"Chapter {chapter} has missing staged publication artwork: {missing}"
+            )
         if resolved != len(entries):
             errors.append(
                 f"Chapter {chapter} resolved {resolved} artwork item(s); expected one for each of {len(entries)} entries."
@@ -254,7 +346,9 @@ def compose_character_origins_stage(
 
         if not errors:
             try:
-                fragments[chapter] = _pandoc_latex(staged, pandoc, markdown_from, lua_filter)
+                fragments[chapter] = _pandoc_latex(
+                    staged, pandoc, markdown_from, lua_filter
+                )
             except Exception as exc:
                 errors.append(str(exc))
 
@@ -262,7 +356,9 @@ def compose_character_origins_stage(
         row.update(
             {
                 "entryCount": len(entries),
-                "featureCount": sum(len(entry.get("features") or []) for entry in entries),
+                "featureCount": sum(
+                    len(entry.get("features") or []) for entry in entries
+                ),
                 "artwork": resolved,
                 "entries": titles,
             }
@@ -271,7 +367,9 @@ def compose_character_origins_stage(
             row["status"] = "FAIL"
             row["errors"] = errors
             report["status"] = "FAIL"
-            report["errors"].extend(f"Chapter {chapter}: {message}" for message in errors)
+            report["errors"].extend(
+                f"Chapter {chapter}: {message}" for message in errors
+            )
         report["chapters"].append(row)
         all_source.append(complete_md)
 
@@ -279,7 +377,9 @@ def compose_character_origins_stage(
         return None, report
     if artwork_count != 27:
         report["status"] = "FAIL"
-        report["errors"].append(f"Character Origins staged artwork count is {artwork_count}; expected 27.")
+        report["errors"].append(
+            f"Character Origins staged artwork count is {artwork_count}; expected 27."
+        )
         return None, report
 
     payload = CharacterOriginsPayload(
@@ -294,7 +394,11 @@ def compose_character_origins_stage(
         {
             "code": "CHARACTER_ORIGINS_STAGE_COMPOSITION",
             "status": "PASS",
-            "message": "Composed frozen Chapters 10-11 from byte-equivalent Step 4 profile fragments without a standalone document shell.",
+            "message": (
+                "Composed frozen Chapters 10-11 from byte-equivalent Step 4 profile "
+                "fragments using the inherited Long-Form Prose asset stager and "
+                "without a standalone document shell."
+            ),
         }
     )
     report["payload"] = payload.summary()
