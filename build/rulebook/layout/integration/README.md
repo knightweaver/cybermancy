@@ -59,7 +59,9 @@ All Phase C chapter-layout transforms have been individually proven against the 
 
 Stage **130 publication-shell lowering is accepted** after cumulative Player Guide and Complete Rulebook proofs passed against one deterministic AST per profile.
 
-Stage **140 post-transform semantic validation is implemented and awaiting real-corpus acceptance**. It consumes the deterministic Stage 130 AST without mutation and emits a byte-identical validated AST for Stage 150.
+Stage **140 post-transform semantic validation is accepted** after both real-corpus profiles passed the non-mutating structural/semantic validation gate.
+
+Stage **150 integrated LaTeX generation is implemented and awaiting real-corpus acceptance**. It consumes the accepted Stage 140 AST, revalidates Stage 140, creates a noncanonical generation AST, resolves all document-level dependencies/assets, and emits one body-complete TeX document without invoking LuaLaTeX.
 
 See:
 
@@ -70,6 +72,7 @@ character-origins-phase-c.md
 encounter-toolkit-phase-c.md
 publication-shell-stage130.md
 post-transform-validation-stage140.md
+integrated-latex-stage150.md
 ```
 
 ## Cumulative integration corrections discovered at Stage 130
@@ -126,6 +129,8 @@ Stage 130 adds a cumulative readiness gate requiring all Part boundaries to surv
 
 Stage 140 then verifies the fully lowered cumulative AST without changing it. Validation includes exact shell counts, canonical landmark order, absence of semantic Part/Chapter residue, Chapter 13 exclusion, structured-family integrity, package-owned header preservation, multicolumn balance, profile audience separation, and absence of standalone LaTeX document-shell leakage.
 
+Stage 150 re-runs Stage 140 before generation and fails closed on unresolved family wrappers, graphics paths, nested document shells, undefined Cybermancy custom commands/environments, profile shell-count drift, or mutation of the accepted Stage 140 input.
+
 ## Publication-shell lowering
 
 Stage 130 lowers the remaining semantic publication nodes to stable intermediate macros:
@@ -138,9 +143,23 @@ Stage 130 lowers the remaining semantic publication nodes to stable intermediate
 
 It establishes the shared outer two-column context required by accepted prose/rules/Character Origins fragments in Chapters 1–11 and, for the Complete Rulebook, Chapters 23–28.
 
-It does not create a second standalone document shell and does not replace the frozen package-owned headers already emitted for Chapters 29–32. The final whole-book macro definitions and preamble belong to Stage 150.
+It does not create a second standalone document shell and does not replace the frozen package-owned headers already emitted for Chapters 29–32.
+
+Stage 150 defines those intermediate macros exactly once in the integrated document preamble and delegates their visual grammar to the accepted Long-Form Prose primitives. It also keeps Rules-only image/list treatment local to Chapters 4–9 and preserves package-specific fonts/palettes through local structured-family wrappers.
 
 The accepted recto policy remains `preserve-current-clearpage`.
+
+## Integrated LaTeX and graphics root
+
+Stage 150 uses the accepted Long-Form Prose v1.0 preamble as the common document-shell base, then adds only the dependencies required by already-frozen lanes: Rules, Character Origins, Classes, Domains, Equipment, ICE, and the Encounter Toolkit.
+
+Because independently proven chapter lanes created graphics paths relative to different proof work directories, Stage 150 stages all reachable graphics into one profile-specific compile root:
+
+```text
+build/rulebook/layout/integration/output/stage150/<profile>/assets/
+```
+
+The generated TeX therefore does not depend on user-specific absolute repository paths or on the Stage 130 proof working directory. LuaLaTeX compilation remains Stage 160.
 
 ## Regression anchors
 
@@ -155,16 +174,16 @@ The integration contract records these current corpus expectations:
 - Environments: 8 entries.
 - Adversary Feature Reference: 344 published representatives from 419 canonical source entries.
 
-## Stage 140 proof commands
+## Stage 150 proof commands
 
-From repository root, after the accepted Stage 130 outputs exist:
+From repository root, after the accepted Stage 140 outputs exist:
 
 ```powershell
-python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_post_transform_validation.py" -v
+python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_integrated_latex.py" -v
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_*.py" -v
 
-python build\rulebook\scripts\build-rulebook-step6-post-transform-validation.py --profile player-guide --verbose
-python build\rulebook\scripts\build-rulebook-step6-post-transform-validation.py --profile complete-rulebook --verbose
+python build\rulebook\scripts\build-rulebook-step6-integrated-latex.py --profile player-guide --verbose
+python build\rulebook\scripts\build-rulebook-step6-integrated-latex.py --profile complete-rulebook --verbose
 ```
 
-Generated ASTs, work files, render-only assets, and reports remain noncanonical outputs beneath `build/rulebook/layout/integration/{output,work,reports}/`.
+Generated ASTs, TeX, work files, staged render assets, and reports remain noncanonical outputs beneath `build/rulebook/layout/integration/{output,work,reports}/`.
