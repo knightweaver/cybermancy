@@ -426,11 +426,10 @@ def compose_equipment_stage(
         else:
             latex = render_equipment_catalog_latex(rows, config)
 
-        if not latex or report["status"] != "PASS":
+        if not latex:
             family_report["status"] = "FAIL"
             report["families"].append(family_report)
-            if not latex:
-                _check(report, "EQUIPMENT_FAMILY_RENDER", "ERROR", f"Equipment family {family} produced no integration LaTeX.")
+            _check(report, "EQUIPMENT_FAMILY_RENDER", "ERROR", f"Equipment family {family} produced no integration LaTeX.")
             continue
 
         payload = EquipmentPayload(
