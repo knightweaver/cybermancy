@@ -179,6 +179,10 @@ class PublicationShellGenerationTests(unittest.TestCase):
         self.assertIn(r"\definecolor{CMProductionMuted}{HTML}{58747A}", rendered)
         self.assertIn(r"\color{CMProductionMuted}", rendered)
         self.assertNotIn(r"\color{CMMuted}#2", rendered)
+        self.assertIn(
+            r"\ifodd\value{page}\null\thispagestyle{empty}\newpage\fi",
+            rendered,
+        )
         self.assertIn(r"\CMProductionAppendix{B}{Entity Index}", rendered)
         self.assertNotIn("Appendix A", rendered)
         self.assertNotIn("Appendix C", rendered)

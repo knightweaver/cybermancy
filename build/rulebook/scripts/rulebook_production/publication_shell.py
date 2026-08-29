@@ -285,7 +285,10 @@ def _production_macros(title: str, subtitle: str, version: str, footer: str) -> 
   \pagestyle{{fancy}}
   \tableofcontents
   \clearpage
-  \ifodd\value{{page}}\else\null\thispagestyle{{empty}}\newpage\fi
+  % Align physical and logical parity before resetting Arabic numbering. At
+  % this point an odd Roman counter means the next physical content page would
+  % be even, so emit a blank verso page first.
+  \ifodd\value{{page}}\null\thispagestyle{{empty}}\newpage\fi
   \pagenumbering{{arabic}}
 }}
 % ---- Production Renderer Phase D publication shell end ----
