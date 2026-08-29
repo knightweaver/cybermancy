@@ -17,33 +17,55 @@ The renderer consumes `build/rulebook/source/metadata/structured-entities.json` 
 - Environments remain one-column and retain their approved distinct interior grammar.
 - Adversaries and Environments share the Encounter Toolkit shell but use distinct interior grammars.
 - Chapters 30 and 31 are inline-complete: embedded Features remain with their owning entity.
-- Chapter 32 is an independent reference corpus. Same-name Features are not deduplicated at Step 6; stable ordering is normalized name then semantic ID.
-- Adversaries and Environments use deterministic Tier -> Classification -> Name -> semantic ID ordering.
+- Chapter 32 is an independent reference corpus. Its canonical source family still contains **419** standalone Features, but the approved Step 4 publication-equivalence layer reduces those to **344** Chapter 32 publication representatives without deleting or altering canonical Foundry identities.
+- Exact duplicates are consolidated for Chapter 32. Approved Feature-Library-backed families are consolidated only when mechanically meaningful parameters match; actor/adversary-name substitution alone is not mechanically meaningful.
+- Mechanically distinct same-name variants remain separate. In particular, `Group Attack` variants remain distinct where `groupName` or `damagePerMinion` differ, and the mechanically distinct `Split` variant remains separate.
+- Feature-Library-backed representative entries use reader-neutral rules text such as `this adversary` rather than inheriting an arbitrary source adversary name.
+- Adversaries and Environments use deterministic Tier -> Classification -> Name -> semantic ID ordering. Chapter 32 uses normalized publication name -> semantic ID.
 - Fast Play is rendered only from structured `publicationData.fastPlay` and is never reconstructed from Description.
 - Missing legacy descriptions, classifications, impulses, Fast Play, or artwork remain absent. Step 6 does not invent canonical content.
 - Publication artwork is optional for legacy entities and is loaded only from staged Step 4 paths. LuaLaTeX-incompatible raster formats are converted into caller-owned temporary render assets without mutating Step 4 source assets.
-- Production builds fail closed if the Step 4 corpus count drifts from the frozen contract: 106 Adversaries, 8 Environments, 419 standalone Adversary Features.
+- Production builds fail closed if the frozen publication contracts drift: 106 Adversaries, 8 Environments, and 344 Chapter 32 Feature representatives derived from 419 canonical standalone Features.
 
-## Chapter 32 publication-equivalence audit
+## Chapter 32 publication equivalence
 
-Deduplication of standalone Adversary Features is owned by Step 4 publication semantics, not the Step 6 renderer. The Step 4 pipeline now emits an advisory equivalence audit after encounter enrichment:
+The initial Step 4 audit remains available as diagnostic evidence:
 
 - `build/rulebook/source/metadata/adversary-feature-equivalence-audit.json`
 - `build/rulebook/source/metadata/adversary-feature-equivalence-review.md`
 
-The audit preserves all canonical Foundry/source entities. It identifies exact and trivial-normalization equivalence groups, recommends a deterministic publication representative, and separately identifies high-similarity same-name pairs for human review. Fuzzy candidates never auto-collapse. Until the review is approved, Chapter 32 remains unchanged at the frozen 419-entry full-corpus contract.
+The approved decisions are frozen in:
 
-The audit is generated automatically by a normal Step 4 build, or it can be regenerated from an existing current Step 4 sidecar without rebuilding the rest of Step 4:
+- `build/rulebook/scripts/data/adversary-feature-equivalence-decisions-v1.json`
+
+A normal Step 4 build now runs three Part VI stages in sequence:
+
+1. encounter semantic enrichment;
+2. Feature equivalence audit;
+3. approved Feature publication-equivalence application.
+
+The application stage preserves all 419 canonical Feature entities, marks one deterministic representative per approved publication group, supplies reader-neutral Feature-Library-backed reference text where appropriate, and writes:
+
+- `build/rulebook/source/metadata/adversary-feature-publication-selection.json`
+
+The frozen result is **344 Chapter 32 representatives** and **75 excluded redundant publication entries** across **29 approved groups**.
+
+The standalone audit command remains useful for inspecting equivalence candidates but does not itself apply publication selection:
 
 ```powershell
 python build\rulebook\scripts\audit-adversary-feature-equivalence.py
 ```
 
-After review, the next implementation stage is to encode approved publication representative decisions in Step 4, rebuild Step 4, update Chapter 32's frozen expected count, and regenerate Chapter 32. Canonical source cleanup is a separate stronger action and should only be used when a duplicate is determined to be an erroneous canonical entity rather than merely redundant for publication.
+To apply the approved decisions, rerun Step 4 normally:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-source.py validate
+python build\rulebook\scripts\build-rulebook-source.py build
+```
 
 ## Approved Phase C proofs
 
-The approved proof selections are retained under `build/rulebook/layout/encounters/proof/` for visual regression. The Chapter 30 proof now exercises the v1.1 two-column grammar; Chapters 31-32 retain their approved v1.0 proof grammars.
+The approved proof selections are retained under `build/rulebook/layout/encounters/proof/` for visual regression. The Chapter 30 proof exercises the v1.1 two-column grammar; Chapters 31-32 retain their approved v1.0 proof grammars.
 
 ```powershell
 python build\rulebook\scripts\build-rulebook-encounters.py proof --family all
@@ -66,6 +88,6 @@ Production output defaults to `build/rulebook/layout/encounters/chapter-output/`
 - `Cybermancy_Chapter32_Adversary_Feature_Reference_Step6.pdf`
 - matching `.tex` files and `.report.json` validation reports
 
-The production command injects the complete family selection from Step 4, validates the frozen expected count and package version, enforces deterministic publication ordering, and blocks the build if encounter semantics are in a FAIL state.
+The production command injects the complete publication selection from Step 4, validates the frozen expected count and package version, enforces deterministic publication ordering, and blocks Chapter 32 unless approved Step 4 Feature publication equivalence reports `publicationStatus=APPLIED`.
 
 After these three standalone full-corpus builds pass, the next stage is AST integration of Chapters 30-32 into the Complete Rulebook Part VI publication build, following the same semantic replacement discipline already used by Chapter 29 ICE Reference.
