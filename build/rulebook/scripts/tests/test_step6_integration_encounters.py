@@ -1,7 +1,14 @@
 from __future__ import annotations
 
 import copy
+import sys
 import unittest
+from pathlib import Path
+
+HERE = Path(__file__).resolve()
+SCRIPT_DIR = HERE.parents[1]
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.encounter_adapters import integrate_encounter_stage
 from rulebook_layout.encounter_integration import EncounterPayload, extract_encounter_fragments
