@@ -63,7 +63,9 @@ Stage **140 post-transform semantic validation is accepted** after both real-cor
 
 Stage **150 integrated LaTeX generation is accepted** after both real-corpus profiles produced clean, deterministic, body-complete, self-contained TeX documents with one document shell and one graphics root.
 
-Stage **160 unified LuaLaTeX compilation is implemented and awaiting real-corpus acceptance**. The first real compile exposed three integration/engine-compatibility defects: missing Pandoc strikeout support in the Complete Rulebook, profile-footer `fancyhdr` width overrun, and five sub-0.2 pt TeX rounding overflows shared by both profiles. Stage 160 now applies deterministic compile-only compatibility shims in its isolated work copy while preserving the accepted Stage 150 handoff byte-for-byte.
+Stage **160 unified LuaLaTeX compilation is implemented and awaiting real-corpus acceptance**. Real-corpus compilation exposed compile-copy issues that isolated lane proofs could not reveal: generated Step 4 provenance residue rendered as visible body text, missing Pandoc strikeout support in the Complete Rulebook, profile-footer `fancyhdr` width overrun, and five sub-0.2 pt TeX rounding overflows shared by both profiles. Stage 160 now handles those cases deterministically in its isolated work copy while preserving the accepted Stage 150 handoff byte-for-byte.
+
+The Complete Rulebook also emits output-routine `Overfull \vbox ... while \output is active` diagnostics during page construction. Stage 160 now preserves these as explicit Stage 170 rendered-layout warnings rather than suppressing them or treating them as equivalent to line-addressable material overflow. Stage 170 must inspect the affected rendered pages before Step 6 integration can be considered complete.
 
 See:
 
@@ -134,7 +136,7 @@ Stage 140 then verifies the fully lowered cumulative AST without changing it. Va
 
 Stage 150 re-runs Stage 140 before generation and fails closed on unresolved family wrappers, graphics paths, nested document shells, undefined Cybermancy custom commands/environments, profile shell-count drift, or mutation of the accepted Stage 140 input.
 
-Stage 160 verifies the exact Stage 150 TeX SHA, copies the TeX/assets into an isolated compile root, verifies that exact copy, applies its deterministic compiler-compatibility overlay to the work copy, validates concrete graphics references and LaTeX dependencies, and fails closed on LuaLaTeX errors, material overfull boxes, missing characters, invalid PDF output, or mutation of the accepted Stage 150 handoff.
+Stage 160 verifies the exact Stage 150 TeX SHA, copies the TeX/assets into an isolated compile root, verifies that exact copy, applies deterministic compile-copy compatibility/provenance handling, validates concrete graphics references and LaTeX dependencies, and fails closed on LuaLaTeX errors, material overfull hboxes/non-output-routine vboxes, missing characters, invalid PDF output, or mutation of the accepted Stage 150 handoff. Output-routine page-construction vboxes are recorded verbatim as Stage 170 warnings and are not suppressed.
 
 ## Publication-shell lowering
 
@@ -172,7 +174,7 @@ Stage 160 treats each Stage 150 profile directory as an immutable generated hand
 build/rulebook/layout/integration/work/stage160/<profile>/
 ```
 
-and then applies compiler-only compatibility adjustments to that isolated copy. The original Stage 150 tree remains unchanged and is re-hashed after compilation.
+and then applies compile-only compatibility/provenance adjustments to that isolated copy. The original Stage 150 tree remains unchanged and is re-hashed after compilation.
 
 Successful unified PDFs are emitted beneath:
 
@@ -201,12 +203,13 @@ From repository root, after the accepted Stage 150 outputs exist:
 
 ```powershell
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_lualatex.py" -v
+python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_stage160_policy.py" -v
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_step6_integration_*.py" -v
 
 python build\rulebook\scripts\build-rulebook-step6-lualatex.py --profile player-guide --verbose
 python build\rulebook\scripts\build-rulebook-step6-lualatex.py --profile complete-rulebook --verbose
 ```
 
-The Stage 150 outputs do not need to be regenerated for the current Stage 160 correction.
+The accepted Stage 150 outputs do not need to be regenerated for the current Stage 160 correction.
 
 Generated ASTs, TeX, work files, staged render assets, compiler logs, PDFs, and reports remain noncanonical outputs beneath `build/rulebook/layout/integration/{output,work,reports}/`.
