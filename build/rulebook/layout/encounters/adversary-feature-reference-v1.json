@@ -15,10 +15,12 @@
   },
   "publicationPolicy": {
     "requireFullCorpusSelection": true,
-    "expectedEntryCount": 419,
-    "ordering": ["normalized-name", "semanticId"]
+    "expectedEntryCount": 344,
+    "canonicalSourceEntryCount": 419,
+    "ordering": ["normalized-name", "semanticId"],
+    "requireApprovedStep4PublicationEquivalence": true
   },
-  "ordering": "normalized feature name, semanticId tie-breaker",
-  "duplicatePolicy": "preserve distinct same-name canonical entities",
+  "ordering": "normalized publication Feature name, semanticId tie-breaker",
+  "duplicatePolicy": "consume approved Step 4 publication representatives; preserve mechanically distinct same-name variants",
   "missingContentPolicy": "omit absent canonical fields; do not invent publication content"
 }
