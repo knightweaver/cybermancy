@@ -1,7 +1,7 @@
 {
   "schema": "cybermancy-rulebook-character-origins-layout-v1",
   "version": "1.0",
-  "status": "DRAFT",
+  "status": "ACCEPTED",
   "scope": [
     "ch10-ancestories",
     "ch11-communities"
@@ -116,7 +116,19 @@
     "visualInspectionRequiredBeforeFreeze": true
   },
   "freeze": {
-    "status": "not-frozen",
-    "condition": "Freeze only after rendered all-entry regression and user visual acceptance."
+    "status": "frozen",
+    "version": "v1.0",
+    "acceptedOn": "2026-08-28",
+    "acceptance": {
+      "semanticRegression": "PASS",
+      "renderedFullCorpus": "PASS",
+      "visualReview": "ACCEPTED"
+    },
+    "acceptanceCorpus": {
+      "ancestories": 18,
+      "communities": 9,
+      "stagedArtwork": 27
+    },
+    "rule": "Frozen after complete all-entry regression and user visual acceptance; future grammar changes require an intentional versioned revision."
   }
 }
