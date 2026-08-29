@@ -8,6 +8,22 @@ This package owns the approved Step 6 publication grammar for Chapters 30-32:
 
 The renderer consumes `build/rulebook/source/metadata/structured-entities.json` after Step 4 encounter enrichment. It does not parse raw Foundry actors or Package Builder PDFs.
 
+## Final Step 6 acceptance
+
+**Part VI is frozen and accepted for standalone Step 6 production as of 2026-08-29.**
+
+The final full-corpus regression build passed all three production contracts:
+
+- Chapter 30: **106 / 106 Adversaries**, AdversaryPackage **v1.1**
+- Chapter 31: **8 / 8 Environments**, EnvironmentPackage **v1.0**
+- Chapter 32: **344 / 344 publication Feature representatives**, Adversary Feature Reference **v1.0**, derived from **419 canonical standalone Features**
+
+The final reports also confirmed successful render-asset preparation with no missing or unsupported publication assets, the Chapter 31 opener merge, Chapter 30 multicolumn flow protection, and Chapter 32 consumption of the approved Step 4 publication-equivalence projection (`publicationStatus=APPLIED`).
+
+The remaining `encounterSemantics` status of `WARNING` is non-blocking canonical content debt already governed by the missing-content policy; Step 6 does not invent or repair absent canonical fields.
+
+No further standalone Part VI layout work is required. Integration of Chapters 30-32 into the Complete Rulebook belongs to the Step 6 Architecture Reconciliation & Complete Rulebook Integration stage.
+
 ## Frozen production rules
 
 - Chapter 30 AdversaryPackage is frozen as **v1.1** after the approved Phase C layout revision on 2026-08-28.
