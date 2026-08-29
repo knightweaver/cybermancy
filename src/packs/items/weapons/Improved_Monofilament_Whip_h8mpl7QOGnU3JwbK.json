@@ -3,7 +3,7 @@
   "type": "weapon",
   "img": "modules/cybermancy/assets/icons/weapons/improved-monofilament-whip.webp",
   "system": {
-    "description": "A reinforced filament with servo control for higher cutting torque and unmatched lethality.",
+    "description": "<p></p><p><span style=\"font-family:'Bruno Ace'\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family:Montserrat, sans-serif\">On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.</span></p></li></ul>",
     "tier": 2,
     "equipped": false,
     "secondary": false,
@@ -88,7 +88,7 @@
       "v9a0lfSNR9pa0eFo": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Hope win, upgrade one damage die to max value.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883692963,
-    "modifiedTime": 1787573539147,
+    "modifiedTime": 1787588457747,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "h8mpl7QOGnU3JwbK",

@@ -159,6 +159,60 @@ Avoid environmental scenes masquerading as icons.
 
 ---
 
+## 3.2 Intrusion Countermeasure Electronics (ICE)
+
+ICE is a distinct Cybermancy visual family.
+
+Intrusion Countermeasure Electronics represents defensive software, autonomous security routines, and hostile digital constructs. ICE imagery should therefore appear as a manifestation of executable security rather than as an ordinary physical device.
+
+### Visual Language
+
+Preferred motifs include:
+
+* luminous circuit geometry;
+* crystalline, shard-like, tessellated, or lattice data structures;
+* fractal patterns suggesting executable code or autonomous intelligence;
+* metallic, glasslike, holographic, or energy-based materials;
+* a coherent central structure, core, intelligence, or organizing geometry;
+* controlled technological glow;
+* forms that appear designed or purposeful rather than randomly abstract.
+
+ICE may appear threatening, alien, elegant, predatory, bureaucratic, deceptive, or inscrutable according to its function. Individual ICE should vary substantially while remaining recognizably part of the same visual family.
+
+Avoid:
+
+* generic physical robots unless the ICE concept specifically requires one;
+* ordinary computers or networking hardware as the primary subject;
+* random glowing geometry without an identifiable visual concept;
+* meaningless pseudo-text or HUD overlays;
+* excessive visual noise;
+* treating every ICE as a humanoid digital monster.
+
+### Icon Treatment
+
+When ICE is produced as an icon, follow the Item and Feature Icon standard:
+
+* clean dominant silhouette;
+* light grey background;
+* no text or labels;
+* physically convincing or internally coherent materials;
+* controlled luminance;
+* readability at small scale.
+
+The image may be more abstract than a conventional item icon, but should still possess a clear focal structure.
+
+### Effect Palette
+
+The ICE visual language establishes **form, material, and structural vocabulary**. The General Effect Palette establishes **accent color and effect behavior** where applicable.
+
+Effect colors should modify or illuminate the ICE construct rather than replace its underlying visual identity.
+
+### Prompt Style
+
+> Cybermancy Intrusion Countermeasure Electronics (ICE) concept art: a sophisticated digital security construct represented through luminous circuit geometry, crystalline or tessellated data structures, fractal patterns suggesting executable code and autonomous intelligence, and metallic, glasslike, holographic, or energy-based materials. Give the construct a coherent organizing structure or identifiable core rather than random abstraction. Grounded Cybermancy cyberpunk aesthetic, controlled technological glow, balanced luminance, no text, labels, decorative borders, meaningless HUD elements, or unrelated characters.
+
+---
+
 # 4. Class and Subclass Art
 
 Class and subclass imagery is **not an enlarged item icon**.

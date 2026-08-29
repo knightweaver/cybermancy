@@ -88,7 +88,7 @@
       "2jdDykNxG2RFyKft": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, set one of the damage die to its maximum value.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -103,7 +103,7 @@
           "type": "any",
           "amount": null
         },
-        "name": "Lethal Edge",
+        "name": "More Lethal Edge",
         "img": "modules/cybermancy/assets/icons/features/lethal-edge.webp",
         "range": "",
         "_id": "2jdDykNxG2RFyKft",
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883833770,
-    "modifiedTime": 1787573538853,
+    "modifiedTime": 1787587735321,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "3qETwPObEg5JtIBs",
