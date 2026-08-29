@@ -66,6 +66,18 @@ def _family(family: str) -> dict:
     }
 
 
+def _top_level_raw_latex(ast: dict) -> list[str]:
+    return [
+        str(node["c"][1])
+        for node in ast.get("blocks", [])
+        if isinstance(node, dict)
+        and node.get("t") == "RawBlock"
+        and isinstance(node.get("c"), list)
+        and len(node["c"]) == 2
+        and node["c"][0] == "latex"
+    ]
+
+
 def _synthetic_phase_c(profile: str) -> dict:
     contract = _contract()
     chapter_map = {int(row["chapter"]): row for row in contract["chapterMap"]}
@@ -156,22 +168,23 @@ class PublicationShellTests(unittest.TestCase):
         contract = _contract()
         ast = _synthetic_phase_c("complete-rulebook")
         package_headers = [
-            node["c"][1]
-            for node in ast["blocks"]
-            if node.get("t") == "RawBlock"
-            and isinstance(node.get("c"), list)
-            and "frozen package header" in str(node["c"][1])
+            raw
+            for raw in _top_level_raw_latex(ast)
+            if "frozen package header" in raw
         ]
+        self.assertEqual(len(package_headers), len(PACKAGE_HEADER_CHAPTERS))
+
         result = lower_publication_shell(ast, contract, "complete-rulebook")
         self.assertEqual(result.status, "PASS", result.as_dict())
         self.assertEqual(result.replaced["parts"], 6)
         self.assertEqual(result.replaced["chapters"], 27)
         self.assertEqual(result.replaced["columnEnds"], 17)
         self.assertEqual(result.replaced["gmDivider"], 1)
-        rendered = json.dumps(ast, ensure_ascii=False)
         self.assertIn("Preserved GM front matter.", document_text(ast))
+
+        lowered_raw = _top_level_raw_latex(ast)
         for header in package_headers:
-            self.assertIn(header, rendered)
+            self.assertIn(header, lowered_raw)
 
     def test_stage130_fails_closed_if_package_header_is_not_already_lowered(self) -> None:
         contract = _contract()
