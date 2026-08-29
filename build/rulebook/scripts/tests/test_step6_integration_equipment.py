@@ -143,15 +143,19 @@ class Step6EquipmentAdapterTests(unittest.TestCase):
         result = integrate_equipment_stage(ast, "complete-rulebook", _payloads())
         self.assertEqual(result["status"], "PASS", result)
 
-    def test_duplicate_family_discards_entire_stage_mutation(self) -> None:
+    def test_later_duplicate_family_discards_prior_staged_mutations(self) -> None:
         ast = _ast()
-        duplicate = copy.deepcopy(ast["blocks"][0])
+        # Duplicate Ammunition, the second adapter target. Weapons therefore
+        # succeeds on the stage copy before Ammo fails; the original AST must
+        # still remain completely untouched.
+        duplicate = copy.deepcopy(ast["blocks"][1])
         ast["blocks"].append(duplicate)
         before = canonical_ast_sha256(ast)
         result = integrate_equipment_stage(ast, "player-guide", _payloads())
         self.assertEqual(result["status"], "FAIL")
         self.assertEqual(canonical_ast_sha256(ast), before)
         self.assertFalse(family_body_is_exact_raw_latex(ast, "weapons", "LATEX-weapons"))
+        self.assertFalse(family_body_is_exact_raw_latex(ast, "ammo", "LATEX-ammo"))
 
     def test_incomplete_payload_order_fails_without_mutation(self) -> None:
         ast = _ast()
