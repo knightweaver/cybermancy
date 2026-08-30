@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "a76d1a7a662b1d739434a308c5750ef4f44334b1"
+    "git_commit": "75224b98b29918e098e2cb5f4b11d802b68343ce"
   },
   "mkdocs_sites": {
     "player": {
@@ -18,13 +18,13 @@
     }
   },
   "counts": {
-    "total_files": 4785,
+    "total_files": 4788,
     "by_kind": {
       "asset": 1634,
       "code": 40,
       "config": 4,
       "data": 1873,
-      "document": 1059,
+      "document": 1062,
       "other": 166,
       "presentation": 9
     },
@@ -35,7 +35,7 @@
       "generator": 65,
       "gm": 959,
       "player": 1453,
-      "repository": 32,
+      "repository": 35,
       "shared-docs": 3,
       "structured-source": 2001
     },
@@ -44,21 +44,21 @@
       "gm": 959,
       "player": 1453,
       "shared": 2019,
-      "unknown": 287
+      "unknown": 290
     },
     "by_content_scope": {
       "campaign": 305,
       "developer": 86,
       "setting": 16,
       "system": 2290,
-      "unknown": 2088
+      "unknown": 2091
     },
     "by_authorship": {
       "generated": 1023,
       "hand-authored-or-source": 1962,
-      "unknown": 1800
+      "unknown": 1803
     },
-    "documents": 1059,
+    "documents": 1062,
     "documents_player_site": 588,
     "documents_gm_site": 459,
     "documents_player_nav": 20,
@@ -37894,6 +37894,26 @@
           "text": "Composition"
         },
         {
+          "level": 2,
+          "text": "3.2 Intrusion Countermeasure Electronics (ICE)"
+        },
+        {
+          "level": 3,
+          "text": "Visual Language"
+        },
+        {
+          "level": 3,
+          "text": "Icon Treatment"
+        },
+        {
+          "level": 3,
+          "text": "Effect Palette"
+        },
+        {
+          "level": 3,
+          "text": "Prompt Style"
+        },
+        {
           "level": 1,
           "text": "4. Class and Subclass Art"
         },
@@ -38082,7 +38102,7 @@
           "text": "20. Current Canon Summary"
         }
       ],
-      "word_count": 2829,
+      "word_count": 3167,
       "mkdocs_features": [],
       "normalization_flags": [],
       "transclusions": [],
@@ -38104,8 +38124,8 @@
         "World > Meta",
         "World > System"
       ],
-      "size_bytes": 23934,
-      "sha256": "6adf598dfd1e66e948419e5cc3afc171e9c9b3ec0d73d7670d678cce23ed053b",
+      "size_bytes": 26000,
+      "sha256": "5e2d0edb7913736d7b53c7cf7004a506224f764c21137c6c7587fe3f8fc122e4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -125251,6 +125271,108 @@
       "review_flags": []
     },
     {
+      "path": "integrate-equipment-complete.txt",
+      "extension": ".txt",
+      "kind": "document",
+      "source_family": "repository",
+      "audience": "unknown",
+      "content_scope": "unknown",
+      "authorship": "unknown",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 74862,
+      "sha256": "49772698b694fc2156d9ad1786c179abc4dcec00f40894cc6563737da436925a",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
+      "path": "integrate-equipment.txt",
+      "extension": ".txt",
+      "kind": "document",
+      "source_family": "repository",
+      "audience": "unknown",
+      "content_scope": "unknown",
+      "authorship": "unknown",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 70636,
+      "sha256": "e4832886a1bff58f7d43f380838b591dcb7676dd8947f644bf918945e0b370d8",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
+      "path": "integrate-ice.txt",
+      "extension": ".txt",
+      "kind": "document",
+      "source_family": "repository",
+      "audience": "unknown",
+      "content_scope": "unknown",
+      "authorship": "unknown",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 56322,
+      "sha256": "b17aadb17aa2109c999c8933da18bab205f1234c8c03791355db08bc8e1bf2c6",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
       "path": "lang/en.json",
       "extension": ".json",
       "kind": "data",
@@ -172732,8 +172854,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 5033,
-      "sha256": "72f3bbc165dfa26e6e5445f1cfe85da63f1f3eaf93d599b00901db0233a54090",
+      "size_bytes": 4833,
+      "sha256": "c44f1cd13d74a2ca662be6eea41e55c82a15960c1b09ae28e5ceba840c735a23",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -173106,8 +173228,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4985,
-      "sha256": "a866a195e9470b7a0c6359e7ff05d3f8e49b76038cef49d2f31fb2b51906bf15",
+      "size_bytes": 5056,
+      "sha256": "f9a98c51823b9d06bdbf9b39853a8a2df93acb5db9522df8cb5201f78376b12f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],

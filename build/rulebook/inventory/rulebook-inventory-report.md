@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `a76d1a7a662b1d739434a308c5750ef4f44334b1`
+Git commit: `75224b98b29918e098e2cb5f4b11d802b68343ce`
 
 ## Scope
 
@@ -14,8 +14,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| Files scanned | 4785 |
-| Documents | 1059 |
+| Files scanned | 4788 |
+| Documents | 1062 |
 | Player-site documents | 588 |
 | GM-site documents | 459 |
 | Player nav entries | 20 |
@@ -42,7 +42,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | generator | 65 |
 | gm | 959 |
 | player | 1453 |
-| repository | 32 |
+| repository | 35 |
 | shared-docs | 3 |
 | structured-source | 2001 |
 
@@ -54,7 +54,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | gm | 959 |
 | player | 1453 |
 | shared | 2019 |
-| unknown | 287 |
+| unknown | 290 |
 
 ## Files by content scope
 
@@ -64,7 +64,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | developer | 86 |
 | setting | 16 |
 | system | 2290 |
-| unknown | 2088 |
+| unknown | 2091 |
 
 ## Files by kind
 
@@ -74,7 +74,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | code | 40 |
 | config | 4 |
 | data | 1873 |
-| document | 1059 |
+| document | 1062 |
 | other | 166 |
 | presentation | 9 |
 
@@ -84,7 +84,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 |---|---:|
 | generated | 1023 |
 | hand-authored-or-source | 1962 |
-| unknown | 1800 |
+| unknown | 1803 |
 
 ## MkDocs sites
 
