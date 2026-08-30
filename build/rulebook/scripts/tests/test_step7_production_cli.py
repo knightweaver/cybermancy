@@ -144,6 +144,16 @@ class ProductionCliTests(unittest.TestCase):
                 step6,
                 {"profiles": {"complete-rulebook": {"chapters": [1, 2]}}},
             )
+            write_json(
+                repo / "build/rulebook/source/metadata/structured-entities.json",
+                {
+                    "schema": "cybermancy-step4-structured-entities-v1.3",
+                    "encounterSemantics": {
+                        "entityCounts": {"adversaries": 0, "environments": 0}
+                    },
+                    "entities": [],
+                },
+            )
 
             def fake_runner(command, **_kwargs):
                 report_path = Path(command[command.index("--report") + 1])
@@ -182,6 +192,8 @@ class ProductionCliTests(unittest.TestCase):
             paths = profile_paths(repo, contract, "complete-rulebook")
             self.assertEqual(result["status"], "PASS")
             self.assertEqual(result["chapterCount"], 2)
+            self.assertEqual(result["structuredEntityCounts"]["adversaries"], 0)
+            self.assertEqual(result["structuredEntityCounts"]["environments"], 0)
             self.assertTrue(paths.release_pdf.is_file())
             self.assertEqual(paths.release_pdf.read_bytes(), b"%PDF-test")
 
