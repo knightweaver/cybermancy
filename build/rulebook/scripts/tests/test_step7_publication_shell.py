@@ -235,7 +235,7 @@ class PublicationShellGenerationTests(unittest.TestCase):
             (31, "Environments", "ch31-environments"),
             (32, "Adversary Feature Reference", "ch32-adversary-features"),
         ):
-            call = f"\\\\CMProductionPackageChapter{{{chapter}}}{{{title}}}{{{chapter_id}}}"
+            call = rf"\CMProductionPackageChapter{{{chapter}}}{{{title}}}{{{chapter_id}}}"
             self.assertIn(call + "\n", rendered)
             self.assertNotIn(call + r"\n", rendered)
 
