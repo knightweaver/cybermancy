@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `75224b98b29918e098e2cb5f4b11d802b68343ce`
+Git commit: `36b35d87cfddb71765f8c051bffe5a9a44b34a0d`
 
 ## Scope
 
@@ -14,8 +14,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| Files scanned | 4788 |
-| Documents | 1062 |
+| Files scanned | 4771 |
+| Documents | 1059 |
 | Player-site documents | 588 |
 | GM-site documents | 459 |
 | Player nav entries | 20 |
@@ -30,7 +30,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | Files with known exceptions | 139 |
 | Files with review flags | 25 |
 | Files with unresolved local dependencies | 6 |
-| Duplicate-content groups | 245 |
+| Duplicate-content groups | 247 |
 
 ## Files by source family
 
@@ -42,9 +42,9 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | generator | 65 |
 | gm | 959 |
 | player | 1453 |
-| repository | 35 |
+| repository | 32 |
 | shared-docs | 3 |
-| structured-source | 2001 |
+| structured-source | 1987 |
 
 ## Files by audience
 
@@ -53,8 +53,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | developer | 67 |
 | gm | 959 |
 | player | 1453 |
-| shared | 2019 |
-| unknown | 290 |
+| shared | 2005 |
+| unknown | 287 |
 
 ## Files by content scope
 
@@ -63,8 +63,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | campaign | 305 |
 | developer | 86 |
 | setting | 16 |
-| system | 2290 |
-| unknown | 2091 |
+| system | 2276 |
+| unknown | 2088 |
 
 ## Files by kind
 
@@ -74,8 +74,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | code | 40 |
 | config | 4 |
 | data | 1873 |
-| document | 1062 |
-| other | 166 |
+| document | 1059 |
+| other | 152 |
 | presentation | 9 |
 
 ## Files by authorship/source status
@@ -84,7 +84,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 |---|---:|
 | generated | 1023 |
 | hand-authored-or-source | 1962 |
-| unknown | 1803 |
+| unknown | 1786 |
 
 ## MkDocs sites
 
