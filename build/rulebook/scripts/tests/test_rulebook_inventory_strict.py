@@ -48,7 +48,7 @@ class InventoryFilesystemCharacterizationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.legacy = strict_inventory._legacy_namespace()
-        cls.walk_repo = cls.legacy["walk_repo"]
+        cls.walk_repo = staticmethod(cls.legacy["walk_repo"])
 
     def test_existing_filesystem_walk_sees_untracked_and_ignored_root_files(self) -> None:
         with tempfile.TemporaryDirectory() as td:
