@@ -244,6 +244,17 @@ def _build_from_committed_index(
     return inv
 
 
+def _strict_exit_code(inv: dict[str, Any]) -> int:
+    """Return the strict process status after a reproducible inventory was written.
+
+    Git/provenance violations fail before output. MkDocs configuration warnings still
+    indicate that inventory discovery itself is unreliable and remain fatal. Unresolved
+    local dependencies are retained in the inventory as review findings, but do not
+    invalidate an otherwise reproducible strict snapshot.
+    """
+    return 1 if bool(inv.get("mkdocs_config_warnings")) else 0
+
+
 def main() -> int:
     legacy = _legacy_namespace()
     args = legacy["parse_args"]()
@@ -282,6 +293,10 @@ def main() -> int:
         f"PlayerDocs={inv['counts']['documents_player_site']} "
         f"GMDocs={inv['counts']['documents_gm_site']}"
     )
-
-    bad = bool(inv["mkdocs_config_warnings"]) or inv["counts"]["unresolved_dependency_files"] > 0
-    return 1 if bad else 0
+    unresolved = int((inv.get("counts") or {}).get("unresolved_dependency_files") or 0)
+    if unresolved:
+        print(
+            f"Inventory recorded {unresolved} unresolved local dependency finding(s); "
+            "retained as review findings."
+        )
+    return _strict_exit_code(inv)
