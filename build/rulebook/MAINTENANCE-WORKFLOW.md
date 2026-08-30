@@ -1,6 +1,6 @@
 # Cybermancy Rulebook Maintenance Workflow
 
-This is the maintainer-facing workflow for the current Rulebook Step 4 freeze and Step 7 production renderer. It documents the supported path; it does not redefine publication authority, chapter architecture, layout grammar, production stages, or release names.
+This is the maintainer-facing workflow for the current Rulebook Step 4 freeze and Step 7 production renderer. It documents the supported path; it does not redefine publication authority, manifest schemas, chapter architecture, layout grammar, production stages, or release names.
 
 ## 1. Code/freeze baseline
 
@@ -12,85 +12,148 @@ python build\rulebook\scripts\build-rulebook.py baseline-check
 
 Use `--verbose` for the JSON report. This check is read-only and intentionally does not require `build/rulebook/source/`, Pandoc, LuaLaTeX, or the PDF utilities. It verifies the accepted production contract, frozen Step 6 hashes, selected freeze artifacts, profile/release identity, chapter topology, and production-stage tail.
 
-## 2. Structured-content maintenance sequence
-
-1. Import or edit the structured content in Foundry.
-2. Export the canonical Foundry JSON.
-3. Place the exported JSON in the appropriate canonical `src/packs/...` family. Place required art under the repository `assets/` tree at the canonical path referenced by the entity.
-4. Commit the canonical source and asset changes **before** generating the new inventory. The current publication-manifest generator requires `inventory.repository.git_commit` to equal repository `HEAD`.
-5. Rebuild the strict inventory:
-
-   ```powershell
-   python build\rulebook\scripts\build-rulebook-inventory.py --strict
-   ```
-
-6. Rebuild the publication manifest. By default the launcher selects the highest current publication manifest as its base and creates the next minor version; the explicit inventory path below binds it to the inventory just generated:
-
-   ```powershell
-   python build\rulebook\scripts\rebuild-rulebook-publication-manifest.py --inventory-json build\rulebook\inventory\rulebook-inventory.json
-   ```
-
-7. Rebuild the compatible assembly manifest. The current CLI selects the highest publication manifest when no override is supplied:
-
-   ```powershell
-   python build\rulebook\scripts\build-rulebook-assembly-manifest.py
-   ```
-
-8. Rebuild the compatible normalization configuration and standard. The current CLI selects the highest compatible publication/assembly inputs when no overrides are supplied:
-
-   ```powershell
-   python build\rulebook\scripts\build-rulebook-normalization-artifacts.py
-   ```
-
-9. Commit the regenerated `build/rulebook/inventory/` files and new versioned manifest/configuration artifacts. Production preflight requires the selected freeze artifacts to be tracked by Git. Do not commit generated Step 4 `build/rulebook/source/` output.
-10. Rebuild the Step 4 normalized publication source:
-
-    ```powershell
-    python build\rulebook\scripts\build-rulebook-source.py build
-    ```
-
-11. Run production preflight:
-
-    ```powershell
-    python build\rulebook\scripts\build-rulebook.py preflight
-    ```
-
-12. Build the required publication profile:
-
-    ```powershell
-    python build\rulebook\scripts\build-rulebook.py build --profile complete-rulebook
-    python build\rulebook\scripts\build-rulebook.py build --profile player-guide
-    ```
-
-    The accepted release filenames remain `Cybermancy_Core_Rulebook.pdf` and `Cybermancy_Player_Guide.pdf`.
-13. At release checkpoints only, run the two-clean-build semantic/render reproducibility check for the profile being released:
-
-    ```powershell
-    python build\rulebook\scripts\build-rulebook.py reproducibility --profile complete-rulebook
-    python build\rulebook\scripts\build-rulebook.py reproducibility --profile player-guide
-    ```
-
-## 3. Supported rulebook unit suite
-
-Run the supported Python unit suite from the repository root:
+The supported unit suite remains:
 
 ```powershell
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_*.py" -v
 ```
 
-`unittest` prints the number of tests run and reports failures, errors, and skips; a failing suite exits nonzero. Do not suppress that exit status. These tests exercise code plus checked-in contracts, manifests, canonical source fixtures, and checked-in assets. A genuinely missing checked-in source or asset is a real test failure and must not be fabricated.
+Do not suppress the unit-suite exit status.
 
-The ignored/generated Step 4 corpus under `build/rulebook/source/` is a separate production-readiness layer. Its absence is not by itself a unit-test failure. `build-rulebook.py preflight`, profile builds, and reproducibility are the commands that require current generated Step 4 output and the external production toolchain.
+## 2. Official routine maintenance CLI
 
-## 4. Active production path
+`build/rulebook/scripts/maintain-rulebook.py` is a thin safety/orchestration layer over the existing Step 2–4 and Step 7 commands. It does not replace or reimplement them, and it never runs Git add/commit/push, Foundry pack compilation, Foundry export ingestion, tagging, or GitHub Release creation.
 
-The official Step 7 production entrypoint is:
+### Status
 
-`build/rulebook/scripts/build-rulebook.py`
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py status
+```
+
+`status` is read-only. It reports repository HEAD and working-tree state, changed canonical-source paths, the current inventory snapshot, selected publication/assembly/normalization freezes, compatibility/tracking, generated Step 4 freshness, production-preflight eligibility, and the recommended next action. Use `--verbose` for structured JSON.
+
+### Prepare a new freeze snapshot
+
+Run `prepare` only **after the intended canonical source and asset changes have been committed**:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py prepare
+```
+
+The command requires a clean working tree at startup, records HEAD, runs the strict inventory, verifies that the generated inventory records that same HEAD, generates the next publication manifest from the latest accepted publication freeze, generates the compatible assembly manifest and normalization artifacts, validates their compatibility, then stops. It does **not** materialize Step 4 and does **not** render a PDF.
+
+Review every generated inventory/manifest/configuration artifact and commit it before building. Until that commit exists, `status` reports:
+
+> Generated freeze artifacts must be committed before production build.
+
+### Routine build
+
+After the refreshed inventory and versioned freeze artifacts have been reviewed and committed:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rulebook
+python build\rulebook\scripts\maintain-rulebook.py build --profile player-guide
+python build\rulebook\scripts\maintain-rulebook.py build --profile all
+```
+
+`build` requires a clean working tree and tracked compatible freeze inputs. It runs, in order, Step 4 validation, Step 4 materialization, production preflight, then the existing production build command for the explicitly requested profile. It stops on the first failure and preserves child diagnostics/report paths. It does not run reproducibility automatically and does not infer a profile from changed filenames.
+
+For adversary or environment maintenance, use:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rulebook
+```
+
+### Release checkpoint
+
+At a release checkpoint only:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py release --profile all
+```
+
+`release` performs the same safety checks, Step 4 validation/materialization, production preflight, and requested production build as `build`, then runs the existing production reproducibility command only after the build succeeds. It reports the final release filenames and relevant report locations. It does not package, tag, push, or create a GitHub Release.
+
+### Dry-run
+
+`prepare`, `build`, and `release` accept `--dry-run`:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py prepare --dry-run
+python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rulebook --dry-run
+python build\rulebook\scripts\maintain-rulebook.py release --profile all --dry-run
+```
+
+Dry-run performs read-only discovery and safety validation and prints the exact child command list in execution order. It invokes no mutating child command and creates/deletes no files. For build/release, the existing read-only Step 4 `validate` command is allowed to run so canonical-source compatibility can be checked without materialization.
+
+All maintenance commands use argument-list subprocesses rather than shell command chaining, so paths with Windows spaces are supported.
+
+## 3. Adversary/environment update workflow
+
+1. Build and validate the entity package using the current Cybermancy Adversary/Environment production pipeline.
+2. Import it into Foundry and inspect it.
+3. Export the Foundry Actor JSON.
+4. Place the JSON under `src/packs/adventures/adversaries` or `src/packs/adventures/environments` as appropriate.
+5. Place required art under the canonical repository asset paths referenced by the entity.
+6. Commit the canonical source and asset changes.
+7. Run `python build\rulebook\scripts\maintain-rulebook.py prepare`.
+8. Review and commit the generated `build/rulebook/inventory/` outputs and new versioned publication/assembly/normalization artifacts.
+9. Run `python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rulebook`.
+
+The publication manifest remains the frozen expected canonical corpus authority. `prepare` does not bypass the requirement that inventory provenance match committed HEAD, and `build` does not bypass Step 4 or production preflight.
+
+## 4. Git and freeze boundaries
+
+The maintenance CLI intentionally preserves the existing transaction boundaries:
+
+- Canonical authored Markdown, structured `src/packs/...` JSON, and required canonical assets must be committed before strict inventory generation.
+- The publication-manifest refresh fails unless `inventory.repository.git_commit` equals repository `HEAD`.
+- `prepare` deliberately leaves its generated inventory and versioned freeze artifacts uncommitted for human review.
+- Production build/release requires the selected inventory, publication manifest, assembly manifest, and normalization config to be tracked, and requires a clean working tree.
+- `build/rulebook/source/` remains ignored/generated Step 4 output and is never committed as canonical input.
+
+A current inventory file may have been generated at a different repository commit than an older still-selected publication freeze; that fact alone is not a production error. The selected publication/assembly/normalization set remains the authority until a new compatible set is generated, reviewed, and committed.
+
+## 5. Individual maintenance commands remain supported
+
+The wrapper is conservative convenience, not a replacement. The existing commands remain independently usable:
+
+| Function | Supported launcher | Active implementation |
+|---|---|---|
+| Strict inventory | `build-rulebook-inventory.py` | `build-rulebook-inventory.py.impl` |
+| Publication freeze | `rebuild-rulebook-publication-manifest.py` (also compatible `build-rulebook-publication-manifest.py`) | `build-rulebook-publication-manifest.py.impl` |
+| Assembly freeze | `build-rulebook-assembly-manifest.py` | `build-rulebook-assembly-manifest.py.impl` |
+| Normalization config/standard | `build-rulebook-normalization-artifacts.py` | `build-rulebook-normalization-artifacts.py.impl` |
+| Step 4 normalized source | `build-rulebook-source.py` | `build-rulebook-source.py.impl` |
+| Production renderer | `build-rulebook.py` | `rulebook_production/` |
+
+The equivalent manual refresh sequence remains:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-inventory.py --strict
+python build\rulebook\scripts\rebuild-rulebook-publication-manifest.py --inventory-json build\rulebook\inventory\rulebook-inventory.json
+python build\rulebook\scripts\build-rulebook-assembly-manifest.py
+python build\rulebook\scripts\build-rulebook-normalization-artifacts.py
+```
+
+After reviewing and committing those generated freeze artifacts, the equivalent manual build sequence is:
+
+```powershell
+python build\rulebook\scripts\build-rulebook-source.py validate
+python build\rulebook\scripts\build-rulebook-source.py build
+python build\rulebook\scripts\build-rulebook.py preflight
+python build\rulebook\scripts\build-rulebook.py build --profile complete-rulebook
+```
+
+`rulebook_cli.py` and `rulebook_layout_cli_compat.py` remain compatibility infrastructure, not alternate publication authorities.
+
+## 6. Active production path
+
+The official Step 7 production entrypoint remains `build/rulebook/scripts/build-rulebook.py`. The maintenance CLI does not alter it.
 
 Its active imported implementation is `build/rulebook/scripts/rulebook_production/`, principally `contract.py`, `preflight.py`, `orchestrator.py`, `publication_shell.py`, `reproducibility.py`, `reporting.py`, and `workspace.py`. `baseline.py` is the read-only maintenance guard and is not part of rendering.
 
-The production entrypoint first runs `rulebook_production.preflight.run_preflight`. Production rendering then uses `rulebook_production.orchestrator.stage_commands` to invoke the accepted Step 6 launchers in this exact tail order:
+Production rendering continues to invoke the accepted Step 6 tail in this exact order:
 
 | Order | Production stage | Launcher | Active implementation role |
 |---:|---|---|---|
@@ -100,32 +163,10 @@ The production entrypoint first runs `rulebook_production.preflight.run_prefligh
 | 160 | lualatex | `build-rulebook-step6-lualatex.py` | `rulebook_layout.unified_lualatex` |
 | 170 | rendered-regression | `build-rulebook-step6-rendered-regression.py` | `rulebook_layout.rendered_regression` plus production publication-shell rendered validation |
 
-The Step 6 integration authority for those stages remains `build/rulebook/layout/integration/step6-integration-v1.json`. The Step 7 authority remains `build/rulebook/production/production-renderer-v1.json`; reader-facing names remain in `build/rulebook/production/publication-metadata-v1.json`.
-
-## 5. Step 2–4 maintenance entrypoints and compatibility launchers
-
-The supported maintenance launchers are the public `.py` files in `build/rulebook/scripts/`. Several delegate through `rulebook_cli.py` to a sibling `.py.impl` implementation so older invocation paths remain compatible. In particular:
-
-| Function | Supported launcher | Active implementation |
-|---|---|---|
-| Strict inventory | `build-rulebook-inventory.py` | `build-rulebook-inventory.py.impl` |
-| Publication freeze | `rebuild-rulebook-publication-manifest.py` (also the compatible `build-rulebook-publication-manifest.py`) | `build-rulebook-publication-manifest.py.impl` |
-| Assembly freeze | `build-rulebook-assembly-manifest.py` | `build-rulebook-assembly-manifest.py.impl` |
-| Normalization config/standard | `build-rulebook-normalization-artifacts.py` | `build-rulebook-normalization-artifacts.py.impl` |
-| Step 4 normalized source | `build-rulebook-source.py` | `build-rulebook-source.py.impl` |
-
-`rulebook_cli.py` and `rulebook_layout_cli_compat.py` are compatibility infrastructure, not alternate publication authorities.
-
-## 6. Standalone prototypes, design proofs, tests, and historical artifacts
-
-The numerous package builders and `build-rulebook-step6-*-integrated.py` scripts remain useful standalone Step 3–6 package/design-proof/regression tools, but they are not the official Step 7 top-level production entrypoint unless `rulebook_production.orchestrator.stage_commands` invokes them. Examples include `build-rulebook-step6-integrated.py`, the prose/rules/character-origin/encounter integrated builders, `build-rulebook-layout.py`, `build-rulebook-pdf.py`, and family package builders.
-
-`build/rulebook/scripts/tests/test_*.py` is the supported rulebook unit/regression suite. Layout-package README files and JSON contracts under `build/rulebook/layout/` document/freeze the accepted package grammars.
-
-Potentially historical or suspicious artifacts should be investigated before any later cleanup and are deliberately retained in this transaction. These include compatibility aliases such as `rebuild-rulebook-publication-manifest-v2.py`, the dormant-looking `rebuild-rulebook-publication-manifest.py.impl` beside the currently targeted implementation, `scratch_5.py`, and the captured `test-results.txt`. Their presence does not make them production entrypoints.
+The Step 6 integration authority remains `build/rulebook/layout/integration/step6-integration-v1.json`. The Step 7 authority remains `build/rulebook/production/production-renderer-v1.json`; reader-facing names remain in `build/rulebook/production/publication-metadata-v1.json`. Accepted release filenames remain `Cybermancy_Core_Rulebook.pdf` and `Cybermancy_Player_Guide.pdf`.
 
 ## 7. Generated versus tracked artifacts
 
-`build/rulebook/inventory/` and the selected versioned freeze artifacts under `build/rulebook/manifests/` are tracked maintenance inputs to production preflight. `build/rulebook/source/` is generated by Step 4, ignored/untracked, and validated in place by production preflight; the Step 7 build does not regenerate it automatically.
+`build/rulebook/inventory/` and the selected versioned freeze artifacts under `build/rulebook/manifests/` are tracked maintenance inputs to production. `build/rulebook/source/` is generated by Step 4, ignored/untracked, and validated in place by production preflight.
 
-Do not edit normalized Step 4 output as a source of truth. Canonical authored Markdown and structured `src/packs/...` inputs remain upstream authority; generated PDF/work/report/output trees remain production outputs.
+Do not edit normalized Step 4 output as a source of truth. Generated PDF/work/report/output trees remain production outputs. Standalone package builders, design proofs, compatibility aliases, and historical artifacts remain available but are not promoted to top-level production authority by the maintenance CLI.
