@@ -111,7 +111,6 @@ class Stage170StructureTests(unittest.TestCase):
             row = chapter_map[number]
             pages.append(f"CHAPTER {number}\n{row['title']}\n")
         if profile == "complete-rulebook":
-            chapter22_index = next(i for i, text in enumerate(pages) if "CHAPTER 22" in text)
             chapter23_index = next(i for i, text in enumerate(pages) if "CHAPTER 23" in text)
             pages.insert(chapter23_index, contract["gmDividerText"])
         return pages
@@ -130,6 +129,37 @@ class Stage170StructureTests(unittest.TestCase):
         self.assertEqual(report["status"], "PASS", report)
         self.assertEqual(len(report["gmDivider"]["pages"]), 1)
         self.assertTrue(report["gmDivider"]["boundaryValid"])
+
+    def test_toc_entries_do_not_override_body_structure_anchors(self) -> None:
+        contract = _load_contract()
+        chapter_map = {int(row["chapter"]): row for row in contract["chapterMap"]}
+        part_by_id = {row["id"]: row for row in PARTS}
+        toc_lines = ["CONTENTS"]
+        for part_id in PROFILE_PART_IDS["complete-rulebook"]:
+            part = part_by_id[part_id]
+            toc_lines.append(f"PART {part['roman']} {part['title']}")
+        for number in contract["profiles"]["complete-rulebook"]["chapters"]:
+            row = chapter_map[number]
+            toc_lines.append(f"CHAPTER {number} {row['title']}")
+
+        pages = ["\n".join(toc_lines)] + self._pages_for_profile("complete-rulebook")
+        pages.append(
+            "APPENDIX B ENTITY INDEX\n"
+            "CHAPTER 22 Loot\n"
+            "CHAPTER 29 ICE Reference\n"
+        )
+        report = locate_rendered_structure(pages, contract, "complete-rulebook")
+
+        self.assertEqual(report["status"], "PASS", report)
+        self.assertTrue(all(row["anchorPage"] != 1 for row in report["parts"]))
+        self.assertTrue(all(row["anchorPage"] != 1 for row in report["chapters"]))
+        chapter22 = next(row["anchorPage"] for row in report["chapters"] if row["chapter"] == 22)
+        chapter23 = next(row["anchorPage"] for row in report["chapters"] if row["chapter"] == 23)
+        divider_page = report["gmDivider"]["pages"][0]
+        self.assertLess(chapter22, divider_page)
+        self.assertLess(divider_page, chapter23)
+        chapter29 = next(row["anchorPage"] for row in report["chapters"] if row["chapter"] == 29)
+        self.assertLess(chapter29, len(pages))
 
     def test_provenance_residue_fails_rendered_structure(self) -> None:
         contract = _load_contract()

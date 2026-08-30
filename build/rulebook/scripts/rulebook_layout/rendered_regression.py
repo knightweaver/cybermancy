@@ -284,36 +284,9 @@ def locate_rendered_structure(
     profile_spec = contract.get("profiles", {}).get(profile, {})
     chapters = [int(value) for value in profile_spec.get("chapters") or []]
 
-    chapter_rows: list[dict[str, Any]] = []
-    missing_chapters: list[int] = []
-    for number in chapters:
-        spec = chapter_map.get(number, {})
-        title = normalize_rendered_text(str(spec.get("title") or ""))
-        label = f"chapter {number}"
-        candidates = [
-            index + 1
-            for index, page in enumerate(normalized_pages)
-            if re.search(rf"\bchapter\s+{number}\b", page) and title in page
-        ]
-        if not candidates:
-            candidates = [
-                index + 1
-                for index, page in enumerate(normalized_pages)
-                if re.search(rf"\bchapter\s+{number}\b", page)
-            ]
-        if not candidates:
-            missing_chapters.append(number)
-        chapter_rows.append(
-            {
-                "chapter": number,
-                "chapterId": spec.get("chapterId"),
-                "title": spec.get("title"),
-                "pages": candidates,
-                "anchorPage": candidates[0] if candidates else None,
-                "label": label,
-            }
-        )
-
+    # The production TOC deliberately repeats every Part title before main
+    # matter. Use the final exact Part-title occurrence as the structural Part
+    # opening, matching the production-shell rendered validation.
     expected_part_ids = PROFILE_PART_IDS.get(profile, ())
     part_by_id = {str(row["id"]): row for row in PARTS}
     part_rows: list[dict[str, Any]] = []
@@ -341,7 +314,47 @@ def locate_rendered_structure(
                 "roman": spec["roman"],
                 "title": spec["title"],
                 "pages": candidates,
-                "anchorPage": candidates[0] if candidates else None,
+                "anchorPage": candidates[-1] if candidates else None,
+            }
+        )
+
+    # Part I is the first main-matter structure. Ignore any chapter-title hits
+    # before its rendered opening so generated TOC entries cannot masquerade as
+    # chapter anchors. Later hits remain recorded in `pages`, while the earliest
+    # main-matter occurrence is the structural anchor.
+    main_matter_start = part_rows[0]["anchorPage"] if part_rows else None
+    chapter_rows: list[dict[str, Any]] = []
+    missing_chapters: list[int] = []
+    for number in chapters:
+        spec = chapter_map.get(number, {})
+        title = normalize_rendered_text(str(spec.get("title") or ""))
+        label = f"chapter {number}"
+        candidates = [
+            index + 1
+            for index, page in enumerate(normalized_pages)
+            if re.search(rf"\bchapter\s+{number}\b", page) and title in page
+        ]
+        if not candidates:
+            candidates = [
+                index + 1
+                for index, page in enumerate(normalized_pages)
+                if re.search(rf"\bchapter\s+{number}\b", page)
+            ]
+        body_candidates = [
+            page
+            for page in candidates
+            if main_matter_start is None or page >= main_matter_start
+        ]
+        if not body_candidates:
+            missing_chapters.append(number)
+        chapter_rows.append(
+            {
+                "chapter": number,
+                "chapterId": spec.get("chapterId"),
+                "title": spec.get("title"),
+                "pages": candidates,
+                "anchorPage": body_candidates[0] if body_candidates else None,
+                "label": label,
             }
         )
 
