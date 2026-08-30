@@ -93,8 +93,25 @@ def _git_ls_files(root: Path) -> list[str]:
         raise StrictInventoryError(
             "could not enumerate tracked Git files: " + _decode(result.stderr or result.stdout)
         )
-    paths = [os.fsdecode(part) for part in (result.stdout or b"").split(b"\0") if part]
-    return paths
+    return [os.fsdecode(part) for part in (result.stdout or b"").split(b"\0") if part]
+
+
+def _git_ignored_tracked_files(root: Path) -> set[str]:
+    """Return tracked paths excluded by the repository's standard ignore rules."""
+    result = _git_bytes(
+        root,
+        "ls-files",
+        "-z",
+        "--cached",
+        "--ignored",
+        "--exclude-standard",
+    )
+    if result.returncode != 0:
+        raise StrictInventoryError(
+            "could not enumerate tracked ignored Git files: "
+            + _decode(result.stderr or result.stdout)
+        )
+    return {os.fsdecode(part) for part in (result.stdout or b"").split(b"\0") if part}
 
 
 def _legacy_excluded(rel: str, excluded_dirs: set[str]) -> bool:
@@ -135,11 +152,10 @@ def _validate_tracked_presence(root: Path, tracked: list[str]) -> None:
 
 
 def strict_snapshot(root: Path, output_dir: Path, excluded_dirs: set[str]) -> tuple[str, list[str]]:
-    """Validate strict startup state and return HEAD plus tracked inventory candidates.
+    """Validate strict startup state and return HEAD plus committed inventory candidates.
 
-    Git status intentionally omits ignored files. They are allowed to exist locally,
-    but cannot become strict candidates because candidate identity comes only from
-    ``git ls-files -z``.
+    Ignored local files may exist, but both untracked ignored files and tracked files
+    matched by standard Git ignore rules are excluded from strict inventory candidates.
     """
     root = root.resolve()
     _require_git_root(root)
@@ -147,11 +163,14 @@ def strict_snapshot(root: Path, output_dir: Path, excluded_dirs: set[str]) -> tu
     head = _head(root)
     tracked = _git_ls_files(root)
     _validate_tracked_presence(root, tracked)
+    ignored_tracked = _git_ignored_tracked_files(root)
     output_rel = _repo_relative_or_none(root, output_dir)
     candidates = [
         rel
         for rel in tracked
-        if not _legacy_excluded(rel, excluded_dirs) and not _under(rel, output_rel)
+        if rel not in ignored_tracked
+        and not _legacy_excluded(rel, excluded_dirs)
+        and not _under(rel, output_rel)
     ]
     candidates.sort(key=lambda value: value.casefold())
     return head, candidates
@@ -193,8 +212,6 @@ def _build_from_committed_index(
 ) -> dict[str, Any]:
     legacy = _legacy_namespace()
     excluded_dirs = set(legacy["DEFAULT_EXCLUDED_DIRS"])
-    # Characterize the legacy exclusions here as a defensive cross-check. The
-    # candidate list was already filtered with this exact set before export.
     if any(_legacy_excluded(rel, excluded_dirs) for rel in candidate_relpaths):
         raise StrictInventoryError("internal error: excluded path reached strict candidate set")
 
@@ -217,8 +234,8 @@ def _build_from_committed_index(
 
         # Keep all existing inventory classification/reconciliation logic intact.
         # Only the item candidate enumerator is replaced in strict mode. Running
-        # against a committed-only checkout also prevents ignored/untracked files
-        # from influencing the legacy reconciliation globs.
+        # against a committed-only checkout prevents ignored/untracked files from
+        # entering inventory items or the legacy reconciliation filesystem walk.
         legacy["walk_repo"] = lambda _root: iter(candidate_paths)
         inv = legacy["build_inventory"](export_root)
 
@@ -247,7 +264,6 @@ def main() -> int:
         excluded_dirs = set(legacy["DEFAULT_EXCLUDED_DIRS"])
         head, candidates = strict_snapshot(root, out_dir, excluded_dirs)
         inv = _build_from_committed_index(root, head, candidates)
-        # Detect a race after all reads but before the first output-directory write.
         _revalidate_snapshot(root, head)
     except StrictInventoryError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
