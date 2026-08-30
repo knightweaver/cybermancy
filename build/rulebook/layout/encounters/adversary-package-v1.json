@@ -15,7 +15,11 @@
   },
   "publicationPolicy": {
     "requireFullCorpusSelection": true,
-    "expectedEntryCount": 106,
+    "countAuthority": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries].entityCount",
+      "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
+      "reconciliation": "exact-before-render"
+    },
     "ordering": ["tier", "classification", "name", "semanticId"]
   },
   "artworkPolicy": "optional for legacy corpus; compact header art capped to the identity-block height; omit without invented replacement",

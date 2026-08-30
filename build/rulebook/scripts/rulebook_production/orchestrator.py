@@ -7,6 +7,8 @@ import sys
 from pathlib import Path
 from typing import Any, Callable
 
+from rulebook_layout.encounter_authority import sidecar_encounter_counts
+
 from .contract import (
     canonical_text_sha256,
     load_production_contract,
@@ -160,7 +162,12 @@ def build_profile(
             repo_root / contract["authorities"]["step6IntegrationContract"]["path"]
         )
         report["chapterCount"] = len(step6_contract["profiles"][profile]["chapters"])
-        report["structuredEntityCounts"] = contract["structuredExpectations"]
+        structured_counts = dict(contract["structuredExpectations"])
+        sidecar = load_json(
+            repo_root / "build/rulebook/source/metadata/structured-entities.json"
+        )
+        structured_counts.update(sidecar_encounter_counts(sidecar))
+        report["structuredEntityCounts"] = structured_counts
         report["pageCount"] = stage160.get("pageCount")
         report["validationResult"] = stage170.get("status")
         report["outputPath"] = repo_relative(paths.release_pdf, repo_root)

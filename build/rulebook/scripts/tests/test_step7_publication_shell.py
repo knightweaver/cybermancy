@@ -55,6 +55,15 @@ def _expectations(**updates: int) -> dict:
     return values
 
 
+def _encounter_semantics(adversaries: int = 0, environments: int = 0) -> dict:
+    return {
+        "entityCounts": {
+            "adversaries": adversaries,
+            "environments": environments,
+        }
+    }
+
+
 class EntityIndexTests(unittest.TestCase):
     def test_authored_origin_counts_are_outside_the_structured_sidecar_index(self):
         sidecar = {
@@ -102,6 +111,7 @@ class EntityIndexTests(unittest.TestCase):
 
     def test_adversary_feature_index_includes_only_publication_representatives(self):
         sidecar = {
+            "encounterSemantics": _encounter_semantics(),
             "entities": [
                 {
                     "family": "adversaries-features",
@@ -124,7 +134,7 @@ class EntityIndexTests(unittest.TestCase):
                     "semanticId": "entity:adversaries-features:standalone",
                     "publicationData": {},
                 },
-            ]
+            ],
         }
         result = entity_index(
             sidecar,
@@ -135,6 +145,7 @@ class EntityIndexTests(unittest.TestCase):
 
     def test_complete_rulebook_indexes_only_step4_canonical_ice_features(self):
         sidecar = {
+            "encounterSemantics": _encounter_semantics(),
             "iceSemantics": {
                 "semanticIds": ["entity:features:ice"],
             },
@@ -189,7 +200,6 @@ class PublicationShellGenerationTests(unittest.TestCase):
         self.assertNotIn("Appendix C", rendered)
         self.assertIn("Razzhacker", rendered)
 
-
     def test_complete_rulebook_package_navigation_uses_real_line_endings(self):
         contract = _load(PRODUCTION_CONTRACT)
         contract["structuredExpectations"] = _expectations(
@@ -212,11 +222,12 @@ class PublicationShellGenerationTests(unittest.TestCase):
 \\end{document}
 """
         sidecar = {
+            "encounterSemantics": _encounter_semantics(adversaries=1, environments=1),
             "iceSemantics": {"semanticIds": ["entity:features:ice"]},
             "entities": [
                 {"family": "features", "name": "ICE", "semanticId": "entity:features:ice"},
-                {"family": "adversaries", "name": "Adversary", "semanticId": "entity:adversaries:a"},
-                {"family": "environments", "name": "Environment", "semanticId": "entity:environments:e"},
+                {"family": "adversaries", "name": "Adversary", "semanticId": "entity:adversaries:a", "audience": "gm"},
+                {"family": "environments", "name": "Environment", "semanticId": "entity:environments:e", "audience": "gm"},
                 {
                     "family": "adversaries-features",
                     "name": "Feature",

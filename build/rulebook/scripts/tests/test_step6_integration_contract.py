@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 import unittest
 from pathlib import Path
 
@@ -8,6 +9,11 @@ from pathlib import Path
 RULEBOOK_DIR = Path(__file__).resolve().parents[2]
 LAYOUT_DIR = RULEBOOK_DIR / "layout"
 INTEGRATION = LAYOUT_DIR / "integration" / "step6-integration-v1.json"
+SCRIPT_DIR = RULEBOOK_DIR / "scripts"
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from rulebook_layout.encounter_authority import count_authority_descriptor
 
 
 def load_json(path: Path) -> dict:
@@ -151,14 +157,26 @@ class Step6IntegrationContractTests(unittest.TestCase):
         adversaries = load_json(LAYOUT_DIR / "encounters" / "adversary-package-v1.json")
         environments = load_json(LAYOUT_DIR / "encounters" / "environment-package-v1.json")
         features = load_json(LAYOUT_DIR / "encounters" / "adversary-feature-reference-v1.json")
-        self.assertEqual(
-            adversaries["publicationPolicy"]["expectedEntryCount"],
-            regression["adversaries"]["entries"],
-        )
-        self.assertEqual(
-            environments["publicationPolicy"]["expectedEntryCount"],
-            regression["environments"]["entries"],
-        )
+
+        for family, config in (
+            ("adversaries", adversaries),
+            ("environments", environments),
+        ):
+            descriptor = count_authority_descriptor(family)
+            self.assertEqual(regression[family]["countAuthority"], descriptor)
+            self.assertEqual(config["publicationPolicy"]["countAuthority"], descriptor)
+            self.assertNotIn("entries", regression[family])
+            self.assertNotIn("expectedEntryCount", config["publicationPolicy"])
+            self.assertEqual(
+                config["publicationPolicy"]["ordering"],
+                ["tier", "classification", "name", "semanticId"],
+            )
+            self.assertTrue(config["publicationPolicy"]["requireFullCorpusSelection"])
+            self.assertEqual(config["selection"]["mode"], "full-corpus")
+            self.assertEqual(config["fastPlayPolicy"], "render structured Fast Play only when present")
+
+        self.assertEqual(adversaries["lifecycle"]["version"], "v1.1")
+        self.assertEqual(environments["lifecycle"]["version"], "v1.0")
         self.assertEqual(
             features["publicationPolicy"]["expectedEntryCount"],
             regression["adversaryFeatures"]["publishedRepresentatives"],
@@ -167,6 +185,18 @@ class Step6IntegrationContractTests(unittest.TestCase):
             features["publicationPolicy"]["canonicalSourceEntryCount"],
             regression["adversaryFeatures"]["canonicalSourceEntries"],
         )
+
+    def test_encounter_routes_remain_frozen(self) -> None:
+        chapter_map = {row["chapter"]: row for row in self.contract["chapterMap"]}
+        targets = {row["chapter"]: row for row in self.contract["structuredTargets"]}
+        for chapter, family, adapter in (
+            (30, "adversaries", "adversary-package"),
+            (31, "environments", "environment-package"),
+        ):
+            self.assertEqual(chapter_map[chapter]["audience"], "gm")
+            self.assertEqual(targets[chapter]["families"], [family])
+            self.assertEqual(targets[chapter]["adapter"], adapter)
+            self.assertEqual(targets[chapter]["profiles"], ["complete-rulebook"])
 
     def test_integration_policies(self) -> None:
         policies = self.contract["integrationPolicies"]

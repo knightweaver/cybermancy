@@ -107,8 +107,20 @@
       "loot": 60
     },
     "ice": {"entries": 13},
-    "adversaries": {"entries": 106},
-    "environments": {"entries": 8},
+    "adversaries": {
+      "countAuthority": {
+        "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries].entityCount",
+        "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
+        "reconciliation": "exact-before-render"
+      }
+    },
+    "environments": {
+      "countAuthority": {
+        "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=environments].entityCount",
+        "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.environments",
+        "reconciliation": "exact-before-render"
+      }
+    },
     "adversaryFeatures": {"publishedRepresentatives": 344, "canonicalSourceEntries": 419}
   },
   "integrationPolicies": {

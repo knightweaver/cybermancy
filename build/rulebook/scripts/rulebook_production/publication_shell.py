@@ -6,6 +6,8 @@ import unicodedata
 from pathlib import Path
 from typing import Any
 
+from rulebook_layout.encounter_authority import sidecar_encounter_counts
+
 
 FAMILY_CHAPTERS = {
     "classes": (12, "Classes"),
@@ -59,9 +61,6 @@ def _is_published_feature(entity: dict[str, Any]) -> bool:
     if not isinstance(data, dict):
         return False
     equivalence = data.get("publicationEquivalence")
-    # Ungrouped canonical features are standalone representatives. Grouped
-    # features carry the explicit representative flag from the accepted Step 4
-    # publication-equivalence pass.
     if not isinstance(equivalence, dict):
         return True
     return equivalence.get("isRepresentative") is True
@@ -106,10 +105,6 @@ def entity_index(
             continue
         if profile == "player-guide" and family in GM_FAMILIES:
             continue
-        # The Step 4 `features` family contains every system feature. Chapter
-        # 29 publishes only the canonical ICE subset identified by the
-        # accepted Step 4 ICE semantics, so Appendix B must use that same
-        # selection rather than indexing unrelated class/system features.
         if family == "features" and str(entity.get("semanticId") or "") not in ice_ids:
             continue
         if family == "adversaries-features" and not _is_published_feature(entity):
@@ -133,9 +128,6 @@ def entity_index(
     expected_by_family = {
         "classes": int(expectations["classes"]),
         "subclasses": int(expectations["subclasses"]),
-        # `domains` is the count of organizational domain groupings. The Step 4
-        # structured sidecar's `domains` family contains the individually
-        # publishable domain-card entities only.
         "domains": int(expectations["domainCards"]),
         "weapons": int(expectations["weapons"]),
         "ammo": int(expectations["ammo"]),
@@ -147,11 +139,12 @@ def entity_index(
         "loot": int(expectations["loot"]),
     }
     if profile == "complete-rulebook":
+        encounter_counts = sidecar_encounter_counts(sidecar)
         expected_by_family.update(
             {
                 "features": int(expectations["ice"]),
-                "adversaries": int(expectations["adversaries"]),
-                "environments": int(expectations["environments"]),
+                "adversaries": encounter_counts["adversaries"],
+                "environments": encounter_counts["environments"],
                 "adversaries-features": int(expectations["adversaryFeaturesPublished"]),
             }
         )
@@ -404,8 +397,6 @@ def bookmark_structure(
     chapter_count = len(step6_contract["profiles"][profile]["chapters"])
     appendix_count = 1
     expected_levels = [0] * part_count + [1] * chapter_count + [0] * appendix_count
-    # The order interleaves Parts and Chapters, so validate counts as well as the
-    # absence of lower bookmark levels; rendered order is checked at Stage 170.
     expected_tokens = ["appendix-b-entity-index"]
     expected_tokens.extend(str(row["chapterId"]) for row in step6_contract["chapterMap"] if int(row["chapter"]) in step6_contract["profiles"][profile]["chapters"])
     token_misses = [token for token in expected_tokens if token not in toc_text and token not in out_text]

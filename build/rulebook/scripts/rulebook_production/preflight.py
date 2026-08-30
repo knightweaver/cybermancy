@@ -7,6 +7,11 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from rulebook_layout.encounter_authority import (
+    MUTABLE_ENCOUNTER_FAMILIES,
+    count_authority_descriptor,
+    reconcile_encounter_authority,
+)
 from rulebook_layout.toolchain import resolve_tool
 
 from .contract import load_production_contract, selected_manifests, verify_frozen_bindings
@@ -117,6 +122,21 @@ def run_preflight(
         return report
     add_check(report, "PRODUCTION_CONTRACT", "PASS", "Accepted Production Renderer v1 contract loaded.")
 
+    configured_authorities = contract.get("mutableStructuredCountAuthorities")
+    authority_contract_ok = isinstance(configured_authorities, dict) and all(
+        configured_authorities.get(family) == count_authority_descriptor(family)
+        for family in MUTABLE_ENCOUNTER_FAMILIES
+    )
+    add_check(
+        report,
+        "MUTABLE_ENCOUNTER_COUNT_AUTHORITY",
+        "PASS" if authority_contract_ok else "FAIL",
+        "Production contract delegates Adversary/Environment counts to the selected manifest and reconciled Step 4 sidecar."
+        if authority_contract_ok
+        else "Production contract mutable encounter count-authority references changed or are missing.",
+        configured_authorities,
+    )
+
     bindings = verify_frozen_bindings(repo_root, contract)
     binding_ok = all(item["status"] == "PASS" for item in bindings)
     add_check(
@@ -221,6 +241,19 @@ def run_preflight(
                 if provenance_ok
                 else "Generated Step 4 sidecar source commit does not match the selected publication freeze.",
                 {"expected": expected_commit, "actual": sidecar.get("sourceCommit")},
+            )
+
+            encounter_authority = reconcile_encounter_authority(publication, sidecar)
+            report["encounterCorpusAuthority"] = encounter_authority
+            encounter_ok = encounter_authority.get("status") == "PASS"
+            add_check(
+                report,
+                "STEP4_ENCOUNTER_CORPUS_AUTHORITY",
+                "PASS" if encounter_ok else "FAIL",
+                "Adversary and Environment counts/semantic IDs reconcile from the selected publication manifest through the Step 4 sidecar."
+                if encounter_ok
+                else "Adversary or Environment Step 4 corpus does not reconcile to the selected publication manifest.",
+                encounter_authority,
             )
 
     if manifests and run_step4_validator:

@@ -26,7 +26,7 @@
     },
     "step6IntegrationContract": {
       "path": "build/rulebook/layout/integration/step6-integration-v1.json",
-      "sha256": "0f9539e4063bab1a3f79fa4f0d4462a87c854713789ade679af32af392f304bc",
+      "sha256": "2dc97b177ad01d9ae75e352eab06a733fb3cb8c6d7b6625734765c6c77263a22",
       "status": "accepted"
     },
     "generatedPublicationSource": {
@@ -55,6 +55,7 @@
       "The Step 4 source commit and manifest provenance must match the selected freeze artifacts.",
       "Current canonical authored and structured-source digests must match the selected publication manifest.",
       "The normalized source-hashes inventory must match the selected manifest authority and current canonical inputs.",
+      "The Step 4 adversary and environment corpus counts and semantic IDs must reconcile to the selected publication manifest before rendering.",
       "The Adversary Feature publication-selection status must be APPLIED and reconcile 419 canonical entries to 344 representatives."
     ]
   },
@@ -108,10 +109,22 @@
     {"path": "build/rulebook/layout/equipment/mods-v1.json", "sha256": "242b1985eb2cc6fbc0e8b65f6b16d571457fbba143bd26a3da03c3cbe45975f2"},
     {"path": "build/rulebook/layout/equipment/loot-v1.json", "sha256": "492228f7356973c5122c5000161e58df9abf4842a5afde680e6a9465cf05be4e"},
     {"path": "build/rulebook/layout/ice/ice-reference-package-v1.json", "sha256": "8975aaade40d17058be3a4849c4767572af839751da84ffc18a2ef8d4ace9722"},
-    {"path": "build/rulebook/layout/encounters/adversary-package-v1.json", "sha256": "209d841631b5c7948698d2c79c18475b6b47d3f5a01e628255ab8b4f95e542e8"},
-    {"path": "build/rulebook/layout/encounters/environment-package-v1.json", "sha256": "07527e9737bcb8b44acc4de8e7412457c740089a9731a8003ca12720dbee4061"},
+    {"path": "build/rulebook/layout/encounters/adversary-package-v1.json", "sha256": "d64ed618cc82655837fdc6476adf50329020e3054e1f0bf54aa6b73512ba4c89"},
+    {"path": "build/rulebook/layout/encounters/environment-package-v1.json", "sha256": "f7d7b0cf1cb511e40c623190eb2d5ecfa54b53912154fa463fe1b14ada6ce86d"},
     {"path": "build/rulebook/layout/encounters/adversary-feature-reference-v1.json", "sha256": "1baa4a3aaa34581451f220f2ac6ce221c320b1f7ea0c361146c76a901931e4cc"}
   ],
+  "mutableStructuredCountAuthorities": {
+    "adversaries": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries].entityCount",
+      "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
+      "reconciliation": "exact-before-render"
+    },
+    "environments": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=environments].entityCount",
+      "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.environments",
+      "reconciliation": "exact-before-render"
+    }
+  },
   "structuredExpectations": {
     "ancestories": 18,
     "communities": 9,
@@ -129,8 +142,6 @@
     "mods": 20,
     "loot": 60,
     "ice": 13,
-    "adversaries": 106,
-    "environments": 8,
     "adversaryFeaturesCanonical": 419,
     "adversaryFeaturesPublished": 344
   },
