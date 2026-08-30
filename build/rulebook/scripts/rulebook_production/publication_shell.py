@@ -203,6 +203,7 @@ def _production_macros(title: str, subtitle: str, version: str, footer: str) -> 
     return rf"""
 % ---- Production Renderer Phase D publication shell ----
 \definecolor{{CMProductionMuted}}{{HTML}}{{58747A}}
+\hypersetup{{bookmarksdepth=1}}
 \newcommand{{\CMProductionRecto}}{{%
   \clearpage
   \ifodd\value{{page}}\else\null\thispagestyle{{empty}}\newpage\fi

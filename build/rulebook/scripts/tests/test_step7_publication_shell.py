@@ -177,6 +177,7 @@ class PublicationShellGenerationTests(unittest.TestCase):
         self.assertIn(r"\CMProductionFrontMatter", rendered)
         self.assertIn(r"\newcommand{\CMProductionPart}[5]", rendered)
         self.assertIn(r"\definecolor{CMProductionMuted}{HTML}{58747A}", rendered)
+        self.assertIn(r"\hypersetup{bookmarksdepth=1}", rendered)
         self.assertIn(r"\color{CMProductionMuted}", rendered)
         self.assertNotIn(r"\color{CMMuted}#2", rendered)
         self.assertIn(
