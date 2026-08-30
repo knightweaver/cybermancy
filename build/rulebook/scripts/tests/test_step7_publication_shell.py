@@ -189,6 +189,56 @@ class PublicationShellGenerationTests(unittest.TestCase):
         self.assertIn("Razzhacker", rendered)
 
 
+    def test_complete_rulebook_package_navigation_uses_real_line_endings(self):
+        contract = _load(PRODUCTION_CONTRACT)
+        contract["structuredExpectations"] = _expectations(
+            ice=1,
+            adversaries=1,
+            environments=1,
+            adversaryFeaturesPublished=1,
+        )
+        families = ("features", "adversaries", "environments", "adversaries-features")
+        document = """\\documentclass{article}
+\\newcommand{\\CMIntegratedChapter}[4]{}
+\\newcommand{\\CMIntegratedPart}[4]{}
+\\begin{document}
+% CM-INTEGRATED-SHELL PART part-i-world
+\\CMIntegratedPart{I}{World}{player}{part-i-world}
+""" + "\n".join(
+            f"% CM-STAGE150 FAMILY {family} BEGIN\n\\clearpage\n"
+            for family in families
+        ) + """
+\\end{document}
+"""
+        sidecar = {
+            "iceSemantics": {"semanticIds": ["entity:features:ice"]},
+            "entities": [
+                {"family": "features", "name": "ICE", "semanticId": "entity:features:ice"},
+                {"family": "adversaries", "name": "Adversary", "semanticId": "entity:adversaries:a"},
+                {"family": "environments", "name": "Environment", "semanticId": "entity:environments:e"},
+                {
+                    "family": "adversaries-features",
+                    "name": "Feature",
+                    "semanticId": "entity:adversaries-features:f",
+                    "publicationData": {},
+                },
+            ],
+        }
+        rendered, report = apply_publication_shell(
+            document, "complete-rulebook", contract, _load(METADATA), sidecar
+        )
+        self.assertEqual(report["packageChapterNavigation"], [29, 30, 31, 32])
+        for chapter, title, chapter_id in (
+            (29, "ICE Reference", "ch29-ice-reference"),
+            (30, "Adversaries", "ch30-adversaries"),
+            (31, "Environments", "ch31-environments"),
+            (32, "Adversary Feature Reference", "ch32-adversary-features"),
+        ):
+            call = f"\\\\CMProductionPackageChapter{{{chapter}}}{{{title}}}{{{chapter_id}}}"
+            self.assertIn(call + "\n", rendered)
+            self.assertNotIn(call + r"\n", rendered)
+
+
 class BookmarkStructureTests(unittest.TestCase):
     def test_only_part_chapter_appendix_levels_are_accepted(self):
         production = _load(PRODUCTION_CONTRACT)

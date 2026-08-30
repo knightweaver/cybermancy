@@ -306,7 +306,10 @@ def _inject_package_navigation(document: str) -> tuple[str, list[int]]:
         if end < 0:
             end = document.find(r"\end{document}", start)
         segment = document[start:end]
-        navigation = rf"\CMProductionPackageChapter{{{chapter}}}{{{_escape(title)}}}{{{chapter_id}}}\n"
+        navigation = (
+            rf"\CMProductionPackageChapter{{{chapter}}}{{{_escape(title)}}}{{{chapter_id}}}"
+            + "\n"
+        )
         clear_at = segment.find(r"\clearpage")
         if clear_at >= 0:
             insert_at = start + clear_at + len(r"\clearpage")
