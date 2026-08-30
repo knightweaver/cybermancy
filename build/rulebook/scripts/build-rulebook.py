@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from rulebook_production import PROFILES
+from rulebook_production.baseline import run_baseline_check
 from rulebook_production.contract import load_production_contract
 from rulebook_production.orchestrator import build_profile
 from rulebook_production.preflight import run_preflight
@@ -25,6 +26,11 @@ def _selected_profiles(value: str) -> tuple[str, ...]:
 def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(description="Cybermancy Production Renderer v1")
     subcommands = root.add_subparsers(dest="command", required=True)
+
+    baseline = subcommands.add_parser(
+        "baseline-check", help="Verify the code/freeze maintenance baseline without rendering."
+    )
+    baseline.add_argument("--verbose", action="store_true")
 
     preflight = subcommands.add_parser("preflight", help="Validate production readiness without rendering.")
     preflight.add_argument("--verbose", action="store_true")
@@ -50,6 +56,11 @@ def _emit(report: dict, verbose: bool) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
+    if args.command == "baseline-check":
+        report = run_baseline_check(REPO_ROOT)
+        _emit(report, args.verbose)
+        return 0 if report["status"] == "PASS" else 2
+
     contract = load_production_contract(REPO_ROOT)
     report_root = REPO_ROOT / contract["workspace"]["reportRoot"]
     if args.command != "preflight":
