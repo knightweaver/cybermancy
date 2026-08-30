@@ -18,6 +18,8 @@ The final full-corpus regression build passed all three production contracts:
 - Chapter 31: **8 / 8 Environments**, EnvironmentPackage **v1.0**
 - Chapter 32: **344 / 344 publication Feature representatives**, Adversary Feature Reference **v1.0**, derived from **419 canonical standalone Features**
 
+The **106 Adversaries** and **8 Environments** above are reference-corpus counts from that dated acceptance run. They are not permanent production-count constants. Current Chapter 30 and 31 expected counts come from the selected publication manifest and must reconcile exactly with the Step 4 structured sidecar before rendering.
+
 The final reports also confirmed successful render-asset preparation with no missing or unsupported publication assets, the Chapter 31 opener merge, Chapter 30 multicolumn flow protection, and Chapter 32 consumption of the approved Step 4 publication-equivalence projection (`publicationStatus=APPLIED`).
 
 The remaining `encounterSemantics` status of `WARNING` is non-blocking canonical content debt already governed by the missing-content policy; Step 6 does not invent or repair absent canonical fields.
@@ -41,7 +43,8 @@ No further standalone Part VI layout work is required. Integration of Chapters 3
 - Fast Play is rendered only from structured `publicationData.fastPlay` and is never reconstructed from Description.
 - Missing legacy descriptions, classifications, impulses, Fast Play, or artwork remain absent. Step 6 does not invent canonical content.
 - Publication artwork is optional for legacy entities and is loaded only from staged Step 4 paths. LuaLaTeX-incompatible raster formats are converted into caller-owned temporary render assets without mutating Step 4 source assets.
-- Production builds fail closed if the frozen publication contracts drift: 106 Adversaries, 8 Environments, and 344 Chapter 32 Feature representatives derived from 419 canonical standalone Features.
+- Chapter 30 and 31 production builds fail closed unless the selected publication-manifest counts and semantic corpus reconcile exactly with the Step 4 sidecar. The dated 106/8 acceptance counts do not freeze future corpus size.
+- The Chapter 32 publication projection remains frozen at **344** representatives derived from **419** canonical standalone Features unless separately authorized.
 
 ## Chapter 32 publication equivalence
 
@@ -104,6 +107,6 @@ Production output defaults to `build/rulebook/layout/encounters/chapter-output/`
 - `Cybermancy_Chapter32_Adversary_Feature_Reference_Step6.pdf`
 - matching `.tex` files and `.report.json` validation reports
 
-The production command injects the complete publication selection from Step 4, validates the frozen expected count and package version, enforces deterministic publication ordering, and blocks Chapter 32 unless approved Step 4 Feature publication equivalence reports `publicationStatus=APPLIED`.
+The production command injects the complete publication selection from Step 4, validates the manifest-authoritative Chapter 30/31 counts and package versions, enforces deterministic publication ordering, and blocks Chapter 32 unless the frozen **419-to-344** Step 4 Feature publication-equivalence projection reports `publicationStatus=APPLIED`.
 
 After these three standalone full-corpus builds pass, the next stage is AST integration of Chapters 30-32 into the Complete Rulebook Part VI publication build, following the same semantic replacement discipline already used by Chapter 29 ICE Reference.

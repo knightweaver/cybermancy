@@ -49,6 +49,9 @@ build/rulebook/layout/encounters/chapter-output/
 # Temporary historical patches are not production source.
 build/rulebook/scripts/*.patch
 
+# Root-level transcripts from manual Step 6 integration proof runs.
+/integrate-*.txt
+
 .cache/
 npm-debug.log*
 yarn-debug.log*
