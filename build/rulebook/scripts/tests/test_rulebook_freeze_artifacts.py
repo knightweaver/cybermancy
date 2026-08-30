@@ -13,6 +13,7 @@ if str(SCRIPT_DIR) not in sys.path:
 from rulebook_freeze_artifacts import (
     build_snapshot_change_summary,
     configure_assembly_markdown_consistency,
+    refresh_publication_digest_provenance,
 )
 
 
@@ -136,6 +137,36 @@ class FreezeArtifactTests(unittest.TestCase):
             ],
         )
         self.assertTrue(summary["publicationContentChanged"])
+
+    def test_digest_provenance_uses_current_version_without_stale_v3_text(self) -> None:
+        manifest = {
+            "supersedes": {"reason": "digest v3 stale text"},
+            "publicationInputs": {
+                "structuredFamilies": [
+                    {
+                        "generatorFamily": "weapons",
+                        "contentDigestValidation": "v3 stale text",
+                        "contentDigestAlgorithm": "digest-v4-description",
+                    },
+                    {
+                        "generatorFamily": "adversaries",
+                        "contentDigestValidation": "v3 stale text",
+                        "contentDigestAlgorithm": "digest-v4-description",
+                    },
+                ]
+            },
+        }
+
+        refresh_publication_digest_provenance(manifest, 4)
+
+        reason = manifest["supersedes"]["reason"]
+        self.assertIn("digest v4", reason)
+        self.assertNotIn("v3", reason)
+        for row in manifest["publicationInputs"]["structuredFamilies"]:
+            validation = row["contentDigestValidation"]
+            self.assertIn("at v4", validation)
+            self.assertIn("contentDigestAlgorithm", validation)
+            self.assertNotIn("v3", validation)
 
     def test_assembly_markdown_uses_configured_first_gm_chapter(self) -> None:
         namespace = {

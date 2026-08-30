@@ -96,11 +96,40 @@ def build_snapshot_change_summary(
     }
 
 
+def refresh_publication_digest_provenance(
+    manifest: dict[str, Any],
+    digest_version: int,
+) -> None:
+    """Keep descriptive digest provenance synchronized with the active algorithm."""
+    supersedes = manifest.get("supersedes")
+    if isinstance(supersedes, dict):
+        supersedes["reason"] = (
+            "Repository snapshot refreshed with unchanged Step 2 authority decisions. "
+            "Structured entity accounting and family digests were recomputed from the "
+            "selected inventory/source snapshot using stable Foundry/source identity "
+            f"and shared structured-family digest v{digest_version}."
+        )
+
+    inputs = manifest.get("publicationInputs") or {}
+    families = inputs.get("structuredFamilies") if isinstance(inputs, dict) else None
+    if not isinstance(families, list):
+        return
+    for row in families:
+        if not isinstance(row, dict):
+            continue
+        row["contentDigestValidation"] = (
+            "Recomputed with the shared Step 2/Step 4 structured-family digest "
+            f"implementation at v{digest_version}; authoritative folder-participation "
+            "behavior is declared by contentDigestAlgorithm."
+        )
+
+
 def configure_publication_snapshot_summary(namespace: dict[str, Any]) -> None:
-    """Patch the Step 2 generator so snapshotChangeSummary is always fresh."""
+    """Patch Step 2 freeze output so snapshot and digest provenance are always fresh."""
     original_load_json = namespace["load_json"]
     original_update_summary = namespace["update_summary_and_validation"]
     error_type = namespace.get("ManifestBuildError", RuntimeError)
+    digest_version = int(namespace["STRUCTURED_DIGEST_VERSION"])
     state: dict[str, dict[str, Any]] = {}
 
     def load_json(path: Path) -> dict[str, Any]:
@@ -132,6 +161,7 @@ def configure_publication_snapshot_summary(namespace: dict[str, Any]) -> None:
                 "Could not capture the selected base publication manifest while "
                 "refreshing snapshotChangeSummary."
             )
+        refresh_publication_digest_provenance(manifest, digest_version)
         manifest["snapshotChangeSummary"] = build_snapshot_change_summary(base, manifest)
 
     namespace["load_json"] = load_json
