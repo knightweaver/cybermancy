@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `37ab78eba9cffd30ee287ea5001a79a184ab4490`
+Git commit: `db893e26bf3791ed5f716a19ab80aa420e179c03`
 
 ## Scope
 
