@@ -1,0 +1,70 @@
+name: Rulebook Maintenance Validation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'build/rulebook/**'
+      - 'docs/**'
+      - 'src/**'
+      - 'assets/**'
+      - 'mkdocs*.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - 'build/rulebook/**'
+      - 'docs/**'
+      - 'src/**'
+      - 'assets/**'
+      - 'mkdocs*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  maintenance-validation:
+    name: Rulebook maintenance validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure maintenance line endings
+        run: git config --global core.autocrlf true
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile and import rulebook packages
+        shell: bash
+        run: |
+          python -m py_compile \
+            build/rulebook/scripts/build-rulebook.py \
+            build/rulebook/scripts/maintain-rulebook.py
+          python -m compileall -q \
+            build/rulebook/scripts/rulebook_production \
+            build/rulebook/scripts/rulebook_layout
+          PYTHONPATH=build/rulebook/scripts python - <<'PY'
+          import rulebook_layout
+          import rulebook_production
+          import rulebook_production.baseline
+          import rulebook_production.freeze_state
+          import rulebook_production.preflight
+          print('Rulebook package import smoke check: PASS')
+          PY
+
+      - name: Run maintenance baseline check
+        run: python build/rulebook/scripts/build-rulebook.py baseline-check --verbose
+
+      - name: Run maintenance status
+        run: python build/rulebook/scripts/maintain-rulebook.py status --verbose
+
+      - name: Run complete rulebook unit suite
+        run: python -m unittest discover -s build/rulebook/scripts/tests -p "test_*.py" -v
