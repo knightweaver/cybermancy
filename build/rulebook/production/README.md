@@ -55,14 +55,18 @@ Core Rulebook.
 
 ## Approved navigation scope
 
-The TOC and PDF outline contain Parts, Chapters, and generated Appendices only.
-Routine lower-level headings are omitted. Chapter 13 never produces a node,
-page, TOC entry, or bookmark.
+The TOC and PDF outline contain Parts and Chapters. The appendix navigation
+level remains reserved for a future appendix that is explicitly enabled by the
+active production contract; no appendix is currently generated. Routine
+lower-level headings are omitted. Chapter 13 never produces a node, page, TOC
+entry, or bookmark.
 
 ## Appendix status
 
 - Appendix A — Rules Quick Reference: deferred and not generated.
-- Appendix B — Entity Index: planned from publication semantics.
+- Appendix B — Entity Index: removed from publication and not generated. The
+  historical appendix key remains in the active contract as `REMOVED` for audit
+  stability; historical freeze artifacts are unchanged.
 - Appendix C — Attribution and Publication Notice: deferred and not generated
   until approved wording exists.
 
@@ -70,12 +74,14 @@ page, TOC entry, or bookmark.
 
 Production builds validate the existing Step 4 output and fail if it is absent,
 invalid, incompatible, or stale. They do not rebuild Step 4 automatically.
+Canonical structured entity data, inventory outputs, and source packages remain
+unchanged even though the publication shell no longer renders an entity index.
 
 ## Phase D shell
 
 The title page reads `Cybermancy — Core Rulebook — Version 1.0` for the complete
 profile and uses the corresponding Player Guide subtitle for that profile. The
 title page has no visible number, front matter uses lowercase Roman numerals,
-and Arabic numbering begins with Part I. Parts and generated appendices begin on
-recto pages. Appendix B is generated deterministically from the Step 4
-publication sidecar. Appendix A and Appendix C remain deferred.
+and Arabic numbering begins with Part I. Parts begin on recto pages. No Appendix
+B heading, label, TOC entry, bookmark, or entity-index pages are injected. The
+publication-shell regression rejects any residual Appendix B output.
