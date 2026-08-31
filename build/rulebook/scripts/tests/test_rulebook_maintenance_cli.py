@@ -21,9 +21,13 @@ assert spec and spec.loader
 spec.loader.exec_module(maintain)
 
 
-def write_json(path: Path, value) -> None:
+def write_lf(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+    path.write_bytes(text.encode("utf-8"))
+
+
+def write_json(path: Path, value) -> None:
+    write_lf(path, json.dumps(value, indent=2) + "\n")
 
 
 def git(repo: Path, *args: str) -> str:
@@ -90,8 +94,8 @@ def fixture(root: Path) -> Path:
     })
     inv = repo / maintain.INVENTORY_RELATIVE.parent
     write_json(inv / "rulebook-inventory.json", {"repository": {"git_commit": "source"}})
-    (inv / "rulebook-inventory.csv").write_text("x\n", encoding="utf-8")
-    (inv / "rulebook-inventory-report.md").write_text("x\n", encoding="utf-8")
+    write_lf(inv / "rulebook-inventory.csv", "x\n")
+    write_lf(inv / "rulebook-inventory-report.md", "x\n")
     manifests = repo / maintain.MANIFEST_DIR_RELATIVE
     write_json(manifests / "cybermancy-rulebook-publication-manifest-v1.24.json", {
         "status": "FROZEN",
@@ -133,8 +137,8 @@ class PrepareRunner:
         if script == "build-rulebook-inventory.py":
             d = Path(command[command.index("--output-dir") + 1])
             write_json(d / "rulebook-inventory.json", {"repository": {"git_commit": git(self.repo, "rev-parse", "HEAD")}})
-            (d / "rulebook-inventory.csv").write_text("x\n", encoding="utf-8")
-            (d / "rulebook-inventory-report.md").write_text("x\n", encoding="utf-8")
+            write_lf(d / "rulebook-inventory.csv", "x\n")
+            write_lf(d / "rulebook-inventory-report.md", "x\n")
         elif script == "build-rulebook-publication-manifest.py":
             d = Path(command[command.index("--manifest-dir") + 1])
             v = command[command.index("--version") + 1]
@@ -146,7 +150,7 @@ class PrepareRunner:
                 "validationSources": inventory_validation_sources(self.repo),
                 "publicationInputs": {"authoredDocuments": [], "structuredFamilies": []},
             })
-            (d / f"{stem}.md").write_text("pub\n", encoding="utf-8")
+            write_lf(d / f"{stem}.md", "pub\n")
         elif script == "build-rulebook-assembly-manifest.py":
             pub = Path(command[command.index("--publication-manifest") + 1])
             d = Path(command[command.index("--manifests-dir") + 1])
@@ -157,7 +161,7 @@ class PrepareRunner:
                 "status": "NORMATIVE",
                 "authority": {"parentPublicationManifest": pub.name, "sourceCommit": data["repository"]["gitCommit"]},
             })
-            (d / f"{stem}.md").write_text("asm\n", encoding="utf-8")
+            write_lf(d / f"{stem}.md", "asm\n")
         elif script == "build-rulebook-normalization-artifacts.py":
             pub = Path(command[command.index("--publication-manifest") + 1])
             asm = Path(command[command.index("--assembly-manifest") + 1])
@@ -168,7 +172,7 @@ class PrepareRunner:
                 "authority": {"publicationManifest": pub.name, "assemblyManifest": asm.name},
                 "baseline": {"commit": data["repository"]["gitCommit"]},
             })
-            (d / f"cybermancy-rulebook-normalization-standard-v{v}.md").write_text("norm\n", encoding="utf-8")
+            write_lf(d / f"cybermancy-rulebook-normalization-standard-v{v}.md", "norm\n")
         return SimpleNamespace(returncode=0, stdout="ok", stderr="")
 
 
