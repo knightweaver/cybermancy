@@ -78,7 +78,7 @@ class StrictInventoryEolIdentityTests(unittest.TestCase):
                 repo / "build/rulebook/inventory",
                 self.excluded,
             )
-            original_checkout = strict_inventory._checkout_index
+            original_builder = strict_inventory._build_from_committed_index
             try:
                 configure_strict_inventory_git_identity(strict_inventory.__dict__)
                 inventory = strict_inventory._build_from_committed_index(
@@ -87,7 +87,7 @@ class StrictInventoryEolIdentityTests(unittest.TestCase):
                     candidates,
                 )
             finally:
-                strict_inventory._checkout_index = original_checkout
+                strict_inventory._build_from_committed_index = original_builder
 
             record = next(
                 item
@@ -186,7 +186,9 @@ class Step4AuthoredSourceIdentityTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             repo, authored, publication, assembly, config = self._fixture(Path(td) / "repo")
             git(repo, "config", "core.autocrlf", "true")
-            authored.write_bytes(b"# Rules\r\nFrozen.\r\n")
+            authored.unlink()
+            git(repo, "checkout", "--", "rules.md")
+            self.assertIn(b"\r\n", authored.read_bytes())
             self.assertEqual(git(repo, "status", "--porcelain").stdout.strip(), "")
 
             report = new_report()

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import hashlib
+import os
+import stat
 import subprocess
-import tarfile
 import tempfile
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 from typing import Any
 
 
@@ -91,53 +92,153 @@ def git_path_drift(root: Path, relative: str) -> dict[str, Any]:
     }
 
 
-def materialize_head_archive(root: Path, export_root: Path) -> None:
-    """Materialize HEAD with exact Git blob bytes, bypassing worktree filters."""
+def _head_tree(root: Path) -> dict[str, dict[str, str]]:
+    result = _git_bytes(root, "ls-tree", "-r", "-z", "--full-tree", "HEAD")
+    _require_git_result(result, "could not enumerate Git HEAD tree")
+    entries: dict[str, dict[str, str]] = {}
+    for raw in (result.stdout or b"").split(b"\0"):
+        if not raw:
+            continue
+        try:
+            metadata, path_bytes = raw.split(b"\t", 1)
+            mode_b, type_b, oid_b = metadata.split(b" ", 2)
+        except ValueError as exc:
+            raise GitSourceIdentityError("malformed Git ls-tree record") from exc
+        relative = os.fsdecode(path_bytes)
+        entries[relative] = {
+            "mode": mode_b.decode("ascii"),
+            "type": type_b.decode("ascii"),
+            "oid": oid_b.decode("ascii"),
+        }
+    return entries
+
+
+def materialize_head_blobs(
+    root: Path,
+    export_root: Path,
+    candidate_relpaths: list[str],
+) -> None:
+    """Write exact HEAD blob bytes for strict-inventory candidates."""
     export_root.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile(
-        prefix="cybermancy-rulebook-git-archive-",
-        suffix=".tar",
-        dir=export_root.parent,
-        delete=False,
-    ) as handle:
-        archive_path = Path(handle.name)
+    tree = _head_tree(root)
+    requested: list[tuple[str, str, str]] = []
+    for relative in candidate_relpaths:
+        entry = tree.get(relative)
+        if entry is None:
+            raise GitSourceIdentityError(f"tracked path is absent from HEAD tree: {relative}")
+        if entry["type"] != "blob":
+            raise GitSourceIdentityError(
+                f"unsupported Git object type for strict inventory: {relative}: {entry['type']}"
+            )
+        if entry["mode"] == "120000":
+            raise GitSourceIdentityError(
+                f"symbolic-link candidate is not supported by strict inventory materialization: {relative}"
+            )
+        requested.append((relative, entry["mode"], entry["oid"]))
 
+    process = subprocess.Popen(
+        ["git", "-C", str(root), "cat-file", "--batch"],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert process.stdin is not None
+    assert process.stdout is not None
     try:
-        result = _git_bytes(
-            root,
-            "archive",
-            "--format=tar",
-            f"--output={archive_path}",
-            "HEAD",
-        )
-        _require_git_result(result, "could not materialize committed Git archive")
-
-        with tarfile.open(archive_path, mode="r:") as archive:
-            for member in archive.getmembers():
-                member_path = PurePosixPath(member.name)
-                if member_path.is_absolute() or ".." in member_path.parts:
-                    raise GitSourceIdentityError(
-                        f"unsafe path in committed Git archive: {member.name}"
-                    )
+        for relative, mode, oid in requested:
+            process.stdin.write((oid + "\n").encode("ascii"))
+            process.stdin.flush()
+            header = process.stdout.readline().rstrip(b"\n")
+            fields = header.split(b" ")
+            if len(fields) != 3:
+                raise GitSourceIdentityError(
+                    f"unexpected git cat-file response for {relative}: {_decode(header)}"
+                )
+            actual_oid, obj_type, size_b = fields
+            if actual_oid.decode("ascii") != oid or obj_type != b"blob":
+                raise GitSourceIdentityError(
+                    f"unexpected Git object for {relative}: {_decode(header)}"
+                )
             try:
-                archive.extractall(export_root, filter="data")
-            except TypeError:  # Python < 3.12 compatibility for local tooling.
-                archive.extractall(export_root)
+                size = int(size_b)
+            except ValueError as exc:
+                raise GitSourceIdentityError(
+                    f"invalid Git blob size for {relative}: {_decode(size_b)}"
+                ) from exc
+            data = process.stdout.read(size)
+            delimiter = process.stdout.read(1)
+            if len(data) != size or delimiter != b"\n":
+                raise GitSourceIdentityError(f"truncated Git blob stream for {relative}")
+            path = export_root / Path(relative)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+            if mode == "100755":
+                path.chmod(path.stat().st_mode | stat.S_IXUSR)
     finally:
-        archive_path.unlink(missing_ok=True)
+        process.stdin.close()
+        return_code = process.wait()
+        stderr = (process.stderr.read() if process.stderr is not None else b"")
+        if return_code != 0:
+            raise GitSourceIdentityError(
+                "git cat-file batch failed: " + _decode(stderr)
+            )
 
 
 def configure_strict_inventory_git_identity(namespace: dict[str, Any]) -> None:
-    namespace["_checkout_index"] = materialize_head_archive
+    StrictInventoryError = namespace["StrictInventoryError"]
+
+    def build_from_committed_head(
+        root: Path,
+        head: str,
+        candidate_relpaths: list[str],
+    ) -> dict[str, Any]:
+        legacy = namespace["_legacy_namespace"]()
+        excluded_dirs = set(legacy["DEFAULT_EXCLUDED_DIRS"])
+        if any(
+            namespace["_legacy_excluded"](relative, excluded_dirs)
+            for relative in candidate_relpaths
+        ):
+            raise StrictInventoryError("internal error: excluded path reached strict candidate set")
+
+        with tempfile.TemporaryDirectory(prefix="cybermancy-rulebook-inventory-") as td:
+            export_root = Path(td) / root.name
+            try:
+                materialize_head_blobs(root, export_root, candidate_relpaths)
+            except GitSourceIdentityError as exc:
+                raise StrictInventoryError(str(exc)) from exc
+
+            candidate_paths: list[Path] = []
+            missing_export: list[str] = []
+            for relative in candidate_relpaths:
+                path = export_root / Path(relative)
+                if not path.exists() and not path.is_symlink():
+                    missing_export.append(relative)
+                else:
+                    candidate_paths.append(path)
+            if missing_export:
+                raise StrictInventoryError(
+                    "tracked paths were not materialized from Git HEAD: "
+                    + "; ".join(missing_export[:12])
+                )
+
+            legacy["walk_repo"] = lambda _root: iter(candidate_paths)
+            inventory = legacy["build_inventory"](export_root)
+
+        inventory.setdefault("repository", {})["root_name"] = root.name
+        inventory["repository"]["git_commit"] = head
+        return inventory
+
+    namespace["_build_from_committed_index"] = build_from_committed_head
 
 
 def configure_step4_authored_source_identity(namespace: dict[str, Any]) -> None:
     """Make Step 4 authored identity Git-canonical without weakening dirty checks."""
     original_preflight = namespace["repository_preflight"]
-    filesystem_sha256 = namespace["sha256_file"]
-    publication_views = namespace["publication_views"]
-    pub_authored_by_path = namespace["pub_authored_by_path"]
-    add_check = namespace["add_check"]
+    pipeline_globals = original_preflight.__globals__
+    filesystem_sha256 = pipeline_globals["sha256_file"]
+    publication_views = pipeline_globals["publication_views"]
+    pub_authored_by_path = pipeline_globals["pub_authored_by_path"]
+    add_check = pipeline_globals["add_check"]
 
     def repository_preflight(repo_root, pub, asm, config, report):
         root = Path(repo_root)
@@ -165,11 +266,11 @@ def configure_step4_authored_source_identity(namespace: dict[str, Any]) -> None:
                 return canonical_hashes[resolved]
             return filesystem_sha256(path)
 
-        namespace["sha256_file"] = canonical_sha256
+        pipeline_globals["sha256_file"] = canonical_sha256
         try:
             result = original_preflight(root, pub, asm, config, report)
         finally:
-            namespace["sha256_file"] = filesystem_sha256
+            pipeline_globals["sha256_file"] = filesystem_sha256
 
         if dirty_records:
             dirty_code = "AUTHORED_SOURCE_GIT_STATE"
