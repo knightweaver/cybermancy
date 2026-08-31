@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "fe26117617230255338a333830907f4f80d3ecab"
+    "git_commit": "37ab78eba9cffd30ee287ea5001a79a184ab4490"
   },
   "mkdocs_sites": {
     "player": {
@@ -67,11 +67,11 @@
     "hand_authored_documents": 62,
     "dynamic_documents": 18,
     "documents_requiring_normalization": 1031,
-    "stub_documents": 3,
+    "stub_documents": 4,
     "foundry_folder_records": 109,
     "organizational_files": 123,
     "known_exception_files": 139,
-    "flagged_files": 25,
+    "flagged_files": 26,
     "unresolved_dependency_files": 6,
     "duplicate_content_groups": 239,
     "files_in_duplicate_content_groups": 497,
@@ -102,7 +102,7 @@
     "raw-html": 1033
   },
   "review_flag_counts": {
-    "stub-document": 3,
+    "stub-document": 4,
     "title-collision-candidate": 16,
     "unresolved-local-dependency:../../../assets/icons/armors/kevlar-shirt.webp": 1,
     "unresolved-local-dependency:../../../assets/icons/weapons/adv-emp-grenade.webp": 1,
@@ -56931,7 +56931,7 @@
           "text": "Philosophical Framing"
         }
       ],
-      "word_count": 966,
+      "word_count": 997,
       "mkdocs_features": [],
       "normalization_flags": [],
       "transclusions": [],
@@ -56952,8 +56952,8 @@
       "nav_paths": [
         "World"
       ],
-      "size_bytes": 7095,
-      "sha256": "c4773b72ce5f62368619ea5b269681c02a2eb2a2338a918c8a517d5aa321083c",
+      "size_bytes": 7318,
+      "sha256": "e814609d8f4390306733e32658a68da2a21c9bb5648f821173df91770ad2f524",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -57164,9 +57164,13 @@
         {
           "level": 1,
           "text": "The Council — Projects"
+        },
+        {
+          "level": 2,
+          "text": "THE COUNCIL: Architects of the Imposed Order"
         }
       ],
-      "word_count": 14,
+      "word_count": 10,
       "mkdocs_features": [],
       "normalization_flags": [],
       "transclusions": [],
@@ -57187,12 +57191,14 @@
       "nav_paths": [
         "World"
       ],
-      "size_bytes": 80,
-      "sha256": "05bd23f25182035f1c771bd9f3f214587ebd7f904556a5809d28ae9577965d2a",
+      "size_bytes": 84,
+      "sha256": "a3330f8cb776c10c14cf793ed393e689b36c2e9d0237da4ddb972c141f3d51c1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
-      "review_flags": []
+      "review_flags": [
+        "stub-document"
+      ]
     },
     {
       "path": "docs/gm-facing/world/the-council.md",

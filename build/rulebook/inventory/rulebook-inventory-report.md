@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `fe26117617230255338a333830907f4f80d3ecab`
+Git commit: `37ab78eba9cffd30ee287ea5001a79a184ab4490`
 
 ## Scope
 
@@ -24,11 +24,11 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | Hand-authored/source documents | 62 |
 | Dynamic MkDocs documents | 18 |
 | Documents requiring normalization | 1031 |
-| Stub documents | 3 |
+| Stub documents | 4 |
 | Foundry folder records | 109 |
 | Organizational files/pages | 123 |
 | Files with known exceptions | 139 |
-| Files with review flags | 25 |
+| Files with review flags | 26 |
 | Files with unresolved local dependencies | 6 |
 | Duplicate-content groups | 239 |
 
@@ -184,7 +184,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| stub-document | 3 |
+| stub-document | 4 |
 | title-collision-candidate | 16 |
 | unresolved-local-dependency:../../../assets/icons/armors/kevlar-shirt.webp | 1 |
 | unresolved-local-dependency:../../../assets/icons/weapons/adv-emp-grenade.webp | 1 |
@@ -204,6 +204,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | `docs/gm-facing/system/adversaries-features.md` | gm | system | hand-authored-or-source | `title-collision-candidate` |
 | `docs/gm-facing/system/adversaries-features/overload/index.md` | gm | system | generated | `title-collision-candidate` |
 | `docs/gm-facing/system/adversaries-features/whirlwind/index.md` | gm | system | generated | `title-collision-candidate` |
+| `docs/gm-facing/world/the-council-projects.md` | gm | setting | hand-authored-or-source | `stub-document` |
 | `docs/player-facing/adventures/locations.md` | player | campaign | hand-authored-or-source | `stub-document` |
 | `docs/player-facing/adventures/npcs.md` | player | campaign | hand-authored-or-source | `stub-document` |
 | `docs/player-facing/items/ammo/reactive-shrapnel-shells/index.md` | player | system | generated | `title-collision-candidate` |
