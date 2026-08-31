@@ -195,11 +195,15 @@ class PrepareRollbackTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as t:
             repo = support.fixture(Path(t))
             outputs = declared_outputs(repo)
+            accepted_freeze = maintain._freeze_state(repo, [])
             target = outputs["publicationJson"]
             target.write_bytes(b"preexisting target\n")
             before = output_bytes(outputs)
             runner = support.PrepareRunner(repo)
-            with patch.object(maintain, "_status", return_value=[]):
+            with (
+                patch.object(maintain, "_status", return_value=[]),
+                patch.object(maintain, "_freeze_state", return_value=accepted_freeze),
+            ):
                 report = maintain.prepare_report(repo, runner=runner)
             self.assertEqual(report["status"], "BLOCKED")
             self.assertEqual(report["exitCode"], 2)
