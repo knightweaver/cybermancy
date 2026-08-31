@@ -21,7 +21,6 @@ from rulebook_layout.encounter_integration import (
     validate_package_selection,
 )
 from rulebook_production.contract import canonical_text_sha256
-from rulebook_production.publication_shell import entity_index
 
 STEP6_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
 PRODUCTION_CONTRACT = RULEBOOK_DIR / "production" / "production-renderer-v1.json"
@@ -77,24 +76,6 @@ def _sidecar(adversaries: int = 106, environments: int = 8) -> dict:
     }
 
 
-def _index_expectations() -> dict:
-    return {
-        "classes": 1,
-        "subclasses": 0,
-        "domainCards": 0,
-        "weapons": 0,
-        "ammo": 0,
-        "armors": 0,
-        "cybernetics": 0,
-        "dronesDevices": 0,
-        "consumables": 0,
-        "mods": 0,
-        "loot": 0,
-        "ice": 0,
-        "adversaryFeaturesPublished": 0,
-    }
-
-
 class EncounterCountAuthorityGrowthTests(unittest.TestCase):
     def test_existing_106_adversary_8_environment_corpus_is_accepted(self) -> None:
         report = reconcile_encounter_authority(_manifest(), _sidecar())
@@ -142,16 +123,6 @@ class EncounterCountAuthorityGrowthTests(unittest.TestCase):
         target = next(row for row in moved["structuredTargets"] if row["families"] == ["adversaries"])
         target["chapter"] = 31
         self.assertTrue(validate_encounter_routes(moved))
-
-    def test_player_guide_index_remains_free_of_encounters(self) -> None:
-        sidecar = _sidecar(adversaries=107, environments=9)
-        sidecar["entities"].append(
-            {"family": "classes", "name": "Razzhacker", "semanticId": "entity:classes:r"}
-        )
-        result = entity_index(sidecar, "player-guide", _index_expectations())
-        self.assertEqual(result["entryCount"], 1)
-        self.assertEqual(result["familyCounts"], {"classes": 1})
-        self.assertEqual(result["rows"][0]["family"], "classes")
 
 
 class EncounterContractStabilityTests(unittest.TestCase):
@@ -216,31 +187,6 @@ class EncounterContractStabilityTests(unittest.TestCase):
             [row["order"] for row in production["transformOrder"]],
             list(range(10, 171, 10)),
         )
-
-    def test_existing_corpus_entity_index_counts_are_stable(self) -> None:
-        sidecar = _sidecar()
-        result = entity_index(
-            sidecar,
-            "complete-rulebook",
-            {
-                "classes": 0,
-                "subclasses": 0,
-                "domainCards": 0,
-                "weapons": 0,
-                "ammo": 0,
-                "armors": 0,
-                "cybernetics": 0,
-                "dronesDevices": 0,
-                "consumables": 0,
-                "mods": 0,
-                "loot": 0,
-                "ice": 0,
-                "adversaryFeaturesPublished": 0,
-            },
-        )
-        self.assertEqual(result["familyCounts"]["adversaries"], 106)
-        self.assertEqual(result["familyCounts"]["environments"], 8)
-        self.assertEqual(result["entryCount"], 114)
 
 
 if __name__ == "__main__":

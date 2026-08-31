@@ -424,7 +424,7 @@ def _run(args: argparse.Namespace) -> int:
                 {
                     "code": "STAGE150_PRODUCTION_PUBLICATION_SHELL",
                     "status": "PASS",
-                    "message": "Applied the accepted Phase D title, navigation, pagination, and Appendix B shell.",
+                    "message": "Applied the accepted Phase D title, navigation, pagination, and publication shell.",
                     "details": shell_report,
                 }
             )

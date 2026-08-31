@@ -6,27 +6,7 @@ import unicodedata
 from pathlib import Path
 from typing import Any
 
-from rulebook_layout.encounter_authority import sidecar_encounter_counts
 
-
-FAMILY_CHAPTERS = {
-    "classes": (12, "Classes"),
-    "subclasses": (12, "Subclasses"),
-    "domains": (14, "Domains and Domain Cards"),
-    "weapons": (15, "Weapons"),
-    "ammo": (16, "Ammunition"),
-    "armors": (17, "Armor"),
-    "cybernetics": (18, "Cybernetics"),
-    "drones-devices": (19, "Drones and Devices"),
-    "consumables": (20, "Consumables"),
-    "mods": (21, "Mods"),
-    "loot": (22, "Loot"),
-    "features": (29, "ICE Reference"),
-    "adversaries": (30, "Adversaries"),
-    "environments": (31, "Environments"),
-    "adversaries-features": (32, "Adversary Features"),
-}
-GM_FAMILIES = {"features", "adversaries", "environments", "adversaries-features"}
 PACKAGE_CHAPTERS = {
     29: ("features", "ICE Reference", "ch29-ice-reference"),
     30: ("adversaries", "Adversaries", "ch30-adversaries"),
@@ -51,151 +31,30 @@ def _escape(value: Any) -> str:
     return "".join(replacements.get(char, char) for char in str(value or ""))
 
 
-def _sort_key(value: str) -> tuple[str, str]:
-    normalized = unicodedata.normalize("NFKD", value).casefold()
-    return ("".join(char for char in normalized if char.isalnum() or char.isspace()), value)
-
-
-def _is_published_feature(entity: dict[str, Any]) -> bool:
-    data = entity.get("publicationData")
-    if not isinstance(data, dict):
-        return False
-    equivalence = data.get("publicationEquivalence")
-    if not isinstance(equivalence, dict):
-        return True
-    return equivalence.get("isRepresentative") is True
-
-
-def _published_name(entity: dict[str, Any]) -> str:
-    data = entity.get("publicationData")
-    if isinstance(data, dict):
-        reference = data.get("referenceEntry")
-        if isinstance(reference, dict):
-            name = str(reference.get("name") or "").strip()
-            if name:
-                return name
-    return str(entity.get("name") or "").strip()
-
-
-def entity_index(
-    sidecar: dict[str, Any], profile: str, expectations: dict[str, Any]
-) -> dict[str, Any]:
-    entities = sidecar.get("entities")
-    if not isinstance(entities, list):
-        raise ValueError("Step 4 structured sidecar has no entities list")
-
-    ice_semantics = sidecar.get("iceSemantics")
-    ice_ids = {
-        str(value).strip()
-        for value in (
-            ice_semantics.get("semanticIds", [])
-            if isinstance(ice_semantics, dict)
-            else []
-        )
-        if str(value).strip()
-    }
-
-    rows: list[dict[str, Any]] = []
-    family_counts: dict[str, int] = {}
-    for entity in entities:
-        if not isinstance(entity, dict):
+def _appendix_state(appendices: dict[str, Any]) -> dict[str, list[str]]:
+    generated: list[str] = []
+    deferred: list[str] = []
+    removed: list[str] = []
+    for appendix_id, value in appendices.items():
+        if not isinstance(value, dict):
             continue
-        family = str(entity.get("family") or "")
-        if family not in FAMILY_CHAPTERS:
-            continue
-        if profile == "player-guide" and family in GM_FAMILIES:
-            continue
-        if family == "features" and str(entity.get("semanticId") or "") not in ice_ids:
-            continue
-        if family == "adversaries-features" and not _is_published_feature(entity):
-            continue
-        name = _published_name(entity)
-        semantic_id = str(entity.get("semanticId") or "").strip()
-        if not name or not semantic_id:
-            raise ValueError(f"Indexable {family} entity lacks name or semanticId")
-        chapter, family_label = FAMILY_CHAPTERS[family]
-        rows.append(
-            {
-                "name": name,
-                "semanticId": semantic_id,
-                "family": family,
-                "familyLabel": family_label,
-                "chapter": chapter,
-            }
-        )
-        family_counts[family] = family_counts.get(family, 0) + 1
-
-    expected_by_family = {
-        "classes": int(expectations["classes"]),
-        "subclasses": int(expectations["subclasses"]),
-        "domains": int(expectations["domainCards"]),
-        "weapons": int(expectations["weapons"]),
-        "ammo": int(expectations["ammo"]),
-        "armors": int(expectations["armors"]),
-        "cybernetics": int(expectations["cybernetics"]),
-        "drones-devices": int(expectations["dronesDevices"]),
-        "consumables": int(expectations["consumables"]),
-        "mods": int(expectations["mods"]),
-        "loot": int(expectations["loot"]),
-    }
-    if profile == "complete-rulebook":
-        encounter_counts = sidecar_encounter_counts(sidecar)
-        expected_by_family.update(
-            {
-                "features": int(expectations["ice"]),
-                "adversaries": encounter_counts["adversaries"],
-                "environments": encounter_counts["environments"],
-                "adversaries-features": int(expectations["adversaryFeaturesPublished"]),
-            }
-        )
-    mismatches = {
-        family: {"expected": expected, "actual": family_counts.get(family, 0)}
-        for family, expected in expected_by_family.items()
-        if family_counts.get(family, 0) != expected
-    }
-    unexpected = sorted(set(family_counts) - set(expected_by_family))
-    if mismatches or unexpected:
-        raise ValueError(
-            f"Appendix B entity reconciliation failed: mismatches={mismatches}, unexpected={unexpected}"
-        )
-
-    rows.sort(key=lambda row: (*_sort_key(row["name"]), row["semanticId"]))
+        if value.get("generate") is True:
+            generated.append(str(appendix_id))
+        status = str(value.get("status") or "").upper()
+        if status == "DEFERRED":
+            deferred.append(str(appendix_id))
+        elif status == "REMOVED":
+            removed.append(str(appendix_id))
     return {
-        "status": "PASS",
-        "profile": profile,
-        "entryCount": len(rows),
-        "expectedEntryCount": sum(expected_by_family.values()),
-        "familyCounts": family_counts,
-        "rows": rows,
+        "generated": sorted(generated),
+        "deferred": sorted(deferred),
+        "removed": sorted(removed),
     }
-
-
-def _index_tex(index: dict[str, Any]) -> str:
-    pieces = [
-        r"\CMProductionAppendix{B}{Entity Index}{appendix-b-entity-index}",
-        r"\begin{multicols}{2}",
-        r"\raggedcolumns",
-        r"\setlength{\columnsep}{0.24in}",
-    ]
-    current = ""
-    for row in index["rows"]:
-        letter = row["name"][0].upper() if row["name"] else "#"
-        if letter != current:
-            current = letter
-            pieces.append(rf"\CMEntityIndexLetter{{{_escape(letter)}}}")
-        pieces.append(
-            rf"\CMEntityIndexEntry{{{_escape(row['name'])}}}"
-            rf"{{{_escape(row['familyLabel'])}}}"
-            rf"{{{row['chapter']}}}"
-        )
-    pieces.extend([r"\end{multicols}", "% CM-PRODUCTION APPENDIX-B END"])
-    return "\n".join(pieces) + "\n"
 
 
 def _production_macros(title: str, subtitle: str, version: str, footer: str) -> str:
     return rf"""
 % ---- Production Renderer Phase D publication shell ----
-\definecolor{{CMProductionMuted}}{{HTML}}{{58747A}}
 \hypersetup{{bookmarksdepth=1}}
 \newcommand{{\CMProductionRecto}}{{%
   \clearpage
@@ -251,12 +110,6 @@ def _production_macros(title: str, subtitle: str, version: str, footer: str) -> 
     \vspace{{0.045in}}\sffamily\fontsize{{20}}{{22}}\selectfont\color{{white}}\bfseries #2\par\vspace{{0.09in}}
   }}}}
   \vspace{{0.15in}}
-}}
-\newcommand{{\CMEntityIndexLetter}}[1]{{\par\Needspace{{4\baselineskip}}\vspace{{5pt}}{{\sffamily\fontsize{{12}}{{14}}\selectfont\bfseries\color{{CMTeal}}#1\par}}\vspace{{1pt}}}}
-\newcommand{{\CMEntityIndexEntry}}[3]{{%
-  \par\Needspace{{2\baselineskip}}\noindent
-  \parbox[t]{{0.66\columnwidth}}{{\raggedright\sffamily\fontsize{{8.1}}{{9.4}}\selectfont\bfseries #1\\{{\fontsize{{6.8}}{{8.0}}\selectfont\color{{CMProductionMuted}}#2}}}}\hfill
-  \parbox[t]{{0.30\columnwidth}}{{\raggedleft\sffamily\fontsize{{7.1}}{{8.5}}\selectfont Chapter #3\\p.~\pageref{{cm-chapter-#3}}}}\par\vspace{{1.2pt}}
 }}
 \renewcommand{{\contentsname}}{{Contents}}
 \fancyfoot[L]{{\sffamily\fontsize{{7.0}}{{8.5}}\selectfont\color{{CMTeal}}{_escape(footer)}}}
@@ -320,7 +173,7 @@ def apply_publication_shell(
     profile: str,
     production_contract: dict[str, Any],
     metadata: dict[str, Any],
-    sidecar: dict[str, Any],
+    sidecar: dict[str, Any] | None = None,
 ) -> tuple[str, dict[str, Any]]:
     shell = production_contract.get("publicationShell")
     appendices = production_contract.get("appendices")
@@ -328,19 +181,29 @@ def apply_publication_shell(
         raise ValueError("Production publication-shell decisions are not accepted")
     if not isinstance(appendices, dict):
         raise ValueError("Production appendix contract is missing")
-    if appendices["appendix-a-rules-quick-reference"].get("generate"):
-        raise ValueError("Appendix A must remain deferred")
-    if appendices["appendix-c-attribution-publication-notice"].get("generate"):
-        raise ValueError("Appendix C must remain deferred")
-    if not appendices["appendix-b-entity-index"].get("generate"):
-        raise ValueError("Appendix B must be generated")
+
+    appendix_state = _appendix_state(appendices)
+    appendix_b = appendices.get("appendix-b-entity-index")
+    if not isinstance(appendix_b, dict):
+        raise ValueError("Appendix B audit state is missing")
+    if appendix_b.get("status") != "REMOVED" or appendix_b.get("generate") is not False:
+        raise ValueError("Appendix B must remain REMOVED and disabled")
+    if appendix_state["generated"]:
+        raise ValueError(
+            "No production appendix generator is active; contract requested generation for "
+            + ", ".join(appendix_state["generated"])
+        )
+
+    # Kept as an optional compatibility argument because the Stage 150 caller
+    # still passes the Step 4 sidecar. It is intentionally not consumed by the
+    # publication shell now that the generated entity index is removed.
+    _ = sidecar
 
     profile_metadata = metadata["profiles"][profile]
     title = str(shell["title"])
     subtitle = str(shell["profileSubtitles"][profile])
     version = str(shell["readerFacingVersion"])
     footer = f"CYBERMANCY // {subtitle.upper()} // {version.upper()}"
-    index = entity_index(sidecar, profile, production_contract["structuredExpectations"])
 
     begin = r"\begin{document}"
     end = r"\end{document}"
@@ -352,8 +215,6 @@ def apply_publication_shell(
     front_at = document.index(first_part)
     document = document[:front_at] + "\\CMProductionFrontMatter\n" + document[front_at:]
     document, package_chapters = _inject_package_navigation(document)
-    appendix_tex = _index_tex(index)
-    document = document.replace(end, appendix_tex + end, 1)
 
     expected_packages = [] if profile == "player-guide" else sorted(PACKAGE_CHAPTERS)
     if package_chapters != expected_packages:
@@ -370,10 +231,9 @@ def apply_publication_shell(
         "titlePageNumberVisible": False,
         "frontMatterNumbering": "lowercase-roman",
         "mainMatterNumbering": "arabic-from-part-i",
-        "rectoStarts": ["part", "appendix"],
+        "rectoStarts": ["part"],
         "packageChapterNavigation": package_chapters,
-        "appendices": {"generated": ["appendix-b-entity-index"], "deferred": ["appendix-a-rules-quick-reference", "appendix-c-attribution-publication-notice"]},
-        "entityIndex": {key: value for key, value in index.items() if key != "rows"},
+        "appendices": appendix_state,
         "documentSha256": hashlib.sha256(document.encode("utf-8")).hexdigest(),
         "readerFacingName": profile_metadata["readerFacingName"],
     }
@@ -395,17 +255,29 @@ def bookmark_structure(
     levels = [int(match.group("level")) for match in _BOOKMARK_RE.finditer(out_text)]
     part_count = len(production_contract["profiles"][profile]["parts"])
     chapter_count = len(step6_contract["profiles"][profile]["chapters"])
-    appendix_count = 1
+    appendix_state = _appendix_state(production_contract.get("appendices") or {})
+    expected_appendix_tokens = appendix_state["generated"]
+    appendix_count = len(expected_appendix_tokens)
     expected_levels = [0] * part_count + [1] * chapter_count + [0] * appendix_count
-    expected_tokens = ["appendix-b-entity-index"]
-    expected_tokens.extend(str(row["chapterId"]) for row in step6_contract["chapterMap"] if int(row["chapter"]) in step6_contract["profiles"][profile]["chapters"])
+    expected_tokens = list(expected_appendix_tokens)
+    expected_tokens.extend(
+        str(row["chapterId"])
+        for row in step6_contract["chapterMap"]
+        if int(row["chapter"]) in step6_contract["profiles"][profile]["chapters"]
+    )
     token_misses = [token for token in expected_tokens if token not in toc_text and token not in out_text]
+    removed_hits = [
+        token
+        for token in appendix_state["removed"]
+        if token in toc_text or token in out_text
+    ]
     ok = (
         len(levels) == len(expected_levels)
         and levels.count(0) == part_count + appendix_count
         and levels.count(1) == chapter_count
         and not any(level > 1 for level in levels)
         and not token_misses
+        and not removed_hits
     )
     return {
         "status": "PASS" if ok else "FAIL",
@@ -413,6 +285,9 @@ def bookmark_structure(
         "expectedBookmarkCount": len(expected_levels),
         "levelCounts": {"0": levels.count(0), "1": levels.count(1)},
         "expectedLevelCounts": {"0": part_count + appendix_count, "1": chapter_count},
+        "generatedAppendixDestinations": expected_appendix_tokens,
+        "removedAppendixDestinations": appendix_state["removed"],
+        "unexpectedRemovedAppendixDestinations": removed_hits,
         "lowerLevelBookmarks": [level for level in levels if level > 1],
         "missingSemanticDestinations": token_misses,
         "outPath": str(out_path),
@@ -430,35 +305,70 @@ def locate_rendered_publication_shell(
     version = str(shell["readerFacingVersion"]).casefold()
     title_ok = bool(normalized) and all(token in normalized[0] for token in (title, subtitle, version))
     contents_pages = [i + 1 for i, page in enumerate(normalized) if "contents" in page]
-    appendix_pages = [i + 1 for i, page in enumerate(normalized) if "appendix b" in page and "entity index" in page]
-    appendix_page = appendix_pages[-1] if appendix_pages else None
     part_pages: list[int] = []
-    for roman, part_title in (("i", "the world of cybermancy"), ("ii", "cybermancy rules"), ("iii", "characters and character options"), ("iv", "equipment and technology"), ("v", "gm world guide"), ("vi", "gm encounter toolkit")):
+    for roman, part_title in (
+        ("i", "the world of cybermancy"),
+        ("ii", "cybermancy rules"),
+        ("iii", "characters and character options"),
+        ("iv", "equipment and technology"),
+        ("v", "gm world guide"),
+        ("vi", "gm encounter toolkit"),
+    ):
         if len(part_pages) >= len(production_contract["profiles"][profile]["parts"]):
             break
         matches = [i + 1 for i, page in enumerate(normalized) if f"part {roman}" in page and part_title in page]
         if matches:
             part_pages.append(matches[-1])
-    deferred_hits = {
-        "appendixA": [i + 1 for i, page in enumerate(normalized) if "appendix a" in page and "rules quick reference" in page],
-        "appendixC": [i + 1 for i, page in enumerate(normalized) if "appendix c" in page and "attribution and publication notice" in page],
+
+    appendix_hits = {
+        "appendixA": [
+            i + 1
+            for i, page in enumerate(normalized)
+            if "appendix a" in page and "rules quick reference" in page
+        ],
+        "appendixB": [
+            i + 1
+            for i, page in enumerate(normalized)
+            if "appendix b" in page and "entity index" in page
+        ],
+        "appendixC": [
+            i + 1
+            for i, page in enumerate(normalized)
+            if "appendix c" in page and "attribution and publication notice" in page
+        ],
     }
-    recto = part_pages + ([appendix_page] if appendix_page else [])
+    appendix_state = _appendix_state(production_contract.get("appendices") or {})
+    removed_hits = {
+        "appendixB": appendix_hits["appendixB"]
+        if "appendix-b-entity-index" in appendix_state["removed"]
+        else []
+    }
+    deferred_hits = {
+        "appendixA": appendix_hits["appendixA"],
+        "appendixC": appendix_hits["appendixC"],
+    }
+    recto = part_pages
     ok = (
         title_ok
         and bool(contents_pages)
-        and appendix_page is not None
         and len(part_pages) == len(production_contract["profiles"][profile]["parts"])
         and all(page % 2 == 1 for page in recto)
         and not any(deferred_hits.values())
+        and not any(removed_hits.values())
     )
     return {
         "status": "PASS" if ok else "FAIL",
         "titlePage": {"page": 1, "valid": title_ok},
         "contentsPages": contents_pages,
         "partAnchorPages": part_pages,
-        "appendixB": {"page": appendix_page, "pages": appendix_pages},
+        "appendices": {
+            "generated": appendix_state["generated"],
+            "deferred": appendix_state["deferred"],
+            "removed": appendix_state["removed"],
+        },
+        "appendixB": {"status": "REMOVED", "pages": appendix_hits["appendixB"]},
         "rectoStartPages": recto,
         "rectoStartsValid": bool(recto) and all(page % 2 == 1 for page in recto),
         "deferredAppendixHits": deferred_hits,
+        "removedAppendixHits": removed_hits,
     }

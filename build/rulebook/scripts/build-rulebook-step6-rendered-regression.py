@@ -331,7 +331,7 @@ def _run(args: argparse.Namespace) -> int:
             report,
             "STAGE170_PRODUCTION_PUBLICATION_SHELL",
             shell_ok,
-            "Rendered title, TOC, recto Part/Appendix starts, Appendix B, and deferred-appendix exclusions match Phase D."
+            "Rendered title, TOC, recto-start requirements, and configured appendix inclusion/exclusion state match Phase D."
             if shell_ok
             else "Rendered Phase D publication-shell evidence is incomplete or invalid.",
             production_shell,
