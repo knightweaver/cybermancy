@@ -113,6 +113,8 @@ To broaden your campaign hooks and link the Cabal more directly to both street-l
 
 **8. Project Omen** – an occult AI trained to predict apocalyptic outcomes and engineer them on purpose, calculating “optimal paths to renewal.” No one knows if Omen still takes orders, or if it *is* giving them.
 
+**9. Project Oracle** – a subfaction believes that if enough part of the original Promethius Cloud can be assembled, they can effectively create another Resonance and re-break the emerging Megacorp-driven world order.
+
 ---
 
 ## Philosophical Framing
