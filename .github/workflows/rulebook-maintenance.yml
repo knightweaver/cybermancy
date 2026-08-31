@@ -66,5 +66,8 @@ jobs:
       - name: Run maintenance status
         run: python build/rulebook/scripts/maintain-rulebook.py status --verbose
 
+      - name: Run prepare dry-run
+        run: python build/rulebook/scripts/maintain-rulebook.py prepare --dry-run --verbose
+
       - name: Run complete rulebook unit suite
         run: python -m unittest discover -s build/rulebook/scripts/tests -p "test_*.py" -v
