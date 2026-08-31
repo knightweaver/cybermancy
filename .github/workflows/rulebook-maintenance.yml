@@ -29,6 +29,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configure maintenance line endings
+        run: git config --global core.autocrlf true
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
