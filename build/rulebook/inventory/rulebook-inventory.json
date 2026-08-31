@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "07ceff763844a5a82404392f56896256be6419b9"
+    "git_commit": "fe26117617230255338a333830907f4f80d3ecab"
   },
   "mkdocs_sites": {
     "player": {
@@ -18,12 +18,12 @@
     }
   },
   "counts": {
-    "total_files": 4631,
+    "total_files": 4633,
     "by_kind": {
-      "asset": 1634,
+      "asset": 1635,
       "code": 40,
       "config": 4,
-      "data": 1873,
+      "data": 1874,
       "document": 1059,
       "other": 12,
       "presentation": 9
@@ -33,30 +33,30 @@
       "config": 2,
       "data": 15,
       "generator": 65,
-      "gm": 959,
+      "gm": 960,
       "player": 1453,
       "repository": 32,
       "shared-docs": 3,
-      "structured-source": 1847
+      "structured-source": 1848
     },
     "by_audience": {
       "developer": 67,
-      "gm": 959,
+      "gm": 960,
       "player": 1453,
-      "shared": 1865,
+      "shared": 1866,
       "unknown": 287
     },
     "by_content_scope": {
-      "campaign": 285,
+      "campaign": 286,
       "developer": 86,
       "setting": 16,
       "system": 2156,
-      "unknown": 2088
+      "unknown": 2089
     },
     "by_authorship": {
       "generated": 1023,
-      "hand-authored-or-source": 1962,
-      "unknown": 1646
+      "hand-authored-or-source": 1963,
+      "unknown": 1647
     },
     "documents": 1059,
     "documents_player_site": 588,
@@ -308,11 +308,13 @@
       "kind": "actors",
       "source_path": "src/packs/adventures/adversaries",
       "output_dir": "docs/gm-facing/adventures/adversaries",
-      "source_entities": 106,
-      "source_page_slugs": 106,
+      "source_entities": 107,
+      "source_page_slugs": 107,
       "foundry_folders": 12,
       "generated_pages": 106,
-      "missing_generated_pages": [],
+      "missing_generated_pages": [
+        "aggressive-librarian"
+      ],
       "organizational_generated_pages": [],
       "orphan_generated_pages": [],
       "structured_slug_collision_count": 0,
@@ -35418,6 +35420,42 @@
       "nav_paths": [],
       "size_bytes": 2362711,
       "sha256": "a633dec4a8c84fe5816df61cbfa47867407943e5402e495903c7a86055a26b97",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
+      "path": "docs/gm-facing/assets/images/adversaries/aggressive-librarian.png",
+      "extension": ".png",
+      "kind": "asset",
+      "source_family": "gm",
+      "audience": "gm",
+      "content_scope": "unknown",
+      "authorship": "unknown",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [
+        "gm"
+      ],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 1213051,
+      "sha256": "93955d171f73df97690bbddc4a263a7a11d6c8adaa9ece70a000519dfb55dc11",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -150667,6 +150705,40 @@
       "known_exceptions": [
         "foundry-folder-record"
       ],
+      "review_flags": []
+    },
+    {
+      "path": "src/packs/adventures/adversaries/Aggressive_Librarian_H2aqTwtmD3J1XcTn.json",
+      "extension": ".json",
+      "kind": "data",
+      "source_family": "structured-source",
+      "audience": "shared",
+      "content_scope": "campaign",
+      "authorship": "hand-authored-or-source",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 17247,
+      "sha256": "2c51509d5b53cf1e7dccfcf859d7bdab5fb2cbd44ac8e0d71a447548d5756733",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
       "review_flags": []
     },
     {

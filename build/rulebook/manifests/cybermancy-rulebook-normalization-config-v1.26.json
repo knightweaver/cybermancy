@@ -1,0 +1,170 @@
+{
+  "configVersion": "1.26",
+  "generatedBy": {
+    "script": "build/rulebook/scripts/build-rulebook-normalization-artifacts.py",
+    "scriptVersion": "1.2.0"
+  },
+  "baseline": {
+    "commit": "fe26117617230255338a333830907f4f80d3ecab",
+    "expectedAuthoredInputs": 18,
+    "expectedStructuredFamilies": 15,
+    "expectedLogicalEntities": 1084
+  },
+  "authority": {
+    "publicationManifest": "cybermancy-rulebook-publication-manifest-v1.26.json",
+    "assemblyManifest": "cybermancy-rulebook-assembly-manifest-v1.26.json",
+    "publicationManifestVersion": "1.26",
+    "assemblyManifestVersion": "1.26.0",
+    "generatedMkDocsAreCanonical": false
+  },
+  "manifestAdapter": {
+    "mode": "strict",
+    "notes": "Do not duplicate Step 2/3 authority decisions here. These pointers bind the current canonical manifest schemas.",
+    "publication": {
+      "baselineCommitPointer": "/repository/gitCommit",
+      "authoredIncludeRecordsPointer": "/publicationInputs/authoredDocuments",
+      "structuredFamilyRecordsPointer": "/publicationInputs/structuredFamilies"
+    },
+    "assembly": {
+      "sectionsPointer": "/bookStructure",
+      "profilesPointer": "/buildProfiles"
+    }
+  },
+  "segmentation": {
+    "_authority": "Step 3 assembly-manifest authoredInputs[].selector is normative. Entries below are generated from the selected assembly manifest.",
+    "docs/player-facing/index.md": {
+      "strategy": "assembly-selector",
+      "assemblyInputId": "auth.welcome",
+      "assemblyMode": "segment",
+      "selector": {
+        "include": "content before heading 'The Event: The Resonance Cascade'",
+        "exclude": "the duplicated Resonance Cascade section; canonical Resonance text is assembled from docs/_shared/world/the-resonance.md"
+      }
+    },
+    "docs/player-facing/rules/index.md": {
+      "strategy": "assembly-selector",
+      "assemblyInputId": "auth.frame-rules",
+      "assemblyMode": "segment",
+      "selector": {
+        "include": [
+          "document lead",
+          "heading 'Critical Fails' and its descendant headings"
+        ],
+        "exclude": "linked summary sections whose complete rules are assembled from their dedicated authored files"
+      }
+    },
+    "docs/gm-facing/world/timeline.md": {
+      "strategy": "assembly-selector",
+      "assemblyInputId": "auth.gm-resonance",
+      "assemblyMode": "segment",
+      "selector": {
+        "include": [
+          "heading 'Philosophical Interpretation'",
+          "heading 'Tone and Themes'"
+        ],
+        "exclude": "the include-markdown transclusion of docs/_shared/world/the-resonance.md, which is assembled once in ch02-resonance"
+      }
+    }
+  },
+  "families": {
+    "adversaries": {
+      "expected": 107
+    },
+    "adversaries-features": {
+      "expected": 419
+    },
+    "ammo": {
+      "expected": 13
+    },
+    "armors": {
+      "expected": 36
+    },
+    "classes": {
+      "expected": 5
+    },
+    "consumables": {
+      "expected": 59
+    },
+    "cybernetics": {
+      "expected": 103
+    },
+    "domains": {
+      "expected": 73
+    },
+    "drones-devices": {
+      "expected": 19
+    },
+    "environments": {
+      "expected": 8
+    },
+    "features": {
+      "expected": 105
+    },
+    "loot": {
+      "expected": 60
+    },
+    "mods": {
+      "expected": 20
+    },
+    "subclasses": {
+      "expected": 10
+    },
+    "weapons": {
+      "expected": 47
+    }
+  },
+  "structured": {
+    "familyDigestAlgorithm": "cybermancy-structured-family-digest-v4: sha256(sorted record-kind + tab + stable-source-id + tab + repo-path + tab + file-sha256 over logical publication entities, plus Foundry folder records for Equipment families with folder-derived publication semantics)",
+    "stableIdPreference": [
+      "_id",
+      "_key"
+    ],
+    "folderKeyMarker": "!folders!",
+    "strictUnhandledFields": true,
+    "fastPlayCandidatePaths": [
+      "flags.cybermancy.fastPlay",
+      "fastPlay"
+    ]
+  },
+  "semantics": {
+    "sectionPrefix": "section:",
+    "familyPrefix": "family:",
+    "entityPrefix": "entity:",
+    "audiences": [
+      "shared",
+      "player",
+      "gm"
+    ],
+    "gmDivider": "GM MATERIAL — SPOILERS BEYOND THIS POINT"
+  },
+  "assets": {
+    "stagingRoot": "build/rulebook/source/assets",
+    "assembledReferenceBase": "build/rulebook/source/assembled",
+    "selfContainedPublicationCorpus": true,
+    "runtimeAssetPolicy": "metadata-only-unless-rendered",
+    "ambiguousBasenameFallback": false,
+    "foundryRuntimeMappings": [
+      {
+        "prefix": "modules/cybermancy/",
+        "repoPrefix": ""
+      },
+      {
+        "prefix": "worlds/cybermancer/",
+        "repoPrefix": ""
+      }
+    ]
+  },
+  "validation": {
+    "unresolvedJinja": "error",
+    "unresolvedCrossReference": "error",
+    "audienceLeak": "error",
+    "missingStableId": "error",
+    "missingAsset": "error",
+    "duplicateSemanticId": "error",
+    "orderingAuthorityMissing": "error",
+    "determinism": "error",
+    "bodyYamlDelimiterAmbiguity": "error",
+    "assembledAssetResolution": "error",
+    "assetTreeDeterminism": "error"
+  }
+}

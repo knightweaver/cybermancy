@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `07ceff763844a5a82404392f56896256be6419b9`
+Git commit: `fe26117617230255338a333830907f4f80d3ecab`
 
 ## Scope
 
@@ -14,7 +14,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| Files scanned | 4631 |
+| Files scanned | 4633 |
 | Documents | 1059 |
 | Player-site documents | 588 |
 | GM-site documents | 459 |
@@ -40,40 +40,40 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | config | 2 |
 | data | 15 |
 | generator | 65 |
-| gm | 959 |
+| gm | 960 |
 | player | 1453 |
 | repository | 32 |
 | shared-docs | 3 |
-| structured-source | 1847 |
+| structured-source | 1848 |
 
 ## Files by audience
 
 | Metric | Count |
 |---|---:|
 | developer | 67 |
-| gm | 959 |
+| gm | 960 |
 | player | 1453 |
-| shared | 1865 |
+| shared | 1866 |
 | unknown | 287 |
 
 ## Files by content scope
 
 | Metric | Count |
 |---|---:|
-| campaign | 285 |
+| campaign | 286 |
 | developer | 86 |
 | setting | 16 |
 | system | 2156 |
-| unknown | 2088 |
+| unknown | 2089 |
 
 ## Files by kind
 
 | Metric | Count |
 |---|---:|
-| asset | 1634 |
+| asset | 1635 |
 | code | 40 |
 | config | 4 |
-| data | 1873 |
+| data | 1874 |
 | document | 1059 |
 | other | 12 |
 | presentation | 9 |
@@ -83,8 +83,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | Metric | Count |
 |---|---:|
 | generated | 1023 |
-| hand-authored-or-source | 1962 |
-| unknown | 1646 |
+| hand-authored-or-source | 1963 |
+| unknown | 1647 |
 
 ## MkDocs sites
 
@@ -118,7 +118,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Audience | Type | Source entities | Foundry folders | Generated pages | Missing | Organizational | Orphan |
 |---|---|---:|---:|---:|---:|---:|---:|
-| gm | adversaries | 106 | 12 | 106 | 0 | 0 | 0 |
+| gm | adversaries | 107 | 12 | 106 | 1 | 0 | 0 |
 | gm | adversaries-features | 419 | 10 | 323 | 0 | 0 | 0 |
 | player | ammo | 13 | 0 | 13 | 0 | 0 | 0 |
 | player | armors | 36 | 4 | 36 | 0 | 0 | 0 |
@@ -133,6 +133,12 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | player | mods | 20 | 0 | 20 | 0 | 0 | 0 |
 | player | subclasses | 10 | 0 | 10 | 0 | 0 | 0 |
 | player | weapons | 47 | 4 | 47 | 0 | 0 | 0 |
+
+### gm / adversaries
+
+**Missing generated pages:**
+
+- `aggressive-librarian`
 
 ### player / features
 
