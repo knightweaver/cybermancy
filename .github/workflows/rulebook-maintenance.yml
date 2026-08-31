@@ -52,7 +52,10 @@ jobs:
               path.write_bytes(data.replace(b'\n', b'\r\n'))
           PY
           git config core.autocrlf true
-          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+          echo 'WORKTREE STATUS AFTER BYTE MATERIALIZATION:'
+          git status --porcelain=v1 --untracked-files=all
+          echo 'INVENTORY HASHES:'
+          sha256sum build/rulebook/inventory/rulebook-inventory.json build/rulebook/inventory/rulebook-inventory.csv build/rulebook/inventory/rulebook-inventory-report.md
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
