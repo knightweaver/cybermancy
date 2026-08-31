@@ -66,5 +66,27 @@ jobs:
       - name: Run maintenance status
         run: python build/rulebook/scripts/maintain-rulebook.py status --verbose
 
+      - name: Run maintenance build dry-run
+        run: python build/rulebook/scripts/maintain-rulebook.py build --profile complete-rulebook --dry-run
+
+      - name: Run maintenance release dry-run
+        run: python build/rulebook/scripts/maintain-rulebook.py release --profile all --dry-run
+
       - name: Run complete rulebook unit suite
         run: python -m unittest discover -s build/rulebook/scripts/tests -p "test_*.py" -v
+
+      - name: Run optional complete-rulebook render acceptance
+        shell: bash
+        run: |
+          missing=()
+          for tool in pandoc lualatex pdfinfo pdftotext pdffonts; do
+            if ! command -v "$tool" >/dev/null 2>&1; then
+              missing+=("$tool")
+            fi
+          done
+          if (( ${#missing[@]} )); then
+            echo "Full publishing toolchain unavailable: ${missing[*]}"
+            echo "Complete-rulebook rendering is deferred to the maintainer."
+          else
+            python build/rulebook/scripts/maintain-rulebook.py build --profile complete-rulebook --verbose
+          fi
