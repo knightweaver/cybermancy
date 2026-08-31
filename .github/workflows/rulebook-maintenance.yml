@@ -29,8 +29,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Configure maintenance line endings
-        run: git config --global core.autocrlf true
+      - name: Configure byte-preserving line endings
+        run: git config --global core.autocrlf false
 
       - name: Checkout repository
         uses: actions/checkout@v4
