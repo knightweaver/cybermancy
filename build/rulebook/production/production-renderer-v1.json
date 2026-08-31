@@ -167,7 +167,7 @@
   },
   "appendices": {
     "appendix-a-rules-quick-reference": {"status": "DEFERRED", "generate": false},
-    "appendix-b-entity-index": {"status": "PLANNED", "generate": true, "authority": "publication semantics"},
+    "appendix-b-entity-index": {"status": "REMOVED", "generate": false, "authority": "publication semantics", "reason": "Removed from the published rulebook; historical manifest reservations are retained for audit stability."},
     "appendix-c-attribution-publication-notice": {"status": "DEFERRED", "generate": false, "reason": "approved legal and credits text is not yet available"}
   },
   "workspace": {
