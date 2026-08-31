@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -14,6 +15,8 @@ from unittest.mock import patch
 HERE = Path(__file__).resolve()
 REPO_ROOT = HERE.parents[4]
 SCRIPTS = REPO_ROOT / "build/rulebook/scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
 MODULE_PATH = SCRIPTS / "maintain-rulebook.py"
 spec = importlib.util.spec_from_file_location("maintain_rulebook", MODULE_PATH)
 maintain = importlib.util.module_from_spec(spec)
@@ -59,8 +62,11 @@ def baseline() -> dict:
     }
 
 
-def fixture(root: Path) -> Path:
-    repo = root / "repo"
+_FIXTURE_TEMPLATE_DIR: tempfile.TemporaryDirectory[str] | None = None
+_FIXTURE_TEMPLATE_REPO: Path | None = None
+
+
+def _create_fixture_repository(repo: Path) -> None:
     repo.mkdir()
     git(repo, "init")
     git(repo, "config", "user.email", "test@example.com")
@@ -116,6 +122,23 @@ def fixture(root: Path) -> Path:
     })
     git(repo, "add", ".")
     git(repo, "commit", "-m", "fixture")
+    if git(repo, "status", "--porcelain"):
+        raise AssertionError("fixture template repository must be clean")
+
+
+def _fixture_template_repo() -> Path:
+    global _FIXTURE_TEMPLATE_DIR, _FIXTURE_TEMPLATE_REPO
+    if _FIXTURE_TEMPLATE_REPO is None:
+        _FIXTURE_TEMPLATE_DIR = tempfile.TemporaryDirectory(prefix="cybermancy-maintenance-fixture-")
+        repo = Path(_FIXTURE_TEMPLATE_DIR.name) / "repo"
+        _create_fixture_repository(repo)
+        _FIXTURE_TEMPLATE_REPO = repo
+    return _FIXTURE_TEMPLATE_REPO
+
+
+def fixture(root: Path) -> Path:
+    repo = root / "repo"
+    shutil.copytree(_fixture_template_repo(), repo, copy_function=shutil.copy2)
     return repo
 
 
@@ -193,6 +216,21 @@ class MaintenanceCliTests(unittest.TestCase):
         p = patch.object(maintain, "run_baseline_check", side_effect=lambda _repo: baseline())
         p.start()
         self.addCleanup(p.stop)
+
+    def test_fixture_copies_are_isolated(self):
+        template = _fixture_template_repo()
+        template_inventory = template / "build/rulebook/inventory/rulebook-inventory.csv"
+        template_bytes = template_inventory.read_bytes()
+        with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
+            repo_one = fixture(Path(first))
+            repo_two = fixture(Path(second))
+            copied = repo_two / "build/rulebook/inventory/rulebook-inventory.csv"
+            self.assertEqual(git(repo_one, "status", "--porcelain"), "")
+            self.assertEqual(git(repo_two, "status", "--porcelain"), "")
+            self.assertEqual(copied.read_bytes(), template_bytes)
+            (repo_one / "build/rulebook/inventory/rulebook-inventory.csv").write_bytes(b"mutated\n")
+            self.assertEqual(template_inventory.read_bytes(), template_bytes)
+            self.assertEqual(copied.read_bytes(), template_bytes)
 
     def test_prepare_exact_order_and_no_step4_or_production(self):
         with tempfile.TemporaryDirectory() as t:
