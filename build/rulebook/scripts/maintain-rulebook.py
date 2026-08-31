@@ -10,7 +10,8 @@ from pathlib import Path
 from typing import Any, Callable
 
 from rulebook_production.baseline import run_baseline_check
-from rulebook_production.contract import load_production_contract, selected_manifests, version_key
+from rulebook_production.contract import load_production_contract, version_key
+from rulebook_production.freeze_state import git_tracked, load_selected_freeze
 from rulebook_production.reporting import load_json
 
 SCRIPT_PATH = Path(__file__).resolve()
@@ -60,42 +61,45 @@ def _rel(repo: Path, path: Path) -> str:
         return str(path.resolve())
 
 
-def _tracked(repo: Path, path: Path) -> bool:
-    return _git(repo, "ls-files", "--error-unmatch", "--", _rel(repo, path)).returncode == 0
-
-
-def _baseline_check(report: dict[str, Any], code: str) -> str | None:
-    for row in report.get("checks") or []:
-        if isinstance(row, dict) and row.get("code") == code:
-            return row.get("status")
-    return None
-
-
-def _inventory_path(repo: Path, publication: dict[str, Any]) -> Path:
-    source = (publication.get("validationSources") or {}).get("inventoryJson") or {}
-    filename = str(source.get("file") or INVENTORY_RELATIVE.name)
-    return repo / INVENTORY_RELATIVE.parent / filename
+def _binding_summary(binding: dict[str, Any]) -> dict[str, Any]:
+    artifacts = binding.get("artifacts") if isinstance(binding.get("artifacts"), dict) else {}
+    result = {
+        "status": binding.get("status"),
+        "publicationCommit": binding.get("publicationCommit"),
+        "inventoryCommit": binding.get("inventoryCommit"),
+        "artifacts": {
+            role: (row.get("status") if isinstance(row, dict) else "FAIL")
+            for role, row in artifacts.items()
+        },
+    }
+    if binding.get("status") != "PASS":
+        result["errors"] = list(binding.get("errors") or [])
+    return result
 
 
 def _freeze_state(repo: Path, changes: list[dict[str, str]]) -> dict[str, Any]:
     contract = load_production_contract(repo)
-    paths = selected_manifests(repo, contract)
-    publication = load_json(paths["publicationManifest"])
-    inventory = _inventory_path(repo, publication)
+    shared = load_selected_freeze(repo, contract)
+    paths = shared["paths"]
+    publication = shared["publication"]
+    binding = shared["inventoryBinding"]
+    inventory_row = (binding.get("artifacts") or {}).get("inventoryJson") or {}
+    inventory_relative = str(inventory_row.get("path") or INVENTORY_RELATIVE.as_posix())
+    inventory = repo / inventory_relative
     baseline = run_baseline_check(repo)
     dirty = {row["path"] for row in changes}
-    tracked = {"inventory": _tracked(repo, inventory)}
+    tracked = {"inventory": bool(inventory_row.get("tracked"))}
     modified = {"inventory": _rel(repo, inventory) in dirty}
     for role, path in paths.items():
-        tracked[role] = _tracked(repo, path)
+        tracked[role] = git_tracked(repo, path)
         modified[role] = _rel(repo, path) in dirty
-    inventory_json = load_json(inventory) if inventory.is_file() else {}
     return {
         "contract": contract, "paths": paths, "publication": publication,
         "inventoryPath": inventory,
-        "inventoryCommit": str((inventory_json.get("repository") or {}).get("git_commit") or ""),
+        "inventoryCommit": str(binding.get("inventoryCommit") or ""),
+        "inventoryBinding": binding,
         "baseline": baseline,
-        "compatible": _baseline_check(baseline, "FREEZE_ARTIFACT_COMPATIBILITY") == "PASS",
+        "compatible": bool(shared["compatible"]),
         "tracked": tracked, "modified": modified,
     }
 
@@ -154,14 +158,23 @@ def status_report(repo: Path) -> dict[str, Any]:
         freeze = _freeze_state(repo, changes)
         canonical = _canonical_changes(changes, freeze["publication"])
         step4 = _step4_state(repo, freeze)
-        pending = not all(freeze["tracked"].values()) or any(freeze["modified"].values())
-        eligible = not changes and freeze["baseline"].get("status") == "PASS" and all(freeze["tracked"].get(role, False) for role in ("publicationManifest", "assemblyManifest", "normalizationConfig")) and step4.get("fresh", False)
+        binding = freeze["inventoryBinding"]
+        binding_ok = binding.get("status") == "PASS"
+        binding_artifacts = binding.get("artifacts") if isinstance(binding.get("artifacts"), dict) else {}
+        binding_untracked = any(
+            isinstance(row, dict) and row.get("regularFile") and not row.get("tracked")
+            for row in binding_artifacts.values()
+        )
+        pending = not all(freeze["tracked"].values()) or any(freeze["modified"].values()) or binding_untracked
+        eligible = not changes and binding_ok and freeze["baseline"].get("status") == "PASS" and all(freeze["tracked"].get(role, False) for role in ("publicationManifest", "assemblyManifest", "normalizationConfig")) and step4.get("fresh", False)
         if pending:
             next_action = "Generated freeze artifacts must be committed before production build."
         elif canonical:
             next_action = "Commit canonical source changes, then run: python build\\rulebook\\scripts\\maintain-rulebook.py prepare"
         elif changes:
             next_action = "Commit or discard working-tree changes, then rerun maintain-rulebook.py status."
+        elif not binding_ok:
+            next_action = "Restore the committed inventory files bound by the selected publication manifest before building."
         elif not freeze["compatible"]:
             next_action = "Restore or regenerate a compatible freeze set before building."
         else:
@@ -170,6 +183,7 @@ def status_report(repo: Path) -> dict[str, Any]:
             head=head, workingTreeClean=not changes, workingTreeChanges=changes,
             changedCanonicalSourcePaths=canonical,
             inventory={"path": _rel(repo, freeze["inventoryPath"]), "recordedCommit": freeze["inventoryCommit"], "tracked": freeze["tracked"]["inventory"], "modified": freeze["modified"]["inventory"]},
+            inventoryBinding=_binding_summary(binding),
             selectedFreezes={role: {"path": _rel(repo, path), "tracked": freeze["tracked"][role], "modified": freeze["modified"][role]} for role, path in freeze["paths"].items()},
             freezeCompatibility={"status": "PASS" if freeze["compatible"] else "FAIL", "baselineStatus": freeze["baseline"].get("status")},
             step4GeneratedSource=step4, productionPreflightEligible=eligible,
@@ -227,8 +241,11 @@ def _build_safety(repo: Path, report: dict[str, Any]) -> dict[str, Any] | None:
     report["selectedInventory"] = _rel(repo, freeze["inventoryPath"])
     report["selectedFreezes"] = {role: _rel(repo, path) for role, path in freeze["paths"].items()}
     report["trackedInputs"] = freeze["tracked"]
+    report["inventoryBinding"] = _binding_summary(freeze["inventoryBinding"])
     if not all(freeze["tracked"].values()):
         report.update(status="BLOCKED", exitCode=2, recommendedNextAction="Generated freeze artifacts must be committed before production build."); return None
+    if freeze["inventoryBinding"].get("status") != "PASS":
+        report.update(status="BLOCKED", exitCode=2, recommendedNextAction="Restore the committed inventory files bound by the selected publication manifest before building."); return None
     if freeze["baseline"].get("status") != "PASS" or not freeze["compatible"]:
         report.update(status="BLOCKED", exitCode=2, recommendedNextAction="Restore a compatible accepted freeze baseline before building."); return None
     return freeze
@@ -361,9 +378,11 @@ def _emit(report: dict[str, Any], verbose: bool) -> None:
     print(f"maintain-rulebook.py {report.get('command')}: {report.get('status')}")
     if report.get("command") == "status" and report.get("status") == "PASS":
         inv = report.get("inventory") or {}
+        binding = report.get("inventoryBinding") or {}
         print(f"  HEAD: {report.get('head')}")
         print(f"  Working tree: {'clean' if report.get('workingTreeClean') else 'dirty'}")
         print(f"  Inventory: {inv.get('path')} @ {inv.get('recordedCommit') or 'unknown'}")
+        print(f"  Inventory binding: {binding.get('status') or 'unknown'}")
         print(f"  Step 4: {'fresh' if (report.get('step4GeneratedSource') or {}).get('fresh') else 'not fresh'}")
         print(f"  Production preflight eligible: {'yes' if report.get('productionPreflightEligible') else 'no'}")
     if report.get("dryRun"):

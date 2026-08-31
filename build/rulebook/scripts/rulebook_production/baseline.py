@@ -8,10 +8,9 @@ from . import PROFILES
 from .contract import (
     load_production_contract,
     load_publication_metadata,
-    selected_manifests,
     verify_frozen_bindings,
-    version_key,
 )
+from .freeze_state import load_selected_freeze, select_freeze_artifacts
 from .reporting import add_check, load_json, new_report, repo_relative
 
 
@@ -46,45 +45,6 @@ def _worktree_status(repo_root: Path) -> tuple[int, str, str]:
         check=False,
     )
     return result.returncode, result.stdout or "", result.stderr or ""
-
-
-def _compatibility_details(
-    manifests: dict[str, Path],
-    publication: dict[str, Any],
-    assembly: dict[str, Any],
-    normalization: dict[str, Any],
-) -> tuple[bool, dict[str, Any]]:
-    publication_path = manifests["publicationManifest"]
-    assembly_path = manifests["assemblyManifest"]
-    normalization_path = manifests["normalizationConfig"]
-    publication_commit = str(publication.get("repository", {}).get("gitCommit") or "")
-    assembly_authority = assembly.get("authority") if isinstance(assembly.get("authority"), dict) else {}
-    normalization_authority = (
-        normalization.get("authority") if isinstance(normalization.get("authority"), dict) else {}
-    )
-    baseline = normalization.get("baseline") if isinstance(normalization.get("baseline"), dict) else {}
-    keys = {
-        "publicationManifest": version_key(publication_path),
-        "assemblyManifest": version_key(assembly_path),
-        "normalizationConfig": version_key(normalization_path),
-    }
-    same_version = len(set(keys.values())) == 1
-    checks = {
-        "sameSelectedVersion": same_version,
-        "publicationFrozen": publication.get("status") == "FROZEN",
-        "assemblyNormative": assembly.get("status") == "NORMATIVE",
-        "assemblyParent": assembly_authority.get("parentPublicationManifest") == publication_path.name,
-        "assemblyCommit": assembly_authority.get("sourceCommit") == publication_commit,
-        "normalizationPublication": normalization_authority.get("publicationManifest") == publication_path.name,
-        "normalizationAssembly": normalization_authority.get("assemblyManifest") == assembly_path.name,
-        "normalizationCommit": baseline.get("commit") == publication_commit,
-    }
-    return all(checks.values()), {
-        "selected": {role: path.name for role, path in manifests.items()},
-        "versionKeys": {role: [list(key[0]), key[1]] for role, key in keys.items()},
-        "repositoryCommit": publication_commit,
-        "checks": checks,
-    }
 
 
 def run_baseline_check(repo_root: Path) -> dict[str, Any]:
@@ -134,7 +94,7 @@ def run_baseline_check(repo_root: Path) -> dict[str, Any]:
 
         manifests: dict[str, Path] = {}
         try:
-            manifests = selected_manifests(repo_root, contract)
+            manifests = select_freeze_artifacts(repo_root, contract)
             report["selectedManifests"] = {
                 role: repo_relative(path, repo_root) for role, path in manifests.items()
             }
@@ -150,12 +110,8 @@ def run_baseline_check(repo_root: Path) -> dict[str, Any]:
 
         if manifests:
             try:
-                publication = load_json(manifests["publicationManifest"])
-                assembly = load_json(manifests["assemblyManifest"])
-                normalization = load_json(manifests["normalizationConfig"])
-                compatible, details = _compatibility_details(
-                    manifests, publication, assembly, normalization
-                )
+                freeze = load_selected_freeze(repo_root, contract, manifests)
+                compatible = bool(freeze["compatible"])
                 add_check(
                     report,
                     "FREEZE_ARTIFACT_COMPATIBILITY",
@@ -163,12 +119,29 @@ def run_baseline_check(repo_root: Path) -> dict[str, Any]:
                     "Selected publication, assembly, and normalization freezes are mutually compatible."
                     if compatible
                     else "Selected freeze artifacts are not mutually compatible.",
-                    details,
+                    freeze["compatibility"],
+                )
+                inventory_binding = freeze["inventoryBinding"]
+                inventory_ok = inventory_binding.get("status") == "PASS"
+                add_check(
+                    report,
+                    "INVENTORY_FREEZE_BINDING",
+                    "PASS" if inventory_ok else "FAIL",
+                    "Inventory JSON, CSV, and report are committed and byte-bound to the selected publication freeze."
+                    if inventory_ok
+                    else "Inventory artifacts do not match the selected publication freeze binding.",
+                    inventory_binding,
                 )
             except Exception as exc:
                 add_check(
                     report,
                     "FREEZE_ARTIFACT_COMPATIBILITY",
+                    "FAIL",
+                    f"{type(exc).__name__}: {exc}",
+                )
+                add_check(
+                    report,
+                    "INVENTORY_FREEZE_BINDING",
                     "FAIL",
                     f"{type(exc).__name__}: {exc}",
                 )

@@ -56,6 +56,7 @@ class MaintenanceBaselineCharacterizationTests(unittest.TestCase):
         checks = {row["code"]: row for row in self.report["checks"]}
         self.assertEqual(checks["FREEZE_ARTIFACT_SELECTION"]["status"], "PASS")
         self.assertEqual(checks["FREEZE_ARTIFACT_COMPATIBILITY"]["status"], "PASS")
+        self.assertEqual(checks["INVENTORY_FREEZE_BINDING"]["status"], "PASS")
         self.assertEqual(checks["FROZEN_STEP6_BINDINGS"]["status"], "PASS")
         self.assertEqual(checks["READ_ONLY_WORKTREE"]["status"], "PASS")
 

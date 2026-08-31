@@ -14,7 +14,12 @@ from rulebook_layout.encounter_authority import (
 )
 from rulebook_layout.toolchain import resolve_tool
 
-from .contract import load_production_contract, selected_manifests, verify_frozen_bindings
+from .contract import load_production_contract, verify_frozen_bindings
+from .freeze_state import (
+    git_tracked,
+    select_freeze_artifacts,
+    verify_inventory_freeze_binding,
+)
 from .reporting import add_check, load_json, new_report, repo_relative, timestamp, write_json
 
 
@@ -24,18 +29,6 @@ def _sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
-
-
-def _tracked(repo_root: Path, path: Path) -> bool:
-    relative = path.resolve().relative_to(repo_root.resolve()).as_posix()
-    result = subprocess.run(
-        ["git", "ls-files", "--error-unmatch", "--", relative],
-        cwd=repo_root,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        check=False,
-    )
-    return result.returncode == 0
 
 
 def _tool_version(executable: str, name: str) -> str:
@@ -150,8 +143,9 @@ def run_preflight(
     )
 
     manifests: dict[str, Path] = {}
+    publication: dict[str, Any] | None = None
     try:
-        manifests = selected_manifests(repo_root, contract)
+        manifests = select_freeze_artifacts(repo_root, contract)
         report["selectedManifests"] = {
             role: repo_relative(path, repo_root) for role, path in manifests.items()
         }
@@ -160,7 +154,7 @@ def run_preflight(
         add_check(report, "FREEZE_ARTIFACT_SELECTION", "FAIL", str(exc))
 
     if manifests:
-        tracking = {role: _tracked(repo_root, path) for role, path in manifests.items()}
+        tracking = {role: git_tracked(repo_root, path) for role, path in manifests.items()}
         add_check(
             report,
             "FREEZE_ARTIFACT_TRACKING",
@@ -170,6 +164,26 @@ def run_preflight(
             else "Every selected freeze artifact must be committed to Git.",
             tracking,
         )
+        try:
+            publication = load_json(manifests["publicationManifest"])
+            inventory_binding = verify_inventory_freeze_binding(repo_root, publication)
+            inventory_ok = inventory_binding.get("status") == "PASS"
+            add_check(
+                report,
+                "INVENTORY_FREEZE_BINDING",
+                "PASS" if inventory_ok else "FAIL",
+                "Inventory JSON, CSV, and report are committed and byte-bound to the selected publication freeze."
+                if inventory_ok
+                else "Inventory artifacts do not match the selected publication freeze binding.",
+                inventory_binding,
+            )
+        except Exception as exc:
+            add_check(
+                report,
+                "INVENTORY_FREEZE_BINDING",
+                "FAIL",
+                f"{type(exc).__name__}: {exc}",
+            )
 
     required = []
     for relative in contract["upstreamReadiness"]["requiredArtifacts"]:
@@ -229,7 +243,8 @@ def run_preflight(
             hash_details,
         )
         if manifests:
-            publication = load_json(manifests["publicationManifest"])
+            if publication is None:
+                publication = load_json(manifests["publicationManifest"])
             sidecar = load_json(metadata_root / "structured-entities.json")
             expected_commit = publication.get("repository", {}).get("gitCommit")
             provenance_ok = bool(expected_commit) and sidecar.get("sourceCommit") == expected_commit
