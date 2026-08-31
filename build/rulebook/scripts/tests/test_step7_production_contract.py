@@ -22,13 +22,8 @@ class ProductionContractTests(unittest.TestCase):
         cls.metadata = json.loads(METADATA_PATH.read_text(encoding="utf-8"))
 
     def test_profiles_and_release_names_are_frozen(self):
-        self.assertEqual(
-            self.contract["implementationStatus"],
-            "PHASE_D_PUBLICATION_SHELL",
-        )
-        self.assertEqual(
-            set(self.contract["profiles"]), {"complete-rulebook", "player-guide"}
-        )
+        self.assertEqual(self.contract["implementationStatus"], "PHASE_D_PUBLICATION_SHELL")
+        self.assertEqual(set(self.contract["profiles"]), {"complete-rulebook", "player-guide"})
         self.assertEqual(
             self.contract["profiles"]["complete-rulebook"]["releaseFilename"],
             "Cybermancy_Core_Rulebook.pdf",
@@ -71,7 +66,7 @@ class ProductionContractTests(unittest.TestCase):
         self.assertFalse(navigation["routineLowerLevelHeadings"])
         self.assertFalse(navigation["reservedChapter13Allowed"])
 
-    def test_deferred_appendices_are_not_generated(self):
+    def test_appendix_a_and_c_remain_deferred_and_appendix_b_is_removed(self):
         appendices = self.contract["appendices"]
         for appendix_id in (
             "appendix-a-rules-quick-reference",
@@ -79,6 +74,17 @@ class ProductionContractTests(unittest.TestCase):
         ):
             self.assertEqual(appendices[appendix_id]["status"], "DEFERRED")
             self.assertFalse(appendices[appendix_id]["generate"])
+        appendix_b = appendices["appendix-b-entity-index"]
+        self.assertEqual(appendix_b["status"], "REMOVED")
+        self.assertFalse(appendix_b["generate"])
+
+    def test_no_active_appendix_is_generated(self):
+        active = [
+            appendix_id
+            for appendix_id, state in self.contract["appendices"].items()
+            if state.get("generate") is True
+        ]
+        self.assertEqual(active, [])
 
     def test_transform_order_matches_accepted_step6_contract(self):
         step6_path = REPO_ROOT / self.contract["authorities"]["step6IntegrationContract"]["path"]
