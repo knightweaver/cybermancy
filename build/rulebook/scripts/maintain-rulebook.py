@@ -4,6 +4,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
+import stat
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +24,7 @@ PRODUCTION_CONTRACT_RELATIVE = Path("build/rulebook/production/production-render
 STEP4_METADATA_RELATIVE = Path("build/rulebook/source/metadata")
 PROFILES = ("complete-rulebook", "player-guide")
 PROFILE_CHOICES = (*PROFILES, "all")
+INVENTORY_OUTPUT_ROLES = ("inventoryJson", "inventoryCsv", "inventoryReport")
 Runner = Callable[..., subprocess.CompletedProcess]
 
 
@@ -281,6 +284,99 @@ def _planned(repo: Path, plan: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return [{"name": row["name"], "command": row["command"], "displayCommand": _display(row["command"]), "mutating": row["mutating"], "reportPaths": [_rel(repo, path) for path in row.get("reportPaths") or []]} for row in plan]
 
 
+def _prepare_preexistence(outputs: dict[str, Path]) -> dict[str, bool]:
+    return {role: path.exists() or path.is_symlink() for role, path in outputs.items()}
+
+
+def _snapshot_inventory_outputs(outputs: dict[str, Path]) -> dict[str, dict[str, Any]]:
+    snapshots: dict[str, dict[str, Any]] = {}
+    for role in INVENTORY_OUTPUT_ROLES:
+        path = outputs[role]
+        if path.is_symlink() or not path.is_file():
+            raise MaintenanceError(f"Cannot preserve inventory rollback baseline for {path}")
+        info = path.stat()
+        data = path.read_bytes()
+        snapshots[role] = {
+            "bytes": data,
+            "mode": stat.S_IMODE(info.st_mode),
+            "atimeNs": info.st_atime_ns,
+            "mtimeNs": info.st_mtime_ns,
+        }
+    return snapshots
+
+
+def _inventory_snapshot_report(repo: Path, outputs: dict[str, Path], snapshots: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "role": role,
+            "path": _rel(repo, outputs[role]),
+            "sha256": hashlib.sha256(snapshots[role]["bytes"]).hexdigest(),
+            "size": len(snapshots[role]["bytes"]),
+            "mode": oct(snapshots[role]["mode"]),
+            "mtimeNs": snapshots[role]["mtimeNs"],
+        }
+        for role in INVENTORY_OUTPUT_ROLES
+    ]
+
+
+def _restore_inventory_output(path: Path, snapshot: dict[str, Any]) -> str:
+    changed = False
+    if path.is_symlink():
+        path.unlink()
+        changed = True
+    elif path.exists() and not path.is_file():
+        raise MaintenanceError(f"Rollback target is not a regular file: {path}")
+    current = path.read_bytes() if path.is_file() else None
+    if current != snapshot["bytes"]:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(snapshot["bytes"])
+        changed = True
+    info = path.stat()
+    if stat.S_IMODE(info.st_mode) != snapshot["mode"]:
+        path.chmod(snapshot["mode"])
+        changed = True
+    info = path.stat()
+    if info.st_atime_ns != snapshot["atimeNs"] or info.st_mtime_ns != snapshot["mtimeNs"]:
+        os.utime(path, ns=(snapshot["atimeNs"], snapshot["mtimeNs"]))
+        changed = True
+    return "restored-inventory" if changed else "verified-inventory"
+
+
+def _rollback_prepare(
+    repo: Path,
+    report: dict[str, Any],
+    outputs: dict[str, Path],
+    preexisting: dict[str, bool],
+    inventory_snapshots: dict[str, dict[str, Any]],
+) -> None:
+    actions: list[dict[str, str]] = []
+    failures: list[dict[str, str]] = []
+    for role in INVENTORY_OUTPUT_ROLES:
+        path = outputs[role]
+        try:
+            action = _restore_inventory_output(path, inventory_snapshots[role])
+            actions.append({"action": action, "path": _rel(repo, path)})
+        except Exception as exc:
+            failures.append({"action": "restore-inventory", "path": _rel(repo, path), "error": f"{type(exc).__name__}: {exc}"})
+    for role, path in outputs.items():
+        if preexisting.get(role, False) or (not path.exists() and not path.is_symlink()):
+            continue
+        try:
+            if path.is_symlink() or path.is_file():
+                path.unlink()
+            elif path.is_dir():
+                path.rmdir()
+            else:
+                raise MaintenanceError(f"Rollback target has unsupported file type: {path}")
+            actions.append({"action": "deleted-new-generated-file", "path": _rel(repo, path)})
+        except Exception as exc:
+            failures.append({"action": "delete-new-generated-file", "path": _rel(repo, path), "error": f"{type(exc).__name__}: {exc}"})
+    rollback: dict[str, Any] = {"attempted": True, "status": "FAIL" if failures else "PASS", "actions": actions}
+    if failures:
+        rollback["failures"] = failures
+    report["rollback"] = rollback
+
+
 def prepare_report(repo: Path, *, dry_run: bool = False, runner: Runner = subprocess.run) -> dict[str, Any]:
     report = _new_report("prepare", None, dry_run)
     head, changes = _require_clean(repo, report)
@@ -292,25 +388,68 @@ def prepare_report(repo: Path, *, dry_run: bool = False, runner: Runner = subpro
         plan, outputs, version = _prepare_plan(repo, freeze["paths"]["publicationManifest"])
     except Exception as exc:
         report.update(status="BLOCKED", exitCode=2, error=f"{type(exc).__name__}: {exc}", recommendedNextAction="Restore the accepted freeze baseline before preparing a refresh."); return report
-    report.update(basePublicationManifest=_rel(repo, freeze["paths"]["publicationManifest"]), outputVersion=version, plannedCommands=_planned(repo, plan), generatedFiles=[_rel(repo, path) for path in outputs.values()])
+    preexisting = _prepare_preexistence(outputs)
+    report.update(
+        basePublicationManifest=_rel(repo, freeze["paths"]["publicationManifest"]),
+        outputVersion=version,
+        plannedCommands=_planned(repo, plan),
+        generatedFiles=[_rel(repo, path) for path in outputs.values()],
+        generatedFilePreexistence=[
+            {"role": role, "path": _rel(repo, path), "existedBeforeRun": preexisting[role]}
+            for role, path in outputs.items()
+        ],
+    )
     if dry_run:
         report["recommendedNextAction"] = "Run maintain-rulebook.py prepare without --dry-run after reviewing the plan."; return report
-    if not _append(report, _run_child(repo, plan[0], runner)): return report
-    inventory = load_json(outputs["inventoryJson"])
-    recorded = str((inventory.get("repository") or {}).get("git_commit") or "")
-    report["inventoryRecordedCommit"] = recorded
-    if recorded != head:
-        report.update(status="FAIL", exitCode=2, error=f"Generated inventory records {recorded or '<missing>'}; expected startup HEAD {head}", recommendedNextAction="Correct inventory provenance before generating freeze artifacts."); return report
-    for spec in plan[1:]:
-        if not _append(report, _run_child(repo, spec, runner)): return report
-    missing = [path for path in outputs.values() if not path.is_file()]
-    if missing:
-        report.update(status="FAIL", exitCode=2, missingGeneratedFiles=[_rel(repo, path) for path in missing], recommendedNextAction="Restore the missing generator outputs before committing the freeze refresh."); return report
-    pub, asm, cfg = load_json(outputs["publicationJson"]), load_json(outputs["assemblyJson"]), load_json(outputs["normalizationConfig"])
-    compatible = pub.get("status") == "FROZEN" and (asm.get("authority") or {}).get("parentPublicationManifest") == outputs["publicationJson"].name and (asm.get("authority") or {}).get("sourceCommit") == (pub.get("repository") or {}).get("gitCommit") and (cfg.get("authority") or {}).get("publicationManifest") == outputs["publicationJson"].name and (cfg.get("authority") or {}).get("assemblyManifest") == outputs["assemblyJson"].name and (cfg.get("baseline") or {}).get("commit") == (pub.get("repository") or {}).get("gitCommit") == head
-    report["generatedFreezeCompatibility"] = "PASS" if compatible else "FAIL"
-    if not compatible:
-        report.update(status="FAIL", exitCode=2, recommendedNextAction="Review generated freeze compatibility before committing anything."); return report
+    target_roles = [role for role in outputs if role not in INVENTORY_OUTPUT_ROLES]
+    preexisting_targets = [_rel(repo, outputs[role]) for role in target_roles if preexisting[role]]
+    if preexisting_targets:
+        report.update(
+            status="BLOCKED", exitCode=2, preexistingTargetFiles=preexisting_targets,
+            recommendedNextAction="Remove or resolve the preexisting next-version target files before preparing a refresh.",
+        )
+        return report
+    try:
+        inventory_snapshots = _snapshot_inventory_outputs(outputs)
+    except Exception as exc:
+        report.update(status="BLOCKED", exitCode=2, error=f"{type(exc).__name__}: {exc}", recommendedNextAction="Restore the accepted tracked inventory outputs before preparing a refresh."); return report
+    report["inventoryRollbackBaseline"] = _inventory_snapshot_report(repo, outputs, inventory_snapshots)
+    active_command: str | None = None
+    try:
+        active_command = plan[0]["name"]
+        if not _append(report, _run_child(repo, plan[0], runner)):
+            _rollback_prepare(repo, report, outputs, preexisting, inventory_snapshots); return report
+        active_command = None
+        inventory = load_json(outputs["inventoryJson"])
+        recorded = str((inventory.get("repository") or {}).get("git_commit") or "")
+        report["inventoryRecordedCommit"] = recorded
+        if recorded != head:
+            report.update(status="FAIL", exitCode=2, error=f"Generated inventory records {recorded or '<missing>'}; expected startup HEAD {head}", recommendedNextAction="Correct inventory provenance before generating freeze artifacts.")
+            _rollback_prepare(repo, report, outputs, preexisting, inventory_snapshots); return report
+        for spec in plan[1:]:
+            active_command = spec["name"]
+            if not _append(report, _run_child(repo, spec, runner)):
+                _rollback_prepare(repo, report, outputs, preexisting, inventory_snapshots); return report
+        active_command = None
+        missing = [path for path in outputs.values() if not path.is_file()]
+        if missing:
+            report.update(status="FAIL", exitCode=2, missingGeneratedFiles=[_rel(repo, path) for path in missing], recommendedNextAction="Restore the missing generator outputs before committing the freeze refresh.")
+            _rollback_prepare(repo, report, outputs, preexisting, inventory_snapshots); return report
+        pub, asm, cfg = load_json(outputs["publicationJson"]), load_json(outputs["assemblyJson"]), load_json(outputs["normalizationConfig"])
+        compatible = pub.get("status") == "FROZEN" and (asm.get("authority") or {}).get("parentPublicationManifest") == outputs["publicationJson"].name and (asm.get("authority") or {}).get("sourceCommit") == (pub.get("repository") or {}).get("gitCommit") and (cfg.get("authority") or {}).get("publicationManifest") == outputs["publicationJson"].name and (cfg.get("authority") or {}).get("assemblyManifest") == outputs["assemblyJson"].name and (cfg.get("baseline") or {}).get("commit") == (pub.get("repository") or {}).get("gitCommit") == head
+        report["generatedFreezeCompatibility"] = "PASS" if compatible else "FAIL"
+        if not compatible:
+            report.update(status="FAIL", exitCode=2, recommendedNextAction="Review generated freeze compatibility before committing anything.")
+            _rollback_prepare(repo, report, outputs, preexisting, inventory_snapshots); return report
+    except Exception as exc:
+        report.update(status="FAIL", exitCode=2, error=f"{type(exc).__name__}: {exc}")
+        if active_command and not report.get("failedCommand"):
+            report["failedCommand"] = active_command
+            report["recommendedNextAction"] = f"Correct the {active_command} exception using its diagnostics, then rerun."
+        elif not report.get("recommendedNextAction"):
+            report["recommendedNextAction"] = "Correct the prepare failure using its diagnostics, then rerun."
+        _rollback_prepare(repo, report, outputs, preexisting, inventory_snapshots)
+        return report
     report["recommendedNextAction"] = "Review and commit every generated file listed above. Generated freeze artifacts must be committed before production build."
     return report
 
