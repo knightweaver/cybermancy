@@ -46,7 +46,17 @@ jobs:
           build/rulebook/inventory/rulebook-inventory.csv text eol=crlf
           build/rulebook/inventory/rulebook-inventory-report.md text eol=crlf
           EOF
-          git checkout-index --force --all
+          python - <<'PY'
+          from pathlib import Path
+          for name in (
+              'rulebook-inventory.json',
+              'rulebook-inventory.csv',
+              'rulebook-inventory-report.md',
+          ):
+              path = Path('build/rulebook/inventory') / name
+              data = path.read_bytes().replace(b'\r\n', b'\n')
+              path.write_bytes(data.replace(b'\n', b'\r\n'))
+          PY
           test -z "$(git status --porcelain=v1 --untracked-files=all)"
 
       - name: Set up Python 3.12
