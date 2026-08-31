@@ -457,7 +457,7 @@ def prepare_report(repo: Path, *, dry_run: bool = False, runner: Runner = subpro
 def _production_reports(repo: Path, action: str, profile: str) -> list[Path]:
     root = repo / "build/rulebook/reports"
     if action == "preflight": return [root / "preflight.json"]
-    paths = [root / f"{action}-{profile}.json"]
+    paths = [root / "preflight.json", root / f"{action}-{profile}.json"]
     for current in PROFILES if profile == "all" else (profile,):
         paths.append(root / current / ("build-report.json" if action == "build" else "reproducibility.json"))
     return paths
@@ -467,13 +467,16 @@ def _build_plan(repo: Path, profile: str, release: bool) -> list[dict[str, Any]]
     py, scripts = sys.executable, repo / "build/rulebook/scripts"
     source, prod = scripts / "build-rulebook-source.py", scripts / "build-rulebook.py"
     plan = [
-        {"name": "step4-validate", "mutating": False, "command": [py, str(source), "validate"], "reportPaths": []},
         {"name": "step4-build", "mutating": True, "command": [py, str(source), "build"], "reportPaths": [repo / "build/rulebook/source/metadata/validation.json"]},
-        {"name": "production-preflight", "mutating": True, "command": [py, str(prod), "preflight"], "reportPaths": _production_reports(repo, "preflight", profile)},
         {"name": "production-build", "mutating": True, "command": [py, str(prod), "build", "--profile", profile], "reportPaths": _production_reports(repo, "build", profile)},
     ]
     if release: plan.append({"name": "production-reproducibility", "mutating": True, "command": [py, str(prod), "reproducibility", "--profile", profile], "reportPaths": _production_reports(repo, "reproducibility", profile)})
     return plan
+
+
+def _dry_run_step4_validation(repo: Path) -> dict[str, Any]:
+    source = repo / "build/rulebook/scripts/build-rulebook-source.py"
+    return {"name": "step4-validate", "mutating": False, "command": [sys.executable, str(source), "validate"], "reportPaths": []}
 
 
 def build_or_release_report(repo: Path, profile: str, *, release: bool, dry_run: bool = False, runner: Runner = subprocess.run) -> dict[str, Any]:
@@ -482,19 +485,26 @@ def build_or_release_report(repo: Path, profile: str, *, release: bool, dry_run:
     if _build_safety(repo, report) is None: return report
     plan = _build_plan(repo, profile, release)
     report["plannedCommands"] = _planned(repo, plan)
-    if not _append(report, _run_child(repo, plan[0], runner)):
-        report.update(status="BLOCKED", recommendedNextAction="Refresh/commit the canonical freeze with maintain-rulebook.py prepare, or correct the Step 4 validation failure."); return report
-    report["canonicalSourcesMatchSelectedPublicationManifest"] = True
     if dry_run:
-        report["recommendedNextAction"] = f"Run maintain-rulebook.py {name} --profile {profile} without --dry-run after reviewing the plan."; return report
-    for spec in plan[1:]:
-        if not _append(report, _run_child(repo, spec, runner)): return report
+        validation = _dry_run_step4_validation(repo)
+        if not _append(report, _run_child(repo, validation, runner)):
+            report.update(status="BLOCKED", recommendedNextAction="Refresh/commit the canonical freeze with maintain-rulebook.py prepare, or correct the Step 4 validation failure.")
+            return report
+        report["canonicalSourcesMatchSelectedPublicationManifest"] = True
+        report["recommendedNextAction"] = f"Run maintain-rulebook.py {name} --profile {profile} without --dry-run after reviewing the plan."
+        return report
+    for spec in plan:
+        if not _append(report, _run_child(repo, spec, runner)):
+            return report
+        if spec["name"] == "step4-build":
+            report["canonicalSourcesMatchSelectedPublicationManifest"] = True
     if release:
         contract = load_production_contract(repo)
         selected = PROFILES if profile == "all" else (profile,)
         output = repo / str((contract.get("workspace") or {}).get("releaseRoot") or "build/rulebook/output")
         report["releaseFiles"] = [_rel(repo, output / contract["profiles"][current]["releaseFilename"]) for current in selected]
-        report["releaseReportPaths"] = [path for child in report["childCommands"] for path in child.get("reportPaths") or [] if "reports/" in path]
+        report_paths = [path for child in report["childCommands"] for path in child.get("reportPaths") or [] if "reports/" in path]
+        report["releaseReportPaths"] = list(dict.fromkeys(report_paths))
         report["recommendedNextAction"] = "Review the release PDFs and reproducibility reports; no Git tag, push, or GitHub Release was created."
     else:
         report["recommendedNextAction"] = "Review the built output; use maintain-rulebook.py release only at a release checkpoint."
