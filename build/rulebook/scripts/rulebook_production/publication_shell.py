@@ -173,6 +173,7 @@ def apply_publication_shell(
     profile: str,
     production_contract: dict[str, Any],
     metadata: dict[str, Any],
+    sidecar: dict[str, Any] | None = None,
 ) -> tuple[str, dict[str, Any]]:
     shell = production_contract.get("publicationShell")
     appendices = production_contract.get("appendices")
@@ -192,6 +193,11 @@ def apply_publication_shell(
             "No production appendix generator is active; contract requested generation for "
             + ", ".join(appendix_state["generated"])
         )
+
+    # Kept as an optional compatibility argument because the Stage 150 caller
+    # still passes the Step 4 sidecar. It is intentionally not consumed by the
+    # publication shell now that the generated entity index is removed.
+    _ = sidecar
 
     profile_metadata = metadata["profiles"][profile]
     title = str(shell["title"])
