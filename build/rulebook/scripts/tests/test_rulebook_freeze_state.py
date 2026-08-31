@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -32,8 +33,11 @@ def _write_json(path: Path, value: object) -> None:
     path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
 
 
-def _fixture(root: Path) -> tuple[Path, dict]:
-    repo = root / "repo"
+_FIXTURE_TEMPLATE_DIR: tempfile.TemporaryDirectory[str] | None = None
+_FIXTURE_TEMPLATE_REPO: Path | None = None
+
+
+def _create_fixture_repository(repo: Path) -> None:
     repo.mkdir()
     _git(repo, "init")
     _git(repo, "config", "user.email", "test@example.com")
@@ -74,8 +78,27 @@ def _fixture(root: Path) -> tuple[Path, dict]:
     _write_json(repo / "publication.json", publication)
     _git(repo, "add", ".")
     _git(repo, "commit", "-m", "freeze")
-    return repo, publication
+    if _git(repo, "status", "--porcelain"):
+        raise AssertionError("freeze-state fixture template repository must be clean")
 
+
+def _fixture_template_repo() -> Path:
+    global _FIXTURE_TEMPLATE_DIR, _FIXTURE_TEMPLATE_REPO
+    if _FIXTURE_TEMPLATE_REPO is None:
+        _FIXTURE_TEMPLATE_DIR = tempfile.TemporaryDirectory(
+            prefix="cybermancy-freeze-state-fixture-"
+        )
+        repo = Path(_FIXTURE_TEMPLATE_DIR.name) / "repo"
+        _create_fixture_repository(repo)
+        _FIXTURE_TEMPLATE_REPO = repo
+    return _FIXTURE_TEMPLATE_REPO
+
+
+def _fixture(root: Path) -> tuple[Path, dict]:
+    repo = root / "repo"
+    shutil.copytree(_fixture_template_repo(), repo, copy_function=shutil.copy2)
+    publication = json.loads((repo / "publication.json").read_text(encoding="utf-8"))
+    return repo, publication
 
 class InventoryFreezeBindingTests(unittest.TestCase):
     def test_valid_binding(self) -> None:

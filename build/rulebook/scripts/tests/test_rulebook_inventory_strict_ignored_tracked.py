@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -27,11 +28,27 @@ def git(repo: Path, *args: str) -> subprocess.CompletedProcess:
     )
 
 
+_SEED_TEMPLATE_DIR: tempfile.TemporaryDirectory[str] | None = None
+_SEED_TEMPLATE_REPO: Path | None = None
+
+
+def _seed_template_repo() -> Path:
+    global _SEED_TEMPLATE_DIR, _SEED_TEMPLATE_REPO
+    if _SEED_TEMPLATE_REPO is None:
+        _SEED_TEMPLATE_DIR = tempfile.TemporaryDirectory(
+            prefix="cybermancy-inventory-strict-seed-"
+        )
+        repo = Path(_SEED_TEMPLATE_DIR.name) / "repo"
+        repo.mkdir()
+        git(repo, "init")
+        git(repo, "config", "user.email", "inventory-test@example.com")
+        git(repo, "config", "user.name", "Inventory Test")
+        _SEED_TEMPLATE_REPO = repo
+    return _SEED_TEMPLATE_REPO
+
+
 def init_repo(root: Path) -> Path:
-    root.mkdir(parents=True, exist_ok=True)
-    git(root, "init")
-    git(root, "config", "user.email", "inventory-test@example.com")
-    git(root, "config", "user.name", "Inventory Test")
+    shutil.copytree(_seed_template_repo(), root, copy_function=shutil.copy2)
     return root
 
 
