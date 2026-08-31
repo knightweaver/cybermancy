@@ -15,6 +15,8 @@ SCRIPTS = HERE.parents[1]
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
+from rulebook_cli import _load_namespace
+
 
 def load_script(name: str, path: Path):
     spec = importlib.util.spec_from_file_location(name, path)
@@ -25,7 +27,15 @@ def load_script(name: str, path: Path):
     return module
 
 
-source = load_script("rulebook_source_preflight_contract", SCRIPTS / "build-rulebook-source.py")
+# Load the Step 4 implementation without public-launcher configure hooks. Those
+# hooks deliberately extend Step 4 materialization and mutate shared module
+# state, which is inappropriate for a characterization probe. The public
+# launcher delegates command_validate/command_build to this implementation.
+source = _load_namespace(
+    SCRIPTS / "build-rulebook-source.py",
+    SCRIPTS / "build-rulebook-source.py.impl",
+    "rulebook_source_preflight_contract",
+)
 production = load_script("rulebook_production_preflight_contract", SCRIPTS / "build-rulebook.py")
 
 
@@ -55,20 +65,26 @@ class NestedPreflightCharacterizationTests(unittest.TestCase):
                 stage_root.mkdir(parents=True, exist_ok=True)
                 return report
 
-            output = io.StringIO()
-            with patch.object(source, "preflight", side_effect=fake_preflight), contextlib.redirect_stdout(output):
-                validate_code = source.command_validate(args)
+            with (
+                patch.dict(source, {"preflight": fake_preflight}),
+                contextlib.redirect_stdout(io.StringIO()),
+            ):
+                validate_code = source["command_validate"](args)
             self.assertEqual(validate_code, 0)
             self.assertEqual(events, [("preflight", True)])
 
             events.clear()
-            output = io.StringIO()
             with (
-                patch.object(source, "preflight", side_effect=fake_preflight),
-                patch.object(source, "deterministic_build", side_effect=fake_materialize),
-                contextlib.redirect_stdout(output),
+                patch.dict(
+                    source,
+                    {
+                        "preflight": fake_preflight,
+                        "deterministic_build": fake_materialize,
+                    },
+                ),
+                contextlib.redirect_stdout(io.StringIO()),
             ):
-                build_code = source.command_build(args)
+                build_code = source["command_build"](args)
             self.assertEqual(build_code, 0)
             self.assertEqual(events, [("preflight", True), ("materialize", None)])
 
@@ -86,13 +102,19 @@ class NestedPreflightCharacterizationTests(unittest.TestCase):
                     }
                 ],
             }
+            materialize = unittest.mock.Mock()
             output = io.StringIO()
             with (
-                patch.object(source, "preflight", return_value=(report, None, None, {})),
-                patch.object(source, "deterministic_build") as materialize,
+                patch.dict(
+                    source,
+                    {
+                        "preflight": lambda *_args, **_kwargs: (report, None, None, {}),
+                        "deterministic_build": materialize,
+                    },
+                ),
                 contextlib.redirect_stdout(output),
             ):
-                code = source.command_build(args)
+                code = source["command_build"](args)
             self.assertEqual(code, 2)
             materialize.assert_not_called()
             self.assertIn("SYNTHETIC_MANIFEST_PREFLIGHT", output.getvalue())
