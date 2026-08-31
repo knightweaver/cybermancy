@@ -401,7 +401,7 @@ def _run(args: argparse.Namespace) -> int:
             report,
             "STAGE160_PRODUCTION_BOOKMARKS",
             bookmark_ok,
-            "PDF bookmark evidence contains only Parts, Chapters, and Appendix B."
+            "PDF bookmark evidence matches the production contract's enabled Parts, Chapters, and appendices."
             if bookmark_ok
             else "Production bookmark evidence is incomplete or contains lower-level headings.",
             bookmark_report,
