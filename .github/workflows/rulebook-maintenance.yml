@@ -68,3 +68,74 @@ jobs:
 
       - name: Run complete rulebook unit suite
         run: python -m unittest discover -s build/rulebook/scripts/tests -p "test_*.py" -v
+
+      # Temporary Transaction 1 validation harness. This step is reverted after
+      # evidence collection and is not part of the maintained workflow change.
+      - name: Install publication toolchain for Transaction 1
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            poppler-utils \
+            texlive-luatex \
+            texlive-latex-extra \
+            texlive-fonts-recommended
+
+      - name: Render both production profiles for Transaction 1
+        shell: bash
+        run: |
+          set -euo pipefail
+          git status --porcelain
+          test -z "$(git status --porcelain)"
+          python build/rulebook/scripts/maintain-rulebook.py build --profile all
+          test -z "$(git status --porcelain)"
+
+      - name: Inspect Transaction 1 PDF tails and navigation evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/txn1-evidence
+          for pdf in \
+            build/rulebook/output/Cybermancy_Core_Rulebook.pdf \
+            build/rulebook/output/Cybermancy_Player_Guide.pdf
+          do
+            name="$(basename "$pdf" .pdf)"
+            pages="$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')"
+            start=$(( pages > 3 ? pages - 2 : 1 ))
+            echo "===== ${name} ====="
+            pdfinfo "$pdf" | grep -E '^(Pages|Page size|PDF version):'
+            echo "----- fonts -----"
+            pdffonts "$pdf"
+            echo "----- forbidden Appendix B text scan -----"
+            if pdftotext -layout "$pdf" - | grep -E -i 'APPENDIX[[:space:]]+B|ENTITY[[:space:]]+INDEX'; then
+              echo "ERROR: Appendix B text remains" >&2
+              exit 1
+            else
+              echo "PASS: no Appendix B / Entity Index text"
+            fi
+            echo "----- tail text pages ${start}-${pages} -----"
+            pdftotext -layout -f "$start" -l "$pages" "$pdf" "/tmp/txn1-evidence/${name}-tail.txt"
+            cat "/tmp/txn1-evidence/${name}-tail.txt"
+            echo "----- tail raster pages ${start}-${pages} -----"
+            pdftoppm -png -r 110 -f "$start" -l "$pages" "$pdf" "/tmp/txn1-evidence/${name}-tail" >/dev/null
+            file /tmp/txn1-evidence/${name}-tail-*.png
+          done
+          echo "----- production shell reports -----"
+          find build/rulebook/reports -type f -name '*.json' -print | sort | while read -r report; do
+            if grep -q 'production-publication-shell\|rendered-regression' "$report"; then
+              echo "### $report"
+              cat "$report"
+            fi
+          done
+
+      - name: Upload Transaction 1 rendered evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: transaction-1-rendered-evidence
+          if-no-files-found: error
+          path: |
+            build/rulebook/output/Cybermancy_Core_Rulebook.pdf
+            build/rulebook/output/Cybermancy_Player_Guide.pdf
+            build/rulebook/reports/**
+            /tmp/txn1-evidence/**
