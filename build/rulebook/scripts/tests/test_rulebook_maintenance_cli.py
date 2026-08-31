@@ -237,11 +237,10 @@ class MaintenanceCliTests(unittest.TestCase):
             r = maintain.build_or_release_report(repo, "complete-rulebook", release=False, runner=runner)
             self.assertEqual(r["status"], "PASS")
             self.assertEqual([(Path(x[1]).name, x[2:]) for x in runner.calls], [
-                ("build-rulebook-source.py", ["validate"]),
                 ("build-rulebook-source.py", ["build"]),
-                ("build-rulebook.py", ["preflight"]),
                 ("build-rulebook.py", ["build", "--profile", "complete-rulebook"]),
             ])
+            self.assertEqual([x["name"] for x in r["childCommands"]], ["step4-build", "production-build"])
             self.assertNotIn("player-guide", " ".join(map(str, runner.calls)))
 
     def test_build_all_delegates_to_existing_all_profile(self):
@@ -254,28 +253,60 @@ class MaintenanceCliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as t:
             repo = fixture(Path(t))
             good = maintain.build_or_release_report(repo, "all", release=True, runner=BuildRunner())
-            self.assertEqual([x["name"] for x in good["childCommands"]][-2:], ["production-build", "production-reproducibility"])
+            self.assertEqual(
+                [x["name"] for x in good["childCommands"]],
+                ["step4-build", "production-build", "production-reproducibility"],
+            )
             bad = maintain.build_or_release_report(repo, "all", release=True, runner=BuildRunner(("build-rulebook.py", "build")))
+            self.assertEqual([x["name"] for x in bad["childCommands"]], ["step4-build", "production-build"])
             self.assertNotIn("production-reproducibility", [x["name"] for x in bad["childCommands"]])
 
-    def test_dry_run_invokes_no_mutating_child_and_writes_nothing(self):
+    def test_step4_build_failure_is_fail_fast_and_preserves_nested_diagnostics(self):
+        with tempfile.TemporaryDirectory() as t:
+            repo = fixture(Path(t)); runner = BuildRunner(("build-rulebook-source.py", "build"))
+            r = maintain.build_or_release_report(repo, "all", release=False, runner=runner)
+            self.assertEqual(r["status"], "FAIL"); self.assertEqual(r["exitCode"], 5)
+            self.assertEqual(r["failedCommand"], "step4-build")
+            self.assertEqual(len(runner.calls), 1)
+            self.assertEqual(r["childCommands"][-1]["stdout"], "boom")
+            self.assertEqual(r["childCommands"][-1]["stderr"], "bad")
+
+    def test_dry_run_invokes_only_read_only_validation_and_plans_exact_real_commands(self):
         with tempfile.TemporaryDirectory() as t:
             repo = fixture(Path(t))
             before = {p.relative_to(repo).as_posix(): p.read_bytes() for p in repo.rglob("*") if p.is_file() and ".git" not in p.parts}
             runner = BuildRunner()
             r = maintain.build_or_release_report(repo, "all", release=True, dry_run=True, runner=runner)
+            self.assertEqual(len(runner.calls), 1)
             self.assertEqual(runner.calls[0][2:], ["validate"])
+            self.assertEqual([x["name"] for x in r["childCommands"]], ["step4-validate"])
             self.assertTrue(all(not x["mutating"] for x in r["childCommands"]))
+            self.assertEqual(
+                [x["name"] for x in r["plannedCommands"]],
+                ["step4-build", "production-build", "production-reproducibility"],
+            )
+            self.assertTrue(all(x["mutating"] for x in r["plannedCommands"]))
             prep = PrepareRunner(repo); maintain.prepare_report(repo, dry_run=True, runner=prep)
             self.assertEqual(prep.calls, [])
             after = {p.relative_to(repo).as_posix(): p.read_bytes() for p in repo.rglob("*") if p.is_file() and ".git" not in p.parts}
             self.assertEqual(before, after)
 
-    def test_child_failure_exposes_diagnostics_and_report_paths(self):
+    def test_dry_run_validation_failure_blocks_without_mutating_children(self):
+        with tempfile.TemporaryDirectory() as t:
+            repo = fixture(Path(t)); runner = BuildRunner(("build-rulebook-source.py", "validate"))
+            r = maintain.build_or_release_report(repo, "all", release=True, dry_run=True, runner=runner)
+            self.assertEqual(r["status"], "BLOCKED"); self.assertEqual(r["exitCode"], 5)
+            self.assertEqual(r["failedCommand"], "step4-validate")
+            self.assertEqual(len(runner.calls), 1)
+            self.assertEqual(r["childCommands"][-1]["stdout"], "boom")
+            self.assertEqual(r["childCommands"][-1]["stderr"], "bad")
+
+    def test_child_failure_exposes_diagnostics_and_nested_preflight_report_path(self):
         with tempfile.TemporaryDirectory() as t:
             repo = fixture(Path(t))
-            r = maintain.build_or_release_report(repo, "complete-rulebook", release=False, runner=BuildRunner(("build-rulebook.py", "preflight")))
+            r = maintain.build_or_release_report(repo, "complete-rulebook", release=False, runner=BuildRunner(("build-rulebook.py", "build")))
             child = r["childCommands"][-1]
+            self.assertEqual(r["failedCommand"], "production-build")
             self.assertEqual(child["returnCode"], 5); self.assertIn("boom", child["stdout"]); self.assertIn("bad", child["stderr"])
             self.assertIn("build/rulebook/reports/preflight.json", child["reportPaths"])
 

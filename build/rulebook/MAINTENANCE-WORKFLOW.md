@@ -60,7 +60,12 @@ python build\rulebook\scripts\maintain-rulebook.py build --profile player-guide
 python build\rulebook\scripts\maintain-rulebook.py build --profile all
 ```
 
-`build` requires a clean working tree and tracked compatible freeze inputs. It runs, in order, Step 4 validation, Step 4 materialization, production preflight, then the existing production build command for the explicitly requested profile. It stops on the first failure and preserves child diagnostics/report paths. It does not run reproducibility automatically and does not infer a profile from changed filenames.
+`build` requires a clean working tree and tracked compatible freeze inputs. Its non-dry-run child sequence is deliberately only:
+
+1. Step 4 `build`.
+2. Production `build` for the explicitly requested profile.
+
+The separate Step 4 `validate` subprocess is not repeated because Step 4 `build` performs the same authoritative repository/manifest preflight before materialization. The separate production `preflight` subprocess is not repeated because production `build` always runs production preflight before any rendering stage. A nested preflight failure therefore still stops the wrapper immediately with the child return code, diagnostics, and relevant report paths. `build` does not run reproducibility automatically and does not infer a profile from changed filenames.
 
 For adversary or environment maintenance, use:
 
@@ -76,7 +81,7 @@ At a release checkpoint only:
 python build\rulebook\scripts\maintain-rulebook.py release --profile all
 ```
 
-`release` performs the same safety checks, Step 4 validation/materialization, production preflight, and requested production build as `build`, then runs the existing production reproducibility command only after the build succeeds. It reports the final release filenames and relevant report locations. It does not package, tag, push, or create a GitHub Release.
+`release` performs the same safety checks, then runs Step 4 `build`, the requested production `build`, and production `reproducibility`, in that order. The ordinary production build is intentionally retained at release checkpoints. Production `build` performs its own production preflight, and production `reproducibility` also performs production preflight before either of its two reproducibility builds. Reproducibility runs only after the ordinary production build succeeds. The wrapper reports the final release filenames and relevant report locations. It does not package, tag, push, or create a GitHub Release.
 
 ### Dry-run
 
@@ -88,7 +93,7 @@ python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rule
 python build\rulebook\scripts\maintain-rulebook.py release --profile all --dry-run
 ```
 
-Dry-run performs read-only discovery and safety validation and prints the exact child command list in execution order. It invokes no mutating child command and creates/deletes no files. For build/release, the existing read-only Step 4 `validate` command is allowed to run so canonical-source compatibility can be checked without materialization.
+Dry-run performs read-only discovery and safety validation and creates/deletes no files. For build/release it runs the existing read-only Step 4 `validate` command so current canonical-source compatibility is checked without materialization. The `PLAN:` output then lists the exact mutating commands a corresponding real invocation would run; the read-only validation probe is recorded in child diagnostics but is not represented as a mutating planned command. Dry-run does not invoke a separate production preflight because it performs no production rendering.
 
 All maintenance commands use argument-list subprocesses rather than shell command chaining, so paths with Windows spaces are supported.
 
@@ -104,7 +109,7 @@ All maintenance commands use argument-list subprocesses rather than shell comman
 8. Review and commit the generated `build/rulebook/inventory/` outputs and new versioned publication/assembly/normalization artifacts.
 9. Run `python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rulebook`.
 
-The publication manifest remains the frozen expected canonical corpus authority. `prepare` does not bypass the requirement that inventory provenance match committed HEAD, and `build` does not bypass Step 4 or production preflight.
+The publication manifest remains the frozen expected canonical corpus authority. `prepare` does not bypass the requirement that inventory provenance match committed HEAD, and `build` does not bypass Step 4 or production preflight; those validations are enforced inside the authoritative build commands.
 
 ## 4. Git and freeze boundaries
 
@@ -140,14 +145,14 @@ python build\rulebook\scripts\build-rulebook-assembly-manifest.py
 python build\rulebook\scripts\build-rulebook-normalization-artifacts.py
 ```
 
-After reviewing and committing those generated freeze artifacts, the equivalent manual build sequence is:
+After reviewing and committing those generated freeze artifacts, the equivalent optimized manual build sequence is:
 
 ```powershell
-python build\rulebook\scripts\build-rulebook-source.py validate
 python build\rulebook\scripts\build-rulebook-source.py build
-python build\rulebook\scripts\build-rulebook.py preflight
 python build\rulebook\scripts\build-rulebook.py build --profile complete-rulebook
 ```
+
+The standalone `build-rulebook-source.py validate` and `build-rulebook.py preflight` commands remain supported for explicit read-only diagnostics. They are simply redundant when invoked immediately before their corresponding authoritative `build` commands, which enforce those validations internally.
 
 `rulebook_cli.py` and `rulebook_layout_cli_compat.py` remain compatibility infrastructure, not alternate publication authorities.
 
