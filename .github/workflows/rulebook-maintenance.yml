@@ -37,15 +37,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Materialize frozen byte contracts
+      - name: Materialize accepted frozen byte contract
         shell: bash
         run: |
-          cat > .git/info/attributes <<'EOF'
-          * text=auto eol=lf
-          build/rulebook/inventory/rulebook-inventory.json text eol=crlf
-          build/rulebook/inventory/rulebook-inventory.csv text eol=crlf
-          build/rulebook/inventory/rulebook-inventory-report.md text eol=crlf
-          EOF
           python - <<'PY'
           from pathlib import Path
           for name in (
@@ -57,6 +51,7 @@ jobs:
               data = path.read_bytes().replace(b'\r\n', b'\n')
               path.write_bytes(data.replace(b'\n', b'\r\n'))
           PY
+          git config core.autocrlf true
           test -z "$(git status --porcelain=v1 --untracked-files=all)"
 
       - name: Set up Python 3.12
