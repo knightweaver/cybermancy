@@ -9,13 +9,59 @@ permissions:
   contents: read
 
 jobs:
+  step4-windows:
+    name: Materialize frozen Step 4 on Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Configure canonical Windows line endings
+        shell: pwsh
+        run: git config --global core.autocrlf true
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Step 4 image dependency
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Verify clean tree and read-only baseline
+        shell: pwsh
+        run: |
+          if (git status --porcelain) { throw 'Working tree is not clean before baseline.' }
+          python build/rulebook/scripts/build-rulebook.py baseline-check --verbose
+          if ($LASTEXITCODE -ne 0) { throw 'Baseline failed.' }
+          if (git status --porcelain) { throw 'Baseline changed tracked repository content.' }
+
+      - name: Materialize frozen Step 4 source
+        shell: pwsh
+        run: |
+          python build/rulebook/scripts/build-rulebook-source.py build
+          if ($LASTEXITCODE -ne 0) { throw 'Step 4 materialization failed.' }
+          if (git status --porcelain) { throw 'Step 4 changed tracked repository content.' }
+
+      - name: Upload generated Step 4 source
+        uses: actions/upload-artifact@v4
+        with:
+          name: txn2-step4-source
+          path: build/rulebook/source
+          if-no-files-found: error
+          retention-days: 1
+
   pdf-flow-audit:
     name: Read-only PDF and LaTeX flow audit
+    needs: step4-windows
     runs-on: ubuntu-latest
 
     steps:
-      - name: Preserve repository LF bytes
-        run: git config --global core.autocrlf false
+      - name: Configure maintenance line endings
+        run: git config --global core.autocrlf true
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -38,8 +84,11 @@ jobs:
           python build/rulebook/scripts/build-rulebook.py baseline-check --verbose
           test -z "$(git status --porcelain)"
 
-      - name: Materialize frozen Step 4 source
-        run: python build/rulebook/scripts/build-rulebook-source.py build
+      - name: Download Windows-materialized Step 4 source
+        uses: actions/download-artifact@v4
+        with:
+          name: txn2-step4-source
+          path: build/rulebook/source
 
       - name: Install publication and PDF inspection toolchain
         shell: bash
@@ -93,29 +142,33 @@ jobs:
           from pathlib import Path
           import html
           import json
+          import os
           import re
           import shutil
           import subprocess
           import xml.etree.ElementTree as ET
           import fitz
 
-          evidence = Path(__import__('os').environ['RUNNER_TEMP']) / 'txn2-evidence'
+          evidence = Path(os.environ['RUNNER_TEMP']) / 'txn2-evidence'
           pdf = Path('build/rulebook/output/Cybermancy_Core_Rulebook.pdf')
           bbox = evidence / 'bbox.html'
 
           samples = {
               'early-prose': {
                   'anchor': 'Prometheus Cloud',
+                  'tex_anchor': 'Prometheus',
                   'source': 'docs/_shared/world/the-resonance.md',
                   'source_text': 'When the first fully self-modifying AI network went online—a distributed system called Prometheus Cloud—its emergence coincided with a planetary energy surge measured across the electromagnetic spectrum.'
               },
               'class-package': {
                   'anchor': 'The world calls them Razz Hackers',
+                  'tex_anchor': 'Razz Hackers',
                   'source': 'src/packs/system/classes/Razz_Hacker_pjN7ciiS9yyGB7rP.json',
                   'source_text': 'The world calls them Razz Hackers. They call themselves Neo Monks—adepts who treat spellwork and software as the same living language running beneath neon streets and astral skylines.'
               },
               'late-encounter': {
                   'anchor': 'A mutated sewer alligator',
+                  'tex_anchor': 'mutated sewer alligator',
                   'source': 'src/packs/adventures/adversaries/Sewerjaw_Gator_2oJw2pIPP38N7k0s.json',
                   'source_text': "A mutated sewer alligator that ambushes prey in Seattle's underground drainage network."
               },
@@ -144,42 +197,27 @@ jobs:
                   text = path.read_text(encoding='utf-8', errors='replace')
               except OSError:
                   continue
-              if all(s['anchor'].split()[0].casefold() in text.casefold() for s in samples.values()):
+              folded = text.casefold()
+              if all(s['tex_anchor'].casefold() in folded for s in samples.values()):
                   selected_tex = path
                   break
-          if selected_tex is None:
-              scored = []
-              for path in tex_files:
-                  text = path.read_text(encoding='utf-8', errors='replace')
-                  score = sum(1 for s in samples.values() if s['anchor'].split()[0].casefold() in text.casefold())
-                  scored.append((score, path, text))
-              scored.sort(key=lambda row: (row[0], len(str(row[1]))), reverse=True)
-              if scored and scored[0][0]:
-                  selected_tex = scored[0][1]
           if selected_tex:
               shutil.copy2(selected_tex, evidence / 'integrated.tex')
               tex_text = selected_tex.read_text(encoding='utf-8', errors='replace')
               for key, sample in samples.items():
-                  probes = [sample['anchor'], sample['anchor'].replace('—', '--')]
-                  pos = -1
-                  for probe in probes:
-                      pos = tex_text.casefold().find(probe.casefold())
-                      if pos >= 0:
-                          break
-                  if pos < 0:
-                      # use stable unique word sequence that survives LaTeX markup
-                      first = sample['anchor'].split()[0]
-                      pos = tex_text.casefold().find(first.casefold())
+                  pos = tex_text.casefold().find(sample['tex_anchor'].casefold())
                   if pos >= 0:
-                      start = max(0, pos - 900)
-                      end = min(len(tex_text), pos + 1400)
-                      fragment = tex_text[start:end]
-                      (evidence / f'{key}-tex.txt').write_text(fragment, encoding='utf-8')
+                      start = max(0, pos - 1100)
+                      end = min(len(tex_text), pos + 1700)
+                      (evidence / f'{key}-tex.txt').write_text(tex_text[start:end], encoding='utf-8')
                       sample['tex_file'] = str(selected_tex)
                       sample['tex_fragment_found'] = True
                   else:
                       sample['tex_file'] = str(selected_tex)
                       sample['tex_fragment_found'] = False
+          else:
+              for sample in samples.values():
+                  sample['tex_fragment_found'] = False
 
           doc = fitz.open(pdf)
           pdf_analysis = {}
@@ -190,21 +228,19 @@ jobs:
               pageno = sample['pdf_pages'][0]
               page = doc[pageno - 1]
               text_dict = page.get_text('dict')
-              anchor_token = sample['anchor'].split()[0].casefold()
               matched_spans = []
               text_line_count = 0
+              anchor_words = [word.casefold() for word in sample['anchor'].split()[:3]]
               for block in text_dict.get('blocks', []):
                   if block.get('type') != 0:
                       continue
                   for line in block.get('lines', []):
                       text_line_count += 1
                       for span in line.get('spans', []):
-                          if anchor_token in str(span.get('text', '')).casefold() or any(
-                              word.casefold() in str(span.get('text', '')).casefold()
-                              for word in sample['anchor'].split()[:3]
-                          ):
+                          span_text = str(span.get('text', ''))
+                          if any(word in span_text.casefold() for word in anchor_words):
                               matched_spans.append({
-                                  'text': span.get('text'),
+                                  'text': span_text,
                                   'font': span.get('font'),
                                   'size': span.get('size'),
                                   'bbox': span.get('bbox'),
