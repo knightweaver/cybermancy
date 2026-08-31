@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 HERE = Path(__file__).resolve()
 SCRIPTS = HERE.parents[1]
@@ -102,7 +102,7 @@ class NestedPreflightCharacterizationTests(unittest.TestCase):
                     }
                 ],
             }
-            materialize = unittest.mock.Mock()
+            materialize = Mock()
             output = io.StringIO()
             with (
                 patch.dict(
