@@ -20,6 +20,10 @@ python -m unittest discover -s build\rulebook\scripts\tests -p "test_*.py" -v
 
 Do not suppress the unit-suite exit status.
 
+### Continuous integration
+
+`.github/workflows/rulebook-maintenance.yml` runs the same read-only maintenance validation on pull requests and pushes to `main` when rulebook, source, documentation, asset, manifest, or workflow paths change. It uses a full checkout with Python 3.12, performs compile/import smoke checks, then runs `baseline-check --verbose`, `maintain-rulebook.py status --verbose`, and the complete supported unit suite. The workflow installs no publishing toolchain, regenerates no freeze artifacts, and does not render or deploy PDFs.
+
 ## 2. Official routine maintenance CLI
 
 `build/rulebook/scripts/maintain-rulebook.py` is a thin safety/orchestration layer over the existing Step 2–4 and Step 7 commands. It does not replace or reimplement them, and it never runs Git add/commit/push, Foundry pack compilation, Foundry export ingestion, tagging, or GitHub Release creation.
