@@ -37,6 +37,18 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Materialize frozen byte contracts
+        shell: bash
+        run: |
+          cat > .git/info/attributes <<'EOF'
+          * text=auto eol=lf
+          build/rulebook/inventory/rulebook-inventory.json text eol=crlf
+          build/rulebook/inventory/rulebook-inventory.csv text eol=crlf
+          build/rulebook/inventory/rulebook-inventory-report.md text eol=crlf
+          EOF
+          git checkout-index --force --all
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
