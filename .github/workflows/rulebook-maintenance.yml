@@ -37,25 +37,42 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Materialize accepted frozen byte contract
+      - name: Materialize accepted mixed frozen byte contract
         shell: bash
         run: |
           python - <<'PY'
+          import json
           from pathlib import Path
-          for name in (
-              'rulebook-inventory.json',
-              'rulebook-inventory.csv',
-              'rulebook-inventory-report.md',
-          ):
-              path = Path('build/rulebook/inventory') / name
+
+          manifest = json.loads(
+              Path('build/rulebook/manifests/cybermancy-rulebook-publication-manifest-v1.25.json')
+              .read_text(encoding='utf-8')
+          )
+          paths = [
+              Path('build/rulebook/inventory/rulebook-inventory.json'),
+              Path('build/rulebook/inventory/rulebook-inventory.csv'),
+              Path('build/rulebook/inventory/rulebook-inventory-report.md'),
+          ]
+          paths.extend(
+              Path(row['path'])
+              for row in manifest['publicationInputs']['authoredDocuments']
+          )
+          for path in paths:
               data = path.read_bytes().replace(b'\r\n', b'\n')
               path.write_bytes(data.replace(b'\n', b'\r\n'))
+          Path('.git/transaction9-renormalize-paths.json').write_text(
+              json.dumps([path.as_posix() for path in paths]),
+              encoding='utf-8',
+          )
           PY
           git config core.autocrlf true
-          git add --renormalize -- \
-            build/rulebook/inventory/rulebook-inventory.json \
-            build/rulebook/inventory/rulebook-inventory.csv \
-            build/rulebook/inventory/rulebook-inventory-report.md
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          paths = json.loads(Path('.git/transaction9-renormalize-paths.json').read_text(encoding='utf-8'))
+          subprocess.run(['git', 'add', '--renormalize', '--', *paths], check=True)
+          PY
           git diff --cached --exit-code
           test -z "$(git status --porcelain=v1 --untracked-files=all)"
           sha256sum build/rulebook/inventory/rulebook-inventory.json build/rulebook/inventory/rulebook-inventory.csv build/rulebook/inventory/rulebook-inventory-report.md
