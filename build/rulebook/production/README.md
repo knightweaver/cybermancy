@@ -85,3 +85,15 @@ title page has no visible number, front matter uses lowercase Roman numerals,
 and Arabic numbering begins with Part I. Parts begin on recto pages. No Appendix
 B heading, label, TOC entry, bookmark, or entity-index pages are injected. The
 publication-shell regression rejects any residual Appendix B output.
+
+### Ordinary encounter chapter boundaries
+
+The publication shell owns ordinary page boundaries before Chapters 30–32 through
+`publicationShell.ordinaryChapterBreaks`. These boundaries use exactly one
+`\clearpage`-equivalent break: they advance to the next page but never add the
+parity blank used by `rectoStarts`. Chapters 30–32 therefore begin on a fresh next
+page whether or not their incoming package segment already contains a legacy
+leading `\clearpage`; the shell replaces that incidental first break rather than
+stacking another one. Chapter 29 retains its accepted package-owned boundary and
+navigation behavior. Ordinary chapter boundaries do not change the Step 6 chapter
+map, package content, TOC/bookmark hierarchy, or recto-start policy.
