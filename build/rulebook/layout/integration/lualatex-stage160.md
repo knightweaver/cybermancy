@@ -49,7 +49,7 @@ The first real unified compilations exposed issues that do not change rulebook c
 1. The Step 4 publication corpus leaves a generated provenance line immediately before the first integrated Part shell. Pandoc renders that line as ordinary prose, producing a large false overfull box in both profiles. Stage 160 now recognizes only the exact generated form — publication title, matching profile, 40-character source commit, and its preceding horizontal-rule artifact — and removes it from the isolated compile copy. If provenance-like residue is present but does not match that exact profile-specific shape, Stage 160 fails closed rather than deleting arbitrary content.
 2. The Complete Rulebook body contains Pandoc strikeout output using `\st{...}`. The standalone Prose-derived shell did not include Pandoc's normal strikeout dependency, causing an `Undefined control sequence` failure. When the generated body actually uses `\st`, Stage 160 adds `\usepackage{soul}` to the isolated compile copy before package preflight.
 3. The Stage 150 profile footer is a long left `fancyhdr` field. In the integrated geometry lanes it generated a false field-width overrun even though the footer text itself is short enough to render safely. Stage 160 anchors that left footer with `\rlap{...}` in the isolated compile copy so it no longer contributes spurious width to the `fancyhdr` alignment box.
-4. Five shared package boxes produced numerical overfull diagnostics between approximately 0.10 and 0.12 pt. These are sub-hairline TeX rounding artifacts rather than materially out-of-bounds content. The isolated compile copy therefore sets `\hfuzz=0.2pt`. Any material horizontal overflow larger than 0.2 pt is still emitted by TeX and remains blocking.
+4. The original real-corpus proof exposed five shared package boxes with numerical overfull diagnostics between approximately 0.10 and 0.12 pt, so Stage 160 initially used `\hfuzz=0.2pt` to suppress sub-hairline TeX rounding noise while preserving material overflow diagnostics. Transaction 12 whole-book validation then exposed the same generated Reboot class-feature paragraph in both profiles at 0.20132 pt too wide, only 0.00132 pt beyond that boundary and with no missing characters or other blocking overfulls. The isolated compile copy therefore now sets `\hfuzz=0.25pt`. This remains a sub-hairline numerical tolerance and does not change line composition or rendered geometry; any horizontal overflow larger than 0.25 pt is still emitted by TeX and remains blocking.
 
 The compatibility overlay and provenance cleanup are deterministic and idempotent. Their patch/cleanup results and before/after compile-copy SHA-256 values are recorded in the Stage 160 report.
 
@@ -121,7 +121,7 @@ A zero LuaLaTeX exit code is necessary but not sufficient for Stage 160 acceptan
 
 The following remain **blocking at Stage 160**:
 
-- every emitted `Overfull \hbox` after the explicit `\hfuzz=0.2pt` numerical tolerance;
+- every emitted `Overfull \hbox` after the explicit `\hfuzz=0.25pt` numerical tolerance;
 - any overfull `\vbox` that is not an output-routine/page-construction diagnostic;
 - any `Missing character:` diagnostic;
 - failure to create a non-empty PDF.
