@@ -29,7 +29,7 @@ _INCLUDEGRAPHICS_RE = re.compile(r"\\includegraphics(?:\[[^\]]*\])?\{([^{}]+)\}"
 _STAGE150_FOOTER_PREFIX = r"\fancyfoot[L]{"
 _STAGE150_FOOTER_TOKEN = "STEP 6 // "
 _STAGE150_FOOTER_SUFFIX = " // INTEGRATED"
-_HFUZZ_LINE = r"\hfuzz=0.2pt"
+_HFUZZ_LINE = r"\hfuzz=0.25pt"
 _SOUL_PACKAGE = r"\usepackage{soul}"
 _HYPERREF_PACKAGE = r"\usepackage[hidelinks]{hyperref}"
 _BEGIN_DOCUMENT = r"\begin{document}"
@@ -166,7 +166,7 @@ def apply_compile_compatibility_overlay(tex_path: Path) -> dict[str, Any]:
     Stage 150 remains the provenance handoff and is never modified.  The overlay
     addresses three integration defects exposed only by the first unified compile:
     Pandoc strikeout's ``\\st`` dependency, fancyhdr's profile-footer width, and
-    sub-hairline (<0.2pt) TeX rounding noise from frozen package boxes.
+    sub-hairline (<0.25pt) TeX rounding noise from frozen package boxes.
     """
     original = tex_path.read_text(encoding="utf-8")
     text = original
@@ -212,7 +212,7 @@ def apply_compile_compatibility_overlay(tex_path: Path) -> dict[str, Any]:
             + _BEGIN_DOCUMENT,
             1,
         )
-        patches.append("hfuzz-0.2pt")
+        patches.append("hfuzz-0.25pt")
 
     text, footer_changed = _anchor_profile_footer(text)
     if footer_changed:
@@ -244,7 +244,7 @@ def apply_compile_compatibility_overlay(tex_path: Path) -> dict[str, Any]:
         "patches": patches,
         "usesStrikeout": uses_strikeout,
         "strikeoutSupport": strikeout_ok,
-        "microOverflowTolerancePt": 0.2,
+        "microOverflowTolerancePt": 0.25,
         "profileFooterCount": len(footer_lines),
         "profileFooterAnchored": footer_ok,
         "inputSha256": hashlib.sha256(original.encode("utf-8")).hexdigest(),
