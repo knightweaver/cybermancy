@@ -46,6 +46,12 @@ No further standalone Part VI layout work is required. Integration of Chapters 3
 - Chapter 30 and 31 production builds fail closed unless the selected publication-manifest counts and semantic corpus reconcile exactly with the Step 4 sidecar. The dated 106/8 acceptance counts do not freeze future corpus size.
 - The Chapter 32 publication projection remains frozen at **344** representatives derived from **419** canonical standalone Features unless separately authorized.
 
+### Feature/action type-label role
+
+Structured action types rendered inside Adversary and Environment Features/Actions use the shared Feature/Action type-label presentation role: bold uppercase text at 9.5 pt with 10.5 pt leading in the established `CMTealDark` encounter blue/teal role. This replaces the previous `scriptsize` violet tag without changing the action name, rules text, or structured type value.
+
+Type labels are a presentation of existing normalized `actionType`/type semantics only. Long labels may wrap naturally, but the renderer must preserve the complete label, action name, and rules text. Legacy prose containing words such as *Passive* or *Reaction* is not parsed or rewritten to invent structured labels.
+
 ## Chapter 32 publication equivalence
 
 The initial Step 4 audit remains available as diagnostic evidence:
@@ -72,14 +78,14 @@ The frozen result is **344 Chapter 32 representatives** and **75 excluded redund
 The standalone audit command remains useful for inspecting equivalence candidates but does not itself apply publication selection:
 
 ```powershell
-python build\rulebook\scripts\audit-adversary-feature-equivalence.py
+python build/rulebook/scripts/audit-adversary-feature-equivalence.py
 ```
 
 To apply the approved decisions, rerun Step 4 normally:
 
 ```powershell
-python build\rulebook\scripts\build-rulebook-source.py validate
-python build\rulebook\scripts\build-rulebook-source.py build
+python build/rulebook/scripts/build-rulebook-source.py validate
+python build/rulebook/scripts/build-rulebook-source.py build
 ```
 
 ## Approved Phase C proofs
@@ -87,7 +93,7 @@ python build\rulebook\scripts\build-rulebook-source.py build
 The approved proof selections are retained under `build/rulebook/layout/encounters/proof/` for visual regression. The Chapter 30 proof exercises the v1.1 two-column grammar; Chapters 31-32 retain their approved v1.0 proof grammars.
 
 ```powershell
-python build\rulebook\scripts\build-rulebook-encounters.py proof --family all
+python build/rulebook/scripts/build-rulebook-encounters.py proof --family all
 ```
 
 Proof output defaults to `build/rulebook/layout/encounters/proof-output/`.
@@ -97,7 +103,7 @@ Proof output defaults to `build/rulebook/layout/encounters/proof-output/`.
 Run against the current Step 4 sidecar and staged publication assets:
 
 ```powershell
-python build\rulebook\scripts\build-rulebook-encounters.py build --family all
+python build/rulebook/scripts/build-rulebook-encounters.py build --family all
 ```
 
 Production output defaults to `build/rulebook/layout/encounters/chapter-output/` and produces:
