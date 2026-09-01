@@ -108,7 +108,7 @@ end
 
 local TABLE_WIDTH_POLICIES = {
   ['level|scope|progress required|typical effect'] = {0.10, 0.15, 0.18, 0.57},
-  ['roll result|progress|hacking consequence'] = {0.24, 0.10, 0.66},
+  ['roll result|progress|hacking consequence'] = {0.30, 0.10, 0.60},
 }
 
 local function normalized_table_header(value)
