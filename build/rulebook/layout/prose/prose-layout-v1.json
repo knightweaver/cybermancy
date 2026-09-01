@@ -31,7 +31,7 @@
     "bodyLeadingPt": 14.2,
     "displayFamily": "Arial",
     "paragraphStyle": "space-between-no-indent",
-    "bodyAlignment": "justified"
+    "bodyAlignment": "ragged-right"
   },
   "palette": {
     "paper": "F9F9F7",
