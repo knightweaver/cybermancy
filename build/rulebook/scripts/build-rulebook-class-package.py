@@ -27,7 +27,7 @@ DEFAULT_SOURCE_ROOT = REPO_ROOT / "build/rulebook/source"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "build/rulebook/layout/class-package-prototype"
 DEFAULT_REPORT = REPO_ROOT / "build/rulebook/layout/reports/class-package-razz-hacker.json"
 SCRIPT_LABEL = SCRIPT_PATH.name
-REQUIRED_LATEX_PACKAGES = {"paracol.sty": "paracol"}
+REQUIRED_LATEX_PACKAGES = {"paracol.sty": "paracol", "wrapfig.sty": "wrapfig"}
 
 
 def _path(value: str | None, default: Path) -> Path:
