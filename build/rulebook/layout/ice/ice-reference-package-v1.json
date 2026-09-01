@@ -52,8 +52,8 @@
     "showImplementationMetadata": false
   },
   "style": {
-    "displayFont": "Lato",
-    "bodyFont": "Noto Serif",
+    "displayFont": "Arial",
+    "bodyFont": "Arial",
     "paperColor": "F9F9F7",
     "darkBandColor": "111B28",
     "bodyTextColor": "202833",

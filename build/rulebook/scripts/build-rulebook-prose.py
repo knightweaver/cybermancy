@@ -481,8 +481,8 @@ def document_preamble() -> str:
 \usepackage{etoolbox}
 \usepackage[hidelinks]{hyperref}
 
-\IfFontExistsTF{Noto Serif}{\setmainfont{Noto Serif}}{\setmainfont{TeX Gyre Pagella}}
-\IfFontExistsTF{Lato}{\setsansfont{Lato}}{\setsansfont{TeX Gyre Heros}}
+\setsansfont{{Arial}}
+\setmainfont{{Arial}}
 
 \definecolor{CMPaper}{HTML}{F9F9F7}
 \definecolor{CMInk}{HTML}{111B28}

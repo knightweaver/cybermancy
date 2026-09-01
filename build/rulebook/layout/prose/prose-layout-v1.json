@@ -26,10 +26,10 @@
     "columnGapInches": 0.24
   },
   "typography": {
-    "bodyFamily": "Noto Serif",
+    "bodyFamily": "Arial",
     "bodySizePt": 10.3,
     "bodyLeadingPt": 14.2,
-    "displayFamily": "Lato",
+    "displayFamily": "Arial",
     "paragraphStyle": "space-between-no-indent",
     "bodyAlignment": "justified"
   },
