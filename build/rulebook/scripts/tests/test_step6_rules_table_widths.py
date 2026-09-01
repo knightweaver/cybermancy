@@ -5,6 +5,7 @@ import shutil
 import subprocess
 import unittest
 from pathlib import Path
+from typing import Any
 
 HERE = Path(__file__).resolve()
 RULEBOOK_DIR = HERE.parents[2]
@@ -18,6 +19,21 @@ def _table_widths(table: dict) -> list[float | None]:
         width = colspec[1]
         widths.append(float(width["c"]) if width.get("t") == "ColWidth" else None)
     return widths
+
+
+def _document_text(value: Any) -> str:
+    if isinstance(value, list):
+        return "".join(_document_text(item) for item in value)
+    if not isinstance(value, dict):
+        return ""
+    kind = value.get("t")
+    if kind == "Str":
+        return str(value.get("c") or "")
+    if kind in {"Space", "SoftBreak", "LineBreak"}:
+        return " "
+    if kind:
+        return _document_text(value.get("c"))
+    return " ".join(_document_text(item) for item in value.values())
 
 
 @unittest.skipUnless(PANDOC, "Pandoc is required for rules-table Lua-filter tests.")
@@ -40,7 +56,7 @@ class Step6RulesTableWidthTests(unittest.TestCase):
         )
         document = json.loads(proc.stdout)
         tables = [block for block in document.get("blocks", []) if block.get("t") == "Table"]
-        return tables, proc.stdout
+        return tables, " ".join(_document_text(document).split())
 
     def test_progression_table_receives_accepted_widths(self) -> None:
         tables, output = self._tables(
