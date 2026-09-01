@@ -10,6 +10,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.ice_reference import _selected_ids, new_report
+from rulebook_layout.ice_reference_geometry import evaluate_ice_reference_text
 from rulebook_layout.ice_reference_package import (
     integrate_chapter29_ast,
     runtime_config,
@@ -22,6 +23,28 @@ CONFIG_PATH = REPO_ROOT / "build/rulebook/layout/ice/ice-reference-package-v1.js
 class TestStep6IceReferencePackage(unittest.TestCase):
     def _config(self):
         return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+
+    @staticmethod
+    def _render_validation_view():
+        return {
+            "groups": [
+                {
+                    "title": "Sentry ICE",
+                    "entries": [
+                        {"name": "Black ICE"},
+                        {"name": "Brainstorm"},
+                        {"name": "Daemon Host"},
+                    ],
+                },
+                {
+                    "title": "Wall ICE",
+                    "entries": [
+                        {"name": "Ash Cloud"},
+                        {"name": "Eclipse Wall"},
+                    ],
+                },
+            ]
+        }
 
     def test_canonical_config_is_frozen_full_corpus_v1(self):
         config = self._config()
@@ -81,6 +104,71 @@ class TestStep6IceReferencePackage(unittest.TestCase):
         self.assertEqual(
             ast["blocks"][1]["c"][1],
             [{"t": "RawBlock", "c": ["latex", "BODY-LATEX"]}],
+        )
+
+    def test_render_validation_accepts_column_interleaved_entries_within_group(self):
+        text = """
+CYBERMANCY // ICE REFERENCE                                      GM MATERIAL
+Sentry ICE
+Black ICE                              Daemon Host
+Brainstorm
+Wall ICE
+Ash Cloud                              Eclipse Wall
+"""
+        result = evaluate_ice_reference_text(text, self._render_validation_view())
+
+        self.assertEqual(result["status"], "PASS", result)
+        self.assertEqual(result["details"]["expectedGroupOrder"], ["Sentry ICE", "Wall ICE"])
+        self.assertEqual(result["details"]["actualGroupOrder"], ["Sentry ICE", "Wall ICE"])
+        self.assertEqual(result["details"]["misplacedEntries"], [])
+
+    def test_render_validation_rejects_missing_entry(self):
+        text = """
+CYBERMANCY // ICE REFERENCE                                      GM MATERIAL
+Sentry ICE
+Black ICE                              Daemon Host
+Wall ICE
+Ash Cloud                              Eclipse Wall
+"""
+        result = evaluate_ice_reference_text(text, self._render_validation_view())
+
+        self.assertEqual(result["status"], "ERROR", result)
+        self.assertIn("Brainstorm", result["details"]["missing"])
+
+    def test_render_validation_rejects_entry_in_wrong_group_section(self):
+        text = """
+CYBERMANCY // ICE REFERENCE                                      GM MATERIAL
+Sentry ICE
+Black ICE                              Daemon Host
+Wall ICE
+Ash Cloud                              Brainstorm
+Eclipse Wall
+"""
+        result = evaluate_ice_reference_text(text, self._render_validation_view())
+
+        self.assertEqual(result["status"], "ERROR", result)
+        self.assertEqual(result["details"]["missing"], [])
+        self.assertIn(
+            {"entry": "Brainstorm", "expectedGroup": "Sentry ICE"},
+            result["details"]["misplacedEntries"],
+        )
+
+    def test_render_validation_rejects_wrong_group_order(self):
+        text = """
+CYBERMANCY // ICE REFERENCE                                      GM MATERIAL
+Wall ICE
+Ash Cloud                              Eclipse Wall
+Sentry ICE
+Black ICE                              Brainstorm
+Daemon Host
+"""
+        result = evaluate_ice_reference_text(text, self._render_validation_view())
+
+        self.assertEqual(result["status"], "ERROR", result)
+        self.assertEqual(result["details"]["actualGroupOrder"], ["Wall ICE", "Sentry ICE"])
+        self.assertNotEqual(
+            result["details"]["actualGroupOrder"],
+            result["details"]["expectedGroupOrder"],
         )
 
 
