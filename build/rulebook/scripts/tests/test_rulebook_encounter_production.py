@@ -225,6 +225,41 @@ class TestEncounterProductionContracts(unittest.TestCase):
         self.assertEqual(runtime["selection"]["mode"], "full-corpus")
         self.assertEqual(len(runtime["selection"]["semanticIds"]), 3)
 
+    def test_production_adapter_routes_adversaries_through_normalized_view_without_count_or_family_drift(self):
+        sidecar = self._sidecar()
+        config = self._config("adversaries", 3, ["normalized-name", "semanticId"])
+        runtime, contract, errors = self.builder._productionize_config(sidecar, config, "adversary")
+        self.assertEqual(errors, [])
+        self.assertEqual(runtime["family"], "adversaries")
+        self.assertEqual(runtime["publicationPolicy"], config["publicationPolicy"])
+        tex, report = self.builder.render_package(sidecar, runtime, Path("/does/not/exist"))
+        self.assertEqual(report["family"], "adversaries")
+        self.assertEqual(report["entryCount"], contract["actualEntryCount"])
+        self.assertEqual(report["selectedSemanticIds"], runtime["selection"]["semanticIds"])
+        self.assertEqual(report["renderedSemanticIds"], runtime["selection"]["semanticIds"])
+        self.assertEqual(report["presentationSchema"], "cybermancy-encounter-presentation-view-v1.0")
+        self.assertIn("Alpha", tex)
+
+    def test_production_adapter_routes_environments_through_normalized_view_without_count_or_family_drift(self):
+        sidecar = self._sidecar()
+        config = self._config(
+            "environments",
+            3,
+            ["tier", "classification", "name", "semanticId"],
+            version="v1.0",
+        )
+        runtime, contract, errors = self.builder._productionize_config(sidecar, config, "environment")
+        self.assertEqual(errors, [])
+        self.assertEqual(runtime["family"], "environments")
+        self.assertEqual(runtime["publicationPolicy"], config["publicationPolicy"])
+        tex, report = self.builder.render_package(sidecar, runtime, Path("/does/not/exist"))
+        self.assertEqual(report["family"], "environments")
+        self.assertEqual(report["entryCount"], contract["actualEntryCount"])
+        self.assertEqual(report["selectedSemanticIds"], runtime["selection"]["semanticIds"])
+        self.assertEqual(report["renderedSemanticIds"], runtime["selection"]["semanticIds"])
+        self.assertEqual(report["presentationSchema"], "cybermancy-encounter-presentation-view-v1.0")
+        self.assertIn("Zulu Zone", tex)
+
     def test_adversary_contract_rejects_previous_tier_ordering(self):
         _, _, errors = self.builder._productionize_config(
             self._sidecar(),
