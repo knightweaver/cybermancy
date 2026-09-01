@@ -93,9 +93,22 @@ class ParagraphAlignmentTests(unittest.TestCase):
             "domain": {
                 "name": "Circuit",
                 "artwork": {"image": "assets/icons/domains/circuit.png"},
-                "cardCount": 0,
+                "cardCount": 1,
             },
-            "levels": [],
+            "levels": [
+                {
+                    "level": 1,
+                    "cards": [
+                        {
+                            "name": "Centered Card",
+                            "description": "Ordinary card description text.",
+                            "image": "assets/icons/domains/centered-card.png",
+                            "level": 1,
+                            "recallCost": 0,
+                        }
+                    ],
+                }
+            ],
         }
         config = {"partLabel": "CHARACTER OPTIONS", "style": {}, "composition": {}}
         with tempfile.TemporaryDirectory() as td:
@@ -109,7 +122,7 @@ class ParagraphAlignmentTests(unittest.TestCase):
 
         self.assertIn("\\sffamily\n\\RaggedRight\n", tex)
         self.assertIn(r"\raggedleft", tex)
-        self.assertIn(r"\centering", tex)
+        self.assertIn(r"\vspace{0pt}\centering", tex)
 
     def test_equipment_chapter_document_is_ragged_right(self) -> None:
         tex = equipment_latex.render_equipment_chapter_document(
