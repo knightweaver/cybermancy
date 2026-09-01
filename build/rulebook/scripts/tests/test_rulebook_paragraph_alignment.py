@@ -46,6 +46,8 @@ class ParagraphAlignmentTests(unittest.TestCase):
         self.assertIn(r"\usepackage{ragged2e}", tex)
         self.assertIn("\\frenchspacing\n\\RaggedRight\n", tex)
         self.assertLess(tex.index(r"\frenchspacing"), tex.index(r"\RaggedRight"))
+        self.assertIn(r"\color{\CMRunningAccent}", tex)
+        self.assertNotIn(r"\color{CMRunningAccent}", tex)
         self.assertIn(r"\centering", tex)
 
     def test_class_package_body_is_ragged_right_and_stats_remain_centered(self) -> None:
