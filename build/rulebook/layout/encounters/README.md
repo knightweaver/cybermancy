@@ -78,14 +78,14 @@ The frozen result is **344 Chapter 32 representatives** and **75 excluded redund
 The standalone audit command remains useful for inspecting equivalence candidates but does not itself apply publication selection:
 
 ```powershell
-python build/rulebook/scripts/audit-adversary-feature-equivalence.py
+python build\rulebook\scripts\audit-adversary-feature-equivalence.py
 ```
 
 To apply the approved decisions, rerun Step 4 normally:
 
 ```powershell
-python build/rulebook/scripts/build-rulebook-source.py validate
-python build/rulebook/scripts/build-rulebook-source.py build
+python build\rulebook\scripts\build-rulebook-source.py validate
+python build\rulebook\scripts\build-rulebook-source.py build
 ```
 
 ## Approved Phase C proofs
@@ -93,7 +93,7 @@ python build/rulebook/scripts/build-rulebook-source.py build
 The approved proof selections are retained under `build/rulebook/layout/encounters/proof/` for visual regression. The Chapter 30 proof exercises the v1.1 two-column grammar; Chapters 31-32 retain their approved v1.0 proof grammars.
 
 ```powershell
-python build/rulebook/scripts/build-rulebook-encounters.py proof --family all
+python build\rulebook\scripts\build-rulebook-encounters.py proof --family all
 ```
 
 Proof output defaults to `build/rulebook/layout/encounters/proof-output/`.
@@ -103,7 +103,7 @@ Proof output defaults to `build/rulebook/layout/encounters/proof-output/`.
 Run against the current Step 4 sidecar and staged publication assets:
 
 ```powershell
-python build/rulebook/scripts/build-rulebook-encounters.py build --family all
+python build\rulebook\scripts\build-rulebook-encounters.py build --family all
 ```
 
 Production output defaults to `build/rulebook/layout/encounters/chapter-output/` and produces:
