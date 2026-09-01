@@ -39,7 +39,7 @@ No further standalone Part VI layout work is required. Integration of Chapters 3
 - Exact duplicates are consolidated for Chapter 32. Approved Feature-Library-backed families are consolidated only when mechanically meaningful parameters match; actor/adversary-name substitution alone is not mechanically meaningful.
 - Mechanically distinct same-name variants remain separate. In particular, `Group Attack` variants remain distinct where `groupName` or `damagePerMinion` differ, and the mechanically distinct `Split` variant remains separate.
 - Feature-Library-backed representative entries use reader-neutral rules text such as `this adversary` rather than inheriting an arbitrary source adversary name.
-- Adversaries and Environments use deterministic Tier -> Classification -> Name -> semantic ID ordering. Chapter 32 uses normalized publication name -> semantic ID.
+- Adversaries use deterministic normalized Name -> semantic ID ordering. Environments retain Tier -> Classification -> Name -> semantic ID ordering. Chapter 32 uses normalized publication name -> semantic ID.
 - Fast Play is rendered only from structured `publicationData.fastPlay` and is never reconstructed from Description.
 - Missing legacy descriptions, classifications, impulses, Fast Play, or artwork remain absent. Step 6 does not invent canonical content.
 - Publication artwork is optional for legacy entities and is loaded only from staged Step 4 paths. LuaLaTeX-incompatible raster formats are converted into caller-owned temporary render assets without mutating Step 4 source assets.

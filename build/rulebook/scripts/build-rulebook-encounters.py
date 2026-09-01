@@ -16,7 +16,13 @@ REPO_ROOT = SCRIPT_DIR.parents[2]
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from rulebook_layout.encounters import esc, load_json, render_package, validate_sidecar
+from rulebook_layout.encounters import (
+    adversary_sort_key,
+    esc,
+    load_json,
+    render_package,
+    validate_sidecar,
+)
 from rulebook_layout.render_assets import prepare_lualatex_render_assets
 
 DEFAULT_SIDECAR = REPO_ROOT / "build/rulebook/source/metadata/structured-entities.json"
@@ -54,6 +60,11 @@ EXPECTED_PACKAGE_VERSIONS = {
     "adversary": "v1.1",
     "environment": "v1.0",
     "feature-reference": "v1.0",
+}
+EXPECTED_ORDERINGS = {
+    "adversary": ["normalized-name", "semanticId"],
+    "environment": ["tier", "classification", "name", "semanticId"],
+    "feature-reference": ["normalized-name", "semanticId"],
 }
 
 
@@ -120,6 +131,8 @@ def _ordered_full_corpus(sidecar: dict[str, Any], family: str) -> tuple[list[str
                 str(entity.get("semanticId") or ""),
             )
         )
+    elif family == "adversaries":
+        rows.sort(key=adversary_sort_key)
     else:
         rows.sort(
             key=lambda entity: (
@@ -168,6 +181,11 @@ def _productionize_config(
         errors.append("Production Encounter Toolkit config must select mode='full-corpus'.")
     if not bool(policy.get("requireFullCorpusSelection", False)):
         errors.append("Production Encounter Toolkit config must require full-corpus selection.")
+    expected_ordering = EXPECTED_ORDERINGS[kind]
+    if policy.get("ordering") != expected_ordering:
+        errors.append(
+            f"Production Encounter Toolkit {kind} ordering must be {expected_ordering!r}."
+        )
 
     semantics = sidecar.get("encounterSemantics") if isinstance(sidecar.get("encounterSemantics"), dict) else {}
     if str(semantics.get("status") or "").upper() == "FAIL":

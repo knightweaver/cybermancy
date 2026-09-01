@@ -167,13 +167,18 @@ class Step6IntegrationContractTests(unittest.TestCase):
             self.assertEqual(config["publicationPolicy"]["countAuthority"], descriptor)
             self.assertNotIn("entries", regression[family])
             self.assertNotIn("expectedEntryCount", config["publicationPolicy"])
-            self.assertEqual(
-                config["publicationPolicy"]["ordering"],
-                ["tier", "classification", "name", "semanticId"],
-            )
             self.assertTrue(config["publicationPolicy"]["requireFullCorpusSelection"])
             self.assertEqual(config["selection"]["mode"], "full-corpus")
             self.assertEqual(config["fastPlayPolicy"], "render structured Fast Play only when present")
+
+        self.assertEqual(
+            adversaries["publicationPolicy"]["ordering"],
+            ["normalized-name", "semanticId"],
+        )
+        self.assertEqual(
+            environments["publicationPolicy"]["ordering"],
+            ["tier", "classification", "name", "semanticId"],
+        )
 
         self.assertEqual(adversaries["lifecycle"]["version"], "v1.1")
         self.assertEqual(environments["lifecycle"]["version"], "v1.0")

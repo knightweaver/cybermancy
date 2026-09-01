@@ -177,7 +177,7 @@ class EncounterContractStabilityTests(unittest.TestCase):
         self.assertEqual(step6["chapterMap"][-3]["audience"], "gm")
         self.assertEqual(step6["chapterMap"][-2]["chapter"], 31)
         self.assertEqual(step6["chapterMap"][-2]["audience"], "gm")
-        self.assertEqual(adversary["publicationPolicy"]["ordering"], ["tier", "classification", "name", "semanticId"])
+        self.assertEqual(adversary["publicationPolicy"]["ordering"], ["normalized-name", "semanticId"])
         self.assertEqual(environment["publicationPolicy"]["ordering"], ["tier", "classification", "name", "semanticId"])
         self.assertEqual(adversary["lifecycle"]["version"], "v1.1")
         self.assertEqual(environment["lifecycle"]["version"], "v1.0")

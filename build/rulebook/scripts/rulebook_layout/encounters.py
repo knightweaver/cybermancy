@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -95,6 +96,19 @@ def _list_text(values: Any) -> str:
     return str(values or "")
 
 
+def _normalized_name(value: Any) -> str:
+    text = unicodedata.normalize("NFKC", str(value or ""))
+    return " ".join(text.split()).casefold()
+
+
+def adversary_sort_key(entity: dict[str, Any]) -> tuple[str, str]:
+    """Return the publication ordering key for Chapter 30 adversaries."""
+    return (
+        _normalized_name(entity.get("name")),
+        str(entity.get("semanticId") or ""),
+    )
+
+
 def _entity_index(sidecar: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
     out = {family: [] for family in FAMILIES}
     for entity in sidecar.get("entities") or []:
@@ -134,6 +148,8 @@ def _family_entities(sidecar: dict[str, Any], family: str, config: dict[str, Any
     entries = list(index.get(family, []))
     if family == "adversaries-features":
         entries.sort(key=lambda e: (str(e.get("name") or "").casefold(), str(e.get("semanticId") or "")))
+    elif family == "adversaries":
+        entries.sort(key=adversary_sort_key)
     else:
         entries.sort(key=lambda e: (int((e.get("publicationData") or {}).get("tier") or 0), str(e.get("name") or "").casefold()))
     return entries
