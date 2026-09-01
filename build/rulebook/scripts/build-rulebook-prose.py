@@ -455,8 +455,19 @@ def latex_escape(s: str) -> str:
     return "".join(repl.get(c, c) for c in s)
 
 
-def document_preamble() -> str:
-    return r'''\documentclass[10pt,letterpaper]{article}
+def _body_alignment_tex(config: dict[str, Any] | None = None) -> str:
+    source = config if isinstance(config, dict) else load_json(DEFAULT_CONFIG)
+    typography = source.get("typography") if isinstance(source.get("typography"), dict) else {}
+    alignment = str(typography.get("bodyAlignment") or "justified").strip().casefold()
+    if alignment == "ragged-right":
+        return r"\RaggedRight"
+    if alignment == "justified":
+        return r"\justifying"
+    raise ValueError(f"Unsupported prose bodyAlignment: {alignment}")
+
+
+def document_preamble(config: dict[str, Any] | None = None) -> str:
+    preamble = r'''\documentclass[10pt,letterpaper]{article}
 \usepackage[letterpaper,top=0.72in,bottom=0.70in,inner=0.78in,outer=0.78in]{geometry}
 \usepackage{fontspec}
 \usepackage{xcolor}
@@ -612,6 +623,7 @@ def document_preamble() -> str:
 \begin{document}
 \frenchspacing
 '''
+    return preamble + _body_alignment_tex(config) + "\n"
 
 
 def document_end() -> str:
@@ -927,7 +939,7 @@ def build(paths: Paths) -> dict[str, Any]:
         "Step 4 normalized source contains no adjacent image/heading block defects",
     )
 
-    document: list[str] = [document_preamble()]
+    document: list[str] = [document_preamble(config)]
 
     for part in parts:
         document.append(part_tex(part["semanticId"]))
