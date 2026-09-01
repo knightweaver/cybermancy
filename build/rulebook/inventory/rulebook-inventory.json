@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "db893e26bf3791ed5f716a19ab80aa420e179c03"
+    "git_commit": "505a148ff53fa576c5dd28cf0890f9d18070411c"
   },
   "mkdocs_sites": {
     "player": {
@@ -18,13 +18,13 @@
     }
   },
   "counts": {
-    "total_files": 4633,
+    "total_files": 4634,
     "by_kind": {
       "asset": 1635,
       "code": 40,
       "config": 4,
       "data": 1874,
-      "document": 1059,
+      "document": 1060,
       "other": 12,
       "presentation": 9
     },
@@ -33,7 +33,7 @@
       "config": 2,
       "data": 15,
       "generator": 65,
-      "gm": 960,
+      "gm": 961,
       "player": 1453,
       "repository": 32,
       "shared-docs": 3,
@@ -41,32 +41,32 @@
     },
     "by_audience": {
       "developer": 67,
-      "gm": 960,
+      "gm": 961,
       "player": 1453,
       "shared": 1866,
       "unknown": 287
     },
     "by_content_scope": {
-      "campaign": 286,
+      "campaign": 287,
       "developer": 86,
       "setting": 16,
       "system": 2156,
       "unknown": 2089
     },
     "by_authorship": {
-      "generated": 1023,
+      "generated": 1024,
       "hand-authored-or-source": 1963,
       "unknown": 1647
     },
-    "documents": 1059,
+    "documents": 1060,
     "documents_player_site": 588,
-    "documents_gm_site": 459,
+    "documents_gm_site": 460,
     "documents_player_nav": 20,
     "documents_gm_nav": 15,
-    "generated_documents": 997,
+    "generated_documents": 998,
     "hand_authored_documents": 62,
     "dynamic_documents": 18,
-    "documents_requiring_normalization": 1031,
+    "documents_requiring_normalization": 1032,
     "stub_documents": 4,
     "foundry_folder_records": 109,
     "organizational_files": 123,
@@ -90,16 +90,16 @@
     "jinja-expression": 17,
     "jinja-statement": 17,
     "load-csv": 16,
-    "raw-html": 1033
+    "raw-html": 1034
   },
   "normalization_flag_counts": {
     "attribute-list": 32,
-    "html-heavy": 334,
+    "html-heavy": 335,
     "include-markdown": 1,
     "jinja-expression": 17,
     "jinja-statement": 17,
     "load-csv": 16,
-    "raw-html": 1033
+    "raw-html": 1034
   },
   "review_flag_counts": {
     "stub-document": 4,
@@ -311,10 +311,8 @@
       "source_entities": 107,
       "source_page_slugs": 107,
       "foundry_folders": 12,
-      "generated_pages": 106,
-      "missing_generated_pages": [
-        "aggressive-librarian"
-      ],
+      "generated_pages": 107,
+      "missing_generated_pages": [],
       "organizational_generated_pages": [],
       "orphan_generated_pages": [],
       "structured_slug_collision_count": 0,
@@ -10507,8 +10505,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 22109,
-      "sha256": "398747eea69b0f971b286b2352762f364d6149b0e4c03b67a9d4d2b7efebf815",
+      "size_bytes": 22885,
+      "sha256": "be19b740fdfd2e39ca33c4ad6708cda66a79caaa8497aa20e7c6e1a88e0563da",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -10949,8 +10947,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 7643,
-      "sha256": "bd11c794fdaf56802227707a7e1a2b4546c0c701a47851e28e50caad219fe3f1",
+      "size_bytes": 7829,
+      "sha256": "46b438de4d2e6c95a6f80b7dbde811feca34d4741ece063c399d3b9d42bdbfb7",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -11254,6 +11252,88 @@
       "nav_paths": [],
       "size_bytes": 2263,
       "sha256": "832330c37bdeb7a67f3d87ebdc90aed997c555b8808b0da9a6e4af99c4d96ebf",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
+      "path": "docs/gm-facing/adventures/adversaries/aggressive-librarian/index.md",
+      "extension": ".md",
+      "kind": "document",
+      "source_family": "gm",
+      "audience": "gm",
+      "content_scope": "campaign",
+      "authorship": "generated",
+      "generator_owner": "pyCybermancy/generate-docs.py",
+      "generator_type": "adversaries",
+      "title": "Aggressive Librarian",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Aggressive Librarian"
+        },
+        {
+          "level": 2,
+          "text": "Attack"
+        },
+        {
+          "level": 2,
+          "text": "Experiences"
+        },
+        {
+          "level": 2,
+          "text": "Motives & Tactics"
+        },
+        {
+          "level": 2,
+          "text": "Features"
+        },
+        {
+          "level": 3,
+          "text": "Reference Authority"
+        },
+        {
+          "level": 3,
+          "text": "Withering Correction"
+        },
+        {
+          "level": 3,
+          "text": "Respect the Collection"
+        },
+        {
+          "level": 3,
+          "text": "The Stacks Answer Back"
+        }
+      ],
+      "word_count": 293,
+      "mkdocs_features": [
+        "raw-html"
+      ],
+      "normalization_flags": [
+        "html-heavy",
+        "raw-html"
+      ],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 55,
+      "images": [
+        "../../../assets/images/adversaries/aggressive-librarian.png"
+      ],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [
+        "docs/gm-facing/assets/images/adversaries/aggressive-librarian.png"
+      ],
+      "site_targets": [
+        "gm"
+      ],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 2780,
+      "sha256": "690b320268d0a807f0df181ec2cf3b8c8bfe6854397a2d89b2457e4aba956e45",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109010,7 +109090,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 74,
+      "word_count": 78,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -109036,8 +109116,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1306,
-      "sha256": "3ce871bc997081e9975cf647f53ded4d5e5b4ae6d79869acaace117afb8fca4e",
+      "size_bytes": 1333,
+      "sha256": "235aae904afec24ccb5042a4ef3e1f19b3a159d2812907dbcc29ac3a65e7848f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109274,7 +109354,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 73,
+      "word_count": 70,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -109300,8 +109380,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1342,
-      "sha256": "fd982a929388ea18fdaa9bbf464e849b85a762b9407f0fcc82efa21377539120",
+      "size_bytes": 1316,
+      "sha256": "e6ad63348c5293aeaeb3de0990aa18840febc7d807e3e8a8bf0e51c74a9b0b24",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110002,7 +110082,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 67,
+      "word_count": 83,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110014,7 +110094,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 62,
+      "html_tag_count": 78,
       "images": [
         "../../../assets/icons/weapons/improved-monofilament-whip.webp"
       ],
@@ -110028,8 +110108,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1319,
-      "sha256": "1fd1761c272d891ce1467c77b1f0121efc8705d7e419fa776ac9f22e6ebe777d",
+      "size_bytes": 1550,
+      "sha256": "b9c77e9e9d5bd8a5e1b9d49da8b215e2394ef3d6dbda4a5fbc7db46ccdfb78fe",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110332,7 +110412,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 67,
+      "word_count": 71,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110358,8 +110438,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1303,
-      "sha256": "27f942484a85f6de662f5e0bde0aa501bfc8756423262ea5ae69a8685e66429d",
+      "size_bytes": 1328,
+      "sha256": "68d1be5765e34caeada576570213bd43d796e010413cf861fe63657d2d350b37",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -125088,8 +125168,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 20508,
-      "sha256": "3108782817be8493bd4aef2db3b9d580511b19c1cede9abc7a31fe09281569f6",
+      "size_bytes": 20511,
+      "sha256": "54cfb6c234195fec0c4949ad42cc7d46870d00fa557f9b35cfd1aa52e91b422f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167458,8 +167538,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4854,
-      "sha256": "2b21159a321b61a85c9b5dea478b22c9a355714b3e864529d02a796d5a9ec407",
+      "size_bytes": 4882,
+      "sha256": "837a144512ee6de999a1425d4110d9bff2c3511315e7f8f0ef456a1c5bfddc15",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168138,8 +168218,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4824,
-      "sha256": "99bbaf730eb64b14be41e49af5342db47e4820e0443b4c5c949d5d7d60d77864",
+      "size_bytes": 4849,
+      "sha256": "8f14a079b01eae94e4fde870d5a15eaa836759575a47beae004a02e008adde78",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],

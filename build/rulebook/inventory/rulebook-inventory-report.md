@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `db893e26bf3791ed5f716a19ab80aa420e179c03`
+Git commit: `505a148ff53fa576c5dd28cf0890f9d18070411c`
 
 ## Scope
 
@@ -14,16 +14,16 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| Files scanned | 4633 |
-| Documents | 1059 |
+| Files scanned | 4634 |
+| Documents | 1060 |
 | Player-site documents | 588 |
-| GM-site documents | 459 |
+| GM-site documents | 460 |
 | Player nav entries | 20 |
 | GM nav entries | 15 |
-| Generated documents | 997 |
+| Generated documents | 998 |
 | Hand-authored/source documents | 62 |
 | Dynamic MkDocs documents | 18 |
-| Documents requiring normalization | 1031 |
+| Documents requiring normalization | 1032 |
 | Stub documents | 4 |
 | Foundry folder records | 109 |
 | Organizational files/pages | 123 |
@@ -40,7 +40,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | config | 2 |
 | data | 15 |
 | generator | 65 |
-| gm | 960 |
+| gm | 961 |
 | player | 1453 |
 | repository | 32 |
 | shared-docs | 3 |
@@ -51,7 +51,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | Metric | Count |
 |---|---:|
 | developer | 67 |
-| gm | 960 |
+| gm | 961 |
 | player | 1453 |
 | shared | 1866 |
 | unknown | 287 |
@@ -60,7 +60,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| campaign | 286 |
+| campaign | 287 |
 | developer | 86 |
 | setting | 16 |
 | system | 2156 |
@@ -74,7 +74,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | code | 40 |
 | config | 4 |
 | data | 1874 |
-| document | 1059 |
+| document | 1060 |
 | other | 12 |
 | presentation | 9 |
 
@@ -82,7 +82,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| generated | 1023 |
+| generated | 1024 |
 | hand-authored-or-source | 1963 |
 | unknown | 1647 |
 
@@ -100,25 +100,25 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | jinja-expression | 17 |
 | jinja-statement | 17 |
 | load-csv | 16 |
-| raw-html | 1033 |
+| raw-html | 1034 |
 
 ## Print-normalization flags
 
 | Metric | Count |
 |---|---:|
 | attribute-list | 32 |
-| html-heavy | 334 |
+| html-heavy | 335 |
 | include-markdown | 1 |
 | jinja-expression | 17 |
 | jinja-statement | 17 |
 | load-csv | 16 |
-| raw-html | 1033 |
+| raw-html | 1034 |
 
 ## Generator reconciliation
 
 | Audience | Type | Source entities | Foundry folders | Generated pages | Missing | Organizational | Orphan |
 |---|---|---:|---:|---:|---:|---:|---:|
-| gm | adversaries | 107 | 12 | 106 | 1 | 0 | 0 |
+| gm | adversaries | 107 | 12 | 107 | 0 | 0 | 0 |
 | gm | adversaries-features | 419 | 10 | 323 | 0 | 0 | 0 |
 | player | ammo | 13 | 0 | 13 | 0 | 0 | 0 |
 | player | armors | 36 | 4 | 36 | 0 | 0 | 0 |
@@ -133,12 +133,6 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | player | mods | 20 | 0 | 20 | 0 | 0 | 0 |
 | player | subclasses | 10 | 0 | 10 | 0 | 0 | 0 |
 | player | weapons | 47 | 4 | 47 | 0 | 0 | 0 |
-
-### gm / adversaries
-
-**Missing generated pages:**
-
-- `aggressive-librarian`
 
 ### player / features
 

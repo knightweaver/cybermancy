@@ -1,0 +1,1144 @@
+{
+  "schema": "cybermancy-rulebook-assembly-manifest-v1.29",
+  "version": "1.29.0",
+  "status": "NORMATIVE",
+  "phase": "Rulebook Step 3 — Book Information Architecture",
+  "generatedDate": "2026-09-01",
+  "authority": {
+    "parentPublicationManifest": "cybermancy-rulebook-publication-manifest-v1.29.json",
+    "parentPublicationManifestStatus": "FROZEN",
+    "repository": "cybermancy",
+    "sourceCommit": "505a148ff53fa576c5dd28cf0890f9d18070411c",
+    "expectedIncludeCount": 33,
+    "expectedAuthoredIncludeCount": 18,
+    "expectedStructuredFamilyCount": 15,
+    "expectedStructuredEntityCount": 1084,
+    "joinRule": "Resolve every assembly input against the frozen Rulebook Step 2 publication manifest by exact authored path or exact structured-family source path. Assembly MUST fail if an input is absent from, or not CANONICAL-CANDIDATE + INCLUDE + DECIDED in, the frozen parent manifest.",
+    "sourcePrecedence": [
+      "Explicit current user instruction",
+      "Frozen Rulebook Step 2 publication manifest v1.29",
+      "Canonical authored Markdown and canonical src/packs structured sources named by that manifest",
+      "Generated assembly intermediates (derivative only)"
+    ]
+  },
+  "scope": {
+    "purpose": "Define book topology, ordering, audience boundaries, placement of canonical authored inputs and structured families, cross-reference conventions, and appendices.",
+    "normalizationStatus": "DEFERRED",
+    "normalizationRule": "Do not rewrite Markdown, HTML, Jinja, include-markdown, links, or source prose in Step 3. Source selectors in this manifest only define logical assembly ownership and deduplication boundaries.",
+    "baseSystemDependency": "Cybermancy is assembled as a Daggerheart supplement/extension. Foundational Daggerheart rules are external prerequisites unless explicitly present in an INCLUDE source.",
+    "generatedMkdocsAuthority": "DERIVATIVE / EXCLUDE AS INPUT",
+    "frontMatterPolicy": "The hand-authored player and GM landing pages are explicit canonical publication inputs. The player landing page supplies the Welcome material; the GM landing page supplies a GM-only section opener after the spoiler divider. Full prose/HTML normalization remains deferred."
+  },
+  "audiencePolicy": {
+    "audiences": {
+      "shared": "Safe for all readers; included wherever needed.",
+      "player": "Player-safe; included in player and complete builds.",
+      "gm": "GM-only/spoiler-bearing; excluded from player builds and placed only after the GM divider in complete builds.",
+      "developer": "Never reader-facing; excluded from book assembly."
+    },
+    "boundaryRules": [
+      "Player/shared content MUST NOT cross-reference GM-only content.",
+      "GM content MAY cross-reference player/shared content.",
+      "GM-only authored setting material is publication content only; it does not become mechanical authority for reusable System design.",
+      "A complete-book build places all player-safe material before any GM-only material."
+    ]
+  },
+  "buildProfiles": [
+    {
+      "id": "complete-rulebook",
+      "title": "Cybermancy Complete Rulebook",
+      "includeAudiences": [
+        "shared",
+        "player",
+        "gm"
+      ],
+      "primary": true
+    },
+    {
+      "id": "player-guide",
+      "title": "Cybermancy Player Guide",
+      "includeAudiences": [
+        "shared",
+        "player"
+      ],
+      "primary": false
+    }
+  ],
+  "hierarchy": {
+    "levels": [
+      "book",
+      "part",
+      "chapter",
+      "section",
+      "collection",
+      "entry",
+      "subentry"
+    ],
+    "rules": [
+      "Authored prose attaches at chapter or section level.",
+      "Structured families materialize as collections; each logical source entity becomes one canonical entry.",
+      "Folder/organizational records may create grouping headings but never count as entries.",
+      "A canonical definition renders in one primary location. Other appearances use cross-references unless a later layout standard explicitly permits controlled duplication."
+    ]
+  },
+  "authoredInputs": [
+    {
+      "assemblyInputId": "auth.welcome",
+      "placement": "ch01-welcome",
+      "title": "Cybermancy Player Introduction",
+      "assemblyMode": "segment",
+      "selector": {
+        "include": "content before heading 'The Event: The Resonance Cascade'",
+        "exclude": "the duplicated Resonance Cascade section; canonical Resonance text is assembled from docs/_shared/world/the-resonance.md"
+      },
+      "parentDecisionId": "A032",
+      "path": "docs/player-facing/index.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "fbfd6d978dbbabae74fc090a813e55974a3f69ff9302b56caf6c08d9f1000351",
+      "parentBookSection": "Front Matter / Navigation"
+    },
+    {
+      "assemblyInputId": "auth.resonance",
+      "placement": "ch02-resonance",
+      "title": "The Event: The Resonance Cascade",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A004",
+      "path": "docs/_shared/world/the-resonance.md",
+      "audience": "shared",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "0b26316949bebf3b00310f5a406069c5b7b2f5f2d09b3eb8cd367951c31e039e",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.corps",
+      "placement": "ch03-megacorporations",
+      "title": "Megacorporations",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A054",
+      "path": "docs/player-facing/world/corps.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "c68afb0f9a579760cbf2aba0c27525e4c693af7eeea5b6e26acd8e2084d1bec1",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.frame-rules",
+      "placement": "ch04-frame-rules",
+      "title": "Cybermancy Frame Rules",
+      "assemblyMode": "segment",
+      "selector": {
+        "include": [
+          "document lead",
+          "heading 'Critical Fails' and its descendant headings"
+        ],
+        "exclude": "linked summary sections whose complete rules are assembled from their dedicated authored files"
+      },
+      "parentDecisionId": "A045",
+      "path": "docs/player-facing/rules/index.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "fadbad49f0209b7dc87d117063316bd08e323d40d03f4f4b33dff33c9f107276",
+      "parentBookSection": "Playing Cybermancy"
+    },
+    {
+      "assemblyInputId": "auth.loadouts",
+      "placement": "ch05-item-loadouts",
+      "title": "Item Loadouts",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A046",
+      "path": "docs/player-facing/rules/item-loadout.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "a60cb2facce49eda1395298c68d0408d320f59ed698b3652e0420170e6118a1e",
+      "parentBookSection": "Playing Cybermancy"
+    },
+    {
+      "assemblyInputId": "auth.flashbacks",
+      "placement": "ch06-flashbacks",
+      "title": "Flashbacks",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A044",
+      "path": "docs/player-facing/rules/flashbacks.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "2105a07826dd31491fae6a2360b5290e45d4b47ed5960ac09763d58e5499a7c9",
+      "parentBookSection": "Playing Cybermancy"
+    },
+    {
+      "assemblyInputId": "auth.bennies",
+      "placement": "ch07-bennies",
+      "title": "Bennies",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A042",
+      "path": "docs/player-facing/rules/bennies.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "1ed31b1eeb511a6e5d2ce2f5af3449cad6f15611bfc8571145dd9a1ed30160bb",
+      "parentBookSection": "Playing Cybermancy"
+    },
+    {
+      "assemblyInputId": "auth.driving",
+      "placement": "ch08-driving-chases",
+      "title": "Driving and Chases",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A043",
+      "path": "docs/player-facing/rules/driving-and-chases.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "aff52ce4b745846f4af3fc81d5df2f183f2244b6998d65a6ca0e62ff25df1257",
+      "parentBookSection": "Playing Cybermancy"
+    },
+    {
+      "assemblyInputId": "auth.netrunning",
+      "placement": "ch09-netrunning",
+      "title": "Netrunning and Device Intrusion",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A047",
+      "path": "docs/player-facing/rules/netrunner-hacking.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "386844300a8d03a5a5a1fa9345fe7177f05a0c1d8d4a5f23478fd7c7a4cbb1a2",
+      "parentBookSection": "Netrunning"
+    },
+    {
+      "assemblyInputId": "auth.ancestories",
+      "placement": "ch10-ancestories",
+      "title": "Ancestories",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A052",
+      "path": "docs/player-facing/world/ancestories.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "54cfb6c234195fec0c4949ad42cc7d46870d00fa557f9b35cfd1aa52e91b422f",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.communities",
+      "placement": "ch11-communities",
+      "title": "Communities",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A053",
+      "path": "docs/player-facing/world/communities.md",
+      "audience": "player",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "d237953817378257426a8a50a24054a1b50d29164bf1edf2599ab321efe062d1",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.gm-guide-index",
+      "placement": "gm-front-matter",
+      "title": "Cybermancy — GM Guide",
+      "assemblyMode": "whole-document",
+      "assemblyNote": "Consume as the GM-section opener/front-matter source after the spoiler divider. Editorial cleanup of navigation/development phrasing is deferred to Step 4 normalization.",
+      "parentDecisionId": "A015",
+      "path": "docs/gm-facing/index.md",
+      "audience": "gm",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "12aa8ae3b71c74c612766928be18471a31d65a179c2181329d1f5032e3e86ede",
+      "parentBookSection": "Front Matter / Navigation"
+    },
+    {
+      "assemblyInputId": "auth.project-helios",
+      "placement": "ch23-project-helios",
+      "title": "Project Helios and the Hidden History",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A019",
+      "path": "docs/gm-facing/world/project-helios-remnants.md",
+      "audience": "gm",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "fbd1a79299baf46ecf8b2e713d7b1491d3e9841dafe1e9b27337f1e3f0db29e9",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.council",
+      "placement": "ch24-council",
+      "title": "The Council",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A025",
+      "path": "docs/gm-facing/world/the-council.md",
+      "audience": "gm",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "776b339239cb9e53ff75e043819c96524e01f359d5f2799b0c99b2af46402569",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.cabal",
+      "placement": "ch25-cabal",
+      "title": "The Cabal",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A022",
+      "path": "docs/gm-facing/world/the-cabal.md",
+      "audience": "gm",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "d2bd9a6ab46fe098f647bf45aae7e3ac8863db50a3de4e62c33c94c26bf4fa93",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.cabal-projects",
+      "placement": "ch26-cabal-projects",
+      "title": "Cabal Projects",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A021",
+      "path": "docs/gm-facing/world/the-cabal-projects.md",
+      "audience": "gm",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "6fd0cfd5eae2ec0698d1b6692b2459ad3b7683b390b908de7758326db48f4e1e",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.chessboard",
+      "placement": "ch27-chessboard",
+      "title": "The Chessboard",
+      "assemblyMode": "whole-document",
+      "parentDecisionId": "A023",
+      "path": "docs/gm-facing/world/the-chessboard.md",
+      "audience": "gm",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "49235c361a89d64366a068088dcb914186daaa4c8c41e5e384cd565acdeff2b6",
+      "parentBookSection": "World / Setting"
+    },
+    {
+      "assemblyInputId": "auth.gm-resonance",
+      "placement": "ch28-gm-resonance",
+      "title": "The Resonance: GM Interpretation",
+      "assemblyMode": "segment",
+      "selector": {
+        "include": [
+          "heading 'Philosophical Interpretation'",
+          "heading 'Tone and Themes'"
+        ],
+        "exclude": "the include-markdown transclusion of docs/_shared/world/the-resonance.md, which is assembled once in ch02-resonance"
+      },
+      "parentDecisionId": "A026",
+      "path": "docs/gm-facing/world/timeline.md",
+      "audience": "gm",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceSha256": "ca14ed885ac749f284b443c1cffea917a7d03b1501d2044afb49f9d8a2caae8a",
+      "parentBookSection": "World / Setting"
+    }
+  ],
+  "structuredFamilies": [
+    {
+      "familyId": "adversaries",
+      "sourcePath": "src/packs/adventures/adversaries",
+      "entityCount": 107,
+      "audience": "gm",
+      "placement": "ch30-adversaries",
+      "title": "Adversaries",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "classification",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/adversaries/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B001",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/adventures/adversaries/**/*.json",
+      "contentDigestSha256": "c387c4d179212b73506428ae41aa862cf7ce56bc339ab8742158c39ce2c916cf",
+      "generatedOutputDir": "docs/gm-facing/adventures/adversaries",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE",
+      "fastPlayRule": "Consume flags.cybermancy.fastPlay structurally and render it as a dedicated Fast Play section; do not flatten it into Description."
+    },
+    {
+      "familyId": "adversaries-features",
+      "sourcePath": "src/packs/system/adversaries-features",
+      "entityCount": 419,
+      "audience": "gm",
+      "placement": "ch32-adversary-features",
+      "title": "Adversary Feature Reference",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "source-folder",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/adversaries-features/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B002",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/system/adversaries-features/**/*.json",
+      "contentDigestSha256": "3c53efdf3376e51d2a8f4fcb18a885a1cedba27f644a273b2a1e33eaebdf1f39",
+      "generatedOutputDir": "docs/gm-facing/system/adversaries-features",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "ammo",
+      "sourcePath": "src/packs/items/ammo",
+      "entityCount": 13,
+      "audience": "player",
+      "placement": "ch16-ammunition",
+      "title": "Ammunition",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/ammo/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B004",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/ammo/**/*.json",
+      "contentDigestSha256": "b0f4b0463b7d65fc7b2b20ba351a69adb0d68c2b4747667b5b52c478ce90972f",
+      "generatedOutputDir": "docs/player-facing/items/ammo",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "armors",
+      "sourcePath": "src/packs/items/armors",
+      "entityCount": 36,
+      "audience": "player",
+      "placement": "ch17-armor",
+      "title": "Armor",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/armors/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B005",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/armors/**/*.json",
+      "contentDigestSha256": "802898b99526194240ad13590306d1c98fef55359e296c919fc37aa36f02880b",
+      "generatedOutputDir": "docs/player-facing/items/armors",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "classes",
+      "sourcePath": "src/packs/system/classes",
+      "entityCount": 5,
+      "audience": "player",
+      "placement": "ch12-classes",
+      "title": "Classes",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/classes/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B006",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/system/classes/**/*.json",
+      "contentDigestSha256": "a1269813be20e8f752990f12965f080e1d50bde226980d34a9aa484df21545c6",
+      "generatedOutputDir": "docs/player-facing/system/classes",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "consumables",
+      "sourcePath": "src/packs/items/consumables",
+      "entityCount": 59,
+      "audience": "player",
+      "placement": "ch20-consumables",
+      "title": "Consumables",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/consumables/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B007",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/consumables/**/*.json",
+      "contentDigestSha256": "beeb282a4fc0ff3dce5d366c2c220ed9a1bc2be38596dc58a0e7a67227babfde",
+      "generatedOutputDir": "docs/player-facing/items/consumables",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "cybernetics",
+      "sourcePath": "src/packs/items/cybernetics",
+      "entityCount": 103,
+      "audience": "player",
+      "placement": "ch18-cybernetics",
+      "title": "Cybernetics",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/cybernetics/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B008",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/cybernetics/**/*.json",
+      "contentDigestSha256": "50a059bdfa7da72aea6c186d37006f9b330c7dac4c6aa854d455b292bb4e76c8",
+      "generatedOutputDir": "docs/player-facing/items/cybernetics",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "domains",
+      "sourcePath": "src/packs/system/domains",
+      "entityCount": 73,
+      "audience": "player",
+      "placement": "ch14-domains",
+      "title": "Domains and Domain Cards",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "source-folder",
+        "level-or-tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/domains/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B009",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/system/domains/**/*.json",
+      "contentDigestSha256": "79450fe3fff5609fe4d8941c74f505c0d9fd9a7f6bcbd498cedb76915a362900",
+      "generatedOutputDir": "docs/player-facing/system/domains",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "drones-devices",
+      "sourcePath": "src/packs/items/drones-devices",
+      "entityCount": 19,
+      "audience": "player",
+      "placement": "ch19-drones-devices",
+      "title": "Drones and Devices",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/drones-devices/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B010",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/drones-devices/**/*.json",
+      "contentDigestSha256": "02f4491233ff21d0153d86260cde2db77302a4a36613210f8db2754b3b88339f",
+      "generatedOutputDir": "docs/player-facing/items/drones-devices",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "environments",
+      "sourcePath": "src/packs/adventures/environments",
+      "entityCount": 8,
+      "audience": "gm",
+      "placement": "ch31-environments",
+      "title": "Environments",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "classification",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/environments/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B003",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/adventures/environments/**/*.json",
+      "contentDigestSha256": "a825584dbfa39c1d839426220df57b36850a919226e831b1a246db4baa2a8ee7",
+      "generatedOutputDir": "docs/gm-facing/adventures/environments",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE",
+      "fastPlayRule": "Consume flags.cybermancy.fastPlay structurally and render it as a dedicated Fast Play section; do not flatten it into Description."
+    },
+    {
+      "familyId": "features",
+      "sourcePath": "src/packs/system/features",
+      "entityCount": 105,
+      "audience": "gm",
+      "placement": "ch29-ice-reference",
+      "title": "ICE Reference",
+      "materialization": "normalize-all-publish-selected-subset",
+      "sort": [
+        "name"
+      ],
+      "recordFilter": "Normalize all logical Feature entities required by dependent mechanics; the independent rulebook collection publishes only entities whose Step 4 publicationData.featureCategory is 'ice' and iceType is 'sentry' or 'wall'.",
+      "generatedIntermediate": "build/rulebook/source/generated/features/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B011",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/system/features/**/*.json",
+      "contentDigestSha256": "455525eb076fbbb3e000278006c7713b77928521dd6d74654cb269a8618328a9",
+      "generatedOutputDir": "docs/player-facing/system/features",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE",
+      "publicationSelection": {
+        "kind": "ice-feature-subset",
+        "featureCategory": "ice",
+        "iceTypes": [
+          "sentry",
+          "wall"
+        ],
+        "selectionStage": "Step 4",
+        "normalizeNonSelectedEntities": true,
+        "standaloneAudience": "gm"
+      }
+    },
+    {
+      "familyId": "loot",
+      "sourcePath": "src/packs/items/loot",
+      "entityCount": 60,
+      "audience": "player",
+      "placement": "ch22-loot",
+      "title": "Loot",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/loot/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B012",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/loot/**/*.json",
+      "contentDigestSha256": "483960ae9daa7a808eef979d78a717cebf15218c475271bf929ad421d31b8202",
+      "generatedOutputDir": "docs/player-facing/items/loot",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "mods",
+      "sourcePath": "src/packs/items/mods",
+      "entityCount": 20,
+      "audience": "player",
+      "placement": "ch21-mods",
+      "title": "Mods",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/mods/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B013",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/mods/**/*.json",
+      "contentDigestSha256": "045c84fd8b3c33bc155fa53daf0affe61fad1361a4633320abf62b253d09cfd6",
+      "generatedOutputDir": "docs/player-facing/items/mods",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "subclasses",
+      "sourcePath": "src/packs/system/subclasses",
+      "entityCount": 10,
+      "audience": "player",
+      "placement": "ch12-classes",
+      "title": "Subclasses",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "parent-class-or-source-folder",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/subclasses/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B014",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/system/subclasses/**/*.json",
+      "contentDigestSha256": "55938af0e8fcbc7d215e932e4f4c9bb8ffdc4ce12932676a2384130d9eabfb33",
+      "generatedOutputDir": "docs/player-facing/system/subclasses",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    },
+    {
+      "familyId": "weapons",
+      "sourcePath": "src/packs/items/weapons",
+      "entityCount": 47,
+      "audience": "player",
+      "placement": "ch15-weapons",
+      "title": "Weapons",
+      "materialization": "generate-directly-from-canonical-structured-source",
+      "sort": [
+        "tier",
+        "trait",
+        "name"
+      ],
+      "recordFilter": "logical entity records only; exclude Foundry folder/manifest/organizational records",
+      "generatedIntermediate": "build/rulebook/source/generated/weapons/",
+      "generatedIntermediateAuthority": "DERIVATIVE",
+      "parentDecisionId": "B015",
+      "parentAuthority": "CANONICAL-CANDIDATE",
+      "parentDisposition": "INCLUDE",
+      "sourceGlob": "src/packs/items/weapons/**/*.json",
+      "contentDigestSha256": "ddfe7e4592a84ca01f38a80a5e322f72faa7084f87120d7855811432403fbb66",
+      "generatedOutputDir": "docs/player-facing/items/weapons",
+      "generatedOutputAuthority": "DERIVATIVE",
+      "generatedOutputDisposition": "EXCLUDE"
+    }
+  ],
+  "bookStructure": [
+    {
+      "id": "part-i-world",
+      "order": 100,
+      "title": "The World of Cybermancy",
+      "audience": "player",
+      "chapters": [
+        {
+          "id": "ch01-welcome",
+          "number": 1,
+          "title": "Welcome to Cybermancy",
+          "contentRefs": [
+            "auth.welcome"
+          ]
+        },
+        {
+          "id": "ch02-resonance",
+          "number": 2,
+          "title": "The Resonance Cascade",
+          "contentRefs": [
+            "auth.resonance"
+          ]
+        },
+        {
+          "id": "ch03-megacorporations",
+          "number": 3,
+          "title": "Megacorporations",
+          "contentRefs": [
+            "auth.corps"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-ii-rules",
+      "order": 200,
+      "title": "Cybermancy Rules",
+      "audience": "player",
+      "chapters": [
+        {
+          "id": "ch04-frame-rules",
+          "number": 4,
+          "title": "Cybermancy Frame Rules",
+          "contentRefs": [
+            "auth.frame-rules"
+          ]
+        },
+        {
+          "id": "ch05-item-loadouts",
+          "number": 5,
+          "title": "Item Loadouts",
+          "contentRefs": [
+            "auth.loadouts"
+          ]
+        },
+        {
+          "id": "ch06-flashbacks",
+          "number": 6,
+          "title": "Flashbacks",
+          "contentRefs": [
+            "auth.flashbacks"
+          ]
+        },
+        {
+          "id": "ch07-bennies",
+          "number": 7,
+          "title": "Bennies",
+          "contentRefs": [
+            "auth.bennies"
+          ]
+        },
+        {
+          "id": "ch08-driving-chases",
+          "number": 8,
+          "title": "Driving and Chases",
+          "contentRefs": [
+            "auth.driving"
+          ]
+        },
+        {
+          "id": "ch09-netrunning",
+          "number": 9,
+          "title": "Netrunning and Device Intrusion",
+          "contentRefs": [
+            "auth.netrunning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-iii-characters",
+      "order": 300,
+      "title": "Characters and Character Options",
+      "audience": "player",
+      "chapters": [
+        {
+          "id": "ch10-ancestories",
+          "number": 10,
+          "title": "Ancestories",
+          "contentRefs": [
+            "auth.ancestories"
+          ]
+        },
+        {
+          "id": "ch11-communities",
+          "number": 11,
+          "title": "Communities",
+          "contentRefs": [
+            "auth.communities"
+          ]
+        },
+        {
+          "id": "ch12-classes",
+          "number": 12,
+          "title": "Classes and Subclasses",
+          "contentRefs": [
+            "family:classes",
+            "family:subclasses"
+          ],
+          "composition": {
+            "kind": "class-package",
+            "primaryFamily": "classes",
+            "nestedFamily": "subclasses",
+            "relationshipResolutionStage": "Step 4",
+            "renderRule": "Resolve each Subclass to exactly one linked Class and render the full Subclass structure beneath that Class; do not create an independent Subclass reference chapter."
+          },
+          "assemblyNote": "Classes and Subclasses form one publication unit. Chapter 13 is reserved and intentionally has no independent chapter node."
+        },
+        {
+          "id": "ch14-domains",
+          "number": 14,
+          "title": "Domains and Domain Cards",
+          "contentRefs": [
+            "family:domains"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-iv-equipment",
+      "order": 400,
+      "title": "Equipment and Technology",
+      "audience": "player",
+      "chapters": [
+        {
+          "id": "ch15-weapons",
+          "number": 15,
+          "title": "Weapons",
+          "contentRefs": [
+            "family:weapons"
+          ]
+        },
+        {
+          "id": "ch16-ammunition",
+          "number": 16,
+          "title": "Ammunition",
+          "contentRefs": [
+            "family:ammo"
+          ]
+        },
+        {
+          "id": "ch17-armor",
+          "number": 17,
+          "title": "Armor",
+          "contentRefs": [
+            "family:armors"
+          ]
+        },
+        {
+          "id": "ch18-cybernetics",
+          "number": 18,
+          "title": "Cybernetics",
+          "contentRefs": [
+            "family:cybernetics"
+          ]
+        },
+        {
+          "id": "ch19-drones-devices",
+          "number": 19,
+          "title": "Drones and Devices",
+          "contentRefs": [
+            "family:drones-devices"
+          ]
+        },
+        {
+          "id": "ch20-consumables",
+          "number": 20,
+          "title": "Consumables",
+          "contentRefs": [
+            "family:consumables"
+          ]
+        },
+        {
+          "id": "ch21-mods",
+          "number": 21,
+          "title": "Mods",
+          "contentRefs": [
+            "family:mods"
+          ]
+        },
+        {
+          "id": "ch22-loot",
+          "number": 22,
+          "title": "Loot",
+          "contentRefs": [
+            "family:loot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-v-gm-world",
+      "order": 500,
+      "title": "GM World Guide",
+      "audience": "gm",
+      "requiresGmDivider": true,
+      "openerRefs": [
+        "auth.gm-guide-index"
+      ],
+      "openerPlacement": "after GM spoiler divider; before Chapter 23",
+      "chapters": [
+        {
+          "id": "ch23-project-helios",
+          "number": 23,
+          "title": "Project Helios and the Hidden History",
+          "contentRefs": [
+            "auth.project-helios"
+          ]
+        },
+        {
+          "id": "ch24-council",
+          "number": 24,
+          "title": "The Council",
+          "contentRefs": [
+            "auth.council"
+          ]
+        },
+        {
+          "id": "ch25-cabal",
+          "number": 25,
+          "title": "The Cabal",
+          "contentRefs": [
+            "auth.cabal"
+          ]
+        },
+        {
+          "id": "ch26-cabal-projects",
+          "number": 26,
+          "title": "Cabal Projects",
+          "contentRefs": [
+            "auth.cabal-projects"
+          ]
+        },
+        {
+          "id": "ch27-chessboard",
+          "number": 27,
+          "title": "The Chessboard",
+          "contentRefs": [
+            "auth.chessboard"
+          ]
+        },
+        {
+          "id": "ch28-gm-resonance",
+          "number": 28,
+          "title": "The Resonance: GM Interpretation",
+          "contentRefs": [
+            "auth.gm-resonance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-vi-gm-toolkit",
+      "order": 600,
+      "title": "GM Encounter Toolkit",
+      "audience": "gm",
+      "chapters": [
+        {
+          "id": "ch29-ice-reference",
+          "number": 29,
+          "title": "ICE Reference",
+          "contentRefs": [
+            "family:features"
+          ],
+          "composition": {
+            "kind": "ice-reference",
+            "sourceFamily": "features",
+            "publicationSubset": {
+              "featureCategory": "ice",
+              "iceTypes": [
+                "sentry",
+                "wall"
+              ]
+            },
+            "relationshipResolutionStage": "Step 4",
+            "renderRule": "Normalize the complete Feature family for dependent mechanics, but publish only normalized Sentry ICE and Wall ICE Features as the standalone Chapter 29 reference."
+          }
+        },
+        {
+          "id": "ch30-adversaries",
+          "number": 30,
+          "title": "Adversaries",
+          "contentRefs": [
+            "family:adversaries"
+          ]
+        },
+        {
+          "id": "ch31-environments",
+          "number": 31,
+          "title": "Environments",
+          "contentRefs": [
+            "family:environments"
+          ]
+        },
+        {
+          "id": "ch32-adversary-features",
+          "number": 32,
+          "title": "Adversary Feature Reference",
+          "contentRefs": [
+            "family:adversaries-features"
+          ]
+        }
+      ]
+    }
+  ],
+  "gmDivider": {
+    "beforePart": "part-v-gm-world",
+    "title": "GM MATERIAL — SPOILERS BEYOND THIS POINT",
+    "audience": "gm",
+    "requiredInCompleteBuild": true,
+    "omittedInPlayerBuild": true,
+    "afterDividerFrontMatterRefs": [
+      "auth.gm-guide-index"
+    ]
+  },
+  "crossReferencePolicy": {
+    "semanticTargetForms": [
+      "section:<section-or-chapter-id>",
+      "family:<family-id>",
+      "entity:<family-id>:<stable-source-id>"
+    ],
+    "identityRule": "Structured entity references resolve by family plus stable source/Foundry ID when available; display name alone is never a unique key.",
+    "collisionRule": "Same-name entities in different families are intentionally disambiguated by family-qualified semantic IDs.",
+    "pageNumberRule": "Page numbers are render-time products and MUST NOT be stored as source-of-truth cross-references.",
+    "legacyLinkRule": "Existing relative Markdown/MkDocs links remain untouched in Step 3. Step 4 normalization converts eligible internal links to semantic cross-references.",
+    "profileRule": "A cross-reference target must exist in the selected build profile; player/shared nodes cannot target GM-only nodes.",
+    "externalRule": "References to Daggerheart use external semantic references; the assembly process does not copy missing Daggerheart rules text."
+  },
+  "generatedCollectionPolicy": {
+    "canonicalInput": "src/packs sources listed in structuredFamilies",
+    "forbiddenInput": "docs/... generated collection/detail pages and MkDocs CSV/Jinja aggregation pages",
+    "intermediateRoot": "build/rulebook/source/generated/",
+    "intermediateStatus": "DERIVATIVE",
+    "materializationStatus": "DEFERRED UNTIL ASSEMBLY IMPLEMENTATION",
+    "entryCountInvariant": 1084,
+    "fastPlayPolicy": "For adversaries and environments, render flags.cybermancy.fastPlay structurally as Fast Play.",
+    "validation": [
+      "Per-family logical entity counts must match this manifest and the frozen publication manifest.",
+      "No generated page may become a canonical source.",
+      "Generated collection output must preserve source identity for semantic cross-references.",
+      "Sorting/grouping changes presentation only and never source authority."
+    ]
+  },
+  "appendices": [
+    {
+      "id": "appendix-a-quick-reference",
+      "label": "Appendix A",
+      "title": "Cybermancy Rules Quick Reference",
+      "audience": "player",
+      "status": "RESERVED / GENERATED LATER",
+      "sourceRule": "May only summarize already-included rules; may not introduce new mechanics."
+    },
+    {
+      "id": "appendix-b-entity-index",
+      "label": "Appendix B",
+      "title": "Entity Index",
+      "audience": "profile-filtered",
+      "status": "RESERVED / GENERATED LATER",
+      "sourceRule": "Generated from semantic IDs/titles of structured entries and authored section targets; filtered by build profile."
+    },
+    {
+      "id": "appendix-c-attribution",
+      "label": "Appendix C",
+      "title": "Attribution and Publication Notice",
+      "audience": "shared",
+      "status": "RESERVED / EDITORIAL-LATER",
+      "sourceRule": "Populate only from verified licensing/attribution inputs; no legal language is invented by this manifest."
+    }
+  ],
+  "deferredOrExcluded": [
+    {
+      "parentDecisionId": "A024",
+      "path": "docs/gm-facing/world/the-council-projects.md",
+      "parentDecision": "CANONICAL-CANDIDATE / EXCLUDE / DECIDED",
+      "reason": "Intentionally outside this rulebook snapshot."
+    },
+    {
+      "parentDecisionId": "A020",
+      "path": "docs/gm-facing/world/the-alternate-chessboard.md",
+      "parentDecision": "CANONICAL-CANDIDATE / EXCLUDE / DECIDED",
+      "reason": "Excluded by the corrected Step 2 authority decision; no assembly placement."
+    },
+    {
+      "parentDecisionId": "A007",
+      "path": "docs/gm-facing/adventures/npc-actors.md",
+      "parentDecision": "NON-CANONICAL / EXCLUDE / DECIDED",
+      "reason": "Campaign/adventure-specific actor aggregation is outside reusable System rulebook authority."
+    }
+  ],
+  "step3Acceptance": {
+    "mustHold": [
+      "18 authored inputs mapped exactly once to a primary book or front-matter location.",
+      "15 structured families mapped exactly once to a primary book location.",
+      "Structured family counts sum to 1084.",
+      "All 33 INCLUDE rows in the frozen parent manifest are represented by authored inputs plus structured families.",
+      "GM-only content begins only after the GM divider in the complete build.",
+      "Player build contains no GM-only nodes.",
+      "docs/gm-facing/world/the-alternate-chessboard.md is not assembled.",
+      "No generated MkDocs derivative is an input.",
+      "Adversary/environment Fast Play is consumed from flags.cybermancy.fastPlay.",
+      "No full Markdown/HTML normalization is performed by Step 3."
+    ]
+  },
+  "supersedes": {
+    "manifest": "cybermancy-rulebook-assembly-manifest-v1.28.json",
+    "reason": "Rebuilt against frozen Rulebook Step 2 publication manifest v1.29 using the approved Step 3 information architecture.",
+    "previousVersion": "1.28"
+  }
+}
