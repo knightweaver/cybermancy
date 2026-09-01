@@ -17,7 +17,7 @@ Adv EMP Grenade,adv-emp-grenade,Improved electromagnetic charge capable of disab
 Adv Fragmentation Grenade,adv-fragmentation-grenade,Factory-tuned military variant with denser shrapnel spread and wider kill radius.,2,Finesse,Far,One Handed,d12+4,,
 Compact SMG,compact-smg,A miniaturized submachine gun favored by covert teams — concealable but vicious in a firefight.,2,Agility,Close,Two Handed,d6+6,,
 Improved Cyber Spur,improved-cyber-spur,"Enhanced retractable spurs forged from titanium alloy, near undetectable by security scanners.",2,Strength,Melee,One Handed,d8+4,,
-Improved Monofilament Whip,improved-monofilament-whip,A reinforced filament with servo control for higher cutting torque and unmatched lethality.,2,Finesse,Very Close,One Handed,d10+4,,
+Improved Monofilament Whip,improved-monofilament-whip,"<p></p><p><span style=""font-family:'Bruno Ace'""><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=""font-family:Montserrat, sans-serif"">On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.</span></p></li></ul>",2,Finesse,Very Close,One Handed,d10+4,,
 Improved Shock Baton,improved-shock-baton,Upgraded battery coils deliver chained electrical arcs between multiple nearby targets.,2,Agility,Close,One Handed,d8+3,,
 Improved Vibro-Knife,improved-vibro-knife,"Precision-tuned vibration edge allows for armor penetration and silent, efficient kills.",2,Agility,Melee,One Handed,d8+5,,
 Military Assault Rifle,military-assault-rifle,Hardened composite frame with select-fire and tactical uplink for squad-level coordination.,2,Strength,Far,Two Handed,d8+6,,

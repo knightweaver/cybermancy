@@ -88,7 +88,7 @@
       "8dzsOyzUduq9aHWE": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Suppressive Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, target must mark 1 Stress to act next turn.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Suppressive Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, target must mark 1 Stress to act the next time they are spotlighted.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883695891,
-    "modifiedTime": 1787573539215,
+    "modifiedTime": 1788302732315,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "vAnozeVTXAkCKdLV",

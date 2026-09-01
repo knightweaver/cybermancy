@@ -25,9 +25,9 @@ A high-grade monofilament weapon issued to elite corp assassins — silent, perf
 </div>
 </div>
 #### Actions
-- <div markdown='1'>**Lethal Edge**<br>*
+- <div markdown='1'>**More Lethal Edge**<br>*
 
-On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.*</div>
+On a Success with Hope, set one of the damage die to its maximum value.*</div>
 
 - <div markdown='1'>**Critical Effect:  Corpse-Cutter**<br>*
 

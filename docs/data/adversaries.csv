@@ -195,6 +195,19 @@ Monofilament Perimeter Wire,monofilament-perimeter-wire,2,Skulk,12,meleely invis
 Remote-Triggered Nanoshard Mine,remote-triggered-nanoshard-mine,2,Skulk,12,A mine that releases cutting nanoshards on detonation.
 Runner Doing Fixer Errands,runner-doing-fixer-errands,2,Skulk,12,A low-tier runner carrying someone else's package and reputation.
 Security Ripper-Drone,security-ripper-drone,2,Skulk,12,A rotary-blade drone designed for close-quarters interception.
+Aggressive Librarian,aggressive-librarian,2,Social,14,"A stern Seattle librarian and expert local historian whose Cybermancy summons spectral projections shaped by the books around her.
+
+FAST PLAYOpening: Be stern but helpful. Answer sincere questions and use Reference Authority during research.
+
+Default: Correct bad behavior first. Use Withering Correction against bullying or deception.
+
+If Disrespected: Resolve Respect the Collection. Remain Hostile until the offender makes amends or leaves.
+
+If Hostile: Use Spectral Citation normally. Spend Fear on The Stacks Answer Back against clustered threats.
+
+Remember: Every magical attack reflects nearby books; only its appearance changes.
+
+Goal: Be an intimidating guardian and expert first, dangerous Cybermancer second."
 Cavelor Finn,cavelor-finn,2,Solo,16,"A lean half-elf assassin who treats observation as the real job and violence as an optional conclusion. Finn works from prepared hides with suppressed weapons, custom toxins, and multiple escape routes, refusing any fight that becomes fair.
 
 FAST PLAYOpening: Shadow the team unseen until Finn has a clean assassination opportunity or another compelling reason to reveal himself.

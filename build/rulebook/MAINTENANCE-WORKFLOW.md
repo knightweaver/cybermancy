@@ -1,24 +1,141 @@
-# Cybermancy Rulebook Maintenance Workflow
+# Cybermancy Content Creation through Rulebook Maintenance Workflow
 
-This is the maintainer-facing workflow for the current Rulebook Step 4 freeze and Step 7 production renderer. It documents the supported path; it does not redefine publication authority, manifest schemas, chapter architecture, layout grammar, production stages, or release names.
+This is the end-to-end workflow that is used for:
+ * Generating new content (mostly Adversaries and Environments) in ChatGPT using the Package Pipeline
+ * Importing that content into Foundry via a macro
+ * Exporting content from Foundry via fvtt
+ * Updating the Cybermancy project in GitHub
+ * Running the maintenance steps in a command line to rebuild the rulebooks, both the Player Handbook and the GM Guide
 
-## 1. Code/freeze baseline
+## 1. Generating new content in ChatGPT
+
+In the Cybermancy - World & Campaign project we have built up an Adversary and Environment pipeline that will generate content from a prompt shaped like this:
+
+```angular2html
+BUILD ADVERSARY
+Name: <name>
+Tier: <1-4>
+Role: <Solo|Leader|Bruiser|Standard|Minion|Horde|Ranged|Skulk|Support|Social>
+    or
+Type: <Exploration|Traversal|Social|Event>    
+Concept: <1-3 sentences>
+```
+That prompt should generate a full zip file that can be loaded into Foundry.  (NOTE: the preserved artifacts for the pipeline are located E:\Documents\Daniel\role-gaming\Cybermancy Adversary and Environment Generator in case they are ever needed)
+
+## 2. Import into Foundry
+
+### Unzip the file generated from 1 and it will contain a structure like:
+```text
+<adversary-environment name>/
+├── assets/
+│   ├── images/
+│   │   └── adversaries/
+│   │   │   └── <stub-name.png> 
+│   ├── tokens
+│   │   └── adversaries
+│   │   │   └── <token-stub-name.png> 
+├── foundry/
+│   └── <stub-name.json>
+├── print/
+│   └── <stub-name.pdf>
+└── source/  -- you will likely never need the files in this directory
+```
+### Use Foundry macro **Direct Import Cybermancy Actor JSON** to import the <stub-name.json> into Foundry
+### Copy the assets to these 3 folder locations:
+   * **E:\FoundryVTT\Data\modules\cybermancy**  --> this is the image location so the images show up in the Compendium
+   * **E:\FoundryVTT\Data\worlds\cybermancer**  --> this is the image location so the images show up when these are made into Actors (yes, I should have given the campaign in Foundry a better name)
+   * The appropriate docs directory:
+     * **E:\Documents\Daniel\role-gaming\Cybermancy module development\cybermancy\docs\player-facing**
+     * **E:\Documents\Daniel\role-gaming\Cybermancy module development\cybermancy\docs\gm-facing**
+
+I may try to figure out a better option for the images that copying into 3 locations, but that's what we've got at the moment.
+
+## 3. Export from Foundry Compendia to src/packs and regenerate the docs
+
+### Use the fvtt command-line commands to export the Compendia packs, examples:
+
+ * System: 
+```powershell
+fvtt package unpack -n "system/classes" --outputDirectory "src/packs/system/classes"
+```
+ * Adventure:
+```powershell
+fvtt package unpack -n "adventures/adversaries" --outputDirectory "src/packs/adventures/adversaries"
+```
+ * Items:
+```powershell
+fvtt package unpack -n "items/loot" --outputDirectory "src/packs/items/loot"
+```
+
+### Run generate-docs.py
+ * GM facing:
+```powershell
+python pyCybermancy/generate-docs.py --audience gm-facing --types adversaries,environments --repo-root .
+```
+ * Player facing:
+```powershell
+python pyCybermancy/generate-docs.py --audience player-facing --types weapons,loot --repo-root .
+```
+ * Alternately, you can test out the Cybermancy web documentation locally buy running:
+```powershell
+python -m mkdocs serve --config-file mkdocs.player.yml --dev-addr 127.0.0.1:8001
+```
+
+## 4. Checkin all the changes to the cybermancy project on Github directly into main
+
+## 5. Rebuild rulebooks
+
+### a). Check the baseline
 
 From the repository root, before maintenance work:
 
 ```powershell
 python build\rulebook\scripts\build-rulebook.py baseline-check
 ```
+Use `--verbose` for the JSON report if there are issues.
 
-Use `--verbose` for the JSON report. This check is read-only and intentionally does not require `build/rulebook/source/`, Pandoc, LuaLaTeX, or the PDF utilities. It verifies the accepted production contract, frozen Step 6 hashes, selected freeze artifacts, profile/release identity, chapter topology, and production-stage tail.
-
-The supported unit suite remains:
+If needed the unit test suite:
 
 ```powershell
 python -m unittest discover -s build\rulebook\scripts\tests -p "test_*.py" -v
 ```
+### (b. Optional) Check the Status
 
-Do not suppress the unit-suite exit status.
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py status
+```
+`status` is read-only. It reports the state of readiness for the rulebook rebuild. Use `--verbose` for structured JSON.
+
+### c). Prepare a new freeze snapshot
+
+Run `prepare` only **after the intended canonical source and asset changes have been committed**:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py prepare
+```
+> **Generated freeze artifacts must be _committed_ and pushed to main before production build.**
+
+### d). Routine build
+
+After the refreshed inventory and versioned freeze artifacts have been reviewed and **committed**:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rulebook
+python build\rulebook\scripts\maintain-rulebook.py build --profile player-guide
+python build\rulebook\scripts\maintain-rulebook.py build --profile all
+```
+### (Optional and if desired) Dry-run
+
+`prepare`, `build`, and `release` accept `--dry-run`:
+
+```powershell
+python build\rulebook\scripts\maintain-rulebook.py prepare --dry-run
+python build\rulebook\scripts\maintain-rulebook.py build --profile complete-rulebook --dry-run
+python build\rulebook\scripts\maintain-rulebook.py release --profile all --dry-run
+```
+---
+
+## Full documentation on the Rulebook Maintenance scritps
 
 ### Continuous integration
 

@@ -6,7 +6,7 @@
 <img src="../../../assets/icons/weapons/improved-monofilament-whip.webp" alt="Improved Monofilament Whip" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-A reinforced filament with servo control for higher cutting torque and unmatched lethality.
+<p></p><p><span style="font-family:'Bruno Ace'"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style="font-family:Montserrat, sans-serif">On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.</span></p></li></ul>
 </div>
 </div>
 
@@ -27,7 +27,7 @@ A reinforced filament with servo control for higher cutting torque and unmatched
 #### Actions
 - <div markdown='1'>**Lethal Edge**<br>*
 
-On a Hope win, upgrade one damage die to max value.*</div>
+On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.*</div>
 
 - <div markdown='1'>**Critical Effect:  Severance**<br>*
 
