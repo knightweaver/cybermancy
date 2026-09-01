@@ -20,7 +20,27 @@
       "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.environments",
       "reconciliation": "exact-before-render"
     },
-    "ordering": ["tier", "classification", "name", "semanticId"]
+    "ordering": [
+      "tier",
+      "classification",
+      "name",
+      "semanticId"
+    ]
+  },
+  "presentationPolicy": {
+    "schema": "cybermancy-encounter-presentation-policy-v1",
+    "viewSchema": "cybermancy-encounter-presentation-view-v1.0",
+    "sectionOrder": [
+      "identity",
+      "description",
+      "impulses",
+      "potentialAdversaries",
+      "fastPlay",
+      "actions",
+      "features"
+    ],
+    "omitEmptyOptionalSections": true,
+    "missingContentPolicy": "omit-without-invention"
   },
   "artworkPolicy": "optional for legacy corpus; omit without invented replacement",
   "fastPlayPolicy": "render structured Fast Play only when present",
