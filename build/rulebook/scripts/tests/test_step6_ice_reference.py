@@ -13,7 +13,12 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from rulebook_layout.ice_reference import compose_ice_reference
 from rulebook_layout.ice_reference_geometry import evaluate_ice_reference_text
-from rulebook_layout.ice_reference_refined import markdown_to_tex, render_ice_reference_tex
+from rulebook_layout.ice_reference_refined import (
+    _action_tex,
+    _style,
+    markdown_to_tex,
+    render_ice_reference_tex,
+)
 
 
 class TestStep6IceReference(unittest.TestCase):
@@ -320,6 +325,24 @@ class TestStep6IceReference(unittest.TestCase):
         self.assertEqual(tex.count(r"\end{itemize}"), 2)
         self.assertIn(r"\item Failure", tex)
         self.assertIn(r"\item Advance alert", tex)
+
+    def test_action_type_uses_shared_blue_label_grammar(self):
+        _, config = self._fixture()
+        tex = _action_tex(
+            {
+                "name": "Counter Pulse",
+                "actionType": "reaction",
+                "rulesMarkdown": "Body text remains unchanged.",
+            },
+            _style(config),
+        )
+        self.assertIn("Counter Pulse", tex)
+        self.assertIn("Body text remains unchanged.", tex)
+        self.assertIn(
+            r"\fontsize{9.5}{10.5}\selectfont\bfseries\color{CMAccent} REACTION",
+            tex,
+        )
+        self.assertNotIn(r"\fontsize{7.8}{8.8}\selectfont\color{CMMuted}", tex)
 
     def test_renderer_uses_accepted_rulebook_shell_and_two_column_grammar(self):
         sidecar, config = self._fixture()

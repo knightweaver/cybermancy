@@ -6,6 +6,8 @@ import unicodedata
 from pathlib import Path
 from typing import Any, Iterable
 
+from rulebook_layout.feature_type_style import feature_type_label_tex
+
 SUPPORTED_SCHEMA = "cybermancy-step4-encounter-semantics-v1.0"
 FAMILIES = ("adversaries", "environments", "adversaries-features")
 
@@ -280,9 +282,13 @@ def _actions(actions: Any) -> str:
         if not isinstance(action, dict):
             continue
         name = esc(action.get("name") or "Action")
-        atype = esc(action.get("actionType") or action.get("type") or "")
+        atype = str(action.get("actionType") or action.get("type") or "").strip()
         rules = md(action.get("rulesMarkdown") or action.get("description") or "")
-        tag = rf'''{{\scriptsize\bfseries\color{{CMViolet}} {atype.upper()}}}\hspace{{0.4em}}''' if atype else ""
+        tag = (
+            feature_type_label_tex(atype, color_role="CMTealDark") + r"\hspace{0.4em}"
+            if atype
+            else ""
+        )
         out.append(rf'''{tag}\textbf{{{name}.}} {rules}''')
     return "\\par\n".join(out)
 

@@ -3,6 +3,8 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from rulebook_layout.feature_type_style import feature_type_label_tex
+
 
 def latex_escape(value: Any) -> str:
     text = str(value or "")
@@ -221,7 +223,10 @@ def _action_tex(action: dict[str, Any], style: dict[str, Any]) -> str:
     action_type = str(action.get("actionType") or "").strip()
     type_suffix = ""
     if action_type:
-        type_suffix = rf"\hspace{{0.6em}}{{\fontsize{{7.8}}{{8.8}}\selectfont\color{{CMMuted}}\MakeUppercase{{{_inline_tex(action_type)}}}}}"
+        type_suffix = r"\hspace{0.6em}" + feature_type_label_tex(
+            action_type,
+            color_role="CMAccent",
+        )
     pieces = [
         rf"\Needspace{{{style['action_needspace']:.2f}in}}",
         rf"{{\CMDisplay\fontsize{{{style['action']:.2f}}}{{{style['action_leading']:.2f}}}\selectfont\bfseries\color{{CMInk}} {_inline_tex(name)}{type_suffix}\par}}",

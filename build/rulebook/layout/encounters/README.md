@@ -46,6 +46,12 @@ No further standalone Part VI layout work is required. Integration of Chapters 3
 - Chapter 30 and 31 production builds fail closed unless the selected publication-manifest counts and semantic corpus reconcile exactly with the Step 4 sidecar. The dated 106/8 acceptance counts do not freeze future corpus size.
 - The Chapter 32 publication projection remains frozen at **344** representatives derived from **419** canonical standalone Features unless separately authorized.
 
+### Feature/action type-label role
+
+Structured action types rendered inside Adversary and Environment Features/Actions use the shared Feature/Action type-label presentation role: bold uppercase text at 9.5 pt with 10.5 pt leading in the established `CMTealDark` encounter blue/teal role. This replaces the previous `scriptsize` violet tag without changing the action name, rules text, or structured type value.
+
+Type labels are a presentation of existing normalized `actionType`/type semantics only. Long labels may wrap naturally, but the renderer must preserve the complete label, action name, and rules text. Legacy prose containing words such as *Passive* or *Reaction* is not parsed or rewritten to invent structured labels.
+
 ## Chapter 32 publication equivalence
 
 The initial Step 4 audit remains available as diagnostic evidence:

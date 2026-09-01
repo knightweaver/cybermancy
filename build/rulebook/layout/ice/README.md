@@ -88,6 +88,12 @@ Accepted visual rules:
 - nested normalized lists remain nested;
 - no card boxes and no ICE-specific layout exceptions.
 
+### Action-type presentation role
+
+Structured reader-facing action types use the shared Feature/Action type-label role: bold uppercase text at 9.5 pt with 10.5 pt leading in the established ICE `CMAccent` teal/blue role. This replaces the former 7.8 pt muted-gray suffix and applies only to the semantic action-type label; action names, rules text, metadata, and the 10.5 pt body-text minimum are unchanged.
+
+The label is rendered only from the normalized structured action type supplied to the publication view. Legacy prose that happens to contain words such as *Passive* or *Reaction* is not parsed or rewritten to manufacture a type label.
+
 Reader-facing output must not expose default Foundry `action` classification, generic `Target: any`, raw `hitPoints`, unlabeled `Resource: simple`, Foundry IDs, folder IDs, source paths, runtime image paths, or implementation wiring.
 
 Exact parent/action prose duplication is suppressed deterministically. No fuzzy rewriting is used.

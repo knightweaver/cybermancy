@@ -7,7 +7,7 @@ SCRIPT_DIR = HERE.parents[1]
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from rulebook_layout.encounters import render_package, validate_sidecar
+from rulebook_layout.encounters import _actions, render_package, validate_sidecar
 
 
 class TestEncounterLayout(unittest.TestCase):
@@ -97,6 +97,24 @@ class TestEncounterLayout(unittest.TestCase):
         self.assertLess(tex.index("NO PUBLICATION ART"), tex.index(r"STANDARD \textbullet\ TIER 1"))
         self.assertIn(r"STANDARD \textbullet\ TIER 1}\\[1.5pt]", tex)
         self.assertNotIn(r"\clearpage", tex)
+
+    def test_action_type_uses_shared_blue_role_and_preserves_long_label_content(self):
+        tex = _actions(
+            [
+                {
+                    "name": "Interrupt Cascade",
+                    "actionType": "triggered reaction with extended label",
+                    "rulesMarkdown": "Action body remains unchanged.",
+                }
+            ]
+        )
+        self.assertIn("Interrupt Cascade", tex)
+        self.assertIn("Action body remains unchanged.", tex)
+        self.assertIn(
+            r"\fontsize{9.5}{10.5}\selectfont\bfseries\color{CMTealDark} TRIGGERED REACTION WITH EXTENDED LABEL",
+            tex,
+        )
+        self.assertNotIn(r"\scriptsize\bfseries\color{CMViolet}", tex)
 
     def test_unselected_adversary_render_order_is_normalized_name(self):
         sidecar = self._sidecar()
