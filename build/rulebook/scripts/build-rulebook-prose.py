@@ -530,8 +530,8 @@ def document_preamble(config: dict[str, Any] | None = None) -> str:
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancyhead[L]{\sffamily\fontsize{7.5}{9}\selectfont\color{CMInk}\textbf{CYBERMANCY} \color{CMRunningAccent}// \color{CMInk}\CMRunningChapter}
-\fancyhead[R]{\sffamily\fontsize{7.4}{9}\selectfont\color{CMRunningAccent}\textbf{\CMRunningMarker}}
+\fancyhead[L]{\sffamily\fontsize{7.5}{9}\selectfont\color{CMInk}\textbf{CYBERMANCY} \color{\CMRunningAccent}// \color{CMInk}\CMRunningChapter}
+\fancyhead[R]{\sffamily\fontsize{7.4}{9}\selectfont\color{\CMRunningAccent}\textbf{\CMRunningMarker}}
 \fancyfoot[L]{\sffamily\fontsize{7.0}{8.5}\selectfont\color{CMTeal}STEP 6 // LONG-FORM PROSE // V1.0}
 \fancyfoot[R]{\sffamily\fontsize{7.0}{8.5}\selectfont\color{CMInk}\thepage}
 \setlength{\headheight}{12pt}
@@ -1075,6 +1075,13 @@ def main() -> int:
         report = validate_only(paths)
     else:
         report = build(paths)
+    if report["status"] != "PASS":
+        for error in report.get("errors", []):
+            if isinstance(error, dict):
+                code = str(error.get("code") or "ERROR")
+                message = str(error.get("message") or "").strip()
+                if message:
+                    print(f"[{code}] {message}", file=sys.stderr)
     print(json.dumps({"status": report["status"], "report": str(paths.report), "output": str(paths.output)}, ensure_ascii=False))
     return 0 if report["status"] == "PASS" else 2
 
