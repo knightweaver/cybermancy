@@ -223,8 +223,8 @@ class TestStep6IceReference(unittest.TestCase):
                 "showResource": "when-reader-facing",
             },
             "style": {
-                "displayFont": "Lato",
-                "bodyFont": "Noto Serif",
+                "displayFont": "Arial",
+                "bodyFont": "Arial",
                 "paperColor": "F9F9F7",
                 "darkBandColor": "111B28",
                 "gmAccentColor": "6C55A6",
@@ -326,8 +326,8 @@ class TestStep6IceReference(unittest.TestCase):
         view, report = compose_ice_reference(sidecar, config)
         self.assertEqual(report["status"], "PASS", report)
         tex = render_ice_reference_tex(view, config)
-        self.assertIn(r"\setmainfont{Noto Serif}", tex)
-        self.assertIn(r"\newfontfamily\CMDisplay{Lato}", tex)
+        self.assertIn(r"\setmainfont{Arial}", tex)
+        self.assertIn(r"\newfontfamily\CMDisplay{Arial}", tex)
         self.assertIn(r"\definecolor{CMPaper}{HTML}{F9F9F7}", tex)
         self.assertIn(r"\definecolor{CMGM}{HTML}{6C55A6}", tex)
         self.assertIn(r"\colorbox{CMDark}", tex)

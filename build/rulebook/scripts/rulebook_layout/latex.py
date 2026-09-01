@@ -46,8 +46,8 @@ def _document_preamble(config: dict) -> str:
 \pagestyle{{empty}}
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{0pt}}
-\IfFontExistsTF{{Roboto Condensed}}{{\setsansfont{{Roboto Condensed}}}}{{\setsansfont{{TeX Gyre Heros}}}}
-\IfFontExistsTF{{Roboto}}{{\setmainfont{{Roboto}}}}{{\setmainfont{{TeX Gyre Heros}}}}
+\setsansfont{{Arial}}
+\setmainfont{{Arial}}
 \definecolor{{CMTableHeader}}{{HTML}}{{{style['header']}}}
 \definecolor{{CMGroupBand}}{{HTML}}{{{style['group']}}}
 \definecolor{{CMAltRow}}{{HTML}}{{{style['alt']}}}

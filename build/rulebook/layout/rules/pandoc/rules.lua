@@ -56,7 +56,7 @@ function HorizontalRule(el)
   return pandoc.RawBlock('latex', '\\CMSectionRule')
 end
 
--- Noto Serif does not reliably provide the directional-arrow glyphs used by
+-- Arial does not reliably provide the directional-arrow glyphs used by
 -- normalized rules text on every LuaLaTeX installation. Preserve the authored
 -- character semantically while emitting deterministic TeX math arrows.
 function Str(el)

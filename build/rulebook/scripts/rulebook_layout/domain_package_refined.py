@@ -334,8 +334,8 @@ def render_domain_package_tex(
 \usepackage{{multicol}}
 \usepackage{{paracol}}
 \usepackage{{needspace}}
-\setmainfont{{Latin Modern Roman}}
-\setsansfont{{Latin Modern Sans}}
+\setsansfont{{Arial}}
+\setmainfont{{Arial}}
 \definecolor{{CMAccent}}{{HTML}}{{{style['accent']}}}
 \definecolor{{CMBright}}{{HTML}}{{{style['bright']}}}
 \definecolor{{CMInk}}{{HTML}}{{{style['ink']}}}

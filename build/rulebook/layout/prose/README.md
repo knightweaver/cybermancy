@@ -22,8 +22,8 @@ The prose renderer does not independently re-read Foundry packs or generated MkD
 - US Letter.
 - Light, print-friendly body pages.
 - Two-column body prose with a 0.24 in gutter.
-- Noto Serif 10.3 pt / 14.2 pt body typography, with a TeX Gyre fallback.
-- Lato display hierarchy, with a TeX Gyre fallback.
+- Arial 10.3 pt / 14.2 pt body typography.
+- Arial display hierarchy.
 - Standalone dark Part openers.
 - Full-width dark chapter title bands.
 - H3-H5 restrained editorial hierarchy.

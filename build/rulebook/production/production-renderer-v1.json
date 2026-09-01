@@ -94,7 +94,7 @@
     {"order": 170, "stage": "rendered-regression"}
   ],
   "frozenPackageBindings": [
-    {"path": "build/rulebook/layout/prose/prose-layout-v1.json", "sha256": "ccbeb0cbd538deb303e239595ec14f0e4185e15fc477dd0189b9f7b466cbe92c"},
+    {"path": "build/rulebook/layout/prose/prose-layout-v1.json", "sha256": "754cb4b4ab9dd8b17091593bdebc3c62224e14cb28172b4a0de22f5b2a8be50f"},
     {"path": "build/rulebook/layout/rules/rules-layout-v1.json", "sha256": "cf80671f232f64ed0b7906f7bbb5f65299d8f4b9d0509ef50d9cfead02615413"},
     {"path": "build/rulebook/layout/character-origins/character-origins-layout-v1.json", "sha256": "3f9dca0f76c32f9b93b6616ff70915263ad34f37ddb5ef3b44d06797c66c4b6c"},
     {"path": "build/rulebook/layout/classes/class-package-v1.json", "sha256": "bfbb53f0d3c5f5833a94b8aea3507b56da07f4bf3ea25c85553f124f075ea616"},
@@ -108,7 +108,7 @@
     {"path": "build/rulebook/layout/equipment/consumables-v1.json", "sha256": "351694663e0e265b7c0b67fb1dc2bbbdc43d42008d811bbb5dae9b548944fdeb"},
     {"path": "build/rulebook/layout/equipment/mods-v1.json", "sha256": "242b1985eb2cc6fbc0e8b65f6b16d571457fbba143bd26a3da03c3cbe45975f2"},
     {"path": "build/rulebook/layout/equipment/loot-v1.json", "sha256": "492228f7356973c5122c5000161e58df9abf4842a5afde680e6a9465cf05be4e"},
-    {"path": "build/rulebook/layout/ice/ice-reference-package-v1.json", "sha256": "8975aaade40d17058be3a4849c4767572af839751da84ffc18a2ef8d4ace9722"},
+    {"path": "build/rulebook/layout/ice/ice-reference-package-v1.json", "sha256": "ec98c0a0a90fc84e12e6868fd62bfdfe544feda9e3b0609eb739388cf3fb1e16"},
     {"path": "build/rulebook/layout/encounters/adversary-package-v1.json", "sha256": "d64ed618cc82655837fdc6476adf50329020e3054e1f0bf54aa6b73512ba4c89"},
     {"path": "build/rulebook/layout/encounters/environment-package-v1.json", "sha256": "f7d7b0cf1cb511e40c623190eb2d5ecfa54b53912154fa463fe1b14ada6ce86d"},
     {"path": "build/rulebook/layout/encounters/adversary-feature-reference-v1.json", "sha256": "1baa4a3aaa34581451f220f2ac6ce221c320b1f7ea0c361146c76a901931e4cc"}

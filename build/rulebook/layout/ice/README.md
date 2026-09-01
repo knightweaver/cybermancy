@@ -74,7 +74,7 @@ Cost / Range / constrained Target / reader-facing Damage / Uses
 Accepted visual rules:
 
 - warm `F9F9F7` paper;
-- Lato display typography and Noto Serif rules text;
+- Arial display typography and Arial rules text;
 - dark full-width chapter band;
 - GM-violet chapter/running identity;
 - `CYBERMANCY // ICE REFERENCE` running header and `GM MATERIAL` marker;

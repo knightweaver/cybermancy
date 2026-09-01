@@ -115,11 +115,11 @@ Stage 140 still retains semantic `family:*` Div containers because they are usef
 
 Local wrappers preserve package-specific palettes and font choices without forcing a false global compromise between otherwise frozen designs:
 
-- Classes: accepted ClassPackage colors + Roboto Condensed/TeX Gyre Heros fallback;
-- Domains: accepted DomainPackage colors + Latin Modern Sans/TeX Gyre Heros fallback;
-- Equipment: each family’s accepted table colors + Roboto Condensed/TeX Gyre Heros fallback;
-- ICE: accepted ICE palette with the integrated Lato `CMDisplay` font command;
-- Encounter Toolkit: accepted Encounter palette + Latin Modern Sans/TeX Gyre Heros fallback.
+- Classes: accepted ClassPackage colors + Arial;
+- Domains: accepted DomainPackage colors + Arial;
+- Equipment: each family’s accepted table colors + Arial;
+- ICE: accepted ICE palette with the integrated Arial `CMDisplay` font command;
+- Encounter Toolkit: accepted Encounter palette + Arial;
 
 `family:subclasses` remains a marker-only body because Subclasses are already rendered inside `family:classes` by the accepted Chapter 12 ClassPackage grammar.
 

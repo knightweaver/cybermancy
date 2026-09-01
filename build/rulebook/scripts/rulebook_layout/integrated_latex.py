@@ -537,11 +537,11 @@ def _shared_extensions(profile: str) -> str:
     footer = "PLAYER GUIDE" if profile == "player-guide" else "COMPLETE RULEBOOK"
     return rf"""
 % ---- Stage 150 whole-book dependencies ----
-\IfFontExistsTF{{Roboto Condensed}}{{\newfontfamily\CMClassSans{{Roboto Condensed}}}}{{\newfontfamily\CMClassSans{{TeX Gyre Heros}}}}
-\IfFontExistsTF{{Roboto Condensed}}{{\newfontfamily\CMEquipmentSans{{Roboto Condensed}}}}{{\newfontfamily\CMEquipmentSans{{TeX Gyre Heros}}}}
-\IfFontExistsTF{{Latin Modern Sans}}{{\newfontfamily\CMDomainSans{{Latin Modern Sans}}}}{{\newfontfamily\CMDomainSans{{TeX Gyre Heros}}}}
-\IfFontExistsTF{{Latin Modern Sans}}{{\newfontfamily\CMEncounterSans{{Latin Modern Sans}}}}{{\newfontfamily\CMEncounterSans{{TeX Gyre Heros}}}}
-\IfFontExistsTF{{Lato}}{{\newfontfamily\CMDisplay{{Lato}}}}{{\newfontfamily\CMDisplay{{TeX Gyre Heros}}}}
+\newfontfamily\CMClassSans{{Arial}}
+\newfontfamily\CMEquipmentSans{{Arial}}
+\newfontfamily\CMDomainSans{{Arial}}
+\newfontfamily\CMEncounterSans{{Arial}}
+\newfontfamily\CMDisplay{{Arial}}
 \setlength{{\intextsep}}{{0pt}}
 \newtcolorbox{{cmfeature}}[1][]{{enhanced,colback=white,colframe=CMLine,boxrule=0.45pt,arc=1.2mm,left=2mm,right=2mm,top=1.4mm,bottom=1.4mm,before skip=3pt,after skip=3pt,#1}}
 \newtcolorbox{{cmfast}}{{enhanced,breakable,colback=CMSoft,colframe=CMTeal,boxrule=0.8pt,arc=1.2mm,left=2mm,right=2mm,top=1.5mm,bottom=1.5mm,before skip=4pt,after skip=4pt}}

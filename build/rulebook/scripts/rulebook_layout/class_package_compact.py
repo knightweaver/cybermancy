@@ -371,8 +371,8 @@ def render_class_package_tex(
 \pagestyle{{empty}}
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{1.35mm}}
-\IfFontExistsTF{{Roboto Condensed}}{{\setsansfont{{Roboto Condensed}}}}{{\setsansfont{{TeX Gyre Heros}}}}
-\IfFontExistsTF{{Roboto}}{{\setmainfont{{Roboto}}}}{{\setmainfont{{TeX Gyre Heros}}}}
+\setsansfont{{Arial}}
+\setmainfont{{Arial}}
 \definecolor{{CMAccent}}{{HTML}}{{{style['accent']}}}
 \definecolor{{CMBright}}{{HTML}}{{{style['bright']}}}
 \definecolor{{CMInk}}{{HTML}}{{{style['ink']}}}
