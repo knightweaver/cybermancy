@@ -23,6 +23,7 @@ The prose renderer does not independently re-read Foundry packs or generated MkD
 - Light, print-friendly body pages.
 - Two-column body prose with a 0.24 in gutter.
 - Arial 10.3 pt / 14.2 pt body typography.
+- Ragged-right (left-aligned) paragraph text throughout prose and structured publication bodies.
 - Arial display hierarchy.
 - Standalone dark Part openers.
 - Full-width dark chapter title bands.
@@ -37,6 +38,12 @@ The normative settings remain in:
 ```text
 build/rulebook/layout/prose/prose-layout-v1.json
 ```
+
+### Body-alignment authority
+
+`typography.bodyAlignment` is the publication authority for ordinary paragraph alignment. The accepted value is `ragged-right`. Standalone and integrated renderers apply that policy at body or family scope so normal prose, class/subclass text, Chapter 14 Domain Card descriptions, equipment descriptions, ICE rules text, and encounter rules text retain a left edge without full justification.
+
+The policy does **not** override explicit display alignment. Centered identity/stat cells, centered art, title treatments, table-column alignment, numeric roles, and deliberately right-aligned display elements remain explicit in their own publication grammars.
 
 ## Production renderer
 

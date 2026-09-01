@@ -102,6 +102,7 @@ def render_tier_prototype_document(table_latex: str, config: dict, tier: int) ->
         _document_preamble(config)
         + r"\begin{document}" + "\n"
         + r"\sffamily" + "\n"
+        + r"\RaggedRight" + "\n"
         + _chapter_header(config)
         + r"\vspace{1.8mm}" + "\n"
         + _tier_heading(config, tier)
@@ -153,6 +154,7 @@ def render_equipment_chapter_document(family_latex: str, config: dict) -> str:
         _document_preamble(config)
         + r"\begin{document}" + "\n"
         + r"\sffamily" + "\n"
+        + r"\RaggedRight" + "\n"
         + _chapter_header(config)
         + r"\vspace{1.8mm}" + "\n"
         + family_latex

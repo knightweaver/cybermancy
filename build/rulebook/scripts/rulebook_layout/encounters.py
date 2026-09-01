@@ -186,6 +186,7 @@ def _preamble(title: str, subtitle: str, *, columns: int = 1) -> str:
 \usepackage{{enumitem}}
 \usepackage{{fancyhdr}}
 \usepackage{{needspace}}
+\usepackage{{ragged2e}}
 {multicol}\definecolor{{CMInk}}{{HTML}}{{252431}}
 \definecolor{{CMTeal}}{{HTML}}{{167E83}}
 \definecolor{{CMTealDark}}{{HTML}}{{0D5E63}}
@@ -206,6 +207,7 @@ def _preamble(title: str, subtitle: str, *, columns: int = 1) -> str:
 \newtcolorbox{{cmfeature}}[1][]{{enhanced,colback=white,colframe=CMLine,boxrule=0.45pt,arc=1.2mm,left=2mm,right=2mm,top=1.4mm,bottom=1.4mm,before skip=3pt,after skip=3pt,#1}}
 \newtcolorbox{{cmfast}}{{enhanced,breakable,colback=CMSoft,colframe=CMTeal,boxrule=0.8pt,arc=1.2mm,left=2mm,right=2mm,top=1.5mm,bottom=1.5mm,before skip=4pt,after skip=4pt}}
 \begin{{document}}
+\RaggedRight
 \thispagestyle{{empty}}
 \begin{{tcolorbox}}[colback=CMInk,colframe=CMInk,arc=0mm,boxrule=0pt,left=7mm,right=7mm,top=7mm,bottom=7mm]
 {{\sffamily\bfseries\fontsize{{23}}{{25}}\selectfont\color{{white}} {esc(title)}}}\\[3pt]

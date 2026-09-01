@@ -455,8 +455,19 @@ def latex_escape(s: str) -> str:
     return "".join(repl.get(c, c) for c in s)
 
 
-def document_preamble() -> str:
-    return r'''\documentclass[10pt,letterpaper]{article}
+def _body_alignment_tex(config: dict[str, Any] | None = None) -> str:
+    source = config if isinstance(config, dict) else load_json(DEFAULT_CONFIG)
+    typography = source.get("typography") if isinstance(source.get("typography"), dict) else {}
+    alignment = str(typography.get("bodyAlignment") or "justified").strip().casefold()
+    if alignment == "ragged-right":
+        return r"\RaggedRight"
+    if alignment == "justified":
+        return r"\justifying"
+    raise ValueError(f"Unsupported prose bodyAlignment: {alignment}")
+
+
+def document_preamble(config: dict[str, Any] | None = None) -> str:
+    preamble = r'''\documentclass[10pt,letterpaper]{article}
 \usepackage[letterpaper,top=0.72in,bottom=0.70in,inner=0.78in,outer=0.78in]{geometry}
 \usepackage{fontspec}
 \usepackage{xcolor}
@@ -519,8 +530,8 @@ def document_preamble() -> str:
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancyhead[L]{\sffamily\fontsize{7.5}{9}\selectfont\color{CMInk}\textbf{CYBERMANCY} \color{CMRunningAccent}// \color{CMInk}\CMRunningChapter}
-\fancyhead[R]{\sffamily\fontsize{7.4}{9}\selectfont\color{CMRunningAccent}\textbf{\CMRunningMarker}}
+\fancyhead[L]{\sffamily\fontsize{7.5}{9}\selectfont\color{CMInk}\textbf{CYBERMANCY} \color{\CMRunningAccent}// \color{CMInk}\CMRunningChapter}
+\fancyhead[R]{\sffamily\fontsize{7.4}{9}\selectfont\color{\CMRunningAccent}\textbf{\CMRunningMarker}}
 \fancyfoot[L]{\sffamily\fontsize{7.0}{8.5}\selectfont\color{CMTeal}STEP 6 // LONG-FORM PROSE // V1.0}
 \fancyfoot[R]{\sffamily\fontsize{7.0}{8.5}\selectfont\color{CMInk}\thepage}
 \setlength{\headheight}{12pt}
@@ -612,6 +623,7 @@ def document_preamble() -> str:
 \begin{document}
 \frenchspacing
 '''
+    return preamble + _body_alignment_tex(config) + "\n"
 
 
 def document_end() -> str:
@@ -927,7 +939,7 @@ def build(paths: Paths) -> dict[str, Any]:
         "Step 4 normalized source contains no adjacent image/heading block defects",
     )
 
-    document: list[str] = [document_preamble()]
+    document: list[str] = [document_preamble(config)]
 
     for part in parts:
         document.append(part_tex(part["semanticId"]))
@@ -1063,6 +1075,13 @@ def main() -> int:
         report = validate_only(paths)
     else:
         report = build(paths)
+    if report["status"] != "PASS":
+        for error in report.get("errors", []):
+            if isinstance(error, dict):
+                code = str(error.get("code") or "ERROR")
+                message = str(error.get("message") or "").strip()
+                if message:
+                    print(f"[{code}] {message}", file=sys.stderr)
     print(json.dumps({"status": report["status"], "report": str(paths.report), "output": str(paths.output)}, ensure_ascii=False))
     return 0 if report["status"] == "PASS" else 2
 

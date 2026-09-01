@@ -387,6 +387,8 @@ def render_class_package_tex(
         r"\sffamily",
         r"\fontsize{10.5}{12.2}\selectfont",
         r"\frenchspacing",
+        r"\RaggedRight",
+        r"\everypar{\spaceskip=0pt}",
         _class_opening_tex(view, config, source_root, output_dir),
         _class_support_tex(view["class"]),
     ]
