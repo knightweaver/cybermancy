@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 import re
 import unicodedata
@@ -9,7 +10,30 @@ from typing import Any, Iterable
 from rulebook_layout.feature_type_style import feature_type_label_tex
 
 SUPPORTED_SCHEMA = "cybermancy-step4-encounter-semantics-v1.0"
+PRESENTATION_SCHEMA = "cybermancy-encounter-presentation-view-v1.0"
 FAMILIES = ("adversaries", "environments", "adversaries-features")
+
+DEFAULT_SECTION_ORDERS = {
+    "adversaries": [
+        "identity",
+        "description",
+        "attack",
+        "motivesAndTactics",
+        "experiences",
+        "fastPlay",
+        "actions",
+        "features",
+    ],
+    "environments": [
+        "identity",
+        "description",
+        "impulses",
+        "potentialAdversaries",
+        "fastPlay",
+        "actions",
+        "features",
+    ],
+}
 
 _LATEX_SPECIAL = {
     "\\": r"\textbackslash{}", "&": r"\&", "%": r"\%", "$": r"\$",
@@ -153,7 +177,14 @@ def _family_entities(sidecar: dict[str, Any], family: str, config: dict[str, Any
     elif family == "adversaries":
         entries.sort(key=adversary_sort_key)
     else:
-        entries.sort(key=lambda e: (int((e.get("publicationData") or {}).get("tier") or 0), str(e.get("name") or "").casefold()))
+        entries.sort(
+            key=lambda e: (
+                int((e.get("publicationData") or {}).get("tier") or 0),
+                str((e.get("publicationData") or {}).get("classification") or "").casefold(),
+                str(e.get("name") or "").casefold(),
+                str(e.get("semanticId") or ""),
+            )
+        )
     return entries
 
 
@@ -167,6 +198,119 @@ def validate_sidecar(sidecar: dict[str, Any]) -> list[str]:
     if not isinstance(sidecar.get("entities"), list):
         errors.append("structured sidecar is missing entities[]")
     return errors
+
+
+def _has_content(value: Any) -> bool:
+    if value is None:
+        return False
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, dict):
+        return any(_has_content(item) for item in value.values())
+    if isinstance(value, (list, tuple)):
+        return any(_has_content(item) for item in value)
+    return True
+
+
+def _first_text(*values: Any) -> str:
+    for value in values:
+        text = str(value or "")
+        if text.strip():
+            return text
+    return ""
+
+
+def normalize_encounter_entity(entity: dict[str, Any], family: str | None = None) -> dict[str, Any]:
+    """Project one Adversary/Environment into the in-memory publication view.
+
+    This projection never mutates canonical/Step 4 data and never fills missing
+    reader-facing content. Optional values are present in the view only when the
+    normalized source already supplies them.
+    """
+    resolved_family = str(family or entity.get("family") or "")
+    if resolved_family not in {"adversaries", "environments"}:
+        raise ValueError(f"encounter presentation normalization does not support family {resolved_family!r}")
+
+    pdata = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
+    identity: dict[str, Any] = {}
+    if pdata.get("classification") not in (None, ""):
+        identity["classification"] = copy.deepcopy(pdata.get("classification"))
+    if pdata.get("tier") not in (None, ""):
+        identity["tier"] = copy.deepcopy(pdata.get("tier"))
+
+    art = pdata.get("publicationArt") if isinstance(pdata.get("publicationArt"), dict) else {}
+    image = _first_text(art.get("image"), pdata.get("image"))
+    if image:
+        identity["art"] = {"image": image}
+
+    statistics: dict[str, Any] = {}
+    for source_key, view_key in (
+        ("difficulty", "difficulty"),
+        ("hitPoints", "hitPoints"),
+        ("stress", "stress"),
+    ):
+        if pdata.get(source_key) not in (None, ""):
+            statistics[view_key] = copy.deepcopy(pdata.get(source_key))
+    thresholds = pdata.get("damageThresholds") if isinstance(pdata.get("damageThresholds"), dict) else {}
+    if _has_content(thresholds):
+        statistics["damageThresholds"] = copy.deepcopy(thresholds)
+    if statistics:
+        identity["statistics"] = statistics
+
+    sections: dict[str, Any] = {}
+    description = _first_text(pdata.get("descriptionMarkdown"), pdata.get("description"))
+    if description:
+        sections["description"] = description
+
+    if resolved_family == "adversaries":
+        for source_key, view_key in (
+            ("attack", "attack"),
+            ("motivesAndTactics", "motivesAndTactics"),
+            ("experiences", "experiences"),
+            ("fastPlay", "fastPlay"),
+            ("actions", "actions"),
+            ("features", "features"),
+        ):
+            value = pdata.get(source_key)
+            if _has_content(value):
+                sections[view_key] = copy.deepcopy(value)
+    else:
+        for source_key, view_key in (
+            ("impulses", "impulses"),
+            ("potentialAdversaries", "potentialAdversaries"),
+            ("fastPlay", "fastPlay"),
+            ("actions", "actions"),
+            ("features", "features"),
+        ):
+            value = pdata.get(source_key)
+            if _has_content(value):
+                sections[view_key] = copy.deepcopy(value)
+
+    return {
+        "schema": PRESENTATION_SCHEMA,
+        "semanticId": str(entity.get("semanticId") or ""),
+        "family": resolved_family,
+        "name": str(entity.get("name") or ""),
+        "identity": identity,
+        "sections": sections,
+    }
+
+
+def normalize_encounter_presentations(
+    entities: Iterable[dict[str, Any]],
+    family: str,
+) -> list[dict[str, Any]]:
+    return [normalize_encounter_entity(entity, family) for entity in entities]
+
+
+def _section_order(config: dict[str, Any], family: str) -> list[str]:
+    policy = config.get("presentationPolicy") if isinstance(config.get("presentationPolicy"), dict) else {}
+    configured = policy.get("sectionOrder") if isinstance(policy.get("sectionOrder"), list) else None
+    default = DEFAULT_SECTION_ORDERS.get(family, [])
+    order = [str(value) for value in (configured or default) if str(value)]
+    if "identity" not in order:
+        order.insert(0, "identity")
+    return order
 
 
 def _preamble(title: str, subtitle: str, *, columns: int = 1) -> str:
@@ -229,19 +373,18 @@ def _mm(value: float | int) -> str:
 
 
 def _art_block(
-    pdata: dict[str, Any],
+    image_ref: Any,
     source_root: Path,
     width: str = "0.96\\linewidth",
     *,
     max_height_mm: float = 30,
     placeholder_height_mm: float = 28,
 ) -> str:
-    art = pdata.get("publicationArt") if isinstance(pdata.get("publicationArt"), dict) else {}
-    rel = str(art.get("image") or pdata.get("image") or "").strip()
+    rel = str(image_ref or "").strip()
+    if not rel:
+        return ""
     placeholder_height = _mm(placeholder_height_mm)
     max_height = _mm(max_height_mm)
-    if not rel:
-        return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height={placeholder_height}mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}NO PUBLICATION ART\end{{tcolorbox}}'''
     path = source_root / rel
     if not path.is_file():
         return rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMLine,boxrule=0.4pt,arc=1mm,width={width},height={placeholder_height}mm,valign=center,halign=center]\sffamily\scriptsize\color{{CMInk!65}}ART NOT STAGED\\{esc(rel)}\end{{tcolorbox}}'''
@@ -258,20 +401,30 @@ def _fast_play(fp: Any) -> str:
     if not isinstance(fp, dict) or not fp:
         return ""
     prompts = fp.get("prompts") if isinstance(fp.get("prompts"), list) else []
-    parts = [r'''\begin{cmfast}{\sffamily\bfseries\color{CMTealDark} FAST PLAY}\par''']
+    body: list[str] = []
     for prompt in prompts:
         if not isinstance(prompt, dict):
             continue
-        label = esc(prompt.get("label") or "Prompt")
+        label = str(prompt.get("label") or "").strip()
         text = md(prompt.get("text") or "")
         refs = _list_text(prompt.get("featureRefs"))
         ref_text = rf''' {{\scriptsize\color{{CMViolet}}[Features: {esc(refs)}]}}''' if refs else ""
-        parts.append(rf'''\textbf{{{label}:}} {text}{ref_text}\par''')
+        if label and text:
+            body.append(rf'''\textbf{{{esc(label)}:}} {text}{ref_text}\par''')
+        elif text:
+            body.append(rf'''{text}{ref_text}\par''')
     goal = str(fp.get("goal") or "").strip()
     if goal:
-        parts.append(rf'''\textbf{{Goal:}} {md(goal)}''')
-    parts.append(r'''\end{cmfast}''')
-    return "\n".join(parts)
+        body.append(rf'''\textbf{{Goal:}} {md(goal)}''')
+    if not body:
+        return ""
+    return "\n".join(
+        [
+            r'''\begin{cmfast}{\sffamily\bfseries\color{CMTealDark} FAST PLAY}\par''',
+            *body,
+            r'''\end{cmfast}''',
+        ]
+    )
 
 
 def _actions(actions: Any) -> str:
@@ -281,7 +434,7 @@ def _actions(actions: Any) -> str:
     for action in actions:
         if not isinstance(action, dict):
             continue
-        name = esc(action.get("name") or "Action")
+        name = esc(action.get("name") or "")
         atype = str(action.get("actionType") or action.get("type") or "").strip()
         rules = md(action.get("rulesMarkdown") or action.get("description") or "")
         tag = (
@@ -289,120 +442,256 @@ def _actions(actions: Any) -> str:
             if atype
             else ""
         )
-        out.append(rf'''{tag}\textbf{{{name}.}} {rules}''')
+        name_text = rf'''\textbf{{{name}.}}''' if name else ""
+        line = " ".join(part for part in (tag + name_text, rules) if part).strip()
+        if line:
+            out.append(line)
     return "\\par\n".join(out)
 
 
 def _features(features: Any) -> str:
     if not isinstance(features, list) or not features:
-        return r'''{\sffamily\scriptsize\color{CMInk!65}No embedded Features.}'''
+        return ""
     out: list[str] = []
     for feature in features:
         if not isinstance(feature, dict):
             continue
-        name = esc(feature.get("name") or "Feature")
+        name = esc(feature.get("name") or "")
         rules = md(feature.get("rulesMarkdown") or "")
         actions = _actions(feature.get("actions"))
         body = rules
         if actions and actions not in body:
             body = (body + "\\par\n" + actions).strip()
-        out.append(rf'''\begin{{cmfeature}}{{\sffamily\bfseries\color{{CMTealDark}} {name}}}\par {body}\end{{cmfeature}}''')
+        if not name and not body:
+            continue
+        title = rf'''{{\sffamily\bfseries\color{{CMTealDark}} {name}}}\par ''' if name else ""
+        out.append(rf'''\begin{{cmfeature}}{title}{body}\end{{cmfeature}}''')
     return "\n".join(out)
 
 
-def _adversary_entry(entity: dict[str, Any], source_root: Path) -> str:
-    p = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
-    name = esc(entity.get("name") or "Adversary")
-    tier = p.get("tier")
-    classification = p.get("classification") or "Unclassified"
-    difficulty = p.get("difficulty")
-    thresholds = p.get("damageThresholds") if isinstance(p.get("damageThresholds"), dict) else {}
-    threshold_text = " / ".join(str(thresholds.get(k)) for k in ("major", "severe") if thresholds.get(k) not in (None, ""))
-    header_stats = [
-        _stat(difficulty, "Difficulty"),
-        _stat(threshold_text, "Thresholds"),
-        _stat(p.get("hitPoints"), "HP"),
-        _stat(p.get("stress"), "Stress"),
-    ]
-    header_stats = [x for x in header_stats if x]
-    attack = p.get("attack") if isinstance(p.get("attack"), dict) else {}
-    attack_parts = []
-    if attack:
-        attack_parts.append(str(attack.get("name") or "Attack"))
-        if attack.get("bonus") not in (None, ""):
-            attack_parts.append(f"+{attack.get('bonus')}")
-        if attack.get("range"):
-            attack_parts.append(str(attack.get("range")))
-        dmg = str(attack.get("damageFormula") or "")
-        dtypes = "/".join(str(v) for v in attack.get("damageTypes") or [])
-        if dmg:
-            attack_parts.append((dmg + (f" {dtypes}" if dtypes else "")).strip())
-    exps = p.get("experiences") if isinstance(p.get("experiences"), list) else []
-    exp_text = ", ".join(
-        f"{e.get('name')} +{e.get('value')}" if e.get("value") not in (None, "") else str(e.get("name"))
-        for e in exps
-        if isinstance(e, dict) and e.get("name")
-    )
-    desc = md(p.get("descriptionMarkdown") or p.get("description") or "")
-    motives = md(p.get("motivesAndTactics") or "")
-    features = _features(p.get("features"))
-    fp = _fast_play(p.get("fastPlay"))
-    art = _art_block(
-        p,
-        source_root,
-        "0.96\\linewidth",
-        max_height_mm=18,
-        placeholder_height_mm=18,
-    )
-    return rf'''
-\Needspace{{10\baselineskip}}
-\vspace{{3mm}}
-\noindent\begin{{minipage}}[t]{{0.20\linewidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill
-\begin{{minipage}}[t]{{0.76\linewidth}}\vspace{{0pt}}
-{{\sffamily\bfseries\scriptsize\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[1.5pt]
-{{\sffamily\bfseries\fontsize{{15.5}}{{16.5}}\selectfont\color{{CMInk}} {name}}}\\[2pt]
-{{\sffamily\scriptsize {' \\hspace{0.65em} '.join(header_stats)}}}
-\end{{minipage}}
-\vspace{{1.5mm}}{{\color{{CMTeal}}\hrule height 0.7pt}}\vspace{{1.5mm}}
-{desc if desc else r'{\itshape\color{CMInk!60}No canonical description supplied.}'}
-{rf'\par\textbf{{Attack:}} {esc(" / ".join(attack_parts))}' if attack_parts else ''}
-{rf'\par\textbf{{Motives \& Tactics:}} {motives}' if motives else ''}
-{rf'\par\textbf{{Experiences:}} {esc(exp_text)}' if exp_text else ''}
-{fp}
-\Needspace{{5\baselineskip}}{{\sffamily\bfseries\normalsize\color{{CMInk}} FEATURES}}\par
-{features}
-'''
+def _identity_meta(view: dict[str, Any]) -> str:
+    identity = view.get("identity") if isinstance(view.get("identity"), dict) else {}
+    parts: list[str] = []
+    classification = str(identity.get("classification") or "").strip()
+    if classification:
+        parts.append(esc(classification).upper())
+    if identity.get("tier") not in (None, ""):
+        parts.append(f"TIER {esc(identity.get('tier'))}")
+    return r" \textbullet\ ".join(parts)
 
 
-def _environment_entry(entity: dict[str, Any], source_root: Path) -> str:
-    p = entity.get("publicationData") if isinstance(entity.get("publicationData"), dict) else {}
-    name = esc(entity.get("name") or "Environment")
-    tier = p.get("tier")
-    classification = p.get("classification") or "Unclassified"
-    desc = md(p.get("descriptionMarkdown") or p.get("description") or "")
-    impulses = md(p.get("impulses") or "")
-    potential = _list_text(p.get("potentialAdversaries"))
-    fp = _fast_play(p.get("fastPlay"))
-    features = _features(p.get("features"))
-    actions = _actions(p.get("actions"))
-    art = _art_block(p, source_root, "0.96\\linewidth")
-    return rf'''
-\clearpage
-\noindent\begin{{minipage}}[t]{{0.17\textwidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill
-\begin{{minipage}}[t]{{0.80\textwidth}}\vspace{{0pt}}
-{{\sffamily\bfseries\small\color{{CMTealDark}} {esc(classification).upper()} \textbullet\ TIER {esc(tier if tier is not None else "-")}}}\\[2.5pt]
-{{\sffamily\bfseries\fontsize{{21}}{{22}}\selectfont\color{{CMInk}} {name}}}\\[3pt]
-{{\sffamily\small\textbf{{Difficulty}} {esc(p.get("difficulty") if p.get("difficulty") is not None else "-")}}}
-\end{{minipage}}
-\vspace{{2mm}}{{\color{{CMTeal}}\hrule height 0.7pt}}\vspace{{2mm}}
-{desc if desc else r'{\itshape\color{CMInk!60}No canonical description supplied.}'}
-{rf'\par\textbf{{Impulses:}} {impulses}' if impulses else r'\par{\itshape\color{CMInk!60}No canonical impulses supplied.}'}
-{rf'\par\textbf{{Potential Adversaries:}} {esc(potential)}' if potential else ''}
-{fp}
-{rf'\Needspace{{6\baselineskip}}{{\sffamily\bfseries\large\color{{CMInk}} ACTIONS}}\par {actions}' if actions else ''}
-\Needspace{{7\baselineskip}}{{\sffamily\bfseries\large\color{{CMInk}} FEATURES}}\par
-{features}
-'''
+def _statistics_tex(view: dict[str, Any], *, environment: bool = False) -> str:
+    identity = view.get("identity") if isinstance(view.get("identity"), dict) else {}
+    stats = identity.get("statistics") if isinstance(identity.get("statistics"), dict) else {}
+    values: list[str] = []
+    if stats.get("difficulty") not in (None, ""):
+        values.append(_stat(stats.get("difficulty"), "Difficulty"))
+    if not environment:
+        thresholds = stats.get("damageThresholds") if isinstance(stats.get("damageThresholds"), dict) else {}
+        threshold_text = " / ".join(
+            str(thresholds.get(key))
+            for key in ("major", "severe")
+            if thresholds.get(key) not in (None, "")
+        )
+        if threshold_text:
+            values.append(_stat(threshold_text, "Thresholds"))
+        values.extend(
+            value
+            for value in (
+                _stat(stats.get("hitPoints"), "HP"),
+                _stat(stats.get("stress"), "Stress"),
+            )
+            if value
+        )
+    return r" \hspace{0.65em} ".join(values)
+
+
+def _art_ref(view: dict[str, Any]) -> str:
+    identity = view.get("identity") if isinstance(view.get("identity"), dict) else {}
+    art = identity.get("art") if isinstance(identity.get("art"), dict) else {}
+    return str(art.get("image") or "").strip()
+
+
+def _adversary_identity(view: dict[str, Any], source_root: Path) -> str:
+    name = esc(view.get("name") or "")
+    meta = _identity_meta(view)
+    stats = _statistics_tex(view)
+    art = _art_block(_art_ref(view), source_root, "0.96\\linewidth", max_height_mm=18, placeholder_height_mm=18)
+
+    lines: list[str] = []
+    if meta:
+        lines.append(rf'''{{\sffamily\bfseries\scriptsize\color{{CMTealDark}} {meta}}}\\[1.5pt]''')
+    lines.append(rf'''{{\sffamily\bfseries\fontsize{{15.5}}{{16.5}}\selectfont\color{{CMInk}} {name}}}''')
+    if stats:
+        lines.append(rf'''\\[2pt]{{\sffamily\scriptsize {stats}}}''')
+    text_block = "\n".join(lines)
+
+    if art:
+        header = "\n".join(
+            [
+                rf'''\noindent\begin{{minipage}}[t]{{0.20\linewidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill''',
+                rf'''\begin{{minipage}}[t]{{0.76\linewidth}}\vspace{{0pt}}{text_block}\end{{minipage}}''',
+            ]
+        )
+    else:
+        header = rf'''\noindent\begin{{minipage}}[t]{{\linewidth}}\vspace{{0pt}}{text_block}\end{{minipage}}'''
+    return "\n".join(
+        [
+            r'''\Needspace{10\baselineskip}''',
+            r'''\vspace{3mm}''',
+            header,
+            r'''\vspace{1.5mm}{\color{CMTeal}\hrule height 0.7pt}\vspace{1.5mm}''',
+        ]
+    )
+
+
+def _environment_identity(view: dict[str, Any], source_root: Path) -> str:
+    name = esc(view.get("name") or "")
+    meta = _identity_meta(view)
+    stats = _statistics_tex(view, environment=True)
+    art = _art_block(_art_ref(view), source_root, "0.96\\linewidth")
+
+    lines: list[str] = []
+    if meta:
+        lines.append(rf'''{{\sffamily\bfseries\small\color{{CMTealDark}} {meta}}}\\[2.5pt]''')
+    lines.append(rf'''{{\sffamily\bfseries\fontsize{{21}}{{22}}\selectfont\color{{CMInk}} {name}}}''')
+    if stats:
+        lines.append(rf'''\\[3pt]{{\sffamily\small {stats}}}''')
+    text_block = "\n".join(lines)
+
+    if art:
+        header = "\n".join(
+            [
+                rf'''\noindent\begin{{minipage}}[t]{{0.17\textwidth}}\vspace{{0pt}}\raggedright {art}\end{{minipage}}\hfill''',
+                rf'''\begin{{minipage}}[t]{{0.80\textwidth}}\vspace{{0pt}}{text_block}\end{{minipage}}''',
+            ]
+        )
+    else:
+        header = rf'''\noindent\begin{{minipage}}[t]{{\textwidth}}\vspace{{0pt}}{text_block}\end{{minipage}}'''
+    return "\n".join(
+        [
+            r'''\clearpage''',
+            header,
+            r'''\vspace{2mm}{\color{CMTeal}\hrule height 0.7pt}\vspace{2mm}''',
+        ]
+    )
+
+
+def _attack_tex(attack: Any) -> str:
+    if not isinstance(attack, dict):
+        return ""
+    parts: list[str] = []
+    name = str(attack.get("name") or "").strip()
+    if name:
+        parts.append(name)
+    if attack.get("bonus") not in (None, ""):
+        bonus = str(attack.get("bonus"))
+        parts.append(bonus if bonus.startswith(("+", "-")) else f"+{bonus}")
+    if attack.get("range") not in (None, ""):
+        parts.append(str(attack.get("range")))
+    damage = str(attack.get("damageFormula") or "").strip()
+    damage_types = "/".join(str(value) for value in attack.get("damageTypes") or [] if str(value))
+    if damage:
+        parts.append((damage + (f" {damage_types}" if damage_types else "")).strip())
+    return esc(" / ".join(parts)) if parts else ""
+
+
+def _experiences_tex(experiences: Any) -> str:
+    if not isinstance(experiences, list):
+        return ""
+    parts: list[str] = []
+    for experience in experiences:
+        if not isinstance(experience, dict):
+            continue
+        name = str(experience.get("name") or "").strip()
+        if not name:
+            continue
+        if experience.get("value") not in (None, ""):
+            parts.append(f"{name} +{experience.get('value')}")
+        else:
+            parts.append(name)
+    return esc(", ".join(parts))
+
+
+def _adversary_section(view: dict[str, Any], section: str, source_root: Path) -> str:
+    sections = view.get("sections") if isinstance(view.get("sections"), dict) else {}
+    if section == "identity":
+        return _adversary_identity(view, source_root)
+    if section == "description":
+        return md(sections.get("description"))
+    if section == "attack":
+        text = _attack_tex(sections.get("attack"))
+        return rf'''\par\textbf{{Attack:}} {text}''' if text else ""
+    if section == "motivesAndTactics":
+        text = md(sections.get("motivesAndTactics"))
+        return rf'''\par\textbf{{Motives \& Tactics:}} {text}''' if text else ""
+    if section == "experiences":
+        text = _experiences_tex(sections.get("experiences"))
+        return rf'''\par\textbf{{Experiences:}} {text}''' if text else ""
+    if section == "fastPlay":
+        return _fast_play(sections.get("fastPlay"))
+    if section == "actions":
+        body = _actions(sections.get("actions"))
+        return (
+            rf'''\Needspace{{5\baselineskip}}{{\sffamily\bfseries\normalsize\color{{CMInk}} ACTIONS}}\par
+{body}'''
+            if body
+            else ""
+        )
+    if section == "features":
+        body = _features(sections.get("features"))
+        return (
+            rf'''\Needspace{{5\baselineskip}}{{\sffamily\bfseries\normalsize\color{{CMInk}} FEATURES}}\par
+{body}'''
+            if body
+            else ""
+        )
+    return ""
+
+
+def _environment_section(view: dict[str, Any], section: str, source_root: Path) -> str:
+    sections = view.get("sections") if isinstance(view.get("sections"), dict) else {}
+    if section == "identity":
+        return _environment_identity(view, source_root)
+    if section == "description":
+        return md(sections.get("description"))
+    if section == "impulses":
+        text = md(sections.get("impulses"))
+        return rf'''\par\textbf{{Impulses:}} {text}''' if text else ""
+    if section == "potentialAdversaries":
+        text = _list_text(sections.get("potentialAdversaries"))
+        return rf'''\par\textbf{{Potential Adversaries:}} {esc(text)}''' if text else ""
+    if section == "fastPlay":
+        return _fast_play(sections.get("fastPlay"))
+    if section == "actions":
+        body = _actions(sections.get("actions"))
+        return (
+            rf'''\Needspace{{6\baselineskip}}{{\sffamily\bfseries\large\color{{CMInk}} ACTIONS}}\par
+{body}'''
+            if body
+            else ""
+        )
+    if section == "features":
+        body = _features(sections.get("features"))
+        return (
+            rf'''\Needspace{{7\baselineskip}}{{\sffamily\bfseries\large\color{{CMInk}} FEATURES}}\par
+{body}'''
+            if body
+            else ""
+        )
+    return ""
+
+
+def _adversary_entry(view: dict[str, Any], source_root: Path, section_order: list[str]) -> str:
+    return "\n".join(
+        part for part in (_adversary_section(view, section, source_root) for section in section_order) if part
+    )
+
+
+def _environment_entry(view: dict[str, Any], source_root: Path, section_order: list[str]) -> str:
+    return "\n".join(
+        part for part in (_environment_section(view, section, source_root) for section in section_order) if part
+    )
 
 
 def _feature_entry(entity: dict[str, Any]) -> str:
@@ -433,18 +722,28 @@ def render_package(sidecar: dict[str, Any], config: dict[str, Any], source_root:
     proof_note = config.get("proofNote")
     if proof_note:
         tex.append(rf'''\begin{{tcolorbox}}[colback=CMPale,colframe=CMViolet,boxrule=0.55pt]\sffamily\small\textbf{{PHASE C PROOF.}} {esc(proof_note)}\end{{tcolorbox}}''')
-    if family == "adversaries":
-        if columns > 1:
-            tex.append(rf'''\setlength{{\columnsep}}{{0.22in}}\begin{{multicols}}{{{columns}}}\raggedcolumns''')
-        tex.extend(_adversary_entry(entity, source_root) for entity in entities)
-        if columns > 1:
-            tex.append(r'''\end{multicols}''')
-    elif family == "environments":
-        tex.extend(_environment_entry(entity, source_root) for entity in entities)
+
+    rendered_ids: list[str] = []
+    presentation_schema: str | None = None
+    if family in {"adversaries", "environments"}:
+        views = normalize_encounter_presentations(entities, family)
+        section_order = _section_order(config, family)
+        presentation_schema = PRESENTATION_SCHEMA
+        rendered_ids = [str(view.get("semanticId") or "") for view in views]
+        if family == "adversaries":
+            if columns > 1:
+                tex.append(rf'''\setlength{{\columnsep}}{{0.22in}}\begin{{multicols}}{{{columns}}}\raggedcolumns''')
+            tex.extend(_adversary_entry(view, source_root, section_order) for view in views)
+            if columns > 1:
+                tex.append(r'''\end{multicols}''')
+        else:
+            tex.extend(_environment_entry(view, source_root, section_order) for view in views)
     else:
+        rendered_ids = [str(entity.get("semanticId") or "") for entity in entities]
         tex.append(r'''\begin{multicols}{2}\raggedcolumns''')
         tex.extend(_feature_entry(entity) for entity in entities)
         tex.append(r'''\end{multicols}''')
+
     tex.append(_end())
     report = {
         "schema": "cybermancy-phase-c-encounter-package-report-v1",
@@ -453,6 +752,8 @@ def render_package(sidecar: dict[str, Any], config: dict[str, Any], source_root:
         "entryCount": len(entities),
         "selectedSemanticIds": [e.get("semanticId") for e in entities],
         "selectedNames": [e.get("name") for e in entities],
+        "renderedSemanticIds": rendered_ids,
+        "presentationSchema": presentation_schema,
         "status": "PASS" if entities else "FAIL",
     }
     return "\n".join(tex), report
