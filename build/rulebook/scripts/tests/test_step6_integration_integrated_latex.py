@@ -133,6 +133,7 @@ class Stage150FamilyFlatteningTests(unittest.TestCase):
         self.assertIn("CM-STAGE150 FAMILY classes BEGIN", raw)
         self.assertIn("% package chapter 29 header", raw)
         self.assertIn("CM-STAGE150 FAMILY features BEGIN", raw)
+        self.assertGreaterEqual(raw.count(r"\RaggedRight"), 2)
         self.assertNotEqual(flattened, ast)
         self.assertTrue(any(node.get("t") == "Div" for node in ast["blocks"]))
 
@@ -157,6 +158,19 @@ class Stage150PreambleTests(unittest.TestCase):
         self.assertIn(r"\newenvironment{CMRulesQuote}", preamble)
         self.assertIn(r"\newcommand{\CMOriginIdentity}", preamble)
         self.assertIn("COMPLETE RULEBOOK", preamble)
+
+    def test_integrated_alignment_is_scoped_to_prose_and_rules_lanes(self) -> None:
+        preamble = build_integrated_preamble(
+            _minimal_prose_preamble(),
+            "complete-rulebook",
+            _load(PROSE_CONFIG_PATH),
+            _load(ORIGIN_CONFIG_PATH),
+        )
+        prose_lane = preamble[preamble.index(r"\newcommand{\CMUseProseLane}") : preamble.index(r"\newcommand{\CMUseRulesLane}")]
+        rules_lane = preamble[preamble.index(r"\newcommand{\CMUseRulesLane}") : preamble.index(r"\newcommand{\CMIntegratedPart}")]
+        self.assertIn(r"\RaggedRight", prose_lane)
+        self.assertIn(r"\RaggedRight", rules_lane)
+        self.assertNotIn(r"\begin{document}", preamble)
 
     def test_dependency_audit_accepts_defined_lane_macros_and_rejects_unknown_macro(self) -> None:
         preamble = build_integrated_preamble(
