@@ -66,7 +66,15 @@ def _ast() -> dict:
 
 def _class_payload() -> ClassStagePayload:
     return ClassStagePayload(
-        classes_latex="LATEX-CLASSES-WITH-NESTED-SUBCLASSES",
+        classes_latex=(
+            "LATEX-CLASSES-WITH-NESTED-SUBCLASSES\n"
+            "\\begin{wrapfigure}{l}{0.340\\linewidth}\n"
+            "SUBCLASS-LEAD-ART\n"
+            "\\end{wrapfigure}\n"
+            "SUBCLASS-LEAD-TEXT\n"
+            "\\WFclear\n"
+            "FOUNDATION"
+        ),
         subclasses_latex="% SUBCLASSES-NESTED-IN-CLASSES",
         class_count=5,
         subclass_count=10,
@@ -125,6 +133,20 @@ class Step6CharacterOptionsAdapterTests(unittest.TestCase):
                     all(row["idempotent"] for row in repeated["adapters"]), repeated
                 )
                 self.assertEqual(canonical_ast_sha256(ast), digest)
+
+    def test_integrated_class_payload_preserves_subclass_wrap_grammar(self) -> None:
+        ast = _ast()
+        payload = _class_payload()
+        result = integrate_character_options_stage(
+            ast, "complete-rulebook", payload, _domain_payload()
+        )
+        self.assertEqual(result["status"], "PASS", result)
+        self.assertTrue(family_body_is_exact_raw_latex(ast, "classes", payload.classes_latex))
+        self.assertEqual(payload.class_count, 5)
+        self.assertEqual(payload.subclass_count, 10)
+        self.assertIn(r"\begin{wrapfigure}{l}{0.340\linewidth}", payload.classes_latex)
+        self.assertIn(r"\WFclear", payload.classes_latex)
+        self.assertLess(payload.classes_latex.index(r"\WFclear"), payload.classes_latex.index("FOUNDATION"))
 
     def test_domain_failure_rolls_back_successful_staged_class_replacement(self) -> None:
         ast = _ast()

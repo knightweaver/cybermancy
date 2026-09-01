@@ -226,6 +226,27 @@ def _class_support_tex(cls: dict[str, Any]) -> str:
     return "\n".join(pieces)
 
 
+def _subclass_wrap_clear_tex() -> str:
+    """Reserve unfinished wrap depth, then end the wrap before progression content."""
+    return "\n".join(
+        [
+            r"\par",
+            r"\makeatletter",
+            r"\ifnum\c@WF@wrappedlines>\@ne",
+            r"\begingroup",
+            r"\@tempcnta=\c@WF@wrappedlines",
+            r"\advance\@tempcnta\m@ne",
+            r"\dimen@=\baselineskip",
+            r"\multiply\dimen@\@tempcnta",
+            r"\vskip\dimen@",
+            r"\endgroup",
+            r"\fi",
+            r"\makeatother",
+            r"\WFclear",
+        ]
+    )
+
+
 def _subclass_tex(
     subclass: dict[str, Any],
     config: dict[str, Any],
@@ -235,9 +256,9 @@ def _subclass_tex(
     style = base._style(config)
     name = latex_escape(subclass.get("name"))
     description = latex_escape(base._single_paragraph(subclass.get("description")))
-    image = base._tex_image_path(source_root, output_dir, str(subclass.get("image") or ""))
+    image_path = str(subclass.get("image") or "").strip()
+    image = base._tex_image_path(source_root, output_dir, image_path) if image_path else ""
     art_width = max(0.25, min(0.44, style["subclass_art"]))
-    text_width = 0.94 - art_width
     trait = str(subclass.get("spellcastingTrait") or "").strip()
 
     pieces = [
@@ -247,22 +268,27 @@ def _subclass_tex(
         r"\vspace{0.3mm}",
         r"{\color{CMBright}\rule{\linewidth}{0.55pt}}",
         r"\vspace{1.0mm}",
-        rf"\begin{{minipage}}[t]{{{art_width:.3f}\linewidth}}",
-        r"\vspace{0pt}",
-        r"\centering",
-        rf"\includegraphics[width=\linewidth,height={style['subclass_art_max']:g}in,keepaspectratio]{{{image}}}",
-        r"\end{minipage}\hfill",
-        rf"\begin{{minipage}}[t]{{{text_width:.3f}\linewidth}}",
-        r"\vspace{0pt}",
     ]
+
+    if image:
+        pieces.extend(
+            [
+                rf"\begin{{wrapfigure}}{{l}}{{{art_width:.3f}\linewidth}}",
+                r"\vspace{-0.8\baselineskip}",
+                r"\centering",
+                rf"\includegraphics[width=\linewidth,height={style['subclass_art_max']:g}in,keepaspectratio]{{{image}}}",
+                r"\vspace{-0.35\baselineskip}",
+                r"\end{wrapfigure}",
+            ]
+        )
+
     if trait:
         pieces.extend(
             [
-                r"\colorbox{CMSubclass}{\parbox{0.90\linewidth}{\centering",
-                rf"\fontsize{{10.5}}{{11.5}}\selectfont\bfseries\color{{CMInk}} SPELLCAST TRAIT: {latex_escape(trait.upper())}",
-                r"}}",
-                r"\par",
-                r"\vspace{2.0mm}",
+                r"\noindent\colorbox{CMSubclass}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering",
+                rf"\strut\fontsize{{10.5}}{{11.5}}\selectfont\bfseries\color{{CMInk}} SPELLCAST TRAIT: {latex_escape(trait.upper())}\par",
+                r"}}\par",
+                r"\vspace{1.2mm}",
             ]
         )
     if description:
@@ -275,7 +301,11 @@ def _subclass_tex(
                 italic=True,
             )
         )
-    pieces.extend([r"\end{minipage}", r"\vspace{0.8mm}"])
+
+    # The wrap belongs only to the Subclass lead. Short leads reserve the
+    # remaining wrapped-line depth before WFclear so progression cannot overlap
+    # the art; long leads simply clear after the wrap has naturally finished.
+    pieces.extend([_subclass_wrap_clear_tex(), r"\vspace{0.8mm}"])
 
     progression = subclass.get("progression") if isinstance(subclass.get("progression"), dict) else {}
     for stage in (config.get("composition") or {}).get(

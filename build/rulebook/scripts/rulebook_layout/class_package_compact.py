@@ -368,6 +368,7 @@ def render_class_package_tex(
 \usepackage{{microtype}}
 \usepackage{{needspace}}
 \usepackage{{paracol}}
+\usepackage{{wrapfig}}
 \pagestyle{{empty}}
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{1.35mm}}
