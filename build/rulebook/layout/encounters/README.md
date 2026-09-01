@@ -52,6 +52,16 @@ Structured action types rendered inside Adversary and Environment Features/Actio
 
 Type labels are a presentation of existing normalized `actionType`/type semantics only. Long labels may wrap naturally, but the renderer must preserve the complete label, action name, and rules text. Legacy prose containing words such as *Passive* or *Reaction* is not parsed or rewritten to invent structured labels.
 
+### Normalized adversary/environment presentation views
+
+Adversaries and Environments are projected into an in-memory `cybermancy-encounter-presentation-view-v1.0` before their family renderer runs. This is a presentation-only projection: the Step 4 sidecar and canonical Foundry sources are never rewritten, and the projection deep-copies structured values rather than repairing or filling them.
+
+The Adversary family order is `identity -> description -> attack -> motivesAndTactics -> experiences -> fastPlay -> actions -> features`. The Environment family order is `identity -> description -> impulses -> potentialAdversaries -> fastPlay -> actions -> features`. The corresponding package JSON files own these orders through `presentationPolicy.sectionOrder`.
+
+Sparse legacy and feature-rich current records use the same family template. Optional sections collapse when their source value is absent: the renderer does not invent `Unclassified`, dash statistics, missing descriptions/impulses, synthetic Fast Play, `No embedded Features`, or a missing-art placeholder. When art exists, the accepted compact identity-art grammar remains in use; when art is absent, the identity block expands into the released space. A source record that explicitly references art which cannot be staged still receives the existing `ART NOT STAGED` diagnostic rather than silently hiding an asset failure.
+
+This normalization does not change publication identity or ordering. Adversaries retain Transaction 4 normalized-name then semantic-ID ordering; Environments retain Tier, Classification, Name, semantic-ID ordering. Structured action-type labels continue to use the Transaction 10 shared type-label role. Build reports expose `presentationSchema` and `renderedSemanticIds` so regression tests can prove that every selected Adversary or Environment semantic ID passes through the normalized presentation view exactly once.
+
 ## Chapter 32 publication equivalence
 
 The initial Step 4 audit remains available as diagnostic evidence:

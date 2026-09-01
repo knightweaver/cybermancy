@@ -20,7 +20,26 @@
       "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
       "reconciliation": "exact-before-render"
     },
-    "ordering": ["normalized-name", "semanticId"]
+    "ordering": [
+      "normalized-name",
+      "semanticId"
+    ]
+  },
+  "presentationPolicy": {
+    "schema": "cybermancy-encounter-presentation-policy-v1",
+    "viewSchema": "cybermancy-encounter-presentation-view-v1.0",
+    "sectionOrder": [
+      "identity",
+      "description",
+      "attack",
+      "motivesAndTactics",
+      "experiences",
+      "fastPlay",
+      "actions",
+      "features"
+    ],
+    "omitEmptyOptionalSections": true,
+    "missingContentPolicy": "omit-without-invention"
   },
   "artworkPolicy": "optional for legacy corpus; compact header art capped to the identity-block height; omit without invented replacement",
   "fastPlayPolicy": "render structured Fast Play only when present",
