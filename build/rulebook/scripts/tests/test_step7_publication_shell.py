@@ -28,6 +28,15 @@ def _load(path: Path) -> dict:
 
 
 class PublicationShellGenerationTests(unittest.TestCase):
+    @staticmethod
+    def _package_segment(rendered: str, family: str) -> str:
+        marker = f"% CM-STAGE150 FAMILY {family} BEGIN"
+        start = rendered.index(marker)
+        end = rendered.find("% CM-STAGE150 FAMILY ", start + len(marker))
+        if end < 0:
+            end = rendered.index(r"\end{document}", start)
+        return rendered[start:end]
+
     def test_player_shell_adds_front_matter_without_removed_appendix_b(self):
         contract = _load(PRODUCTION_CONTRACT)
         document = """\\documentclass{article}
@@ -46,6 +55,7 @@ class PublicationShellGenerationTests(unittest.TestCase):
         self.assertEqual(report["status"], "PASS")
         self.assertIn(r"\CMProductionFrontMatter", rendered)
         self.assertIn(r"\newcommand{\CMProductionPart}[5]", rendered)
+        self.assertIn(r"\newcommand{\CMProductionChapterBreak}{\clearpage}", rendered)
         self.assertIn(r"\hypersetup{bookmarksdepth=1}", rendered)
         self.assertIn(
             r"\ifodd\value{page}\null\thispagestyle{empty}\newpage\fi",
@@ -55,30 +65,47 @@ class PublicationShellGenerationTests(unittest.TestCase):
         self.assertNotIn("appendix-b-entity-index", rendered)
         self.assertNotIn(r"\CMEntityIndexLetter", rendered)
         self.assertNotIn(r"\CMEntityIndexEntry", rendered)
+        self.assertEqual(report["ordinaryChapterBreaks"], [30, 31, 32])
+        self.assertEqual(report["packageChapterBreaksApplied"], [])
         self.assertEqual(report["appendices"]["generated"], [])
         self.assertIn("appendix-a-rules-quick-reference", report["appendices"]["deferred"])
         self.assertIn("appendix-b-entity-index", report["appendices"]["removed"])
         self.assertIn("appendix-c-attribution-publication-notice", report["appendices"]["deferred"])
 
-    def test_complete_rulebook_package_navigation_order_is_unchanged(self):
+    def test_complete_rulebook_package_navigation_and_boundaries_are_exact(self):
         contract = _load(PRODUCTION_CONTRACT)
-        families = ("features", "adversaries", "environments", "adversaries-features")
         document = """\\documentclass{article}
 \\newcommand{\\CMIntegratedChapter}[4]{}
 \\newcommand{\\CMIntegratedPart}[4]{}
 \\begin{document}
 % CM-INTEGRATED-SHELL PART part-i-world
 \\CMIntegratedPart{I}{World}{player}{part-i-world}
-""" + "\n".join(
-            f"% CM-STAGE150 FAMILY {family} BEGIN\n\\clearpage\n"
-            for family in families
-        ) + """
+% CM-STAGE150 FAMILY features BEGIN
+\\clearpage
+ICE BODY
+% CM-STAGE150 FAMILY features END
+% CM-STAGE150 FAMILY adversaries BEGIN
+\\clearpage
+ADVERSARY BODY
+% CM-STAGE150 FAMILY adversaries END
+% CM-STAGE150 FAMILY environments BEGIN
+ENVIRONMENT BODY
+% CM-STAGE150 FAMILY environments END
+% CM-STAGE150 FAMILY adversaries-features BEGIN
+\\clearpage
+FEATURE BODY
+% CM-STAGE150 FAMILY adversaries-features END
 \\end{document}
 """
         rendered, report = apply_publication_shell(
             document, "complete-rulebook", contract, _load(METADATA)
         )
+
         self.assertEqual(report["packageChapterNavigation"], [29, 30, 31, 32])
+        self.assertEqual(report["ordinaryChapterBreaks"], [30, 31, 32])
+        self.assertEqual(report["packageChapterBreaksApplied"], [30, 31, 32])
+
+        calls = []
         for chapter, title, chapter_id in (
             (29, "ICE Reference", "ch29-ice-reference"),
             (30, "Adversaries", "ch30-adversaries"),
@@ -86,9 +113,39 @@ class PublicationShellGenerationTests(unittest.TestCase):
             (32, "Adversary Feature Reference", "ch32-adversary-features"),
         ):
             call = rf"\CMProductionPackageChapter{{{chapter}}}{{{title}}}{{{chapter_id}}}"
+            calls.append(call)
+            self.assertEqual(rendered.count(call), 1)
             self.assertIn(call + "\n", rendered)
             self.assertNotIn(call + r"\n", rendered)
+
+        self.assertEqual([rendered.index(call) for call in calls], sorted(rendered.index(call) for call in calls))
+
+        chapter29 = self._package_segment(rendered, "features")
+        self.assertNotIn(r"\CMProductionChapterBreak", chapter29)
+        self.assertIn(
+            "\\clearpage\n\\CMProductionPackageChapter{29}{ICE Reference}{ch29-ice-reference}\n",
+            chapter29,
+        )
+
+        for family, chapter in (
+            ("adversaries", 30),
+            ("environments", 31),
+            ("adversaries-features", 32),
+        ):
+            segment = self._package_segment(rendered, family)
+            call = calls[chapter - 29]
+            self.assertEqual(segment.count(r"\CMProductionChapterBreak"), 1)
+            self.assertLess(segment.index(r"\CMProductionChapterBreak"), segment.index(call))
+            self.assertEqual(segment.count(r"\clearpage"), 0)
+            self.assertNotIn(r"\CMProductionRecto", segment)
+
         self.assertNotIn("appendix-b-entity-index", rendered)
+
+    def test_ordinary_chapter_break_policy_is_not_recto_policy(self):
+        shell = _load(PRODUCTION_CONTRACT)["publicationShell"]
+        self.assertEqual(shell["ordinaryChapterBreaks"], [30, 31, 32])
+        self.assertEqual(shell["rectoStarts"], ["part", "appendix"])
+        self.assertNotIn("chapter", shell["rectoStarts"])
 
     def test_profile_chapter_order_remains_frozen(self):
         step6 = _load(STEP6_CONTRACT)
