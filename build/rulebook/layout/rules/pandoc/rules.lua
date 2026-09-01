@@ -106,7 +106,44 @@ function Para(el)
   return el
 end
 
+local TABLE_WIDTH_POLICIES = {
+  ['level|scope|progress required|typical effect'] = {0.10, 0.15, 0.18, 0.57},
+  ['roll result|progress|hacking consequence'] = {0.24, 0.10, 0.66},
+}
+
+local function normalized_table_header(value)
+  local text = pandoc.utils.stringify(value or {})
+  text = text:gsub('%s+', ' ')
+  text = text:gsub('^%s+', '')
+  text = text:gsub('%s+$', '')
+  return text:lower()
+end
+
+local function table_header_signature(el)
+  if not el.head or not el.head.rows or #el.head.rows ~= 1 then
+    return nil
+  end
+  local cells = el.head.rows[1].cells or {}
+  local parts = {}
+  for _, cell in ipairs(cells) do
+    table.insert(parts, normalized_table_header(cell.contents or cell.content or {}))
+  end
+  return table.concat(parts, '|')
+end
+
+local function apply_semantic_table_widths(el)
+  local widths = TABLE_WIDTH_POLICIES[table_header_signature(el)]
+  if not widths or #el.colspecs ~= #widths then
+    return el
+  end
+  for i, width in ipairs(widths) do
+    el.colspecs[i] = {el.colspecs[i][1], width}
+  end
+  return el
+end
+
 function Table(el)
+  el = apply_semantic_table_widths(el)
   return {
     pandoc.RawBlock('latex', '\\end{multicols}\n\\begin{CMRulesTable}'),
     el,
