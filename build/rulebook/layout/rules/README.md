@@ -61,6 +61,15 @@ Ordered lists are treated consistently as compact rules sequences. The renderer 
 
 Pandoc tables use the accepted full-width prose-table infrastructure with repeated-header longtable behavior. This lane does **not** use or depend on the Equipment Catalog primitive.
 
+Two Netrunning reference tables have explicit semantic width policies because their prose-density roles are materially different from Pandoc's equal/default column sizing. Selection is by the exact normalized header signature only: header text is lowercased, surrounding whitespace is trimmed, and repeated whitespace is collapsed before comparison. Page number, table position, chapter-local ordinal, and cell contents outside the header are not selectors.
+
+| Normalized semantic signature | Accepted widths |
+|---|---|
+| `Level | Scope | Progress Required | Typical Effect` | `0.10 / 0.15 / 0.18 / 0.57` |
+| `Roll Result | Progress | Hacking Consequence` | `0.24 / 0.10 / 0.66` |
+
+The first policy gives less space to Scope and more to Typical Effect. The second gives most of the row width to Hacking Consequence. Tables whose normalized headers do not match these complete signatures retain their existing Pandoc/default width behavior.
+
 ### Neutral rules blockquote
 
 Part II blockquotes are not automatically interpreted as quotations, examples, formulas, warnings, or principles. They receive a restrained, flowable treatment until explicit publication semantics justify subtype-specific rendering. The implementation deliberately avoids `Needspace` or list-based reservation that can create artificial blank pages around full-width tables.
