@@ -226,6 +226,27 @@ def _class_support_tex(cls: dict[str, Any]) -> str:
     return "\n".join(pieces)
 
 
+def _subclass_wrap_clear_tex() -> str:
+    """Reserve unfinished wrap depth, then end the wrap before progression content."""
+    return "\n".join(
+        [
+            r"\par",
+            r"\makeatletter",
+            r"\ifnum\c@WF@wrappedlines>\@ne",
+            r"\begingroup",
+            r"\@tempcnta=\c@WF@wrappedlines",
+            r"\advance\@tempcnta\m@ne",
+            r"\dimen@=\baselineskip",
+            r"\multiply\dimen@\@tempcnta",
+            r"\vskip\dimen@",
+            r"\endgroup",
+            r"\fi",
+            r"\makeatother",
+            r"\WFclear",
+        ]
+    )
+
+
 def _subclass_tex(
     subclass: dict[str, Any],
     config: dict[str, Any],
@@ -264,9 +285,9 @@ def _subclass_tex(
     if trait:
         pieces.extend(
             [
-                r"\noindent\colorbox{CMSubclass}{\strut",
-                rf"\fontsize{{10.5}}{{11.5}}\selectfont\bfseries\color{{CMInk}} SPELLCAST TRAIT: {latex_escape(trait.upper())}",
-                r"}\par",
+                r"\noindent\colorbox{CMSubclass}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering",
+                rf"\strut\fontsize{{10.5}}{{11.5}}\selectfont\bfseries\color{{CMInk}} SPELLCAST TRAIT: {latex_escape(trait.upper())}\par",
+                r"}}\par",
                 r"\vspace{1.2mm}",
             ]
         )
@@ -281,9 +302,10 @@ def _subclass_tex(
             )
         )
 
-    # The wrap belongs only to the Subclass lead. Progression headings/features
-    # must always return to the full width of the paracol column.
-    pieces.extend([r"\WFclear", r"\vspace{0.8mm}"])
+    # The wrap belongs only to the Subclass lead. Short leads reserve the
+    # remaining wrapped-line depth before WFclear so progression cannot overlap
+    # the art; long leads simply clear after the wrap has naturally finished.
+    pieces.extend([_subclass_wrap_clear_tex(), r"\vspace{0.8mm}"])
 
     progression = subclass.get("progression") if isinstance(subclass.get("progression"), dict) else {}
     for stage in (config.get("composition") or {}).get(
