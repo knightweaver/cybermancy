@@ -35,6 +35,7 @@ def _description_block_tex(description: str, body_size: float, body_leading: flo
             r"\setlength{\parskip}{0pt}",
             r"\setlength{\parindent}{0pt}",
             r"\setlength{\emergencystretch}{1.5em}",
+            r"\RaggedRight",
             rf"\fontsize{{{body_size:.2f}}}{{{body_leading:.2f}}}\selectfont\color{{CMInk}}",
             rf"\noindent {description}\par",
             r"\endgroup",
@@ -334,6 +335,7 @@ def render_domain_package_tex(
 \usepackage{{multicol}}
 \usepackage{{paracol}}
 \usepackage{{needspace}}
+\usepackage{{ragged2e}}
 \setsansfont{{Arial}}
 \setmainfont{{Arial}}
 \definecolor{{CMAccent}}{{HTML}}{{{style['accent']}}}
@@ -353,6 +355,7 @@ def render_domain_package_tex(
 \raggedbottom
 \begin{{document}}
 \sffamily
+\RaggedRight
 {chr(10).join(content)}
 \end{{document}}
 """
