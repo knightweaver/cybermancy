@@ -163,7 +163,8 @@
     "titlePageNumberVisible": false,
     "frontMatterNumbering": "lowercase-roman",
     "mainMatterNumbering": "arabic-from-part-i",
-    "rectoStarts": ["part", "appendix"]
+    "rectoStarts": ["part", "appendix"],
+    "ordinaryChapterBreaks": [30, 31, 32]
   },
   "appendices": {
     "appendix-a-rules-quick-reference": {"status": "DEFERRED", "generate": false},
