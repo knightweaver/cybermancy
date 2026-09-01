@@ -20,7 +20,7 @@
       "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
       "reconciliation": "exact-before-render"
     },
-    "ordering": ["tier", "classification", "name", "semanticId"]
+    "ordering": ["normalized-name", "semanticId"]
   },
   "artworkPolicy": "optional for legacy corpus; compact header art capped to the identity-block height; omit without invented replacement",
   "fastPlayPolicy": "render structured Fast Play only when present",

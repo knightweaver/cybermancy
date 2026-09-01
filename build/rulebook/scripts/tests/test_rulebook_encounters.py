@@ -98,6 +98,58 @@ class TestEncounterLayout(unittest.TestCase):
         self.assertIn(r"STANDARD \textbullet\ TIER 1}\\[1.5pt]", tex)
         self.assertNotIn(r"\clearpage", tex)
 
+    def test_unselected_adversary_render_order_is_normalized_name(self):
+        sidecar = self._sidecar()
+        sidecar["entities"].extend(
+            [
+                {
+                    "semanticId": "entity:adversaries:Z",
+                    "family": "adversaries",
+                    "name": "Zulu Adversary",
+                    "publicationData": {"tier": 1, "classification": "standard"},
+                },
+                {
+                    "semanticId": "entity:adversaries:B",
+                    "family": "adversaries",
+                    "name": "beta adversary",
+                    "publicationData": {"tier": 2, "classification": "support"},
+                },
+                {
+                    "semanticId": "entity:adversaries:A",
+                    "family": "adversaries",
+                    "name": "  Alpha Adversary  ",
+                    "publicationData": {"tier": 3, "classification": "bruiser"},
+                },
+            ]
+        )
+        tex, report = render_package(
+            sidecar,
+            {
+                "family": "adversaries",
+                "title": "Adversaries",
+                "columns": 2,
+                "selection": {"mode": "full-corpus"},
+            },
+            Path("/does/not/exist"),
+        )
+        expected_names = [
+            "  Alpha Adversary  ",
+            "beta adversary",
+            "Proof Adversary",
+            "Zulu Adversary",
+        ]
+        expected_ids = [
+            "entity:adversaries:A",
+            "entity:adversaries:B",
+            "entity:adversaries:ADV1",
+            "entity:adversaries:Z",
+        ]
+        self.assertEqual(report["selectedNames"], expected_names)
+        self.assertEqual(report["selectedSemanticIds"], expected_ids)
+        self.assertEqual(len(report["selectedSemanticIds"]), len(set(report["selectedSemanticIds"])))
+        positions = [tex.index(name.strip()) for name in expected_names]
+        self.assertEqual(positions, sorted(positions))
+
     def test_environment_grammar_remains_one_column_and_unchanged(self):
         sidecar = self._sidecar()
         env_tex, env_report = render_package(

@@ -39,19 +39,37 @@ class TestEncounterProductionContracts(unittest.TestCase):
                     "semanticId": "entity:adversaries:Z",
                     "family": "adversaries",
                     "name": "Zulu",
-                    "publicationData": {"tier": 2, "classification": "standard"},
+                    "publicationData": {"tier": 1, "classification": "standard"},
                 },
                 {
                     "semanticId": "entity:adversaries:B",
                     "family": "adversaries",
                     "name": "Beta",
-                    "publicationData": {"tier": 1, "classification": "support"},
+                    "publicationData": {"tier": 2, "classification": "support"},
                 },
                 {
                     "semanticId": "entity:adversaries:A",
                     "family": "adversaries",
                     "name": "Alpha",
-                    "publicationData": {"tier": 1, "classification": "bruiser"},
+                    "publicationData": {"tier": 3, "classification": "bruiser"},
+                },
+                {
+                    "semanticId": "entity:environments:Z",
+                    "family": "environments",
+                    "name": "Zulu Zone",
+                    "publicationData": {"tier": 1, "classification": "standard"},
+                },
+                {
+                    "semanticId": "entity:environments:B",
+                    "family": "environments",
+                    "name": "Beta Zone",
+                    "publicationData": {"tier": 1, "classification": "support"},
+                },
+                {
+                    "semanticId": "entity:environments:A",
+                    "family": "environments",
+                    "name": "Alpha Zone",
+                    "publicationData": {"tier": 2, "classification": "bruiser"},
                 },
                 {
                     "semanticId": "entity:adversaries-features:S2",
@@ -109,7 +127,17 @@ class TestEncounterProductionContracts(unittest.TestCase):
         self.assertEqual(self.builder.EXPECTED_PACKAGE_VERSIONS["environment"], "v1.0")
         self.assertEqual(self.builder.EXPECTED_PACKAGE_VERSIONS["feature-reference"], "v1.0")
 
-    def test_adversary_full_corpus_order_is_tier_classification_name(self):
+    def test_package_orderings_are_explicit_per_family(self):
+        self.assertEqual(
+            self.builder.EXPECTED_ORDERINGS["adversary"],
+            ["normalized-name", "semanticId"],
+        )
+        self.assertEqual(
+            self.builder.EXPECTED_ORDERINGS["environment"],
+            ["tier", "classification", "name", "semanticId"],
+        )
+
+    def test_adversary_full_corpus_order_is_normalized_name(self):
         ids, errors = self.builder._ordered_full_corpus(self._sidecar(), "adversaries")
         self.assertEqual(errors, [])
         self.assertEqual(
@@ -118,6 +146,47 @@ class TestEncounterProductionContracts(unittest.TestCase):
                 "entity:adversaries:A",
                 "entity:adversaries:B",
                 "entity:adversaries:Z",
+            ],
+        )
+
+    def test_adversary_duplicate_names_use_semantic_id_tie_breaker(self):
+        sidecar = self._sidecar()
+        sidecar["entities"].extend(
+            [
+                {
+                    "semanticId": "entity:adversaries:A0",
+                    "family": "adversaries",
+                    "name": "  ALPHA  ",
+                    "publicationData": {"tier": 4, "classification": "solo"},
+                },
+                {
+                    "semanticId": "entity:adversaries:A2",
+                    "family": "adversaries",
+                    "name": "Alpha",
+                    "publicationData": {"tier": 1, "classification": "minion"},
+                },
+            ]
+        )
+        ids, errors = self.builder._ordered_full_corpus(sidecar, "adversaries")
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            ids[:3],
+            [
+                "entity:adversaries:A",
+                "entity:adversaries:A0",
+                "entity:adversaries:A2",
+            ],
+        )
+
+    def test_environment_full_corpus_order_remains_tier_classification_name(self):
+        ids, errors = self.builder._ordered_full_corpus(self._sidecar(), "environments")
+        self.assertEqual(errors, [])
+        self.assertEqual(
+            ids,
+            [
+                "entity:environments:Z",
+                "entity:environments:B",
+                "entity:environments:A",
             ],
         )
 
@@ -146,7 +215,7 @@ class TestEncounterProductionContracts(unittest.TestCase):
     def test_frozen_adversary_v11_contract_accepts_warning_step4_status(self):
         runtime, contract, errors = self.builder._productionize_config(
             self._sidecar(),
-            self._config("adversaries", 3, ["tier", "classification", "name", "semanticId"]),
+            self._config("adversaries", 3, ["normalized-name", "semanticId"]),
             "adversary",
         )
         self.assertEqual(errors, [])
@@ -155,6 +224,18 @@ class TestEncounterProductionContracts(unittest.TestCase):
         self.assertEqual(contract["expectedEntryCount"], 3)
         self.assertEqual(runtime["selection"]["mode"], "full-corpus")
         self.assertEqual(len(runtime["selection"]["semanticIds"]), 3)
+
+    def test_adversary_contract_rejects_previous_tier_ordering(self):
+        _, _, errors = self.builder._productionize_config(
+            self._sidecar(),
+            self._config(
+                "adversaries",
+                3,
+                ["tier", "classification", "name", "semanticId"],
+            ),
+            "adversary",
+        )
+        self.assertTrue(any("adversary ordering must be" in message for message in errors))
 
     def test_frozen_feature_reference_requires_applied_step4_equivalence(self):
         runtime, contract, errors = self.builder._productionize_config(
@@ -189,7 +270,7 @@ class TestEncounterProductionContracts(unittest.TestCase):
     def test_adversary_v10_is_rejected_after_v11_freeze(self):
         _, _, errors = self.builder._productionize_config(
             self._sidecar(),
-            self._config("adversaries", 3, ["tier", "classification", "name", "semanticId"], version="v1.0"),
+            self._config("adversaries", 3, ["normalized-name", "semanticId"], version="v1.0"),
             "adversary",
         )
         self.assertTrue(any("adversary config must have lifecycle.version='v1.1'" in message for message in errors))
@@ -197,7 +278,7 @@ class TestEncounterProductionContracts(unittest.TestCase):
     def test_frozen_contract_fails_closed_on_count_drift(self):
         _, contract, errors = self.builder._productionize_config(
             self._sidecar(),
-            self._config("adversaries", 4, ["tier", "classification", "name", "semanticId"]),
+            self._config("adversaries", 4, ["normalized-name", "semanticId"]),
             "adversary",
         )
         self.assertEqual(contract["actualEntryCount"], 3)
@@ -208,7 +289,7 @@ class TestEncounterProductionContracts(unittest.TestCase):
         sidecar["encounterSemantics"]["status"] = "FAIL"
         _, _, errors = self.builder._productionize_config(
             sidecar,
-            self._config("adversaries", 3, ["tier", "classification", "name", "semanticId"]),
+            self._config("adversaries", 3, ["normalized-name", "semanticId"]),
             "adversary",
         )
         self.assertTrue(any("encounterSemantics status is FAIL" in message for message in errors))
