@@ -126,6 +126,7 @@ def _class_wrapper(config: dict[str, Any]) -> tuple[str, str]:
 \definecolor{{CMSubclass}}{{HTML}}{{{_hex(style, 'subclassBandColor', 'DDEEF0')}}}
 \let\sffamily\CMClassSans
 \CMClassSans
+\RaggedRight
 """
     return begin, "\\endgroup\n% CM-STAGE150 FAMILY classes END\n"
 
@@ -143,6 +144,7 @@ def _domain_wrapper(config: dict[str, Any]) -> tuple[str, str]:
 \definecolor{{CMRule}}{{HTML}}{{{_hex(style, 'ruleColor', 'B9D9DC')}}}
 \let\sffamily\CMDomainSans
 \CMDomainSans
+\RaggedRight
 """
     return begin, "\\endgroup\n% CM-STAGE150 FAMILY domains END\n"
 
@@ -158,6 +160,7 @@ def _equipment_wrapper(family: str, config: dict[str, Any]) -> tuple[str, str]:
 \definecolor{{CMRule}}{{HTML}}{{{_hex(style, 'ruleColor', '18A7B5')}}}
 \let\sffamily\CMEquipmentSans
 \CMEquipmentSans
+\RaggedRight
 """
     return begin, f"\\endgroup\n% CM-STAGE150 FAMILY {family} END\n"
 
@@ -176,6 +179,7 @@ def _ice_wrapper(config: dict[str, Any]) -> tuple[str, str]:
 \definecolor{{CMPaper}}{{HTML}}{{{_hex(style, 'paperColor', 'F9F9F7')}}}
 \definecolor{{CMDark}}{{HTML}}{{{_hex(style, 'darkBandColor', '111B28')}}}
 \definecolor{{CMGM}}{{HTML}}{{{_hex(style, 'gmAccentColor', '6C55A6')}}}
+\RaggedRight
 """
     return begin, "\\endgroup\n% CM-STAGE150 FAMILY features END\n"
 
@@ -192,6 +196,7 @@ def _encounter_wrapper(family: str) -> tuple[str, str]:
 \definecolor{{CMSoft}}{{HTML}}{{E8F1F0}}
 \let\sffamily\CMEncounterSans
 \CMEncounterSans
+\RaggedRight
 """
     return begin, f"\\endgroup\n% CM-STAGE150 FAMILY {family} END\n"
 
@@ -575,10 +580,12 @@ def _shared_extensions(profile: str) -> str:
 }}
 
 \newcommand{{\CMUseProseLane}}{{%
+  \RaggedRight%
   \let\CMStandardImage\CMProseStandardImage
   \setlist[enumerate,1]{{label=\arabic*.,leftmargin=1.15em,itemsep=1.6pt,topsep=3pt}}%
 }}
 \newcommand{{\CMUseRulesLane}}{{%
+  \RaggedRight%
   \let\CMStandardImage\CMRulesStandardImage
   \setlist[enumerate,1]{{label=\textcolor{{CMTeal}}{{\sffamily\bfseries\arabic*.}},leftmargin=1.45em,itemsep=2.8pt,topsep=3.5pt}}%
 }}
