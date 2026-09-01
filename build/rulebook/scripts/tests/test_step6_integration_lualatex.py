@@ -68,7 +68,8 @@ class Stage160CompileTreeTests(unittest.TestCase):
             self.assertEqual(result["sourceAssetsSha256"], result["compileAssetsSha256"])
             self.assertEqual(result["assetCount"], 2)
             self.assertEqual(tex.read_text(encoding="utf-8"), original)
-            self.assertIn(r"\hfuzz=0.2pt", (work / "book.tex").read_text(encoding="utf-8"))
+            self.assertIn(r"\hfuzz=0.25pt", (work / "book.tex").read_text(encoding="utf-8"))
+            self.assertEqual(result["compatibilityOverlay"]["microOverflowTolerancePt"], 0.25)
             self.assertEqual(sha256_tree(assets)[0], sha256_tree(work / "assets")[0])
             self.assertEqual(result["compatibilityOverlay"]["status"], "PASS")
 
@@ -99,15 +100,17 @@ class Stage160CompileTreeTests(unittest.TestCase):
                 first["patches"],
                 [
                     "pandoc-strikeout-soul",
-                    "hfuzz-0.2pt",
+                    "hfuzz-0.25pt",
                     "profile-footer-zero-width-anchor",
                 ],
             )
+            self.assertEqual(first["microOverflowTolerancePt"], 0.25)
             self.assertIn(r"\usepackage{soul}", rendered)
-            self.assertIn(r"\hfuzz=0.2pt", rendered)
+            self.assertIn(r"\hfuzz=0.25pt", rendered)
             self.assertIn(r"\fancyfoot[L]{\rlap{", rendered)
             self.assertEqual(second["status"], "PASS", second)
             self.assertEqual(second["patches"], [])
+            self.assertEqual(second["microOverflowTolerancePt"], 0.25)
 
 
 class Stage160GraphicsPreflightTests(unittest.TestCase):
