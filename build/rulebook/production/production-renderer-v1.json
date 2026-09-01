@@ -94,7 +94,7 @@
     {"order": 170, "stage": "rendered-regression"}
   ],
   "frozenPackageBindings": [
-    {"path": "build/rulebook/layout/prose/prose-layout-v1.json", "sha256": "754cb4b4ab9dd8b17091593bdebc3c62224e14cb28172b4a0de22f5b2a8be50f"},
+    {"path": "build/rulebook/layout/prose/prose-layout-v1.json", "sha256": "2facff816d58513f693bd52ae113aa0982dbeba887686cb1162556062fa78e31"},
     {"path": "build/rulebook/layout/rules/rules-layout-v1.json", "sha256": "cf80671f232f64ed0b7906f7bbb5f65299d8f4b9d0509ef50d9cfead02615413"},
     {"path": "build/rulebook/layout/character-origins/character-origins-layout-v1.json", "sha256": "3f9dca0f76c32f9b93b6616ff70915263ad34f37ddb5ef3b44d06797c66c4b6c"},
     {"path": "build/rulebook/layout/classes/class-package-v1.json", "sha256": "bfbb53f0d3c5f5833a94b8aea3507b56da07f4bf3ea25c85553f124f075ea616"},
