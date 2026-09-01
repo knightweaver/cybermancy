@@ -52,6 +52,22 @@ def _appendix_state(appendices: dict[str, Any]) -> dict[str, list[str]]:
     }
 
 
+def _ordinary_chapter_breaks(shell: dict[str, Any]) -> list[int]:
+    raw = shell.get("ordinaryChapterBreaks")
+    if not isinstance(raw, list):
+        raise ValueError("Production publication-shell ordinaryChapterBreaks policy is missing")
+    try:
+        chapters = [int(value) for value in raw]
+    except (TypeError, ValueError) as exc:
+        raise ValueError("Production ordinaryChapterBreaks must contain chapter numbers") from exc
+    if chapters != sorted(set(chapters)):
+        raise ValueError("Production ordinaryChapterBreaks must be unique and ascending")
+    unknown = [chapter for chapter in chapters if chapter not in PACKAGE_CHAPTERS]
+    if unknown:
+        raise ValueError(f"Production ordinaryChapterBreaks contains non-package chapters: {unknown}")
+    return chapters
+
+
 def _production_macros(title: str, subtitle: str, version: str, footer: str) -> str:
     return rf"""
 % ---- Production Renderer Phase D publication shell ----
@@ -60,6 +76,7 @@ def _production_macros(title: str, subtitle: str, version: str, footer: str) -> 
   \clearpage
   \ifodd\value{{page}}\else\null\thispagestyle{{empty}}\newpage\fi
 }}
+\newcommand{{\CMProductionChapterBreak}}{{\clearpage}}
 \newcommand{{\CMProductionTOCLine}}[4]{{%
   \addtocontents{{toc}}{{\protect\contentsline{{#1}}{{#2}}{{\thepage}}{{#3}}}}%
   \pdfbookmark[#4]{{#2}}{{#3}}%
@@ -142,8 +159,13 @@ def _production_macros(title: str, subtitle: str, version: str, footer: str) -> 
 """
 
 
-def _inject_package_navigation(document: str) -> tuple[str, list[int]]:
+def _inject_package_navigation(
+    document: str,
+    ordinary_break_chapters: list[int],
+) -> tuple[str, list[int], list[int]]:
     applied: list[int] = []
+    breaks_applied: list[int] = []
+    ordinary_breaks = set(ordinary_break_chapters)
     for chapter, (family, title, chapter_id) in PACKAGE_CHAPTERS.items():
         marker = f"% CM-STAGE150 FAMILY {family} BEGIN"
         start = document.find(marker)
@@ -158,14 +180,26 @@ def _inject_package_navigation(document: str) -> tuple[str, list[int]]:
             + "\n"
         )
         clear_at = segment.find(r"\clearpage")
-        if clear_at >= 0:
+        if chapter in ordinary_breaks:
+            # The shell owns this boundary. Replace one incidental package-local
+            # leading/page-opening clearpage when present, then emit exactly one
+            # ordinary break at the semantic package boundary. Placement no longer
+            # depends on where the package happened to put its first clearpage.
+            if clear_at >= 0:
+                clear_abs = start + clear_at
+                document = document[:clear_abs] + document[clear_abs + len(r"\clearpage") :]
+            insert_at = start + len(marker)
+            boundary = "\n" + r"\CMProductionChapterBreak" + "\n" + navigation
+            document = document[:insert_at] + boundary + document[insert_at:]
+            breaks_applied.append(chapter)
+        elif clear_at >= 0:
             insert_at = start + clear_at + len(r"\clearpage")
             document = document[:insert_at] + "\n" + navigation + document[insert_at:]
         else:
             insert_at = start + len(marker)
             document = document[:insert_at] + "\n" + navigation + document[insert_at:]
         applied.append(chapter)
-    return document, applied
+    return document, applied, breaks_applied
 
 
 def apply_publication_shell(
@@ -182,6 +216,7 @@ def apply_publication_shell(
     if not isinstance(appendices, dict):
         raise ValueError("Production appendix contract is missing")
 
+    ordinary_chapter_breaks = _ordinary_chapter_breaks(shell)
     appendix_state = _appendix_state(appendices)
     appendix_b = appendices.get("appendix-b-entity-index")
     if not isinstance(appendix_b, dict):
@@ -214,12 +249,20 @@ def apply_publication_shell(
     document = document.replace(begin, _production_macros(title, subtitle, version, footer) + "\n" + begin, 1)
     front_at = document.index(first_part)
     document = document[:front_at] + "\\CMProductionFrontMatter\n" + document[front_at:]
-    document, package_chapters = _inject_package_navigation(document)
+    document, package_chapters, package_breaks = _inject_package_navigation(
+        document,
+        ordinary_chapter_breaks,
+    )
 
     expected_packages = [] if profile == "player-guide" else sorted(PACKAGE_CHAPTERS)
+    expected_breaks = [] if profile == "player-guide" else ordinary_chapter_breaks
     if package_chapters != expected_packages:
         raise ValueError(
             f"Production package navigation mismatch: expected={expected_packages}, actual={package_chapters}"
+        )
+    if package_breaks != expected_breaks:
+        raise ValueError(
+            f"Production package chapter-break mismatch: expected={expected_breaks}, actual={package_breaks}"
         )
     report = {
         "schema": "cybermancy-production-publication-shell-v1",
@@ -232,6 +275,8 @@ def apply_publication_shell(
         "frontMatterNumbering": "lowercase-roman",
         "mainMatterNumbering": "arabic-from-part-i",
         "rectoStarts": ["part"],
+        "ordinaryChapterBreaks": ordinary_chapter_breaks,
+        "packageChapterBreaksApplied": package_breaks,
         "packageChapterNavigation": package_chapters,
         "appendices": appendix_state,
         "documentSha256": hashlib.sha256(document.encode("utf-8")).hexdigest(),
