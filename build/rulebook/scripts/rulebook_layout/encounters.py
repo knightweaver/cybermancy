@@ -172,8 +172,9 @@ def _preamble(title: str, subtitle: str, *, columns: int = 1) -> str:
     return rf'''\documentclass[10pt,letterpaper]{{article}}
 \usepackage[letterpaper,margin=0.55in,top=0.50in,bottom=0.55in]{{geometry}}
 \usepackage[T1]{{fontenc}}
-\usepackage{{lmodern}}
-\renewcommand{{\familydefault}}{{\sfdefault}}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\setsansfont{Arial}
 \usepackage{{microtype}}
 \usepackage{{graphicx}}
 \usepackage{{tabularx}}
