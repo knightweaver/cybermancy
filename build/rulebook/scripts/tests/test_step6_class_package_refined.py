@@ -120,6 +120,10 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
         self.assertIn(r"\end{wrapfigure}", path_a)
         self.assertNotIn(r"\begin{minipage}", path_a)
         self.assertIn("SPELLCAST TRAIT: INSTINCT", path_a)
+        self.assertIn(
+            r"\colorbox{CMSubclass}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering",
+            path_a,
+        )
         self.assertIn(r"\noindent First subclass sentence. Second subclass sentence.\par", path_a)
 
     def test_subclass_wrap_is_cleared_before_first_progression_heading(self):
@@ -130,6 +134,15 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
         self.assertLess(path_a.index(r"\WFclear"), path_a.index(r"\Needspace{0.45in}"))
         self.assertLess(path_a.index(r"\WFclear"), path_a.index("FOUNDATION"))
 
+    def test_wrap_clear_reserves_unfinished_wrap_depth_before_wfclear(self):
+        tex = self._render()
+        path_a = tex[tex.index("PATH A") : tex.index(r"\switchcolumn")]
+        self.assertIn(r"\ifnum\c@WF@wrappedlines>\@ne", path_a)
+        self.assertIn(r"\@tempcnta=\c@WF@wrappedlines", path_a)
+        self.assertIn(r"\multiply\dimen@\@tempcnta", path_a)
+        self.assertIn(r"\vskip\dimen@", path_a)
+        self.assertLess(path_a.index(r"\vskip\dimen@"), path_a.index(r"\WFclear"))
+
     def test_blank_subclass_lead_preserves_wrap_and_placeholder_structure(self):
         tex = self._render()
         path_b = tex[tex.index("PATH B") : tex.index(r"\end{paracol}")]
@@ -137,6 +150,7 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
         self.assertIn(r"\setlength{\parskip}{0pt}", path_b)
         self.assertIn(r"\fontsize{10.5}{12.1}\selectfont\itshape\color{CMMuted}", path_b)
         self.assertIn(r"\noindent No subclass lead text is currently supplied by Step 4.\par", path_b)
+        self.assertIn(r"\vskip\dimen@", path_b)
         self.assertLess(path_b.index(r"\WFclear"), path_b.index("FOUNDATION"))
 
     def test_missing_subclass_art_omits_wrapfigure_and_keeps_progression_full_width(self):
@@ -149,13 +163,16 @@ class TestStep6RefinedClassPackage(unittest.TestCase):
         self.assertIn(r"\noindent First subclass sentence. Second subclass sentence.\par", path_a)
         self.assertLess(path_a.index(r"\WFclear"), path_a.index("FOUNDATION"))
 
-    def test_short_subclass_lead_still_terminates_wrap_before_progression(self):
+    def test_short_subclass_lead_reserves_art_depth_before_progression(self):
         view, config = self._fixture()
         view["subclasses"][0]["description"] = "Short lead."
         tex = self._render(view, config)
         path_a = tex[tex.index("PATH A") : tex.index(r"\switchcolumn")]
         self.assertIn(r"\begin{wrapfigure}{l}{0.340\linewidth}", path_a)
         self.assertIn(r"\noindent Short lead.\par", path_a)
+        self.assertIn(r"\ifnum\c@WF@wrappedlines>\@ne", path_a)
+        self.assertIn(r"\vskip\dimen@", path_a)
+        self.assertLess(path_a.index(r"\vskip\dimen@"), path_a.index(r"\WFclear"))
         self.assertLess(path_a.index(r"\WFclear"), path_a.index("FOUNDATION"))
 
     def test_starting_package_rows_are_top_aligned_minipage_pairs(self):
