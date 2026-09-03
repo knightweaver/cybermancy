@@ -61,6 +61,91 @@ class TestStep4PublicationSidecarProjection(unittest.TestCase):
         }
         self.assertEqual(damage_formula(attack), "d8; d4-1")
 
+    def test_armor_projection_includes_thresholds_score_and_complete_features(self):
+        doc = {
+            "_id": "A1",
+            "name": "Test Carapace",
+            "system": {
+                "tier": 2,
+                "baseScore": 4,
+                "baseThresholds": {"major": 9, "severe": 20},
+                "armorFeatures": [
+                    {"value": "heavy", "effectIds": ["E1"], "actionIds": []},
+                    {"value": "hopeful", "effectIds": [], "actionIds": ["A1"]},
+                ],
+                "actions": {
+                    "A1": {
+                        "_id": "A1",
+                        "name": "Hope",
+                        "description": "When you would spend a Hope, you can mark an Armor Slot instead.",
+                    }
+                },
+            },
+            "effects": [
+                {"_id": "E1", "name": "Heavy", "description": "<p>-1 to <strong>Evasion</strong></p>"}
+            ],
+        }
+
+        projected = structured_publication_data("armors", doc, {})
+
+        self.assertEqual(projected["baseScore"], 4)
+        self.assertEqual(projected["baseThresholds"], {"major": 9, "severe": 20})
+        self.assertEqual(
+            projected["armorFeatures"],
+            [
+                {"name": "Heavy", "description": "-1 to Evasion"},
+                {
+                    "name": "Hopeful",
+                    "description": "When you would spend a Hope, you can mark an Armor Slot instead.",
+                },
+            ],
+        )
+
+    def test_armor_projection_retains_unlinked_rule_bearing_effect_once(self):
+        doc = {
+            "_id": "A2",
+            "name": "Bare Bones",
+            "system": {
+                "tier": 1,
+                "baseScore": 3,
+                "baseThresholds": {"major": 9, "severe": 19},
+                "armorFeatures": [],
+                "actions": {},
+            },
+            "effects": [
+                {
+                    "_id": "E2",
+                    "name": "Bare Bones",
+                    "description": "<p>When you choose not to equip armor, use these base values.</p>",
+                }
+            ],
+        }
+
+        projected = structured_publication_data("armors", doc, {})
+
+        self.assertEqual(
+            projected["armorFeatures"],
+            [{"name": "Bare Bones", "description": "When you choose not to equip armor, use these base values."}],
+        )
+
+    def test_armor_projection_uses_empty_feature_array_for_featureless_armor(self):
+        doc = {
+            "_id": "A3",
+            "name": "Plain Armor",
+            "system": {
+                "tier": 1,
+                "baseScore": 3,
+                "baseThresholds": {"major": 6, "severe": 13},
+                "armorFeatures": [],
+                "actions": {},
+            },
+            "effects": [],
+        }
+
+        projected = structured_publication_data("armors", doc, {})
+
+        self.assertEqual(projected["armorFeatures"], [])
+
 
 class TestEquipmentCatalogPrimitive(unittest.TestCase):
     def setUp(self):
