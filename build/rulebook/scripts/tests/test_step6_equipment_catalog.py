@@ -222,6 +222,68 @@ class TestEquipmentCatalogPrimitive(unittest.TestCase):
         self.assertEqual(rows[0].cells["action"], "—")
         self.assertEqual(rows[0].cells["criticalEffect"], "—")
 
+    def test_armor_catalog_uses_tier_for_tables_not_columns(self):
+        config_path = HERE.parents[2] / "layout" / "equipment" / "armors-v1.json"
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        entities = [
+            {
+                "semanticId": "entity:armors:A1",
+                "family": "armors",
+                "sourceId": "A1",
+                "name": "Aegis Coat",
+                "publicationData": {
+                    "tier": 1,
+                    "baseScore": 3,
+                    "baseThresholds": {"major": 7, "severe": 15},
+                    "armorFeatures": [
+                        {
+                            "name": "Reinforced",
+                            "description": "Increase both thresholds by +2.",
+                        },
+                        {
+                            "name": "Flexible",
+                            "description": "You have +1 Evasion.",
+                        },
+                    ],
+                    "description": "This description must not be published in the table.",
+                },
+            },
+            {
+                "semanticId": "entity:armors:A2",
+                "family": "armors",
+                "sourceId": "A2",
+                "name": "Bulwark Mesh",
+                "publicationData": {
+                    "tier": 2,
+                    "baseScore": 4,
+                    "baseThresholds": {"major": 9, "severe": 20},
+                    "armorFeatures": [],
+                    "description": "A second description that must not be published.",
+                },
+            },
+        ]
+
+        rows = build_catalog_rows(entities, config)
+        self.assertEqual([row.tier for row in rows], [1, 2])
+        self.assertEqual(rows[0].cells["thresholds"], "7 / 15")
+        self.assertEqual(rows[0].cells["publicationData.baseScore"], "3")
+        self.assertEqual(
+            rows[0].cells["publicationData.armorFeatures"],
+            "Reinforced: Increase both thresholds by +2.; Flexible: You have +1 Evasion.",
+        )
+        self.assertEqual(rows[1].cells["publicationData.armorFeatures"], "—")
+
+        latex = render_equipment_catalog_latex(rows, config)
+        for label in ("Name", "Thresholds", "Base Score", "Features"):
+            self.assertIn(f"\\MakeUppercase{{{label}}}", latex)
+        self.assertNotIn(r"\MakeUppercase{Tier}", latex)
+        self.assertNotIn(r"\MakeUppercase{Description}", latex)
+        self.assertIn("TIER 1", latex)
+        self.assertIn("TIER 2", latex)
+        self.assertIn("7 / 15", latex)
+        self.assertIn("Reinforced: Increase both thresholds by +2.; Flexible: You have +1 Evasion.", latex)
+        self.assertNotIn("This description must not be published", latex)
+
     def test_latex_table_has_approved_header_trait_band_description_padding_and_vertical_centering(self):
         rows = build_catalog_rows([
             self.entity("Alpha", "Agility", action="Quick Draw", critical="Pinning Strike")

@@ -11,17 +11,31 @@
     },
     {
       "align": "center",
-      "key": "publicationData.tier",
-      "label": "Tier",
+      "compose": [
+        "publicationData.baseThresholds.major",
+        "publicationData.baseThresholds.severe"
+      ],
+      "key": "thresholds",
+      "label": "Thresholds",
+      "separator": " / ",
       "verticalPaddingPt": 2,
-      "widthIn": 0.48
+      "widthIn": 0.75
+    },
+    {
+      "align": "center",
+      "key": "publicationData.baseScore",
+      "label": "Base Score",
+      "verticalPaddingPt": 2,
+      "widthIn": 0.6
     },
     {
       "align": "left",
-      "key": "publicationData.description",
-      "label": "Description",
+      "key": "publicationData.armorFeatures",
+      "label": "Features",
+      "separator": "; ",
+      "transform": "feature-definitions",
       "verticalPaddingPt": 2,
-      "widthIn": 5.332
+      "widthIn": 4.392
     }
   ],
   "configStatus": "accepted",
@@ -32,13 +46,14 @@
   },
   "expectedColumnLabels": [
     "Name",
-    "Tier",
-    "Description"
+    "Thresholds",
+    "Base Score",
+    "Features"
   ],
   "expectedEntityCount": 36,
   "family": "armors",
   "generatedBy": {
-    "basisSidecarSchema": "cybermancy-step4-structured-entities-v1.2",
+    "basisSidecarSchema": "cybermancy-step4-structured-entities-v1.3",
     "initSchema": "cybermancy-rulebook-step6-equipment-init-v1.1",
     "tool": "init-equipment"
   },
@@ -52,7 +67,10 @@
   },
   "partLabel": "EQUIPMENT & TECHNOLOGY",
   "requiredPublicationFields": [
-    "publicationData.tier"
+    "publicationData.tier",
+    "publicationData.baseScore",
+    "publicationData.baseThresholds.major",
+    "publicationData.baseThresholds.severe"
   ],
   "schema": "cybermancy-step6-equipment-catalog-config-v1.1",
   "sort": [

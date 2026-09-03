@@ -63,6 +63,17 @@ def _human_label(value: Any) -> str:
     return text[:1].upper() + text[1:] if text else ""
 
 
+def _feature_definition_display(value: Any) -> str:
+    """Render one normalized feature definition as reader-facing table text."""
+    if not isinstance(value, dict):
+        return str(value).strip()
+    name = str(value.get("name") or "").strip()
+    description = str(value.get("description") or "").strip()
+    if name and description:
+        return f"{name}: {description}"
+    return name or description
+
+
 def _flatten_values(value: Any) -> list[Any]:
     if isinstance(value, list):
         return [x for x in value if _present(x)]
@@ -83,6 +94,8 @@ def _cell_value(entity: dict, column: dict, missing: str) -> str:
         rendered = [_mechanic_display(v) for v in values]
     elif transform == "human-label":
         rendered = [_human_label(v) for v in values]
+    elif transform == "feature-definitions":
+        rendered = [_feature_definition_display(v) for v in values]
     else:
         rendered = [str(v).strip() for v in values]
     rendered = [v for v in rendered if v]
