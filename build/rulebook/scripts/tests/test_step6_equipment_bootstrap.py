@@ -51,6 +51,11 @@ def _armor_entities() -> list[dict]:
                 "description": "Armor rule text.",
                 "burden": None,
                 "range": None,
+                "baseScore": 3,
+                "baseThresholds": {"major": 7, "severe": 15},
+                "armorFeatures": [
+                    {"name": "Reinforced", "description": "Increase both thresholds by +2."}
+                ],
             },
         },
         {
@@ -64,6 +69,9 @@ def _armor_entities() -> list[dict]:
                 "description": "Second armor rule.",
                 "burden": "twoHanded",
                 "range": None,
+                "baseScore": 4,
+                "baseThresholds": {"major": 9, "severe": 20},
+                "armorFeatures": [],
             },
         },
     ]
@@ -78,6 +86,12 @@ class TestPublicationFieldInventory(unittest.TestCase):
         self.assertEqual(fields["publicationData.burden"]["missingCount"], 1)
         self.assertEqual(fields["publicationData.range"]["populatedCount"], 0)
         self.assertIn("Armor rule text.", fields["publicationData.description"]["sampleValues"])
+        self.assertEqual(fields["publicationData.baseScore"]["populatedCount"], 2)
+        self.assertEqual(fields["publicationData.baseThresholds.major"]["populatedCount"], 2)
+        self.assertEqual(fields["publicationData.baseThresholds.severe"]["populatedCount"], 2)
+        self.assertEqual(fields["publicationData.armorFeatures"]["availableCount"], 2)
+        self.assertEqual(fields["publicationData.armorFeatures"]["populatedCount"], 1)
+        self.assertIn('"name": "Reinforced"', fields["publicationData.armorFeatures"]["sampleValues"][0])
 
 
 class TestBootstrapInspection(unittest.TestCase):
@@ -89,7 +103,7 @@ class TestBootstrapInspection(unittest.TestCase):
             manuscript = root / "player-guide.md"
             registry = root / "equipment-section-v1.json"
             sidecar.write_text(
-                json.dumps({"schema": "cybermancy-step4-structured-entities-v1.1", "entities": _armor_entities()}),
+                json.dumps({"schema": "cybermancy-step4-structured-entities-v1.3", "entities": _armor_entities()}),
                 encoding="utf-8",
             )
             manuscript.write_text("::: {#family:armors}\nplaceholder\n:::\n", encoding="utf-8")
@@ -102,6 +116,7 @@ class TestBootstrapInspection(unittest.TestCase):
         self.assertEqual(payload["bootstrap"]["chapter"], 18)
         self.assertEqual(payload["bootstrap"]["title"], "Armor")
         self.assertEqual(payload["bootstrap"]["entityCount"], 2)
+        self.assertEqual(payload["bootstrap"]["sidecarSchema"], "cybermancy-step4-structured-entities-v1.3")
         checks = {item["code"]: item["status"] for item in payload["report"]["checks"]}
         self.assertEqual(checks["CONFIG_STATUS"], "INFO")
         self.assertEqual(checks["EQUIPMENT_SECTION_CONTRACT"], "PASS")

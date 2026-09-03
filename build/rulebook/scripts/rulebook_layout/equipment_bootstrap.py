@@ -10,6 +10,7 @@ SECTION_SCHEMA = "cybermancy-step6-equipment-section-v1.0"
 SIDECAR_SCHEMAS = {
     "cybermancy-step4-structured-entities-v1.1",
     "cybermancy-step4-structured-entities-v1.2",
+    "cybermancy-step4-structured-entities-v1.3",
 }
 
 

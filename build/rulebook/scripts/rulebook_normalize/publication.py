@@ -227,6 +227,107 @@ def _weapon_action_definitions(system: dict) -> tuple[list[dict], list[dict]]:
     return ordinary, critical
 
 
+def _record_id(record: dict) -> str:
+    value = record.get("_id")
+    return str(value).strip() if value not in (None, "") else ""
+
+
+def _records_by_id(node: Any) -> dict[str, dict]:
+    result: dict[str, dict] = {}
+    for record in _iter_records(node):
+        record_id = _record_id(record)
+        if record_id:
+            result[record_id] = record
+    return result
+
+
+def _armor_record_description(record: dict) -> str:
+    return clean_description(
+        _description_value(record.get("description"))
+        or _system_description(record)
+        or ""
+    )
+
+
+def _standard_armor_feature(identifier: str) -> dict:
+    catalog, _source_sha = _standard_feature_catalog()
+    candidates = catalog.get(str(identifier).casefold(), [])
+    if len(candidates) == 1:
+        return dict(candidates[0])
+    return {}
+
+
+def _armor_feature_definitions(doc: dict, system: dict) -> list[dict]:
+    """Resolve Armor feature names and full reader-facing rules text.
+
+    Declared ``system.armorFeatures`` order is authoritative. Linked embedded
+    effects/actions supply the local rules text, while the Daggerheart feature
+    catalog supplies the feature label when an action uses a shorter action
+    name (for example, Hope for Hopeful). Rule-bearing embedded records that
+    are not linked are appended once so standalone Armor rules such as Bare
+    Bones are not discarded.
+    """
+    actions = _records_by_id(system.get("actions"))
+    effects = _records_by_id(doc.get("effects"))
+    consumed_ids: set[str] = set()
+    definitions: list[dict] = []
+
+    features = system.get("armorFeatures")
+    values = features if isinstance(features, list) else list(_iter_records(features))
+    for feature in values:
+        if not isinstance(feature, dict):
+            continue
+        identifier = str(feature.get("value") or feature.get("name") or feature.get("label") or "").strip()
+        standard = _standard_armor_feature(identifier)
+        linked: list[dict] = []
+        for key, records in (("effectIds", effects), ("actionIds", actions)):
+            ids = feature.get(key)
+            if not isinstance(ids, list):
+                continue
+            for raw_id in ids:
+                record_id = str(raw_id or "").strip()
+                if not record_id:
+                    continue
+                consumed_ids.add(record_id)
+                record = records.get(record_id)
+                if record is not None:
+                    linked.append(record)
+
+        descriptions: list[str] = []
+        for record in linked:
+            description = _armor_record_description(record)
+            if description and description not in descriptions:
+                descriptions.append(description)
+        if not descriptions:
+            fallback_description = clean_description(standard.get("description") or "")
+            if fallback_description:
+                descriptions.append(fallback_description)
+
+        linked_name = next(
+            (clean_description(record.get("name") or "") for record in linked if record.get("name")),
+            "",
+        )
+        name = clean_description(standard.get("name") or "") or linked_name or _human_identifier(identifier)
+        definitions.append({
+            "name": name or "Feature",
+            "description": "\n".join(descriptions),
+        })
+
+    for record in [*_iter_records(doc.get("effects")), *_iter_records(system.get("actions"))]:
+        record_id = _record_id(record)
+        if record_id and record_id in consumed_ids:
+            continue
+        description = _armor_record_description(record)
+        if not description:
+            continue
+        definitions.append({
+            "name": clean_description(record.get("name") or "") or "Feature",
+            "description": description,
+        })
+
+    return definitions
+
+
 def _resolved_publication_tier(doc: dict, metadata: dict) -> Any:
     provenance = metadata.get("publicationProvenance")
     if isinstance(provenance, dict):
@@ -297,6 +398,15 @@ def structured_publication_data(family: str, doc: dict, metadata: dict) -> dict:
         result["weaponFeatureDefinitions"] = _weapon_feature_definitions(system)
         result["actionDefinitions"] = action_definitions
         result["criticalEffectDefinitions"] = critical_definitions
+
+    if family == "armors":
+        thresholds = system.get("baseThresholds") if isinstance(system.get("baseThresholds"), dict) else {}
+        result["baseScore"] = system.get("baseScore")
+        result["baseThresholds"] = {
+            "major": thresholds.get("major"),
+            "severe": thresholds.get("severe"),
+        }
+        result["armorFeatures"] = _armor_feature_definitions(doc, system)
 
     return result
 
