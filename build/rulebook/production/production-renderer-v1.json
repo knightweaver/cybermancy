@@ -102,7 +102,7 @@
     {"path": "build/rulebook/layout/equipment/equipment-section-v1.json", "sha256": "67edee307416352a7e609123e621e8c5b7e33a9ba4bb057897622c92ebcb444b"},
     {"path": "build/rulebook/layout/equipment/weapons-v1.json", "sha256": "70f1f97ce4acfee32e862c1298ec9990a8b4a2e442d9f58107e71d29c8e500f8"},
     {"path": "build/rulebook/layout/equipment/ammo-v1.json", "sha256": "f4c3c46057123942d7a04d9f84ac75fce1751c0e25fc66c363abe4cf929661ec"},
-    {"path": "build/rulebook/layout/equipment/armors-v1.json", "sha256": "7598a12940650913f29f354e98b5d6e16b691ce7a9158ca21131e8d01cbd5bc4"},
+    {"path": "build/rulebook/layout/equipment/armors-v1.json", "sha256": "4fce0d51fa9c9385403b0feabd07bc70d88b211a3d7b89c1943115e79c55c442"},
     {"path": "build/rulebook/layout/equipment/cybernetics-v1.json", "sha256": "3f1053df6509c933a94e8091c458bbcfcdf1070628b71f042678cf36b8eed798"},
     {"path": "build/rulebook/layout/equipment/drones-devices-v1.json", "sha256": "4d74002f3f204334f4aaba62dbd23199c06712fbceb50e23539359cca14d139c"},
     {"path": "build/rulebook/layout/equipment/consumables-v1.json", "sha256": "351694663e0e265b7c0b67fb1dc2bbbdc43d42008d811bbb5dae9b548944fdeb"},
