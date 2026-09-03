@@ -1,0 +1,1551 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://knightweaver.github.io/cybermancy/player/rules/netrunner-hacking/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Netrunning and Device Intrusion - Cybermancy — Player Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/items.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#netrunning-and-device-intrusion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cybermancy — Player Guide" class="md-header__button md-logo" aria-label="Cybermancy — Player Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cybermancy — Player Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Netrunning and Device Intrusion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cybermancy — Player Guide" class="md-nav__button md-logo" aria-label="Cybermancy — Player Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cybermancy — Player Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybermancy rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    World
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    World
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/corps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Megacorps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../world/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/pcs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PCs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/locations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Locations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adventures/npcs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known NPCs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Items
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Items
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/ammo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ammo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/armors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Armors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/consumables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Consumables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/cybernetics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybernetics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/drones-devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Drones & Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/loot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/mods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/weapons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weapons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../items/tier-1-items/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    All Tier 1 Items
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/domains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/subclasses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subclasses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#which-hacking-rules-apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which Hacking Rules Apply?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="netrunning-and-device-intrusion">Netrunning and Device Intrusion<a class="headerlink" href="#netrunning-and-device-intrusion" title="Permanent link">&para;</a></h1>
+<hr />
+<blockquote>
+<p><strong>Playtest Rule:</strong> Cybermancy uses more than one resolution scale for hacking. Use <strong>Network Actions</strong> for open-ended, remote, or operational objectives; use the existing <strong>Device Intrusion</strong> rules when manipulating a specific device or when the intrusion itself is an important encounter.</p>
+</blockquote>
+<hr />
+<p>Cybermancy's hacking rules allow a Netrunner to affect the connected world without turning every digital action into a separate minigame. A Netrunner might remotely alter traffic controls, search municipal records, manipulate public information systems, or compromise a corporate network just as readily as they might take control of a nearby camera or drone.</p>
+<p>The key question is not <em>how far away is the target?</em> It is:</p>
+<blockquote>
+<p><strong>Is there a plausible digital path to the system, and what is the Netrunner trying to make it do?</strong></p>
+</blockquote>
+<h2 id="which-hacking-rules-apply">Which Hacking Rules Apply?<a class="headerlink" href="#which-hacking-rules-apply" title="Permanent link">&para;</a></h2>
+<p>Use the fastest resolution method appropriate to the importance of the intrusion.</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Use</th>
+<th>Typical Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple manipulation of an unhardened device</td>
+<td><strong>Quick Device Access</strong></td>
+<td>Open a door, redirect a civilian drone, access an unsecured terminal</td>
+</tr>
+<tr>
+<td>Open-ended remote or operational hacking</td>
+<td><strong>Network Actions</strong></td>
+<td>Manipulate traffic, search records, suppress surveillance, generate a flash mob</td>
+</tr>
+<tr>
+<td>The intrusion itself is an important encounter</td>
+<td><strong>Detailed Device Intrusion</strong></td>
+<td>Break into a protected server, defeat ICE, compromise a secured drone or turret</td>
+</tr>
+<tr>
+<td>Large or persistent digital operation</td>
+<td><strong>Network Actions over Extended or Strategic time</strong></td>
+<td>Establish persistent corporate access, undermine city infrastructure, conduct a sustained influence campaign</td>
+</tr>
+</tbody>
+</table>
+<p>A scene can move between these scales. A Network Action that activates dangerous ICE, for example, may become a Detailed Device Intrusion.</p>
+<blockquote>
+<p><strong>Hardened Security vs. Hardened Devices:</strong> <strong>S3 Hardened</strong> is a Security rating used for Network Actions. A <strong>Hardened Device</strong> is a classification used by the Detailed Device Intrusion rules. The concepts are related, but they are not mechanically identical.</p>
+</blockquote>
+<h1 id="network-actions">Network Actions<a class="headerlink" href="#network-actions" title="Permanent link">&para;</a></h1>
+<p>A <strong>Network Action</strong> is an attempt to use connected technology, information systems, communications, automation, or digital services to produce a specific outcome.</p>
+<p>When attempting a Network Action:</p>
+<ol>
+<li><strong>Declare the outcome.</strong> State what you want to happen.</li>
+<li><strong>Describe the digital approach.</strong> Explain a plausible way to produce that outcome.</li>
+<li><strong>Rate the action.</strong> The GM determines <strong>Access, Security, Scope, and Time</strong>.</li>
+<li><strong>Roll Hacking.</strong> Roll against the Network Action Difficulty.</li>
+<li><strong>Build Progress.</strong> Each successful Network Action normally earns <strong>1 Progress</strong>.</li>
+<li><strong>Resolve consequences.</strong> Fear or failure may change the situation even when the objective advances.</li>
+</ol>
+<p>The size of the network does not determine Scope. The <strong>effect requested</strong> does.</p>
+<blockquote>
+<p>"Hack the city's traffic network" is not a complete objective.<br />
+"Turn the next signal red" is <strong>Discrete</strong>.<br />
+"Gridlock downtown" is <strong>Broad</strong>.<br />
+"Take persistent control of citywide traffic" is <strong>Systemic</strong>.</p>
+</blockquote>
+<h2 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h2>
+<p>Access measures how difficult it is to establish a usable connection to the target through the Netrunner's current route.</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>State</th>
+<th style="text-align: right;">Modifier</th>
+<th>Typical Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A1</strong></td>
+<td><strong>Open</strong></td>
+<td style="text-align: right;">-2</td>
+<td>Publicly exposed, broadly accessible, or protected by weak/default credentials</td>
+</tr>
+<tr>
+<td><strong>A2</strong></td>
+<td><strong>Reachable</strong></td>
+<td style="text-align: right;">+0</td>
+<td>Connected, but requires a normal entry point or authentication bypass</td>
+</tr>
+<tr>
+<td><strong>A3</strong></td>
+<td><strong>Restricted</strong></td>
+<td style="text-align: right;">+2</td>
+<td>Internal, segmented, VPN-gated, privileged, or dependent on trusted systems</td>
+</tr>
+<tr>
+<td><strong>A4</strong></td>
+<td><strong>Heavily Restricted</strong></td>
+<td style="text-align: right;">+4</td>
+<td>Multiple trust layers, controlled gateways, specialized credentials, or trusted hardware</td>
+</tr>
+</tbody>
+</table>
+<h3 id="isolated-systems">Isolated Systems<a class="headerlink" href="#isolated-systems" title="Permanent link">&para;</a></h3>
+<p><strong>Isolated</strong> is a separate state, not an Access level.</p>
+<p>An air-gapped, local-only, or otherwise disconnected system cannot be hacked remotely until a usable foothold is created. A character might:</p>
+<ul>
+<li>plug a network spike into a terminal;</li>
+<li>plant a wireless bridge;</li>
+<li>compromise a trusted local device;</li>
+<li>open a maintenance port;</li>
+<li>physically connect equipment to an internal network.</li>
+</ul>
+<p>Once a foothold exists, assign the resulting route an Access level from <strong>A1-A4</strong> based on its quality.</p>
+<p>This makes physical infiltration valuable without requiring the Netrunner to be physically present. The field team can create the route; the Netrunner can operate through it remotely.</p>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<p>Security measures how capable the target's defenses are once the Netrunner can reach it.</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>State</th>
+<th style="text-align: right;">Base Difficulty</th>
+<th>Typical Systems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S1</strong></td>
+<td><strong>Soft</strong></td>
+<td style="text-align: right;">10</td>
+<td>Consumer, neglected, obsolete, or poorly administered systems</td>
+</tr>
+<tr>
+<td><strong>S2</strong></td>
+<td><strong>Managed</strong></td>
+<td style="text-align: right;">13</td>
+<td>Normal corporate, municipal, or professional systems</td>
+</tr>
+<tr>
+<td><strong>S3</strong></td>
+<td><strong>Hardened</strong></td>
+<td style="text-align: right;">16</td>
+<td>Sensitive corporate, law-enforcement, or major infrastructure systems</td>
+</tr>
+<tr>
+<td><strong>S4</strong></td>
+<td><strong>Fortified</strong></td>
+<td style="text-align: right;">19</td>
+<td>Megacorp core, intelligence, black-site, or military command systems</td>
+</tr>
+</tbody>
+</table>
+<h2 id="network-action-difficulty">Network Action Difficulty<a class="headerlink" href="#network-action-difficulty" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Difficulty = Security Base + Access Modifier</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Access</th>
+<th style="text-align: right;">S1 Soft</th>
+<th style="text-align: right;">S2 Managed</th>
+<th style="text-align: right;">S3 Hardened</th>
+<th style="text-align: right;">S4 Fortified</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A1 Open</strong></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr>
+<td><strong>A2 Reachable</strong></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td><strong>A3 Restricted</strong></td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr>
+<td><strong>A4 Heavily Restricted</strong></td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">23</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scope does not modify the Difficulty of individual rolls.</strong> Larger objectives are harder because they require more Progress and therefore expose the Netrunner to more rolls, more Fear, and more opportunities for defenders to respond.</p>
+<h2 id="scope-and-progress">Scope and Progress<a class="headerlink" href="#scope-and-progress" title="Permanent link">&para;</a></h2>
+<p>Scope measures how much effect the Netrunner is attempting to create.</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Scope</th>
+<th style="text-align: right;">Progress Required</th>
+<th>Typical Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1</strong></td>
+<td><strong>Discrete</strong></td>
+<td style="text-align: right;">1</td>
+<td>One door, file, account, signal, device, or bounded effect</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td><strong>Limited</strong></td>
+<td style="text-align: right;">2</td>
+<td>One facility, contained subsystem, or coordinated set of targets</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td><strong>Broad</strong></td>
+<td style="text-align: right;">3</td>
+<td>A district, organization, major network, or large population</td>
+</tr>
+<tr>
+<td><strong>P4</strong></td>
+<td><strong>Systemic</strong></td>
+<td style="text-align: right;">5</td>
+<td>Citywide, corp-wide, regional, or infrastructure-scale effects</td>
+</tr>
+</tbody>
+</table>
+<p>Each successful Network Action normally earns <strong>1 Progress</strong>.</p>
+<p>For multi-Progress objectives, each success represents a meaningful new stage of the operation rather than repeating the same command. A Systemic takeover of city traffic might progress through privileged access, control nodes, monitoring systems, failovers, and finally persistent authority.</p>
+<h3 id="example-traffic-control">Example: Traffic Control<a class="headerlink" href="#example-traffic-control" title="Permanent link">&para;</a></h3>
+<p>Creating a green-light corridor might be:</p>
+<p><strong>A2 Reachable / S2 Managed / P2 Limited</strong></p>
+<p>The Difficulty is <strong>13</strong>, and the Netrunner must earn <strong>2 Progress</strong>.</p>
+<h2 id="time-scale">Time Scale<a class="headerlink" href="#time-scale" title="Permanent link">&para;</a></h2>
+<p>Scope describes <strong>how much must be accomplished</strong>. Time describes <strong>how quickly that work can reasonably happen</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Scale</th>
+<th>Typical Duration</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Immediate</strong></td>
+<td>Seconds</td>
+<td>Open a door, interrupt a channel, alter one signal, hijack a device</td>
+</tr>
+<tr>
+<td><strong>Short</strong></td>
+<td>Minutes</td>
+<td>Search a facility network, trace a user, fabricate credentials, alter related records</td>
+</tr>
+<tr>
+<td><strong>Extended</strong></td>
+<td>Hours to days</td>
+<td>Compromise an administrative network, build an exploit, establish persistent access</td>
+</tr>
+<tr>
+<td><strong>Strategic</strong></td>
+<td>Days to weeks or longer</td>
+<td>Undermine a major organization, control city infrastructure, sustain a large influence campaign</td>
+</tr>
+</tbody>
+</table>
+<p>An <strong>Immediate</strong> Network Action can normally be attempted during combat. <strong>Short</strong> work usually plays out across a scene. <strong>Extended</strong> and <strong>Strategic</strong> work normally occurs during investigation, travel, downtime, or as an operation of its own.</p>
+<p>Scope and Time are independent. A Broad command may be Immediate if access already exists; a Discrete objective may take hours if the necessary information is difficult to uncover.</p>
+<h2 id="plausible-effects">Plausible Effects<a class="headerlink" href="#plausible-effects" title="Permanent link">&para;</a></h2>
+<p>Netrunning can only produce effects that the compromised technology, information, communications, or automation could plausibly cause.</p>
+<ul>
+<li><strong>Information:</strong> Find, suppress, alter, correlate, fabricate, or redirect data where a plausible source exists.</li>
+<li><strong>Infrastructure:</strong> Command connected systems only within their actual physical and software capabilities.</li>
+<li><strong>Social Systems:</strong> Manipulate information environments, attention, and incentives; Netrunning does not directly control people's choices.</li>
+<li><strong>Money and Identity:</strong> Records can be changed or funds moved, but audits, ledgers, identity checks, and retaliation remain real.</li>
+</ul>
+<p>Remote operation is fully viable whenever a plausible route exists. Physical presence matters because it can provide better Access or create routes into systems that would otherwise be Restricted, Heavily Restricted, or Isolated.</p>
+<h1 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h1>
+<p>Netrunning creates risk even when the Netrunner is physically far from the target.</p>
+<p>Daggerheart consequences can arise because the roll <strong>fails</strong> or because it <strong>succeeds with Fear</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Roll Result</th>
+<th style="text-align: right;">Progress</th>
+<th>Hacking Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Success with Hope</strong></td>
+<td style="text-align: right;">+1</td>
+<td>Clean success; no automatic hacking consequence</td>
+</tr>
+<tr>
+<td><strong>Success with Fear</strong></td>
+<td style="text-align: right;">+1</td>
+<td>GM offers two appropriate consequence vectors; the Netrunner chooses which worsens</td>
+</tr>
+<tr>
+<td><strong>Failure with Hope</strong></td>
+<td style="text-align: right;">0</td>
+<td>GM offers two appropriate setbacks; the Netrunner chooses which occurs</td>
+</tr>
+<tr>
+<td><strong>Failure with Fear</strong></td>
+<td style="text-align: right;">0</td>
+<td>GM imposes a serious consequence appropriate to the target and circumstances</td>
+</tr>
+</tbody>
+</table>
+<p>A Success with Fear still earns Progress. Fear complicates the success; it does not erase it.</p>
+<p>A failed Network Action should normally change the situation rather than invite an identical reroll under identical conditions.</p>
+<h2 id="consequence-vectors">Consequence Vectors<a class="headerlink" href="#consequence-vectors" title="Permanent link">&para;</a></h2>
+<p>Most hacking consequences worsen one of four state tracks.</p>
+<h3 id="exposure">Exposure<a class="headerlink" href="#exposure" title="Permanent link">&para;</a></h3>
+<p><strong>Hidden → Detected → Traced → Burned</strong></p>
+<p>Exposure measures how much defenders know about the intrusion and its source.</p>
+<p>A remote Netrunner may be physically safe while still exposing identities, credentials, relays, associates, network infrastructure, or a physical connection point.</p>
+<h3 id="access_1">Access<a class="headerlink" href="#access_1" title="Permanent link">&para;</a></h3>
+<p><strong>Open → Reachable → Restricted → Heavily Restricted → Closed</strong></p>
+<p>Access consequences degrade the current route.</p>
+<p>A <strong>Closed</strong> route can no longer be used. Continuing the intrusion requires a new credential, pivot, exploit, or foothold.</p>
+<h3 id="security_1">Security<a class="headerlink" href="#security_1" title="Permanent link">&para;</a></h3>
+<p><strong>Soft → Managed → Hardened → Fortified</strong></p>
+<p>Security consequences represent defenders actively hardening the target. Because Security sets the Base Difficulty, later Network Actions may become more difficult.</p>
+<h3 id="time">Time<a class="headerlink" href="#time" title="Permanent link">&para;</a></h3>
+<p><strong>Immediate → Short → Extended → Strategic</strong></p>
+<p>Time consequences make the remaining work take longer.</p>
+<p>Sometimes the most important consequence is not detection or damage, but that the objective can no longer be completed before events overtake it.</p>
+<h2 id="choosing-consequences">Choosing Consequences<a class="headerlink" href="#choosing-consequences" title="Permanent link">&para;</a></h2>
+<p>On a <strong>Success with Fear</strong> or <strong>Failure with Hope</strong>, the GM offers two consequences that are both meaningful. The Netrunner chooses which risk to absorb.</p>
+<p>For example:</p>
+<blockquote>
+<p>You gain the second Progress on the traffic system. Choose: <strong>Exposure rises from Hidden to Detected</strong>, or <strong>Access worsens from Reachable to Restricted</strong>.</p>
+</blockquote>
+<p>As a track worsens, choosing it again becomes more dangerous.</p>
+<p>Not every consequence must advance a track. The GM may instead use a specific fictional consequence connected to the intrusion, such as:</p>
+<ul>
+<li>burning a credential, exploit, backdoor, or spoofed identity;</li>
+<li>activating tracing, a honeypot, malware, a security operator, or ICE;</li>
+<li>alerting guards, police, drones, administrators, or the owner of a compromised account;</li>
+<li>causing collateral effects in the physical or social world.</li>
+</ul>
+<blockquote>
+<p><strong>Consequences should change the situation, not simply punish the roll.</strong></p>
+</blockquote>
+<p>Unless a rule specifically says otherwise, <strong>earned Progress is permanent</strong>.</p>
+<h1 id="spending-fear-in-the-network">Spending Fear in the Network<a class="headerlink" href="#spending-fear-in-the-network" title="Permanent link">&para;</a></h1>
+<p>The GM can spend Fear to exploit vulnerabilities, activate defenses, or make the intrusion matter in the physical world.</p>
+<h2 id="spend-1-fear">Spend 1 Fear<a class="headerlink" href="#spend-1-fear" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Effect</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Escalate</strong></td>
+<td>Advance one relevant consequence vector by one step: Exposure, Access, Security, or Time</td>
+</tr>
+<tr>
+<td><strong>Activate Countermeasures</strong></td>
+<td>Bring online tracing, a honeypot, a security operator, malicious response code, or appropriate ICE</td>
+</tr>
+<tr>
+<td><strong>Burn an Asset</strong></td>
+<td>Compromise a credential, exploit, backdoor, spoofed identity, planted device, or other asset directly involved in the intrusion</td>
+</tr>
+<tr>
+<td><strong>Trigger a Response</strong></td>
+<td>Turn digital activity into organizational or physical action: guards investigate, drones deploy, doors lock, administrators intervene</td>
+</tr>
+<tr>
+<td><strong>Collateral Effect</strong></td>
+<td>The desired effect still happens, but creates an unintended secondary problem appropriate to the fiction</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spend-2-fear">Spend 2 Fear<a class="headerlink" href="#spend-2-fear" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Effect</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Close the Route</strong></td>
+<td>The current Access route becomes Closed. Existing Progress remains, but another path must be established</td>
+</tr>
+<tr>
+<td><strong>Deploy Dangerous ICE</strong></td>
+<td>Introduce a significant ICE threat or shift the intrusion into the Detailed Device Intrusion rules; usually appropriate for Hardened or Fortified systems</td>
+</tr>
+<tr>
+<td><strong>Counter-Intrusion</strong></td>
+<td>Defenders attack the Netrunner's deck, relay, identity, associates, access assets, or other connected infrastructure</td>
+</tr>
+<tr>
+<td><strong>Major Security Response</strong></td>
+<td>Trigger network-wide lockdown, law enforcement, a corporate response team, evacuation, or emergency control procedures</td>
+</tr>
+</tbody>
+</table>
+<p>Fear spent by the GM does not normally remove Progress already earned. Opposition makes completion harder by <strong>changing the situation</strong>, not by deleting successful actions.</p>
+<h1 id="device-intrusion">Device Intrusion<a class="headerlink" href="#device-intrusion" title="Permanent link">&para;</a></h1>
+<p>The following rules remain useful when hacking is focused on a <strong>specific device</strong> or when defeating its defenses is important enough to play out in detail.</p>
+<h2 id="device-hardening">Device Hardening<a class="headerlink" href="#device-hardening" title="Permanent link">&para;</a></h2>
+<p>Devices fall into two broad categories.</p>
+<h3 id="unhardened-devices">Unhardened Devices<a class="headerlink" href="#unhardened-devices" title="Permanent link">&para;</a></h3>
+<p>Most civilian technology is effectively unsecured. Default passwords, unpatched exploits, and weak encryption are commonplace. These systems pose minimal risk to a skilled hacker.</p>
+<h3 id="hardened-devices">Hardened Devices<a class="headerlink" href="#hardened-devices" title="Permanent link">&para;</a></h3>
+<p>Professionally secured assets include surveillance drones, automated turrets, corporate vaults, secure servers, contract-grade cyberware, and similar infrastructure.</p>
+<p>Hardened devices may contain ICE:</p>
+<ul>
+<li><strong>Walls</strong> — passive protections such as encryption layers, access gates, and authentication barriers.</li>
+<li><strong>Sentries</strong> — active monitoring programs and countermeasures designed to detect, isolate, or retaliate against intruders.</li>
+</ul>
+<p>Determining whether a device is hardened requires a <strong>Hacking: Analyze</strong> action when that information is not already apparent from the fiction.</p>
+<h2 id="unhardened-devices_1">Unhardened Devices<a class="headerlink" href="#unhardened-devices_1" title="Permanent link">&para;</a></h2>
+<h3 id="immediate-access">Immediate Access<a class="headerlink" href="#immediate-access" title="Permanent link">&para;</a></h3>
+<p>A hacker automatically gains <strong>Control</strong> over any unhardened device of their Tier when they have a usable route to it.</p>
+<h3 id="higher-tier-devices">Higher-Tier Devices<a class="headerlink" href="#higher-tier-devices" title="Permanent link">&para;</a></h3>
+<p>To control an unhardened device above their Tier, a hacker may <strong>Mark 1 Stress</strong> and make a <strong>Hacking roll</strong> against a Difficulty that scales with the device's Tier.</p>
+<p>On a success, they gain Control.</p>
+<p>Unhardened devices do not normally contain ICE or raise an alert on failure unless the fiction demands it.</p>
+<h2 id="hardened-devices_1">Hardened Devices<a class="headerlink" href="#hardened-devices_1" title="Permanent link">&para;</a></h2>
+<p>Use the detailed intrusion rules when the act of defeating the system is itself part of the dramatic challenge.</p>
+<p>Hackers rely on three core actions.</p>
+<h3 id="analyze">Analyze<a class="headerlink" href="#analyze" title="Permanent link">&para;</a></h3>
+<p>Probe the system to understand its structure.</p>
+<p>On a success, learn:</p>
+<ul>
+<li>Device Tier;</li>
+<li>ICE types present, including Walls and Sentries;</li>
+<li>ICE Tiers;</li>
+<li>one meaningful narrative detail.</li>
+</ul>
+<p>Analyze is lower risk than overt intrusion, but active Sentries may still notice persistent probing.</p>
+<h3 id="infiltrate">Infiltrate<a class="headerlink" href="#infiltrate" title="Permanent link">&para;</a></h3>
+<p>Slip past ICE or operate within its blind spots.</p>
+<p>Infiltrate establishes a deeper foothold than Analyze while prioritizing stealth and persistence. Use it when clean extraction, covert access, or remaining unnoticed matters more than immediate control.</p>
+<h3 id="control">Control<a class="headerlink" href="#control" title="Permanent link">&para;</a></h3>
+<p>Execute an overt intrusion using exploits, injections, recursion traps, destructive techniques, or other forceful methods.</p>
+<p>Control grants the broadest authority over the device but is the most likely to provoke active defenses.</p>
+<p>Use Control when speed, disruption, or domination matters more than subtlety.</p>
+<h2 id="alert-exposure-and-ice">Alert, Exposure, and ICE<a class="headerlink" href="#alert-exposure-and-ice" title="Permanent link">&para;</a></h2>
+<p>Some Device and ICE features use a <strong>System Alert</strong> level. When they do, track System Alert as written by those features.</p>
+<p>System Alert and Network Action <strong>Exposure</strong> describe related but different scales:</p>
+<ul>
+<li><strong>System Alert</strong> is the immediate awareness and defensive posture of a specific Device Intrusion encounter.</li>
+<li><strong>Exposure</strong> tracks the broader consequences of an intrusion and how well defenders can identify or retaliate against its source.</li>
+</ul>
+<p>When play moves between Network Actions and Detailed Device Intrusion, translate between them according to the fiction rather than treating them as automatically identical tracks.</p>
+<h2 id="range-and-position">Range and Position<a class="headerlink" href="#range-and-position" title="Permanent link">&para;</a></h2>
+<p>Network Actions are not limited by physical combat range. If a plausible network route exists, remote hacking is viable.</p>
+<p>For <strong>tactical Device Intrusion</strong>, the GM may use normal combat range bands when signal strength, interference, line-of-sight networking, or physical proximity meaningfully matters to the scene.</p>
+<p>An Isolated system still requires a local or physical foothold before any remote action can target it.</p>
+<h1 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h1>
+<ol>
+<li><strong>Declare</strong> the concrete outcome and plausible digital method.</li>
+<li><strong>Establish Access.</strong> If the target is Isolated, create a foothold first.</li>
+<li><strong>Rate Security.</strong> Security sets the Base Difficulty.</li>
+<li><strong>Roll Hacking</strong> against <strong>Security Base + Access Modifier</strong>.</li>
+<li><strong>Build Progress.</strong> P1/P2/P3/P4 require <strong>1/2/3/5</strong> successful Network Actions.</li>
+<li><strong>Track Time</strong> independently as Immediate, Short, Extended, or Strategic.</li>
+<li><strong>Resolve Fear and failure.</strong> Consequences change Exposure, Access, Security, Time, or the fiction.</li>
+<li><strong>Zoom in when needed.</strong> Use Analyze, Infiltrate, Control, and ICE when the intrusion itself becomes an encounter.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.sections", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/table-filter.js"></script>
+      
+    
+  </body>
+</html>
