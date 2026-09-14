@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "812e217dd40f0c0b099fdc6fa5fc931a52534ddd"
+    "git_commit": "2c0fe6452f3984c8d7ff6eb552314e3c62c15b8a"
   },
   "mkdocs_sites": {
     "player": {
@@ -18,13 +18,13 @@
     }
   },
   "counts": {
-    "total_files": 4634,
+    "total_files": 4636,
     "by_kind": {
       "asset": 1635,
       "code": 40,
       "config": 4,
-      "data": 1874,
-      "document": 1060,
+      "data": 1875,
+      "document": 1061,
       "other": 12,
       "presentation": 9
     },
@@ -34,45 +34,45 @@
       "data": 15,
       "generator": 65,
       "gm": 961,
-      "player": 1453,
+      "player": 1454,
       "repository": 32,
       "shared-docs": 3,
-      "structured-source": 1848
+      "structured-source": 1849
     },
     "by_audience": {
       "developer": 67,
       "gm": 961,
-      "player": 1453,
-      "shared": 1866,
+      "player": 1454,
+      "shared": 1867,
       "unknown": 287
     },
     "by_content_scope": {
       "campaign": 287,
       "developer": 86,
       "setting": 16,
-      "system": 2156,
+      "system": 2158,
       "unknown": 2089
     },
     "by_authorship": {
-      "generated": 1024,
-      "hand-authored-or-source": 1963,
+      "generated": 1025,
+      "hand-authored-or-source": 1964,
       "unknown": 1647
     },
-    "documents": 1060,
-    "documents_player_site": 588,
+    "documents": 1061,
+    "documents_player_site": 589,
     "documents_gm_site": 460,
     "documents_player_nav": 20,
     "documents_gm_nav": 15,
-    "generated_documents": 998,
+    "generated_documents": 999,
     "hand_authored_documents": 62,
     "dynamic_documents": 18,
-    "documents_requiring_normalization": 1032,
+    "documents_requiring_normalization": 1033,
     "stub_documents": 4,
     "foundry_folder_records": 109,
     "organizational_files": 123,
     "known_exception_files": 139,
-    "flagged_files": 26,
-    "unresolved_dependency_files": 6,
+    "flagged_files": 27,
+    "unresolved_dependency_files": 7,
     "duplicate_content_groups": 239,
     "files_in_duplicate_content_groups": 497,
     "duplicate_content_files_by_kind": {
@@ -90,21 +90,22 @@
     "jinja-expression": 17,
     "jinja-statement": 17,
     "load-csv": 16,
-    "raw-html": 1034
+    "raw-html": 1035
   },
   "normalization_flag_counts": {
     "attribute-list": 32,
-    "html-heavy": 335,
+    "html-heavy": 338,
     "include-markdown": 1,
     "jinja-expression": 17,
     "jinja-statement": 17,
     "load-csv": 16,
-    "raw-html": 1034
+    "raw-html": 1035
   },
   "review_flag_counts": {
     "stub-document": 4,
     "title-collision-candidate": 16,
     "unresolved-local-dependency:../../../assets/icons/armors/kevlar-shirt.webp": 1,
+    "unresolved-local-dependency:../../../assets/icons/domains/maker/micromissle-barrage.webp": 1,
     "unresolved-local-dependency:../../../assets/icons/weapons/adv-emp-grenade.webp": 1,
     "unresolved-local-dependency:../../../assets/icons/weapons/adv-fragmentation-grenade.webp": 1,
     "unresolved-local-dependency:assets/art/275637-Female%20Halfing%20Commoner%20C%20.png.webp": 1,
@@ -1253,10 +1254,10 @@
       "kind": "system",
       "source_path": "src/packs/system/domains",
       "output_dir": "docs/player-facing/system/domains",
-      "source_entities": 73,
-      "source_page_slugs": 72,
+      "source_entities": 74,
+      "source_page_slugs": 73,
       "foundry_folders": 13,
-      "generated_pages": 72,
+      "generated_pages": 73,
       "missing_generated_pages": [],
       "organizational_generated_pages": [],
       "orphan_generated_pages": [],
@@ -10539,8 +10540,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 15004,
-      "sha256": "b26815e66755dc95f8ba1948c0a32a9ebfcf7f6f5b2d54f6a82ec69c488be09c",
+      "size_bytes": 15407,
+      "sha256": "6339a75118bf9eada7dda1f3978f3fd79857cd338bb3eaf91e1a44ff736080a7",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -10675,8 +10676,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 112890,
-      "sha256": "11d74d979f42fb7a0d2b006ab521eca73d4dc4b4311cc52156deac35eac5dd4e",
+      "size_bytes": 112899,
+      "sha256": "7671bec26af61cd96688661ce25387d914cb668e4460f73e84adddc7ae4879c4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -10709,8 +10710,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 21507,
-      "sha256": "f71c2341118a4d6727e7fde00a0a30f01bc04d982029b8c6899d7073f27066a9",
+      "size_bytes": 21842,
+      "sha256": "979b2fa9d5453f3a1bf333f942acbaf67ec77f8901c2db08fc9eade62e71a2cd",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -10947,8 +10948,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 7829,
-      "sha256": "46b438de4d2e6c95a6f80b7dbde811feca34d4741ece063c399d3b9d42bdbfb7",
+      "size_bytes": 8562,
+      "sha256": "1df832434ef0cbcb8a377d79265bba79a80f24aa6e9fcf17918f847f137d228a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89015,7 +89016,7 @@
           "text": "Effects"
         }
       ],
-      "word_count": 97,
+      "word_count": 103,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -89026,7 +89027,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 17,
       "images": [
         "../../../assets/icons/ammo/armor-piercing-rounds.webp"
       ],
@@ -89040,8 +89041,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 923,
-      "sha256": "62692a3de8677ff8a2798025e74f57ddd518d974b73283dabdd82364e527b810",
+      "size_bytes": 971,
+      "sha256": "8afbfdd2be8c7adfe3f3db298f746ba3952aa4eeed94afcdeefd7cd1f172fb1c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89087,7 +89088,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 15,
+      "html_tag_count": 17,
       "images": [
         "../../../assets/icons/ammo/breeching-shells.webp"
       ],
@@ -89101,8 +89102,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1063,
-      "sha256": "4a2c18095f778adfe598719085d0bad29e7c1c14331f11086e6ddc566a16bf43",
+      "size_bytes": 1078,
+      "sha256": "25e7fccadc25bf9b9243baaec35e0c034ed4f224fce2ef64cb8d2647547988e4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89137,7 +89138,7 @@
           "text": "Effects"
         }
       ],
-      "word_count": 101,
+      "word_count": 104,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -89148,7 +89149,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/ammo/cryo-slugs.webp"
       ],
@@ -89162,8 +89163,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 902,
-      "sha256": "817ea704088267dac1211519a9c9b3b52f31623a92d9a1923db136d5a351d81f",
+      "size_bytes": 935,
+      "sha256": "de423a6dd4b63711cbd677b2b26cd554f9a1f7d70c965d3c09d3dad1a9cce22d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89198,7 +89199,7 @@
           "text": "Effects"
         }
       ],
-      "word_count": 125,
+      "word_count": 126,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -89209,7 +89210,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/ammo/data-spike-rounds.webp"
       ],
@@ -89223,8 +89224,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1059,
-      "sha256": "852ef7ae95e8436c08541c2d8201a9d227717b05e9b5a92f89ce4219280707a8",
+      "size_bytes": 1080,
+      "sha256": "ad5722c856eba63baf318a872d4ff0d181213d813543e45541a77699435816d8",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89259,7 +89260,7 @@
           "text": "Effects"
         }
       ],
-      "word_count": 99,
+      "word_count": 100,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -89270,7 +89271,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 15,
+      "html_tag_count": 17,
       "images": [
         "../../../assets/icons/ammo/emp-shells.webp"
       ],
@@ -89284,8 +89285,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 941,
-      "sha256": "729a08c0751fd2da510bfc87268aac6d5645b664b867b90cfabef87af4cdaba9",
+      "size_bytes": 964,
+      "sha256": "eaab4c83aa0b792bf4c2182d040b98fcb089d035d7037a581cfbab5c5657dc58",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89320,7 +89321,7 @@
           "text": "Effects"
         }
       ],
-      "word_count": 105,
+      "word_count": 106,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -89331,7 +89332,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/ammo/nanite-rounds.webp"
       ],
@@ -89345,8 +89346,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 943,
-      "sha256": "a7381ba8bf15680998f4f53ceba625fe9ee664d7134ec722e7549a53a509fe1c",
+      "size_bytes": 965,
+      "sha256": "417c0a0cbd4749397a166c0bbce3a3b82cf62b0eab15bdb4fe1634a969e570a1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89392,7 +89393,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 15,
+      "html_tag_count": 17,
       "images": [
         "../../../assets/icons/ammo/reactive-shrapnel-shells.webp"
       ],
@@ -89406,8 +89407,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1029,
-      "sha256": "a1d20b8ce3f38ca88e00895e4fdd7096b0b0f3b938646bae15f38e181d4cd238",
+      "size_bytes": 1045,
+      "sha256": "3ddf061d8773ec7c9c67e8f8c86b75b10537f13f6a945790f5d5f5e798008f0c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89455,7 +89456,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 15,
+      "html_tag_count": 17,
       "images": [
         "../../../assets/icons/ammo/smart-rounds.webp"
       ],
@@ -89469,8 +89470,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1040,
-      "sha256": "4d2e03f1ee09e0e8ac6a4c29fc53becbcc626505afcc48a4bfa9306fad1fd882",
+      "size_bytes": 1055,
+      "sha256": "8aeff75ef7ca738946569ab82dcf0781bd57b93fa49795f2467d091e225b0afe",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89516,7 +89517,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/ammo/sonic-rounds.webp"
       ],
@@ -89530,8 +89531,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1008,
-      "sha256": "efc182e4ca95da7cb32bc16474da58bb15928fde2c0aa405d4fa1686b4547c0c",
+      "size_bytes": 1023,
+      "sha256": "c8365fd1b89223584c5d47e2effaf5105b35421287c2accda2fe43fe42034780",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89566,7 +89567,7 @@
           "text": "Effects"
         }
       ],
-      "word_count": 125,
+      "word_count": 127,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -89577,7 +89578,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 17,
       "images": [
         "../../../assets/icons/ammo/thermobaric-rounds.webp"
       ],
@@ -89591,8 +89592,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1078,
-      "sha256": "a36bd7859e61e9da7c7c5762aa1595e06c8b781e864615cbbdfa1d5f0e999e0c",
+      "size_bytes": 1118,
+      "sha256": "203e9353d7f784a9c0b64345d1d18a03707eb56fea22b8cf77707df18fd94ea0",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89627,18 +89628,19 @@
           "text": "Effects"
         }
       ],
-      "word_count": 99,
+      "word_count": 100,
       "mkdocs_features": [
         "raw-html"
       ],
       "normalization_flags": [
+        "html-heavy",
         "raw-html"
       ],
       "transclusions": [],
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 21,
       "images": [
         "../../../assets/icons/ammo/toxic-rounds.webp"
       ],
@@ -89652,8 +89654,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 902,
-      "sha256": "deb1bcf4e4c35ce47840a4b2971c574611f86484d023b8dca147230ef4633679",
+      "size_bytes": 967,
+      "sha256": "76a169c18b97ecf51faaf06ee0e196dd0a20f4a9f357add8b25beed79978b965",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89699,7 +89701,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/ammo/tracer-rounds.webp"
       ],
@@ -89713,8 +89715,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 953,
-      "sha256": "1173c933a4df604e510e603d2fd926a42259b0c1e7e1f13288b15b4c370c80e0",
+      "size_bytes": 971,
+      "sha256": "aa11d77d5fa28b34ff4dc0d58947dd8d47979326858960b1aea71d54c7a2016f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -89749,7 +89751,7 @@
           "text": "Effects"
         }
       ],
-      "word_count": 125,
+      "word_count": 135,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -89760,7 +89762,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 13,
+      "html_tag_count": 15,
       "images": [
         "../../../assets/icons/ammo/tracker-rounds.webp"
       ],
@@ -89774,8 +89776,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1040,
-      "sha256": "c0c9cac26bec216083f0920067407b8ca3566c7b652dcdacf8b6c56ff93590dc",
+      "size_bytes": 1112,
+      "sha256": "2c8cf3a8890c69eb32340989ded0be7bc7e2868450d23a8140430d2ad2913d50",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -101052,13 +101054,14 @@
         "raw-html"
       ],
       "normalization_flags": [
+        "html-heavy",
         "raw-html"
       ],
       "transclusions": [],
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 19,
+      "html_tag_count": 21,
       "images": [
         "../../../assets/icons/cybernetics/smartlink-cpu-implant.webp"
       ],
@@ -101072,8 +101075,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 969,
-      "sha256": "3bf98808fdcb8fddbfb33141a5ace28dc1fae8c98ac481004d00047c7987e751",
+      "size_bytes": 978,
+      "sha256": "675a8863ba7745c7b5a5017e75bfea1aa6a528017eeec028e8086dac3638732c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -108690,7 +108693,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 63,
+      "word_count": 94,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -108716,8 +108719,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1247,
-      "sha256": "238a50b803055311e595a4da52d2a09e3ef82cea90733b5cbbc1ecef1dcaff45",
+      "size_bytes": 1470,
+      "sha256": "acd827503dc6c2d64a35ce8199769b305fdc3b1bc6b485c90a66948968820eda",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -108758,7 +108761,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 67,
+      "word_count": 92,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -108784,8 +108787,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1317,
-      "sha256": "5ae9feab95b04cd85464f4ab1ef90f4bd772caa044ad9a2071e7a72d9c2940e1",
+      "size_bytes": 1488,
+      "sha256": "a97430b63f057e51bdbc0e338b06dd96b9b789d141f7f273316f0ad8605b921c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109116,8 +109119,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1333,
-      "sha256": "235aae904afec24ccb5042a4ef3e1f19b3a159d2812907dbcc29ac3a65e7848f",
+      "size_bytes": 1334,
+      "sha256": "0a561ab170e15f29e52682393fb755a689221f315777acdaa5be792ae5775e1d",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109288,7 +109291,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 66,
+      "word_count": 76,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -109314,8 +109317,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1245,
-      "sha256": "1d5111ccb0fdc59f0e389b7d5e07436e5a1c4ac713cd74fc1fb513d1369cfca3",
+      "size_bytes": 1311,
+      "sha256": "d783c06bdbc8aff5bc83df42bd9a0a0d00f11394da86f2f3cd88da7dd144defb",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109354,7 +109357,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 70,
+      "word_count": 77,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -109380,8 +109383,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1316,
-      "sha256": "e6ad63348c5293aeaeb3de0990aa18840febc7d807e3e8a8bf0e51c74a9b0b24",
+      "size_bytes": 1346,
+      "sha256": "bdb93244ff5549c44d7ca1979583397580467ed5b58e52c575b23ae35af7fe8f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109420,7 +109423,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 83,
+      "word_count": 94,
       "mkdocs_features": [
         "attribute-list",
         "raw-html"
@@ -109448,8 +109451,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1468,
-      "sha256": "d4f57ecb3f377131538ec5e151027c4a0afc48840b74fd381d680b0b39273eca",
+      "size_bytes": 1521,
+      "sha256": "142c465c7c001f1f8b16011c24e77174a7ab91e0b38320efbbc128f907ea20e6",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109620,7 +109623,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 68,
+      "word_count": 97,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -109646,8 +109649,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1261,
-      "sha256": "c05906c3a3bd080a9935ecb6f933510e6427a6f217921ddb9d48120e8163abbc",
+      "size_bytes": 1474,
+      "sha256": "f5872bba2581c75f4ac24e53c03990822f1fb77ad05b4e158ea5c63356497f58",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -109752,7 +109755,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 69,
+      "word_count": 75,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -109778,8 +109781,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1317,
-      "sha256": "e529ce660240826e423231b344974e661574b82fe3021e035f2607a1bd690a8e",
+      "size_bytes": 1373,
+      "sha256": "ebbee4c83f07a6acce7b14aec7c22a1b21c00bf47b6c2258e9658f0e88a0376f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110016,7 +110019,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 66,
+      "word_count": 88,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110042,8 +110045,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1292,
-      "sha256": "2d01eb8058e49812152367ecf62c42e0549f83599537e650cd91873dc4ef8aba",
+      "size_bytes": 1422,
+      "sha256": "7ce411c92032d37a8abfcd193635500a5e135be82a074226ec4082c891e65149",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110082,7 +110085,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 83,
+      "word_count": 86,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110108,8 +110111,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1550,
-      "sha256": "b9c77e9e9d5bd8a5e1b9d49da8b215e2394ef3d6dbda4a5fbc7db46ccdfb78fe",
+      "size_bytes": 1541,
+      "sha256": "53a24df58d6589756998043a1fdab27a935841d5342dfe3a1a25a637e3c7b249",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110148,7 +110151,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 65,
+      "word_count": 104,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110174,8 +110177,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1284,
-      "sha256": "4ac28075c8e8ae3cf6cb0bf6bd18e6d153258d1d9b79cc00b439cbba8e7cd6ef",
+      "size_bytes": 1565,
+      "sha256": "5e34022fe573ee69c28c0963d554ff3f7123671d19203abdb74544dea1ff57cb",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110214,7 +110217,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 62,
+      "word_count": 83,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110240,8 +110243,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1278,
-      "sha256": "ca74878c191094f6eb911aeb6040918f58fd157e59feef8a5f85cd59bf2a3a5d",
+      "size_bytes": 1412,
+      "sha256": "b3e48d505982d81416f245bc5457922a8c929eb6a8636084bac26c23a29197ac",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110346,7 +110349,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 40,
+      "word_count": 38,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110372,8 +110375,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1104,
-      "sha256": "6be81e433911ff29e17340dace1f59109ca63666e71cd5d12fe83a2de476dafc",
+      "size_bytes": 1099,
+      "sha256": "fdbd503799814ca2bcf868ac279db398ded0c6c26ba8ab66041990d8da4df592",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110412,7 +110415,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 71,
+      "word_count": 87,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110438,8 +110441,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1328,
-      "sha256": "68d1be5765e34caeada576570213bd43d796e010413cf861fe63657d2d350b37",
+      "size_bytes": 1417,
+      "sha256": "86f1f5b6f3a81935a60821821e813de808ec68c59ea1eea0d5d7846b285a9e46",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110504,8 +110507,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1357,
-      "sha256": "c256c07220851dffa0289f133f45178db1911d607f5fce9027b0cf19b804a608",
+      "size_bytes": 1356,
+      "sha256": "7c10dd5ca1b2e65a9d29957ed46b1fbcdf4b5559aedcb54383045f52a45e6b63",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110874,7 +110877,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 97,
+      "word_count": 78,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110900,8 +110903,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1440,
-      "sha256": "1d9600733354efebe7752c4cf88071a5932f51a50934ddcddd123bfe7b33138a",
+      "size_bytes": 1360,
+      "sha256": "c80c40a4f5e086d530e8554ddd70f0cae243103768af5be67e3a8f6dc4bd15a6",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -110940,7 +110943,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 71,
+      "word_count": 85,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -110966,8 +110969,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1265,
-      "sha256": "5791b95da27147c3155a0a9c93f88f1b25ad271ad2f66add0c07f1367351dbb1",
+      "size_bytes": 1406,
+      "sha256": "a653c1decda333878fafe48e87e48ba804fd6726ab91541ca2f55d5c36f1e548",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111006,7 +111009,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 62,
+      "word_count": 72,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111032,8 +111035,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1232,
-      "sha256": "2671f972adfa7e65c51fcedb768800f72a118fadeae1e961ca319bf87465afc0",
+      "size_bytes": 1304,
+      "sha256": "278cad974d5382b4dda1385b7eedd817290b89b63a2c93a1c640cd17c8153597",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111138,7 +111141,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 62,
+      "word_count": 106,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111150,7 +111153,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 62,
+      "html_tag_count": 66,
       "images": [
         "../../../assets/icons/weapons/smartpistol-mk-ii.webp"
       ],
@@ -111164,8 +111167,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1256,
-      "sha256": "e7abf540d0ade8f627264f7a2ca46101fc8b0eee00c14eb740710b546b24ead5",
+      "size_bytes": 2081,
+      "sha256": "f100e4e82875f69421286f5aedc54abe5ff4936289f6b73a98ab5844c6883712",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111270,7 +111273,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 62,
+      "word_count": 85,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111282,7 +111285,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 62,
+      "html_tag_count": 64,
       "images": [
         "../../../assets/icons/weapons/smartpistol.webp"
       ],
@@ -111296,8 +111299,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1253,
-      "sha256": "0899909ea19a1d28d1c36534ce41634dd306a3c451092602aa8a7f3e60825fca",
+      "size_bytes": 1399,
+      "sha256": "ee5850608344e0273a3fac2bf5a25d7c9a50c2c2c638b387837af837f7c42259",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111336,7 +111339,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 67,
+      "word_count": 68,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111362,8 +111365,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1284,
-      "sha256": "076ec0c055476c9cdf660a206ca74c89efe752b729901daddc7473e9ba50482a",
+      "size_bytes": 1296,
+      "sha256": "4b4506a03f2380f26a41b6f9888bfbbfd6270ff2c6046012ce48c42d23843a87",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111402,7 +111405,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 99,
+      "word_count": 80,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111428,8 +111431,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1422,
-      "sha256": "31019482d2fee0f80312c47bf420aca8812a9304c3e9c8ac9a5ede9ef1f9f384",
+      "size_bytes": 1342,
+      "sha256": "3330637f3ea0d865adf204c128f6e842a6607a3bd43f8eb758071257c1ec5cbf",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111468,7 +111471,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 64,
+      "word_count": 79,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111494,8 +111497,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1267,
-      "sha256": "38bda5e342ac050f1fc9218b971056eada21d8115232a10ef658f914a74ca247",
+      "size_bytes": 1372,
+      "sha256": "3cc59c5adc9c23029e6ce95c7f956c5f82296e1edf90de1346cc2525bc5fd102",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111534,7 +111537,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 64,
+      "word_count": 76,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111560,8 +111563,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1266,
-      "sha256": "30a6076c7070ef0888769e626fe7b01c9da3696893d7da573955ad2e80a3f91b",
+      "size_bytes": 1326,
+      "sha256": "e2db0ce6de9b6d1a67430101085eab57da702fada95ab0f6923b68957ecfd6f5",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -111732,7 +111735,7 @@
           "text": "Weapon Features"
         }
       ],
-      "word_count": 70,
+      "word_count": 80,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -111758,8 +111761,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1275,
-      "sha256": "dfe0422a04de7371b0818ad63301119d29e4cab82fb857a543d3c47851256b17",
+      "size_bytes": 1351,
+      "sha256": "d891622fdf8143a14f8b90fb87531538f96d1233d58ffcb8c4a0307c309a50a2",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -114101,7 +114104,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 57,
+      "html_tag_count": 61,
       "images": [
         "../../../assets/icons/domains/maker/drone-swarm.webp"
       ],
@@ -114115,8 +114118,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1493,
-      "sha256": "b4be79bb0d0c788945cfeee3f3365f6283db04031ac970259f731e08b30a830a",
+      "size_bytes": 1505,
+      "sha256": "f4bb4bd2d6123520bc26b2a2ec6701acf07f8f76c1318d76b3da2418984d6856",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -114163,7 +114166,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 51,
+      "html_tag_count": 53,
       "images": [
         "../../../assets/icons/domains/circuit/elevate-permission.webp"
       ],
@@ -114177,8 +114180,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1173,
-      "sha256": "a5042d872ab5c2dcf70fc88eed1aa0af16f439acfec83b5a227689fb3a08c027",
+      "size_bytes": 1183,
+      "sha256": "167c3321e33d09d3255d3ccb1fb47e5ac7123369cd8ea23073289bcff0a24bbe",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -114461,7 +114464,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 92,
+      "word_count": 91,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -114473,7 +114476,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 49,
+      "html_tag_count": 51,
       "images": [
         "../../../assets/icons/domains/circuit/field-experience.webp"
       ],
@@ -114487,8 +114490,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1223,
-      "sha256": "5e738a080b8753ae890530b432f6876939ed6fd4a6bd252dde20a7d02587e9bb",
+      "size_bytes": 1227,
+      "sha256": "a352d2df97fc79f2b82ef719c6eccabd902a409afca484cc988ee2d879635562",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -115489,6 +115492,70 @@
       "review_flags": []
     },
     {
+      "path": "docs/player-facing/system/domains/micromissle-barrage/index.md",
+      "extension": ".md",
+      "kind": "document",
+      "source_family": "player",
+      "audience": "player",
+      "content_scope": "system",
+      "authorship": "generated",
+      "generator_owner": "pyCybermancy/generate-docs.py",
+      "generator_type": "domains",
+      "title": "Micromissle barrage",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Micromissle barrage"
+        },
+        {
+          "level": 2,
+          "text": "Maker"
+        },
+        {
+          "level": 2,
+          "text": "Description"
+        },
+        {
+          "level": 2,
+          "text": "Actions"
+        }
+      ],
+      "word_count": 96,
+      "mkdocs_features": [
+        "raw-html"
+      ],
+      "normalization_flags": [
+        "html-heavy",
+        "raw-html"
+      ],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 51,
+      "images": [
+        "../../../assets/icons/domains/maker/micromissle-barrage.webp"
+      ],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [
+        "docs/player-facing/assets/icons/domains/maker/micromissle-barrage.webp"
+      ],
+      "site_targets": [
+        "player"
+      ],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 1248,
+      "sha256": "41f36531b66c29b914a3be828a88bb1fa185fe706d96e4e639bc450960866dd4",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": [
+        "unresolved-local-dependency:../../../assets/icons/domains/maker/micromissle-barrage.webp"
+      ]
+    },
+    {
       "path": "docs/player-facing/system/domains/multitalented/index.md",
       "extension": ".md",
       "kind": "document",
@@ -116327,7 +116394,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 80,
+      "word_count": 81,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -116339,7 +116406,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 49,
+      "html_tag_count": 51,
       "images": [
         "../../../assets/icons/domains/bullet/rapid-fire.webp"
       ],
@@ -116353,8 +116420,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1123,
-      "sha256": "951e30a120e92baf8c4e7a7e2a8a8e497cd968b00ca1fd5e4065a06f33ea1765",
+      "size_bytes": 1132,
+      "sha256": "9e5f401b250c63bb7d75dd1f719e99f78da9ae7852b19b9c99381ebd69e4de4b",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -116637,7 +116704,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 98,
+      "word_count": 91,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -116649,7 +116716,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 49,
+      "html_tag_count": 53,
       "images": [
         "../../../assets/icons/domains/circuit/signal-boost.webp"
       ],
@@ -116663,8 +116730,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1270,
-      "sha256": "477d3cad6af3d13512ef2900332a5399841508b002c6a5ffb249b40af17bc0aa",
+      "size_bytes": 1255,
+      "sha256": "a264bb56ed4f8e715fec3f1d1e3d121e8afcd46592fee6406d23eb05ae307040",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -116949,7 +117016,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 92,
+      "word_count": 95,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -116961,7 +117028,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 51,
+      "html_tag_count": 53,
       "images": [
         "../../../assets/icons/domains/circuit/static-veil.webp"
       ],
@@ -116975,8 +117042,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1288,
-      "sha256": "6f3435b4e5b8cb85642af1f88571ae65ba0661188d59de89d36c482f5c12f4a5",
+      "size_bytes": 1316,
+      "sha256": "625325a24a928a37caf581599d6b3d95040831aa078b205abf02ec8912cf3d9f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -117073,7 +117140,7 @@
           "text": "Actions"
         }
       ],
-      "word_count": 124,
+      "word_count": 123,
       "mkdocs_features": [
         "raw-html"
       ],
@@ -117085,7 +117152,7 @@
       "includes": [],
       "jinja_expression_count": 0,
       "jinja_statement_count": 0,
-      "html_tag_count": 51,
+      "html_tag_count": 53,
       "images": [
         "../../../assets/icons/domains/circuit/strobe-effect.webp"
       ],
@@ -117099,8 +117166,8 @@
       ],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1456,
-      "sha256": "0e9ab169b1f04b5be97f6b8ad9f9a7d3af2f2e8f32bd7dde122c2f2ccda54ff1",
+      "size_bytes": 1459,
+      "sha256": "88c82ec64efdf5dcf467574faab2c5415237fc24a2c5d8327ddd5a0cf74b0d41",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156110,8 +156177,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2015,
-      "sha256": "f44d4868a376ae9eac0e398f6e54588f4083fbc2dc4ed894be78ee11f372a719",
+      "size_bytes": 2063,
+      "sha256": "f511fbb242f51baf76ec228c76d54ad59ce73b7e9e98ea571495f467f75e9043",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156144,8 +156211,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2177,
-      "sha256": "b2a8f8276ce18dcba6b07be9f42a0fda883376562b4efa75c06d06a2a5f2eb4a",
+      "size_bytes": 2192,
+      "sha256": "803df314efe1ff440c52c70fad39ac8b001162c14f1330cdca2ddc9d38f5a816",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156178,8 +156245,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2005,
-      "sha256": "898cdda74f47cba4ad3ec10c075777a2eede5d3950b0c4430e9dcb8959893ad9",
+      "size_bytes": 2038,
+      "sha256": "f4b7cddbff43ad72453b6a05370de4cab2e4b64f2f20981b072ca9e3f29d8b08",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156212,8 +156279,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2155,
-      "sha256": "e1bffbc0a14ba3fb66cab0fad384425a2edb5a6ef1b17cfa43061224840d6b61",
+      "size_bytes": 2176,
+      "sha256": "52bdb5c984aa99b503af7d3c5d4da36174017609e92a4dbafb3f891445726fc1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156246,8 +156313,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2061,
-      "sha256": "e4a0356a52c9c1400565dfd21c2b32d44b4ffa6f0fd693a947623cff2ad23ec1",
+      "size_bytes": 2084,
+      "sha256": "2c9e745335b71ce4596a9c77cc91d50be8c1609382762facb478026542a0686f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156280,8 +156347,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2043,
-      "sha256": "8b0fd3d7daaf3b67d5da780c7a3eb35d2b959f79ca70f119aee720668f4f359b",
+      "size_bytes": 2065,
+      "sha256": "e371bb15ea77e1b18cfa313335e6c8cfa823265b52ab1159e05b124059718cdf",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156314,8 +156381,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2135,
-      "sha256": "f9739f2155f0b05f1e2bdd656ad75f96ee7383040ef9f434658b64cdc7407239",
+      "size_bytes": 2151,
+      "sha256": "592debb5db73a89891762db1e1f01cffe17f347dce01dc5007f249f23dc3e4fa",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156348,8 +156415,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2147,
-      "sha256": "e067c5dc7b80d26bacd444f1e97cf812e66703562e56fa12f3962ac08932500c",
+      "size_bytes": 2162,
+      "sha256": "80f8a62fda73516c66b8c808a1ffa6b455ca2402ca22ecbd32c7c7de817f531a",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156382,8 +156449,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2109,
-      "sha256": "948edf8d3101968fe59eedf459fc1c196e6dd68f4eb17aa89f9574d683a4e804",
+      "size_bytes": 2124,
+      "sha256": "a7d7cc5873818edbe21b4e97b023bee84a24783fcee86167190e2c1dd07fca06",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156416,8 +156483,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2173,
-      "sha256": "46977bf06925d5060e4b7de70632ad0b87da3cd15505b219bbfb43165885c55c",
+      "size_bytes": 2213,
+      "sha256": "abfacd6af1d110abe6fac04f51d6cec4fb865e5e9e800ccdb1258f49124c2fe4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156450,8 +156517,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2003,
-      "sha256": "57482d57a747cfa478a37aa2b54ca35f131f7b11ef62fca26f18754cc2b5554c",
+      "size_bytes": 2068,
+      "sha256": "c585047cc19bcc1a423c216e2268e11014133e7495da9a2d8d688a4793463300",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156484,8 +156551,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2053,
-      "sha256": "c56e2da5af0323fc3a0f479309f06e636511ee6a90597dc4698bc6eb1840ec94",
+      "size_bytes": 2071,
+      "sha256": "b49009bbc63c7988a5810ecf1a52191ca3e9704c3bb0a24eeae031c367033bd2",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -156518,8 +156585,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2139,
-      "sha256": "85bb91268b37663ddc1a9bdc4508687e0762d0fac41e7b2457e77f55f5629f5c",
+      "size_bytes": 2211,
+      "sha256": "ff55da19dbbad79cd94ecb560f4598972a648d7b92fa136e5a7e864c421b7a3b",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -162892,8 +162959,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2310,
-      "sha256": "cd60a7b7301893992a3d7e557e1047d72e5050ff7cb53a219538cd3147f148c4",
+      "size_bytes": 2319,
+      "sha256": "e3b46c3ab50059d18891879493f841ef239323f3f99f19a79d893bda19fbebe7",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167334,8 +167401,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4771,
-      "sha256": "e60462f46c2d554beaf7c279c47ea2b732b062c5cf0e7bb098ff0f1d7d3e741f",
+      "size_bytes": 5106,
+      "sha256": "d649ab0264da9d423fd7a058e24ef2c2557edb894150d17069d9e8d7ecfeec24",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167368,8 +167435,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4837,
-      "sha256": "657b30355242d1f833ecc469fc9c84db9462b8f92f2318d5e8b957c0ddc77aea",
+      "size_bytes": 5065,
+      "sha256": "954004d30b025f95c845d4472ff876295f2f158daa3234b75c747692cee16b7f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167538,8 +167605,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4882,
-      "sha256": "837a144512ee6de999a1425d4110d9bff2c3511315e7f8f0ef456a1c5bfddc15",
+      "size_bytes": 4883,
+      "sha256": "08d6febb5606e60e05cc0ebaba543fcc51cddbdbcbbebfc6954f4fc7f030143c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167640,8 +167707,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4769,
-      "sha256": "aabfb6cf1f714bf65df1033b44240ab4f16966dccf6e050f20be40b41b5dbf93",
+      "size_bytes": 4880,
+      "sha256": "35562ffafe7d8e73e549f370e3590fbf1828c7932c5f9b4bd106285ebf3c9efe",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167674,8 +167741,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4833,
-      "sha256": "c44f1cd13d74a2ca662be6eea41e55c82a15960c1b09ae28e5ceba840c735a23",
+      "size_bytes": 5036,
+      "sha256": "ca1a373aced44d3d924d04e0567e1e8e758fc6aef9aa56ce02be4adaf95e290b",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167708,8 +167775,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4919,
-      "sha256": "478a07bfc276b22cb6314b9cc2c41fd35c0abb791ff3d303d38b7960d2d205bf",
+      "size_bytes": 5059,
+      "sha256": "8d28093485074d79b9867206ec597bcb73018b2a38097672180edcde70e67ce7",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167810,8 +167877,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4797,
-      "sha256": "22f7f32dceaeb22ab1621cbae07f4c6d4c87f4a15270dffc73daaf139a91ad25",
+      "size_bytes": 5119,
+      "sha256": "ee9d84832b40b72ce3398fe2060b2e03b48a5eb4b73813c134aafa92ce3e2890",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -167878,8 +167945,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4833,
-      "sha256": "c26d813d77fc1beced80ca6cf5507d6fbf18c7027d5caf08f965031577c6d9f3",
+      "size_bytes": 4916,
+      "sha256": "de95f3709b0cf7fb53dfa55f9813fc4fe6e2f2f601dcb16a3b8222f62455afe1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168014,8 +168081,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4806,
-      "sha256": "fd5e9216aa38beae53992576e01740c6cdab8830cd966c14ef5217df742d2daa",
+      "size_bytes": 5020,
+      "sha256": "3bf0d684ebf7f25e82e3138fbe533fba3e3b7f27288c63183199b474513cac29",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168048,8 +168115,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 5056,
-      "sha256": "f9a98c51823b9d06bdbf9b39853a8a2df93acb5db9522df8cb5201f78376b12f",
+      "size_bytes": 5153,
+      "sha256": "9cb65f4769ba239c7943e07749f923fb11551ef0f6f248b9fff0d2a78c2965ac",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168082,8 +168149,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4779,
-      "sha256": "e314dfe3ac017cb864767acc820cdc9e34da2fcf21185f610f930ee150553c29",
+      "size_bytes": 5262,
+      "sha256": "7878530c094252a614258acb74ec220f72958c5bf2a4d925ccc534da6f500349",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168116,8 +168183,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4789,
-      "sha256": "6fce7f637f5f247d515b67ac58cd51aa056115afb65a782bd7f350d560eb07ca",
+      "size_bytes": 5037,
+      "sha256": "187f53196564897fe8b1c9039c48a5db23e0eb51168ef0156923d47339eec6cb",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168184,8 +168251,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4171,
-      "sha256": "aeae75e04ece0ad875fd00d967353af76eae885428a6767c495c598f9697cfe5",
+      "size_bytes": 4166,
+      "sha256": "38b739649b186de658ff7b437b30fb3c398e10918c2906b2ca4a74861454248f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168218,8 +168285,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4849,
-      "sha256": "8f14a079b01eae94e4fde870d5a15eaa836759575a47beae004a02e008adde78",
+      "size_bytes": 4960,
+      "sha256": "08c7008ca88eee1eb3be1beeaf8bca315908032ab8c4bd1ca18410db92697dcb",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168252,8 +168319,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4876,
-      "sha256": "26cfb62448cb0efa36c25b4d671bc4b1927c434b22c815d363fe34a3dc114473",
+      "size_bytes": 4904,
+      "sha256": "b1ba670501aa1f6f2e9206de9b5b5e0544373cceee82df64fadabd8eea9f5105",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168456,8 +168523,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4970,
-      "sha256": "e725178de0cd0774a7b3e876805e4b3e7cca9fe780a4538d61bd09b5247018f2",
+      "size_bytes": 4890,
+      "sha256": "1c44743ecb909b61a4d41116f9df0a9cd841e257f9869a1b003f52b384699b55",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168490,8 +168557,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4765,
-      "sha256": "81d010953c3a3babfadbe5d3bf0bde980da5b289ddbf81737a1cf24979a10208",
+      "size_bytes": 5011,
+      "sha256": "afcb23e4680c99eec831f854c6dc1f6c10d3d7061af8ae6f5f3c7bccaebc17f8",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168524,8 +168591,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4764,
-      "sha256": "2ce11b676a6a6d5b7fc72668c33c50270a0df8cdaa02ea0e335e1fba069401f9",
+      "size_bytes": 4890,
+      "sha256": "2b7afa99ca96c778391f3dd185f58a5bb92462588656ca4f685a1f988018c7a9",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168558,8 +168625,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4771,
-      "sha256": "d418ccc713a9736dd5f948ee64042c2fa9a8b49e912e7d4e1ecd8b1c35db3b6d",
+      "size_bytes": 5044,
+      "sha256": "51d14066c747865dcd714e8d5faf845cfc25f2e830ae75ac9d13ebb8d27a9fe4",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168626,8 +168693,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4763,
-      "sha256": "c5e1fa8bcbbd430449776c1a43ad2ecd60f759fd6ce7c0ee3b36a59a33515b9e",
+      "size_bytes": 5679,
+      "sha256": "b6b8b570ee1d20f087c7b3752a194235d93540dc36e82100f418881d085838ce",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168694,8 +168761,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4793,
-      "sha256": "498f8640b22ce90d0fe4874771bd998b819774da2fd021f7e0aa0cdedca93acd",
+      "size_bytes": 4832,
+      "sha256": "ee45645cf49834bd00260d378df26d55670285404956eb5011d8fc78c46067e1",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168728,8 +168795,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4966,
-      "sha256": "da94dd8c07af314360f8aab2c3d3de11a6fcdfe88a22ec728a4b52b995c8a39e",
+      "size_bytes": 4886,
+      "sha256": "fa8afd89b061f3496a9045e44eee9f50b959e3051fbf5204ba83c92a4d328a21",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168762,8 +168829,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4770,
-      "sha256": "03547385d41689394f0aa099eba178331354946e19c5a792bf4043e63cc88185",
+      "size_bytes": 4941,
+      "sha256": "d17678b39c0c36335c37bac21885b9dab86cd7f7ba7fd7c822ef5598ab0f5d0e",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -168796,8 +168863,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4779,
-      "sha256": "31aaa6bd0e246096d739dbc8fa448f1662fdc639b5abe6a59d0ca67c2efce226",
+      "size_bytes": 4893,
+      "sha256": "c5e99d6497e9407696824bf1a169de61c3fee2e9161375596d53e488fbbce310",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -169042,8 +169109,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 4790,
-      "sha256": "dbba055eeea97d312f7e917574daafbe7d8e37bec6734a515334d29496798c92",
+      "size_bytes": 4923,
+      "sha256": "9f85ee5e71dd55d8c0f9bfbd626a5ca17d51e126a1d5cf59022527ddec5065db",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -184789,7 +184856,7 @@
       "nav_targets": [],
       "nav_paths": [],
       "size_bytes": 2331,
-      "sha256": "4798e1cb2d14f7dc3d2070ccd94f2007f472414484efd8f20480c5d64fdc7a15",
+      "sha256": "88249795bbaab7944dd2cc2f47f3fc9db94e3726f43640f0d4e75ea26c18dc70",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -185472,8 +185539,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2302,
-      "sha256": "49be5bf585175e2efde9859e72214203d46fae9c4c2dc7f94fdc588b9943abee",
+      "size_bytes": 2314,
+      "sha256": "0dc4c684a5a4e53aea6658e3bb5d290b8c9b46a1d7b16b67e32d61818c4f358c",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -185506,8 +185573,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2790,
-      "sha256": "bb548561b15e1e156f1e40070a04ca643d1c5784892a6de6b4bffae00bfb0373",
+      "size_bytes": 2800,
+      "sha256": "0c044e59a90340caede0a43ef19719d0c4f6c57a78e884b57fafe0ec37613abd",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -185676,8 +185743,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2208,
-      "sha256": "f960cfaea002f00f61021262d0cecef1c676f2db6fa8e57191c60a97f507ca27",
+      "size_bytes": 2212,
+      "sha256": "5dd8a706fcd72b55c60542a62d9d43288c69e045f43c0001461c7333ff3f285e",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -186298,6 +186365,40 @@
       "review_flags": []
     },
     {
+      "path": "src/packs/system/domains/Micromissle_barrage_4AlYhTNzEAzNmSdV.json",
+      "extension": ".json",
+      "kind": "data",
+      "source_family": "structured-source",
+      "audience": "shared",
+      "content_scope": "system",
+      "authorship": "hand-authored-or-source",
+      "generator_owner": "",
+      "generator_type": "",
+      "title": "",
+      "headings": [],
+      "word_count": 0,
+      "mkdocs_features": [],
+      "normalization_flags": [],
+      "transclusions": [],
+      "includes": [],
+      "jinja_expression_count": 0,
+      "jinja_statement_count": 0,
+      "html_tag_count": 0,
+      "images": [],
+      "internal_links": [],
+      "external_links": [],
+      "data_dependencies": [],
+      "site_targets": [],
+      "nav_targets": [],
+      "nav_paths": [],
+      "size_bytes": 2045,
+      "sha256": "4f520e7f55371120f13efcb9d2be69aadac9f290180c8739547234fac08c32e2",
+      "foundry_record_type": "",
+      "organizational": false,
+      "known_exceptions": [],
+      "review_flags": []
+    },
+    {
       "path": "src/packs/system/domains/Multitalented_pNnwFw5J48LnD9em.json",
       "extension": ".json",
       "kind": "data",
@@ -186766,8 +186867,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 1912,
-      "sha256": "82daf1e60aeaf69ac94738a7663a5d2a17d5fdef0fa842ae4caaae8ff40c7dc4",
+      "size_bytes": 1921,
+      "sha256": "910400a4e8020dee32dbc7595db2bd68c5cb6386267df0dc2a6d68f60bbb9c1f",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -186936,8 +187037,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2669,
-      "sha256": "bff57f9565a2a0a53e2b0ca164d1ac8ff3c7cbbfd07d26f2f7c496279533fff9",
+      "size_bytes": 2654,
+      "sha256": "e164bf2dcea9d4b0749be2c8262a2b9031a8121a31e48e0e5ecd4bcbb2601fee",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -187106,8 +187207,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 2912,
-      "sha256": "a5ab4d705bd7a09c2833ca0946cbdc56c74dfdd8d6b8c212a54214ec6bf35fb8",
+      "size_bytes": 2940,
+      "sha256": "13fb19bb53254fd4e3d262ee140680fcae6dea3b57c838783cff9c4bab477921",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
@@ -187174,8 +187275,8 @@
       "site_targets": [],
       "nav_targets": [],
       "nav_paths": [],
-      "size_bytes": 3080,
-      "sha256": "82d25acd79ba57ef9e7384d7435019a63c5aa48c51613eb9364c712cb229050a",
+      "size_bytes": 3083,
+      "sha256": "753ff498c46fc20f512a02045f577ae9aa95fec99c92538d0b95fd90d0359b37",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],

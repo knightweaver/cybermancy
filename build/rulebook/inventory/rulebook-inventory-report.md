@@ -2,7 +2,7 @@
 
 Schema: `cybermancy-rulebook-inventory-v0.2.4`  
 Scanner: `0.2.4`  
-Git commit: `812e217dd40f0c0b099fdc6fa5fc931a52534ddd`
+Git commit: `2c0fe6452f3984c8d7ff6eb552314e3c62c15b8a`
 
 ## Scope
 
@@ -14,22 +14,22 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| Files scanned | 4634 |
-| Documents | 1060 |
-| Player-site documents | 588 |
+| Files scanned | 4636 |
+| Documents | 1061 |
+| Player-site documents | 589 |
 | GM-site documents | 460 |
 | Player nav entries | 20 |
 | GM nav entries | 15 |
-| Generated documents | 998 |
+| Generated documents | 999 |
 | Hand-authored/source documents | 62 |
 | Dynamic MkDocs documents | 18 |
-| Documents requiring normalization | 1032 |
+| Documents requiring normalization | 1033 |
 | Stub documents | 4 |
 | Foundry folder records | 109 |
 | Organizational files/pages | 123 |
 | Files with known exceptions | 139 |
-| Files with review flags | 26 |
-| Files with unresolved local dependencies | 6 |
+| Files with review flags | 27 |
+| Files with unresolved local dependencies | 7 |
 | Duplicate-content groups | 239 |
 
 ## Files by source family
@@ -41,10 +41,10 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | data | 15 |
 | generator | 65 |
 | gm | 961 |
-| player | 1453 |
+| player | 1454 |
 | repository | 32 |
 | shared-docs | 3 |
-| structured-source | 1848 |
+| structured-source | 1849 |
 
 ## Files by audience
 
@@ -52,8 +52,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 |---|---:|
 | developer | 67 |
 | gm | 961 |
-| player | 1453 |
-| shared | 1866 |
+| player | 1454 |
+| shared | 1867 |
 | unknown | 287 |
 
 ## Files by content scope
@@ -63,7 +63,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | campaign | 287 |
 | developer | 86 |
 | setting | 16 |
-| system | 2156 |
+| system | 2158 |
 | unknown | 2089 |
 
 ## Files by kind
@@ -73,8 +73,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | asset | 1635 |
 | code | 40 |
 | config | 4 |
-| data | 1874 |
-| document | 1060 |
+| data | 1875 |
+| document | 1061 |
 | other | 12 |
 | presentation | 9 |
 
@@ -82,8 +82,8 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 
 | Metric | Count |
 |---|---:|
-| generated | 1024 |
-| hand-authored-or-source | 1963 |
+| generated | 1025 |
+| hand-authored-or-source | 1964 |
 | unknown | 1647 |
 
 ## MkDocs sites
@@ -100,19 +100,19 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | jinja-expression | 17 |
 | jinja-statement | 17 |
 | load-csv | 16 |
-| raw-html | 1034 |
+| raw-html | 1035 |
 
 ## Print-normalization flags
 
 | Metric | Count |
 |---|---:|
 | attribute-list | 32 |
-| html-heavy | 335 |
+| html-heavy | 338 |
 | include-markdown | 1 |
 | jinja-expression | 17 |
 | jinja-statement | 17 |
 | load-csv | 16 |
-| raw-html | 1034 |
+| raw-html | 1035 |
 
 ## Generator reconciliation
 
@@ -125,7 +125,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | player | classes | 5 | 0 | 5 | 0 | 0 | 0 |
 | player | consumables | 59 | 4 | 59 | 0 | 0 | 0 |
 | player | cybernetics | 103 | 4 | 103 | 0 | 0 | 0 |
-| player | domains | 73 | 13 | 72 | 0 | 0 | 0 |
+| player | domains | 74 | 13 | 73 | 0 | 0 | 0 |
 | player | drones-devices | 19 | 3 | 19 | 0 | 0 | 0 |
 | gm | environments | 8 | 2 | 8 | 0 | 0 | 0 |
 | player | features | 105 | 19 | 116 | 0 | 14 | 0 |
@@ -181,6 +181,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | stub-document | 4 |
 | title-collision-candidate | 16 |
 | unresolved-local-dependency:../../../assets/icons/armors/kevlar-shirt.webp | 1 |
+| unresolved-local-dependency:../../../assets/icons/domains/maker/micromissle-barrage.webp | 1 |
 | unresolved-local-dependency:../../../assets/icons/weapons/adv-emp-grenade.webp | 1 |
 | unresolved-local-dependency:../../../assets/icons/weapons/adv-fragmentation-grenade.webp | 1 |
 | unresolved-local-dependency:assets/art/275637-Female%20Halfing%20Commoner%20C%20.png.webp | 1 |
@@ -208,6 +209,7 @@ It does **not** decide canonical authority or rulebook inclusion; those are Phas
 | `docs/player-facing/items/weapons/adv-fragmentation-grenade/index.md` | player | system | generated | `unresolved-local-dependency:../../../assets/icons/weapons/adv-fragmentation-grenade.webp` |
 | `docs/player-facing/system/domains/drone-control/index.md` | player | system | generated | `title-collision-candidate` |
 | `docs/player-facing/system/domains/gun-trainer/index.md` | player | system | generated | `title-collision-candidate` |
+| `docs/player-facing/system/domains/micromissle-barrage/index.md` | player | system | generated | `unresolved-local-dependency:../../../assets/icons/domains/maker/micromissle-barrage.webp` |
 | `docs/player-facing/system/domains/overload/index.md` | player | system | generated | `title-collision-candidate` |
 | `docs/player-facing/system/domains/quick-hack/index.md` | player | system | generated | `title-collision-candidate` |
 | `docs/player-facing/system/domains/situational-awareness/index.md` | player | system | generated | `title-collision-candidate` |
