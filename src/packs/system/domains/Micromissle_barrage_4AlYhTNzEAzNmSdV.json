@@ -1,6 +1,6 @@
 {
   "folder": "GwtYcugxTNACyeep",
-  "name": "Micromissle barrage",
+  "name": "Micromissle Barrage",
   "type": "domainCard",
   "_id": "4AlYhTNzEAzNmSdV",
   "img": "modules/cybermancy/assets/icons/domains/maker/drone-swarm.webp",
@@ -58,7 +58,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1789388920068,
-    "modifiedTime": 1789389201198,
+    "modifiedTime": 1789420612843,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!4AlYhTNzEAzNmSdV"
