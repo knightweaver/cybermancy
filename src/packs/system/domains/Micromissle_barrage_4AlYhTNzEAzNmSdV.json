@@ -1,0 +1,65 @@
+{
+  "folder": "GwtYcugxTNACyeep",
+  "name": "Micromissle barrage",
+  "type": "domainCard",
+  "_id": "4AlYhTNzEAzNmSdV",
+  "img": "modules/cybermancy/assets/icons/domains/maker/drone-swarm.webp",
+  "system": {
+    "attribution": {},
+    "description": "<p><em>Incoming!</em></p><p class=\"Card-Feature\">Once per rest, spend any number of Hope to fire a micromissle barrage at 1 target. Roll a number of d6s equal to the Hope spent and deal that much Physical damage to the target</p>",
+    "resource": null,
+    "actions": {
+      "t4gQu665ak509S7j": {
+        "type": "effect",
+        "_id": "t4gQu665ak509S7j",
+        "systemPath": "actions",
+        "baseAction": false,
+        "description": "<p><em>Incoming!</em></p><p class=\"Card-Feature\">Once per rest, spend any number of Hope to fire a micromissle barrage at 1 target. Roll a number of d6s equal to the Hope spent and deal that much Physical damage to the target</p>",
+        "chatDisplay": true,
+        "originItem": {
+          "type": "itemCollection"
+        },
+        "actionType": "action",
+        "cost": [],
+        "uses": {
+          "value": null,
+          "max": "",
+          "recovery": null,
+          "consumeOnSuccess": false
+        },
+        "effects": [],
+        "target": {
+          "type": "any",
+          "amount": null
+        },
+        "name": "Micromissle Barrage",
+        "img": "modules/cybermancy/assets/icons/domains/maker/drone-swarm.webp",
+        "range": ""
+      }
+    },
+    "domain": "maker",
+    "level": 2,
+    "recallCost": 1,
+    "type": "ability",
+    "inVault": false
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "daggerheart",
+    "systemVersion": "1.2.7",
+    "createdTime": 1789388920068,
+    "modifiedTime": 1789389201198,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "_key": "!items!4AlYhTNzEAzNmSdV"
+}
