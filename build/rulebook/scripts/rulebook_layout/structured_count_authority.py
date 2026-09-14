@@ -121,7 +121,7 @@ def manifest_structured_counts(
 
 
 def _declared_sidecar_count(sidecar: dict[str, Any], family: str) -> int:
-    policy = _policy(family)
+    _policy(family)
     if family == "domains":
         semantics = sidecar.get("domainSemantics")
         if not isinstance(semantics, dict):
@@ -154,7 +154,7 @@ def sidecar_family_state(sidecar: dict[str, Any], family: str) -> dict[str, Any]
         for entity in entities
         if isinstance(entity, dict) and str(entity.get("family") or "") == family
     ]
-    if not rows:
+    if not rows and declared > 0:
         raise ValueError(f"Step 4 structured sidecar is missing family {family!r}")
 
     semantic_ids: list[str] = []
