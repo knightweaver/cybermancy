@@ -7,10 +7,11 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from rulebook_layout.encounter_authority import (
-    MUTABLE_ENCOUNTER_FAMILIES,
+from rulebook_layout.encounter_authority import reconcile_encounter_authority
+from rulebook_layout.structured_count_authority import (
+    MUTABLE_STRUCTURED_FAMILIES,
     count_authority_descriptor,
-    reconcile_encounter_authority,
+    reconcile_structured_count_authority,
 )
 from rulebook_layout.toolchain import resolve_tool
 
@@ -118,15 +119,15 @@ def run_preflight(
     configured_authorities = contract.get("mutableStructuredCountAuthorities")
     authority_contract_ok = isinstance(configured_authorities, dict) and all(
         configured_authorities.get(family) == count_authority_descriptor(family)
-        for family in MUTABLE_ENCOUNTER_FAMILIES
+        for family in MUTABLE_STRUCTURED_FAMILIES
     )
     add_check(
         report,
-        "MUTABLE_ENCOUNTER_COUNT_AUTHORITY",
+        "MUTABLE_STRUCTURED_COUNT_AUTHORITY",
         "PASS" if authority_contract_ok else "FAIL",
-        "Production contract delegates Adversary/Environment counts to the selected manifest and reconciled Step 4 sidecar."
+        "Production contract delegates Domain, Adversary, and Environment cardinality to selected publication authority reconciled through Step 4."
         if authority_contract_ok
-        else "Production contract mutable encounter count-authority references changed or are missing.",
+        else "Production contract mutable structured count-authority descriptors changed or are missing.",
         configured_authorities,
     )
 
@@ -258,6 +259,26 @@ def run_preflight(
                 {"expected": expected_commit, "actual": sidecar.get("sourceCommit")},
             )
 
+            structured_authority = reconcile_structured_count_authority(
+                publication,
+                sidecar,
+                families=MUTABLE_STRUCTURED_FAMILIES,
+                descriptors=configured_authorities if isinstance(configured_authorities, dict) else {},
+            )
+            report["structuredCorpusAuthority"] = structured_authority
+            structured_ok = structured_authority.get("status") == "PASS"
+            add_check(
+                report,
+                "STEP4_STRUCTURED_CORPUS_AUTHORITY",
+                "PASS" if structured_ok else "FAIL",
+                "Domain, Adversary, and Environment counts/semantic IDs reconcile from the selected publication manifest through the Step 4 sidecar."
+                if structured_ok
+                else "One or more mutable structured families do not reconcile to selected publication authority.",
+                structured_authority,
+            )
+
+            # Preserve the established encounter-specific report surface while its
+            # implementation delegates to the shared structured authority resolver.
             encounter_authority = reconcile_encounter_authority(publication, sidecar)
             report["encounterCorpusAuthority"] = encounter_authority
             encounter_ok = encounter_authority.get("status") == "PASS"
@@ -265,7 +286,7 @@ def run_preflight(
                 report,
                 "STEP4_ENCOUNTER_CORPUS_AUTHORITY",
                 "PASS" if encounter_ok else "FAIL",
-                "Adversary and Environment counts/semantic IDs reconcile from the selected publication manifest through the Step 4 sidecar."
+                "Adversary and Environment counts/semantic IDs reconcile from the selected publication manifest through the shared authority resolver."
                 if encounter_ok
                 else "Adversary or Environment Step 4 corpus does not reconcile to the selected publication manifest.",
                 encounter_authority,

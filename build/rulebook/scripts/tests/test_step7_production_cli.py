@@ -144,14 +144,29 @@ class ProductionCliTests(unittest.TestCase):
                 step6,
                 {"profiles": {"complete-rulebook": {"chapters": [1, 2]}}},
             )
+            domain_ids = [f"entity:domains:test-{index:03d}" for index in range(74)]
             write_json(
                 repo / "build/rulebook/source/metadata/structured-entities.json",
                 {
                     "schema": "cybermancy-step4-structured-entities-v1.3",
+                    "domainSemantics": {"domainCount": 3, "cardCount": 74},
+                    "domainPackages": [
+                        {"domainKey": "one", "cards": domain_ids[:25]},
+                        {"domainKey": "two", "cards": domain_ids[25:50]},
+                        {"domainKey": "three", "cards": domain_ids[50:]},
+                    ],
                     "encounterSemantics": {
                         "entityCounts": {"adversaries": 0, "environments": 0}
                     },
-                    "entities": [],
+                    "entities": [
+                        {
+                            "semanticId": semantic_id,
+                            "family": "domains",
+                            "name": semantic_id,
+                            "audience": "player",
+                        }
+                        for semantic_id in domain_ids
+                    ],
                 },
             )
 
@@ -192,6 +207,8 @@ class ProductionCliTests(unittest.TestCase):
             paths = profile_paths(repo, contract, "complete-rulebook")
             self.assertEqual(result["status"], "PASS")
             self.assertEqual(result["chapterCount"], 2)
+            self.assertEqual(result["structuredEntityCounts"]["domains"], 3)
+            self.assertEqual(result["structuredEntityCounts"]["domainCards"], 74)
             self.assertEqual(result["structuredEntityCounts"]["adversaries"], 0)
             self.assertEqual(result["structuredEntityCounts"]["environments"], 0)
             self.assertTrue(paths.release_pdf.is_file())

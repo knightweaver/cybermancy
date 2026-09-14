@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any
+from typing import Any, Iterable
 
 from .domain_package_refined import domain_package_output_stem
 
@@ -23,6 +23,66 @@ def _integer(value: Any) -> int | None:
         if text and text.lstrip("+-").isdigit():
             return int(text)
     return None
+
+
+def validate_domain_package_membership(
+    sidecar: dict[str, Any], expected_semantic_ids: Iterable[str]
+) -> dict[str, Any]:
+    """Reconcile DomainPackage card membership to authoritative Step 4 identities."""
+    packages = sidecar.get("domainPackages")
+    report: dict[str, Any] = {
+        "status": "PASS",
+        "packageCount": 0,
+        "membershipCount": 0,
+        "duplicates": [],
+        "missing": [],
+        "extra": [],
+        "errors": [],
+    }
+    if not isinstance(packages, list):
+        report["status"] = "FAIL"
+        report["errors"].append("Step 4 sidecar has no domainPackages array.")
+        return report
+
+    membership: list[str] = []
+    for index, package in enumerate(packages):
+        if not isinstance(package, dict):
+            report["errors"].append(f"domainPackages[{index}] is not an object.")
+            continue
+        cards = package.get("cards")
+        if not isinstance(cards, list):
+            report["errors"].append(
+                f"domainPackages[{index}] ({package.get('domainKey')!r}) has no cards array."
+            )
+            continue
+        for card_index, value in enumerate(cards):
+            semantic_id = str(value or "").strip()
+            if not semantic_id:
+                report["errors"].append(
+                    f"domainPackages[{index}].cards[{card_index}] has no semantic identity."
+                )
+            else:
+                membership.append(semantic_id)
+
+    expected = [str(value or "").strip() for value in expected_semantic_ids]
+    expected_set = set(expected)
+    membership_set = set(membership)
+    report["packageCount"] = len(packages)
+    report["membershipCount"] = len(membership)
+    report["duplicates"] = sorted(
+        {semantic_id for semantic_id in membership if membership.count(semantic_id) > 1}
+    )
+    report["missing"] = sorted(expected_set - membership_set)
+    report["extra"] = sorted(membership_set - expected_set)
+    if (
+        report["errors"]
+        or report["duplicates"]
+        or report["missing"]
+        or report["extra"]
+        or len(membership) != len(expected)
+    ):
+        report["status"] = "FAIL"
+    return report
 
 
 def discover_domain_package_targets(sidecar: dict[str, Any]) -> list[dict[str, Any]]:
