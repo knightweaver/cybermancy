@@ -3,7 +3,7 @@
   "script_version": "0.2.4",
   "repository": {
     "root_name": "cybermancy",
-    "git_commit": "2c0fe6452f3984c8d7ff6eb552314e3c62c15b8a"
+    "git_commit": "046b141321d1f9513d9fcf88477cca089241b3a0"
   },
   "mkdocs_sites": {
     "player": {
@@ -186392,7 +186392,7 @@
       "nav_targets": [],
       "nav_paths": [],
       "size_bytes": 2045,
-      "sha256": "4f520e7f55371120f13efcb9d2be69aadac9f290180c8739547234fac08c32e2",
+      "sha256": "e72a1a4a644821890f8c86fc8e31b8ca670d713a3e2fd4af05b9493beb3ee1b5",
       "foundry_record_type": "",
       "organizational": false,
       "known_exceptions": [],
