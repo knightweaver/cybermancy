@@ -87,7 +87,11 @@ class DomainCountAuthorityTests(unittest.TestCase):
                 "cybermancy-rulebook-publication-manifest-v*.json",
             )
         )
-        sidecar = _load(SIDECAR)
+        # Step 4 output is intentionally generated/untracked and is absent from a
+        # clean CI checkout. Exercise the committed current publication authority
+        # against an equivalent normalized 74-card sidecar fixture; when a local
+        # Step 4 sidecar is materialized, verify that exact artifact instead.
+        sidecar = _load(SIDECAR) if SIDECAR.is_file() else _sidecar(74)
         report = reconcile_structured_count_authority(
             manifest, sidecar, families=("domains",)
         )
