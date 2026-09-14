@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from rulebook_layout.encounter_authority import sidecar_encounter_counts
+from rulebook_layout.structured_count_authority import sidecar_family_state
 
 from .contract import (
     canonical_text_sha256,
@@ -166,8 +167,15 @@ def build_profile(
         sidecar = load_json(
             repo_root / "build/rulebook/source/metadata/structured-entities.json"
         )
+        domain_state = sidecar_family_state(sidecar, "domains")
+        domain_packages = sidecar.get("domainPackages")
+        if not isinstance(domain_packages, list):
+            raise ValueError("Step 4 structured sidecar has no domainPackages array")
+        structured_counts["domains"] = len(domain_packages)
+        structured_counts["domainCards"] = int(domain_state["actualCount"])
         structured_counts.update(sidecar_encounter_counts(sidecar))
         report["structuredEntityCounts"] = structured_counts
+        report["structuredCorpusAuthority"] = preflight.get("structuredCorpusAuthority")
         report["pageCount"] = stage160.get("pageCount")
         report["validationResult"] = stage170.get("status")
         report["outputPath"] = repo_relative(paths.release_pdf, repo_root)
