@@ -100,7 +100,7 @@ class Step6RulesTableWidthTests(unittest.TestCase):
 """
         )
         self.assertEqual(len(tables), 1)
-        self.assertEqual(_table_widths(tables[0]), [0.24, 0.10, 0.66])
+        self.assertEqual(_table_widths(tables[0]), [0.30, 0.10, 0.60])
         self.assertIn("Success with Hope", output)
         self.assertIn("immediate consequence", output)
 
@@ -112,7 +112,7 @@ class Step6RulesTableWidthTests(unittest.TestCase):
 | Failure with Fear | 0 | Apply the appropriate consequence. |
 """
         )
-        self.assertEqual(_table_widths(tables[0]), [0.24, 0.10, 0.66])
+        self.assertEqual(_table_widths(tables[0]), [0.30, 0.10, 0.60])
 
     def test_similar_three_column_table_keeps_default_widths(self) -> None:
         tables, _ = self._tables(
@@ -142,7 +142,7 @@ class Step6RulesTableWidthTests(unittest.TestCase):
         )
         self.assertEqual(len(tables), 3)
         self.assertEqual(_table_widths(tables[0]), [0.10, 0.15, 0.18, 0.57])
-        self.assertEqual(_table_widths(tables[1]), [0.24, 0.10, 0.66])
+        self.assertEqual(_table_widths(tables[1]), [0.30, 0.10, 0.60])
         self.assertEqual(_table_widths(tables[2]), [None, None, None])
 
 
