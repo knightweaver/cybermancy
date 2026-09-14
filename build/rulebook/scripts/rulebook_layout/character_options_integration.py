@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -21,6 +22,12 @@ from rulebook_layout.domain_package_refined import (
     _style as domain_style,
 )
 from rulebook_layout.render_assets import prepare_lualatex_render_assets
+from rulebook_layout.structured_count_authority import (
+    count_authority_descriptor,
+    reconcile_structured_count_authority,
+    validate_count_authority_descriptor,
+)
+from rulebook_production.contract import select_latest
 
 SUPPORTED_SIDECAR_SCHEMA = "cybermancy-step4-structured-entities-v1.3"
 CLASS_CONFIG_SCHEMA = "cybermancy-step6-class-package-config-v1.0"
@@ -179,6 +186,37 @@ def _domain_images(view: dict[str, Any]) -> list[str]:
             if image:
                 result.append(image)
     return result
+
+
+def _domain_view_semantic_ids(view: dict[str, Any]) -> list[str]:
+    result: list[str] = []
+    for level in view.get("levels", []):
+        if not isinstance(level, dict):
+            continue
+        for card in level.get("cards", []):
+            if isinstance(card, dict):
+                result.append(str(card.get("semanticId") or "").strip())
+    return result
+
+
+def _domain_package_membership(sidecar: dict[str, Any]) -> tuple[list[str], list[str]]:
+    packages = sidecar.get("domainPackages")
+    if not isinstance(packages, list):
+        return [], ["Step 4 sidecar has no domainPackages array."]
+    membership: list[str] = []
+    errors: list[str] = []
+    for index, package in enumerate(packages):
+        if not isinstance(package, dict):
+            errors.append(f"domainPackages[{index}] is not an object.")
+            continue
+        cards = package.get("cards")
+        if not isinstance(cards, list):
+            errors.append(
+                f"domainPackages[{index}] ({package.get('domainKey')!r}) has no cards array."
+            )
+            continue
+        membership.extend(str(value or "").strip() for value in cards)
+    return membership, errors
 
 
 def _render_domain_body(
@@ -413,8 +451,9 @@ def compose_domain_stage(
     source_root: Path,
     work_dir: Path,
     contract: dict[str, Any],
+    publication_manifest: dict[str, Any] | None = None,
 ) -> tuple[DomainStagePayload | None, dict[str, Any]]:
-    report = _report("cybermancy-step6-domain-integration-compose-v1")
+    report = _report("cybermancy-step6-domain-integration-compose-v2")
     target = _target(contract, "domain-package")
     lifecycle = (
         config.get("lifecycle") if isinstance(config.get("lifecycle"), dict) else {}
@@ -430,12 +469,9 @@ def compose_domain_stage(
         else {}
     )
     regression = contract.get("regressionExpectations", {}).get("domains", {})
-    expected_domains = (
-        int(regression.get("domains") or 0) if isinstance(regression, dict) else 0
-    )
-    expected_cards = (
-        int(regression.get("cards") or 0) if isinstance(regression, dict) else 0
-    )
+    contract_descriptor = regression.get("countAuthority") if isinstance(regression, dict) else None
+    config_descriptor = policy.get("countAuthority")
+    descriptor = count_authority_descriptor("domains")
 
     _check(
         report,
@@ -444,19 +480,25 @@ def compose_domain_stage(
         "Current Step 4 sidecar schema loaded.",
         sidecar.get("schema"),
     )
+    descriptor_errors = [
+        *validate_count_authority_descriptor("domains", contract_descriptor),
+        *validate_count_authority_descriptor("domains", config_descriptor),
+    ]
     config_ok = (
         config.get("schema") == DOMAIN_CONFIG_SCHEMA
         and int(config.get("chapter") or 0) == 14
         and lifecycle.get("status") == "frozen"
         and policy.get("astIntegration") == DOMAIN_AST_TARGET
+        and not descriptor_errors
     )
     _check(
         report,
         "DOMAIN_STAGE_CONFIG",
         "PASS" if config_ok else "ERROR",
-        "Frozen Chapter 14 DomainPackage config loaded."
+        "Frozen Chapter 14 visual grammar loaded with manifest-derived count authority."
         if config_ok
-        else "DomainPackage config differs from the frozen Chapter 14 contract.",
+        else "DomainPackage config or count-authority descriptor differs from the Chapter 14 contract.",
+        {"countAuthority": config_descriptor, "errors": descriptor_errors},
     )
     target_ok = (
         isinstance(target, dict)
@@ -472,23 +514,71 @@ def compose_domain_stage(
         else "Chapter 14 structured target differs from the integration contract.",
         target,
     )
-    regression_ok = (
-        expected_domains > 0
-        and expected_cards > 0
-        and int(acceptance.get("domainCount") or 0) == expected_domains
-        and int(acceptance.get("cardCount") or 0) == expected_cards
+    historical = (
+        acceptance.get("historicalCorpus")
+        if isinstance(acceptance.get("historicalCorpus"), dict)
+        else {}
     )
+    historical_ok = historical.get("operative") is False
     _check(
         report,
-        "DOMAIN_STAGE_REGRESSION_CONTRACT",
-        "PASS" if regression_ok else "ERROR",
-        f"Frozen Domain corpus is {expected_domains} Domains / {expected_cards} Domain Cards."
-        if regression_ok
-        else "Domain acceptance counts differ from the integration contract.",
-        acceptance,
+        "DOMAIN_STAGE_HISTORICAL_ACCEPTANCE",
+        "PASS" if historical_ok else "ERROR",
+        "Historical Domain acceptance counts are retained as non-operative visual-regression provenance."
+        if historical_ok
+        else "Domain historical acceptance counts must be explicitly marked non-operative.",
+        historical or acceptance,
     )
     if report["status"] != "PASS":
         return None, report
+
+    manifest_path: Path | None = None
+    if publication_manifest is None:
+        try:
+            manifest_path = select_latest(
+                source_root.parent / "manifests",
+                "cybermancy-rulebook-publication-manifest-v*.json",
+            )
+            publication_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            _check(
+                report,
+                "DOMAIN_STAGE_PUBLICATION_MANIFEST",
+                "ERROR",
+                f"Could not select the current committed publication manifest: {exc}",
+            )
+            return None, report
+    _check(
+        report,
+        "DOMAIN_STAGE_PUBLICATION_MANIFEST",
+        "PASS",
+        "Selected committed publication manifest loaded for Domain-card count authority.",
+        str(manifest_path) if manifest_path else "injected-test-manifest",
+    )
+
+    authority = reconcile_structured_count_authority(
+        publication_manifest,
+        sidecar,
+        families=DOMAIN_FAMILIES,
+        descriptors={"domains": contract_descriptor},
+    )
+    report["countAuthority"] = authority
+    authority_row = authority.get("families", {}).get("domains", {})
+    authority_ok = authority.get("status") == "PASS" and authority_row.get("status") == "PASS"
+    _check(
+        report,
+        "DOMAIN_STAGE_COUNT_AUTHORITY",
+        "PASS" if authority_ok else "ERROR",
+        "Domain-card count and semantic identities reconcile from publication authority through Step 4."
+        if authority_ok
+        else "Domain-card publication authority does not reconcile to the Step 4 structured sidecar.",
+        authority,
+    )
+    if not authority_ok:
+        return None, report
+
+    expected_cards = int(authority_row["expectedCount"])
+    expected_ids = sorted(str(value) for value in authority_row["semanticIds"])
 
     try:
         targets = discover_domain_package_targets(sidecar)
@@ -500,14 +590,49 @@ def compose_domain_stage(
             f"DomainPackage target discovery failed: {exc}",
         )
         return None, report
+    expected_domains = len(targets)
     actual_cards = sum(int(item.get("cardCount") or 0) for item in targets)
-    discovery_ok = len(targets) == expected_domains and actual_cards == expected_cards
+    discovery_ok = expected_domains > 0 and actual_cards == expected_cards
     _check(
         report,
         "DOMAIN_STAGE_DISCOVERY",
         "PASS" if discovery_ok else "ERROR",
-        f"Discovered {len(targets)} DomainPackages / {actual_cards} Domain Cards.",
+        f"Discovered {expected_domains} DomainPackages / {actual_cards} Domain Cards from Step 4."
+        if discovery_ok
+        else "Step 4 DomainPackage discovery does not reconcile to canonical Domain-card authority.",
         targets,
+    )
+
+    membership, membership_errors = _domain_package_membership(sidecar)
+    duplicate_membership = sorted(
+        {semantic_id for semantic_id in membership if membership.count(semantic_id) > 1}
+    )
+    membership_set = set(membership)
+    expected_set = set(expected_ids)
+    missing_membership = sorted(expected_set - membership_set)
+    extra_membership = sorted(membership_set - expected_set)
+    membership_ok = (
+        not membership_errors
+        and not duplicate_membership
+        and not missing_membership
+        and not extra_membership
+        and len(membership) == expected_cards
+    )
+    _check(
+        report,
+        "DOMAIN_STAGE_PACKAGE_MEMBERSHIP",
+        "PASS" if membership_ok else "ERROR",
+        "Every expected Domain card belongs to exactly one DomainPackage."
+        if membership_ok
+        else "DomainPackage membership is incomplete, duplicated, or contains non-authoritative cards.",
+        {
+            "packageCount": expected_domains,
+            "membershipCount": len(membership),
+            "duplicates": duplicate_membership,
+            "missing": missing_membership,
+            "extra": extra_membership,
+            "errors": membership_errors,
+        },
     )
     if report["status"] != "PASS":
         return None, report
@@ -557,7 +682,7 @@ def compose_domain_stage(
         return None, report
 
     rendered: list[str] = []
-    rendered_cards = 0
+    rendered_ids: list[str] = []
     for index, (view, row) in enumerate(views):
         body = _render_domain_body(
             view, config, source_root, work_dir, render_assets
@@ -565,23 +690,29 @@ def compose_domain_stage(
         if index:
             rendered.append(r"\clearpage")
         rendered.append(body)
-        cards = sum(
-            len(level.get("cards", []))
-            for level in view.get("levels", [])
-            if isinstance(level, dict)
-        )
-        rendered_cards += cards
-        row["renderedCardCount"] = cards
+        card_ids = _domain_view_semantic_ids(view)
+        rendered_ids.extend(card_ids)
+        row["renderedCardCount"] = len(card_ids)
         row["latexSha256"] = hashlib.sha256(body.encode("utf-8")).hexdigest()
 
-    coverage_ok = len(views) == expected_domains and rendered_cards == expected_cards
+    coverage_ok = (
+        len(views) == expected_domains
+        and len(rendered_ids) == expected_cards
+        and len(set(rendered_ids)) == expected_cards
+        and sorted(rendered_ids) == expected_ids
+    )
     _check(
         report,
         "DOMAIN_STAGE_COVERAGE",
         "PASS" if coverage_ok else "ERROR",
-        "Every DomainPackage and Domain Card is rendered exactly once in Chapter 14."
+        "Every canonical Domain card semantic identity is rendered exactly once in Chapter 14."
         if coverage_ok
-        else "DomainPackage coverage omitted or duplicated content.",
+        else "Chapter 14 DomainPackage rendering omitted, duplicated, or substituted a Domain-card semantic identity.",
+        {
+            "expectedCount": expected_cards,
+            "renderedCount": len(rendered_ids),
+            "uniqueRenderedCount": len(set(rendered_ids)),
+        },
     )
     complete = (
         report["status"] == "PASS"
