@@ -13,7 +13,8 @@ SCRIPT_DIR = RULEBOOK_DIR / "scripts"
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from rulebook_layout.encounter_authority import count_authority_descriptor
+from rulebook_layout.encounter_authority import count_authority_descriptor as encounter_count_authority_descriptor
+from rulebook_layout.structured_count_authority import count_authority_descriptor
 
 
 def load_json(path: Path) -> dict:
@@ -147,9 +148,17 @@ class Step6IntegrationContractTests(unittest.TestCase):
         self.assertEqual(origin_counts["stagedArtwork"], regression["characterOrigins"]["artwork"])
 
         domains = load_json(LAYOUT_DIR / "domains" / "domain-package-v1.json")
-        domain_counts = domains["lifecycle"]["acceptance"]
-        self.assertEqual(domain_counts["domainCount"], regression["domains"]["domains"])
-        self.assertEqual(domain_counts["cardCount"], regression["domains"]["cards"])
+        domain_descriptor = count_authority_descriptor("domains")
+        self.assertEqual(regression["domains"]["countAuthority"], domain_descriptor)
+        self.assertEqual(domains["prototypePolicy"]["countAuthority"], domain_descriptor)
+        historical_integration = regression["domains"]["historicalAcceptance"]
+        historical_domain = domains["lifecycle"]["acceptance"]["historicalCorpus"]
+        self.assertFalse(historical_integration["operative"])
+        self.assertFalse(historical_domain["operative"])
+        self.assertEqual(historical_integration["domainPackages"], 3)
+        self.assertEqual(historical_integration["cards"], 73)
+        self.assertEqual(historical_domain["domainCount"], 3)
+        self.assertEqual(historical_domain["cardCount"], 73)
 
         ice = load_json(LAYOUT_DIR / "ice" / "ice-reference-package-v1.json")
         self.assertEqual(ice["publicationPolicy"]["expectedIceTotal"], regression["ice"]["entries"])
@@ -162,7 +171,7 @@ class Step6IntegrationContractTests(unittest.TestCase):
             ("adversaries", adversaries),
             ("environments", environments),
         ):
-            descriptor = count_authority_descriptor(family)
+            descriptor = encounter_count_authority_descriptor(family)
             self.assertEqual(regression[family]["countAuthority"], descriptor)
             self.assertEqual(config["publicationPolicy"]["countAuthority"], descriptor)
             self.assertNotIn("entries", regression[family])
