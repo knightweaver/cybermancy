@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/breeching-shells.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br /> Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br />Discard 1 token for each subsequent attack using that weapon. Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.</p>",
     "actions": {
       "DwPlpfYaB5fTgfB3": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541283,
-    "modifiedTime": 1787574143238,
+    "modifiedTime": 1788923062671,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "9RFZPji1DIZUa2ev",

@@ -27,11 +27,11 @@ Balanced steel blades designed for silent takedowns or distraction in the shadow
 #### Actions
 - <div markdown='1'>**Quick Draw**<br>*
 
-May be used as a reaction against melee attackers.*</div>
+When attacked by an adversary within Melee range, Spend 1 Hope to make a counterattack as a Reaction.*</div>
 
 - <div markdown='1'>**Critical Effect:  Pinning Strike**<br>*
 
-Pin targets limb, weapon, or clothing, restricting movement.*</div>
+In addition to the damage rolled, target get the Restrained condition*</div>
 
 #### Effects
 —

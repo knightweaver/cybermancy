@@ -3,7 +3,7 @@
   "type": "domainCard",
   "img": "modules/cybermancy/assets/icons/domains/circuit/strobe-effect.webp",
   "system": {
-    "description": "<i>“Flash ’em, crash ’em, and walk out glowing.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong> to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The creature must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.</p>",
+    "description": "<p><em>“Flash ’em, crash ’em, and walk out glowing.”</em></p><p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> and cause a Device you have Infiltrated or Controlled to generate a distration. Until the GM spends 1 Fear to cancel the Strobe Effect, all adversaries within Close of the Device, have disadvantage on all actions and attacks.</p>",
     "level": 2,
     "domain": "circuit",
     "recallCost": 1,
@@ -91,7 +91,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1761621621441,
-    "modifiedTime": 1787574144411,
+    "modifiedTime": 1789388118252,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!F1FhWzs2nQwZaZcR"

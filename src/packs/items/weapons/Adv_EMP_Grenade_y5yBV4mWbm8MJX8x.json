@@ -88,7 +88,7 @@
       "rJQmHp0ReMU6NYRJ": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Disruptive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On hit, unhardened drones/tech in range shut down for 1 round.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Disruptive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a successful attack, unhardened drones/tech within <strong>Very Close</strong> become <strong>Incapcitated</strong> (cannot make any action, movement, or reaction) until spotlighted by the GM.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "7ZnsSvRficlXtBCQ": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Grid Blackout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">All tech shuts down until reboot.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Grid Blackout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Unhardened drones/tech within <strong>Close</strong> become <strong>Incapcitated</strong> (cannot make any action, movement, or reaction) until spotlighted by the GM <strong>AND</strong> the GM <strong>Spends 1 Fear</strong>.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883688548,
-    "modifiedTime": 1787588027391,
+    "modifiedTime": 1788953450021,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "y5yBV4mWbm8MJX8x",

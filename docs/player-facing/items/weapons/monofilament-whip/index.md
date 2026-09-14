@@ -29,9 +29,7 @@ A razor-thin filament coil capable of slicing through armor and bone. Deadly, si
 
 On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.*</div>
 
-- <div markdown='1'>**Critical Effect:  Slice in Two**<br>*
-
-Sever or disable a limb, item, or piece of cover.*</div>
+- <div markdown='1'>**Critical Effect:  Slice in Two**<br>* Sever or disable a limb, item, or piece of cover.*</div>
 
 #### Effects
 —

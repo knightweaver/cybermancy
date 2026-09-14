@@ -6,7 +6,7 @@
 <img src="../../../assets/icons/weapons/light-semi-auto-pistol.webp" alt="Light Semi-auto pistol" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-<p>A small, light-weight semi-automatic pistol. Cheap but not high quality</p>
+<p>A small, light-weight semi-automatic pistol. Cheap and ubiquitous.</p>
 </div>
 </div>
 

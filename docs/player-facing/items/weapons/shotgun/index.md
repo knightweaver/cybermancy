@@ -27,11 +27,11 @@ Brutal close-range weapon that clears hallways with concussive thunder and devas
 #### Actions
 - <div markdown='1'>**Scatter**<br>*
 
-Spend a Hope to attack all targets in Very Close range.*</div>
+Optionally, Spend 1 Hope to attack all targets in Very Close range.*</div>
 
 - <div markdown='1'>**Critical Effect:  Point-Blank Devastation**<br>*
 
-Knock back and lose next action.*</div>
+Move target within Very Close and target is knocked prone and gets the Vulnerable condition.*</div>
 
 #### Effects
 —

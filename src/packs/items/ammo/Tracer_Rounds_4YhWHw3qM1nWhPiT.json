@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/tracer-rounds.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any rifle and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  When you target a creature with these rounds, the next ally to attack that target gains +2 on their attack.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to any rifle and place 4 tokens on this card. <br /><br />Discard 1 token for each subsequent attack using that weapon. When you attack a adversary using Tracer Rounds, the next ally to attack that target gains +2 on their attack.</p>",
     "actions": {
       "Q7rUtXRKvBjS2PsZ": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541534,
-    "modifiedTime": 1787574143233,
+    "modifiedTime": 1788923604410,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "4YhWHw3qM1nWhPiT",

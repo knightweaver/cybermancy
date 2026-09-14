@@ -3,7 +3,7 @@
   "type": "domainCard",
   "img": "modules/cybermancy/assets/icons/domains/bullet/rapid-fire.webp",
   "system": {
-    "description": "<i>The sound of inevitability.</i><p class=\"Card-Feature\">Each time you make an Attack with a gun, you may attack 2 different targets within Close of eachother.  Each shot is at -2</p>",
+    "description": "<p><em>The sound of inevitability.</em></p><p class=\"Card-Feature\">Each time you make an Attack with a gun, you may attack 2 different targets within Close of each other. Each shot is at -2</p>",
     "level": 2,
     "domain": "bullet",
     "recallCost": 1,
@@ -57,7 +57,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1761621478125,
-    "modifiedTime": 1787574144361,
+    "modifiedTime": 1789386052303,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!DJOkPwNcxIb9szF2"

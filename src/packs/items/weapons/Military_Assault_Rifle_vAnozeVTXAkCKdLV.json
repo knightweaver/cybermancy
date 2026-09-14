@@ -115,7 +115,7 @@
       "VwXXNZs78Pa5HUVH": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Armor Break:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Ignore armor; bullets chew through cover.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Armor Break:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target cannot Mark an Armor Slot to reduce this damage. Force target into cover, they have disadvantage on their next attack roll.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Armor Break",
-        "img": "modules/cybermancy/assets/icons/features/armor-break.webp",
+        "img": "modules/cybermancy/assets/icons/features/point-blank-devastation.webp",
         "range": "",
         "_id": "VwXXNZs78Pa5HUVH",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883695891,
-    "modifiedTime": 1788302732315,
+    "modifiedTime": 1788957291889,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "vAnozeVTXAkCKdLV",

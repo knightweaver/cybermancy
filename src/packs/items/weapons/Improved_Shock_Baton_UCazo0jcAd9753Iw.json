@@ -88,7 +88,7 @@
       "N9Xa0vxT7VtZAlRB": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Arc Charge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend 1 Stress to arc lightning to another Very Close target.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Arc Charge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Upon a successful hit, optionally <strong>Spend a Hope</strong> to inflict <strong>Dazed</strong> condition (<strong>Advantage</strong> when attacking target; target attacks at <strong>Disadvantage</strong>).</span></p></li><li><p><span style=\"font-family: Montserrat, sans-serif\">Also optionally on a successful hit, <strong>Spend 1 Stress</strong> to attack another target within Very Close.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "ahSJdeDw0aC4FM7Y": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Overload:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Targets nervous system locks up; they drop gear.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Overload:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target drops whatever they are holding and gets the <strong>Incapacitated</strong> condition (cannot make actions, movement, or reactions) until GM spotlights the target.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Overload",
-        "img": "modules/cybermancy/assets/icons/features/overload.webp",
+        "img": "modules/cybermancy/assets/icons/features/system-overload.webp",
         "range": "",
         "_id": "ahSJdeDw0aC4FM7Y",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883693859,
-    "modifiedTime": 1787573539080,
+    "modifiedTime": 1788955067333,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "UCazo0jcAd9753Iw",

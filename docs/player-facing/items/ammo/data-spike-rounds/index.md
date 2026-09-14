@@ -2,7 +2,7 @@
 # Data-Spike Rounds
 <img src="../../../assets/icons/ammo/data-spike-rounds.webp" alt="Data-Spike Rounds" class="item-image" style="width:300px; height:auto;">
 
-*<p class="Card-Feature">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round</p>*
+*<p class="Card-Feature">Take a <strong>Reload action</strong> to apply this ammo to a Sniper rifle and place 2 tokens on this card. <br /><br />Discard 1 token for all subsequent attacks using that Sniper rifle. These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round</p>*
 
 ### **Tier: —**
 

@@ -88,7 +88,7 @@
       "F33aHye1yrSf1LXA": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Wide Scatter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Attack all targets in Very Close range once per scene.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Wide Scatter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per scene, attack all targets in Very Close range.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "uhvGFd4RDP2glqEK": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Bone Shaker:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target knocked prone and loses next turn.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Bone Shaker:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target is knocked prone and gets the <strong>Incapacitated</strong> condition (cannot make attacks, movement, or reactions) until GM spotlights <strong>AND Spends 1 Fear</strong>.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Bone Shaker",
-        "img": "modules/cybermancy/assets/icons/features/bone-shaker.webp",
+        "img": "modules/cybermancy/assets/icons/features/point-blank-devastation.webp",
         "range": "",
         "_id": "uhvGFd4RDP2glqEK",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883698818,
-    "modifiedTime": 1787573539050,
+    "modifiedTime": 1788979479496,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "SICmg6flEUEjUKR4",

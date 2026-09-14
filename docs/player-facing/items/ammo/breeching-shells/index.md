@@ -2,7 +2,7 @@
 # Breeching Shells
 <img src="../../../assets/icons/ammo/breeching-shells.webp" alt="Breeching Shells" class="item-image" style="width:300px; height:auto;">
 
-*<p class="Card-Feature">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br /> Discard 1 token for all subsequent attacks using that weapon.  Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.</p>*
+*<p class="Card-Feature">Take a <strong>Reload action</strong> to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br />Discard 1 token for each subsequent attack using that weapon. Has the narrative effect of blasting open non-reinforced doors or punching holes through normal walls, but is very loud.</p>*
 
 ### **Tier: —**
 

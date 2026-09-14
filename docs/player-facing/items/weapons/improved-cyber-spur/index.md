@@ -31,7 +31,7 @@ Difficulty 14 to be detected; gain advantage on your first attack each scene.*</
 
 - <div markdown='1'>**Critical Effect:  Spinal Strike**<br>*
 
-Target is paralyzed for 1 round.*</div>
+If attacking with the Hidden condition or target unaware than an attack was coming, target must Mark 2 additional Hit Points beyond the damage done by the attack.*</div>
 
 #### Effects
 —

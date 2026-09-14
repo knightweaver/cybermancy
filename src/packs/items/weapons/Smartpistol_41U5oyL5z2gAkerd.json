@@ -3,7 +3,7 @@
   "type": "weapon",
   "img": "modules/cybermancy/assets/icons/weapons/smartpistol-mk-ii.webp",
   "system": {
-    "description": "Compact sidearm with digital targeting and auto-adjust systems, favored by professional runners.",
+    "description": "<p>Compact sidearm with digital targeting and auto-adjust systems, favored by professional runners. NOTE: must be paired with SmarkLink™ CPU Implant, otherwise is just a Light Semi-automatic Pistol.</p>",
     "tier": 1,
     "equipped": false,
     "secondary": false,
@@ -88,7 +88,7 @@
       "ONMAUQxkkn7ED8Cf": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per scene, reroll one Destiny die if linked to cyberware/gear.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">If paired with the <strong>SmarkLink™ CPU Implant</strong>, <strong>Spend a Hope</strong>, reroll one Destiny die.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "F6gY2LnDGxLt39Xy": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Pinpoint:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Crit ignores cover; disable weapon/armor.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Pinpoint:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target cannot use Armor to reduce this damage. Narrative effect: disable 1 weapon or attack until GM spotlights <strong>AND Spends 1 Fear</strong>.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883153179,
-    "modifiedTime": 1787573538863,
+    "modifiedTime": 1788952452208,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "41U5oyL5z2gAkerd",

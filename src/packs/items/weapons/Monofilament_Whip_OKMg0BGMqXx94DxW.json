@@ -115,7 +115,7 @@
       "XkIn71Zb6r89TbJY": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Slice in Two:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Sever or disable a limb, item, or piece of cover.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Slice in Two:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Narrative effect: Sever or disable a limb, item, or piece of cover.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883148733,
-    "modifiedTime": 1787573539005,
+    "modifiedTime": 1788950911425,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "OKMg0BGMqXx94DxW",

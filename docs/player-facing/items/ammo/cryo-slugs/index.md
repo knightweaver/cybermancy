@@ -2,7 +2,7 @@
 # Cryo-Slugs
 <img src="../../../assets/icons/ammo/cryo-slugs.webp" alt="Cryo-Slugs" class="item-image" style="width:300px; height:auto;">
 
-*<p class="Card-Feature">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit receive -2 Evasion until the GM spends 1 Fear to remove the effect.</p>*
+*<p class="Card-Feature">Take a <strong>Reload action</strong> to apply this ammo to any ranged weapon and place 4 tokens on this card. <br /><br />Discard 1 token for each subsequent attacks using that gun. Targets that are hit by Cry-slugs receive -2 Evasion until the GM spends 1 Fear to remove the effect.</p>*
 
 ### **Tier: —**
 

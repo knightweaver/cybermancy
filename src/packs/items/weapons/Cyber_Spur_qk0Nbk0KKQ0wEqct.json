@@ -122,7 +122,7 @@
       "I5FnBczWfLWBNzNY": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Ambush Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">If striking from surprise, escalate Fear consequences for target.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Ambush Kill:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">If attacking with the <strong>Hidden</strong> condition, target must <strong>Mark 2 </strong><em><strong>additional</strong></em><strong> Hit Points</strong> beyond the damage done by the attack.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -171,7 +171,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883142868,
-    "modifiedTime": 1787573970563,
+    "modifiedTime": 1788954153111,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "qk0Nbk0KKQ0wEqct",

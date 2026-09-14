@@ -88,7 +88,7 @@
       "pxrKNBWDbH93KJX5": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On success, apply damage rolled to all Actors in Very Close; on fail, apply half-damage.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On successful attack, apply damage rolled to all Actors and Adversaries in Very Close; on failed attack, apply half-damage.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "Cnvy9jLhLtDjqcQz": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Shrapnel Storm:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">All enemies in area take full damage and mark 1 Stress.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Shrapnel Storm:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Apply critical damage rolled <strong>ONLY</strong> to all Adversaries in Very Close of target</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883145587,
-    "modifiedTime": 1787573538905,
+    "modifiedTime": 1788950738972,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "BrgCj5tfK1EGOc4S",

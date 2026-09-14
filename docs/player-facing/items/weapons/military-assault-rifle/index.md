@@ -31,7 +31,7 @@ On a Success with Hope, target must mark 1 Stress to act the next time they are 
 
 - <div markdown='1'>**Critical Effect:  Armor Break**<br>*
 
-Ignore armor; bullets chew through cover.*</div>
+Target cannot Mark an Armor Slot to reduce this damage. Force target into cover, they have disadvantage on their next attack roll.*</div>
 
 #### Effects
 —

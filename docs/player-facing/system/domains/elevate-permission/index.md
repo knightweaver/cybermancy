@@ -5,7 +5,7 @@
 <div markdown="1">
 <img src="../../../assets/icons/domains/circuit/elevate-permission.webp" alt="Elevate Permission" class="item-image" style="width:300px; height:auto;">
 ## Description
-<i>“Because root access is a state of mind.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.</p>
+<p><em>“Because root access is a state of mind.”</em></p><p class="Card-Feature"><strong>Spend 1 Hope </strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.</p>
 </div>
 <div markdown="1">
 <table class="stat-table">

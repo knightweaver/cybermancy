@@ -31,7 +31,7 @@ Difficulty 14 to be detected; gain advantage on your first attack each scene.*</
 
 - <div markdown='1'>**Critical Effect:  Ambush Kill**<br>*
 
-If striking from surprise, escalate Fear consequences for target.*</div>
+If attacking with the Hidden condition, target must Mark 2 additional Hit Points beyond the damage done by the attack.*</div>
 
 #### Effects
 —

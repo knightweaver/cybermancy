@@ -27,11 +27,11 @@ A high-yield fragmentation device scattering lethal shrapnel in every direction.
 #### Actions
 - <div markdown='1'>**Explosive**<br>*
 
-On success, apply damage rolled to all Actors in Very Close; on fail, apply half-damage.*</div>
+On successful attack, apply damage rolled to all Actors and Adversaries in Very Close; on failed attack, apply half-damage.*</div>
 
 - <div markdown='1'>**Critical Effect:  Shrapnel Storm**<br>*
 
-All enemies in area take full damage and mark 1 Stress.*</div>
+Apply critical damage rolled ONLY to all Adversaries in Very Close of target*</div>
 
 #### Effects
 —

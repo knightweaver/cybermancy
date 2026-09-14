@@ -27,11 +27,11 @@ Heavy drum-fed shotgun designed to clear rooms and alleys in seconds.
 #### Actions
 - <div markdown='1'>**Wide Scatter**<br>*
 
-Attack all targets in Very Close range once per scene.*</div>
+Once per scene, attack all targets in Very Close range.*</div>
 
 - <div markdown='1'>**Critical Effect:  Bone Shaker**<br>*
 
-Target knocked prone and loses next turn.*</div>
+Target is knocked prone and gets the Incapacitated condition (cannot make attacks, movement, or reactions) until GM spotlights AND Spends 1 Fear.*</div>
 
 #### Effects
 —

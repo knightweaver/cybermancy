@@ -3,7 +3,7 @@
   "type": "weapon",
   "img": "modules/cybermancy/assets/icons/weapons/smartpistol.webp",
   "system": {
-    "description": "<p>A small, light-weight semi-automatic pistol. Cheap but not high quality</p>",
+    "description": "<p>A small, light-weight semi-automatic pistol. Cheap and ubiquitous.</p>",
     "actions": {},
     "attached": [],
     "tier": 1,
@@ -162,7 +162,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762204644737,
-    "modifiedTime": 1787434197078,
+    "modifiedTime": 1788950657858,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "n4XhRsC6zb4Og4zl",

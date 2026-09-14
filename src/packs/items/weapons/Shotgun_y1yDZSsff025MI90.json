@@ -88,7 +88,7 @@
       "kmSA17mhrY4rgAXo": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Scatter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a Hope to attack all targets in Very Close range.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Scatter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Optionally, <strong>Spend 1 Hope</strong> to attack all targets in Very Close range.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "MSKud7c0zegy8PdQ": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Point-Blank Devastation:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Knock back and lose next action.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Point-Blank Devastation:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Move target within Very Close and target is knocked prone and gets the <strong>Vulnerable</strong> condition.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883151843,
-    "modifiedTime": 1787573539254,
+    "modifiedTime": 1788951859169,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "y1yDZSsff025MI90",

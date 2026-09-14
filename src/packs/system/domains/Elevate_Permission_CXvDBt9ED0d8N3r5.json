@@ -3,7 +3,7 @@
   "type": "domainCard",
   "img": "modules/cybermancy/assets/icons/domains/circuit/elevate-permission.webp",
   "system": {
-    "description": "<i>“Because root access is a state of mind.”</i><p class=\"Card-Feature\"><strong>Spend 1 Hope</strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.</p>",
+    "description": "<p><em>“Because root access is a state of mind.”</em></p><p class=\"Card-Feature\"><strong>Spend 1 Hope </strong>to escalate your access level on a Device you are Hacking from Infiltration to Control.</p>",
     "level": 2,
     "domain": "circuit",
     "recallCost": 0,
@@ -91,7 +91,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1761621621441,
-    "modifiedTime": 1787574144351,
+    "modifiedTime": 1789387593525,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!CXvDBt9ED0d8N3r5"

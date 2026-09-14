@@ -1,7 +1,7 @@
 {
   "name": "Corporate Mono-Whip",
   "type": "weapon",
-  "img": "modules/cybermancy/assets/icons/weapons/corporate-mono-whip.webp",
+  "img": "modules/cybermancy/assets/icons/weapons/improved-monofilament-whip.webp",
   "system": {
     "description": "A high-grade monofilament weapon issued to elite corp assassins — silent, perfect, final.",
     "tier": 3,
@@ -88,7 +88,7 @@
       "2jdDykNxG2RFyKft": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, set one of the damage die to its maximum value.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>More Lethal Edge:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a Success with Hope, set one of the damage die to its maximum value.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "hwK4hvXjmExk5tIL": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Corpse-Cutter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Destroy one environmental object (door, drone, wall).</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Corpse-Cutter:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target cannot <strong>Mark an Armor Slot</strong> to reduce this damage. Narrative effect: Destroy something in the environment to cause target to <strong>Mark 1 </strong><em><strong>additional</strong></em><strong> Hit Point</strong>.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Corpse-Cutter",
-        "img": "modules/cybermancy/assets/icons/features/corpse-cutter.webp",
+        "img": "modules/cybermancy/assets/icons/features/spinal-sever.webp",
         "range": "",
         "_id": "hwK4hvXjmExk5tIL",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883833770,
-    "modifiedTime": 1787587735321,
+    "modifiedTime": 1788954600565,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "3qETwPObEg5JtIBs",

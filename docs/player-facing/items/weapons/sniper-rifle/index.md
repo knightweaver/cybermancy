@@ -27,11 +27,11 @@ Precision weapon built for the patient killer — silent, steady, and unerring o
 #### Actions
 - <div markdown='1'>**Scoped**<br>*
 
-Spend a round aiming to gain advantage on next shot.*</div>
+Spotlight an action aiming to gain +2 and advantage on next attack.*</div>
 
 - <div markdown='1'>**Critical Effect:  Through and Through**<br>*
 
-On a successful hit, if there is a second target in a line behind the first, apply that attack roll to the second target. If that value exceeds the Difficulty of the second target apply the damage to both.*</div>
+Apply damage rolled to a second adversary within Close of target. Narratively describe the path of the bullet.*</div>
 
 #### Effects
 —

@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/sonic-rounds.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit must make an Instinct saving throw (12) are stunned and cannot act until the GM spends 1 Fear to remove the effect.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to any weapon and place 4 tokens on this card. <br /><br />Discard 1 token for each subsequent attack using that weapon. Targets that are hit must make an Instinct saving throw (12) are stunned and cannot act until the GM spends 1 Fear to remove the effect.</p>",
     "actions": {
       "vWFf7pCTAjldxXTW": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541463,
-    "modifiedTime": 1787574143267,
+    "modifiedTime": 1788923294058,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "OvzqFP5e26bgJpCL",

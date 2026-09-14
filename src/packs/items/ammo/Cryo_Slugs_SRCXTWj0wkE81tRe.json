@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/cryo-slugs.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit receive -2 Evasion until the GM spends 1 Fear to remove the effect.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to any ranged weapon and place 4 tokens on this card. <br /><br />Discard 1 token for each subsequent attacks using that gun. Targets that are hit by Cry-slugs receive -2 Evasion until the GM spends 1 Fear to remove the effect.</p>",
     "actions": {
       "4XR30TS1qSZi1CGg": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541304,
-    "modifiedTime": 1787574143273,
+    "modifiedTime": 1788923074639,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "SRCXTWj0wkE81tRe",

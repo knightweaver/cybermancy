@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/smart-rounds.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any SmartLink™ enabled weapon and place 4 tokens on this card.  <br /><br />Spotlight an action to designate a target.  Discard 1 token for all subsequent attacks using that weapon against that target have +3 to hit. <br /><br /> Smart Rounds cannot be retargeted or re-used.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to any SmartLink™ enabled weapon and place 4 tokens on this card. <br /><br />Spotlight an action to designate a target. Discard 1 token for each subsequent attacks using that weapon against that target have +3 to hit. <br /><br />Smart Rounds cannot be retargeted or re-used.</p>",
     "actions": {
       "OsSNCeMAPpbHNdko": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541431,
-    "modifiedTime": 1787574143289,
+    "modifiedTime": 1788923246658,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "umqCcTRzafX4S3IZ",

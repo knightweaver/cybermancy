@@ -3,7 +3,7 @@
   "type": "feature",
   "img": "modules/cybermancy/assets/icons/cybernetics/smartlink-cpu-implant.webp",
   "system": {
-    "description": "<i>\"Awaken instinct with SmartLink's synergy.\"</i><br /><br /><p class=\"Card-Feature\">SmarkLink™ base unit - enables other SmartLink-related weapons and abilities. <br /><br />Once per long rest, <strong>Spend 1 Hope</strong> for advantage on an Instinct roll or saving throw.</p>",
+    "description": "<p><em>\"Awaken instinct with SmartLink's synergy.\"</em><br /><br /></p><p class=\"Card-Feature\">SmarkLink™ base unit - enables other SmartLink-related weapons and abilities. <br /><br />Once per long rest, <strong>Spend 1 Hope</strong> for advantage on an Instinct roll or saving throw.</p>",
     "actions": {
       "W1U8hsv5QCNSdLja": {
         "type": "effect",
@@ -61,7 +61,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762121322242,
-    "modifiedTime": 1787574143628,
+    "modifiedTime": 1788953178453,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "DYTIn1AoAjPbTz8D",

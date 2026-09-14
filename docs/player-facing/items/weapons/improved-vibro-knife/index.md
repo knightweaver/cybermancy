@@ -27,11 +27,11 @@ Precision-tuned vibration edge allows for armor penetration and silent, efficien
 #### Actions
 - <div markdown='1'>**Piercing**<br>*
 
-An Armor Slot cannot be marked to reduce Minor damage to No damage.*</div>
+Target cannot Mark An Armor Slot to reduce Minor damage to No damage.*</div>
 
 - <div markdown='1'>**Critical Effect:  Assassins Cut**<br>*
 
-Severe damage ignoring defenses.*</div>
+If you were Hidden when making this attack, target must Mark 1 additional Hit Point and gains Incapacitated condition (cannnot make actions, movement, or reactions)*</div>
 
 #### Effects
 —

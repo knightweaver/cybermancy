@@ -88,7 +88,7 @@
       "JPuuh5YDZqPguBBR": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Burst Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend Hope to hit two targets in Close range.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Burst Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\"><strong>Spend 1 Hope</strong> to attack two targets in Close range.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "9ov3r6ycHSwVJ3QI": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Spray Down:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Hit all targets in Very Close range with collateral fire.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Spray Down:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Apply damage rolled all adversaries within Very Close of target.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883154874,
-    "modifiedTime": 1787573539059,
+    "modifiedTime": 1788952577357,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "SW5cKTpA85qx5mwg",

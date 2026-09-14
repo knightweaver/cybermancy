@@ -29,9 +29,7 @@ A high-grade monofilament weapon issued to elite corp assassins — silent, perf
 
 On a Success with Hope, set one of the damage die to its maximum value.*</div>
 
-- <div markdown='1'>**Critical Effect:  Corpse-Cutter**<br>*
-
-Destroy one environmental object (door, drone, wall).*</div>
+- <div markdown='1'>**Critical Effect:  Corpse-Cutter**<br>* Destroy something in the environment to cause target to Mark 1 additional Hit Point.*</div>
 
 #### Effects
 —

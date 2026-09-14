@@ -88,7 +88,7 @@
       "Ur51RDVWM7TYca5q": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Scoped:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a round aiming to gain advantage on next shot.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Scoped:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spotlight an action aiming to gain +2 and advantage on next attack.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "ohqALDN3QFiuito9": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Through and Through:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On a successful hit, if there is a second target in a line behind the first, apply that attack roll to the second target. If that value exceeds the Difficulty of the second target apply the damage to both.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Through and Through:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Apply damage rolled to a second adversary within Close of target. Narratively describe the path of the bullet.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883696835,
-    "modifiedTime": 1787573539071,
+    "modifiedTime": 1788957390885,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Sv0bNHsDl6zXKSrc",

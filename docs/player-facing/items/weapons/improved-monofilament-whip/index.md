@@ -29,9 +29,7 @@
 
 On a Success with Hope, deal Severe damage regardless of the damage rolled if the Fear die shows 7-11.*</div>
 
-- <div markdown='1'>**Critical Effect:  Severance**<br>*
-
-Cut through armor, restraints, or environmental barriers.*</div>
+- <div markdown='1'>**Critical Effect:  Severance**<br>* Sever or disable a limb, item, or piece of cover.*</div>
 
 #### Effects
 —

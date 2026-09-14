@@ -88,7 +88,7 @@
       "RLfo3NqkGRMSNId5": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Burst Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend Hope to hit two targets in Close range.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Burst Fire:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\"><strong>Spend 1 Hope</strong> to attack two targets in Close range.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "CgK9KCWyCJKRO2wm": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Crowd Control:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Panic/disrupt all enemies in Very Close range.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Crowd Control:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Apply damage rolled all adversaries within Very Close of target, and they each get the <strong>Vulnerable</strong> condition</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Crowd Control",
-        "img": "modules/cybermancy/assets/icons/features/crowd-control.webp",
+        "img": "modules/cybermancy/assets/icons/features/critical-spray.webp",
         "range": "",
         "_id": "CgK9KCWyCJKRO2wm",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883686277,
-    "modifiedTime": 1787573539185,
+    "modifiedTime": 1788953940464,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "qIfAxl93A0riav0M",

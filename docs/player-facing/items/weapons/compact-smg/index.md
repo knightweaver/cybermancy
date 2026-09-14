@@ -27,11 +27,11 @@ A miniaturized submachine gun favored by covert teams — concealable but viciou
 #### Actions
 - <div markdown='1'>**Burst Fire**<br>*
 
-Spend Hope to hit two targets in Close range.*</div>
+Spend 1 Hope to attack two targets in Close range.*</div>
 
 - <div markdown='1'>**Critical Effect:  Crowd Control**<br>*
 
-Panic/disrupt all enemies in Very Close range.*</div>
+Apply damage rolled all adversaries within Very Close of target, and they each get the Vulnerable condition*</div>
 
 #### Effects
 —

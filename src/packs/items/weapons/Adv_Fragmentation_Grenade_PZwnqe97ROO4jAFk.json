@@ -88,7 +88,7 @@
       "i0AjRDIowQdqGlet": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On success, apply damage rolled to all Actors in Very Close; on fail, apply half-damage.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Explosive:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">On successful attack, apply damage rolled to all Actors and Adversaries in Very Close; on failed attack, apply half-damage.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "vxsLEK2bM3LLqBLe": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Massive Detonation:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Full damage in wider zone (Far).</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Massive Detonation:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Apply critical damage rolled <strong>ONLY</strong> to all Adversaries in Very Close of target. Adversaries damaged by this attack are also knocked <strong>Prone</strong> and get the <strong>Vulnerable</strong> condition</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Massive Detonation",
-        "img": "modules/cybermancy/assets/icons/features/massive-detonation.webp",
+        "img": "modules/cybermancy/assets/icons/features/shrapnel-storm.webp",
         "range": "",
         "_id": "vxsLEK2bM3LLqBLe",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883689809,
-    "modifiedTime": 1787588013992,
+    "modifiedTime": 1788953675216,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "PZwnqe97ROO4jAFk",

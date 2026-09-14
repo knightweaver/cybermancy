@@ -5,7 +5,7 @@
 <div markdown="1">
 <img src="../../../assets/icons/domains/bullet/rapid-fire.webp" alt="Rapid Fire" class="item-image" style="width:300px; height:auto;">
 ## Description
-<i>The sound of inevitability.</i><p class="Card-Feature">Each time you make an Attack with a gun, you may attack 2 different targets within Close of eachother.  Each shot is at -2</p>
+<p><em>The sound of inevitability.</em></p><p class="Card-Feature">Each time you make an Attack with a gun, you may attack 2 different targets within Close of each other. Each shot is at -2</p>
 </div>
 <div markdown="1">
 <table class="stat-table">

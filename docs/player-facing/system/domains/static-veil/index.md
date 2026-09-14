@@ -5,7 +5,7 @@
 <div markdown="1">
 <img src="../../../assets/icons/domains/circuit/static-veil.webp" alt="Static Veil" class="item-image" style="width:300px; height:auto;">
 ## Description
-<i>“The perfect invisibility cloak smells faintly of ozone.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to emit an electromagnetic haze that blurs surveillance and scanners. For one Scene, creatures roll with Disadvantage to detect you or your team.</p>
+<p><em>“The perfect invisibility cloak smells faintly of ozone.”</em></p><p class="Card-Feature"><strong>Spend 1 Hope</strong> to emit an electromagnetic haze that blurs surveillance and scanners. For the remainder of the Scene, adversaries roll with Disadvantage to detect you or your team.</p>
 </div>
 <div markdown="1">
 <table class="stat-table">

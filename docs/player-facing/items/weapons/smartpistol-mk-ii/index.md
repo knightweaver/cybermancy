@@ -6,7 +6,7 @@
 <img src="../../../assets/icons/weapons/smartpistol-mk-ii.webp" alt="Smartpistol Mk II" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-Improved ballistic computer with predictive recoil compensation and infrared tracking.
+<p>Improved ballistic computer with predictive recoil compensation and infrared tracking.  <span style="color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.565);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none">NOTE: must be paired with SmarkLink™ CPU Implant, otherwise is just a Heavy Semi-automatic Pistol.</span></p>
 </div>
 </div>
 
@@ -27,11 +27,11 @@ Improved ballistic computer with predictive recoil compensation and infrared tra
 #### Actions
 - <div markdown='1'>**Smartlink**<br>*
 
-Once per scene, reroll one Destiny die if linked to cyberware/gear.*</div>
+If paired with the SmarkLink™ CPU Implant, Spend a Hope, reroll one Destiny die.*</div>
 
 - <div markdown='1'>**Critical Effect:  Eye Shot**<br>*
 
-Disable optics or key sensors.*</div>
+Target cannot use Armor to reduce this damage. Target gets the Blinded condition (target cannot see, attacks against target have advantage, target's attacks have disadvantage) until GM spotlights AND Spends 1 Fear.*</div>
 
 #### Effects
 —

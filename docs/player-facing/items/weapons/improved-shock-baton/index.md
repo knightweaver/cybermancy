@@ -27,11 +27,13 @@ Upgraded battery coils deliver chained electrical arcs between multiple nearby t
 #### Actions
 - <div markdown='1'>**Arc Charge**<br>*
 
-Spend 1 Stress to arc lightning to another Very Close target.*</div>
+Upon a successful hit, optionally Spend a Hope to inflict Dazed condition (Advantage when attacking target; target attacks at Disadvantage).
+
+Also optionally on a successful hit, Spend 1 Stress to attack another target within Very Close.*</div>
 
 - <div markdown='1'>**Critical Effect:  Overload**<br>*
 
-Targets nervous system locks up; they drop gear.*</div>
+Target drops whatever they are holding and gets the Incapacitated condition (cannot make actions, movement, or reactions) until GM spotlights the target.*</div>
 
 #### Effects
 —

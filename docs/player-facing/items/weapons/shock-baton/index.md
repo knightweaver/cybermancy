@@ -27,11 +27,11 @@ A polymer club fitted with a high-voltage capacitor, used by corp security and r
 #### Actions
 - <div markdown='1'>**Stunning**<br>*
 
-Spend a Hope on a successful hit to inflict Dazed for one round.*</div>
+Upon a successful hit, optionally Spend a Hope to inflict Dazed condition (Advantage when attacking target; target attacks at Disadvantage).*</div>
 
 - <div markdown='1'>**Critical Effect:  Knockout**<br>*
 
-Target is stunned or unconscious for one scene beat.*</div>
+Target gets the Incapacitated condition (cannot make actions, movement, or reactions) until GM spotlights the target.*</div>
 
 #### Effects
 —

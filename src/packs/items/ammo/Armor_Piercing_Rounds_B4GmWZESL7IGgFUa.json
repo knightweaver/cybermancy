@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/armor-piercing-rounds.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to any ranged weapon and place 4 tokens on this card. <br /><br />Discard 1 token with each of the next 4 attacks with this weapon. If the Target Marks an Armor to reduce damage, they must also <strong>Mark 1 Stress</strong>.</p>",
     "actions": {
       "5HYkGFeoLTbDPLz4": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541266,
-    "modifiedTime": 1787574143246,
+    "modifiedTime": 1788923056456,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "B4GmWZESL7IGgFUa",

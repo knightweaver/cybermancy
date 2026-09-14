@@ -3,7 +3,7 @@
   "type": "weapon",
   "img": "modules/cybermancy/assets/icons/weapons/smartpistol-mk-ii.webp",
   "system": {
-    "description": "Improved ballistic computer with predictive recoil compensation and infrared tracking.",
+    "description": "<p>Improved ballistic computer with predictive recoil compensation and infrared tracking.  <span style=\"color:rgb(239, 230, 216);font-family:Montserrat, sans-serif;font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgba(24, 22, 46, 0.565);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">NOTE: must be paired with SmarkLink™ CPU Implant, otherwise is just a Heavy Semi-automatic Pistol.</span></p>",
     "tier": 2,
     "equipped": false,
     "secondary": false,
@@ -88,7 +88,7 @@
       "GwU11Dw66Gai2Ra1": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Once per scene, reroll one Destiny die if linked to cyberware/gear.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Smartlink:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">If paired with the <strong>SmarkLink™ CPU Implant</strong>, <strong>Spend a Hope</strong>, reroll one Destiny die.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "iIJ1CjlkH4cNdvGW": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Eye Shot:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Disable optics or key sensors.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Eye Shot:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target cannot use Armor to reduce this damage. Target gets the <strong>Blinded</strong> condition (target cannot see, attacks against target have advantage, target's attacks have disadvantage) until GM spotlights <strong>AND Spends 1 Fear</strong>.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Eye Shot",
-        "img": "modules/cybermancy/assets/icons/features/eye-shot.webp",
+        "img": "modules/cybermancy/assets/icons/features/through-and-through.webp",
         "range": "",
         "_id": "iIJ1CjlkH4cNdvGW",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883697818,
-    "modifiedTime": 1787573539099,
+    "modifiedTime": 1788958520717,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Wc9Ap6SGGCz0DGJC",

@@ -2,7 +2,7 @@
 # Reactive Shrapnel Shells
 <img src="../../../assets/icons/ammo/reactive-shrapnel-shells.webp" alt="Reactive Shrapnel Shells" class="item-image" style="width:300px; height:auto;">
 
-*<p class="Card-Feature">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br /><br /> All subsequent attacks using that weapon create a small blast zone around the target  upon a hit; all creatures within Very Close take 1d4 damage.</p>*
+*<p class="Card-Feature">Take a <strong>Reload action</strong> to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 4 tokens on this card. <br /><br />Each subsequent attacks using that weapon create a small blast zone around the target upon a hit; all creatures within Very Close take 1d4 damage.</p>*
 
 ### **Tier: —**
 

@@ -88,7 +88,7 @@
       "A7nqgoWKYzkKhdAL": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Quick Draw:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">May be used as a reaction against melee attackers.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Quick Draw:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">When attacked by an adversary within Melee range, <strong>Spend 1 Hope</strong> to make a counterattack as a Reaction.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -115,7 +115,7 @@
       "tcOQ0qnVK3VUH6CJ": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Pinning Strike:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Pin targets limb, weapon, or clothing, restricting movement.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Pinning Strike:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">In addition to the damage rolled, target get the <strong>Restrained</strong> condition</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883157844,
-    "modifiedTime": 1787573539165,
+    "modifiedTime": 1788952970308,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "iX0OqOc50fvuAUS3",

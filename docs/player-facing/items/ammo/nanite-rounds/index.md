@@ -2,7 +2,7 @@
 # Nanite Rounds
 <img src="../../../assets/icons/ammo/nanite-rounds.webp" alt="Nanite Rounds" class="item-image" style="width:300px; height:auto;">
 
-*<p class="Card-Feature">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets that are hit cannot receive healing effects until the GM spends 1 Fear to remove this affect.</p>*
+*<p class="Card-Feature">Take a <strong>Reload action</strong> to apply this ammo to any ranged weapon and place 4 tokens on this card. <br /><br />Discard 1 token for each subsequent attack using that weapon. Targets that are hit cannot receive healing effects until the GM spends 1 Fear to remove this affect.</p>*
 
 ### **Tier: —**
 

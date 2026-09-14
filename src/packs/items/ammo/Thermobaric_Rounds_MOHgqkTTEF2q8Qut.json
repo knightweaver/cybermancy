@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/thermobaric-rounds.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets get the Burning condition when hit and must Mark 1 HitPoint whenever they take an action until the GM Spends 1 Fear to remove the Burning condition.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to any ranged weapon and place 4 tokens on this card. <br /><br />Discard 1 token for each subsequent attack using that weapon. Targets get the Burning condition when hit and must <strong>Mark 1 Hit Point</strong> whenever they take an action until the GM Spends 1 Fear to remove the Burning condition.</p>",
     "actions": {
       "dQWkFroiOawIF11r": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541487,
-    "modifiedTime": 1787574143256,
+    "modifiedTime": 1788923359122,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "MOHgqkTTEF2q8Qut",

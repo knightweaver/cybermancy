@@ -88,7 +88,7 @@
       "mIG8xsEvKO6cVCYB": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Piercing:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">An Armor Slot cannot be marked to reduce Minor damage to No damage.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Piercing:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target cannot <strong>Mark An Armor Slot</strong> to reduce Minor damage to No damage.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -104,7 +104,7 @@
           "amount": null
         },
         "name": "Piercing",
-        "img": "modules/cybermancy/assets/icons/features/piercing.webp",
+        "img": "modules/cybermancy/assets/icons/features/stab.webp",
         "range": "",
         "_id": "mIG8xsEvKO6cVCYB",
         "baseAction": false,
@@ -115,7 +115,7 @@
       "kpLPHqDwErjSAr27": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Assassins Cut:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Severe damage ignoring defenses.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Assassins Cut:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">If you were <strong>Hidden</strong> when making this attack, target must <strong>Mark 1 </strong><em><strong>additional</strong></em><strong> Hit Point and </strong>gains <strong>Incapacitated</strong> condition (cannnot make actions, movement, or reactions)</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  Assassins Cut",
-        "img": "modules/cybermancy/assets/icons/features/assassins-cut.webp",
+        "img": "modules/cybermancy/assets/icons/features/ambush-kill.png",
         "range": "",
         "_id": "kpLPHqDwErjSAr27",
         "baseAction": false,
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883694873,
-    "modifiedTime": 1787575470233,
+    "modifiedTime": 1788955309517,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "MRdVt6BPigQ8LMXx",

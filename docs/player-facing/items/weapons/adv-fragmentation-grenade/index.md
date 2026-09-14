@@ -27,11 +27,11 @@ Factory-tuned military variant with denser shrapnel spread and wider kill radius
 #### Actions
 - <div markdown='1'>**Explosive**<br>*
 
-On success, apply damage rolled to all Actors in Very Close; on fail, apply half-damage.*</div>
+On successful attack, apply damage rolled to all Actors and Adversaries in Very Close; on failed attack, apply half-damage.*</div>
 
 - <div markdown='1'>**Critical Effect:  Massive Detonation**<br>*
 
-Full damage in wider zone (Far).*</div>
+Apply critical damage rolled ONLY to all Adversaries in Very Close of target. Adversaries damaged by this attack are also knocked Prone and get the Vulnerable condition*</div>
 
 #### Effects
 —

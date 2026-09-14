@@ -27,11 +27,11 @@ A short combat blade that hums at ultrasonic speed, capable of piercing armor wi
 #### Actions
 - <div markdown='1'>**Piercing**<br>*
 
-An Armor Slot cannot be marked to reduce Minor damage to No damage.*</div>
+Target cannot Mark An Armor Slot to reduce Minor damage to No damage.*</div>
 
 - <div markdown='1'>**Critical Effect:  Silent Kill**<br>*
 
-Disable one target silently with no alert escalation.*</div>
+If you were Hidden when making this attack, target gains Incapacitated condition (cannnot make actions, movement, or reactions)*</div>
 
 #### Effects
 —

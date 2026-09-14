@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/emp-shells.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 2 tokens on this card. <br /><br /> All subsequent attacks using that weapon create an EMP affect on the targeted drone or electronic construct, doing 2d8+3 physical damage.</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to a <strong>shotgun</strong> (only shotgun compatible) and place 3 tokens on this card. <br /><br />Each subsequent attacks using that weapon create an EMP affect on the targeted drone or electronic construct, doing 2d8+3 extra physical damage.</p>",
     "actions": {
       "uLNXp74oiipvyYrl": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541353,
-    "modifiedTime": 1787574143285,
+    "modifiedTime": 1788922797391,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "VqqlD1af2crk60GK",

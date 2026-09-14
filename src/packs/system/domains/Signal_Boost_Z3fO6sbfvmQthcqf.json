@@ -3,7 +3,7 @@
   "type": "domainCard",
   "img": "modules/cybermancy/assets/icons/domains/circuit/signal-boost.webp",
   "system": {
-    "description": "<i>“Sometimes all you need is a better connection.”</i><p class=\"Card-Feature\">Once per Scene, you can reroute local energy or data flow. Choose one ally within Close range; they gain +1 to their next roll that involves technology or reflexes.</p>",
+    "description": "<p><em>“Sometimes all you need is a better connection.”</em></p><p class=\"Card-Feature\"><strong>Mark 1 Stress</strong> and choose one ally within Close range; they gain +2 to their next roll that involves technology or reflexes.</p>",
     "level": 1,
     "domain": "circuit",
     "recallCost": 0,
@@ -82,7 +82,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1761621619558,
-    "modifiedTime": 1787574144618,
+    "modifiedTime": 1789387568887,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!Z3fO6sbfvmQthcqf"

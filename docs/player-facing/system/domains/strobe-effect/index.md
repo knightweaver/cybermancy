@@ -5,7 +5,7 @@
 <div markdown="1">
 <img src="../../../assets/icons/domains/circuit/strobe-effect.webp" alt="Strobe Effect" class="item-image" style="width:300px; height:auto;">
 ## Description
-<i>“Flash ’em, crash ’em, and walk out glowing.”</i><p class="Card-Feature"><strong>Spend 1 Hope</strong> to use your Reaction to make a Device you have Infiltrated or Controlled successfully generate a distration.  The creature must spend 1 Fear to take their next Action and they have disadvantage if they attack with their next action.</p>
+<p><em>“Flash ’em, crash ’em, and walk out glowing.”</em></p><p class="Card-Feature"><strong>Mark 1 Stress</strong> and cause a Device you have Infiltrated or Controlled to generate a distration. Until the GM spends 1 Fear to cancel the Strobe Effect, all adversaries within Close of the Device, have disadvantage on all actions and attacks.</p>
 </div>
 <div markdown="1">
 <table class="stat-table">

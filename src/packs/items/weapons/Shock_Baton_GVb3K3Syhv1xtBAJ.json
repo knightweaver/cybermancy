@@ -88,7 +88,7 @@
       "gKDqo3OPtaDLNUuk": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Stunning:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Spend a Hope on a successful hit to inflict Dazed for one round.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Stunning:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Upon a successful hit, optionally <strong>Spend a Hope</strong> to inflict <strong>Dazed</strong> condition (<strong>Advantage</strong> when attacking target; target attacks at <strong>Disadvantage</strong>).</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -104,7 +104,7 @@
           "amount": null
         },
         "name": "Stunning",
-        "img": "modules/cybermancy/assets/icons/features/stunning.webp",
+        "img": "modules/cybermancy/assets/icons/features/knockout.webp",
         "range": "",
         "_id": "gKDqo3OPtaDLNUuk",
         "baseAction": false,
@@ -115,7 +115,7 @@
       "WCek2NbwzMF3WHRE": {
         "type": "effect",
         "systemPath": "actions",
-        "description": "<p></p><p><span style=\"font-family: 'Bruno Ace'\"><strong>Critical Effect - Knockout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target is stunned or unconscious for one scene beat.</span></p></li></ul>",
+        "description": "<p></p><p><span style=\"font-family: &#x27;Bruno Ace&#x27;\"><strong>Critical Effect - Knockout:</strong></span></p><ul><li><p><span style=\"font-family: Montserrat, sans-serif\">Target gets the <strong>Incapacitated</strong> condition (cannot make actions, movement, or reactions) until GM spotlights the target.</span></p></li></ul>",
         "chatDisplay": true,
         "actionType": "action",
         "cost": [],
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883150373,
-    "modifiedTime": 1787573538929,
+    "modifiedTime": 1788954738120,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "GVb3K3Syhv1xtBAJ",

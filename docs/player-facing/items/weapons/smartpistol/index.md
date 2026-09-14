@@ -6,7 +6,7 @@
 <img src="../../../assets/icons/weapons/smartpistol.webp" alt="Smartpistol" class="item-image" style="width:300px; height:auto;">
 
 <div class="item-flavor">
-Compact sidearm with digital targeting and auto-adjust systems, favored by professional runners.
+<p>Compact sidearm with digital targeting and auto-adjust systems, favored by professional runners. NOTE: must be paired with SmarkLink™ CPU Implant, otherwise is just a Light Semi-automatic Pistol.</p>
 </div>
 </div>
 
@@ -27,11 +27,9 @@ Compact sidearm with digital targeting and auto-adjust systems, favored by profe
 #### Actions
 - <div markdown='1'>**Smartlink**<br>*
 
-Once per scene, reroll one Destiny die if linked to cyberware/gear.*</div>
+If paired with the SmarkLink™ CPU Implant, Spend a Hope, reroll one Destiny die.*</div>
 
-- <div markdown='1'>**Critical Effect:  Pinpoint**<br>*
-
-Crit ignores cover; disable weapon/armor.*</div>
+- <div markdown='1'>**Critical Effect:  Pinpoint**<br>* disable 1 weapon or attack until GM spotlights AND Spends 1 Fear.*</div>
 
 #### Effects
 —

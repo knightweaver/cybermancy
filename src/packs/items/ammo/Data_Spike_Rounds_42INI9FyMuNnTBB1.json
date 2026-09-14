@@ -3,7 +3,7 @@
   "type": "consumable",
   "img": "modules/cybermancy/assets/icons/consumables/ammo/data-spike-rounds.webp",
   "system": {
-    "description": "<p class=\"Card-Feature\">Take a Reload action to apply this ammo to a Sniper rifle and place 2 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round</p>",
+    "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to a Sniper rifle and place 2 tokens on this card. <br /><br />Discard 1 token for all subsequent attacks using that Sniper rifle. These rounds act as a data relay allowing a Netrunner to attempt to hack any Device within Very Close of the target point of the Data-Spike Round</p>",
     "actions": {
       "1XpqnTWaSMgmOnpO": {
         "type": "effect",
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541331,
-    "modifiedTime": 1787574143221,
+    "modifiedTime": 1788922732227,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "42INI9FyMuNnTBB1",

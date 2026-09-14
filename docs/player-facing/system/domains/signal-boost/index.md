@@ -5,7 +5,7 @@
 <div markdown="1">
 <img src="../../../assets/icons/domains/circuit/signal-boost.webp" alt="Signal Boost" class="item-image" style="width:300px; height:auto;">
 ## Description
-<i>“Sometimes all you need is a better connection.”</i><p class="Card-Feature">Once per Scene, you can reroute local energy or data flow. Choose one ally within Close range; they gain +1 to their next roll that involves technology or reflexes.</p>
+<p><em>“Sometimes all you need is a better connection.”</em></p><p class="Card-Feature"><strong>Mark 1 Stress</strong> and choose one ally within Close range; they gain +2 to their next roll that involves technology or reflexes.</p>
 </div>
 <div markdown="1">
 <table class="stat-table">

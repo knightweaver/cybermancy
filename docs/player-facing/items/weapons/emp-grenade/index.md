@@ -27,11 +27,11 @@ Pulse emitter that fries circuits, drones, and cyberware with a single electroma
 #### Actions
 - <div markdown='1'>**Disruptive**<br>*
 
-On hit, unhardened drones/tech in range shut down for 1 round.*</div>
+On a successful attack, unhardened drones/tech within Very Close become Incapcitated (cannot make any action, movement, or reaction) until spotlighted by the GM.*</div>
 
 - <div markdown='1'>**Critical Effect:  Total System Crash**<br>*
 
-All devices in area disabled until end of scene.*</div>
+Unhardened drones/tech within Very Close become Incapcitated (cannot make any action, movement, or reaction) until spotlighted by the GM AND the GM Spends 1 Fear.*</div>
 
 #### Effects
 —
