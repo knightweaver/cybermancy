@@ -7,8 +7,12 @@
     "acceptance": {
       "allDomainRegression": "PASS",
       "visualReview": "ACCEPTED",
-      "domainCount": 3,
-      "cardCount": 73
+      "historicalCorpus": {
+        "domainCount": 3,
+        "cardCount": 73,
+        "operative": false,
+        "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapter 14 visual grammar. Current publication cardinality comes from committed publication authority reconciled to Step 4."
+      }
     }
   },
   "chapter": 14,
@@ -71,6 +75,11 @@
     "foundryFoldersAreNonAuthoritative": true,
     "blockOnLatexOverflow": true,
     "renderedContentRegression": true,
-    "astIntegration": "chapter14-family-domains-replacement"
+    "astIntegration": "chapter14-family-domains-replacement",
+    "countAuthority": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=domains].entityCount",
+      "normalizedActual": "step4-structured-sidecar:domainSemantics.cardCount",
+      "reconciliation": "exact-before-render"
+    }
   }
 }
