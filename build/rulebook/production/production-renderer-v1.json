@@ -26,7 +26,7 @@
     },
     "step6IntegrationContract": {
       "path": "build/rulebook/layout/integration/step6-integration-v1.json",
-      "sha256": "2dc97b177ad01d9ae75e352eab06a733fb3cb8c6d7b6625734765c6c77263a22",
+      "sha256": "d376e7ca8379f5ae6687119bc752e481108c166bd0c9f3f39213e5d133719154",
       "status": "accepted"
     },
     "generatedPublicationSource": {
@@ -55,7 +55,7 @@
       "The Step 4 source commit and manifest provenance must match the selected freeze artifacts.",
       "Current canonical authored and structured-source digests must match the selected publication manifest.",
       "The normalized source-hashes inventory must match the selected manifest authority and current canonical inputs.",
-      "The Step 4 adversary and environment corpus counts and semantic IDs must reconcile to the selected publication manifest before rendering.",
+      "The Step 4 Domain, Adversary, and Environment corpus counts and semantic IDs must reconcile to the selected publication manifest before rendering.",
       "The Adversary Feature publication-selection status must be APPLIED and reconcile 419 canonical entries to 344 representatives."
     ]
   },
@@ -98,7 +98,7 @@
     {"path": "build/rulebook/layout/rules/rules-layout-v1.json", "sha256": "cf80671f232f64ed0b7906f7bbb5f65299d8f4b9d0509ef50d9cfead02615413"},
     {"path": "build/rulebook/layout/character-origins/character-origins-layout-v1.json", "sha256": "3f9dca0f76c32f9b93b6616ff70915263ad34f37ddb5ef3b44d06797c66c4b6c"},
     {"path": "build/rulebook/layout/classes/class-package-v1.json", "sha256": "bfbb53f0d3c5f5833a94b8aea3507b56da07f4bf3ea25c85553f124f075ea616"},
-    {"path": "build/rulebook/layout/domains/domain-package-v1.json", "sha256": "9897bced4efa303fca11dcacf498ed347d95d3f7c2a8689a041ddda446b03aaa"},
+    {"path": "build/rulebook/layout/domains/domain-package-v1.json", "sha256": "28b4c1db4163dc0c6442f9a9583af43e2faedb8f591496dda6257457b8d00176"},
     {"path": "build/rulebook/layout/equipment/equipment-section-v1.json", "sha256": "67edee307416352a7e609123e621e8c5b7e33a9ba4bb057897622c92ebcb444b"},
     {"path": "build/rulebook/layout/equipment/weapons-v1.json", "sha256": "70f1f97ce4acfee32e862c1298ec9990a8b4a2e442d9f58107e71d29c8e500f8"},
     {"path": "build/rulebook/layout/equipment/ammo-v1.json", "sha256": "f4c3c46057123942d7a04d9f84ac75fce1751c0e25fc66c363abe4cf929661ec"},
@@ -114,6 +114,11 @@
     {"path": "build/rulebook/layout/encounters/adversary-feature-reference-v1.json", "sha256": "1baa4a3aaa34581451f220f2ac6ce221c320b1f7ea0c361146c76a901931e4cc"}
   ],
   "mutableStructuredCountAuthorities": {
+    "domains": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=domains].entityCount",
+      "normalizedActual": "step4-structured-sidecar:domainSemantics.cardCount",
+      "reconciliation": "exact-before-render"
+    },
     "adversaries": {
       "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries].entityCount",
       "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
@@ -131,8 +136,6 @@
     "characterOriginArtwork": 27,
     "classes": 5,
     "subclasses": 10,
-    "domains": 3,
-    "domainCards": 73,
     "weapons": 47,
     "ammo": 13,
     "armors": 36,
