@@ -95,7 +95,19 @@
   "regressionExpectations": {
     "characterOrigins": {"ancestories": 18, "communities": 9, "artwork": 27},
     "classes": {"classes": 5, "subclasses": 10},
-    "domains": {"domains": 3, "cards": 73},
+    "domains": {
+      "countAuthority": {
+        "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=domains].entityCount",
+        "normalizedActual": "step4-structured-sidecar:domainSemantics.cardCount",
+        "reconciliation": "exact-before-render"
+      },
+      "historicalAcceptance": {
+        "domainPackages": 3,
+        "cards": 73,
+        "operative": false,
+        "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapter 14 visual grammar."
+      }
+    },
     "equipment": {
       "weapons": 47,
       "ammo": 13,
