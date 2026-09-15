@@ -47,7 +47,10 @@ class TestAmmunitionFamilyConfig(unittest.TestCase):
         self.assertEqual(self.config["layoutMode"], "single-catalog")
         self.assertEqual(self.config["family"], "ammo")
         self.assertEqual(self.config["chapter"], 16)
-        self.assertEqual(self.config["expectedEntityCount"], 13)
+        self.assertNotIn("expectedEntityCount", self.config)
+        historical = self.config["historicalAcceptance"]
+        self.assertFalse(historical["operative"])
+        self.assertEqual(historical["entityCount"], 13)
         self.assertEqual(self.config["tierMode"], "absent")
         self.assertEqual(self.config["expectedColumnLabels"], ["Name", "Effect"])
 
@@ -101,7 +104,10 @@ class TestGenericEquipmentValidation(unittest.TestCase):
         self.assertEqual(config["chapter"], 16)
         self.assertEqual(len(rows), 13)
         checks = {check["code"]: check["status"] for check in report["checks"]}
-        self.assertEqual(checks["EQUIPMENT_ENTITY_COUNT"], "PASS")
+        # The standalone generic validator no longer owns corpus cardinality.
+        # Production integration reconciles the selected publication manifest
+        # to exact Step 4 family membership before rendering.
+        self.assertEqual(checks["EQUIPMENT_ENTITY_COUNT"], "INFO")
         self.assertEqual(checks["TIER_CONTRACT"], "PASS")
         self.assertEqual(checks["CATALOG_ORDER"], "PASS")
 
