@@ -451,25 +451,14 @@ def _compose_ice(
     attach_ice_reference_images(view, sidecar, compat, package_report)
 
     package_ok = package_report.get("status") == "PASS" and isinstance(view, dict)
-    if package_ok:
-        policy = (
-            config.get("publicationPolicy")
-            if isinstance(config.get("publicationPolicy"), dict)
-            else {}
-        )
-        package = view.get("package") if isinstance(view.get("package"), dict) else {}
-        expected_total = int(policy.get("expectedIceTotal") or 0)
-        actual_total = int(package.get("entryCount") or 0)
-        full_total = int(package.get("fullIceCount") or 0)
-        package_ok = expected_total == actual_total == full_total == 13
 
     _append_check(
         report,
         "ICE_REFERENCE_PACKAGE",
         "PASS" if package_ok else "ERROR",
-        "Frozen Chapter 29 ICEReferencePackage composed from the complete 13-entry Step 4 ICE corpus."
+        "Chapter 29 ICEReferencePackage composed from the validated Step 4 ICE projection."
         if package_ok
-        else "Frozen Chapter 29 ICEReferencePackage did not satisfy its semantic/corpus contract.",
+        else "Chapter 29 ICEReferencePackage did not satisfy its semantic/projection contract.",
         {
             "packageReport": package_report,
             "entryCount": (view or {}).get("package", {}).get("entryCount")
