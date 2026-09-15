@@ -14,7 +14,9 @@
     "acceptanceCorpus": {
       "total": 13,
       "sentry": 6,
-      "wall": 7
+      "wall": 7,
+      "operative": false,
+      "purpose": "Non-operative evidence for the corpus used to accept the frozen ICE Reference visual grammar. Current ICE cardinality and type distribution come from the validated Step 4 ICE projection."
     }
   },
   "chapter": 29,
@@ -93,10 +95,10 @@
     "requireStagedImages": false,
     "allowMissingImagesWithBlankFallback": true,
     "requireFullCorpusSelection": true,
-    "expectedIceTotal": 13,
-    "expectedIceCounts": {
-      "sentry": 6,
-      "wall": 7
+    "projectionAuthority": {
+      "canonicalSource": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=features].entityCount",
+      "normalizedSelection": "step4-structured-sidecar:iceSemantics.semanticIds",
+      "reconciliation": "source-exact-selected-subset-before-render"
     },
     "requireGmAudience": true,
     "requireReaderRules": true,
