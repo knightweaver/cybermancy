@@ -14,6 +14,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.encounter_authority import count_authority_descriptor as encounter_count_authority_descriptor
+from rulebook_layout.projection_authority import projection_authority_descriptor
 from rulebook_layout.structured_count_authority import (
     CHARACTER_OPTION_COUNT_FAMILIES,
     EQUIPMENT_COUNT_FAMILIES,
@@ -169,7 +170,14 @@ class Step6IntegrationContractTests(unittest.TestCase):
         self.assertFalse(equipment_regression["historicalAcceptance"]["operative"])
 
         ice = load_json(LAYOUT_DIR / "ice" / "ice-reference-package-v1.json")
-        self.assertEqual(ice["publicationPolicy"]["expectedIceTotal"], regression["ice"]["entries"])
+        ice_regression = regression["ice"]
+        self.assertEqual(ice_regression["sourceCountAuthority"], count_authority_descriptor("features"))
+        self.assertEqual(ice_regression["projectionAuthority"], projection_authority_descriptor("ice"))
+        self.assertEqual(ice["publicationPolicy"]["projectionAuthority"], projection_authority_descriptor("ice"))
+        self.assertNotIn("expectedIceTotal", ice["publicationPolicy"])
+        self.assertNotIn("expectedIceCounts", ice["publicationPolicy"])
+        self.assertFalse(ice_regression["historicalAcceptance"]["operative"])
+        self.assertFalse(ice["lifecycle"]["acceptanceCorpus"]["operative"])
 
         adversaries = load_json(LAYOUT_DIR / "encounters" / "adversary-package-v1.json")
         environments = load_json(LAYOUT_DIR / "encounters" / "environment-package-v1.json")
@@ -189,14 +197,24 @@ class Step6IntegrationContractTests(unittest.TestCase):
         self.assertEqual(environments["publicationPolicy"]["ordering"], ["tier", "classification", "name", "semanticId"])
         self.assertEqual(adversaries["lifecycle"]["version"], "v1.1")
         self.assertEqual(environments["lifecycle"]["version"], "v1.0")
+
+        feature_regression = regression["adversaryFeatures"]
         self.assertEqual(
-            features["publicationPolicy"]["expectedEntryCount"],
-            regression["adversaryFeatures"]["publishedRepresentatives"],
+            feature_regression["sourceCountAuthority"],
+            count_authority_descriptor("adversaries-features"),
         )
         self.assertEqual(
-            features["publicationPolicy"]["canonicalSourceEntryCount"],
-            regression["adversaryFeatures"]["canonicalSourceEntries"],
+            feature_regression["projectionAuthority"],
+            projection_authority_descriptor("adversaryFeatures"),
         )
+        self.assertEqual(
+            features["publicationPolicy"]["projectionAuthority"],
+            projection_authority_descriptor("adversaryFeatures"),
+        )
+        self.assertNotIn("expectedEntryCount", features["publicationPolicy"])
+        self.assertNotIn("canonicalSourceEntryCount", features["publicationPolicy"])
+        self.assertFalse(feature_regression["historicalAcceptance"]["operative"])
+        self.assertFalse(features["lifecycle"]["historicalAcceptance"]["operative"])
 
     def test_encounter_routes_remain_frozen(self) -> None:
         chapter_map = {row["chapter"]: row for row in self.contract["chapterMap"]}
@@ -204,6 +222,7 @@ class Step6IntegrationContractTests(unittest.TestCase):
         for chapter, family, adapter in (
             (30, "adversaries", "adversary-package"),
             (31, "environments", "environment-package"),
+            (32, "adversaries-features", "adversary-feature-reference"),
         ):
             self.assertEqual(chapter_map[chapter]["audience"], "gm")
             self.assertEqual(targets[chapter]["families"], [family])
