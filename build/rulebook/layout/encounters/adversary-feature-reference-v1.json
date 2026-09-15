@@ -8,15 +8,24 @@
     "version": "v1.0",
     "status": "frozen",
     "approvedPhase": "Phase C",
-    "approvedAt": "2026-08-28"
+    "approvedAt": "2026-08-28",
+    "historicalAcceptance": {
+      "canonicalSourceEntries": 419,
+      "publishedRepresentatives": 344,
+      "operative": false,
+      "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapter 32 visual grammar. Current source and representative cardinality come from publication authority reconciled through the applied Step 4 publication selection."
+    }
   },
   "selection": {
     "mode": "full-corpus"
   },
   "publicationPolicy": {
     "requireFullCorpusSelection": true,
-    "expectedEntryCount": 344,
-    "canonicalSourceEntryCount": 419,
+    "projectionAuthority": {
+      "canonicalSource": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries-features].entityCount",
+      "normalizedSelection": "step4-adversary-feature-publication-selection:representativeSemanticIds",
+      "reconciliation": "applied-source-exact-selected-subset-before-render"
+    },
     "ordering": ["normalized-name", "semanticId"],
     "requireApprovedStep4PublicationEquivalence": true
   },

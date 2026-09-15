@@ -34,6 +34,7 @@ class TestFeaturePublicationEquivalence(unittest.TestCase):
                     "semanticId": f"entity:adversaries-features:{source_id}",
                     "sourceId": source_id,
                     "family": "adversaries-features",
+                    "audience": "gm",
                     "name": name,
                     "publicationData": {
                         "rulesMarkdown": rules,
@@ -57,6 +58,9 @@ class TestFeaturePublicationEquivalence(unittest.TestCase):
         return {
             "schema": DECISIONS_SCHEMA,
             "status": "approved",
+            # These legacy count fields remain in the v1 decision artifact only as
+            # historical review context; Phase 3 no longer treats them as cardinality
+            # authority. The reviewed group membership below is authoritative.
             "sourceFeatureCount": 5,
             "expectedPublicationRepresentativeCount": 3,
             "groups": [
@@ -82,8 +86,12 @@ class TestFeaturePublicationEquivalence(unittest.TestCase):
             ],
         }
 
-    def test_frozen_decision_file_contract_is_419_to_344(self):
-        decisions = json.loads((SCRIPT_DIR / "data" / "adversary-feature-equivalence-decisions-v1.json").read_text(encoding="utf-8"))
+    def test_frozen_decision_file_retains_419_to_344_as_historical_evidence(self):
+        decisions = json.loads(
+            (SCRIPT_DIR / "data" / "adversary-feature-equivalence-decisions-v1.json").read_text(
+                encoding="utf-8"
+            )
+        )
         self.assertEqual(decisions["schema"], DECISIONS_SCHEMA)
         self.assertEqual(decisions["status"], "approved")
         self.assertEqual(decisions["sourceFeatureCount"], 419)
@@ -123,6 +131,40 @@ class TestFeaturePublicationEquivalence(unittest.TestCase):
         self.assertFalse(by_source["B2"]["publicationData"]["publicationEquivalence"]["isRepresentative"])
         self.assertNotIn("referenceEntry", by_source["B1"]["publicationData"])
         self.assertNotIn("publicationEquivalence", by_source["C1"]["publicationData"])
+
+    def test_new_ungrouped_feature_publishes_without_updating_legacy_counts(self):
+        sidecar = self._sidecar()
+        sidecar["entities"].append(
+            {
+                "semanticId": "entity:adversaries-features:C2",
+                "sourceId": "C2",
+                "family": "adversaries-features",
+                "audience": "gm",
+                "name": "New Canonical Feature",
+                "publicationData": {"rulesMarkdown": "New rules.", "actions": []},
+            }
+        )
+        decisions = self._decisions()
+        # Deliberately leave sourceFeatureCount=5 and representativeCount=3.
+        selection, errors = apply_feature_publication_equivalence(sidecar, decisions)
+        self.assertEqual(errors, [])
+        self.assertEqual(selection["canonicalSourceFeatureCount"], 6)
+        self.assertEqual(selection["publicationRepresentativeCount"], 4)
+        self.assertIn(
+            "entity:adversaries-features:C2",
+            selection["representativeSemanticIds"],
+        )
+
+    def test_missing_member_from_reviewed_equivalence_group_fails_closed(self):
+        sidecar = self._sidecar()
+        sidecar["entities"] = [
+            entity for entity in sidecar["entities"] if entity["sourceId"] != "A2"
+        ]
+        _, errors = apply_feature_publication_equivalence(sidecar, self._decisions())
+        self.assertIn(
+            "ADVERSARY_FEATURE_EQUIVALENCE_MEMBER_MISSING",
+            {error["code"] for error in errors},
+        )
 
     def test_overlapping_groups_fail_closed(self):
         decisions = self._decisions()

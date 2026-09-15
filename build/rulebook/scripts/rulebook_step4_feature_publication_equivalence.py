@@ -54,6 +54,13 @@ def apply_feature_publication_equivalence(
     members receive publication metadata; only one member is marked as the
     Chapter 32 representative. Feature-Library-backed groups may also provide a
     reader-neutral ``referenceEntry`` used only by the reference chapter.
+
+    The approved decision groups are semantic authority. Historical source and
+    representative counts carried by the v1 decision artifact are deliberately
+    non-operative: new canonical Features are conservatively published as
+    distinct representatives unless they are explicitly added to an approved
+    equivalence group. Existing approved group membership continues to fail
+    closed if one of its reviewed members disappears or overlaps another group.
     """
     errors: list[dict] = []
     if decisions.get("schema") != DECISIONS_SCHEMA:
@@ -86,23 +93,6 @@ def apply_feature_publication_equivalence(
             })
             continue
         by_source[source_id] = entity
-
-    expected_source = decisions.get("sourceFeatureCount")
-    try:
-        expected_source_count = int(expected_source)
-    except (TypeError, ValueError):
-        expected_source_count = -1
-        errors.append({
-            "code": "ADVERSARY_FEATURE_EQUIVALENCE_SOURCE_COUNT_INVALID",
-            "value": expected_source,
-        })
-    if expected_source_count >= 0 and len(features) != expected_source_count:
-        errors.append({
-            "code": "ADVERSARY_FEATURE_EQUIVALENCE_SOURCE_COUNT_DRIFT",
-            "expected": expected_source_count,
-            "actual": len(features),
-            "message": "Canonical standalone Feature count changed; equivalence decisions require review.",
-        })
 
     groups = decisions.get("groups") if isinstance(decisions.get("groups"), list) else []
     seen_members: set[str] = set()
@@ -255,24 +245,6 @@ def apply_feature_publication_equivalence(
             str(entity.get("semanticId") or ""),
         )
     )
-
-    expected_representatives = decisions.get("expectedPublicationRepresentativeCount")
-    try:
-        expected_representative_count = int(expected_representatives)
-    except (TypeError, ValueError):
-        expected_representative_count = -1
-        errors.append({
-            "code": "ADVERSARY_FEATURE_EQUIVALENCE_REPRESENTATIVE_COUNT_INVALID",
-            "value": expected_representatives,
-        })
-    if expected_representative_count >= 0 and len(representatives) != expected_representative_count:
-        errors.append({
-            "code": "ADVERSARY_FEATURE_EQUIVALENCE_REPRESENTATIVE_COUNT_DRIFT",
-            "expected": expected_representative_count,
-            "actual": len(representatives),
-        })
-    if errors:
-        return {}, errors
 
     representative_ids = [str(entity.get("semanticId") or "") for entity in representatives]
     selection = {

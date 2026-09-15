@@ -9,8 +9,6 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_step4_ice_semantics import (
-    EXPECTED_ICE_COUNTS,
-    EXPECTED_ICE_TOTAL,
     classify_ice_document,
     has_reader_rules,
     ice_publication_data,
@@ -30,7 +28,7 @@ class TestStep4IceSemantics(unittest.TestCase):
         self.assertEqual(self.folder_errors, [])
         self.assertEqual(set(self.folder_types.values()), {"sentry", "wall"})
 
-    def test_canonical_ice_membership_is_6_7_13(self):
+    def test_current_canonical_ice_membership_is_6_7_13_regression_evidence(self):
         counts = {"sentry": 0, "wall": 0}
         for path in sorted(self.feature_root.glob("*.json")):
             import json
@@ -42,8 +40,10 @@ class TestStep4IceSemantics(unittest.TestCase):
             ice_type = classify_ice_document(doc, self.folder_types)
             if ice_type:
                 counts[ice_type] += 1
-        self.assertEqual(counts, EXPECTED_ICE_COUNTS)
-        self.assertEqual(sum(counts.values()), EXPECTED_ICE_TOTAL)
+        # This records the corpus accepted with the visual grammar; Step 4 no
+        # longer imports these values as operative cardinality requirements.
+        self.assertEqual(counts, {"sentry": 6, "wall": 7})
+        self.assertEqual(sum(counts.values()), 13)
 
     def test_duplicate_foundry_action_alias_prefers_richer_semantics(self):
         system = {

@@ -8,6 +8,10 @@ from pathlib import Path
 from typing import Any, Callable
 
 from rulebook_layout.encounter_authority import sidecar_encounter_counts
+from rulebook_layout.projection_authority import (
+    sidecar_adversary_feature_projection_state,
+    sidecar_ice_projection_state,
+)
 from rulebook_layout.structured_count_authority import (
     CHARACTER_OPTION_COUNT_FAMILIES,
     EQUIPMENT_COUNT_FAMILIES,
@@ -168,14 +172,10 @@ def build_profile(
         )
         report["chapterCount"] = len(step6_contract["profiles"][profile]["chapters"])
         structured_counts = dict(contract["structuredExpectations"])
-        sidecar = load_json(
-            repo_root / "build/rulebook/source/metadata/structured-entities.json"
-        )
+        sidecar = load_json(repo_root / "build/rulebook/source/metadata/structured-entities.json")
         for family in (*CHARACTER_OPTION_COUNT_FAMILIES, *EQUIPMENT_COUNT_FAMILIES):
             report_key = "dronesDevices" if family == "drones-devices" else family
-            structured_counts[report_key] = int(
-                sidecar_family_state(sidecar, family)["actualCount"]
-            )
+            structured_counts[report_key] = int(sidecar_family_state(sidecar, family)["actualCount"])
         domain_state = sidecar_family_state(sidecar, "domains")
         domain_packages = sidecar.get("domainPackages")
         if not isinstance(domain_packages, list):
@@ -183,8 +183,16 @@ def build_profile(
         structured_counts["domains"] = len(domain_packages)
         structured_counts["domainCards"] = int(domain_state["actualCount"])
         structured_counts.update(sidecar_encounter_counts(sidecar))
+
+        ice_projection = sidecar_ice_projection_state(sidecar)
+        feature_projection = sidecar_adversary_feature_projection_state(sidecar)
+        structured_counts["ice"] = int(ice_projection["projectedCount"])
+        structured_counts["adversaryFeaturesCanonical"] = int(feature_projection["sourceCount"])
+        structured_counts["adversaryFeaturesPublished"] = int(feature_projection["projectedCount"])
+
         report["structuredEntityCounts"] = structured_counts
         report["structuredCorpusAuthority"] = preflight.get("structuredCorpusAuthority")
+        report["structuredProjectionAuthority"] = preflight.get("structuredProjectionAuthority")
         report["pageCount"] = stage160.get("pageCount")
         report["validationResult"] = stage170.get("status")
         report["outputPath"] = repo_relative(paths.release_pdf, repo_root)

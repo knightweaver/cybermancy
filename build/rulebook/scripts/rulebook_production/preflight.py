@@ -8,6 +8,11 @@ from pathlib import Path
 from typing import Any
 
 from rulebook_layout.encounter_authority import reconcile_encounter_authority
+from rulebook_layout.projection_authority import (
+    PROJECTION_FAMILIES,
+    projection_authority_descriptor,
+    reconcile_structured_projection_authority,
+)
 from rulebook_layout.structured_count_authority import (
     MUTABLE_STRUCTURED_FAMILIES,
     count_authority_descriptor,
@@ -125,10 +130,25 @@ def run_preflight(
         report,
         "MUTABLE_STRUCTURED_COUNT_AUTHORITY",
         "PASS" if authority_contract_ok else "FAIL",
-        "Production contract delegates Domain, Adversary, and Environment cardinality to selected publication authority reconciled through Step 4."
+        "Production contract delegates all configured mutable structured source cardinality to selected publication authority reconciled through Step 4."
         if authority_contract_ok
         else "Production contract mutable structured count-authority descriptors changed or are missing.",
         configured_authorities,
+    )
+
+    configured_projections = contract.get("structuredProjectionAuthorities")
+    projection_contract_ok = isinstance(configured_projections, dict) and all(
+        configured_projections.get(projection) == projection_authority_descriptor(projection)
+        for projection in PROJECTION_FAMILIES
+    )
+    add_check(
+        report,
+        "STRUCTURED_PROJECTION_AUTHORITY",
+        "PASS" if projection_contract_ok else "FAIL",
+        "Production contract delegates ICE and Adversary Feature publication cardinality to validated Step 4 projections."
+        if projection_contract_ok
+        else "Production contract structured projection-authority descriptors changed or are missing.",
+        configured_projections,
     )
 
     bindings = verify_frozen_bindings(repo_root, contract)
@@ -179,12 +199,7 @@ def run_preflight(
                 inventory_binding,
             )
         except Exception as exc:
-            add_check(
-                report,
-                "INVENTORY_FREEZE_BINDING",
-                "FAIL",
-                f"{type(exc).__name__}: {exc}",
-            )
+            add_check(report, "INVENTORY_FREEZE_BINDING", "FAIL", f"{type(exc).__name__}: {exc}")
 
     required = []
     for relative in contract["upstreamReadiness"]["requiredArtifacts"]:
@@ -215,18 +230,14 @@ def run_preflight(
             {"status": validation.get("status")},
         )
         selection = load_json(metadata_root / "adversary-feature-publication-selection.json")
-        selection_ok = (
-            selection.get("status") == "APPLIED"
-            and selection.get("canonicalSourceFeatureCount") == 419
-            and selection.get("publicationRepresentativeCount") == 344
-        )
+        selection_applied = selection.get("status") == "APPLIED"
         add_check(
             report,
             "STEP4_FEATURE_SELECTION",
-            "PASS" if selection_ok else "FAIL",
-            "Approved Adversary Feature projection reconciles 419 canonical entries to 344 representatives."
-            if selection_ok
-            else "Adversary Feature publication selection is absent, unapplied, or count-drifted.",
+            "PASS" if selection_applied else "FAIL",
+            "Approved Adversary Feature publication selection is APPLIED; cardinality is reconciled by structured projection authority."
+            if selection_applied
+            else "Adversary Feature publication selection is absent or unapplied.",
             {
                 "status": selection.get("status"),
                 "canonical": selection.get("canonicalSourceFeatureCount"),
@@ -271,10 +282,28 @@ def run_preflight(
                 report,
                 "STEP4_STRUCTURED_CORPUS_AUTHORITY",
                 "PASS" if structured_ok else "FAIL",
-                "Domain, Adversary, and Environment counts/semantic IDs reconcile from the selected publication manifest through the Step 4 sidecar."
+                "All configured mutable structured source counts and semantic IDs reconcile from the selected publication manifest through the Step 4 sidecar."
                 if structured_ok
-                else "One or more mutable structured families do not reconcile to selected publication authority.",
+                else "One or more mutable structured source families do not reconcile to selected publication authority.",
                 structured_authority,
+            )
+
+            projection_authority = reconcile_structured_projection_authority(
+                publication,
+                sidecar,
+                selection,
+                descriptors=configured_projections if isinstance(configured_projections, dict) else {},
+            )
+            report["structuredProjectionAuthority"] = projection_authority
+            projection_ok = projection_authority.get("status") == "PASS"
+            add_check(
+                report,
+                "STEP4_STRUCTURED_PROJECTION_AUTHORITY",
+                "PASS" if projection_ok else "FAIL",
+                "ICE and Adversary Feature publication projections reconcile dynamically to their manifest-authoritative Step 4 source families."
+                if projection_ok
+                else "ICE or Adversary Feature publication projection does not reconcile to its authoritative Step 4 source family.",
+                projection_authority,
             )
 
             # Preserve the established encounter-specific report surface while its

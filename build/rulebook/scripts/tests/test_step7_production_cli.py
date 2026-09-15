@@ -161,8 +161,23 @@ class ProductionCliTests(unittest.TestCase):
                         {"domainKey": "two", "cards": domain_ids[25:50]},
                         {"domainKey": "three", "cards": domain_ids[50:]},
                     ],
+                    "iceSemantics": {
+                        "schema": "cybermancy-step4-ice-semantics-v1.0",
+                        "status": "PASS",
+                        "iceCount": 1,
+                        "sentryCount": 1,
+                        "wallCount": 0,
+                        "semanticIds": ["entity:features:ice-fixture"],
+                    },
                     "encounterSemantics": {
-                        "entityCounts": {"adversaries": 0, "environments": 0}
+                        "entityCounts": {"adversaries": 0, "environments": 0},
+                        "adversaryFeatureEquivalence": {
+                            "publicationStatus": "APPLIED",
+                            "canonicalSourceFeatureCount": 1,
+                            "publicationRepresentativeCount": 1,
+                            "excludedRedundantCount": 0,
+                            "approvedGroupCount": 0,
+                        },
                     },
                     "entities": [
                         *[
@@ -175,6 +190,24 @@ class ProductionCliTests(unittest.TestCase):
                             for semantic_id in domain_ids
                         ],
                         *phase2_entities,
+                        {
+                            "semanticId": "entity:features:ice-fixture",
+                            "family": "features",
+                            "name": "Fixture ICE",
+                            "audience": "gm",
+                            "publicationData": {
+                                "featureCategory": "ice",
+                                "iceType": "sentry",
+                                "standalonePublication": True,
+                            },
+                        },
+                        {
+                            "semanticId": "entity:adversaries-features:fixture",
+                            "family": "adversaries-features",
+                            "name": "Fixture Feature",
+                            "audience": "gm",
+                            "publicationData": {},
+                        },
                     ],
                 },
             )
@@ -223,6 +256,9 @@ class ProductionCliTests(unittest.TestCase):
             self.assertEqual(result["structuredEntityCounts"]["domainCards"], 74)
             self.assertEqual(result["structuredEntityCounts"]["adversaries"], 0)
             self.assertEqual(result["structuredEntityCounts"]["environments"], 0)
+            self.assertEqual(result["structuredEntityCounts"]["ice"], 1)
+            self.assertEqual(result["structuredEntityCounts"]["adversaryFeaturesCanonical"], 1)
+            self.assertEqual(result["structuredEntityCounts"]["adversaryFeaturesPublished"], 1)
             self.assertTrue(paths.release_pdf.is_file())
             self.assertEqual(paths.release_pdf.read_bytes(), b"%PDF-test")
 

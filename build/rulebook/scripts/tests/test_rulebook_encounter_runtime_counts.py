@@ -47,6 +47,10 @@ def _sidecar(adversaries: int, environments: int) -> dict:
 class EncounterRuntimeCountInjectionTests(unittest.TestCase):
     def test_growth_counts_are_runtime_only_and_preserve_frozen_grammars(self) -> None:
         state = sidecar_encounter_state(_sidecar(107, 9))
+        feature_projection = {
+            "sourceCount": 420,
+            "projectedCount": 345,
+        }
         source_configs = {
             name: json.loads((CONFIG_ROOT / name).read_text(encoding="utf-8"))
             for name in (
@@ -60,6 +64,7 @@ class EncounterRuntimeCountInjectionTests(unittest.TestCase):
                 CONFIG_ROOT,
                 Path(temporary),
                 state,
+                feature_projection,
             )
             runtime_configs = {
                 name: json.loads((runtime_root / name).read_text(encoding="utf-8"))
@@ -74,10 +79,9 @@ class EncounterRuntimeCountInjectionTests(unittest.TestCase):
             runtime_configs["environment-package-v1.json"]["publicationPolicy"]["expectedEntryCount"],
             9,
         )
-        self.assertEqual(
-            runtime_configs["adversary-feature-reference-v1.json"]["publicationPolicy"]["expectedEntryCount"],
-            344,
-        )
+        feature_policy = runtime_configs["adversary-feature-reference-v1.json"]["publicationPolicy"]
+        self.assertEqual(feature_policy["expectedEntryCount"], 345)
+        self.assertEqual(feature_policy["canonicalSourceEntryCount"], 420)
 
         for name in ("adversary-package-v1.json", "environment-package-v1.json"):
             expected = copy.deepcopy(source_configs[name])
@@ -86,10 +90,13 @@ class EncounterRuntimeCountInjectionTests(unittest.TestCase):
             actual["publicationPolicy"].pop("expectedEntryCount")
             self.assertEqual(actual, expected)
 
-        self.assertEqual(
-            runtime_configs["adversary-feature-reference-v1.json"],
-            source_configs["adversary-feature-reference-v1.json"],
-        )
+        expected_feature = copy.deepcopy(source_configs["adversary-feature-reference-v1.json"])
+        actual_feature = copy.deepcopy(runtime_configs["adversary-feature-reference-v1.json"])
+        self.assertNotIn("expectedEntryCount", expected_feature["publicationPolicy"])
+        self.assertNotIn("canonicalSourceEntryCount", expected_feature["publicationPolicy"])
+        actual_feature["publicationPolicy"].pop("expectedEntryCount")
+        actual_feature["publicationPolicy"].pop("canonicalSourceEntryCount")
+        self.assertEqual(actual_feature, expected_feature)
 
 
 if __name__ == "__main__":
