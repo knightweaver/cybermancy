@@ -15,6 +15,7 @@ from rulebook_layout.ice_reference_package import (
     integrate_chapter29_ast,
     runtime_config,
 )
+from rulebook_layout.projection_authority import projection_authority_descriptor
 
 
 CONFIG_PATH = REPO_ROOT / "build/rulebook/layout/ice/ice-reference-package-v1.json"
@@ -46,7 +47,7 @@ class TestStep6IceReferencePackage(unittest.TestCase):
             ]
         }
 
-    def test_canonical_config_is_frozen_full_corpus_v1(self):
+    def test_canonical_config_is_frozen_full_corpus_v1_with_dynamic_projection(self):
         config = self._config()
         lifecycle = config["lifecycle"]
         selection = config["selection"]
@@ -57,23 +58,26 @@ class TestStep6IceReferencePackage(unittest.TestCase):
         self.assertEqual(lifecycle["acceptance"]["semanticRegression"], "PASS")
         self.assertEqual(lifecycle["acceptance"]["renderedFullCorpus"], "PASS")
         self.assertEqual(lifecycle["acceptance"]["visualReview"], "ACCEPTED")
-        self.assertEqual(lifecycle["acceptanceCorpus"], {"total": 13, "sentry": 6, "wall": 7})
+        history = lifecycle["acceptanceCorpus"]
+        self.assertEqual({key: history[key] for key in ("total", "sentry", "wall")}, {"total": 13, "sentry": 6, "wall": 7})
+        self.assertIs(history["operative"], False)
         self.assertEqual(selection["mode"], "full-corpus")
         self.assertNotIn("semanticIds", selection)
         self.assertNotIn("prototype", config)
         self.assertNotIn("prototypePolicy", config)
         self.assertTrue(policy["requireFullCorpusSelection"])
-        self.assertEqual(policy["expectedIceTotal"], 13)
-        self.assertEqual(policy["expectedIceCounts"], {"sentry": 6, "wall": 7})
+        self.assertEqual(policy["projectionAuthority"], projection_authority_descriptor("ice"))
+        self.assertNotIn("expectedIceTotal", policy)
+        self.assertNotIn("expectedIceCounts", policy)
 
-    def test_frozen_config_selects_every_step4_ice_id(self):
+    def test_frozen_config_selects_every_step4_ice_id_without_fixed_count(self):
         config = runtime_config(self._config())
-        all_ids = [f"entity:features:test-{index}" for index in range(13)]
+        all_ids = [f"entity:features:test-{index}" for index in range(14)]
         report = new_report()
         selected = _selected_ids(all_ids, config, report)
 
         self.assertEqual(selected, all_ids)
-        self.assertEqual(len(selected), 13)
+        self.assertEqual(len(selected), 14)
         self.assertEqual(report["status"], "PASS", report)
 
     def test_chapter29_ast_integration_replaces_exact_semantic_nodes(self):
