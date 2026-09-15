@@ -185,7 +185,25 @@
         "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapters 15–22 Equipment visual grammars."
       }
     },
-    "ice": {"entries": 13},
+    "ice": {
+      "sourceCountAuthority": {
+        "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=features].entityCount",
+        "normalizedActual": "step4-structured-sidecar:entities[family=features]",
+        "reconciliation": "exact-before-render"
+      },
+      "projectionAuthority": {
+        "canonicalSource": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=features].entityCount",
+        "normalizedSelection": "step4-structured-sidecar:iceSemantics.semanticIds",
+        "reconciliation": "source-exact-selected-subset-before-render"
+      },
+      "historicalAcceptance": {
+        "entries": 13,
+        "sentry": 6,
+        "wall": 7,
+        "operative": false,
+        "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapter 29 ICE Reference visual grammar."
+      }
+    },
     "adversaries": {
       "countAuthority": {
         "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries].entityCount",
@@ -200,7 +218,24 @@
         "reconciliation": "exact-before-render"
       }
     },
-    "adversaryFeatures": {"publishedRepresentatives": 344, "canonicalSourceEntries": 419}
+    "adversaryFeatures": {
+      "sourceCountAuthority": {
+        "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries-features].entityCount",
+        "normalizedActual": "step4-structured-sidecar:entities[family=adversaries-features]",
+        "reconciliation": "exact-before-render"
+      },
+      "projectionAuthority": {
+        "canonicalSource": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries-features].entityCount",
+        "normalizedSelection": "step4-adversary-feature-publication-selection:representativeSemanticIds",
+        "reconciliation": "applied-source-exact-selected-subset-before-render"
+      },
+      "historicalAcceptance": {
+        "canonicalSourceEntries": 419,
+        "publishedRepresentatives": 344,
+        "operative": false,
+        "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapter 32 Adversary Feature Reference visual grammar."
+      }
+    }
   },
   "integrationPolicies": {
     "oneBasePandocAstPerProfile": true,
