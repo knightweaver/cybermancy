@@ -27,7 +27,11 @@
     "Name",
     "Description"
   ],
-  "expectedEntityCount": 20,
+  "historicalAcceptance": {
+    "entityCount": 20,
+    "operative": false,
+    "purpose": "Non-operative evidence from the accepted Step 6 corpus. Current publication cardinality comes from selected publication authority reconciled to Step 4."
+  },
   "family": "mods",
   "generatedBy": {
     "basisSidecarSchema": "cybermancy-step4-structured-entities-v1.2",
