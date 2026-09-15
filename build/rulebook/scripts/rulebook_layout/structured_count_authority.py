@@ -14,15 +14,17 @@ EQUIPMENT_COUNT_FAMILIES = (
     "mods",
     "loot",
 )
+PROJECTION_SOURCE_FAMILIES = ("features", "adversaries-features")
 MUTABLE_STRUCTURED_FAMILIES = (
     "domains",
     *CHARACTER_OPTION_COUNT_FAMILIES,
     *EQUIPMENT_COUNT_FAMILIES,
+    *PROJECTION_SOURCE_FAMILIES,
     "adversaries",
     "environments",
 )
 
-_FAMILY_POLICIES: dict[str, dict[str, str]] = {
+_FAMILY_POLICIES: dict[str, dict[str, Any]] = {
     "domains": {
         "audience": "player",
         "declaredContainer": "domainSemantics",
@@ -69,6 +71,20 @@ _FAMILY_POLICIES: dict[str, dict[str, str]] = {
         "audience": "player",
         "normalizedActual": "step4-structured-sidecar:entities[family=loot]",
     },
+    "features": {
+        # The selected publication manifest owns the whole Features source family as
+        # player material. Step 4 deliberately reclassifies only the ICE projection
+        # to GM after resolving canonical ICE folder membership, so the normalized
+        # family is expected to contain both audiences while retaining one source
+        # cardinality/identity authority.
+        "audience": "player",
+        "allowedSidecarAudiences": ("player", "gm"),
+        "normalizedActual": "step4-structured-sidecar:entities[family=features]",
+    },
+    "adversaries-features": {
+        "audience": "gm",
+        "normalizedActual": "step4-structured-sidecar:entities[family=adversaries-features]",
+    },
     "adversaries": {
         "audience": "gm",
         "declaredContainer": "encounterSemantics.entityCounts",
@@ -84,7 +100,7 @@ _FAMILY_POLICIES: dict[str, dict[str, str]] = {
 }
 
 
-def _policy(family: str) -> dict[str, str]:
+def _policy(family: str) -> dict[str, Any]:
     try:
         return _FAMILY_POLICIES[family]
     except KeyError as exc:
@@ -227,7 +243,11 @@ def sidecar_family_state(sidecar: dict[str, Any], family: str) -> dict[str, Any]
     duplicates: list[str] = []
     missing: list[str] = []
     audience_errors: list[dict[str, Any]] = []
-    expected_audience = policy["audience"]
+    expected_audience = str(policy["audience"])
+    allowed_sidecar_audiences = tuple(
+        str(value)
+        for value in policy.get("allowedSidecarAudiences", (expected_audience,))
+    )
     for index, entity in enumerate(rows):
         semantic_id = str(entity.get("semanticId") or "").strip()
         if not semantic_id:
@@ -239,12 +259,12 @@ def sidecar_family_state(sidecar: dict[str, Any], family: str) -> dict[str, Any]
             semantic_ids.append(semantic_id)
 
         audience = str(entity.get("audience") or "").strip()
-        if audience != expected_audience:
+        if audience not in allowed_sidecar_audiences:
             audience_errors.append(
                 {
                     "semanticId": semantic_id or None,
                     "name": entity.get("name"),
-                    "expected": expected_audience,
+                    "expected": list(allowed_sidecar_audiences),
                     "actual": audience or None,
                 }
             )
@@ -258,9 +278,9 @@ def sidecar_family_state(sidecar: dict[str, Any], family: str) -> dict[str, Any]
             f"Step 4 {family} sidecar contains duplicate semantic IDs: {sorted(set(duplicates))}"
         )
     if audience_errors:
-        label = "GM" if expected_audience == "gm" else expected_audience
         raise ValueError(
-            f"Step 4 {family} sidecar contains non-{label} entities: {audience_errors}"
+            f"Step 4 {family} sidecar contains entities outside allowed audiences "
+            f"{list(allowed_sidecar_audiences)}: {audience_errors}"
         )
     if declared != len(rows):
         declared_path = policy["normalizedActual"].split(":", 1)[-1]
