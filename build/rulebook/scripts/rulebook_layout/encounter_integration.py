@@ -14,6 +14,12 @@ from .encounter_authority import (
     count_authority_descriptor,
     sidecar_encounter_state,
 )
+from .projection_authority import (
+    ADVERSARY_FEATURE_SELECTION_SCHEMA,
+    projection_authority_descriptor,
+    sidecar_adversary_feature_projection_state,
+    validate_projection_authority_descriptor,
+)
 
 
 ENCOUNTER_SPECS: tuple[dict[str, Any], ...] = (
@@ -48,7 +54,6 @@ ENCOUNTER_SPECS: tuple[dict[str, Any], ...] = (
         "order": 120,
         "stem": "Cybermancy_Chapter32_Adversary_Feature_Reference_Step6",
         "config": "adversary-feature-reference-v1.json",
-        "expected": 344,
         "version": "v1.0",
     },
 )
@@ -136,71 +141,77 @@ def extract_encounter_fragments(tex_text: str) -> tuple[str, str]:
     return header, body
 
 
-def _feature_expected(contract: dict[str, Any]) -> int:
-    regression = (
-        contract.get("regressionExpectations")
-        if isinstance(contract.get("regressionExpectations"), dict)
-        else {}
-    )
-    return int(
-        (regression.get("adversaryFeatures") or {}).get("publishedRepresentatives") or 0
-    )
+def _selection_state(sidecar: dict[str, Any], selection: dict[str, Any]) -> dict[str, Any]:
+    state = sidecar_adversary_feature_projection_state(sidecar)
+    if selection.get("schema") != ADVERSARY_FEATURE_SELECTION_SCHEMA:
+        raise ValueError("Adversary Feature publication-selection schema is unsupported.")
+    if selection.get("status") != "APPLIED":
+        raise ValueError("Adversary Feature publication-selection status must be APPLIED.")
+    reps = [str(value).strip() for value in selection.get("representativeSemanticIds") or [] if str(value or "").strip()]
+    excluded = [str(value).strip() for value in selection.get("excludedSemanticIds") or [] if str(value or "").strip()]
+    if len(reps) != len(set(reps)) or len(excluded) != len(set(excluded)):
+        raise ValueError("Adversary Feature publication-selection contains duplicate semantic IDs.")
+    if set(reps) != set(state["projectedSemanticIds"]):
+        raise ValueError("Adversary Feature publication-selection representatives do not match Step 4 applied metadata.")
+    if set(excluded) != set(state["excludedSemanticIds"]):
+        raise ValueError("Adversary Feature publication-selection exclusions do not match Step 4 applied metadata.")
+    for key, expected in (
+        ("canonicalSourceFeatureCount", state["sourceCount"]),
+        ("publicationRepresentativeCount", state["projectedCount"]),
+        ("excludedRedundantCount", state["excludedCount"]),
+        ("approvedGroupCount", state["approvedGroupCount"]),
+    ):
+        try:
+            actual = int(selection.get(key))
+        except (TypeError, ValueError):
+            raise ValueError(f"Adversary Feature publication-selection {key} must be an integer.")
+        if actual != int(expected):
+            raise ValueError(
+                f"Adversary Feature publication-selection {key}={actual} does not match Step 4 projection state {expected}."
+            )
+    return state
 
 
 def validate_encounter_routes(contract: dict[str, Any]) -> list[str]:
-    """Validate the frozen Chapter/audience/adapter routing for mutable encounter families."""
+    """Validate frozen Chapter/audience/adapter routing and authority descriptors."""
     errors: list[str] = []
     chapter_map = {
         int(row.get("chapter")): row
         for row in contract.get("chapterMap") or []
         if isinstance(row, dict) and str(row.get("chapter") or "").isdigit()
     }
-    targets = [
-        row
-        for row in contract.get("structuredTargets") or []
-        if isinstance(row, dict)
-    ]
-    regression = (
-        contract.get("regressionExpectations")
-        if isinstance(contract.get("regressionExpectations"), dict)
-        else {}
-    )
-    for spec in ENCOUNTER_SPECS[:2]:
+    targets = [row for row in contract.get("structuredTargets") or [] if isinstance(row, dict)]
+    regression = contract.get("regressionExpectations") if isinstance(contract.get("regressionExpectations"), dict) else {}
+
+    for spec in ENCOUNTER_SPECS:
         family = str(spec["family"])
         chapter = int(spec["chapter"])
         chapter_row = chapter_map.get(chapter) or {}
-        if (
-            chapter_row.get("chapterId") != spec["chapterId"]
-            or chapter_row.get("audience") != "gm"
-        ):
-            errors.append(
-                f"{family} must remain GM-only in Chapter {chapter} ({spec['chapterId']})."
-            )
+        if chapter_row.get("chapterId") != spec["chapterId"] or chapter_row.get("audience") != "gm":
+            errors.append(f"{family} must remain GM-only in Chapter {chapter} ({spec['chapterId']}).")
         matches = [
             row
             for row in targets
-            if int(row.get("chapter") or -1) == chapter
-            and row.get("families") == [family]
+            if int(row.get("chapter") or -1) == chapter and row.get("families") == [family]
         ]
         if len(matches) != 1:
-            errors.append(
-                f"{family} must have exactly one structured target in Chapter {chapter}."
-            )
+            errors.append(f"{family} must have exactly one structured target in Chapter {chapter}.")
         else:
             target = matches[0]
             if target.get("adapter") != spec["adapter"]:
-                errors.append(
-                    f"{family} Chapter {chapter} adapter changed from {spec['adapter']}."
-                )
+                errors.append(f"{family} Chapter {chapter} adapter changed from {spec['adapter']}.")
             if target.get("profiles") != ["complete-rulebook"]:
+                errors.append(f"{family} Chapter {chapter} must remain Complete Rulebook only.")
+
+        if family in MUTABLE_ENCOUNTER_FAMILIES:
+            authority = (regression.get(family) or {}).get("countAuthority")
+            if authority != count_authority_descriptor(family):
                 errors.append(
-                    f"{family} Chapter {chapter} must remain Complete Rulebook only."
+                    f"{family} Step 6 countAuthority no longer matches the selected-manifest/Step 4 authority chain."
                 )
-        authority = (regression.get(family) or {}).get("countAuthority")
-        if authority != count_authority_descriptor(family):
-            errors.append(
-                f"{family} Step 6 countAuthority no longer matches the selected-manifest/Step 4 authority chain."
-            )
+        elif family == "adversaries-features":
+            authority = (regression.get("adversaryFeatures") or {}).get("projectionAuthority")
+            errors.extend(validate_projection_authority_descriptor("adversaryFeatures", authority))
     return errors
 
 
@@ -208,24 +219,25 @@ def validate_package_selection(
     family: str,
     sidecar_state: dict[str, Any],
     selected_semantic_ids: list[Any],
+    *,
+    count_key: str = "actualCount",
+    ids_key: str = "semanticIds",
 ) -> list[str]:
-    """Require a rendered package to select every reconciled Step 4 entity exactly once."""
+    """Require a rendered package to select every reconciled semantic ID exactly once."""
     selected = [str(value).strip() for value in selected_semantic_ids if str(value or "").strip()]
-    expected = [str(value) for value in sidecar_state.get("semanticIds") or []]
+    expected = [str(value) for value in sidecar_state.get(ids_key) or []]
     errors: list[str] = []
     if len(selected) != len(set(selected)):
         errors.append(f"{family} rendered selection contains duplicate semantic IDs.")
-    if len(selected) != int(sidecar_state.get("actualCount") or -1):
+    if len(selected) != int(sidecar_state.get(count_key) or -1):
         errors.append(
-            f"{family} rendered selection contains {len(selected)} entities; "
-            f"reconciled Step 4 sidecar contains {sidecar_state.get('actualCount')}."
+            f"{family} rendered selection contains {len(selected)} entities; reconciled authority contains {sidecar_state.get(count_key)}."
         )
     if set(selected) != set(expected):
         missing = sorted(set(expected) - set(selected))
         extra = sorted(set(selected) - set(expected))
         errors.append(
-            f"{family} rendered selection does not exactly match Step 4 semantic IDs; "
-            f"missing={missing}, extra={extra}."
+            f"{family} rendered selection does not exactly match authoritative semantic IDs; missing={missing}, extra={extra}."
         )
     return errors
 
@@ -234,6 +246,7 @@ def _prepare_runtime_configs(
     config_root: Path,
     work_dir: Path,
     mutable_state: dict[str, dict[str, Any]],
+    feature_projection: dict[str, Any],
 ) -> Path:
     """Copy frozen grammars and inject transient counts derived from Step 4."""
     runtime_root = work_dir / "_runtime-config"
@@ -246,21 +259,23 @@ def _prepare_runtime_configs(
         if not source.is_file():
             raise FileNotFoundError(f"Missing frozen encounter package config: {source}")
         config = _load_json(source)
-        policy = (
-            config.get("publicationPolicy")
-            if isinstance(config.get("publicationPolicy"), dict)
-            else {}
-        )
+        policy = config.get("publicationPolicy") if isinstance(config.get("publicationPolicy"), dict) else {}
         family = str(spec["family"])
+        policy = dict(policy)
         if family in MUTABLE_ENCOUNTER_FAMILIES:
             expected_authority = count_authority_descriptor(family)
             if policy.get("countAuthority") != expected_authority:
-                raise ValueError(
-                    f"{family} package config countAuthority does not match the accepted authority chain."
-                )
-            policy = dict(policy)
+                raise ValueError(f"{family} package config countAuthority does not match the accepted authority chain.")
             policy["expectedEntryCount"] = int(mutable_state[family]["actualCount"])
-            config["publicationPolicy"] = policy
+        elif family == "adversaries-features":
+            descriptor_errors = validate_projection_authority_descriptor(
+                "adversaryFeatures", policy.get("projectionAuthority")
+            )
+            if descriptor_errors:
+                raise ValueError("; ".join(descriptor_errors))
+            policy["expectedEntryCount"] = int(feature_projection["projectedCount"])
+            policy["canonicalSourceEntryCount"] = int(feature_projection["sourceCount"])
+        config["publicationPolicy"] = policy
         _write_json(runtime_root / str(spec["config"]), config)
     return runtime_root
 
@@ -291,9 +306,7 @@ def compose_encounter_stage(
         exists = path.is_dir() if want_dir else path.is_file()
         if not exists:
             report["status"] = "FAIL"
-            report["errors"].append(
-                f"Required Encounter Toolkit integration input is missing: {label}={path}"
-            )
+            report["errors"].append(f"Required Encounter Toolkit integration input is missing: {label}={path}")
     if report["status"] != "PASS":
         return [], report
 
@@ -306,10 +319,18 @@ def compose_encounter_stage(
     try:
         sidecar = _load_json(sidecar_path)
         mutable_state = sidecar_encounter_state(sidecar)
+        selection_path = sidecar_path.parent / "adversary-feature-publication-selection.json"
+        if not selection_path.is_file():
+            raise FileNotFoundError(
+                f"Missing Step 4 Adversary Feature publication selection: {selection_path}"
+            )
+        selection = _load_json(selection_path)
+        feature_projection = _selection_state(sidecar, selection)
     except Exception as exc:
         report["status"] = "FAIL"
-        report["errors"].append(f"Step 4 encounter sidecar reconciliation failed: {exc}")
+        report["errors"].append(f"Step 4 encounter/projection reconciliation failed: {exc}")
         return [], report
+
     report["countAuthority"] = {
         family: {
             "actualStep4Count": state["actualCount"],
@@ -317,11 +338,18 @@ def compose_encounter_stage(
         }
         for family, state in mutable_state.items()
     }
+    report["projectionAuthority"] = {
+        "adversaryFeatures": {
+            "sourceCount": feature_projection["sourceCount"],
+            "projectedCount": feature_projection["projectedCount"],
+            "semanticIdCount": len(feature_projection["projectedSemanticIds"]),
+        }
+    }
 
     work_dir.mkdir(parents=True, exist_ok=True)
     try:
         runtime_config_root = _prepare_runtime_configs(
-            config_root, work_dir, mutable_state
+            config_root, work_dir, mutable_state, feature_projection
         )
     except Exception as exc:
         report["status"] = "FAIL"
@@ -356,9 +384,7 @@ def compose_encounter_stage(
     report["builderOutputTail"] = (proc.stdout or "")[-12000:]
     if proc.returncode != 0:
         report["status"] = "FAIL"
-        report["errors"].append(
-            "Frozen Encounter Toolkit production builder failed in --tex-only mode."
-        )
+        report["errors"].append("Frozen Encounter Toolkit production builder failed in --tex-only mode.")
         return [], report
 
     payloads: list[EncounterPayload] = []
@@ -375,55 +401,38 @@ def compose_encounter_stage(
             "status": "PASS",
         }
         errors: list[str] = []
+        family = str(spec["family"])
         expected = (
-            int(mutable_state[str(spec["family"])]["actualCount"])
-            if str(spec["family"]) in MUTABLE_ENCOUNTER_FAMILIES
-            else int(spec["expected"])
+            int(mutable_state[family]["actualCount"])
+            if family in MUTABLE_ENCOUNTER_FAMILIES
+            else int(feature_projection["projectedCount"])
         )
         if not report_path.is_file() or not tex_path.is_file():
-            errors.append(
-                "Frozen production builder did not emit both report and TeX artifacts."
-            )
+            errors.append("Frozen production builder did not emit both report and TeX artifacts.")
         else:
             package_report = _load_json(report_path)
-            package_contract = (
-                package_report.get("contract")
-                if isinstance(package_report.get("contract"), dict)
-                else {}
-            )
+            package_contract = package_report.get("contract") if isinstance(package_report.get("contract"), dict) else {}
             actual = int(package_report.get("entryCount") or -1)
             if package_report.get("status") != "PASS":
                 errors.append("Standalone frozen package report is not PASS.")
-            if str(spec["family"]) == "adversaries-features":
-                integration_expected = _feature_expected(contract)
-                if integration_expected != expected:
-                    errors.append(
-                        f"Integration regression contract expects {integration_expected}, "
-                        f"but frozen package contract expects {expected}."
-                    )
             if actual != expected:
-                errors.append(
-                    f"Rendered package contains {actual} entries; expected {expected}."
-                )
+                errors.append(f"Rendered package contains {actual} entries; expected {expected}.")
             if int(package_contract.get("expectedEntryCount") or -1) != expected:
-                errors.append(
-                    "Standalone production report expected-entry count differs from the reconciled integration authority."
-                )
+                errors.append("Standalone production report expected-entry count differs from the reconciled integration authority.")
             if str(package_contract.get("version") or "") != str(spec["version"]):
-                errors.append(
-                    "Standalone production report package version differs from the frozen integration anchor."
-                )
-            if str(spec["family"]) in MUTABLE_ENCOUNTER_FAMILIES:
-                selected = (
-                    package_report.get("selectedSemanticIds")
-                    if isinstance(package_report.get("selectedSemanticIds"), list)
-                    else []
-                )
+                errors.append("Standalone production report package version differs from the frozen integration anchor.")
+
+            selected = package_report.get("selectedSemanticIds") if isinstance(package_report.get("selectedSemanticIds"), list) else []
+            if family in MUTABLE_ENCOUNTER_FAMILIES:
+                errors.extend(validate_package_selection(family, mutable_state[family], selected))
+            else:
                 errors.extend(
                     validate_package_selection(
-                        str(spec["family"]),
-                        mutable_state[str(spec["family"])],
+                        family,
+                        feature_projection,
                         selected,
+                        count_key="projectedCount",
+                        ids_key="projectedSemanticIds",
                     )
                 )
 
@@ -431,9 +440,7 @@ def compose_encounter_stage(
             package_row["status"] = "FAIL"
             package_row["errors"] = errors
             report["status"] = "FAIL"
-            report["errors"].extend(
-                f"Chapter {spec['chapter']}: {message}" for message in errors
-            )
+            report["errors"].extend(f"Chapter {spec['chapter']}: {message}" for message in errors)
             report["packages"].append(package_row)
             continue
 
@@ -444,36 +451,27 @@ def compose_encounter_stage(
             package_row["status"] = "FAIL"
             package_row["errors"] = [f"Fragment extraction failed: {exc}"]
             report["status"] = "FAIL"
-            report["errors"].append(
-                f"Chapter {spec['chapter']}: fragment extraction failed: {exc}"
-            )
+            report["errors"].append(f"Chapter {spec['chapter']}: fragment extraction failed: {exc}")
             report["packages"].append(package_row)
             continue
 
         if spec["kind"] == "adversary":
             if r"\begin{multicols}{2}" not in body_latex or r"\Needspace{" in body_latex:
                 package_row["status"] = "FAIL"
-                package_row["errors"] = [
-                    "Chapter 30 body lost its frozen two-column/multicol-safe flow grammar."
-                ]
+                package_row["errors"] = ["Chapter 30 body lost its frozen two-column/multicol-safe flow grammar."]
         elif spec["kind"] == "environment":
             if body_latex.lstrip().startswith(r"\clearpage"):
                 package_row["status"] = "FAIL"
-                package_row["errors"] = [
-                    "Chapter 31 first Environment no longer shares the chapter-opener page."
-                ]
+                package_row["errors"] = ["Chapter 31 first Environment no longer shares the chapter-opener page."]
         else:
             if r"\begin{multicols}{2}" not in body_latex:
                 package_row["status"] = "FAIL"
-                package_row["errors"] = [
-                    "Chapter 32 body lost its frozen two-column reference grammar."
-                ]
+                package_row["errors"] = ["Chapter 32 body lost its frozen two-column reference grammar."]
 
         if package_row["status"] != "PASS":
             report["status"] = "FAIL"
             report["errors"].extend(
-                f"Chapter {spec['chapter']}: {message}"
-                for message in package_row.get("errors", [])
+                f"Chapter {spec['chapter']}: {message}" for message in package_row.get("errors", [])
             )
             report["packages"].append(package_row)
             continue
@@ -482,7 +480,7 @@ def compose_encounter_stage(
             kind=str(spec["kind"]),
             chapter=int(spec["chapter"]),
             chapter_id=str(spec["chapterId"]),
-            family=str(spec["family"]),
+            family=family,
             adapter=str(spec["adapter"]),
             order=int(spec["order"]),
             entry_count=expected,
@@ -500,8 +498,7 @@ def compose_encounter_stage(
     if report["status"] == "PASS" and actual_order != expected_order:
         report["status"] = "FAIL"
         report["errors"].append(
-            f"Encounter Toolkit payload order is incomplete or unstable: "
-            f"expected {expected_order}, got {actual_order}."
+            f"Encounter Toolkit payload order is incomplete or unstable: expected {expected_order}, got {actual_order}."
         )
         return [], report
 
