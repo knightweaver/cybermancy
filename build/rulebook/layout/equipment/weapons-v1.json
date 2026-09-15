@@ -6,12 +6,22 @@
   "title": "Weapons",
   "tierLabel": "TIER {tier}",
   "deck": "",
-  "expectedEntityCount": 47,
-  "expectedTierCounts": {
-    "1": 14,
-    "2": 11,
-    "3": 11,
-    "4": 11
+  "tierOrder": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "historicalAcceptance": {
+    "entityCount": 47,
+    "tierCounts": {
+      "1": 14,
+      "2": 11,
+      "3": 11,
+      "4": 11
+    },
+    "operative": false,
+    "purpose": "Non-operative evidence from the accepted Step 6 corpus. Current publication cardinality comes from selected publication authority reconciled to Step 4."
   },
   "expectedTierGroups": {
     "1": [
