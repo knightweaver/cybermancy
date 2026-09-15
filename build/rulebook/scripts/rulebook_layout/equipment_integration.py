@@ -16,6 +16,12 @@ from rulebook_layout.mechanics_reference import (
     collect_weapon_references,
     render_mechanics_reference_latex,
 )
+from rulebook_layout.structured_count_authority import (
+    EQUIPMENT_COUNT_FAMILIES,
+    reconcile_structured_count_authority,
+    validate_count_authority_descriptor,
+)
+from rulebook_production.contract import select_latest
 
 
 SUPPORTED_SIDECAR_SCHEMA = "cybermancy-step4-structured-entities-v1.3"
@@ -66,7 +72,7 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def _report() -> dict[str, Any]:
     return {
-        "schema": "cybermancy-step6-equipment-integration-compose-v1",
+        "schema": "cybermancy-step6-equipment-integration-compose-v2",
         "status": "PASS",
         "checks": [],
         "warnings": [],
@@ -128,18 +134,25 @@ def _family_entities(sidecar: dict[str, Any], family: str) -> list[dict[str, Any
     rows = sidecar.get("entities")
     if not isinstance(rows, list):
         return []
-    return [row for row in rows if isinstance(row, dict) and row.get("family") == family]
+    return [
+        row for row in rows if isinstance(row, dict) and row.get("family") == family
+    ]
 
 
 def _identity_issues(entities: list[dict[str, Any]]) -> dict[str, Any]:
     semantic = [str(row.get("semanticId") or "").strip() for row in entities]
     source = [str(row.get("sourceId") or "").strip() for row in entities]
-    duplicate_semantic = sorted({value for value in semantic if value and semantic.count(value) > 1})
-    duplicate_source = sorted({value for value in source if value and source.count(value) > 1})
+    duplicate_semantic = sorted(
+        {value for value in semantic if value and semantic.count(value) > 1}
+    )
+    duplicate_source = sorted(
+        {value for value in source if value and source.count(value) > 1}
+    )
     missing = [
         str(row.get("name") or row.get("semanticId") or "<unnamed>")
         for row in entities
-        if not str(row.get("semanticId") or "").strip() or not str(row.get("sourceId") or "").strip()
+        if not str(row.get("semanticId") or "").strip()
+        or not str(row.get("sourceId") or "").strip()
     ]
     return {
         "duplicateSemanticIds": duplicate_semantic,
@@ -148,7 +161,9 @@ def _identity_issues(entities: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def _required_field_issues(entities: list[dict[str, Any]], config: dict[str, Any]) -> list[dict[str, Any]]:
+def _required_field_issues(
+    entities: list[dict[str, Any]], config: dict[str, Any]
+) -> list[dict[str, Any]]:
     required = config.get("requiredPublicationFields")
     if not isinstance(required, list):
         return []
@@ -172,37 +187,56 @@ def _render_weapons(
     config: dict[str, Any],
     report: dict[str, Any],
 ) -> str | None:
-    expected_tiers = config.get("expectedTierCounts")
-    if not isinstance(expected_tiers, dict) or not expected_tiers:
+    tier_order = config.get("tierOrder")
+    tier_order_ok = (
+        isinstance(tier_order, list)
+        and bool(tier_order)
+        and all(isinstance(value, int) and not isinstance(value, bool) for value in tier_order)
+        and len(tier_order) == len(set(tier_order))
+    )
+    if not tier_order_ok:
         _check(
             report,
             "EQUIPMENT_WEAPON_TIERS",
             "ERROR",
-            "Weapons integration requires the frozen expectedTierCounts contract.",
+            "Weapons integration requires a unique structural tierOrder list.",
+            tier_order,
         )
         return None
 
-    tier_tables: dict[int, str] = {}
-    tier_mismatches: list[dict[str, Any]] = []
-    for tier_text, expected_value in sorted(expected_tiers.items(), key=lambda item: int(item[0])):
-        tier = int(tier_text)
-        rows = build_catalog_rows(entities, config, tier=tier)
-        expected = int(expected_value)
-        if len(rows) != expected:
-            tier_mismatches.append({"tier": tier, "expected": expected, "actual": len(rows)})
-        tier_tables[tier] = render_equipment_catalog_latex(rows, config)
+    allowed = set(tier_order)
+    invalid_tiers: list[dict[str, Any]] = []
+    for entity in entities:
+        value = get_path(entity, "publicationData.tier")
+        try:
+            tier = int(value)
+        except (TypeError, ValueError):
+            tier = None
+        if tier not in allowed:
+            invalid_tiers.append(
+                {
+                    "semanticId": entity.get("semanticId"),
+                    "name": entity.get("name"),
+                    "tier": value,
+                }
+            )
 
     _check(
         report,
         "EQUIPMENT_WEAPON_TIERS",
-        "ERROR" if tier_mismatches else "PASS",
-        "Weapons Tier tables match the frozen 1–4 corpus counts."
-        if not tier_mismatches
-        else "Weapons Tier counts differ from the frozen Equipment contract.",
-        tier_mismatches or None,
+        "PASS" if not invalid_tiers else "ERROR",
+        "Weapon entities use only the accepted structural Tier ordering."
+        if not invalid_tiers
+        else "One or more Weapon entities use a Tier outside the accepted structural ordering.",
+        {"tierOrder": tier_order, "invalid": invalid_tiers} if invalid_tiers else tier_order,
     )
-    if tier_mismatches:
+    if invalid_tiers:
         return None
+
+    tier_tables: dict[int, str] = {}
+    for tier in tier_order:
+        rows = build_catalog_rows(entities, config, tier=tier)
+        tier_tables[tier] = render_equipment_catalog_latex(rows, config)
 
     refs = collect_weapon_references(entities)
     reference_issues = {
@@ -233,6 +267,7 @@ def compose_equipment_stage(
     registry: dict[str, Any],
     config_dir: Path,
     contract: dict[str, Any],
+    publication_manifest: dict[str, Any] | None = None,
 ) -> tuple[list[EquipmentPayload], dict[str, Any]]:
     """Compose all accepted Equipment family bodies without a standalone document shell."""
     report = _report()
@@ -271,14 +306,21 @@ def compose_equipment_stage(
 
     contract_targets = _contract_equipment_targets(contract)
     canonical_targets = [(chapter, family) for chapter, family, _ in EQUIPMENT_FAMILIES]
+    canonical_families = tuple(family for _chapter, family, _config in EQUIPMENT_FAMILIES)
     registry_rows = _registry_rows(registry)
-    registry_targets = [(chapter, family) for chapter, family, _title, _config in registry_rows]
-    registry_configs = [(chapter, family, config) for chapter, family, _title, config in registry_rows]
+    registry_targets = [
+        (chapter, family) for chapter, family, _title, _config in registry_rows
+    ]
+    registry_configs = [
+        (chapter, family, config)
+        for chapter, family, _title, config in registry_rows
+    ]
     canonical_configs = list(EQUIPMENT_FAMILIES)
     architecture_ok = (
         contract_targets == canonical_targets
         and registry_targets == canonical_targets
         and registry_configs == canonical_configs
+        and canonical_families == EQUIPMENT_COUNT_FAMILIES
     )
     _check(
         report,
@@ -291,14 +333,82 @@ def compose_equipment_stage(
             "contract": contract_targets,
             "registry": registry_configs,
             "expected": canonical_configs,
+            "authorityFamilies": list(EQUIPMENT_COUNT_FAMILIES),
         },
     )
 
     regression = contract.get("regressionExpectations", {}).get("equipment", {})
-    if not isinstance(regression, dict):
-        regression = {}
+    descriptors = regression.get("countAuthorities") if isinstance(regression, dict) else None
+    historical = regression.get("historicalAcceptance") if isinstance(regression, dict) else None
+    descriptor_errors: list[str] = []
+    for family in EQUIPMENT_COUNT_FAMILIES:
+        descriptor_errors.extend(
+            validate_count_authority_descriptor(
+                family,
+                descriptors.get(family) if isinstance(descriptors, dict) else None,
+            )
+        )
+    authority_contract_ok = (
+        isinstance(descriptors, dict)
+        and not descriptor_errors
+        and isinstance(historical, dict)
+        and historical.get("operative") is False
+    )
+    _check(
+        report,
+        "EQUIPMENT_COUNT_AUTHORITY_CONTRACT",
+        "PASS" if authority_contract_ok else "ERROR",
+        "Equipment cardinality is delegated to publication authority; historical corpus counts are non-operative."
+        if authority_contract_ok
+        else "Equipment count-authority descriptors are missing/malformed or historical counts are still operative.",
+        {"descriptors": descriptors, "historicalAcceptance": historical, "errors": descriptor_errors},
+    )
 
     if report["status"] != "PASS":
+        return [], report
+
+    manifest_path: Path | None = None
+    if publication_manifest is None:
+        try:
+            manifest_path = select_latest(
+                config_dir.parent.parent / "manifests",
+                "cybermancy-rulebook-publication-manifest-v*.json",
+            )
+            publication_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            _check(
+                report,
+                "EQUIPMENT_PUBLICATION_MANIFEST",
+                "ERROR",
+                f"Could not select the current committed publication manifest: {exc}",
+            )
+            return [], report
+    _check(
+        report,
+        "EQUIPMENT_PUBLICATION_MANIFEST",
+        "PASS",
+        "Selected committed publication manifest loaded for Equipment count authority.",
+        str(manifest_path) if manifest_path else "injected-test-manifest",
+    )
+
+    authority = reconcile_structured_count_authority(
+        publication_manifest,
+        sidecar,
+        families=EQUIPMENT_COUNT_FAMILIES,
+        descriptors=descriptors if isinstance(descriptors, dict) else {},
+    )
+    report["countAuthority"] = authority
+    authority_ok = authority.get("status") == "PASS"
+    _check(
+        report,
+        "EQUIPMENT_COUNT_AUTHORITY",
+        "PASS" if authority_ok else "ERROR",
+        "All Equipment counts and semantic identities reconcile from publication authority through Step 4."
+        if authority_ok
+        else "One or more Equipment families do not reconcile to publication authority.",
+        authority,
+    )
+    if not authority_ok:
         return [], report
 
     payloads: list[EquipmentPayload] = []
@@ -314,42 +424,68 @@ def compose_equipment_stage(
         config_path = config_dir / config_name
         if not config_path.is_file():
             family_report["status"] = "FAIL"
-            family_report["checks"].append({"code": "CONFIG_PRESENT", "status": "ERROR", "message": str(config_path)})
+            family_report["checks"].append(
+                {"code": "CONFIG_PRESENT", "status": "ERROR", "message": str(config_path)}
+            )
             report["families"].append(family_report)
-            _check(report, "EQUIPMENT_CONFIG_PRESENT", "ERROR", f"Missing Equipment config for {family}: {config_path}")
+            _check(
+                report,
+                "EQUIPMENT_CONFIG_PRESENT",
+                "ERROR",
+                f"Missing Equipment config for {family}: {config_path}",
+            )
             continue
 
         try:
             config = load_json(config_path)
         except Exception as exc:
             family_report["status"] = "FAIL"
-            family_report["checks"].append({"code": "CONFIG_JSON", "status": "ERROR", "message": str(exc)})
+            family_report["checks"].append(
+                {"code": "CONFIG_JSON", "status": "ERROR", "message": str(exc)}
+            )
             report["families"].append(family_report)
-            _check(report, "EQUIPMENT_CONFIG_JSON", "ERROR", f"Could not load Equipment config for {family}: {exc}")
+            _check(
+                report,
+                "EQUIPMENT_CONFIG_JSON",
+                "ERROR",
+                f"Could not load Equipment config for {family}: {exc}",
+            )
             continue
 
-        expected_count = int(regression.get(family) or 0)
+        authority_row = authority["families"][family]
+        expected_count = int(authority_row["expectedCount"])
+        expected_ids = sorted(str(value) for value in authority_row["semanticIds"])
         family_entities = _family_entities(sidecar, family)
         config_status = config.get("configStatus")
+        historical_config = config.get("historicalAcceptance")
+        legacy_keys = [
+            key
+            for key in ("expectedEntityCount", "expectedTierCounts")
+            if key in config
+        ]
         config_ok = (
             config.get("schema") == CONFIG_SCHEMA
             and str(config.get("family") or "") == family
             and int(config.get("chapter") or 0) == chapter
-            and int(config.get("expectedEntityCount") or 0) == expected_count
             and (config_status in (None, "accepted"))
+            and isinstance(historical_config, dict)
+            and historical_config.get("operative") is False
+            and not legacy_keys
         )
         family_report["checks"].append(
             {
                 "code": "CONFIG_CONTRACT",
                 "status": "PASS" if config_ok else "ERROR",
-                "message": "Config matches accepted Equipment metadata." if config_ok else "Config differs from accepted Equipment metadata.",
+                "message": "Config matches accepted Equipment metadata with non-operative historical corpus evidence."
+                if config_ok
+                else "Config differs from accepted Equipment metadata or retains an operative corpus-count gate.",
                 "details": {
                     "schema": config.get("schema"),
                     "chapter": config.get("chapter"),
                     "family": config.get("family"),
-                    "expectedEntityCount": config.get("expectedEntityCount"),
-                    "contractEntityCount": expected_count,
                     "configStatus": config_status,
+                    "historicalAcceptance": historical_config,
+                    "legacyCountKeys": legacy_keys,
                 },
             }
         )
@@ -359,17 +495,22 @@ def compose_equipment_stage(
             {
                 "code": "ENTITY_COUNT",
                 "status": "PASS" if count_ok else "ERROR",
-                "message": f"Found {len(family_entities)} {family} entities; expected {expected_count}.",
+                "message": f"Found {len(family_entities)} {family} entities; publication authority expects {expected_count}.",
             }
         )
 
         identity = _identity_issues(family_entities)
-        identity_ok = not any(identity.values())
+        actual_ids = sorted(
+            str(row.get("semanticId") or "").strip() for row in family_entities
+        )
+        identity_ok = not any(identity.values()) and actual_ids == expected_ids
         family_report["checks"].append(
             {
                 "code": "ENTITY_IDENTITY",
                 "status": "PASS" if identity_ok else "ERROR",
-                "message": "Semantic/source IDs are unique and complete." if identity_ok else "Semantic/source IDs are missing or duplicated.",
+                "message": "Semantic/source IDs are unique, complete, and match publication authority."
+                if identity_ok
+                else "Semantic/source IDs are missing, duplicated, or differ from publication authority.",
                 "details": identity if not identity_ok else None,
             }
         )
@@ -379,7 +520,9 @@ def compose_equipment_stage(
             {
                 "code": "REQUIRED_PUBLICATION_FIELDS",
                 "status": "PASS" if not required_issues else "ERROR",
-                "message": "Required publication fields are complete." if not required_issues else "Required publication fields are missing.",
+                "message": "Required publication fields are complete."
+                if not required_issues
+                else "Required publication fields are missing.",
                 "details": required_issues or None,
             }
         )
@@ -390,25 +533,41 @@ def compose_equipment_stage(
             {
                 "code": "CATALOG_ROW_COUNT",
                 "status": "PASS" if rows_ok else "ERROR",
-                "message": f"Rendered catalog row source contains {len(rows)} rows; expected {expected_count}.",
+                "message": f"Rendered catalog row source contains {len(rows)} rows; publication authority expects {expected_count}.",
             }
         )
 
-        column_labels = [str(column.get("label") or "") for column in config.get("columns", []) if isinstance(column, dict)]
+        column_labels = [
+            str(column.get("label") or "")
+            for column in config.get("columns", [])
+            if isinstance(column, dict)
+        ]
         expected_labels = config.get("expectedColumnLabels")
         columns_ok = bool(column_labels) and (
-            not isinstance(expected_labels, list) or column_labels == [str(value) for value in expected_labels]
+            not isinstance(expected_labels, list)
+            or column_labels == [str(value) for value in expected_labels]
         )
         family_report["checks"].append(
             {
                 "code": "COLUMN_CONTRACT",
                 "status": "PASS" if columns_ok else "ERROR",
-                "message": "Configured publication columns are complete." if columns_ok else "Configured publication columns differ from the accepted labels.",
-                "details": {"expected": expected_labels, "actual": column_labels} if not columns_ok else None,
+                "message": "Configured publication columns are complete."
+                if columns_ok
+                else "Configured publication columns differ from the accepted labels.",
+                "details": {"expected": expected_labels, "actual": column_labels}
+                if not columns_ok
+                else None,
             }
         )
 
-        local_ok = config_ok and count_ok and identity_ok and not required_issues and rows_ok and columns_ok
+        local_ok = (
+            config_ok
+            and count_ok
+            and identity_ok
+            and not required_issues
+            and rows_ok
+            and columns_ok
+        )
         if not local_ok:
             family_report["status"] = "FAIL"
             report["families"].append(family_report)
@@ -429,7 +588,12 @@ def compose_equipment_stage(
         if not latex:
             family_report["status"] = "FAIL"
             report["families"].append(family_report)
-            _check(report, "EQUIPMENT_FAMILY_RENDER", "ERROR", f"Equipment family {family} produced no integration LaTeX.")
+            _check(
+                report,
+                "EQUIPMENT_FAMILY_RENDER",
+                "ERROR",
+                f"Equipment family {family} produced no integration LaTeX.",
+            )
             continue
 
         payload = EquipmentPayload(
@@ -446,13 +610,14 @@ def compose_equipment_stage(
 
     complete = (
         report["status"] == "PASS"
-        and [(payload.chapter, payload.family) for payload in payloads] == canonical_targets
+        and [(payload.chapter, payload.family) for payload in payloads]
+        == canonical_targets
     )
     _check(
         report,
         "EQUIPMENT_STAGE_COMPOSITION",
         "PASS" if complete else "ERROR",
-        "Composed all eight frozen Equipment family bodies in Chapters 15–22 order."
+        "Composed all eight Equipment family bodies in Chapters 15–22 order from publication-authoritative corpus membership."
         if complete
         else "Equipment stage composition did not produce the complete Chapters 15–22 payload set.",
         [payload.summary() for payload in payloads],

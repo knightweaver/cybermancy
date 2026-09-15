@@ -35,7 +35,11 @@
     "Tier",
     "Description"
   ],
-  "expectedEntityCount": 59,
+  "historicalAcceptance": {
+    "entityCount": 59,
+    "operative": false,
+    "purpose": "Non-operative evidence from the accepted Step 6 corpus. Current publication cardinality comes from selected publication authority reconciled to Step 4."
+  },
   "family": "consumables",
   "generatedBy": {
     "basisSidecarSchema": "cybermancy-step4-structured-entities-v1.2",

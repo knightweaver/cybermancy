@@ -24,6 +24,7 @@ from rulebook_layout.integration_ast import (
     canonical_ast_sha256,
     family_body_is_exact_raw_latex,
 )
+from rulebook_layout.structured_count_authority import count_authority_descriptor
 
 
 def _builder_module():
@@ -188,15 +189,24 @@ class Step6CharacterOptionsAdapterTests(unittest.TestCase):
 
 
 class Step6CharacterOptionsContractTests(unittest.TestCase):
-    def test_contract_freezes_current_class_subclass_counts(self) -> None:
+    def test_contract_delegates_class_subclass_counts_to_publication_authority(self) -> None:
         contract_path = (
             RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
         )
         contract = json.loads(contract_path.read_text(encoding="utf-8"))
+        classes = contract["regressionExpectations"]["classes"]
         self.assertEqual(
-            contract["regressionExpectations"]["classes"],
-            {"classes": 5, "subclasses": 10},
+            classes["countAuthorities"],
+            {
+                "classes": count_authority_descriptor("classes"),
+                "subclasses": count_authority_descriptor("subclasses"),
+            },
         )
+        historical = classes["historicalAcceptance"]
+        self.assertFalse(historical["operative"])
+        self.assertEqual(historical["classes"], 5)
+        self.assertEqual(historical["subclasses"], 10)
+
         targets = {
             row["adapter"]: row
             for row in contract["structuredTargets"]

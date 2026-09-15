@@ -23,6 +23,7 @@ from rulebook_layout.equipment_integration import (
     compose_equipment_stage,
 )
 from rulebook_layout.integration_ast import canonical_ast_sha256, family_body_is_exact_raw_latex
+from rulebook_layout.structured_count_authority import count_authority_descriptor
 
 
 def _builder_module():
@@ -63,15 +64,44 @@ def _payloads() -> list[EquipmentPayload]:
     ]
 
 
-def _contract(count: int = 1) -> dict:
+def _contract() -> dict:
     return {
         "structuredTargets": [
             {"chapter": chapter, "families": [family], "adapter": "equipment"}
             for chapter, family, _config in EQUIPMENT_FAMILIES
         ],
         "regressionExpectations": {
-            "equipment": {family: count for _chapter, family, _config in EQUIPMENT_FAMILIES}
+            "equipment": {
+                "countAuthorities": {
+                    family: count_authority_descriptor(family)
+                    for _chapter, family, _config in EQUIPMENT_FAMILIES
+                },
+                "historicalAcceptance": {
+                    "counts": {
+                        family: 1 for _chapter, family, _config in EQUIPMENT_FAMILIES
+                    },
+                    "operative": False,
+                },
+            }
         },
+    }
+
+
+def _manifest(count: int = 1) -> dict:
+    return {
+        "publicationInputs": {
+            "structuredFamilies": [
+                {
+                    "generatorFamily": family,
+                    "entityCount": count,
+                    "authority": "CANONICAL-CANDIDATE",
+                    "disposition": "INCLUDE",
+                    "decisionStatus": "DECIDED",
+                    "audience": "player",
+                }
+                for _chapter, family, _config in EQUIPMENT_FAMILIES
+            ]
+        }
     }
 
 
@@ -97,11 +127,12 @@ def _config(chapter: int, family: str) -> dict:
         "family": family,
         "chapter": chapter,
         "title": family.title(),
-        "expectedEntityCount": 1,
+        "historicalAcceptance": {"entityCount": 1, "operative": False},
         "columns": [{"key": "name", "label": "Name", "widthIn": 1.0}],
     }
     if family == "weapons":
-        value["expectedTierCounts"] = {"1": 1}
+        value["tierOrder"] = [1]
+        value["historicalAcceptance"]["tierCounts"] = {"1": 1}
     return value
 
 
@@ -115,6 +146,7 @@ def _sidecar(schema: str = SUPPORTED_SIDECAR_SCHEMA) -> dict:
                 "sourceId": f"source-{index}",
                 "family": family,
                 "name": f"Fixture {family}",
+                "audience": "player",
                 "publicationData": publication,
             }
         )
@@ -145,9 +177,6 @@ class Step6EquipmentAdapterTests(unittest.TestCase):
 
     def test_later_duplicate_family_discards_prior_staged_mutations(self) -> None:
         ast = _ast()
-        # Duplicate Ammunition, the second adapter target. Weapons therefore
-        # succeeds on the stage copy before Ammo fails; the original AST must
-        # still remain completely untouched.
         duplicate = copy.deepcopy(ast["blocks"][1])
         ast["blocks"].append(duplicate)
         before = canonical_ast_sha256(ast)
@@ -179,6 +208,7 @@ class Step6EquipmentCompositionTests(unittest.TestCase):
                 _registry(),
                 config_dir,
                 _contract(),
+                publication_manifest=_manifest(),
             )
         self.assertEqual(report["status"], "PASS", report)
         self.assertEqual([payload.family for payload in payloads], [row[1] for row in EQUIPMENT_FAMILIES])
@@ -198,6 +228,7 @@ class Step6EquipmentCompositionTests(unittest.TestCase):
                 _registry(),
                 config_dir,
                 _contract(),
+                publication_manifest=_manifest(),
             )
         self.assertEqual(payloads, [])
         self.assertEqual(report["status"], "FAIL")
@@ -217,6 +248,7 @@ class Step6EquipmentCompositionTests(unittest.TestCase):
                 _registry(),
                 config_dir,
                 _contract(),
+                publication_manifest=_manifest(),
             )
         self.assertEqual(payloads, [])
         self.assertEqual(report["status"], "FAIL")
@@ -227,9 +259,9 @@ class Step6EquipmentCompositionTests(unittest.TestCase):
             for chapter, family, config_name in EQUIPMENT_FAMILIES:
                 config = _config(chapter, family)
                 if family == "weapons":
-                    # Force a weapon-only render contract failure after the
-                    # ordinary family preconditions have passed.
-                    config["expectedTierCounts"] = {"1": 2}
+                    # Keep metadata/count authority valid but make the structural
+                    # weapon Tier contract exclude the fixture's Tier 1 entity.
+                    config["tierOrder"] = [2]
                 (config_dir / config_name).write_text(
                     json.dumps(config),
                     encoding="utf-8",
@@ -239,6 +271,7 @@ class Step6EquipmentCompositionTests(unittest.TestCase):
                 _registry(),
                 config_dir,
                 _contract(),
+                publication_manifest=_manifest(),
             )
 
         self.assertEqual(payloads, [])

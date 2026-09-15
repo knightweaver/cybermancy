@@ -50,7 +50,11 @@
     "Base Score",
     "Features"
   ],
-  "expectedEntityCount": 36,
+  "historicalAcceptance": {
+    "entityCount": 36,
+    "operative": false,
+    "purpose": "Non-operative evidence from the accepted Step 6 corpus. Current publication cardinality comes from selected publication authority reconciled to Step 4."
+  },
   "family": "armors",
   "generatedBy": {
     "basisSidecarSchema": "cybermancy-step4-structured-entities-v1.3",

@@ -94,7 +94,26 @@
   ],
   "regressionExpectations": {
     "characterOrigins": {"ancestories": 18, "communities": 9, "artwork": 27},
-    "classes": {"classes": 5, "subclasses": 10},
+    "classes": {
+      "countAuthorities": {
+        "classes": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=classes].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=classes]",
+          "reconciliation": "exact-before-render"
+        },
+        "subclasses": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=subclasses].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=subclasses]",
+          "reconciliation": "exact-before-render"
+        }
+      },
+      "historicalAcceptance": {
+        "classes": 5,
+        "subclasses": 10,
+        "operative": false,
+        "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapter 12 ClassPackage visual grammar."
+      }
+    },
     "domains": {
       "countAuthority": {
         "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=domains].entityCount",
@@ -109,14 +128,62 @@
       }
     },
     "equipment": {
-      "weapons": 47,
-      "ammo": 13,
-      "armors": 36,
-      "cybernetics": 103,
-      "drones-devices": 19,
-      "consumables": 59,
-      "mods": 20,
-      "loot": 60
+      "countAuthorities": {
+        "weapons": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=weapons].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=weapons]",
+          "reconciliation": "exact-before-render"
+        },
+        "ammo": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=ammo].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=ammo]",
+          "reconciliation": "exact-before-render"
+        },
+        "armors": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=armors].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=armors]",
+          "reconciliation": "exact-before-render"
+        },
+        "cybernetics": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=cybernetics].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=cybernetics]",
+          "reconciliation": "exact-before-render"
+        },
+        "drones-devices": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=drones-devices].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=drones-devices]",
+          "reconciliation": "exact-before-render"
+        },
+        "consumables": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=consumables].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=consumables]",
+          "reconciliation": "exact-before-render"
+        },
+        "mods": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=mods].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=mods]",
+          "reconciliation": "exact-before-render"
+        },
+        "loot": {
+          "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=loot].entityCount",
+          "normalizedActual": "step4-structured-sidecar:entities[family=loot]",
+          "reconciliation": "exact-before-render"
+        }
+      },
+      "historicalAcceptance": {
+        "counts": {
+          "weapons": 47,
+          "ammo": 13,
+          "armors": 36,
+          "cybernetics": 103,
+          "drones-devices": 19,
+          "consumables": 59,
+          "mods": 20,
+          "loot": 60
+        },
+        "operative": false,
+        "purpose": "Non-operative evidence for the corpus used to accept the frozen Chapters 15–22 Equipment visual grammars."
+      }
     },
     "ice": {"entries": 13},
     "adversaries": {

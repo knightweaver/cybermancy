@@ -255,8 +255,9 @@ def compose_class_stage(
     source_root: Path,
     work_dir: Path,
     contract: dict[str, Any],
+    publication_manifest: dict[str, Any] | None = None,
 ) -> tuple[ClassStagePayload | None, dict[str, Any]]:
-    report = _report("cybermancy-step6-class-integration-compose-v1")
+    report = _report("cybermancy-step6-class-integration-compose-v2")
     target = _target(contract, "class-package")
     composition = (
         config.get("composition") if isinstance(config.get("composition"), dict) else {}
@@ -267,14 +268,16 @@ def compose_class_stage(
         else {}
     )
     regression = contract.get("regressionExpectations", {}).get("classes", {})
-    expected_classes = (
-        int(regression.get("classes") or 0) if isinstance(regression, dict) else 0
-    )
-    expected_subclasses = (
-        int(regression.get("subclasses") or 0)
-        if isinstance(regression, dict)
-        else 0
-    )
+    descriptors = regression.get("countAuthorities") if isinstance(regression, dict) else None
+    historical = regression.get("historicalAcceptance") if isinstance(regression, dict) else None
+    descriptor_errors: list[str] = []
+    for family in CLASS_FAMILIES:
+        descriptor_errors.extend(
+            validate_count_authority_descriptor(
+                family,
+                descriptors.get(family) if isinstance(descriptors, dict) else None,
+            )
+        )
 
     _check(
         report,
@@ -294,7 +297,7 @@ def compose_class_stage(
         report,
         "CLASS_STAGE_CONFIG",
         "PASS" if config_ok else "ERROR",
-        "Accepted Chapter 12 ClassPackage config loaded."
+        "Accepted Chapter 12 ClassPackage visual grammar loaded."
         if config_ok
         else "ClassPackage config differs from the accepted Chapter 12 contract.",
     )
@@ -312,32 +315,80 @@ def compose_class_stage(
         else "Chapter 12 structured target differs from the integration contract.",
         target,
     )
-    regression_ok = expected_classes > 0 and expected_subclasses > 0
-    _check(
-        report,
-        "CLASS_STAGE_REGRESSION_CONTRACT",
-        "PASS" if regression_ok else "ERROR",
-        f"Frozen Class corpus is {expected_classes} Classes / {expected_subclasses} Subclasses."
-        if regression_ok
-        else "Class regression counts are missing.",
-    )
-
-    classes = _family_entities(sidecar, "classes")
-    subclasses = _family_entities(sidecar, "subclasses")
-    counts_ok = (
-        len(classes) == expected_classes and len(subclasses) == expected_subclasses
+    authority_contract_ok = (
+        isinstance(descriptors, dict)
+        and not descriptor_errors
+        and isinstance(historical, dict)
+        and historical.get("operative") is False
     )
     _check(
         report,
-        "CLASS_STAGE_CORPUS_COUNTS",
-        "PASS" if counts_ok else "ERROR",
-        "Step 4 Class/Subclass counts match the frozen corpus."
-        if counts_ok
-        else "Step 4 Class/Subclass counts differ from the frozen corpus.",
-        {"classes": len(classes), "subclasses": len(subclasses)},
+        "CLASS_STAGE_COUNT_AUTHORITY_CONTRACT",
+        "PASS" if authority_contract_ok else "ERROR",
+        "Class/Subclass cardinality is delegated to publication authority; historical corpus counts are non-operative."
+        if authority_contract_ok
+        else "Class/Subclass count-authority descriptors are missing/malformed or historical counts are still operative.",
+        {
+            "countAuthorities": descriptors,
+            "historicalAcceptance": historical,
+            "errors": descriptor_errors,
+        },
     )
     if report["status"] != "PASS":
         return None, report
+
+    manifest_path: Path | None = None
+    if publication_manifest is None:
+        try:
+            manifest_path = select_latest(
+                source_root.parent / "manifests",
+                "cybermancy-rulebook-publication-manifest-v*.json",
+            )
+            publication_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            _check(
+                report,
+                "CLASS_STAGE_PUBLICATION_MANIFEST",
+                "ERROR",
+                f"Could not select the current committed publication manifest: {exc}",
+            )
+            return None, report
+    _check(
+        report,
+        "CLASS_STAGE_PUBLICATION_MANIFEST",
+        "PASS",
+        "Selected committed publication manifest loaded for Class/Subclass count authority.",
+        str(manifest_path) if manifest_path else "injected-test-manifest",
+    )
+
+    authority = reconcile_structured_count_authority(
+        publication_manifest,
+        sidecar,
+        families=CLASS_FAMILIES,
+        descriptors=descriptors if isinstance(descriptors, dict) else {},
+    )
+    report["countAuthority"] = authority
+    authority_ok = authority.get("status") == "PASS"
+    _check(
+        report,
+        "CLASS_STAGE_COUNT_AUTHORITY",
+        "PASS" if authority_ok else "ERROR",
+        "Class/Subclass counts and semantic identities reconcile from publication authority through Step 4."
+        if authority_ok
+        else "Class/Subclass publication authority does not reconcile to the Step 4 structured sidecar.",
+        authority,
+    )
+    if not authority_ok:
+        return None, report
+
+    class_authority = authority["families"]["classes"]
+    subclass_authority = authority["families"]["subclasses"]
+    expected_classes = int(class_authority["expectedCount"])
+    expected_subclasses = int(subclass_authority["expectedCount"])
+    expected_class_ids = sorted(str(value) for value in class_authority["semanticIds"])
+    expected_subclass_ids = sorted(
+        str(value) for value in subclass_authority["semanticIds"]
+    )
 
     try:
         targets = discover_class_package_targets(sidecar)
@@ -353,7 +404,7 @@ def compose_class_stage(
         report,
         "CLASS_STAGE_DISCOVERY",
         "PASS" if len(targets) == expected_classes else "ERROR",
-        f"Discovered {len(targets)} ClassPackage targets.",
+        f"Discovered {len(targets)} ClassPackage targets; publication authority expects {expected_classes} Classes.",
         targets,
     )
     if report["status"] != "PASS":
@@ -400,10 +451,6 @@ def compose_class_stage(
         row["subclassCount"] = len(package_subclasses)
         row["latexSha256"] = hashlib.sha256(body.encode("utf-8")).hexdigest()
 
-    expected_class_ids = sorted(str(row.get("semanticId") or "") for row in classes)
-    expected_subclass_ids = sorted(
-        str(row.get("semanticId") or "") for row in subclasses
-    )
     coverage_ok = (
         len(seen_classes) == expected_classes
         and len(set(seen_classes)) == expected_classes
@@ -416,9 +463,15 @@ def compose_class_stage(
         report,
         "CLASS_STAGE_COVERAGE",
         "PASS" if coverage_ok else "ERROR",
-        "Every Class and Subclass is consumed exactly once by Chapter 12 ClassPackages."
+        "Every publication-authoritative Class and Subclass is consumed exactly once by Chapter 12 ClassPackages."
         if coverage_ok
-        else "ClassPackage coverage omitted, duplicated, or misassigned a Class/Subclass.",
+        else "ClassPackage coverage omitted, duplicated, misassigned, or substituted a Class/Subclass semantic identity.",
+        {
+            "expectedClasses": expected_classes,
+            "renderedClasses": len(seen_classes),
+            "expectedSubclasses": expected_subclasses,
+            "renderedSubclasses": len(seen_subclasses),
+        },
     )
     complete = (
         report["status"] == "PASS"

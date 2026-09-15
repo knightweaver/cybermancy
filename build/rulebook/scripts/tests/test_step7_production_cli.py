@@ -14,6 +14,10 @@ SCRIPTS = REPO_ROOT / "build/rulebook/scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
+from rulebook_layout.structured_count_authority import (
+    CHARACTER_OPTION_COUNT_FAMILIES,
+    EQUIPMENT_COUNT_FAMILIES,
+)
 from rulebook_production.contract import canonical_text_sha256, load_production_contract
 from rulebook_production.orchestrator import build_profile, stage_commands
 from rulebook_production.preflight import _run_step4_validate
@@ -84,14 +88,9 @@ class ProductionCliTests(unittest.TestCase):
         self.assertIn("platform independent libraries", result["stderr"])
 
     def test_step4_validation_fails_closed_on_malformed_output(self):
-        completed = SimpleNamespace(
-            returncode=0,
-            stdout="build-rulebook-source.py: PASS\n",
-            stderr="",
-        )
+        completed = SimpleNamespace(returncode=0, stdout="build-rulebook-source.py: PASS\n", stderr="")
         with patch("rulebook_production.preflight.subprocess.run", return_value=completed):
             result = _run_step4_validate(REPO_ROOT)
-
         self.assertEqual(result["status"], "FAIL")
         self.assertIn("structured JSON", result["report"]["error"])
 
@@ -140,11 +139,18 @@ class ProductionCliTests(unittest.TestCase):
                 },
             )
             step6 = repo / contract["authorities"]["step6IntegrationContract"]["path"]
-            write_json(
-                step6,
-                {"profiles": {"complete-rulebook": {"chapters": [1, 2]}}},
-            )
+            write_json(step6, {"profiles": {"complete-rulebook": {"chapters": [1, 2]}}})
+
             domain_ids = [f"entity:domains:test-{index:03d}" for index in range(74)]
+            phase2_entities = [
+                {
+                    "semanticId": f"entity:{family}:fixture",
+                    "family": family,
+                    "name": f"Fixture {family}",
+                    "audience": "player",
+                }
+                for family in (*CHARACTER_OPTION_COUNT_FAMILIES, *EQUIPMENT_COUNT_FAMILIES)
+            ]
             write_json(
                 repo / "build/rulebook/source/metadata/structured-entities.json",
                 {
@@ -159,13 +165,16 @@ class ProductionCliTests(unittest.TestCase):
                         "entityCounts": {"adversaries": 0, "environments": 0}
                     },
                     "entities": [
-                        {
-                            "semanticId": semantic_id,
-                            "family": "domains",
-                            "name": semantic_id,
-                            "audience": "player",
-                        }
-                        for semantic_id in domain_ids
+                        *[
+                            {
+                                "semanticId": semantic_id,
+                                "family": "domains",
+                                "name": semantic_id,
+                                "audience": "player",
+                            }
+                            for semantic_id in domain_ids
+                        ],
+                        *phase2_entities,
                     ],
                 },
             )
@@ -207,6 +216,9 @@ class ProductionCliTests(unittest.TestCase):
             paths = profile_paths(repo, contract, "complete-rulebook")
             self.assertEqual(result["status"], "PASS")
             self.assertEqual(result["chapterCount"], 2)
+            for family in (*CHARACTER_OPTION_COUNT_FAMILIES, *EQUIPMENT_COUNT_FAMILIES):
+                report_key = "dronesDevices" if family == "drones-devices" else family
+                self.assertEqual(result["structuredEntityCounts"][report_key], 1)
             self.assertEqual(result["structuredEntityCounts"]["domains"], 3)
             self.assertEqual(result["structuredEntityCounts"]["domainCards"], 74)
             self.assertEqual(result["structuredEntityCounts"]["adversaries"], 0)

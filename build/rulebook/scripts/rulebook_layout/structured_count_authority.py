@@ -3,7 +3,24 @@ from __future__ import annotations
 from typing import Any, Iterable
 
 
-MUTABLE_STRUCTURED_FAMILIES = ("domains", "adversaries", "environments")
+CHARACTER_OPTION_COUNT_FAMILIES = ("classes", "subclasses")
+EQUIPMENT_COUNT_FAMILIES = (
+    "weapons",
+    "ammo",
+    "armors",
+    "cybernetics",
+    "drones-devices",
+    "consumables",
+    "mods",
+    "loot",
+)
+MUTABLE_STRUCTURED_FAMILIES = (
+    "domains",
+    *CHARACTER_OPTION_COUNT_FAMILIES,
+    *EQUIPMENT_COUNT_FAMILIES,
+    "adversaries",
+    "environments",
+)
 
 _FAMILY_POLICIES: dict[str, dict[str, str]] = {
     "domains": {
@@ -11,6 +28,46 @@ _FAMILY_POLICIES: dict[str, dict[str, str]] = {
         "declaredContainer": "domainSemantics",
         "declaredField": "cardCount",
         "normalizedActual": "step4-structured-sidecar:domainSemantics.cardCount",
+    },
+    "classes": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=classes]",
+    },
+    "subclasses": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=subclasses]",
+    },
+    "weapons": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=weapons]",
+    },
+    "ammo": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=ammo]",
+    },
+    "armors": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=armors]",
+    },
+    "cybernetics": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=cybernetics]",
+    },
+    "drones-devices": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=drones-devices]",
+    },
+    "consumables": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=consumables]",
+    },
+    "mods": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=mods]",
+    },
+    "loot": {
+        "audience": "player",
+        "normalizedActual": "step4-structured-sidecar:entities[family=loot]",
     },
     "adversaries": {
         "audience": "gm",
@@ -120,8 +177,16 @@ def manifest_structured_counts(
     }
 
 
-def _declared_sidecar_count(sidecar: dict[str, Any], family: str) -> int:
-    _policy(family)
+def _declared_sidecar_count(
+    sidecar: dict[str, Any], family: str, *, row_count: int
+) -> int:
+    policy = _policy(family)
+    if "declaredContainer" not in policy:
+        # Step 4 already normalizes these families directly into entities[].
+        # Their normalized cardinality is therefore the exact family-row count;
+        # no second generated count field is introduced merely to restate it.
+        return row_count
+
     if family == "domains":
         semantics = sidecar.get("domainSemantics")
         if not isinstance(semantics, dict):
@@ -148,12 +213,12 @@ def sidecar_family_state(sidecar: dict[str, Any], family: str) -> dict[str, Any]
     entities = sidecar.get("entities")
     if not isinstance(entities, list):
         raise ValueError("Step 4 structured sidecar has no entities list")
-    declared = _declared_sidecar_count(sidecar, family)
     rows = [
         entity
         for entity in entities
         if isinstance(entity, dict) and str(entity.get("family") or "") == family
     ]
+    declared = _declared_sidecar_count(sidecar, family, row_count=len(rows))
     if not rows and declared > 0:
         raise ValueError(f"Step 4 structured sidecar is missing family {family!r}")
 
