@@ -14,7 +14,11 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from rulebook_layout.encounter_authority import count_authority_descriptor as encounter_count_authority_descriptor
-from rulebook_layout.structured_count_authority import count_authority_descriptor
+from rulebook_layout.structured_count_authority import (
+    CHARACTER_OPTION_COUNT_FAMILIES,
+    EQUIPMENT_COUNT_FAMILIES,
+    count_authority_descriptor,
+)
 
 
 def load_json(path: Path) -> dict:
@@ -29,14 +33,8 @@ class Step6IntegrationContractTests(unittest.TestCase):
     def test_profiles_and_reserved_chapter(self) -> None:
         complete = self.contract["profiles"]["complete-rulebook"]
         player = self.contract["profiles"]["player-guide"]
-        self.assertEqual(
-            complete["chapters"],
-            [*range(1, 13), *range(14, 33)],
-        )
-        self.assertEqual(
-            player["chapters"],
-            [*range(1, 13), *range(14, 23)],
-        )
+        self.assertEqual(complete["chapters"], [*range(1, 13), *range(14, 33)])
+        self.assertEqual(player["chapters"], [*range(1, 13), *range(14, 23)])
         self.assertEqual(complete["audiences"], ["shared", "player", "gm"])
         self.assertEqual(player["audiences"], ["shared", "player"])
         self.assertNotIn(13, complete["chapters"])
@@ -53,20 +51,11 @@ class Step6IntegrationContractTests(unittest.TestCase):
         chapters = [target["chapter"] for target in targets]
         self.assertEqual(len(chapters), len(set(chapters)))
         expected = {
-            12: ["classes", "subclasses"],
-            14: ["domains"],
-            15: ["weapons"],
-            16: ["ammo"],
-            17: ["armors"],
-            18: ["cybernetics"],
-            19: ["drones-devices"],
-            20: ["consumables"],
-            21: ["mods"],
-            22: ["loot"],
-            29: ["features"],
-            30: ["adversaries"],
-            31: ["environments"],
-            32: ["adversaries-features"],
+            12: ["classes", "subclasses"], 14: ["domains"], 15: ["weapons"],
+            16: ["ammo"], 17: ["armors"], 18: ["cybernetics"],
+            19: ["drones-devices"], 20: ["consumables"], 21: ["mods"],
+            22: ["loot"], 29: ["features"], 30: ["adversaries"],
+            31: ["environments"], 32: ["adversaries-features"],
         }
         self.assertEqual({target["chapter"]: target["families"] for target in targets}, expected)
         for target in targets:
@@ -125,27 +114,39 @@ class Step6IntegrationContractTests(unittest.TestCase):
             [(item["chapter"], item["family"], item["config"]) for item in registry["families"]],
             [(chapter, family, config) for chapter, family, config, _ in expected],
         )
-        for chapter, family, config_name, expected_count in expected:
+        for chapter, family, config_name, historical_count in expected:
             config = load_json(LAYOUT_DIR / "equipment" / config_name)
             self.assertEqual(config["chapter"], chapter, family)
             self.assertEqual(config["family"], family)
-            self.assertEqual(config["expectedEntityCount"], expected_count)
+            self.assertNotIn("expectedEntityCount", config)
+            self.assertNotIn("expectedTierCounts", config)
+            self.assertFalse(config["historicalAcceptance"]["operative"])
+            self.assertEqual(config["historicalAcceptance"]["entityCount"], historical_count)
+            if family == "weapons":
+                self.assertEqual(config["tierOrder"], [1, 2, 3, 4])
             if family not in {"weapons", "ammo"}:
                 self.assertEqual(config.get("configStatus"), "accepted", family)
             stem = config.get("outputStem")
             if stem:
                 self.assertIn(f"Chapter{chapter}", stem, family)
 
-    def test_frozen_corpus_counts(self) -> None:
+    def test_frozen_corpus_counts_and_mutable_count_authorities(self) -> None:
         regression = self.contract["regressionExpectations"]
 
-        origins = load_json(
-            LAYOUT_DIR / "character-origins" / "character-origins-layout-v1.json"
-        )
+        origins = load_json(LAYOUT_DIR / "character-origins" / "character-origins-layout-v1.json")
         origin_counts = origins["freeze"]["acceptanceCorpus"]
         self.assertEqual(origin_counts["ancestories"], regression["characterOrigins"]["ancestories"])
         self.assertEqual(origin_counts["communities"], regression["characterOrigins"]["communities"])
         self.assertEqual(origin_counts["stagedArtwork"], regression["characterOrigins"]["artwork"])
+
+        class_regression = regression["classes"]
+        self.assertEqual(
+            class_regression["countAuthorities"],
+            {family: count_authority_descriptor(family) for family in CHARACTER_OPTION_COUNT_FAMILIES},
+        )
+        self.assertFalse(class_regression["historicalAcceptance"]["operative"])
+        self.assertEqual(class_regression["historicalAcceptance"]["classes"], 5)
+        self.assertEqual(class_regression["historicalAcceptance"]["subclasses"], 10)
 
         domains = load_json(LAYOUT_DIR / "domains" / "domain-package-v1.json")
         domain_descriptor = count_authority_descriptor("domains")
@@ -160,6 +161,13 @@ class Step6IntegrationContractTests(unittest.TestCase):
         self.assertEqual(historical_domain["domainCount"], 3)
         self.assertEqual(historical_domain["cardCount"], 73)
 
+        equipment_regression = regression["equipment"]
+        self.assertEqual(
+            equipment_regression["countAuthorities"],
+            {family: count_authority_descriptor(family) for family in EQUIPMENT_COUNT_FAMILIES},
+        )
+        self.assertFalse(equipment_regression["historicalAcceptance"]["operative"])
+
         ice = load_json(LAYOUT_DIR / "ice" / "ice-reference-package-v1.json")
         self.assertEqual(ice["publicationPolicy"]["expectedIceTotal"], regression["ice"]["entries"])
 
@@ -167,10 +175,7 @@ class Step6IntegrationContractTests(unittest.TestCase):
         environments = load_json(LAYOUT_DIR / "encounters" / "environment-package-v1.json")
         features = load_json(LAYOUT_DIR / "encounters" / "adversary-feature-reference-v1.json")
 
-        for family, config in (
-            ("adversaries", adversaries),
-            ("environments", environments),
-        ):
+        for family, config in (("adversaries", adversaries), ("environments", environments)):
             descriptor = encounter_count_authority_descriptor(family)
             self.assertEqual(regression[family]["countAuthority"], descriptor)
             self.assertEqual(config["publicationPolicy"]["countAuthority"], descriptor)
@@ -180,15 +185,8 @@ class Step6IntegrationContractTests(unittest.TestCase):
             self.assertEqual(config["selection"]["mode"], "full-corpus")
             self.assertEqual(config["fastPlayPolicy"], "render structured Fast Play only when present")
 
-        self.assertEqual(
-            adversaries["publicationPolicy"]["ordering"],
-            ["normalized-name", "semanticId"],
-        )
-        self.assertEqual(
-            environments["publicationPolicy"]["ordering"],
-            ["tier", "classification", "name", "semanticId"],
-        )
-
+        self.assertEqual(adversaries["publicationPolicy"]["ordering"], ["normalized-name", "semanticId"])
+        self.assertEqual(environments["publicationPolicy"]["ordering"], ["tier", "classification", "name", "semanticId"])
         self.assertEqual(adversaries["lifecycle"]["version"], "v1.1")
         self.assertEqual(environments["lifecycle"]["version"], "v1.0")
         self.assertEqual(
