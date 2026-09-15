@@ -8,7 +8,11 @@ from pathlib import Path
 from typing import Any, Callable
 
 from rulebook_layout.encounter_authority import sidecar_encounter_counts
-from rulebook_layout.structured_count_authority import sidecar_family_state
+from rulebook_layout.structured_count_authority import (
+    CHARACTER_OPTION_COUNT_FAMILIES,
+    EQUIPMENT_COUNT_FAMILIES,
+    sidecar_family_state,
+)
 
 from .contract import (
     canonical_text_sha256,
@@ -167,6 +171,11 @@ def build_profile(
         sidecar = load_json(
             repo_root / "build/rulebook/source/metadata/structured-entities.json"
         )
+        for family in (*CHARACTER_OPTION_COUNT_FAMILIES, *EQUIPMENT_COUNT_FAMILIES):
+            report_key = "dronesDevices" if family == "drones-devices" else family
+            structured_counts[report_key] = int(
+                sidecar_family_state(sidecar, family)["actualCount"]
+            )
         domain_state = sidecar_family_state(sidecar, "domains")
         domain_packages = sidecar.get("domainPackages")
         if not isinstance(domain_packages, list):
