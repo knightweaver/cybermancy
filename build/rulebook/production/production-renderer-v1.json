@@ -55,7 +55,7 @@
       "The Step 4 source commit and manifest provenance must match the selected freeze artifacts.",
       "Current canonical authored and structured-source digests must match the selected publication manifest.",
       "The normalized source-hashes inventory must match the selected manifest authority and current canonical inputs.",
-      "The Step 4 Domain, Adversary, and Environment corpus counts and semantic IDs must reconcile to the selected publication manifest before rendering.",
+      "All configured mutable structured-family corpus counts and semantic IDs must reconcile to the selected publication manifest through Step 4 before rendering.",
       "The Adversary Feature publication-selection status must be APPLIED and reconcile 419 canonical entries to 344 representatives."
     ]
   },
@@ -119,6 +119,56 @@
       "normalizedActual": "step4-structured-sidecar:domainSemantics.cardCount",
       "reconciliation": "exact-before-render"
     },
+    "classes": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=classes].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=classes]",
+      "reconciliation": "exact-before-render"
+    },
+    "subclasses": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=subclasses].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=subclasses]",
+      "reconciliation": "exact-before-render"
+    },
+    "weapons": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=weapons].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=weapons]",
+      "reconciliation": "exact-before-render"
+    },
+    "ammo": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=ammo].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=ammo]",
+      "reconciliation": "exact-before-render"
+    },
+    "armors": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=armors].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=armors]",
+      "reconciliation": "exact-before-render"
+    },
+    "cybernetics": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=cybernetics].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=cybernetics]",
+      "reconciliation": "exact-before-render"
+    },
+    "drones-devices": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=drones-devices].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=drones-devices]",
+      "reconciliation": "exact-before-render"
+    },
+    "consumables": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=consumables].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=consumables]",
+      "reconciliation": "exact-before-render"
+    },
+    "mods": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=mods].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=mods]",
+      "reconciliation": "exact-before-render"
+    },
+    "loot": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=loot].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=loot]",
+      "reconciliation": "exact-before-render"
+    },
     "adversaries": {
       "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries].entityCount",
       "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
@@ -134,16 +184,6 @@
     "ancestories": 18,
     "communities": 9,
     "characterOriginArtwork": 27,
-    "classes": 5,
-    "subclasses": 10,
-    "weapons": 47,
-    "ammo": 13,
-    "armors": 36,
-    "cybernetics": 103,
-    "dronesDevices": 19,
-    "consumables": 59,
-    "mods": 20,
-    "loot": 60,
     "ice": 13,
     "adversaryFeaturesCanonical": 419,
     "adversaryFeaturesPublished": 344
