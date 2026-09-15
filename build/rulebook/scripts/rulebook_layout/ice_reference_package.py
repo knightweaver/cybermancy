@@ -5,6 +5,10 @@ from typing import Any
 
 from rulebook_layout.ice_reference import compose_ice_reference
 from rulebook_layout.ice_reference_refined import _chapter_header, _group_tex
+from rulebook_layout.projection_authority import (
+    sidecar_ice_projection_state,
+    validate_projection_authority_descriptor,
+)
 
 
 def runtime_config(config: dict[str, Any]) -> dict[str, Any]:
@@ -53,14 +57,51 @@ def _productionize_report(report: dict[str, Any]) -> None:
             row["message"] = message
 
 
+def _projection_check(
+    sidecar: dict[str, Any], config: dict[str, Any]
+) -> tuple[dict[str, Any] | None, list[str]]:
+    policy = (
+        config.get("publicationPolicy")
+        if isinstance(config.get("publicationPolicy"), dict)
+        else {}
+    )
+    errors = validate_projection_authority_descriptor(
+        "ice", policy.get("projectionAuthority")
+    )
+    if errors:
+        return None, errors
+    try:
+        return sidecar_ice_projection_state(sidecar), []
+    except Exception as exc:
+        return None, [str(exc)]
+
+
 def compose_ice_reference_package(
     sidecar: dict[str, Any],
     config: dict[str, Any],
 ) -> tuple[dict[str, Any] | None, dict[str, Any], dict[str, Any]]:
     """Compose ICEReferencePackage v1 from Step 4 normalized semantics."""
+    projection, projection_errors = _projection_check(sidecar, config)
     compat = runtime_config(config)
     view, report = compose_ice_reference(sidecar, compat)
     _productionize_report(report)
+
+    projection_check: dict[str, Any] = {
+        "code": "ICE_REFERENCE_PROJECTION_AUTHORITY",
+        "status": "ERROR" if projection_errors else "PASS",
+        "message": (
+            "ICEReferencePackage projection authority failed."
+            if projection_errors
+            else "ICEReferencePackage consumes the complete validated dynamic Step 4 ICE projection."
+        ),
+    }
+    projection_check["details"] = projection_errors or projection
+    report.setdefault("checks", []).append(projection_check)
+    if projection_errors:
+        report["status"] = "FAIL"
+        report.setdefault("errors", []).append(projection_check)
+        view = None
+
     if view is not None:
         package = view.pop("prototype", {})
         if not isinstance(package, dict):
@@ -70,6 +111,10 @@ def compose_ice_reference_package(
         package["version"] = str(lifecycle.get("version") or "v1.0")
         package["status"] = str(lifecycle.get("status") or "test-fixture")
         package["mode"] = str(selection.get("mode") or package.get("mode") or "full-corpus")
+        if projection is not None:
+            package["sourceFeatureCount"] = projection["sourceCount"]
+            package["entryCount"] = projection["projectedCount"]
+            package["groupCounts"] = dict(projection["groupCounts"])
         view["package"] = package
     return view, report, compat
 
