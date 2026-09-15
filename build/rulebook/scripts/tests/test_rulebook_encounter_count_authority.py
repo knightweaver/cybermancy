@@ -24,8 +24,10 @@ from rulebook_production.contract import canonical_text_sha256
 
 STEP6_CONTRACT = RULEBOOK_DIR / "layout" / "integration" / "step6-integration-v1.json"
 PRODUCTION_CONTRACT = RULEBOOK_DIR / "production" / "production-renderer-v1.json"
+ICE_CONFIG = RULEBOOK_DIR / "layout" / "ice" / "ice-reference-package-v1.json"
 ADVERSARY_CONFIG = RULEBOOK_DIR / "layout" / "encounters" / "adversary-package-v1.json"
 ENVIRONMENT_CONFIG = RULEBOOK_DIR / "layout" / "encounters" / "environment-package-v1.json"
+FEATURE_CONFIG = RULEBOOK_DIR / "layout" / "encounters" / "adversary-feature-reference-v1.json"
 
 
 def _load(path: Path) -> dict:
@@ -115,7 +117,7 @@ class EncounterCountAuthorityGrowthTests(unittest.TestCase):
     def test_wrong_audience_and_wrong_chapter_fail(self) -> None:
         sidecar = _sidecar(adversaries=1, environments=1)
         sidecar["entities"][0]["audience"] = "player"
-        with self.assertRaisesRegex(ValueError, "non-GM"):
+        with self.assertRaisesRegex(ValueError, "outside allowed audiences"):
             sidecar_encounter_state(sidecar)
 
         contract = _load(STEP6_CONTRACT)
@@ -147,24 +149,24 @@ class EncounterContractStabilityTests(unittest.TestCase):
         package_bindings = {row["path"]: row["sha256"] for row in production["frozenPackageBindings"]}
         expected_paths = {
             "build/rulebook/layout/integration/step6-integration-v1.json": step6_binding["sha256"],
+            "build/rulebook/layout/ice/ice-reference-package-v1.json": package_bindings["build/rulebook/layout/ice/ice-reference-package-v1.json"],
             "build/rulebook/layout/encounters/adversary-package-v1.json": package_bindings["build/rulebook/layout/encounters/adversary-package-v1.json"],
             "build/rulebook/layout/encounters/environment-package-v1.json": package_bindings["build/rulebook/layout/encounters/environment-package-v1.json"],
+            "build/rulebook/layout/encounters/adversary-feature-reference-v1.json": package_bindings["build/rulebook/layout/encounters/adversary-feature-reference-v1.json"],
         }
         for relative, expected in expected_paths.items():
             actual = canonical_text_sha256((RULEBOOK_DIR.parent.parent / relative).read_bytes())
             self.assertEqual(actual, expected, relative)
 
-        unchanged_bindings = {
-            row["path"]: row["sha256"]
-            for row in production["frozenPackageBindings"]
-            if row["path"] not in {
-                "build/rulebook/layout/encounters/adversary-package-v1.json",
-                "build/rulebook/layout/encounters/environment-package-v1.json",
-            }
-        }
+        # Phase 3 intentionally changes the integration, ICE, and Chapter 32
+        # bindings. The already-accepted Adversary/Environment grammars stay byte-stable.
         self.assertEqual(
-            unchanged_bindings["build/rulebook/layout/encounters/adversary-feature-reference-v1.json"],
-            "1baa4a3aaa34581451f220f2ac6ce221c320b1f7ea0c361146c76a901931e4cc",
+            package_bindings["build/rulebook/layout/encounters/adversary-package-v1.json"],
+            "a25427c9afed695043d5c220c98446ed1690a3dfb0b443a66e6c709b8b70a22b",
+        )
+        self.assertEqual(
+            package_bindings["build/rulebook/layout/encounters/environment-package-v1.json"],
+            "da1c57d62c5de2c3d2d4d305349d498054bc0ff16955337e3fbecc20964e4007",
         )
 
     def test_layout_profiles_ordering_and_release_names_are_unchanged(self) -> None:
