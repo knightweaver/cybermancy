@@ -26,7 +26,7 @@
     },
     "step6IntegrationContract": {
       "path": "build/rulebook/layout/integration/step6-integration-v1.json",
-      "sha256": "6e8f23f4739dafb48f208e8e93681dba6f4cf72cdca7a2d560d637cfb03225d3",
+      "sha256": "b46ff8b46ed742046d52d1d7fd49d5d090e145216e9cc45245b4564f8cc339be",
       "status": "accepted"
     },
     "generatedPublicationSource": {
@@ -109,10 +109,10 @@
     {"path": "build/rulebook/layout/equipment/consumables-v1.json", "sha256": "28d83c78fb0d79b1828e8a3b834775277934284ef89b93a6ea5363c4a1d25e58"},
     {"path": "build/rulebook/layout/equipment/mods-v1.json", "sha256": "f2a2a63946cd80160480dd38c7129c99d8657aaeadcf923a18d49f828263fac0"},
     {"path": "build/rulebook/layout/equipment/loot-v1.json", "sha256": "707f479f53bb7d75a693de30456a18bb5ee9f837e04ffd292919eed46c1a0a47"},
-    {"path": "build/rulebook/layout/ice/ice-reference-package-v1.json", "sha256": "ec98c0a0a90fc84e12e6868fd62bfdfe544feda9e3b0609eb739388cf3fb1e16"},
+    {"path": "build/rulebook/layout/ice/ice-reference-package-v1.json", "sha256": "fd66d3a50b82689d9b4f3484a37ba4f556703c55c82208baf27718e85ca6a8e7"},
     {"path": "build/rulebook/layout/encounters/adversary-package-v1.json", "sha256": "a25427c9afed695043d5c220c98446ed1690a3dfb0b443a66e6c709b8b70a22b"},
     {"path": "build/rulebook/layout/encounters/environment-package-v1.json", "sha256": "da1c57d62c5de2c3d2d4d305349d498054bc0ff16955337e3fbecc20964e4007"},
-    {"path": "build/rulebook/layout/encounters/adversary-feature-reference-v1.json", "sha256": "1baa4a3aaa34581451f220f2ac6ce221c320b1f7ea0c361146c76a901931e4cc"}
+    {"path": "build/rulebook/layout/encounters/adversary-feature-reference-v1.json", "sha256": "416858a53aa4668ecb30ea841299f4f06f3e4a328301d8c9ba1ce5067ce07cb2"}
   ],
   "mutableStructuredCountAuthorities": {
     "domains": {
