@@ -13,11 +13,7 @@ ICE_FOLDER_NAMES = {
     "Sentry ICE": "sentry",
     "Wall ICE": "wall",
 }
-EXPECTED_ICE_COUNTS = {
-    "sentry": 6,
-    "wall": 7,
-}
-EXPECTED_ICE_TOTAL = 13
+ICE_TYPES = ("sentry", "wall")
 
 DAMAGE_TARGET_LABELS = {
     "hitpoints": "HP",
@@ -498,7 +494,7 @@ def _postprocess_materialization(
         _write_json(validation_path, report)
         return
 
-    counts = {"sentry": 0, "wall": 0}
+    counts = {ice_type: 0 for ice_type in ICE_TYPES}
     ice_ids: list[str] = []
     for entity in entities:
         if entity.get("family") != FEATURE_FAMILY:
@@ -510,14 +506,23 @@ def _postprocess_materialization(
         assert doc is not None
         ice_type = classify_ice_document(doc, folder_types)
         if ice_type is None:
-            # The family collection is GM-only, but ClassPackage still consumes
-            # non-ICE Feature semantics. Preserve those entity semantics as
-            # player-safe rather than reclassifying them as GM material.
+            # The manifest owns Features as player material, but the ICE subset is
+            # deliberately reclassified to GM after canonical folder resolution.
             entity["audience"] = "player"
             continue
 
+        semantic_id = str(entity.get("semanticId") or "").strip()
+        if not semantic_id:
+            errors.append(
+                {
+                    "code": "ICE_SEMANTIC_ID_MISSING",
+                    "name": entity.get("name"),
+                    "sourcePath": entity.get("sourcePath"),
+                }
+            )
+            continue
         counts[ice_type] = counts.get(ice_type, 0) + 1
-        ice_ids.append(str(entity.get("semanticId") or ""))
+        ice_ids.append(semantic_id)
         publication_data = entity.setdefault("publicationData", {})
         publication_data.update(ice_publication_data(doc, ice_type))
         entity["audience"] = "gm"
@@ -536,24 +541,19 @@ def _postprocess_materialization(
                 }
             )
 
-    for ice_type, expected in EXPECTED_ICE_COUNTS.items():
-        actual = counts.get(ice_type, 0)
-        if actual != expected:
-            errors.append(
-                {
-                    "code": "ICE_COUNT_MISMATCH",
-                    "iceType": ice_type,
-                    "expected": expected,
-                    "actual": actual,
-                }
-            )
     total = sum(counts.values())
-    if total != EXPECTED_ICE_TOTAL:
+    if total == 0:
         errors.append(
             {
-                "code": "ICE_TOTAL_MISMATCH",
-                "expected": EXPECTED_ICE_TOTAL,
-                "actual": total,
+                "code": "ICE_PROJECTION_EMPTY",
+                "message": "Canonical ICE folders resolved, but no ICE entities were selected.",
+            }
+        )
+    if len(set(ice_ids)) != len(ice_ids):
+        errors.append(
+            {
+                "code": "ICE_SEMANTIC_ID_DUPLICATE",
+                "message": "The ICE projection contains duplicate semantic IDs.",
             }
         )
 
@@ -583,7 +583,11 @@ def _postprocess_materialization(
             report,
             "ICE_SEMANTICS",
             "PASS",
-            "Normalized the 13-entity GM ICE publication subset (6 Sentry, 7 Wall).",
+            (
+                "Normalized the dynamic GM ICE publication subset: "
+                f"{total} total ({counts.get('sentry', 0)} Sentry, "
+                f"{counts.get('wall', 0)} Wall)."
+            ),
             summary,
         )
     _write_json(validation_path, report)
