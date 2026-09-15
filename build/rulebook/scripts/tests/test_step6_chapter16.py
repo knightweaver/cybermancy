@@ -152,8 +152,13 @@ class TestCompleteChapter16Composition(unittest.TestCase):
         }
 
     def test_config_locks_all_four_weapon_tiers_and_flowing_pagination(self):
-        self.assertEqual(self.config["expectedEntityCount"], 47)
-        self.assertEqual(self.config["expectedTierCounts"], {"1": 14, "2": 11, "3": 11, "4": 11})
+        self.assertNotIn("expectedEntityCount", self.config)
+        self.assertNotIn("expectedTierCounts", self.config)
+        historical = self.config["historicalAcceptance"]
+        self.assertFalse(historical["operative"])
+        self.assertEqual(historical["entityCount"], 47)
+        self.assertEqual(historical["tierCounts"], {"1": 14, "2": 11, "3": 11, "4": 11})
+        self.assertEqual(self.config["tierOrder"], [1, 2, 3, 4])
         self.assertEqual(self.config["pagination"]["tierStartNeedspaceIn"], 1.25)
         self.assertEqual(self.config["pagination"]["referenceStartNeedspaceIn"], 1.25)
         self.assertEqual(self.config["pagination"]["interTableSpacePt"], 10)
