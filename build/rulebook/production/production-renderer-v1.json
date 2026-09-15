@@ -55,8 +55,9 @@
       "The Step 4 source commit and manifest provenance must match the selected freeze artifacts.",
       "Current canonical authored and structured-source digests must match the selected publication manifest.",
       "The normalized source-hashes inventory must match the selected manifest authority and current canonical inputs.",
-      "All configured mutable structured-family corpus counts and semantic IDs must reconcile to the selected publication manifest through Step 4 before rendering.",
-      "The Adversary Feature publication-selection status must be APPLIED and reconcile 419 canonical entries to 344 representatives."
+      "All configured mutable structured source-family corpus counts and semantic IDs must reconcile to the selected publication manifest through Step 4 before rendering.",
+      "ICE and Adversary Feature publication projections must reconcile dynamically to their authoritative Step 4 source families before rendering.",
+      "The Adversary Feature publication-selection status must be APPLIED and its representative/excluded semantic IDs must partition the authoritative source family."
     ]
   },
   "profiles": {
@@ -169,6 +170,16 @@
       "normalizedActual": "step4-structured-sidecar:entities[family=loot]",
       "reconciliation": "exact-before-render"
     },
+    "features": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=features].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=features]",
+      "reconciliation": "exact-before-render"
+    },
+    "adversaries-features": {
+      "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries-features].entityCount",
+      "normalizedActual": "step4-structured-sidecar:entities[family=adversaries-features]",
+      "reconciliation": "exact-before-render"
+    },
     "adversaries": {
       "canonicalExpected": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries].entityCount",
       "normalizedActual": "step4-structured-sidecar:encounterSemantics.entityCounts.adversaries",
@@ -180,13 +191,35 @@
       "reconciliation": "exact-before-render"
     }
   },
+  "structuredProjectionAuthorities": {
+    "ice": {
+      "canonicalSource": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=features].entityCount",
+      "normalizedSelection": "step4-structured-sidecar:iceSemantics.semanticIds",
+      "reconciliation": "source-exact-selected-subset-before-render"
+    },
+    "adversaryFeatures": {
+      "canonicalSource": "selected-publication-manifest:publicationInputs.structuredFamilies[generatorFamily=adversaries-features].entityCount",
+      "normalizedSelection": "step4-adversary-feature-publication-selection:representativeSemanticIds",
+      "reconciliation": "applied-source-exact-selected-subset-before-render"
+    }
+  },
+  "historicalProjectionAcceptance": {
+    "ice": {
+      "entries": 13,
+      "sentry": 6,
+      "wall": 7,
+      "operative": false
+    },
+    "adversaryFeatures": {
+      "canonicalSourceEntries": 419,
+      "publishedRepresentatives": 344,
+      "operative": false
+    }
+  },
   "structuredExpectations": {
     "ancestories": 18,
     "communities": 9,
-    "characterOriginArtwork": 27,
-    "ice": 13,
-    "adversaryFeaturesCanonical": 419,
-    "adversaryFeaturesPublished": 344
+    "characterOriginArtwork": 27
   },
   "navigation": {
     "tocLevels": ["part", "chapter", "appendix"],
