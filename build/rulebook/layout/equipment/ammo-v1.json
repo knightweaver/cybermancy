@@ -7,7 +7,11 @@
   "title": "Ammunition",
   "deck": "",
   "outputStem": "Cybermancy_Chapter16_Ammunition_Step6",
-  "expectedEntityCount": 13,
+  "historicalAcceptance": {
+    "entityCount": 13,
+    "operative": false,
+    "purpose": "Non-operative evidence from the accepted Step 6 corpus. Current publication cardinality comes from selected publication authority reconciled to Step 4."
+  },
   "expectedColumnLabels": [
     "Name",
     "Effect"
