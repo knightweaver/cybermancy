@@ -225,7 +225,7 @@ class Phase2StructuredCountAuthorityTests(unittest.TestCase):
             descriptors={"armors": count_authority_descriptor("armors")},
         )
         self.assertEqual(report["status"], "FAIL")
-        self.assertIn("non-player", " ".join(report["errors"]))
+        self.assertIn("outside allowed audiences", " ".join(report["errors"]))
 
     def test_contracts_retain_only_nonoperative_phase2_historical_counts(self) -> None:
         step6 = json.loads(
