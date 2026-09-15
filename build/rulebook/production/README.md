@@ -34,10 +34,12 @@ order, and publishes the final PDF atomically only after every stage passes.
 - `build/rulebook/reports/**` contains generated validation evidence.
 - `build/rulebook/output/**` contains only final release artifacts.
 
-The repository currently does not contain the accepted local Step 2–4 manifest
-files. `.gitignore` now permits them, but they must be imported from the accepted
-freeze rather than regenerated or invented during Step 7. Until they are
-present, upstream readiness is a blocking failure by contract.
+Accepted Step 2–4 freeze artifacts are version-controlled under
+`build/rulebook/manifests/**`. Production selects the single highest compatible
+accepted publication/assembly/normalization set. Intentional canonical-content
+changes must be followed by the normal inventory/manifest refresh, human review,
+and commit before production rendering; generated Step 4 output is then rebuilt
+from that committed authority.
 
 Frozen JSON contract bindings use SHA-256 over UTF-8 text after normalizing
 CRLF and CR newlines to LF. This keeps the bindings stable across Git checkouts
@@ -76,6 +78,15 @@ Production builds validate the existing Step 4 output and fail if it is absent,
 invalid, incompatible, or stale. They do not rebuild Step 4 automatically.
 Canonical structured entity data, inventory outputs, and source packages remain
 unchanged even though the publication shell no longer renders an entity index.
+
+For mutable structured publication families, the selected committed publication
+manifest supplies canonical expected cardinality and Step 4 supplies normalized
+actual cardinality and semantic identity. Frozen layout acceptance counts are not
+runtime corpus authority. Production preflight reconciles those authorities before
+rendering; ICE and Adversary Feature chapter sizes are derived from their validated
+Step 4 projection selections rather than fixed renderer counts. Character Origins
+remain a separate prose-derived editorial contract with their exact identity,
+order, feature-count, and artwork checks intact.
 
 ## Phase D shell
 
