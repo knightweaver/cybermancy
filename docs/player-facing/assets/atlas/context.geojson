@@ -1,0 +1,36 @@
+{
+  "type": "FeatureCollection",
+  "name": "Cybermancy player-safe routes and landmarks",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name":"Guarded I-5 Corridor","color":"#f1c96d"},
+      "geometry": {"type":"LineString","coordinates":[[-122.205,48.010],[-122.223,47.880],[-122.322,47.700],[-122.330,47.610],[-122.300,47.400],[-122.410,47.250],[-122.440,47.160]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"West Seattle Ferry Route","color":"#5adce4"},
+      "geometry": {"type":"LineString","coordinates":[[-122.342,47.603],[-122.369,47.585],[-122.397,47.571]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Space Needle","color":"#b991ff"},
+      "geometry": {"type":"Point","coordinates":[-122.3493,47.6205]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Helios Campus","color":"#ff8a55"},
+      "geometry": {"type":"Point","coordinates":[-122.3330,47.6250]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Boeing Field Fortress","color":"#ff5b60"},
+      "geometry": {"type":"Point","coordinates":[-122.3020,47.5290]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name":"Metahuman Massacre Memorial","color":"#ffcf73"},
+      "geometry": {"type":"Point","coordinates":[-122.2860,47.5060]}
+    }
+  ]
+}

@@ -89,3 +89,5 @@ __pycache__/
 
 # MkDocs generated site
 _site/
+# Generated regional basemap archives are measured before deliberate admission.
+docs/player-facing/assets/atlas/*.pmtiles

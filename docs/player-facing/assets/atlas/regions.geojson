@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "name": "Cybermancy player-safe Puget Sound regions",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 101,
+      "properties": {
+        "name": "Seattle",
+        "code": "SEA // CITY-STATE",
+        "category": "CITY-STATE",
+        "color": "#31d7e6",
+        "legend_order": 1,
+        "status": "Corporate metropolis",
+        "known_for": "Council arcologies and protected infrastructure",
+        "access": "Guarded roads, ferries, and controlled airspace",
+        "description": "Seattle survived because it remained useful enough to save. Its brilliant corporate core is surrounded by districts preserved through municipal inertia, neighborhood cohesion, local power, or luck."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-122.442,47.723],[-122.276,47.738],[-122.226,47.680],[-122.245,47.522],[-122.327,47.470],[-122.420,47.510],[-122.442,47.723]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 102,
+      "properties": {
+        "name": "Everett Bastion",
+        "code": "EVR // INDUSTRIAL",
+        "category": "INDEPENDENT CITY-STATE",
+        "color": "#78a9ff",
+        "legend_order": 2,
+        "status": "Northern industrial power",
+        "known_for": "Aerospace, heavy fabrication, and guarded port facilities",
+        "access": "Protected I-5 commerce corridor",
+        "description": "Everett's aerospace factories, port infrastructure, and former naval presence gave it enough industrial capacity to remain viable and politically distinct from Seattle."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-122.270,48.035],[-122.155,48.045],[-122.115,47.935],[-122.182,47.875],[-122.275,47.925],[-122.270,48.035]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 103,
+      "properties": {
+        "name": "Tacoma Free Port",
+        "code": "TAC // FREE PORT",
+        "category": "INDEPENDENT CITY-STATE",
+        "color": "#e76ab7",
+        "legend_order": 3,
+        "status": "Metahuman-led port city",
+        "known_for": "Deepwater shipping, logistics, and political independence",
+        "access": "Maritime approaches and a contested I-5 corridor",
+        "description": "Tacoma controls port capacity Seattle needs but refuses Seattle's corporate governance. Commerce and mutual dependence hold together an openly hostile political relationship."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-122.595,47.330],[-122.350,47.350],[-122.265,47.225],[-122.335,47.115],[-122.550,47.145],[-122.595,47.330]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 104,
+      "properties": {
+        "name": "Silicon Wilds",
+        "code": "RED // WILD NET",
+        "category": "RECLAIMED TECHNOLOGY ZONE",
+        "color": "#76e36f",
+        "legend_order": 4,
+        "status": "Uncontrolled and partially inhabited",
+        "known_for": "Overgrown campuses, AI remnants, and salvage",
+        "access": "Lake routes or hazardous northern approaches",
+        "description": "Bellevue and Redmond's technology corridor has become a forest of abandoned towers, server vaults, half-functioning automation, lakefront settlements, and valuable things that never learned the old world ended."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-122.215,47.735],[-121.990,47.745],[-121.885,47.625],[-121.965,47.485],[-122.155,47.495],[-122.215,47.735]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 105,
+      "properties": {
+        "name": "Cascade Approaches",
+        "code": "CAS // FRONTIER",
+        "category": "CONTESTED FRONTIER",
+        "color": "#f2b84b",
+        "legend_order": 5,
+        "status": "Fragmented local control",
+        "known_for": "Independent settlements and Resonance anomalies",
+        "access": "Expedition travel beyond the last checkpoints",
+        "description": "Corporate authority thins east of the surviving metropolitan corridor. Roads decay into defended routes between cohesive settlements, dangerous wilderness, and territories whose boundaries are not merely political."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-121.960,47.920],[-121.480,47.925],[-121.385,47.270],[-121.900,47.285],[-121.960,47.920]]]
+      }
+    }
+  ]
+}
