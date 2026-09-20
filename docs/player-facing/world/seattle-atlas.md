@@ -59,4 +59,4 @@
   <noscript>This interactive atlas requires JavaScript.</noscript>
 </div>
 
-Map data © OpenStreetMap contributors; basemap tiles © CARTO. Cybermancy boundaries and setting descriptions are fictional.
+[OpenFreeMap](https://openfreemap.org/) © OpenMapTiles; map data © OpenStreetMap contributors. Cybermancy boundaries and setting descriptions are fictional.

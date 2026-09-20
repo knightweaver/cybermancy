@@ -1,6 +1,6 @@
 # Seattle atlas basemap preparation
 
-The player atlas initially uses an external CARTO/OpenStreetMap raster basemap. Cybermancy overlays, descriptions, and interactions are repository-owned and do not depend on that provider.
+The player atlas initially uses OpenFreeMap's hosted dark vector style, built from OpenStreetMap data. Cybermancy overlays, descriptions, and interactions are repository-owned and do not depend on that provider.
 
 To evaluate a durable regional vector basemap, install the `pmtiles` CLI and run:
 
