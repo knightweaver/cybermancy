@@ -1,41 +1,30 @@
-In order for the Cybermancy new Domains to appear, requires 2 small changes to Daggerheart files:
+# Legacy Daggerheart patch instructions — retired
 
-/lang/en.json
+These instructions are retained only as historical documentation.
 
-				"circuit": {
-                    "label": "Circuit",
-                    "description": "This is the domain of the Matrix.  Those who chose this domain surf the digital spaces that overlay and often control the physical world.  They use their digital mastery to control the battlefield, disable their enhanced opponents, and lay waste to the corporate data fortresses."
-                },
-				"maker": {
-                    "label": "Maker",
-                    "description": "This is the domain of the Makers."
-                },
-				"bullet": {
-                    "label": "Bullet",
-                    "description": "This is the domain of those that shoot bullets."
-                }
+Cybermancy previously required local edits to the Daggerheart 1.2.7 system files in order to add the custom **Circuit**, **Maker**, and **Bullet** Domains. That approach is no longer supported by Cybermancy.
 
-Added to the Domain list at line 1866 (Daggerheart version 1.2.7)
+As of the native Homebrew Domain registration increment, Cybermancy registers these Domains through Daggerheart's supported world-scoped Homebrew setting at runtime. A stock, unmodified Daggerheart installation should be used.
 
-/build/daggerheart.js
+The implementation is in:
 
-    circuit: {
-        id: 'circuit',
-        label: 'DAGGERHEART.GENERAL.Domain.circuit.label',
-        src: 'modules/cybermancy/assets/icons/domains/circuit.svg',
-        description: 'DAGGERHEART.GENERAL.Domain.circuit.description'
-    },
-    maker: {
-        id: 'maker',
-        label: 'DAGGERHEART.GENERAL.Domain.maker.label',
-        src: 'modules/cybermancy/assets/icons/domains/maker.svg',
-        description: 'DAGGERHEART.GENERAL.Domain.maker.description'
-    },
-    bullet: {
-        id: 'bullet',
-        label: 'DAGGERHEART.GENERAL.Domain.bullet.label',
-        src: 'modules/cybermancy/assets/icons/domains/bullet.svg',
-        description: 'DAGGERHEART.GENERAL.Domain.bullet.description'
-    }
+- `scripts/domains.js`
+- `scripts/main.js`
 
-Added to the Domain list at line 830 (Daggerheart version 1.2.7)
+Validation is provided by:
+
+```powershell
+npm run validate:domains
+```
+
+The legacy patch files in this directory must **not** be copied into or used to overwrite files in the installed Daggerheart system.
+
+## Historical patch values
+
+The prior patch registered the following Domain identities. These values are preserved by the native registrar for compatibility with existing Cybermancy content:
+
+- **Circuit** — `modules/cybermancy/assets/icons/domains/circuit.svg`
+- **Maker** — `modules/cybermancy/assets/icons/domains/maker.svg`
+- **Bullet** — `modules/cybermancy/assets/icons/domains/bullet.svg`
+
+The descriptive text currently registered by Cybermancy is the same descriptive text that was embedded in the former Daggerheart patch. It has not been rewritten as part of this increment.
