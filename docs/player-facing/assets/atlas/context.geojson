@@ -4,32 +4,70 @@
   "features": [
     {
       "type": "Feature",
+      "id": 101,
       "properties": {"name":"Guarded I-5 Corridor","category":"route","color":"#f1c96d"},
       "geometry": {"type":"LineString","coordinates":[[-122.205,48.010],[-122.223,47.880],[-122.322,47.700],[-122.330,47.610],[-122.300,47.400],[-122.410,47.250],[-122.440,47.160]]}
     },
     {
       "type": "Feature",
+      "id": 102,
       "properties": {"name":"West Seattle Ferry Route","category":"route","color":"#5adce4"},
       "geometry": {"type":"LineString","coordinates":[[-122.342,47.603],[-122.369,47.585],[-122.397,47.571]]}
     },
     {
       "type": "Feature",
-      "properties": {"name":"Space Needle","category":"landmark"},
+      "id": 103,
+      "properties": {
+        "name": "Space Needle",
+        "code": "SEA // NEEDLE",
+        "category": "landmark",
+        "status": "Protected civic landmark",
+        "known_for": "Observation decks, civic ceremonies, and skyline visibility",
+        "access": "Public lower levels; controlled upper access",
+        "description": "Seattle's most recognizable surviving landmark remains a civic symbol, observation point, and carefully maintained piece of the pre-Razz skyline."
+      },
       "geometry": {"type":"Point","coordinates":[-122.3493,47.6205]}
     },
     {
       "type": "Feature",
-      "properties": {"name":"Helios Campus","category":"corporate"},
+      "id": 104,
+      "properties": {
+        "name": "Helios Campus",
+        "code": "SEA // HELIOS",
+        "category": "corporate",
+        "status": "Active corporate research campus",
+        "known_for": "Biomedical research and its elevated central platform",
+        "access": "Public perimeter; credentialed interior",
+        "description": "Five research buildings and an elevated central platform dominate Seattle's biomedical corridor. Corporate security treats the campus as critical infrastructure."
+      },
       "geometry": {"type":"Point","coordinates":[-122.3330,47.6250]}
     },
     {
       "type": "Feature",
-      "properties": {"name":"Boeing Field Fortress","category":"corporate"},
+      "id": 105,
+      "properties": {
+        "name": "Boeing Field Fortress",
+        "code": "SEA // BOEING",
+        "category": "corporate",
+        "status": "Fortified aerospace complex",
+        "known_for": "Heavy security, air operations, and industrial capacity",
+        "access": "Restricted perimeter inside Bombshell",
+        "description": "The surviving Boeing Field complex has become a hardened corporate-industrial fortress surrounded by the damaged infrastructure of southern Seattle."
+      },
       "geometry": {"type":"Point","coordinates":[-122.3020,47.5290]}
     },
     {
       "type": "Feature",
-      "properties": {"name":"Metahuman Massacre Memorial","category":"landmark"},
+      "id": 106,
+      "properties": {
+        "name": "Metahuman Massacre Memorial",
+        "code": "SEA // MEMORIAL",
+        "category": "landmark",
+        "status": "Public memorial",
+        "known_for": "Annual vigils and metahuman civil-rights observances",
+        "access": "Public plaza during daylight and commemorations",
+        "description": "A public memorial preserves the names of metahumans killed during one of Seattle's defining acts of violence. Vigils keep the site politically and culturally active."
+      },
       "geometry": {"type":"Point","coordinates":[-122.2860,47.5060]}
     }
   ]

@@ -112,7 +112,17 @@
     return bounds;
   };
 
-  const sourceFor = (feature) => feature.properties.map_layer === "district" ? "districts" : "regions";
+  const sourceFor = (feature) => ({
+    district: "districts",
+    region: "regions",
+    context: "context",
+  })[feature.properties.map_layer];
+
+  const categoryLabelFor = (feature) => {
+    if (feature.properties.map_layer !== "context") return feature.properties.category;
+    const category = CONTEXT_CATEGORIES.find((item) => item.id === feature.properties.category);
+    return category ? `${category.label} point of interest` : "Point of interest";
+  };
 
   const canonicalFeature = (feature) => allFeatures.find(
     (item) => item.id === feature.id
@@ -186,7 +196,7 @@
     if (!feature) return;
     const properties = feature.properties;
     panel.name.textContent = properties.name;
-    panel.category.textContent = properties.category;
+    panel.category.textContent = categoryLabelFor(feature);
     panel.description.textContent = properties.description;
     panel.heroCode.textContent = properties.code || "SEA // MAP";
     renderFacts(properties);
@@ -254,6 +264,38 @@
         hoveredFeature = null;
       });
       map.on("click", layerId, (event) => showFeature(canonicalFeature(event.features[0]), true));
+    });
+  };
+
+  const bindContextEvents = () => {
+    ["context-points", "context-point-symbols", "context-labels"].forEach((layerId) => {
+      map.on("mouseenter", layerId, (event) => {
+        const eventFeature = event.features[0];
+        if (eventFeature.geometry.type !== "Point") return;
+        map.getCanvas().style.cursor = "pointer";
+        const feature = canonicalFeature(eventFeature);
+        setFeatureState(hoveredFeature, { hover: false });
+        hoveredFeature = feature;
+        setFeatureState(feature, { hover: true });
+        if (!selectedFeature) showFeature(feature, false);
+        popup
+          .setLngLat(event.lngLat)
+          .setHTML(`<strong>${escapeHtml(feature.properties.name)}</strong>`)
+          .addTo(map);
+      });
+      map.on("mouseleave", layerId, () => {
+        map.getCanvas().style.cursor = "";
+        popup.remove();
+        setFeatureState(hoveredFeature, { hover: false });
+        hoveredFeature = null;
+      });
+      map.on("click", layerId, (event) => {
+        const eventFeature = event.features[0];
+        if (eventFeature.geometry.type !== "Point") return;
+        const feature = canonicalFeature(eventFeature);
+        if (activeView !== "seattle") applyView("seattle", false);
+        showFeature(feature, true);
+      });
     });
   };
 
@@ -333,10 +375,20 @@
       source: "context",
       filter: ["==", ["geometry-type"], "Point"],
       paint: {
-        "circle-radius": 8,
+        "circle-radius": [
+          "case",
+          ["boolean", ["feature-state", "selected"], false], 11,
+          ["boolean", ["feature-state", "hover"], false], 10,
+          8,
+        ],
         "circle-color": "#07131b",
         "circle-stroke-color": categoryExpression("color", "#f7c65d"),
-        "circle-stroke-width": 2,
+        "circle-stroke-width": [
+          "case",
+          ["boolean", ["feature-state", "selected"], false], 3.5,
+          ["boolean", ["feature-state", "hover"], false], 3,
+          2,
+        ],
       },
     });
     map.addLayer({
@@ -389,6 +441,7 @@
         item.append(symbol, document.createTextNode(category.label));
         poiKey.append(item);
       });
+    bindContextEvents();
   };
 
   const setLayerVisibility = (layerId, visible) => {
@@ -423,7 +476,7 @@
     if (note) {
       note.textContent = showRegions
         ? "Draft fictional boundaries. Select a colored region or use the legend for details."
-        : "Draft fictional districts. Select a district or use the legend for details.";
+        : "Draft fictional districts. Select a district, point of interest, or legend entry for details.";
     }
 
     showOverview();
@@ -481,10 +534,23 @@
         source: "selection",
         paint: { "line-color": ["get", "color"], "line-width": 2.5 },
       });
+      inset.addLayer({
+        id: "selection-point",
+        type: "circle",
+        source: "selection",
+        filter: ["==", ["geometry-type"], "Point"],
+        paint: {
+          "circle-radius": 7,
+          "circle-color": categoryExpression("color", "#f7c65d"),
+          "circle-stroke-color": "#07131b",
+          "circle-stroke-width": 2,
+        },
+      });
 
       regions.features.forEach((feature) => { feature.properties.map_layer = "region"; });
       districts.features.forEach((feature) => { feature.properties.map_layer = "district"; });
-      allFeatures = [...regions.features, ...districts.features];
+      context.features.forEach((feature) => { feature.properties.map_layer = "context"; });
+      allFeatures = [...regions.features, ...districts.features, ...context.features];
       addPolygonSource("regions", regions);
       addPolygonSource("districts", districts);
       addContext(context);
