@@ -17,7 +17,7 @@
       },
     },
     seattle: {
-      bounds: [[-122.48, 47.43], [-122.20, 47.76]],
+      bounds: [[-122.445, 47.475], [-122.235, 47.705]],
       layer: "district",
       overview: {
         code: "SEA // CITY",
@@ -85,6 +85,32 @@
   };
 
   const sourceFor = (feature) => feature.properties.map_layer === "district" ? "districts" : "regions";
+
+  const canonicalFeature = (feature) => allFeatures.find(
+    (item) => item.id === feature.id
+      && item.properties.map_layer === feature.properties.map_layer,
+  ) || feature;
+
+  const featureLabelPoint = (feature) => {
+    if (feature.properties.label_coordinates) return feature.properties.label_coordinates;
+    const bounds = featureBounds(feature);
+    const southwest = bounds.getSouthWest();
+    const northeast = bounds.getNorthEast();
+    return [
+      (southwest.lng + northeast.lng) / 2,
+      (southwest.lat + northeast.lat) / 2,
+    ];
+  };
+
+  const labelCollection = (data) => ({
+    type: "FeatureCollection",
+    features: data.features.map((feature) => ({
+      type: "Feature",
+      id: feature.id,
+      properties: feature.properties,
+      geometry: { type: "Point", coordinates: featureLabelPoint(feature) },
+    })),
+  });
 
   const setFeatureState = (feature, state) => {
     if (!feature || !map.getSource(sourceFor(feature))) return;
@@ -181,7 +207,7 @@
     [`${sourceId}-fill`, `${sourceId}-label`].forEach((layerId) => {
       map.on("mouseenter", layerId, (event) => {
         map.getCanvas().style.cursor = "pointer";
-        const feature = event.features[0];
+        const feature = canonicalFeature(event.features[0]);
         if (hoveredFeature && (sourceFor(hoveredFeature) !== sourceId || hoveredFeature.id !== feature.id)) {
           setFeatureState(hoveredFeature, { hover: false });
         }
@@ -199,12 +225,17 @@
         setFeatureState(hoveredFeature, { hover: false });
         hoveredFeature = null;
       });
-      map.on("click", layerId, (event) => showFeature(event.features[0], true));
+      map.on("click", layerId, (event) => showFeature(canonicalFeature(event.features[0]), true));
     });
   };
 
   const addPolygonSource = (sourceId, data) => {
     map.addSource(sourceId, { type: "geojson", data, generateId: false });
+    map.addSource(`${sourceId}-labels`, {
+      type: "geojson",
+      data: labelCollection(data),
+      generateId: false,
+    });
     map.addLayer({
       id: `${sourceId}-fill`,
       type: "fill",
@@ -232,13 +263,18 @@
     map.addLayer({
       id: `${sourceId}-label`,
       type: "symbol",
-      source: sourceId,
+      source: `${sourceId}-labels`,
       layout: {
         "text-field": ["get", "name"],
-        "text-size": ["interpolate", ["linear"], ["zoom"], 8, 10, 12, 15],
+        "text-size": sourceId === "districts"
+          ? ["interpolate", ["linear"], ["zoom"], 8, 9, 10, 10.5, 12, 13]
+          : ["interpolate", ["linear"], ["zoom"], 8, 10, 12, 15],
         "text-font": ["Noto Sans Bold"],
         "text-transform": "uppercase",
         "text-letter-spacing": 0.08,
+        "text-max-width": sourceId === "districts" ? 9 : 12,
+        "text-allow-overlap": sourceId === "districts",
+        "text-ignore-placement": sourceId === "districts",
       },
       paint: {
         "text-color": "#ecf7f8",
@@ -279,6 +315,7 @@
       id: "context-labels",
       type: "symbol",
       source: "context",
+      minzoom: 10.5,
       layout: {
         "text-field": ["get", "name"],
         "text-size": 11,
@@ -319,6 +356,11 @@
       setLayerVisibility(`districts-${suffix}`, !showRegions);
     });
     setLayerVisibility("context-labels", !showRegions);
+    if (note) {
+      note.textContent = showRegions
+        ? "Draft fictional boundaries. Select a colored region or use the legend for details."
+        : "Draft fictional districts. Select a district or use the legend for details.";
+    }
 
     showOverview();
     renderLegend();
@@ -381,6 +423,8 @@
       addPolygonSource("regions", regions);
       addPolygonSource("districts", districts);
       addContext(context);
+      map.moveLayer("regions-label");
+      map.moveLayer("districts-label");
       atlasReady = true;
       applyView("regional", false);
     })

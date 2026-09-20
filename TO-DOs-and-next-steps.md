@@ -7,6 +7,10 @@
 ## TO DOs for the campaign:
  - Organize street rumors
 
+## Player atlas follow-up:
+ - Fix the Regional view control after entering the Seattle view.
+ - Constrain the full-width atlas to the MkDocs content viewport so the documentation navigation drawer cannot overlay or distort the map; verify embedded-page and new-tab layouts at desktop and mobile widths.
+
 ## Lots of progress has been made:
 1. Python scripts for generating images is working well and updated to take style (theme) and many effects palettes to generate images.
 2. Images and loadable JSON files generated for almost all fundamental types for Cybermancy.
@@ -22,4 +26,4 @@
  - Figure out how to extend DH module to support:
  - - stacked armor, cybernetics and worn armor.
  - - energy weapons
- - - 
+ - -
