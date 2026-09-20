@@ -17,9 +17,18 @@
       <span class="atlas-eyebrow">PUBLIC CARTOGRAPHY // REV 1</span>
       <h2>Puget Sound Survival Atlas</h2>
     </div>
-    <div class="atlas-view-switcher" role="group" aria-label="Select map extent">
-      <button type="button" data-atlas-view="regional" aria-pressed="true">Regional</button>
-      <button type="button" data-atlas-view="seattle" aria-pressed="false">Seattle</button>
+    <div class="atlas-toolbar-actions">
+      <a
+        class="atlas-popout"
+        href="?atlas=fullscreen"
+        target="_blank"
+        rel="noopener"
+        aria-label="Open the Seattle Atlas in a full-sized new tab"
+      >Open full atlas <span aria-hidden="true">↗</span></a>
+      <div class="atlas-view-switcher" role="group" aria-label="Select map extent">
+        <button type="button" data-atlas-view="regional" aria-pressed="true">Regional</button>
+        <button type="button" data-atlas-view="seattle" aria-pressed="false">Seattle</button>
+      </div>
     </div>
   </div>
 

@@ -5,9 +5,13 @@
 
   const initializeAtlas = () => {
     cleanupAtlas();
+    document.body.classList.remove("atlas-fullscreen-page");
 
     const root = document.getElementById("cybermancy-atlas");
     if (!root || typeof maplibregl === "undefined") return;
+
+    const isFullscreen = new URLSearchParams(window.location.search).get("atlas") === "fullscreen";
+    document.body.classList.toggle("atlas-fullscreen-page", isFullscreen);
 
     let destroyed = false;
 

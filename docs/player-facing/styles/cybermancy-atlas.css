@@ -61,12 +61,36 @@
   gap: 0.4rem;
 }
 
+.atlas-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.atlas-popout,
 .atlas-view-switcher button,
 .atlas-legend button {
   color: var(--atlas-text);
   background: rgba(9, 28, 39, 0.86);
   border: 1px solid var(--atlas-line);
   cursor: pointer;
+}
+
+.atlas-popout {
+  padding: 0.55rem 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.atlas-popout:hover,
+.atlas-popout:focus-visible {
+  color: #031014;
+  background: var(--atlas-cyan);
+  outline: none;
 }
 
 .atlas-view-switcher button {
@@ -247,6 +271,55 @@
   filter: invert(0.88) hue-rotate(145deg);
 }
 
+.atlas-fullscreen-page {
+  overflow: auto;
+  background: var(--atlas-ink);
+}
+
+.atlas-fullscreen-page .md-header,
+.atlas-fullscreen-page .md-tabs,
+.atlas-fullscreen-page .md-sidebar,
+.atlas-fullscreen-page .md-footer,
+.atlas-fullscreen-page .md-content__inner > h1,
+.atlas-fullscreen-page .atlas-intro,
+.atlas-fullscreen-page .cybermancy-atlas + p {
+  display: none;
+}
+
+.atlas-fullscreen-page .md-main__inner,
+.atlas-fullscreen-page .md-content,
+.atlas-fullscreen-page .md-content__inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.atlas-fullscreen-page .md-content__inner::before {
+  display: none;
+}
+
+.atlas-fullscreen-page .cybermancy-atlas {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  border: 0;
+}
+
+.atlas-fullscreen-page .atlas-layout {
+  min-height: 0;
+  flex: 1;
+}
+
+.atlas-fullscreen-page .atlas-map {
+  min-height: 0;
+}
+
+.atlas-fullscreen-page .atlas-popout {
+  display: none;
+}
+
 @container (max-width: 56rem) {
   .atlas-layout {
     grid-template-columns: 1fr;
@@ -280,6 +353,15 @@
 
   .atlas-view-switcher button {
     flex: 1;
+  }
+
+  .atlas-toolbar-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .atlas-popout {
+    text-align: center;
   }
 
   .atlas-map-column,
