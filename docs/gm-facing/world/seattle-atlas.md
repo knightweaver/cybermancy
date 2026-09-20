@@ -1,8 +1,8 @@
-# Seattle Atlas
+# Seattle Atlas — GM
 
 <p class="atlas-intro">
-  A player-safe orientation map of the surviving Puget Sound corridor. Its borders represent
-  Cybermancy geography rather than contemporary administrative boundaries.
+  A private planning map for player-visible geography, unrevealed locations, adventure hooks,
+  and events across the surviving Puget Sound corridor.
 </p>
 
 <div
@@ -11,12 +11,12 @@
   data-regions="../../assets/atlas/regions.geojson"
   data-districts="../../assets/atlas/districts.geojson"
   data-context="../../assets/atlas/context.geojson"
-  data-atlas-mode="player"
+  data-atlas-mode="gm"
 >
   <div class="atlas-toolbar" aria-label="Map view controls">
     <div>
-      <span class="atlas-eyebrow">PUBLIC CARTOGRAPHY // REV 1</span>
-      <h2>Puget Sound Survival Atlas</h2>
+      <span class="atlas-eyebrow">GM CARTOGRAPHY // PRIVATE</span>
+      <h2>Puget Sound Operations Atlas</h2>
     </div>
     <div class="atlas-toolbar-actions">
       <a
@@ -24,7 +24,7 @@
         href="?atlas=fullscreen"
         target="_blank"
         rel="noopener"
-        aria-label="Open the Seattle Atlas in a full-sized new tab"
+        aria-label="Open the GM Seattle Atlas in a full-sized new tab"
       >Open full atlas <span aria-hidden="true">↗</span></a>
       <div class="atlas-view-switcher" role="group" aria-label="Select map extent">
         <button type="button" data-atlas-view="regional" aria-pressed="true">Regional</button>
@@ -37,7 +37,7 @@
     <div class="atlas-map-column">
       <div id="cybermancy-atlas-map" class="atlas-map" aria-label="Interactive map of Cybermancy Seattle"></div>
       <p class="atlas-map-note">
-        Draft fictional boundaries. Select a colored region or use the legend for details.
+        Private GM atlas. Select a region, district, or point of interest for details.
       </p>
     </div>
 
@@ -77,3 +77,4 @@
 </div>
 
 [OpenFreeMap](https://openfreemap.org/) © OpenMapTiles; map data © OpenStreetMap contributors. Cybermancy boundaries and setting descriptions are fictional.
+

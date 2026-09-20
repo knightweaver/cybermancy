@@ -1,0 +1,161 @@
+{
+  "type": "FeatureCollection",
+  "name": "Cybermancy player-safe routes and landmarks",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 101,
+      "properties": {
+        "name": "Guarded I-5 Corridor",
+        "category": "route",
+        "color": "#f1c96d",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.205,
+            48.01
+          ],
+          [
+            -122.223,
+            47.88
+          ],
+          [
+            -122.322,
+            47.7
+          ],
+          [
+            -122.33,
+            47.61
+          ],
+          [
+            -122.3,
+            47.4
+          ],
+          [
+            -122.41,
+            47.25
+          ],
+          [
+            -122.44,
+            47.16
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 102,
+      "properties": {
+        "name": "West Seattle Ferry Route",
+        "category": "route",
+        "color": "#5adce4",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.342,
+            47.603
+          ],
+          [
+            -122.369,
+            47.585
+          ],
+          [
+            -122.397,
+            47.571
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 103,
+      "properties": {
+        "name": "Space Needle",
+        "code": "SEA // NEEDLE",
+        "category": "landmark",
+        "status": "Protected civic landmark",
+        "known_for": "Observation decks, civic ceremonies, and skyline visibility",
+        "access": "Public lower levels; controlled upper access",
+        "description": "Seattle's most recognizable surviving landmark remains a civic symbol, observation point, and carefully maintained piece of the pre-Razz skyline.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3493,
+          47.6205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 104,
+      "properties": {
+        "name": "Helios Campus",
+        "code": "SEA // HELIOS",
+        "category": "corporate",
+        "status": "Active corporate research campus",
+        "known_for": "Biomedical research and its elevated central platform",
+        "access": "Public perimeter; credentialed interior",
+        "description": "Five research buildings and an elevated central platform dominate Seattle's biomedical corridor. Corporate security treats the campus as critical infrastructure.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.333,
+          47.625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 105,
+      "properties": {
+        "name": "Boeing Field Fortress",
+        "code": "SEA // BOEING",
+        "category": "corporate",
+        "status": "Fortified aerospace complex",
+        "known_for": "Heavy security, air operations, and industrial capacity",
+        "access": "Restricted perimeter inside Bombshell",
+        "description": "The surviving Boeing Field complex has become a hardened corporate-industrial fortress surrounded by the damaged infrastructure of southern Seattle.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.302,
+          47.529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 106,
+      "properties": {
+        "name": "Metahuman Massacre Memorial",
+        "code": "SEA // MEMORIAL",
+        "category": "landmark",
+        "status": "Public memorial",
+        "known_for": "Annual vigils and metahuman civil-rights observances",
+        "access": "Public plaza during daylight and commemorations",
+        "description": "A public memorial preserves the names of metahumans killed during one of Seattle's defining acts of violence. Vigils keep the site politically and culturally active.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.286,
+          47.506
+        ]
+      }
+    }
+  ]
+}
+
