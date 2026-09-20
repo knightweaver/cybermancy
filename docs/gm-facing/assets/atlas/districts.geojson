@@ -153,15 +153,15 @@
       "properties": {
         "name": "Meridian",
         "code": "SEA // MERIDIAN",
-        "category": "SEATTLE DISTRICT — PROVISIONAL",
+        "category": "SEATTLE DISTRICT",
         "color": "#e95fd5",
         "legend_order": 13,
-        "status": "Independent cultural district",
-        "known_for": "Night markets, clubs, fixers, and street clinics",
-        "access": "Open streets with uneven municipal control",
-        "description": "Counterculture survives here as night markets, independent clubs, street clinics, runners, activists, and businesses serving people who prefer not to appear in corporate records. Its exact identity is still being defined.",
+        "status": "Eastside trade and expedition interface",
+        "known_for": "Lake Washington ferries, salvage markets, expedition outfitters, and Eastside brokers",
+        "access": "Corporate Core approaches and guarded ferries across Lake Washington",
+        "description": "Along Seattle's Lake Washington shore, Meridian is the city's principal staging and trading interface with the Silicon Wilds. Ferry terminals, salvage markets, expedition outfitters, traders, fixers, and information brokers move people and recovered technology between the Corporate Core, the Eastside frontier, Gasworks, and corporate buyers.",
         "label_coordinates": [
-          -122.305,
+          -122.299,
           47.609
         ],
         "audience": "player"
@@ -175,8 +175,12 @@
               47.623
             ],
             [
-              -122.29,
+              -122.275,
               47.625
+            ],
+            [
+              -122.272,
+              47.595
             ],
             [
               -122.29,
@@ -553,4 +557,3 @@
     }
   ]
 }
-

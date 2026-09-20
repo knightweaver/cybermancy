@@ -30,15 +30,27 @@
               47.74
             ],
             [
-              -122.25,
+              -122.29,
               47.75
             ],
             [
-              -122.205,
+              -122.245,
+              47.73
+            ],
+            [
+              -122.255,
               47.68
             ],
             [
-              -122.215,
+              -122.275,
+              47.62
+            ],
+            [
+              -122.285,
+              47.57
+            ],
+            [
+              -122.25,
               47.5
             ],
             [
@@ -177,9 +189,9 @@
         "color": "#76e36f",
         "legend_order": 4,
         "status": "Uncontrolled and partially inhabited",
-        "known_for": "Overgrown campuses, AI remnants, and salvage",
-        "access": "Lake routes or hazardous northern approaches",
-        "description": "Bellevue and Redmond's technology corridor has become a forest of abandoned towers, server vaults, half-functioning automation, lakefront settlements, and valuable things that never learned the old world ended.",
+        "known_for": "Eastside enclaves, overgrown campuses, AI remnants, and salvage",
+        "access": "Lake Washington ferries through Meridian or hazardous northern approaches",
+        "description": "East of Lake Washington, the former Bellevue–Redmond technology corridor has become the Silicon Wilds: surviving enclaves, abandoned towers, server vaults, salvage zones, frontier communities, and half-functioning systems that never learned the old world ended.",
         "label_coordinates": [
           -122.02,
           47.6
@@ -191,8 +203,8 @@
         "coordinates": [
           [
             [
-              -122.19,
-              47.76
+              -122.225,
+              47.75
             ],
             [
               -121.96,
@@ -215,8 +227,20 @@
               47.5
             ],
             [
-              -122.19,
-              47.76
+              -122.205,
+              47.56
+            ],
+            [
+              -122.195,
+              47.64
+            ],
+            [
+              -122.205,
+              47.7
+            ],
+            [
+              -122.225,
+              47.75
             ]
           ]
         ]
@@ -279,4 +303,3 @@
     }
   ]
 }
-

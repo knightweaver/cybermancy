@@ -155,7 +155,42 @@
           47.506
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": 107,
+      "properties": {
+        "name": "Meridian–Silicon Wilds Ferry Route",
+        "code": "SEA // EASTSIDE FERRY",
+        "category": "route",
+        "color": "#5adce4",
+        "status": "Guarded cross-lake trade route",
+        "known_for": "Expeditions east and returning salvage shipments",
+        "access": "Meridian terminals and controlled Eastside landings",
+        "description": "Lake Washington ferries connect Meridian with the Silicon Wilds. Expeditions, traders, and outfitters travel east; recovered technology returns through Meridian toward Gasworks workshops and corporate buyers.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.275,
+            47.615
+          ],
+          [
+            -122.245,
+            47.615
+          ],
+          [
+            -122.215,
+            47.615
+          ],
+          [
+            -122.195,
+            47.615
+          ]
+        ]
+      }
     }
   ]
 }
-

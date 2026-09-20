@@ -5,14 +5,70 @@
     {
       "type": "Feature",
       "id": 101,
-      "properties": {"name":"Guarded I-5 Corridor","category":"route","color":"#f1c96d"},
-      "geometry": {"type":"LineString","coordinates":[[-122.205,48.010],[-122.223,47.880],[-122.322,47.700],[-122.330,47.610],[-122.300,47.400],[-122.410,47.250],[-122.440,47.160]]}
+      "properties": {
+        "name": "Guarded I-5 Corridor",
+        "category": "route",
+        "color": "#f1c96d"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.205,
+            48.01
+          ],
+          [
+            -122.223,
+            47.88
+          ],
+          [
+            -122.322,
+            47.7
+          ],
+          [
+            -122.33,
+            47.61
+          ],
+          [
+            -122.3,
+            47.4
+          ],
+          [
+            -122.41,
+            47.25
+          ],
+          [
+            -122.44,
+            47.16
+          ]
+        ]
+      }
     },
     {
       "type": "Feature",
       "id": 102,
-      "properties": {"name":"West Seattle Ferry Route","category":"route","color":"#5adce4"},
-      "geometry": {"type":"LineString","coordinates":[[-122.342,47.603],[-122.369,47.585],[-122.397,47.571]]}
+      "properties": {
+        "name": "West Seattle Ferry Route",
+        "category": "route",
+        "color": "#5adce4"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.342,
+            47.603
+          ],
+          [
+            -122.369,
+            47.585
+          ],
+          [
+            -122.397,
+            47.571
+          ]
+        ]
+      }
     },
     {
       "type": "Feature",
@@ -26,7 +82,13 @@
         "access": "Public lower levels; controlled upper access",
         "description": "Seattle's most recognizable surviving landmark remains a civic symbol, observation point, and carefully maintained piece of the pre-Razz skyline."
       },
-      "geometry": {"type":"Point","coordinates":[-122.3493,47.6205]}
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.3493,
+          47.6205
+        ]
+      }
     },
     {
       "type": "Feature",
@@ -40,7 +102,13 @@
         "access": "Public perimeter; credentialed interior",
         "description": "Five research buildings and an elevated central platform dominate Seattle's biomedical corridor. Corporate security treats the campus as critical infrastructure."
       },
-      "geometry": {"type":"Point","coordinates":[-122.3330,47.6250]}
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.333,
+          47.625
+        ]
+      }
     },
     {
       "type": "Feature",
@@ -54,7 +122,13 @@
         "access": "Restricted perimeter inside Bombshell",
         "description": "The surviving Boeing Field complex has become a hardened corporate-industrial fortress surrounded by the damaged infrastructure of southern Seattle."
       },
-      "geometry": {"type":"Point","coordinates":[-122.3020,47.5290]}
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.302,
+          47.529
+        ]
+      }
     },
     {
       "type": "Feature",
@@ -68,7 +142,48 @@
         "access": "Public plaza during daylight and commemorations",
         "description": "A public memorial preserves the names of metahumans killed during one of Seattle's defining acts of violence. Vigils keep the site politically and culturally active."
       },
-      "geometry": {"type":"Point","coordinates":[-122.2860,47.5060]}
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.286,
+          47.506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 107,
+      "properties": {
+        "name": "Meridian–Silicon Wilds Ferry Route",
+        "code": "SEA // EASTSIDE FERRY",
+        "category": "route",
+        "color": "#5adce4",
+        "status": "Guarded cross-lake trade route",
+        "known_for": "Expeditions east and returning salvage shipments",
+        "access": "Meridian terminals and controlled Eastside landings",
+        "description": "Lake Washington ferries connect Meridian with the Silicon Wilds. Expeditions, traders, and outfitters travel east; recovered technology returns through Meridian toward Gasworks workshops and corporate buyers."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.275,
+            47.615
+          ],
+          [
+            -122.245,
+            47.615
+          ],
+          [
+            -122.215,
+            47.615
+          ],
+          [
+            -122.195,
+            47.615
+          ]
+        ]
+      }
     }
   ]
 }
