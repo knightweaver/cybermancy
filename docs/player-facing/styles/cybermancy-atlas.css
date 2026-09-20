@@ -13,13 +13,17 @@
 }
 
 .cybermancy-atlas {
-  margin: 1.5rem calc(50% - 50vw);
-  padding: 1rem max(1rem, calc((100vw - 76rem) / 2));
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  padding: 1rem;
   color: var(--atlas-text);
   background:
     linear-gradient(135deg, rgba(35, 105, 122, 0.18), transparent 42%),
     var(--atlas-ink);
-  border-block: 1px solid var(--atlas-line);
+  border: 1px solid var(--atlas-line);
+  container-type: inline-size;
 }
 
 .atlas-toolbar,
@@ -28,6 +32,11 @@
   align-items: end;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.atlas-toolbar {
+  position: relative;
+  z-index: 3;
 }
 
 .atlas-toolbar h2,
@@ -238,7 +247,7 @@
   filter: invert(0.88) hue-rotate(145deg);
 }
 
-@media (max-width: 900px) {
+@container (max-width: 56rem) {
   .atlas-layout {
     grid-template-columns: 1fr;
   }
@@ -262,11 +271,7 @@
   }
 }
 
-@media (max-width: 600px) {
-  .cybermancy-atlas {
-    margin-inline: -0.8rem;
-  }
-
+@container (max-width: 38rem) {
   .atlas-toolbar,
   .atlas-legend-section {
     align-items: stretch;

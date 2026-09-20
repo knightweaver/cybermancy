@@ -1,8 +1,15 @@
 (() => {
   "use strict";
 
-  const root = document.getElementById("cybermancy-atlas");
-  if (!root || typeof maplibregl === "undefined") return;
+  let cleanupAtlas = () => {};
+
+  const initializeAtlas = () => {
+    cleanupAtlas();
+
+    const root = document.getElementById("cybermancy-atlas");
+    if (!root || typeof maplibregl === "undefined") return;
+
+    let destroyed = false;
 
   const BASEMAP = "https://tiles.openfreemap.org/styles/dark";
   const VIEW_CONFIG = {
@@ -64,6 +71,7 @@
   let hoveredFeature = null;
   let allFeatures = [];
   let atlasReady = false;
+  let requestedView = "regional";
 
   const escapeHtml = (value) =>
     String(value ?? "").replace(/[&<>'"]/g, (character) => ({
@@ -339,6 +347,9 @@
 
   const applyView = (viewName, animate = true) => {
     if (!VIEW_CONFIG[viewName]) return;
+    requestedView = viewName;
+    map.stop();
+    inset.stop();
     setFeatureState(selectedFeature, { selected: false });
     setFeatureState(hoveredFeature, { hover: false });
     selectedFeature = null;
@@ -400,6 +411,7 @@
     mapLoaded(inset),
   ])
     .then(([regions, districts, context]) => {
+      if (destroyed) return;
       inset.addSource("selection", {
         type: "geojson",
         data: { type: "FeatureCollection", features: [] },
@@ -426,9 +438,10 @@
       map.moveLayer("regions-label");
       map.moveLayer("districts-label");
       atlasReady = true;
-      applyView("regional", false);
+      applyView(requestedView, false);
     })
     .catch((error) => {
+      if (destroyed) return;
       console.error("Cybermancy atlas failed to initialize:", error);
       showMapError(error.message);
     });
@@ -437,14 +450,44 @@
     if (!atlasReady && event.error) console.error("Cybermancy atlas map error:", event.error);
   });
 
-  root.querySelectorAll("[data-atlas-view]").forEach((button) => {
-    button.addEventListener("click", () => {
-      if (atlasReady) applyView(button.dataset.atlasView);
-    });
-  });
+  const handleAtlasClick = (event) => {
+    const button = event.target.closest("[data-atlas-view]");
+    if (!button || !root.contains(button)) return;
+    event.preventDefault();
+    requestedView = button.dataset.atlasView;
+    if (atlasReady) applyView(requestedView);
+  };
 
-  window.addEventListener("resize", () => {
+  root.addEventListener("click", handleAtlasClick);
+
+  const handleResize = () => {
     map.resize();
     inset.resize();
-  });
+  };
+
+  window.addEventListener("resize", handleResize);
+  const resizeObserver = typeof ResizeObserver === "undefined"
+    ? null
+    : new ResizeObserver(handleResize);
+  resizeObserver?.observe(root);
+
+  cleanupAtlas = () => {
+    destroyed = true;
+    root.removeEventListener("click", handleAtlasClick);
+    window.removeEventListener("resize", handleResize);
+    resizeObserver?.disconnect();
+    popup.remove();
+    map.remove();
+    inset.remove();
+    cleanupAtlas = () => {};
+  };
+  };
+
+  if (typeof document$ !== "undefined" && typeof document$.subscribe === "function") {
+    document$.subscribe(initializeAtlas);
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeAtlas, { once: true });
+  } else {
+    initializeAtlas();
+  }
 })();
