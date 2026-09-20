@@ -18,8 +18,12 @@ markdown_extensions:
       permalink: true
 extra_css:
   - styles/items.css
+  - https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css
+  - styles/cybermancy-atlas.css
 extra_javascript:
   - js/table-filter.js
+  - https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js
+  - js/cybermancy-atlas.js
 plugins:
   - search
   - include-markdown
@@ -31,6 +35,7 @@ nav:
   - World:
       - Timeline (player): index.md
       - Megacorps: world/corps.md
+      - Seattle Atlas: world/seattle-atlas.md
       - Communities: world/communities.md
       - PCs: adventures/pcs.md
       - Locations: adventures/locations.md

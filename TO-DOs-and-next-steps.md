@@ -22,4 +22,4 @@
  - Figure out how to extend DH module to support:
  - - stacked armor, cybernetics and worn armor.
  - - energy weapons
- - - 
+ - -
