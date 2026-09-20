@@ -221,10 +221,41 @@
 
 .atlas-legend {
   display: grid;
-  flex: 1;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 0.45rem;
   max-width: 58rem;
+}
+
+.atlas-legend-stack {
+  display: grid;
+  flex: 1;
+  gap: 0.65rem;
+}
+
+.atlas-poi-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.85rem;
+  color: var(--atlas-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.atlas-poi-key:empty {
+  display: none;
+}
+
+.atlas-poi-key-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.atlas-poi-key-symbol {
+  color: var(--poi-color);
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .atlas-legend button {

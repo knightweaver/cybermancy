@@ -62,7 +62,14 @@
       <span class="atlas-eyebrow">VISIBLE TERRITORIES</span>
       <h2 id="atlas-legend-title">Map legend</h2>
     </div>
-    <div id="cybermancy-atlas-legend" class="atlas-legend"></div>
+    <div class="atlas-legend-stack">
+      <div id="cybermancy-atlas-legend" class="atlas-legend"></div>
+      <div
+        id="cybermancy-atlas-poi-key"
+        class="atlas-poi-key"
+        aria-label="Map context categories"
+      ></div>
+    </div>
   </section>
 
   <noscript>This interactive atlas requires JavaScript.</noscript>

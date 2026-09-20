@@ -38,6 +38,21 @@
       },
     },
   };
+  const CONTEXT_CATEGORIES = [
+    { id: "landmark", label: "Landmark", symbol: "◆", color: "#b991ff" },
+    { id: "transit", label: "Transit", symbol: "●", color: "#5adce4" },
+    { id: "corporate", label: "Corporate", symbol: "■", color: "#ff8a55" },
+    { id: "hazard", label: "Hazard", symbol: "▲", color: "#ff5b60" },
+    { id: "settlement", label: "Settlement", symbol: "⬟", color: "#79df8a" },
+    { id: "route", label: "Route", symbol: "━", color: "#f1c96d" },
+  ];
+
+  const categoryExpression = (property, fallback) => [
+    "match",
+    ["get", "category"],
+    ...CONTEXT_CATEGORIES.flatMap((category) => [category.id, category[property]]),
+    fallback,
+  ];
 
   const map = new maplibregl.Map({
     container: "cybermancy-atlas-map",
@@ -68,6 +83,7 @@
     heroCode: document.getElementById("atlas-hero-code"),
   };
   const legend = document.getElementById("cybermancy-atlas-legend");
+  const poiKey = document.getElementById("cybermancy-atlas-poi-key");
   const note = root.querySelector(".atlas-map-note");
   const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 10 });
   let activeView = "regional";
@@ -317,10 +333,26 @@
       source: "context",
       filter: ["==", ["geometry-type"], "Point"],
       paint: {
-        "circle-radius": 5,
-        "circle-color": ["coalesce", ["get", "color"], "#f7c65d"],
-        "circle-stroke-color": "#07131b",
+        "circle-radius": 8,
+        "circle-color": "#07131b",
+        "circle-stroke-color": categoryExpression("color", "#f7c65d"),
         "circle-stroke-width": 2,
+      },
+    });
+    map.addLayer({
+      id: "context-point-symbols",
+      type: "symbol",
+      source: "context",
+      filter: ["==", ["geometry-type"], "Point"],
+      layout: {
+        "text-field": categoryExpression("symbol", "•"),
+        "text-size": 13,
+        "text-font": ["Noto Sans Bold"],
+        "text-allow-overlap": true,
+        "text-ignore-placement": true,
+      },
+      paint: {
+        "text-color": categoryExpression("color", "#f7c65d"),
       },
     });
     map.addLayer({
@@ -336,11 +368,27 @@
         "text-anchor": "top",
       },
       paint: {
-        "text-color": "#f6d889",
+        "text-color": categoryExpression("color", "#f6d889"),
         "text-halo-color": "#07131b",
         "text-halo-width": 1.2,
       },
     });
+
+    const presentCategories = new Set(data.features.map((feature) => feature.properties.category));
+    poiKey.replaceChildren();
+    CONTEXT_CATEGORIES
+      .filter((category) => presentCategories.has(category.id))
+      .forEach((category) => {
+        const item = document.createElement("span");
+        const symbol = document.createElement("span");
+        item.className = "atlas-poi-key-item";
+        symbol.className = "atlas-poi-key-symbol";
+        symbol.style.setProperty("--poi-color", category.color);
+        symbol.setAttribute("aria-hidden", "true");
+        symbol.textContent = category.symbol;
+        item.append(symbol, document.createTextNode(category.label));
+        poiKey.append(item);
+      });
   };
 
   const setLayerVisibility = (layerId, visible) => {
@@ -371,6 +419,7 @@
       setLayerVisibility(`districts-${suffix}`, !showRegions);
     });
     setLayerVisibility("context-labels", !showRegions);
+    setLayerVisibility("context-point-symbols", !showRegions);
     if (note) {
       note.textContent = showRegions
         ? "Draft fictional boundaries. Select a colored region or use the legend for details."
