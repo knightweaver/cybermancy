@@ -19,7 +19,8 @@
     "atlas:check": "node scripts/maps/sync-atlas-audience.mjs --check",
     "atlas:sync": "node scripts/maps/sync-atlas-audience.mjs --write",
     "zip command": "tar -a -c -f cybermancy.zip --exclude=cybermancy/.git --exclude=cybermancy/node_modules --exclude=cybermancy/.idea --exclude=cybermancy/pyCybermancy --exclude=cybermancy/src-descriptors cybermancy",
-    "batch image generation": "py .\\batch-image-generation-on-OpenAI.py --input .\\circuit_domain_cards_witty.csv --outdir .\\circuit-domain-img --effect-key domain"
+    "batch image generation": "py .\\batch-image-generation-on-OpenAI.py --input .\\circuit_domain_cards_witty.csv --outdir .\\circuit-domain-img --effect-key domain",
+    "validate:assets": "node tools/validate-runtime-assets.mjs"
   },
   "repository": {
     "type": "git",
