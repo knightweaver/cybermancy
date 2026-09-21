@@ -134,13 +134,16 @@ function classifyReference(rawValue, pointer) {
   const value = toPosix(rawValue.trim());
   if (!value) return null;
 
+  const lowerValue = value.toLowerCase();
+
   for (const entry of ASSET_PREFIXES) {
-    if (value.startsWith(entry.prefix)) {
+    if (lowerValue.startsWith(entry.prefix.toLowerCase())) {
       return {
         status: "candidate",
         raw: rawValue,
         normalized: value,
         prefix: entry.prefix,
+        prefixCaseMatches: value.startsWith(entry.prefix),
         kind: entry.kind,
         canonicalRuntimePrefix: entry.canonicalRuntimePrefix,
         repoRelative: "assets/" + value.slice(entry.prefix.length)
@@ -148,13 +151,16 @@ function classifyReference(rawValue, pointer) {
     }
   }
 
-  const cybermancyRoot = CYBERMANCY_ROOT_PREFIXES.find(prefix => value.startsWith(prefix));
+  const cybermancyRoot = CYBERMANCY_ROOT_PREFIXES.find(
+    prefix => lowerValue.startsWith(prefix.toLowerCase())
+  );
   if (cybermancyRoot && (looksLikeMediaPath(value) || imageField(pointer))) {
     return {
       status: "outside-assets",
       raw: rawValue,
       normalized: value,
       prefix: cybermancyRoot,
+      prefixCaseMatches: value.startsWith(cybermancyRoot),
       kind: "cybermancy-outside-assets",
       canonicalRuntimePrefix: false,
       repoRelative: null
@@ -229,6 +235,17 @@ function normalizeRepoAssetPath(repoRelative) {
 }
 
 function evaluateReference(reference, assetIndex, strictPrefix) {
+  if (reference.prefixCaseMatches === false) {
+    return {
+      severity: "error",
+      code: "CYBERMANCY_RUNTIME_PREFIX_CASE_MISMATCH",
+      message: `Cybermancy runtime prefix case does not match expected prefix: ${reference.prefix}`,
+      target: reference.repoRelative
+        ? normalizeRepoAssetPath(reference.repoRelative)
+        : null
+    };
+  }
+
   if (reference.status === "outside-assets") {
     return {
       severity: "error",
