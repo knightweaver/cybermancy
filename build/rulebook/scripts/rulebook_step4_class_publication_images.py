@@ -227,6 +227,7 @@ def _postprocess_publication_images(
             repo_root,
             logical_rel,
             str(entity.get("audience") or ""),
+            prefer_runtime_assets=True,
         )
         resolution_status = resolution.get("status")
         if resolution_status != "resolved":
@@ -385,7 +386,8 @@ def configure_step4_class_publication_images(namespace: dict[str, Any]) -> None:
     Foundry ``img`` remains runtime provenance in the generic normalizer. For
     ClassPackage publication, this pass maps the runtime reference to a logical
     asset path, resolves that path against the entity's audience-specific docs
-    asset root, and stages a generated copy below ``build/rulebook/source``.
+    asset root, prefers canonical repository ``/assets`` for runtime-mapped
+    artwork, and stages a generated copy below ``build/rulebook/source``.
     Only the normalized staged path is exposed through ``publicationData.image``;
     Step 6 never needs to reach back into Foundry JSON or the docs source tree.
     """
