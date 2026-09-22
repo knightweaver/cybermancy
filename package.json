@@ -20,7 +20,11 @@
     "atlas:sync": "node scripts/maps/sync-atlas-audience.mjs --write",
     "zip command": "tar -a -c -f cybermancy.zip --exclude=cybermancy/.git --exclude=cybermancy/node_modules --exclude=cybermancy/.idea --exclude=cybermancy/pyCybermancy --exclude=cybermancy/src-descriptors cybermancy",
     "batch image generation": "py .\\batch-image-generation-on-OpenAI.py --input .\\circuit_domain_cards_witty.csv --outdir .\\circuit-domain-img --effect-key domain",
-    "validate:assets": "node tools/validate-runtime-assets.mjs"
+    "validate:assets": "node tools/validate-runtime-assets.mjs",
+    "docs:stage": "python tools/stage-mkdocs-assets.py",
+    "docs:build:player": "mkdocs build --config-file mkdocs.player.staged.yml",
+    "docs:build:gm": "mkdocs build --config-file mkdocs.gm.staged.yml",
+    "docs:build": "npm run docs:stage && npm run docs:build:player && npm run docs:build:gm"
   },
   "repository": {
     "type": "git",

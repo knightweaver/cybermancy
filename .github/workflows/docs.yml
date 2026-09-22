@@ -3,10 +3,12 @@ name: Build & Deploy Docs (Player + GM)
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
-  contents: write   # <-- REQUIRED so the action can push to gh-pages
+  contents: write
 
 jobs:
   build-deploy:
@@ -23,13 +25,16 @@ jobs:
       - name: Install mkdocs + plugins
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material mkdocs-include-markdown-plugin mkdocs-macros-plugin 
+          pip install mkdocs mkdocs-material mkdocs-include-markdown-plugin mkdocs-macros-plugin
+
+      - name: Stage MkDocs sources and canonical assets
+        run: python tools/stage-mkdocs-assets.py
 
       - name: Build Player site
-        run: mkdocs build --config-file mkdocs.player.yml
+        run: mkdocs build --config-file mkdocs.player.staged.yml
 
       - name: Build GM site
-        run: mkdocs build --config-file mkdocs.gm.yml
+        run: mkdocs build --config-file mkdocs.gm.staged.yml
 
       - name: List build output (debug)
         run: |
@@ -45,13 +50,12 @@ jobs:
           path: _site
 
       - name: Deploy to gh-pages
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _site
           publish_branch: gh-pages
-          # create an orphan branch automatically if needed
           force_orphan: true
-          # ensure static hosting works without Jekyll processing
           enable_jekyll: false
           commit_message: "Deploy docs from ${{ github.sha }}"

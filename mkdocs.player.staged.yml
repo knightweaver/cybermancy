@@ -1,0 +1,2 @@
+INHERIT: mkdocs.player.yml
+docs_dir: build/mkdocs/docs/player-facing
