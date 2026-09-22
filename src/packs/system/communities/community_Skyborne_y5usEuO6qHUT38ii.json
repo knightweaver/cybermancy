@@ -1,0 +1,32 @@
+{
+  "name": "Skyborne",
+  "img": "modules/cybermancy/assets/images/communities/nomadborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Skyborne descend from settlements built along cliffs, high mesas, wind-turbine forests, or stratospheric platforms. These regions develop out of necessity: resource extraction sites, atmospheric labs, radio-relay towers, or high-elevation trade links. Local communities specialize in navigation, climbing, environmental tolerance, and maintenance of machinery exposed to severe weather.</p><p><br /></p><p>Life at altitude fosters resilience. Skyborne learn to manage thin air, unstable footing, and sudden storms. Many develop practical skills in rigging, turbine repair, and cargo transfer across hazardous terrain. Their homes are difficult to invade and equally difficult to escape, creating a culture that values both vigilance and self-reliance.</p><p><br /></p><p>Community Feature — Steady You have advantage on rolls to cross dangerous terrain, survive extreme weather, or apply environmental and survival expertise.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Nomadborne</em> <em>are often bold, hardy, indomitable, loyal, reserved, and stubborn.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.DYmmr5CknLtHnwuj"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609320197,
+    "modifiedTime": 1763610618676,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "y5usEuO6qHUT38ii",
+  "sort": 0,
+  "_key": "!items!y5usEuO6qHUT38ii"
+}

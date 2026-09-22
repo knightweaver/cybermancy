@@ -1,0 +1,32 @@
+{
+  "name": "Streetborne",
+  "img": "modules/cybermancy/assets/images/communities/streetborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Streetborn grow within networks that exist outside sanctioned structures: smuggling rings, darknet brokerages, illicit marketplaces, and street crews. These communities form wherever surveillance is weak or corruption strong—abandoned transit hubs, tunnel warrens, neglected districts, or encrypted virtual spaces. Their survival depends on adaptability, intuition, and a deep understanding of how systems fail.</p><p><br /></p><p>Members typically master a range of unsanctioned skills: document forgery, covert movement, data laundering, and factional diplomacy. Despite appearances, these societies often follow strict internal codes, and breaches of trust carry severe consequences.</p><p><br /></p><p>Community Feature — Scoundrel You have advantage on rolls involving criminal negotiation, lie detection, or locating safe havens within the urban sprawl.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Streetborne</em> <em>are often calculating, clever, formidable, perceptive, shrewd, and tenacious.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.ZmEuBdL0JrvuA8le"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609322414,
+    "modifiedTime": 1763610722943,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "aWd9T2E8KZIEFtFL",
+  "sort": 0,
+  "_key": "!items!aWd9T2E8KZIEFtFL"
+}

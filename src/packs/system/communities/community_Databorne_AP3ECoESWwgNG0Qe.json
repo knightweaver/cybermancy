@@ -1,0 +1,32 @@
+{
+  "name": "Databorne",
+  "img": "modules/cybermancy/assets/images/communities/databorne.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Databorne emerge from institutions where information is both resource and doctrine. Their communities form around research arcologies, codex archives, political analysis bureaus, or independent think-tanks. Some serve under Council agencies devoted to data strategy, while others work within private foundations that assemble knowledge for profit, influence, or survival.</p><p><br /></p><p>These groups prioritize structured inquiry and systems thinking. A Databorne upbringing often includes exposure to advanced neural interfaces, archival networks, and predictive modeling tools. While some enclaves maintain strict isolation to protect their research, others operate as diplomatic hubs where information is traded as currency.</p><p><br /></p><p>Community Feature — Well-Read You have advantage on rolls involving history, corporate politics, regulatory structures, or the cultural background of significant places or factions.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Databorne are often direct, eloquent, inquisitive, patient, rhapsodic, and witty.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.JBZJmywisJg5X3tH"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609318142,
+    "modifiedTime": 1763610509243,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "AP3ECoESWwgNG0Qe",
+  "sort": 0,
+  "_key": "!items!AP3ECoESWwgNG0Qe"
+}

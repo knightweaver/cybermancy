@@ -1,0 +1,32 @@
+{
+  "name": "Substrataborne",
+  "img": "modules/cybermancy/assets/images/communities/substrataborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Substrataborn originate in the infrastructural depths beneath cities—maintenance warrens, reactor tunnels, repurposed storm systems, and collapse zones. Some communities descend even further into cavern networks shaped by seismic shifts or biotechnological growth. Life in these regions requires ingenuity and quiet resilience.</p><p><br /></p><p>Their engineering skill is renowned, driven by necessity and constant exposure to malfunctioning systems, unstable architecture, and subterranean fauna. Many Substrataborn communicate using silent gestures or light-pulse languages to compensate for loud machinery, poor acoustics, or security risks.</p><p><br /></p><p>Community Feature — Low-Light Living You have advantage on rolls to hide, investigate, or perceive details in areas of low light, shadow, or partial darkness.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Substrataborne are often composed, elusive, indomitable, innovative, resourceful, and unpretentious.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.aMla3xQuCHEwORGD"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609323517,
+    "modifiedTime": 1763610758575,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "yMwgcxvp6Yd5JpYe",
+  "sort": 0,
+  "_key": "!items!yMwgcxvp6Yd5JpYe"
+}
