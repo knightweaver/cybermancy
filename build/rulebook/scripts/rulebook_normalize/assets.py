@@ -55,14 +55,19 @@ def _audience_asset_roots(audience: str | None) -> tuple[str, ...]:
     return ('docs/_shared',)
 
 
-def _resolution_groups(logical: str, audience: str | None) -> list[list[str]]:
+def _resolution_groups(
+    logical: str,
+    audience: str | None,
+    *,
+    prefer_runtime_assets: bool = False,
+) -> list[list[str]]:
     """Return ordered source-authority groups for one logical asset path.
 
-    Audience-specific documentation assets are the canonical publication
-    sources. ``docs/_shared`` is the next fallback, and a legacy repository-root
-    copy is consulted only when no authoritative docs copy exists. Shared
-    publication content may fall back to player/GM copies as one equal-priority
-    group; conflicting files within that group remain ambiguous.
+    Authored publication assets retain the historical docs-first authority
+    order. Runtime-mapped Cybermancy artwork may opt into root-/assets-first
+    authority so Foundry and publication builds consume the same canonical
+    artwork. Shared docs and audience-specific docs remain deterministic
+    fallbacks when no canonical runtime asset exists.
     """
     if not logical:
         return []
@@ -70,6 +75,34 @@ def _resolution_groups(logical: str, audience: str | None) -> list[list[str]]:
         return [[logical]]
 
     value = (audience or '').strip().lower()
+
+    if prefer_runtime_assets and logical.startswith('assets/'):
+        if value in {'player', 'players', 'player-facing'}:
+            return [
+                [logical],
+                [PurePosixPath('docs/_shared', logical).as_posix()],
+                [PurePosixPath('docs/player-facing', logical).as_posix()],
+            ]
+        if value in {'gm', 'game-master', 'gm-facing'}:
+            return [
+                [logical],
+                [PurePosixPath('docs/_shared', logical).as_posix()],
+                [PurePosixPath('docs/gm-facing', logical).as_posix()],
+            ]
+        if value in {'shared', 'common', 'all'}:
+            return [
+                [logical],
+                [PurePosixPath('docs/_shared', logical).as_posix()],
+                [
+                    PurePosixPath('docs/player-facing', logical).as_posix(),
+                    PurePosixPath('docs/gm-facing', logical).as_posix(),
+                ],
+            ]
+        return [
+            [logical],
+            [PurePosixPath('docs/_shared', logical).as_posix()],
+        ]
+
     if value in {'player', 'players', 'player-facing'}:
         return [
             [PurePosixPath('docs/player-facing', logical).as_posix()],
@@ -101,23 +134,28 @@ def resolve_publication_source_asset(
     repo_root: Path,
     logical_repo_rel: str,
     audience: str | None = None,
+    *,
+    prefer_runtime_assets: bool = False,
 ) -> dict:
     """Resolve one logical publication asset to its checked-in repository file.
 
     Canonical Foundry records can keep runtime references such as
     ``modules/cybermancy/assets/...``. After runtime mapping reduces those to a
-    logical path such as ``assets/...``, the publication source is resolved by
-    explicit authority: audience-specific ``docs`` assets first, shared docs
-    second, and legacy repository-root copies only as a fallback.
+    logical path such as ``assets/...``, callers handling runtime-mapped
+    artwork set ``prefer_runtime_assets=True``. In that mode repository-root
+    ``/assets`` is authoritative, with ``docs/_shared`` and audience-specific
+    docs assets retained only as deterministic fallbacks.
 
-    This lets the repository keep large artwork once in the publication source
-    tree while allowing older root-level asset copies to coexist temporarily.
-    Conflicts only fail closed when multiple files exist at the *same authority
-    level* and differ in content; a lower-authority legacy copy never overrides
-    or makes an authoritative docs asset ambiguous.
+    Authored publication content that does not opt into runtime authority keeps
+    the historical docs-first behavior. Conflicts fail closed only when multiple
+    files exist at the same authority level and differ in content.
     """
     logical = unquote(logical_repo_rel or '').replace('\\', '/').lstrip('/')
-    groups = _resolution_groups(logical, audience)
+    groups = _resolution_groups(
+        logical,
+        audience,
+        prefer_runtime_assets=prefer_runtime_assets,
+    )
     candidates = [candidate for group in groups for candidate in group]
 
     for priority, group in enumerate(groups):

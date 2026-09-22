@@ -141,6 +141,40 @@ class TestClassPublicationImages(unittest.TestCase):
             checks = {item["code"]: item for item in report["checks"]}
             self.assertEqual(checks["CLASS_PUBLICATION_IMAGES"]["status"], "PASS")
 
+    def test_runtime_mapped_class_art_prefers_canonical_root_assets(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            repo, outroot, metadata, config = self._fixture(
+                root,
+                "modules/cybermancy/assets/icons/classes/test-class.png",
+            )
+            direct = repo / "assets/icons/classes/test-class.png"
+            direct.parent.mkdir(parents=True)
+            direct.write_bytes(b"canonical-runtime-art")
+            report = new_report()
+
+            _postprocess_publication_images(
+                repo,
+                outroot,
+                config,
+                report,
+                add_check=add_check,
+            )
+
+            staged = outroot / "source" / "assets" / "icons" / "classes" / "test-class.png"
+            self.assertEqual(staged.read_bytes(), b"canonical-runtime-art")
+
+            asset_rows = json.loads((metadata / "assets.json").read_text(encoding="utf-8"))
+            promoted = [row for row in asset_rows if row.get("kind") == "structured-publication-image"]
+            self.assertEqual(len(promoted), 1)
+            self.assertEqual(
+                promoted[0]["sourceRepoPath"],
+                "assets/icons/classes/test-class.png",
+            )
+
+            checks = {item["code"]: item for item in report["checks"]}
+            self.assertEqual(checks["CLASS_PUBLICATION_IMAGES"]["status"], "PASS")
+
     def test_missing_audience_asset_fails_closed_and_does_not_publish_raw_path(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
@@ -236,6 +270,30 @@ class TestClassPublicationImages(unittest.TestCase):
             self.assertEqual(
                 resolved["sourceRepoPath"],
                 "docs/player-facing/assets/icons/classes/test-class.png",
+            )
+            self.assertEqual(resolved["authorityPriority"], 0)
+
+    def test_runtime_asset_preference_overrides_conflicting_docs_copy(self):
+        with tempfile.TemporaryDirectory() as td:
+            repo = Path(td) / "repo"
+            direct = repo / "assets/icons/classes/test-class.png"
+            docs = repo / "docs/player-facing/assets/icons/classes/test-class.png"
+            direct.parent.mkdir(parents=True)
+            docs.parent.mkdir(parents=True)
+            direct.write_bytes(b"canonical-runtime-copy")
+            docs.write_bytes(b"old-publication-copy")
+
+            resolved = resolve_publication_source_asset(
+                repo,
+                "assets/icons/classes/test-class.png",
+                "player",
+                prefer_runtime_assets=True,
+            )
+
+            self.assertEqual(resolved["status"], "resolved")
+            self.assertEqual(
+                resolved["sourceRepoPath"],
+                "assets/icons/classes/test-class.png",
             )
             self.assertEqual(resolved["authorityPriority"], 0)
 

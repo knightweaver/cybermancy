@@ -178,7 +178,12 @@ def _postprocess_ice_images(
         # asset tree. Treat the art itself as shared visual source material while
         # the ICE entity remains GM-only. This stages a neutral Step 4 copy and
         # does not cause the Player Guide to publish ICE content.
-        resolution = resolve_publication_source_asset(repo_root, logical_rel, "shared")
+        resolution = resolve_publication_source_asset(
+            repo_root,
+            logical_rel,
+            "shared",
+            prefer_runtime_assets=True,
+        )
         if resolution.get("status") != "resolved":
             errors.append(
                 {
