@@ -1,0 +1,20 @@
+{
+  "version": "0.1.14",
+  "tag": "v0.1.14",
+  "publish": true,
+  "qualifiedWorkflowRunId": 35746916003,
+  "qualifiedArtifactName": "cybermancy-runtime-candidate-v0.1.14",
+  "qualifiedRuntimeSha256": "157623168893bfcc4d755b50182037e2a50d726d76cc30bf9bcd8413571f5606",
+  "runtime": {
+    "foundryCore": "13",
+    "system": "daggerheart",
+    "systemVersion": "1"
+  },
+  "qualification": {
+    "status": "PASS",
+    "method": "Inherited runtime qualification from the manually tested v0.1.13 baseline",
+    "result": "v0.1.14 is a metadata-only compatibility patch. The only runtime-facing changes are module version/download metadata and the Daggerheart compatibility declaration (minimum 1.2, verified 1.2, maximum 1.9). The release-candidate workflow rebuilt and validated all 15 Compendia successfully; rules, Compendium source content, scripts, assets, and mechanics are unchanged from the qualified v0.1.13 baseline.",
+    "inheritsFromTag": "v0.1.13",
+    "qualifiedAt": "2026-09-22"
+  }
+}
