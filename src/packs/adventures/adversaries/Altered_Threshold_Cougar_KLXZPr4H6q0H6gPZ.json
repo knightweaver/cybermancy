@@ -1,6 +1,6 @@
 {
   "name": "Altered Threshold Cougar",
-  "img": "worlds/cybermancer/assets/images/adversaries/altered-threshold-cougar.png",
+  "img": "modules/cybermancy/assets/images/adversaries/altered-threshold-cougar.png",
   "type": "adversary",
   "system": {
     "difficulty": 14,
@@ -217,7 +217,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/altered-threshold-cougar-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/altered-threshold-cougar-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

@@ -2,7 +2,7 @@
   "folder": "37VSZjNUFnmscbRN",
   "name": "Abraxas modified Deer",
   "type": "adversary",
-  "img": "worlds/cybermancer/assets/images/adversaries/abraxas-modified-deer.png",
+  "img": "modules/cybermancy/assets/images/adversaries/abraxas-modified-deer.png",
   "system": {
     "attribution": {
       "source": "Cybermancy",
@@ -173,7 +173,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/abraxas-modified-deer-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/abraxas-modified-deer-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

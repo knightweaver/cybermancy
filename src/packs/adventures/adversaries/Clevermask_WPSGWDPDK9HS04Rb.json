@@ -1,6 +1,6 @@
 {
   "name": "Clevermask",
-  "img": "worlds/cybermancer/assets/images/adversaries/clevermask.png",
+  "img": "modules/cybermancy/assets/images/adversaries/clevermask.png",
   "type": "adversary",
   "system": {
     "difficulty": 12,
@@ -221,7 +221,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/clevermask-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/clevermask-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

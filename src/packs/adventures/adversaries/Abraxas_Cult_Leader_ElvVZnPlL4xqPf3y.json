@@ -1,6 +1,6 @@
 {
   "name": "Abraxas Cult Leader",
-  "img": "worlds/cybermancer/assets/images/adversaries/abraxas-cult-leader.png",
+  "img": "modules/cybermancy/assets/images/adversaries/abraxas-cult-leader.png",
   "type": "adversary",
   "system": {
     "difficulty": 16,
@@ -221,7 +221,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/abraxas-cult-leader-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/abraxas-cult-leader-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

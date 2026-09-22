@@ -1,6 +1,6 @@
 {
   "name": "Abraxas Cultist",
-  "img": "worlds/cybermancer/assets/images/adversaries/abraxas-cultist.png",
+  "img": "modules/cybermancy/assets/images/adversaries/abraxas-cultist.png",
   "type": "adversary",
   "system": {
     "difficulty": 12,
@@ -211,7 +211,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/abraxas-cultist-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/abraxas-cultist-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
