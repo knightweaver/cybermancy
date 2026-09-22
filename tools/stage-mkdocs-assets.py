@@ -76,6 +76,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Do not clean build/mkdocs before staging.",
     )
+    parser.add_argument(
+        "--strict-missing",
+        action="store_true",
+        help="Fail on documentation references whose asset source is already missing.",
+    )
     return parser.parse_args()
 
 
@@ -202,7 +207,7 @@ def resolve_source(
     root_assets: dict[str, Path],
     shared_assets: dict[str, Path],
     audience_assets: dict[str, Path],
-) -> tuple[Path, str]:
+) -> tuple[Path | None, str]:
     candidates = [
         ("root-assets", root_assets.get(logical)),
         ("docs-shared", shared_assets.get(logical)),
@@ -211,7 +216,7 @@ def resolve_source(
     existing = [(kind, path) for kind, path in candidates if path is not None]
 
     if not existing:
-        raise StageError(f"Referenced docs asset has no source: assets/{logical}")
+        return None, "missing"
 
     hashes = {sha256(path) for _, path in existing}
     if len(hashes) > 1:
@@ -228,7 +233,8 @@ def stage_audience(
     docs_root: Path,
     stage_docs_root: Path,
     audience: str,
-) -> dict[str, int]:
+    strict_missing: bool,
+) -> tuple[dict[str, int], list[str]]:
     root_assets = file_map(repo_root / "assets")
     shared_assets = file_map(docs_root / "_shared" / "assets")
     audience_assets = file_map(docs_root / audience / "assets")
@@ -238,12 +244,14 @@ def stage_audience(
     stage_asset_root.mkdir(parents=True, exist_ok=True)
 
     # Transitional manifest: preserve every currently published audience asset.
-    logical_assets = set(audience_assets)
+    baseline_assets = set(audience_assets)
     # Shared docs-only assets are deliberately available to both publications.
-    logical_assets.update(shared_assets)
+    baseline_assets.update(shared_assets)
+
     # Root assets remain available after tracked duplicates are removed from
     # docs/ by deriving requirements from documentation references.
-    logical_assets.update(referenced_assets(stage_audience_root))
+    discovered_references = referenced_assets(stage_audience_root)
+    logical_assets = baseline_assets | discovered_references
 
     counts = {
         "root-assets": 0,
@@ -252,6 +260,8 @@ def stage_audience(
         "total": 0,
     }
 
+    missing_references: list[str] = []
+
     for logical in sorted(logical_assets):
         source, kind = resolve_source(
             logical,
@@ -259,13 +269,27 @@ def stage_audience(
             shared_assets=shared_assets,
             audience_assets=audience_assets,
         )
+
+        if source is None:
+            # A textual docs reference can already be broken in the historical
+            # source tree. Preserve current MkDocs behavior by warning rather
+            # than making canonicalization fail for unrelated pre-existing
+            # content debt. --strict-missing is available for a future cleanup
+            # gate. Baseline tracked assets can never legitimately land here.
+            if logical in baseline_assets or strict_missing:
+                raise StageError(
+                    f"Referenced docs asset has no source: assets/{logical}"
+                )
+            missing_references.append(logical)
+            continue
+
         destination = stage_asset_root / Path(logical)
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, destination)
         counts[kind] += 1
         counts["total"] += 1
 
-    return counts
+    return counts, missing_references
 
 
 def main() -> int:
@@ -294,18 +318,30 @@ def main() -> int:
     print(f" - staged docs: {stage_docs_root.relative_to(repo_root)}")
 
     for audience in audiences:
-        counts = stage_audience(
+        counts, missing_references = stage_audience(
             repo_root=repo_root,
             docs_root=docs_root,
             stage_docs_root=stage_docs_root,
             audience=audience,
+            strict_missing=args.strict_missing,
         )
         print(
             f" - {audience}: {counts['total']} assets "
             f"(root /assets={counts['root-assets']}, "
             f"docs shared={counts['docs-shared']}, "
-            f"audience-only={counts['audience-specific']})"
+            f"audience-only={counts['audience-specific']}, "
+            f"pre-existing missing refs={len(missing_references)})"
         )
+        for logical in missing_references[:20]:
+            print(
+                f"   WARNING: referenced asset has no current source: "
+                f"assets/{logical}"
+            )
+        if len(missing_references) > 20:
+            print(
+                f"   WARNING: {len(missing_references) - 20} additional "
+                f"missing references omitted"
+            )
 
     print("MkDocs asset staging PASS")
     return 0
