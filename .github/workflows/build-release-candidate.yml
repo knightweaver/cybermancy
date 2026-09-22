@@ -1,0 +1,67 @@
+name: Build Cybermancy Release Candidate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "module.json"
+      - "package.json"
+      - "package-lock.json"
+      - "scripts/**"
+      - "styles/**"
+      - "templates/**"
+      - "lang/**"
+      - "assets/**"
+      - "src/packs/**"
+      - "tools/validate-release-manifest.mjs"
+      - "tools/validate-runtime-assets.mjs"
+      - "tools/validate-domain-registration.mjs"
+      - "tools/compile-packs.mjs"
+      - "tools/validate-compiled-packs.mjs"
+      - "tools/build-runtime-package.py"
+      - ".github/workflows/build-release-candidate.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: cybermancy-release-candidate
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install build dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Read module version
+        id: version
+        run: |
+          VERSION="$(node -p "require('./module.json').version")"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Run release preflight
+        run: npm run validate:release
+      - name: Compile all declared Compendia from src/packs
+        run: |
+          npm run clean:packs
+          npm run compile:packs
+      - name: Re-extract and validate compiled Compendia
+        run: npm run validate:compiled-packs
+      - name: Build deterministic runtime candidate
+        run: npm run build:runtime-package
+      - name: Upload runtime qualification candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: cybermancy-runtime-candidate-v${{ steps.version.outputs.version }}
+          path: |
+            release/cybermancy-v${{ steps.version.outputs.version }}.zip
+            build/release/compiled-packs.json
+            build/release/runtime-package.json
+          if-no-files-found: error
+          retention-days: 30

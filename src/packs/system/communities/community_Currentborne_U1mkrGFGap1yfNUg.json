@@ -1,0 +1,32 @@
+{
+  "name": "Currentborne",
+  "img": "modules/cybermancy/assets/images/communities/currentborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Currentborn hail from the world’s waters: floating slums, corporate ocean platforms, kelp-farm chains, port cities, and deep-sea arcologies. Their communities rely heavily on maritime trade routes, submersible operations, and environmental monitoring systems altered by The Event. Many inhabitants learn seamanship from childhood, including navigation, salvage, and pressure management.</p><p><br /></p><p>These cultures depend on the movement of tides, markets, and migrating ecosystems. Storm patterns, supply convoys, and shifting territorial claims influence daily life. Currentborn often act as intermediaries between coastal cities and offshore industries, carrying news, goods, and risks.</p><p><br /></p><p>Community Feature — Know the Tide When you gain Fear, place a token on your community card (up to your level). Before an action roll, you may spend any number of tokens for a +1 bonus each. Unspent tokens clear at the end of the session.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Currentborne</em> <em>are often candid, cooperative, exuberant, fierce, resolute, and weathered.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.07x6Qe6qMzDw2xN4"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609321188,
+    "modifiedTime": 1763610675456,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "U1mkrGFGap1yfNUg",
+  "sort": 0,
+  "_key": "!items!U1mkrGFGap1yfNUg"
+}

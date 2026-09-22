@@ -1,0 +1,32 @@
+{
+  "name": "Directiveborne",
+  "img": "modules/cybermancy/assets/images/communities/directiveborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Directiveborn communities hold themselves together through shared principles—religious doctrine, operational codes, mutual-aid ethics, or martial discipline. Many originate from megacorp security academies, paramilitary orders, or Helios-aligned ideologue circles. Others form around civic defense coalitions or industrial guilds that enforce strict internal standards.</p><p><br /></p><p>Their strength lies in collective purpose. Directiveborn internalize procedures designed to create predictability under pressure and unity in conflict. Some communities maintain a peaceful mission, focusing on rescue operations or humanitarian logistics. Others train specialists expected to operate in combat zones, corporate disputes, or hazardous territories.</p><p><br /></p><p>Community Feature — Dedicated Record three principles, mottos, or operational directives from your upbringing. Once per rest, when you act in accordance with one of them, you may roll a d20 as your Hope Die.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Directiveborne</em> <em>are often ambitious, benevolent, pensive, prudent, sardonic, and stoic.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.7aXWdH3gzaYREK0X"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609319197,
+    "modifiedTime": 1763610558241,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "NoiFTqei7UT4ou7F",
+  "sort": 0,
+  "_key": "!items!NoiFTqei7UT4ou7F"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Wildborne",
+  "img": "modules/cybermancy/assets/images/communities/greenborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Greenborn inhabit reclaimed forests, feral biomes, bioengineered growth zones, and isolated ecological communes. These environments mix natural regrowth with synthetic biology—luminescent canopies, vine-woven dwellings, and fauna adapted through post-Event mutation. Settlements are designed to integrate with the environment rather than bend it to human will.</p><p><br /></p><p>Greenborn traditions emphasize ecological awareness, long-term sustainability, and careful coexistence with altered species. Many demonstrate exceptional tracking ability and near-silent movement across dense terrain. Their perspective is shaped by both the beauty and volatility of living ecosystems.</p><p><br /></p><p>Community Feature — Lightfoot Your movement is naturally quiet. You have advantage on rolls made to avoid being heard.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Wildborne are often hardy, loyal, nurturing, reclusive, sagacious, and vibrant.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.TQ1AIQjndC4mYmmU"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609325517,
+    "modifiedTime": 1763610884714,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "xvRelr6jwt9vaCvj",
+  "sort": 0,
+  "_key": "!items!xvRelr6jwt9vaCvj"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Executiveborne",
+  "img": "modules/cybermancy/assets/images/communities/executiveborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Executiveborn trace their origins to the insulated enclaves of corporate aristocracy. Their families occupy the upper tiers of Council governance, independent boardrooms, and influential shareholder courts. Wealth is measured less in currency and more in access: private AI adjudicators, proprietary bio-patents, orbital residences, and controlled stakes in automated production. These environments shape a culture fluent in negotiation, market posturing, and reputation-driven power.</p><p></p><p><br /><br /></p><p>Executiveborn communities exhibit rigid hierarchies. Advancement is slow, often requiring political leverage or demonstrated strategic value. Their presence can stabilize a region through decisive resource allocation—or destabilize it through economic pressure. Most Executiveborn grow up shielded from scarcity, educated in curated academies, and surrounded by contract security.</p><p></p><p><br /><br /></p><p></p><p>Feature — Privilege You have advantage when interacting with high-status individuals, negotiating prices, or using your reputation to secure access or favorable treatment.</p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.C7NR6qRatawZusmg"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609316402,
+    "modifiedTime": 1763610411951,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "m09i4a25XuadEiL1",
+  "sort": 0,
+  "_key": "!items!m09i4a25XuadEiL1"
+}

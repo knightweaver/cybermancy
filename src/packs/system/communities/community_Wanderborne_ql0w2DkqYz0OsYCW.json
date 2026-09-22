@@ -1,0 +1,32 @@
+{
+  "name": "Wanderborne",
+  "img": "modules/cybermancy/assets/images/communities/nomadborn.webp",
+  "type": "community",
+  "folder": null,
+  "system": {
+    "description": "<p>Nomadborn communities move continually through fractured landscapes—convoys crossing wastelands, sky-truck caravans drifting between megacities, rigger tribes migrating with market cycles, or data-courier bands traveling mesh-tether routes. Their survival depends on adaptability, cooperation, and careful management of supplies.</p><p><br /></p><p>They are shaped by exposure to varied cultures and shifting jurisdictions. Nomadborn learn the value of temporary alliances and portable skills. Most travel in groups bound by shared ideals or shared loss, and they develop strong internal loyalty born from years of mutual risk.</p><p><br /></p><p>Community Feature — Nomadic Pack Add a Nomadic Pack to your inventory. Once per session, spend a Hope to pull out a mundane, situationally useful item. Determine the exact item with the GM.</p><p><br /></p><p class=\"green Body-Styles_Body\"><em>Wanderborne are often inscrutable, magnanimous, mirthful, reliable, savvy, and unorthodox.</em></p><p></p>",
+    "features": [
+      "Compendium.daggerheart.communities.Item.2RSrQouA2zEJ5Xee"
+    ]
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.350",
+    "systemId": "daggerheart",
+    "systemVersion": "1.1.2",
+    "createdTime": 1763609324558,
+    "modifiedTime": 1763610820846,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "BT83wOOYeRCn9aoe": 3
+  },
+  "_id": "ql0w2DkqYz0OsYCW",
+  "sort": 0,
+  "_key": "!items!ql0w2DkqYz0OsYCW"
+}
