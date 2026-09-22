@@ -1,0 +1,125 @@
+#!/usr/bin/env node
+
+import { promises as fs } from "node:fs";
+import path from "node:path";
+
+const ROOT = process.cwd();
+const manifestPath = path.join(ROOT, "module.json");
+const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+const errors = [];
+
+const requireMajorCompatibility = (label, value, expectedMajor) => {
+  if (!value || typeof value !== "object") {
+    errors.push(`${label}: compatibility object is missing`);
+    return;
+  }
+  for (const key of ["minimum", "verified", "maximum"]) {
+    if (String(value[key] ?? "") !== expectedMajor) {
+      errors.push(
+        `${label}: ${key} must be major version "${expectedMajor}", got ${JSON.stringify(value[key])}`
+      );
+    }
+  }
+};
+
+if (manifest.id !== "cybermancy") {
+  errors.push(`module id must be "cybermancy", got ${JSON.stringify(manifest.id)}`);
+}
+if (!/^\d+\.\d+\.\d+$/.test(String(manifest.version ?? ""))) {
+  errors.push(`module version must be semantic x.y.z, got ${JSON.stringify(manifest.version)}`);
+}
+
+requireMajorCompatibility("Foundry", manifest.compatibility, "13");
+
+const daggerheart = (manifest.relationships?.systems ?? []).find(
+  system => system?.id === "daggerheart"
+);
+if (!daggerheart) {
+  errors.push("Daggerheart system relationship is missing");
+} else {
+  if (daggerheart.type !== "system") {
+    errors.push(`Daggerheart relationship type must be "system", got ${JSON.stringify(daggerheart.type)}`);
+  }
+  requireMajorCompatibility("Daggerheart", daggerheart.compatibility, "1");
+}
+
+const esmodules = manifest.esmodules ?? [];
+if (!esmodules.includes("scripts/main.js")) {
+  errors.push('module must load Cybermancy runtime entry point via esmodules: ["scripts/main.js"]');
+}
+
+const declaredPacks = new Map();
+for (const pack of manifest.packs ?? []) {
+  if (!pack?.name) {
+    errors.push("declared pack is missing a name");
+    continue;
+  }
+  if (declaredPacks.has(pack.name)) {
+    errors.push(`duplicate pack declaration: ${pack.name}`);
+  }
+  declaredPacks.set(pack.name, pack);
+
+  if (!String(pack.path ?? "").endsWith(".db")) {
+    errors.push(`${pack.name}: pack path must end in .db: ${JSON.stringify(pack.path)}`);
+    continue;
+  }
+
+  const compiledRel = pack.path.slice(0, -3);
+  const sourceRel = path.join("src", compiledRel);
+  try {
+    const stat = await fs.stat(path.join(ROOT, sourceRel));
+    if (!stat.isDirectory()) errors.push(`${pack.name}: source pack is not a directory: ${sourceRel}`);
+  } catch {
+    errors.push(`${pack.name}: source pack is missing: ${sourceRel}`);
+  }
+}
+
+for (const group of manifest.packFolders ?? []) {
+  for (const folder of group.folders ?? []) {
+    for (const packName of folder.packs ?? []) {
+      if (!declaredPacks.has(packName)) {
+        errors.push(`packFolders references undeclared pack: ${packName}`);
+      }
+    }
+  }
+}
+
+const runtimeReferences = [
+  ...(manifest.esmodules ?? []),
+  ...(manifest.styles ?? []),
+  ...(manifest.languages ?? []).map(language => language?.path).filter(Boolean)
+];
+for (const rel of runtimeReferences) {
+  try {
+    const stat = await fs.stat(path.join(ROOT, rel));
+    if (!stat.isFile()) errors.push(`runtime reference is not a file: ${rel}`);
+  } catch {
+    errors.push(`runtime reference is missing: ${rel}`);
+  }
+}
+
+const expectedManifest =
+  "https://github.com/knightweaver/cybermancy/releases/latest/download/module.json";
+const expectedArchive = `cybermancy-v${manifest.version}.zip`;
+const expectedDownload =
+  `https://github.com/knightweaver/cybermancy/releases/download/v${manifest.version}/${expectedArchive}`;
+
+if (manifest.manifest !== expectedManifest) {
+  errors.push(`manifest URL mismatch: ${JSON.stringify(manifest.manifest)}`);
+}
+if (manifest.download !== expectedDownload) {
+  errors.push(`download URL mismatch: expected ${expectedDownload}, got ${JSON.stringify(manifest.download)}`);
+}
+
+if (errors.length) {
+  console.error("Cybermancy release manifest validation FAILED");
+  for (const error of errors) console.error(` - ${error}`);
+  process.exit(1);
+}
+
+console.log("Cybermancy release manifest validation PASS");
+console.log(` - version: ${manifest.version}`);
+console.log(" - Foundry compatibility: 13 / 13 / 13");
+console.log(" - Daggerheart compatibility: 1 / 1 / 1");
+console.log(` - declared Compendia: ${declaredPacks.size}`);
+console.log(" - scripts/main.js runtime entry point: declared");
