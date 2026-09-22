@@ -8,15 +8,15 @@ const manifestPath = path.join(ROOT, "module.json");
 const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
 const errors = [];
 
-const requireMajorCompatibility = (label, value, expectedMajor) => {
+const requireCompatibility = (label, value, expected) => {
   if (!value || typeof value !== "object") {
     errors.push(`${label}: compatibility object is missing`);
     return;
   }
   for (const key of ["minimum", "verified", "maximum"]) {
-    if (String(value[key] ?? "") !== expectedMajor) {
+    if (String(value[key] ?? "") !== String(expected[key] ?? "")) {
       errors.push(
-        `${label}: ${key} must be major version "${expectedMajor}", got ${JSON.stringify(value[key])}`
+        `${label}: ${key} must be ${JSON.stringify(expected[key])}, got ${JSON.stringify(value[key])}`
       );
     }
   }
@@ -29,7 +29,7 @@ if (!/^\d+\.\d+\.\d+$/.test(String(manifest.version ?? ""))) {
   errors.push(`module version must be semantic x.y.z, got ${JSON.stringify(manifest.version)}`);
 }
 
-requireMajorCompatibility("Foundry", manifest.compatibility, "13");
+requireCompatibility("Foundry", manifest.compatibility, { minimum: "13", verified: "13", maximum: "13" });
 
 const daggerheart = (manifest.relationships?.systems ?? []).find(
   system => system?.id === "daggerheart"
@@ -40,7 +40,7 @@ if (!daggerheart) {
   if (daggerheart.type !== "system") {
     errors.push(`Daggerheart relationship type must be "system", got ${JSON.stringify(daggerheart.type)}`);
   }
-  requireMajorCompatibility("Daggerheart", daggerheart.compatibility, "1");
+  requireCompatibility("Daggerheart", daggerheart.compatibility, { minimum: "1.2", verified: "1.2", maximum: "1.9" });
 }
 
 const esmodules = manifest.esmodules ?? [];
@@ -142,6 +142,6 @@ if (errors.length) {
 console.log("Cybermancy release manifest validation PASS");
 console.log(` - version: ${manifest.version}`);
 console.log(" - Foundry compatibility: 13 / 13 / 13");
-console.log(" - Daggerheart compatibility: 1 / 1 / 1");
+console.log(" - Daggerheart compatibility: 1.2 / 1.2 / 1.9");
 console.log(` - declared Compendia: ${declaredPacks.size}`);
 console.log(" - scripts/main.js runtime entry point: declared");
