@@ -2,7 +2,7 @@ name: Build Cybermancy Release Candidate
 
 on:
   push:
-    branches: [main, release/v0.1.13-prep]
+    branches: [main]
     paths:
       - "module.json"
       - "package.json"
