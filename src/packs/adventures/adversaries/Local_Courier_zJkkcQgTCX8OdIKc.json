@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/local-courier.webp",
   "system": {
-    "description": "A street courier hauling parcels and data chips through dangerous blocks on a tight schedule.",
+    "description": "<p>A street courier hauling parcels and data chips through dangerous blocks on a tight schedule.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Messenger's Elbow",
-      "img": "modules/cybermancy/assets/icons/attacks/messenger's-elbow.webp",
+      "img": "modules/cybermancy/assets/icons/attacks/messengers-elbow.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -85,7 +85,7 @@
               "multiplier": "prof",
               "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": -1,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470484373,
-    "modifiedTime": 1763470846751,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790036831271,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "zJkkcQgTCX8OdIKc",
   "sort": 2300000,

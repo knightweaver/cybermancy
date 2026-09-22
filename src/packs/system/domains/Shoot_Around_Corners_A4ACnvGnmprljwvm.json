@@ -29,7 +29,7 @@
           "amount": null
         },
         "name": "Shoot Around Corners",
-        "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corners.webp",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/shoot-around-corner.webp",
         "range": "",
         "_id": "boLrg3r61aRU4HsD",
         "baseAction": false,
@@ -57,7 +57,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1761621487807,
-    "modifiedTime": 1787831974616,
+    "modifiedTime": 1790039712918,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!A4ACnvGnmprljwvm"

@@ -1,7 +1,7 @@
 {
   "name": "Diamond Cyber Spurs",
   "type": "weapon",
-  "img": "modules/cybermancy/assets/icons/weapons/diamond-cyber-spurs.webp",
+  "img": "modules/cybermancy/assets/icons/weapons/titanium-cyber-spurs.webp",
   "system": {
     "description": "Mirror-finish diamond-tipped spurs designed for surgical precision and absolute silence.",
     "tier": 4,
@@ -10,7 +10,7 @@
     "burden": "oneHanded",
     "attack": {
       "name": "Attack",
-      "img": "modules/cybermancy/assets/icons/weapons/diamond-cyber-spurs.webp",
+      "img": "modules/cybermancy/assets/icons/weapons/titanium-cyber-spurs.webp",
       "systemPath": "attack",
       "type": "attack",
       "range": "melee",
@@ -165,7 +165,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1760883938673,
-    "modifiedTime": 1787573539128,
+    "modifiedTime": 1790039531151,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "aPrFUfDdEG69gqT1",

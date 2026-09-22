@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/augmented-street-performer.webp",
   "system": {
-    "description": "A performer using tasteful luminous augments to turn bodies and light into art.",
+    "description": "<p>A performer using tasteful luminous augments to turn bodies and light into art.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Acrobatic Kick",
-      "img": "modules/cybermancy/assets/icons/attacks/acrobatic-kick.webp",
+      "img": "modules/cybermancy/assets/icons/attacks/trained-takedown.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -85,7 +85,7 @@
               "multiplier": "prof",
               "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470598399,
-    "modifiedTime": 1763470846751,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790037289599,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "qmX8kGB5IpG2EMCP",
   "sort": 1400000,

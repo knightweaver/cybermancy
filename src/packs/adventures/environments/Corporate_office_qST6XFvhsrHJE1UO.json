@@ -328,7 +328,7 @@
         "multiclassOrigin": false
       },
       "_id": "P3JOdXLA43tfJOEz",
-      "img": "worlds/cybermancer/Corporate%20Guard.png",
+      "img": "modules/cybermancy/assets/images/adversaries/Corporate%20Guard.png",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -344,7 +344,8 @@
         "coreVersion": "13.351",
         "systemId": "daggerheart",
         "systemVersion": "1.2.7",
-        "lastModifiedBy": null
+        "lastModifiedBy": "BT83wOOYeRCn9aoe",
+        "modifiedTime": 1790039943486
       },
       "_key": "!actors.items!qST6XFvhsrHJE1UO.P3JOdXLA43tfJOEz"
     }

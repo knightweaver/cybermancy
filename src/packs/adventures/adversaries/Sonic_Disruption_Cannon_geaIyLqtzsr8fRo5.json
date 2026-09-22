@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/sonic-disruption-cannon.webp",
   "system": {
-    "description": "A high-frequency sonic weapon for hallways and chokepoints.",
+    "description": "<p>A high-frequency sonic weapon for hallways and chokepoints.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Sonic Burst",
-      "img": "modules/cybermancy/assets/icons/attacks/sonic-disruption-cannon.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/sonic-disruption-cannon.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -83,9 +83,9 @@
             "resultBased": false,
             "valueAlt": {
               "multiplier": "prof",
-              "flatMultiplier": 2,
+              "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470140966,
-    "modifiedTime": 1763470140966,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790037103175,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "geaIyLqtzsr8fRo5",
   "sort": 0,

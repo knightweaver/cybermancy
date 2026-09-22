@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/explosive-decoy-crate.webp",
   "system": {
-    "description": "A booby-trapped storage crate meant to lure thieves.",
+    "description": "<p>A booby-trapped storage crate meant to lure thieves.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Decoy Blast",
-      "img": "modules/cybermancy/assets/icons/attacks/explosive-decoy-crate.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/explosive-decoy-crate.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -83,9 +83,9 @@
             "resultBased": false,
             "valueAlt": {
               "multiplier": "prof",
-              "flatMultiplier": 2,
+              "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470467070,
-    "modifiedTime": 1763470467070,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790036695864,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "azk8zCdko13bAkbA",
   "sort": 0,

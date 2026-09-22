@@ -1,9 +1,9 @@
 {
   "name": "Rail-Slug Wall Cannon",
   "type": "adversary",
-  "img": "modules/cybermancy/assets/icons/adversaries/rail-slug-cannon.webp",
+  "img": "modules/cybermancy/assets/icons/adversaries/rail-slug-wall-cannon.webp",
   "system": {
-    "description": "A wall-embedded railgun firing armor-piercing slugs.",
+    "description": "<p>A wall-embedded railgun firing armor-piercing slugs.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Rail Slug",
-      "img": "modules/cybermancy/assets/icons/attacks/rail-slug-cannon.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/rail-slug-wall-cannon.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -83,9 +83,9 @@
             "resultBased": false,
             "valueAlt": {
               "multiplier": "prof",
-              "flatMultiplier": 2,
-              "dice": "d10",
-              "bonus": 0,
+              "flatMultiplier": 1,
+              "dice": "d6",
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -155,7 +155,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "modules/cybermancy/assets/icons/adversaries/rail-slug-cannon.webp",
+      "src": "modules/cybermancy/assets/icons/adversaries/rail-slug-wall-cannon.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
@@ -224,7 +224,7 @@
         "ring": null,
         "background": null
       },
-      "effects": 1,
+      "effects": 0,
       "subject": {
         "scale": 1,
         "texture": null
@@ -237,7 +237,11 @@
       "disposition": false
     },
     "movementAction": null,
-    "flags": {},
+    "flags": {
+      "wall-height": {
+        "tokenHeight": 0
+      }
+    },
     "randomImg": false,
     "appendNumber": false,
     "prependAdjective": false
@@ -254,12 +258,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470102767,
-    "modifiedTime": 1763470102767,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790037495794,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "7uYhxenuDGU5LY8t",
   "sort": 0,

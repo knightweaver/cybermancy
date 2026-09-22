@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/smart-claymore-charge.webp",
   "system": {
-    "description": "A directional explosive with smart detonation logic.",
+    "description": "<p>A directional explosive with smart detonation logic.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Fragment Blast",
-      "img": "modules/cybermancy/assets/icons/attacks/smart-claymore.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/smart-claymore-charge.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -83,9 +83,9 @@
             "resultBased": false,
             "valueAlt": {
               "multiplier": "prof",
-              "flatMultiplier": 2,
+              "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -258,11 +258,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470532854,
-    "modifiedTime": 1764426176154,
+    "modifiedTime": 1790037037861,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "OUu1ltK0Qdw3i1Vi",

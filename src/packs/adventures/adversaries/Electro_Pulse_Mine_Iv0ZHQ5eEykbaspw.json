@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/electro-pulse-mine.webp",
   "system": {
-    "description": "A mine that generates an EMP combined with neural shock.",
+    "description": "<p>A mine that generates an EMP combined with neural shock.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Pulse Shock",
-      "img": "modules/cybermancy/assets/icons/attacks/electro-pulse-mine.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/electro-pulse-mine.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -83,9 +83,9 @@
             "resultBased": false,
             "valueAlt": {
               "multiplier": "prof",
-              "flatMultiplier": 2,
+              "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470456982,
-    "modifiedTime": 1763470528147,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790036595831,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "Iv0ZHQ5eEykbaspw",
   "sort": 600000,
