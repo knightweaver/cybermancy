@@ -1,0 +1,19 @@
+{
+  "version": "0.1.13",
+  "tag": "v0.1.13",
+  "publish": true,
+  "qualifiedWorkflowRunId": 35726205723,
+  "qualifiedArtifactName": "cybermancy-runtime-candidate-v0.1.13",
+  "qualifiedRuntimeSha256": "f6333509366a63dbb55e3c54dc47911d67f9bfd4f90f594759dae69152dcba14",
+  "runtime": {
+    "foundryCore": "13",
+    "system": "daggerheart",
+    "systemVersion": "1"
+  },
+  "qualification": {
+    "status": "PASS",
+    "method": "Manual clean-install qualification",
+    "result": "Installed exact main-branch candidate into a clean Foundry 13 / Daggerheart 1 environment; module activated successfully and all Cybermancy Compendia and runtime functionality were present.",
+    "qualifiedAt": "2026-09-22"
+  }
+}
