@@ -1,0 +1,2 @@
+INHERIT: mkdocs.gm.yml
+docs_dir: build/mkdocs/docs/gm-facing
