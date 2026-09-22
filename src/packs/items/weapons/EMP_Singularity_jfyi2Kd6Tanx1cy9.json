@@ -131,7 +131,7 @@
           "amount": null
         },
         "name": "Critical Effect:  System Collapse",
-        "img": "modules/cybermancy/assets/icons/features/system-collapse.webp",
+        "img": "modules/cybermancy/assets/icons/features/system-shutdown.webp",
         "range": "",
         "_id": "dhhS6j3UObu9qqZf",
         "baseAction": false,

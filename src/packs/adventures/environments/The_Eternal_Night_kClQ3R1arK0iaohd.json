@@ -2,7 +2,7 @@
   "folder": "PVM9xBt9UzTWTWGT",
   "name": "The Eternal Night",
   "type": "environment",
-  "img": "worlds/cybermancer/scenes/concert%20stage.jpg",
+  "img": "modules/cybermancy/assets/images/environments/concert%20stage.jpg",
   "system": {
     "attribution": {},
     "description": "",
@@ -19,7 +19,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/scenes/concert%20stage.jpg",
+      "src": "modules/cybermancy/assets/images/environments/concert%20stage.jpg",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
@@ -37,10 +37,10 @@
     "disposition": -1,
     "displayBars": 0,
     "bar1": {
-      "attribute": "resources.hitPoints"
+      "attribute": null
     },
     "bar2": {
-      "attribute": "resources.stress"
+      "attribute": null
     },
     "light": {
       "negative": false,
@@ -88,7 +88,7 @@
         "ring": null,
         "background": null
       },
-      "effects": 1,
+      "effects": 0,
       "subject": {
         "scale": 1,
         "texture": null
@@ -101,7 +101,11 @@
       "disposition": false
     },
     "movementAction": null,
-    "flags": {},
+    "flags": {
+      "wall-height": {
+        "tokenHeight": 0
+      }
+    },
     "randomImg": false,
     "appendNumber": false,
     "prependAdjective": false
@@ -248,7 +252,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1787230015228,
-    "modifiedTime": 1787230015247,
+    "modifiedTime": 1790038081459,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "kClQ3R1arK0iaohd",

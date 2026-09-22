@@ -1,7 +1,7 @@
 {
   "name": "Nanite Rounds",
   "type": "consumable",
-  "img": "modules/cybermancy/assets/icons/consumables/ammo/nanite-rounds.webp",
+  "img": "modules/cybermancy/assets/icons/ammo/nanite-rounds.webp",
   "system": {
     "description": "<p class=\"Card-Feature\">Take a <strong>Reload action</strong> to apply this ammo to any ranged weapon and place 4 tokens on this card. <br /><br />Discard 1 token for each subsequent attack using that weapon. Targets that are hit cannot receive healing effects until the GM spends 1 Fear to remove this affect.</p>",
     "actions": {
@@ -24,7 +24,7 @@
           "amount": null
         },
         "name": "Nanite Rounds",
-        "img": "modules/cybermancy/assets/icons/consumables/ammo/nanite-rounds.webp",
+        "img": "modules/cybermancy/assets/icons/ammo/nanite-rounds.webp",
         "range": "",
         "_id": "UWryzNTyFJSfWqsQ",
         "baseAction": false,
@@ -51,7 +51,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1762172541380,
-    "modifiedTime": 1788923045005,
+    "modifiedTime": 1790038400768,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "0lSF03vZHMMZaI1a",

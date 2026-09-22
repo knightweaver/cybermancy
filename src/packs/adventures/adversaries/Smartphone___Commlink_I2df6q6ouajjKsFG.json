@@ -155,7 +155,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "modules/cybermancy/assets/icons/adversaries/commlink.webp",
+      "src": "modules/cybermancy/assets/icons/adversaries/smartphone.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
@@ -224,7 +224,7 @@
         "ring": null,
         "background": null
       },
-      "effects": 1,
+      "effects": 0,
       "subject": {
         "scale": 1,
         "texture": null
@@ -237,7 +237,11 @@
       "disposition": false
     },
     "movementAction": null,
-    "flags": {},
+    "flags": {
+      "wall-height": {
+        "tokenHeight": 0
+      }
+    },
     "randomImg": false,
     "appendNumber": false,
     "prependAdjective": false
@@ -254,11 +258,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
     "systemVersion": "1.1.2",
     "createdTime": 1763470837086,
-    "modifiedTime": 1763854229016,
+    "modifiedTime": 1790037532968,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "I2df6q6ouajjKsFG",

@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/environmental-sensor.webp",
   "system": {
-    "description": "A node that monitors air, chemical, or mana conditions and reports anomalies.",
+    "description": "<p>A node that monitors air, chemical, or mana conditions and reports anomalies.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -85,7 +85,7 @@
               "multiplier": "prof",
               "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -155,7 +155,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "modules/cybermancy/assets/icons/adversaries/env-sensor.webp",
+      "src": "modules/cybermancy/assets/icons/adversaries/environmental-sensor.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
@@ -224,7 +224,7 @@
         "ring": null,
         "background": null
       },
-      "effects": 1,
+      "effects": 0,
       "subject": {
         "scale": 1,
         "texture": null
@@ -237,7 +237,11 @@
       "disposition": false
     },
     "movementAction": null,
-    "flags": {},
+    "flags": {
+      "wall-height": {
+        "tokenHeight": 0
+      }
+    },
     "randomImg": false,
     "appendNumber": false,
     "prependAdjective": false
@@ -254,11 +258,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470799005,
-    "modifiedTime": 1763852170784,
+    "modifiedTime": 1790037393927,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "NICL4KZCTmYTFVs0",

@@ -38,7 +38,7 @@
           "amount": null
         },
         "name": "All quiet here, how are you?",
-        "img": "modules/cybermancy/assets/icons/domains/circuit/all-quiet-here,-how-are-you?.webp",
+        "img": "modules/cybermancy/assets/icons/domains/circuit/all-quiet-here-how-are-you.webp",
         "range": "",
         "damage": {
           "parts": [],
@@ -91,7 +91,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1761621623097,
-    "modifiedTime": 1787831992409,
+    "modifiedTime": 1790039601226,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!Kn0OHNH3Nbaoxlem"

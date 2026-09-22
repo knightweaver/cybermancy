@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/chemical-mist-neutralizer.webp",
   "system": {
-    "description": "A dispersal unit that emits paralytic or disorienting mist.",
+    "description": "<p>A dispersal unit that emits paralytic or disorienting mist.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Mist Burst",
-      "img": "modules/cybermancy/assets/icons/attacks/chemical-mist-neutralizer.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/chemical-mist-neutralizer.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -84,8 +84,8 @@
             "valueAlt": {
               "multiplier": "prof",
               "flatMultiplier": 1,
-              "dice": "d8",
-              "bonus": 0,
+              "dice": "d6",
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470774460,
-    "modifiedTime": 1763470830980,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790036545248,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "5LEr7zpVICgSj3HU",
   "sort": 600000,

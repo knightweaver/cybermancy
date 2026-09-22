@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/thermal-motion-detector.webp",
   "system": {
-    "description": "A heat-tracking sensor node with defensive shock emitters.",
+    "description": "<p>A heat-tracking sensor node with defensive shock emitters.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Thermal Zap",
-      "img": "modules/cybermancy/assets/icons/attacks/thermal-motion-detector.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/thermal-motion-detector.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -85,7 +85,7 @@
               "multiplier": "prof",
               "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,11 +254,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470854524,
-    "modifiedTime": 1763854259527,
+    "modifiedTime": 1790037124295,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "DEtMGABMiqDcysjR",

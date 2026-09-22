@@ -1,7 +1,7 @@
 {
   "name": "Fixer",
   "type": "domainCard",
-  "img": "modules/cybermancy/assets/icons/domains/bullet/fixer.webp",
+  "img": "modules/cybermancy/assets/icons/domains/bullet/bodyguard.webp",
   "system": {
     "description": "<i>The streets remember your name.</i><p class=\"Card-Feature\">You have a contact for weapons. Weapon items cost less (GM discretion). Once per session, ask your Fixer information on any topic.</p>",
     "level": 5,
@@ -29,7 +29,7 @@
           "amount": null
         },
         "name": "Fixer",
-        "img": "modules/cybermancy/assets/icons/domains/bullet/fixer.webp",
+        "img": "modules/cybermancy/assets/icons/domains/bullet/bodyguard.webp",
         "range": "",
         "_id": "FgD7xwtBfovU6neZ",
         "baseAction": false,
@@ -57,7 +57,7 @@
     "systemId": "daggerheart",
     "systemVersion": "1.2.7",
     "createdTime": 1761621483578,
-    "modifiedTime": 1787574144344,
+    "modifiedTime": 1790039685511,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_key": "!items!CJ6dICMm2FAH9quH"

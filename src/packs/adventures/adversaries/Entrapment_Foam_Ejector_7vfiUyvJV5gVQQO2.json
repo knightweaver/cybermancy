@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/entrapment-foam-ejector.webp",
   "system": {
-    "description": "A wall device that sprays hardening restraint foam.",
+    "description": "<p>A wall device that sprays hardening restraint foam.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Foam Jet",
-      "img": "modules/cybermancy/assets/icons/attacks/entrapment-foam-ejector.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/entrapment-foam-ejector.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -84,8 +84,8 @@
             "valueAlt": {
               "multiplier": "prof",
               "flatMultiplier": 1,
-              "dice": "d4",
-              "bonus": 0,
+              "dice": "d6",
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470796668,
-    "modifiedTime": 1763470830980,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790036624791,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "7vfiUyvJV5gVQQO2",
   "sort": 800000,

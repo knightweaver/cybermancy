@@ -3,7 +3,7 @@
   "type": "adversary",
   "img": "modules/cybermancy/assets/icons/adversaries/laser-tripwire-grid.webp",
   "system": {
-    "description": "A fixed-beam laser intrusion grid that activates lethal countermeasures when crossed.",
+    "description": "<p>A fixed-beam laser intrusion grid that activates lethal countermeasures when crossed.</p>",
     "resistance": {
       "physical": {
         "resistance": false,
@@ -39,7 +39,7 @@
     },
     "attack": {
       "name": "Laser Surge",
-      "img": "modules/cybermancy/assets/icons/attacks/laser-tripwire-grid.webp",
+      "img": "modules/cybermancy/assets/icons/adversaries/laser-tripwire-grid.webp",
       "systemPath": "attack",
       "chatDisplay": false,
       "type": "attack",
@@ -85,7 +85,7 @@
               "multiplier": "prof",
               "flatMultiplier": 1,
               "dice": "d6",
-              "bonus": 0,
+              "bonus": null,
               "custom": {
                 "enabled": false,
                 "formula": ""
@@ -254,12 +254,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "13.351",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "1.2.7",
     "createdTime": 1763470810702,
-    "modifiedTime": 1763470830980,
-    "lastModifiedBy": "9AtfWssIybpdSZVY"
+    "modifiedTime": 1790036792575,
+    "lastModifiedBy": "BT83wOOYeRCn9aoe"
   },
   "_id": "pRfNQ4r3Phj2UL3e",
   "sort": 400000,

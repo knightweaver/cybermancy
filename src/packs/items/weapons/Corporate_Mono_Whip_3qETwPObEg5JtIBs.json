@@ -10,7 +10,7 @@
     "burden": "oneHanded",
     "attack": {
       "name": "Attack",
-      "img": "modules/cybermancy/assets/icons/weapons/corporate-mono-whip.webp",
+      "img": "modules/cybermancy/assets/icons/weapons/improved-monofilament-whip.webp",
       "systemPath": "attack",
       "type": "attack",
       "range": "veryClose",
