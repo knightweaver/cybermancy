@@ -9,7 +9,17 @@ import zipfile
 from pathlib import Path
 
 FIXED_DT = (1980, 1, 1, 0, 0, 0)
-RUNTIME_DIRS = ("scripts", "styles", "templates", "lang", "assets")
+RUNTIME_FILES = (
+    "scripts/main.js",
+    "scripts/domains.js",
+    "scripts/hooks.js",
+    "scripts/sheets/CybermancyRunnerSheet.js",
+    "scripts/sheets/CybermancyWeaponSheet.js",
+    "styles/cybermancy.css",
+    "templates/actor-runner-sheet.hbs",
+    "templates/item-weapon-sheet.hbs",
+    "lang/en.json",
+)
 OPTIONAL_ROOT_FILES = ("LICENSE", "README.md")
 
 
@@ -45,10 +55,16 @@ def main() -> int:
         if candidate.is_file():
             runtime_files.append(candidate)
 
-    for dirname in RUNTIME_DIRS:
-        root = repo / dirname
-        if root.is_dir():
-            runtime_files.extend(sorted(p for p in root.rglob("*") if p.is_file()))
+    for rel in RUNTIME_FILES:
+        candidate = repo / rel
+        if not candidate.is_file():
+            raise ValueError(f"Required runtime file missing: {rel}")
+        runtime_files.append(candidate)
+
+    assets_root = repo / "assets"
+    if not assets_root.is_dir():
+        raise ValueError("Required runtime assets directory is missing")
+    runtime_files.extend(sorted(p for p in assets_root.rglob("*") if p.is_file()))
 
     pack_dirs = []
     for pack in manifest.get("packs", []):
