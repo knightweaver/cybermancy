@@ -1,6 +1,6 @@
 {
   "name": "Baton-wielding Guard",
-  "img": "worlds/cybermancer/assets/images/adversaries/Baton-wielding%20corporate%20guard.png",
+  "img": "modules/cybermancy/assets/images/adversaries/Baton-wielding%20corporate%20guard.png",
   "type": "adversary",
   "folder": "37VSZjNUFnmscbRN",
   "system": {
@@ -192,7 +192,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/adversaries/Baton-wielding%20corporate%20guard.png",
+      "src": "modules/cybermancy/assets/images/adversaries/Baton-wielding%20corporate%20guard.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

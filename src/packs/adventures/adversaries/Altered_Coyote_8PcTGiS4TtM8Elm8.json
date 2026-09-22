@@ -1,6 +1,6 @@
 {
   "name": "Altered Coyote",
-  "img": "worlds/cybermancer/assets/images/adversaries/altered-coyote.png",
+  "img": "modules/cybermancy/assets/images/adversaries/altered-coyote.png",
   "type": "adversary",
   "system": {
     "difficulty": 12,
@@ -218,7 +218,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/altered-coyote-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/altered-coyote-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

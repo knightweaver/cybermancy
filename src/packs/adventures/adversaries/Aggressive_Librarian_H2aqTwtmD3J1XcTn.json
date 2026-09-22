@@ -1,6 +1,6 @@
 {
   "name": "Aggressive Librarian",
-  "img": "worlds/cybermancer/assets/images/adversaries/aggressive-librarian.png",
+  "img": "modules/cybermancy/assets/images/adversaries/aggressive-librarian.png",
   "type": "adversary",
   "system": {
     "difficulty": 14,
@@ -220,7 +220,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/aggressive-librarian-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/aggressive-librarian-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

@@ -1,6 +1,6 @@
 {
   "name": "Sewerjaw Gator",
-  "img": "worlds/cybermancer/assets/images/adversaries/sewerjaw-gator.png",
+  "img": "modules/cybermancy/assets/images/adversaries/sewerjaw-gator.png",
   "type": "adversary",
   "folder": "37VSZjNUFnmscbRN",
   "system": {
@@ -178,7 +178,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/sewerjaw-gator-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/sewerjaw-gator-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

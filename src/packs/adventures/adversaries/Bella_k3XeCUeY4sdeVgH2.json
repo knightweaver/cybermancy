@@ -3,7 +3,7 @@
   "name": "Bella",
   "type": "adversary",
   "_id": "k3XeCUeY4sdeVgH2",
-  "img": "worlds/cybermancer/assets/images/adversaries/bella-in-transport-tank.webp",
+  "img": "modules/cybermancy/assets/images/adversaries/bella-in-transport-tank.webp",
   "system": {
     "attribution": {},
     "description": "",
@@ -165,7 +165,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/adversaries/bella-the-aboleth.webp",
+      "src": "modules/cybermancy/assets/images/adversaries/bella-the-aboleth.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

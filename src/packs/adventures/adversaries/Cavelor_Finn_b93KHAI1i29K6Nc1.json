@@ -1,6 +1,6 @@
 {
   "name": "Cavelor Finn",
-  "img": "worlds/cybermancer/assets/images/adversaries/cavelor-finn.png",
+  "img": "modules/cybermancy/assets/images/adversaries/cavelor-finn.png",
   "type": "adversary",
   "system": {
     "difficulty": 16,
@@ -227,7 +227,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/cavelor-finn-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/cavelor-finn-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

@@ -1,6 +1,6 @@
 <div class="feature" markdown="1">
 # Wall of Static
-<img src="../../../assets/icons/features/wall-of-static.webp" alt="Wall of Static" class="item-image" style="width:300px; height:auto;">
+<img src="../../../../_shared/assets/icons/features/wall-of-static.webp" alt="Wall of Static" class="item-image" style="width:300px; height:auto;">
 ## Description
 *(No description yet.)*
 

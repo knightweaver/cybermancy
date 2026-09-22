@@ -16,7 +16,7 @@ class TestStep4IcePublicationImageOverrides(unittest.TestCase):
         logical = publication_image_override("entity:features:DtCHCxPKWAwK89kq")
         self.assertEqual(logical, "assets/icons/features/wall-of-static.webp")
         self.assertTrue(
-            (REPO_ROOT / "docs/player-facing" / logical).is_file(),
+            (REPO_ROOT / "docs/_shared" / logical).is_file(),
             "Wall of Static publication image override must resolve to a checked-in asset.",
         )
 

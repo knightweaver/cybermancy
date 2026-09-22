@@ -3,7 +3,7 @@
   "name": "Moreborn Thrall",
   "type": "adversary",
   "_id": "gG5Llp4Xhi166oS1",
-  "img": "worlds/cybermancer/assets/images/adversaries/mireborn-thrall-group.webp",
+  "img": "modules/cybermancy/assets/images/adversaries/mireborn-thrall-group.webp",
   "system": {
     "attribution": {},
     "description": "<p>Dock workers whose minds have been overwritten by Bella's influence. They move and fight with eerie coordination.</p>",
@@ -165,7 +165,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/adversaries/mireborn-thrall-group.webp",
+      "src": "modules/cybermancy/assets/images/adversaries/mireborn-thrall-group.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

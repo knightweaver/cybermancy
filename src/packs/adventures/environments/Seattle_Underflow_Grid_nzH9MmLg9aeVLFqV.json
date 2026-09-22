@@ -2,7 +2,7 @@
   "folder": "PVM9xBt9UzTWTWGT",
   "name": "Seattle Underflow Grid",
   "type": "environment",
-  "img": "worlds/cybermancer/assets/images/environments/seattle_underflow_grid.png",
+  "img": "modules/cybermancy/assets/images/environments/seattle_underflow_grid.png",
   "system": {
     "attribution": {},
     "description": "<p>A vast, contaminated sewer and stormwater undercity beneath Seattle, warped by corporate dumping and lingering Resonance anomalies.</p>",
@@ -20,7 +20,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/environments/seattle_underflow_grid.png",
+      "src": "modules/cybermancy/assets/images/environments/seattle_underflow_grid.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

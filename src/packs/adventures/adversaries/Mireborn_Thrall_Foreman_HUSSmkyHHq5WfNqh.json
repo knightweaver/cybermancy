@@ -1,6 +1,6 @@
 {
   "name": "Mireborn Thrall Foreman",
-  "img": "worlds/cybermancer/assets/images/adversaries/mireborn-thrall-enforcer.webp",
+  "img": "modules/cybermancy/assets/images/adversaries/mireborn-thrall-enforcer.webp",
   "type": "adversary",
   "folder": "37VSZjNUFnmscbRN",
   "system": {
@@ -195,7 +195,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/adversaries/mireborn-thrall-enforcer.webp",
+      "src": "modules/cybermancy/assets/images/adversaries/mireborn-thrall-enforcer.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
