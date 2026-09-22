@@ -3,7 +3,7 @@
   "name": "Raz Eels",
   "type": "adversary",
   "_id": "E4YIZyLPrfIhSKTl",
-  "img": "worlds/cybermancer/assets/images/adversaries/raz-eel-pack.webp",
+  "img": "modules/cybermancy/assets/images/adversaries/raz-eel-pack.webp",
   "system": {
     "attribution": {},
     "description": "<p>Resonance-mutated electric eels drawn to strong emotions and psychic disturbances.</p>",
@@ -165,7 +165,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/adversaries/raz-eel-pack.webp",
+      "src": "modules/cybermancy/assets/images/adversaries/raz-eel-pack.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

@@ -3,7 +3,7 @@
   "name": "Pierjaw Crab",
   "type": "adversary",
   "_id": "Xch8ZpRxm26EKYm7",
-  "img": "worlds/cybermancer/assets/images/adversaries/pierjaw-crab.webp",
+  "img": "modules/cybermancy/assets/images/adversaries/pierjaw-crab.webp",
   "system": {
     "attribution": {},
     "description": "<p>Huge resonance-mutated crustaceans used by Bella as living shock troops.</p>",
@@ -50,7 +50,7 @@
     },
     "attack": {
       "name": "Snap and clamp",
-      "img": "worlds/cybermancer/assets/images/adversaries/pierjaw-crab.webp",
+      "img": "modules/cybermancy/assets/images/adversaries/pierjaw-crab.webp",
       "_id": "UIt1Usitwn6nwO6G",
       "systemPath": "attack",
       "chatDisplay": false,
@@ -165,7 +165,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/adversaries/pierjaw-crab.webp",
+      "src": "modules/cybermancy/assets/images/adversaries/pierjaw-crab.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

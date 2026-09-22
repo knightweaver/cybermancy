@@ -1,7 +1,7 @@
 {
   "name": "Abraxas ritual cave",
   "type": "environment",
-  "img": "worlds/cybermancer/assets/images/environments/abraxas-ritual-cave.png",
+  "img": "modules/cybermancy/assets/images/environments/abraxas-ritual-cave.png",
   "system": {
     "attribution": {
       "source": "Cybermancy"
@@ -30,7 +30,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/environments/abraxas-ritual-cave.png",
+      "src": "modules/cybermancy/assets/images/environments/abraxas-ritual-cave.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

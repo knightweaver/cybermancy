@@ -1,7 +1,7 @@
 {
   "name": "Cascadia Mountain Valley",
   "type": "environment",
-  "img": "worlds/cybermancer/assets/images/environments/cascadia-mountain-valley.png",
+  "img": "modules/cybermancy/assets/images/environments/cascadia-mountain-valley.png",
   "system": {
     "attribution": {
       "source": "Cybermancy"
@@ -30,7 +30,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/images/environments/cascadia-mountain-valley.png",
+      "src": "modules/cybermancy/assets/images/environments/cascadia-mountain-valley.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

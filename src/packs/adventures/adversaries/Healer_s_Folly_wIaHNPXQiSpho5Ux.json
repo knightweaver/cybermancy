@@ -1,6 +1,6 @@
 {
   "name": "Healer's Folly",
-  "img": "worlds/cybermancer/assets/images/adversaries/healers-folly.png",
+  "img": "modules/cybermancy/assets/images/adversaries/healers-folly.png",
   "type": "adversary",
   "system": {
     "difficulty": 12,
@@ -218,7 +218,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/healers-folly-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/healers-folly-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,

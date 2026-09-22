@@ -1,6 +1,6 @@
 {
   "name": "Liminal Research Drone",
-  "img": "worlds/cybermancer/assets/images/adversaries/liminal-research-drone.png",
+  "img": "modules/cybermancy/assets/images/adversaries/liminal-research-drone.png",
   "type": "adversary",
   "folder": "37VSZjNUFnmscbRN",
   "system": {
@@ -178,7 +178,7 @@
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "worlds/cybermancer/assets/tokens/adversaries/liminal-research-drone-token.png",
+      "src": "modules/cybermancy/assets/tokens/adversaries/liminal-research-drone-token.png",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
