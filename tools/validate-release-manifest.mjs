@@ -49,6 +49,7 @@ if (!esmodules.includes("scripts/main.js")) {
 }
 
 const declaredPacks = new Map();
+const declaredPackPaths = new Set();
 for (const pack of manifest.packs ?? []) {
   if (!pack?.name) {
     errors.push("declared pack is missing a name");
@@ -59,13 +60,34 @@ for (const pack of manifest.packs ?? []) {
   }
   declaredPacks.set(pack.name, pack);
 
-  if (!String(pack.path ?? "").endsWith(".db")) {
-    errors.push(`${pack.name}: pack path must end in .db: ${JSON.stringify(pack.path)}`);
+  const packPath = String(pack.path ?? "");
+  if (!packPath) {
+    errors.push(`${pack.name}: pack path is missing`);
     continue;
   }
+  if (packPath.endsWith(".db")) {
+    errors.push(`${pack.name}: pack path must name the LevelDB directory without a legacy .db suffix: ${JSON.stringify(packPath)}`);
+  }
+  if (packPath.includes("\\")) {
+    errors.push(`${pack.name}: pack path must use forward slashes: ${JSON.stringify(packPath)}`);
+  }
+  if (!packPath.startsWith("packs/")) {
+    errors.push(`${pack.name}: pack path must be under packs/: ${JSON.stringify(packPath)}`);
+  }
+  const normalizedPath = path.posix.normalize(packPath);
+  if (normalizedPath !== packPath || normalizedPath.startsWith("../") || normalizedPath === "..") {
+    errors.push(`${pack.name}: pack path must be normalized and repository-relative: ${JSON.stringify(packPath)}`);
+  }
+  if (declaredPackPaths.has(packPath)) {
+    errors.push(`${pack.name}: duplicate pack path: ${packPath}`);
+  }
+  declaredPackPaths.add(packPath);
 
-  const compiledRel = pack.path.slice(0, -3);
-  const sourceRel = path.join("src", compiledRel);
+  if ((pack.type === "Actor" || pack.type === "Item") && pack.system !== "daggerheart") {
+    errors.push(`${pack.name}: ${pack.type} pack must declare system "daggerheart", got ${JSON.stringify(pack.system)}`);
+  }
+
+  const sourceRel = path.join("src", packPath);
   try {
     const stat = await fs.stat(path.join(ROOT, sourceRel));
     if (!stat.isDirectory()) errors.push(`${pack.name}: source pack is not a directory: ${sourceRel}`);

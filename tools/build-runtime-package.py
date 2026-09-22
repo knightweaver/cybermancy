@@ -31,10 +31,6 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def strip_db(value: str) -> str:
-    return value[:-3] if value.endswith(".db") else value
-
-
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", type=Path, default=Path.cwd())
@@ -68,10 +64,18 @@ def main() -> int:
 
     pack_dirs = []
     for pack in manifest.get("packs", []):
-        compiled_rel = strip_db(str(pack.get("path") or ""))
+        compiled_rel = str(pack.get("path") or "")
+        if not compiled_rel:
+            raise ValueError(f"Compiled pack path missing for {pack.get('name')!r}")
+        if compiled_rel.endswith(".db"):
+            raise ValueError(
+                f"Compiled pack path must name the LevelDB directory, not a legacy .db path: {compiled_rel}"
+            )
         compiled = repo / compiled_rel
         if not compiled.is_dir():
             raise ValueError(f"Compiled pack missing: {compiled_rel}")
+        if not (compiled / "CURRENT").is_file() or not any(compiled.glob("MANIFEST-*")):
+            raise ValueError(f"Compiled pack is not a recognizable LevelDB directory: {compiled_rel}")
         pack_dirs.append(compiled)
         runtime_files.extend(sorted(p for p in compiled.rglob("*") if p.is_file()))
 

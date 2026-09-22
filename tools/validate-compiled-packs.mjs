@@ -12,9 +12,6 @@ const manifest = JSON.parse(
 const errors = [];
 const results = [];
 
-const stripDb = packPath =>
-  packPath.endsWith(".db") ? packPath.slice(0, -3) : packPath;
-
 async function readJsonDocuments(directory) {
   const result = new Map();
   const entries = await fs.readdir(directory);
@@ -65,7 +62,7 @@ try {
   let totalExtracted = 0;
 
   for (const pack of manifest.packs ?? []) {
-    const compiledRel = stripDb(pack.path);
+    const compiledRel = pack.path;
     const compiledAbs = path.join(ROOT, compiledRel);
     const sourceAbs = path.join(ROOT, "src", compiledRel);
 

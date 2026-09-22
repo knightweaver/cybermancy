@@ -9,9 +9,6 @@ const ROOT = process.cwd();
 const manifest = JSON.parse(
   await fs.readFile(path.join(ROOT, "module.json"), "utf8")
 );
-const stripDb = packPath =>
-  packPath.endsWith(".db") ? packPath.slice(0, -3) : packPath;
-
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const answer = await rl.question(
   'This overwrites canonical src/packs JSON from compiled packs. Type "Overwrite" to continue: '
@@ -31,7 +28,7 @@ function transformName(doc) {
 }
 
 for (const pack of manifest.packs ?? []) {
-  const compiledRel = stripDb(pack.path);
+  const compiledRel = pack.path;
   const compiledAbs = path.join(ROOT, compiledRel);
   const sourceRel = path.join("src", compiledRel);
   const sourceAbs = path.join(ROOT, sourceRel);
