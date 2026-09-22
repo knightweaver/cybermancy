@@ -32,107 +32,122 @@
     {
       "name": "cybermancy-weapons",
       "label": "Weapons",
-      "path": "packs/items/weapons.db",
+      "path": "packs/items/weapons",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-armors",
       "label": "Armors",
-      "path": "packs/items/armors.db",
+      "path": "packs/items/armors",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-loot",
       "label": "Loot",
-      "path": "packs/items/loot.db",
+      "path": "packs/items/loot",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-consumables",
       "label": "Consumables",
-      "path": "packs/items/consumables.db",
+      "path": "packs/items/consumables",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-cybernetics",
       "label": "Cybernetics",
-      "path": "packs/items/cybernetics.db",
+      "path": "packs/items/cybernetics",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-ammo",
       "label": "Ammo",
-      "path": "packs/items/ammo.db",
+      "path": "packs/items/ammo",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-mods",
       "label": "Weapon Mods",
-      "path": "packs/items/mods.db",
+      "path": "packs/items/mods",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-drones-devices",
       "label": "Drones & Devices",
-      "path": "packs/items/drones-devices.db",
+      "path": "packs/items/drones-devices",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-classes",
       "label": "Classes",
-      "path": "packs/system/classes.db",
+      "path": "packs/system/classes",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-subclasses",
       "label": "Subclasses",
-      "path": "packs/system/subclasses.db",
+      "path": "packs/system/subclasses",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-domains",
       "label": "Domains",
-      "path": "packs/system/domains.db",
+      "path": "packs/system/domains",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-features",
       "label": "Features",
-      "path": "packs/system/features.db",
+      "path": "packs/system/features",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-communities",
       "label": "Communities",
-      "path": "packs/system/communities.db",
+      "path": "packs/system/communities",
       "type": "Item",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-adversaries",
       "label": "Adversaries",
-      "path": "packs/adventures/adversaries.db",
+      "path": "packs/adventures/adversaries",
       "type": "Actor",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     },
     {
       "name": "cybermancy-environments",
       "label": "Environments",
-      "path": "packs/adventures/environments.db",
+      "path": "packs/adventures/environments",
       "type": "Actor",
-      "private": false
+      "private": false,
+      "system": "daggerheart"
     }
   ],
   "packFolders": [
