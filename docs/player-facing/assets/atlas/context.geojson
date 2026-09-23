@@ -8,7 +8,12 @@
       "properties": {
         "name": "Guarded I-5 Corridor",
         "category": "route",
-        "color": "#f1c96d"
+        "color": "#f1c96d",
+        "map_scope": "regional",
+        "status": "Primary guarded north-south road",
+        "known_for": "Protected commerce among Everett, Seattle, and Tacoma",
+        "access": "Checkpoints, convoy schedules, and locally controlled approaches",
+        "description": "The surviving I-5 corridor carries guarded commerce through the Puget Sound city-states. Control changes along the route, and Tacoma maintains a defensive zone without routinely stopping through traffic."
       },
       "geometry": {
         "type": "LineString",
@@ -50,7 +55,12 @@
       "properties": {
         "name": "West Seattle Ferry Route",
         "category": "route",
-        "color": "#5adce4"
+        "color": "#5adce4",
+        "map_scope": "seattle",
+        "status": "Local passenger and light-cargo crossing",
+        "known_for": "Connecting West Seattle with the central waterfront",
+        "access": "Scheduled sailings and neighborhood-controlled terminals",
+        "description": "Ferries supplement West Seattle's surviving guarded bridges and carry passengers and light cargo to the central city."
       },
       "geometry": {
         "type": "LineString",
@@ -77,6 +87,7 @@
         "name": "Space Needle",
         "code": "SEA // NEEDLE",
         "category": "landmark",
+        "map_scope": "seattle",
         "status": "Protected civic landmark",
         "known_for": "Observation decks, civic ceremonies, and skyline visibility",
         "access": "Public lower levels; controlled upper access",
@@ -97,6 +108,7 @@
         "name": "Helios Campus",
         "code": "SEA // HELIOS",
         "category": "corporate",
+        "map_scope": "seattle",
         "status": "Active corporate research campus",
         "known_for": "Biomedical research and its elevated central platform",
         "access": "Public perimeter; credentialed interior",
@@ -117,6 +129,7 @@
         "name": "Boeing Field Fortress",
         "code": "SEA // BOEING",
         "category": "corporate",
+        "map_scope": "seattle",
         "status": "Fortified aerospace complex",
         "known_for": "Heavy security, air operations, and industrial capacity",
         "access": "Restricted perimeter inside Bombshell",
@@ -134,19 +147,20 @@
       "type": "Feature",
       "id": 106,
       "properties": {
-        "name": "Metahuman Massacre Memorial",
+        "name": "The Names We Carry",
         "code": "SEA // MEMORIAL",
         "category": "landmark",
+        "map_scope": "seattle",
         "status": "Public memorial",
-        "known_for": "Annual vigils and metahuman civil-rights observances",
+        "known_for": "The Unforgotten and Unforgiven observance and metahuman civil-rights vigils",
         "access": "Public plaza during daylight and commemorations",
-        "description": "A public memorial preserves the names of metahumans killed during one of Seattle's defining acts of violence. Vigils keep the site politically and culturally active."
+        "description": "A destroyed armored carrier has become Bombshell's public memorial to metahumans killed during one of Seattle's defining acts of violence. The annual Unforgotten and Unforgiven observance keeps the site politically and culturally active."
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -122.286,
-          47.506
+          -122.33,
+          47.52
         ]
       }
     },
@@ -158,10 +172,13 @@
         "code": "SEA // EASTSIDE FERRY",
         "category": "route",
         "color": "#5adce4",
+        "map_scope": "regional",
         "status": "Guarded cross-lake trade route",
-        "known_for": "Expeditions east and returning salvage shipments",
-        "access": "Meridian terminals and controlled Eastside landings",
-        "description": "Lake Washington ferries connect Meridian with the Silicon Wilds. Expeditions, traders, and outfitters travel east; recovered technology returns through Meridian toward Gasworks workshops and corporate buyers."
+        "known_for": "Soundline passenger service, Crosswake freight, Lucky Crossing casino service, expeditions, and salvage",
+        "access": "Madison and Leschi terminals with controlled Eastside landings",
+        "organizations": "Soundline Co-op, Crosswake Marine, and Lucky Crossing",
+        "connections": "Meridian to Eastside settlements; returning salvage continues to Gasworks or corporate buyers",
+        "description": "Lake Washington ferries connect Meridian with the Silicon Wilds. Expeditions, traders, and outfitters travel east; recovered technology returns through Madison or Leschi toward Gasworks workshops and corporate buyers."
       },
       "geometry": {
         "type": "LineString",
@@ -181,6 +198,640 @@
           [
             -122.195,
             47.615
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 108,
+      "properties": {
+        "name": "The Seam",
+        "code": "SEA // SEAM",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Continuous gray-market bazaar",
+        "known_for": "Salvage, information, expedition gear, and twenty-four-hour trade",
+        "access": "Beneath and alongside I-5 in Meridian",
+        "description": "The Seam is Meridian's twenty-four-hour market under I-5, where brokers, fixers, traders, and expedition crews exchange equipment, salvage, information, and introductions."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.329,
+          47.619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 109,
+      "properties": {
+        "name": "Madison Ferry Terminal",
+        "code": "SEA // MADISON",
+        "category": "transit",
+        "map_scope": "seattle",
+        "status": "Active passenger and light-cargo terminal",
+        "known_for": "Soundline service and Eastside expedition departures",
+        "access": "Ticketed public service with cargo and identity checks",
+        "organizations": "Soundline Co-op",
+        "description": "Madison is Meridian's principal passenger and light-cargo terminal for Lake Washington crossings."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.278,
+          47.635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 110,
+      "properties": {
+        "name": "Leschi Freight Terminal",
+        "code": "SEA // LESCHI",
+        "category": "transit",
+        "map_scope": "seattle",
+        "status": "Active heavy freight terminal",
+        "known_for": "Vehicles, salvage shipments, and expedition cargo",
+        "access": "Controlled freight yards and scheduled vehicle ferries",
+        "organizations": "Crosswake Marine",
+        "description": "Leschi handles heavy freight, vehicles, and the bulk of the salvage returning from the Silicon Wilds."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.286,
+          47.6
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 111,
+      "properties": {
+        "name": "Afterimage",
+        "code": "SEA // AFTERIMAGE",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Active nightclub and deal venue",
+        "known_for": "Music, runners, brokers, and dangerous private business",
+        "access": "Public club floor; selective private rooms",
+        "description": "Afterimage is one of Meridian's best-known nightlife and deal-making venues. It is emphatically not neutral ground."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.319,
+          47.623
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 112,
+      "properties": {
+        "name": "The Third Door",
+        "code": "SEA // THIRD DOOR",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Exclusive neutral runner venue",
+        "known_for": "Introductions, arbitration, and protected negotiations",
+        "access": "Admission by established standing and invitation",
+        "governance": "The Three Elders enforce venue neutrality",
+        "description": "The Third Door is a tightly controlled neutral venue for experienced runners, fixers, and brokers. Violence or coercion inside carries consequences across Meridian."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.322,
+          47.61
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 113,
+      "properties": {
+        "name": "The Foundry",
+        "code": "SEA // FOUNDRY",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Shared makerspace and industrial complex",
+        "known_for": "Fabrication bays, prototyping, induction, and workshop collaboration",
+        "access": "Members receive priority; visitors require sponsorship or a public event",
+        "organizations": "Greater Seattle Workshop Exchange",
+        "description": "The Foundry is Gasworks' central shared makerspace and industrial complex, providing equipment and work areas that small shops could not maintain alone."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.341,
+          47.659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 114,
+      "properties": {
+        "name": "Gas Works Park",
+        "code": "SEA // GAS WORKS PARK",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Public industrial landmark",
+        "known_for": "Old machinery, gatherings, and views across the canal",
+        "access": "Open grounds with locally posted restrictions",
+        "description": "The preserved industrial structures of Gas Works Park remain a district landmark and gathering place."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.334,
+          47.646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 115,
+      "properties": {
+        "name": "Fremont Lenin Statue",
+        "code": "SEA // LENIN",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Public neighborhood landmark",
+        "known_for": "Gasworks' inherited eccentric civic identity",
+        "access": "Open street access",
+        "description": "The old Lenin statue survives as a familiar meeting point and symbol of the district's cultivated weirdness."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.35,
+          47.651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 116,
+      "properties": {
+        "name": "Physics-Astronomy Prometheus Shard",
+        "code": "UW // SHARD 01",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Publicly displayed, expended artifact",
+        "known_for": "One of the university's two expended Prometheus Shards",
+        "access": "Public lobby during campus hours",
+        "description": "An expended Prometheus Shard is displayed in the Physics-Astronomy lobby under university security."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.312,
+          47.654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 117,
+      "properties": {
+        "name": "Allen Center Prometheus Shard",
+        "code": "UW // SHARD 02",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Publicly displayed, expended artifact",
+        "known_for": "One of the university's two expended Prometheus Shards",
+        "access": "Public lobby during campus hours",
+        "description": "An expended Prometheus Shard is displayed in the Allen Center lobby under university and corporate observation."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.307,
+          47.653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 118,
+      "properties": {
+        "name": "Bombshell Mutual Works",
+        "code": "SEA // MUTUAL WORKS",
+        "category": "settlement",
+        "map_scope": "seattle",
+        "status": "Active mutual-aid and reconstruction hub",
+        "known_for": "Repairs, supplies, neighborhood coordination, and practical relief",
+        "access": "Open to residents and volunteers subject to local safety rules",
+        "organizations": "Bombshell Mutual Works",
+        "description": "Auntie Lee Varga's mutual-aid network coordinates repairs, supplies, and neighborhood rebuilding across Bombshell."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.326,
+          47.548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 119,
+      "properties": {
+        "name": "Church of the Shattered Glass",
+        "code": "SEA // SHATTERED GLASS",
+        "category": "landmark",
+        "map_scope": "seattle",
+        "status": "Active Bombshell congregation",
+        "known_for": "Mutual support, apocalyptic preaching, and Sister Rhea Calder",
+        "access": "Open services; congregation-controlled private areas",
+        "description": "The Church of the Shattered Glass is an active Bombshell congregation led by Sister Rhea Calder, offering community support alongside uncompromising spiritual teaching."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.319,
+          47.535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 120,
+      "properties": {
+        "name": "West Seattle High Bridge",
+        "code": "SEA // HIGH BRIDGE",
+        "category": "transit",
+        "map_scope": "seattle",
+        "status": "Surviving controlled crossing",
+        "known_for": "Primary bridge access to West Seattle",
+        "access": "Identity, cargo, and weapons checks",
+        "description": "The surviving high bridge remains one of West Seattle's principal overland connections and is guarded by Civic Guard checkpoints."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.35,
+          47.571
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 121,
+      "properties": {
+        "name": "1st Avenue South Bridge",
+        "code": "SEA // SOUTH BRIDGE",
+        "category": "transit",
+        "map_scope": "seattle",
+        "status": "Surviving controlled crossing",
+        "known_for": "Southern vehicle and freight access to West Seattle",
+        "access": "Identity, cargo, and weapons checks",
+        "description": "The 1st Avenue South Bridge provides West Seattle's surviving southern overland connection and is guarded as critical infrastructure."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.335,
+          47.529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 122,
+      "properties": {
+        "name": "Washington Park Arboretum Wild",
+        "code": "SEA // ARBORETUM WILD",
+        "category": "hazard",
+        "map_scope": "seattle",
+        "status": "Established urban Wild",
+        "known_for": "Dense altered plant life and unreliable interior paths",
+        "access": "Travel with local guides and protective equipment",
+        "description": "The Arboretum has become a true urban Wild. Its altered vegetation and shifting safe paths form a hazardous eastern edge within Meridian."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.295,
+          47.635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 123,
+      "properties": {
+        "name": "Madrona Decay Wild",
+        "code": "SEA // MADRONA WILD",
+        "category": "hazard",
+        "map_scope": "seattle",
+        "status": "Established urban decay Wild",
+        "known_for": "Unstable structures, altered growth, and unreliable streets",
+        "access": "Marked perimeter routes only",
+        "description": "Parts of Madrona have collapsed into an urban decay Wild whose damaged streets and altered growth complicate Meridian's lakefront routes."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.288,
+          47.614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 124,
+      "properties": {
+        "name": "AQRE / The Works",
+        "code": "SEA // THE WORKS",
+        "category": "event",
+        "map_scope": "seattle",
+        "status": "Annual exposition and induction festival",
+        "known_for": "Public demonstrations, new makers, prototypes, and Gasworks-wide celebration",
+        "access": "Public exhibitions with member-only workshop events",
+        "organizations": "Greater Seattle Workshop Exchange",
+        "description": "The Works is Gasworks' annual exposition, festival, and induction season, when workshops demonstrate new projects and prospective members enter the district's maker culture."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.338,
+          47.657
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 125,
+      "properties": {
+        "name": "Eriador, Inc.",
+        "code": "SEA // ERIADOR",
+        "category": "corporate",
+        "map_scope": "seattle",
+        "status": "Active Gasworks technology firm",
+        "known_for": "Small-scale technical work within the workshop economy",
+        "access": "Business access by appointment",
+        "description": "Eriador, Inc. operates inside Gasworks' larger workshop ecosystem and employs Stella Brownlock."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.345,
+          47.669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 130,
+      "properties": {
+        "name": "Kirkland Downs",
+        "code": "WILDS // KIRKLAND",
+        "category": "settlement",
+        "map_scope": "regional",
+        "status": "Independent fishing, agricultural, and salvage enclave",
+        "known_for": "Earthquake ruins, lake trade, local farming, and salvage",
+        "access": "Lake landings and the I-405 corridor",
+        "governance": "Mayor and local council",
+        "description": "Kirkland Downs occupies surviving lakefront and earthquake ruins, balancing fishing, agriculture, and salvage under a local mayor and council."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.208,
+          47.676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 131,
+      "properties": {
+        "name": "Badvue",
+        "code": "WILDS // BADVUE",
+        "category": "settlement",
+        "map_scope": "regional",
+        "status": "Casino boomtown and expedition hub",
+        "known_for": "Casinos, outfitting, vice, and fast frontier money",
+        "access": "Ferries, I-405, and guarded local approaches",
+        "governance": "A compact among the dominant houses",
+        "organizations": "Lucky Crossing and Badvue's house compact",
+        "description": "Former downtown Bellevue has become Badvue, a casino boomtown where expedition outfitting, vice, salvage money, and house politics meet."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.202,
+          47.61
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 132,
+      "properties": {
+        "name": "Mercer Island Outpost",
+        "code": "WILDS // MERCER",
+        "category": "settlement",
+        "map_scope": "regional",
+        "status": "Agrarian lake outpost",
+        "known_for": "Food production, lake trade, and operational ties to the Silicon Wilds",
+        "access": "Lake crossings and locally controlled roads",
+        "description": "Mercer Island lies outside the Silicon Wilds' strict east-of-lake geography but is culturally and operationally part of its settlement network."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.222,
+          47.57
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 133,
+      "properties": {
+        "name": "Forgetown",
+        "code": "WILDS // FORGETOWN",
+        "category": "settlement",
+        "map_scope": "regional",
+        "status": "Walled manufacturing settlement",
+        "known_for": "Scaling rough prototypes into practical mass production",
+        "access": "I-405 freight traffic and controlled gates",
+        "governance": "Competing entrepreneurs and workshop owners",
+        "connections": "Gasworks prototypes commonly move here for larger production runs",
+        "description": "Built around former Factoria, Forgetown manufactures whatever the frontier can pay for and turns Gasworks prototypes into rugged production goods."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.165,
+          47.576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 134,
+      "properties": {
+        "name": "Fool's End",
+        "code": "WILDS // REDMOND",
+        "category": "settlement",
+        "map_scope": "regional",
+        "status": "Fortified settlement and military fief",
+        "known_for": "Tolls, hardened defenses, and control of the Redmond approach",
+        "access": "SR-520 corridor under local inspection and toll",
+        "governance": "Marshal Tamsin Rook",
+        "description": "Redmond's surviving settlement, commonly called Fool's End, is a fortified military fief controlling a major route into the eastern Wilds."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.122,
+          47.674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 135,
+      "properties": {
+        "name": "I-405 Wilds Corridor",
+        "code": "WILDS // I-405",
+        "category": "route",
+        "color": "#8ee783",
+        "map_scope": "regional",
+        "status": "Partially secured settlement corridor",
+        "known_for": "Trade among Kirkland Downs, Badvue, and Forgetown",
+        "access": "Convoys, settlement patrols, and negotiated tolls",
+        "description": "Surviving stretches of I-405 form the Wilds' main north-south trade spine among Kirkland Downs, Badvue, and Forgetown."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.19,
+            47.676
+          ],
+          [
+            -122.19,
+            47.61
+          ],
+          [
+            -122.165,
+            47.576
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 136,
+      "properties": {
+        "name": "SR-520 Wilds Corridor",
+        "code": "WILDS // 520",
+        "category": "route",
+        "color": "#8ee783",
+        "map_scope": "regional",
+        "status": "Partially secured east-west corridor",
+        "known_for": "Access from Lake Washington toward Fool's End",
+        "access": "Patrolled segments, tolls, and hazardous gaps",
+        "description": "The surviving SR-520 corridor connects Eastside lake approaches with Fool's End and the routes beyond Redmond."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.2,
+            47.643
+          ],
+          [
+            -122.17,
+            47.65
+          ],
+          [
+            -122.122,
+            47.674
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 137,
+      "properties": {
+        "name": "Port of Tacoma",
+        "code": "TAC // DEEPWATER",
+        "category": "transit",
+        "map_scope": "regional",
+        "status": "Primary regional deepwater port",
+        "known_for": "International cargo, military logistics, and Black Helix-secured convoys",
+        "access": "Ephorate-controlled harbor and credentialed freight zones",
+        "organizations": "Tacoma Ephorate and Black Helix",
+        "description": "Tacoma's deepwater port is the foundation of its independence and a trade asset Seattle cannot afford to lose."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.43,
+          47.265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 138,
+      "properties": {
+        "name": "Porter Way Memorial",
+        "code": "TAC // PORTER WAY",
+        "category": "landmark",
+        "map_scope": "regional",
+        "status": "Public bombing memorial",
+        "known_for": "Remembering the school-bus victims of the Porter Way Bombing",
+        "access": "Public roadside memorial near Milton",
+        "description": "The memorial marks the Porter Way Bombing, where a Human Coalition Front attack intended for a convoy struck a school bus thirteen years before the campaign."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.296,
+          47.248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 139,
+      "properties": {
+        "name": "Tacoma Defensive Zone",
+        "code": "TAC // NORTH LINE",
+        "category": "route",
+        "color": "#e76ab7",
+        "map_scope": "regional",
+        "status": "Porous fortified approach",
+        "known_for": "Checkpoints between Fife and the I-5/Highway 161 interchange",
+        "access": "Through traffic usually continues; entry into Tacoma-controlled territory is inspected",
+        "description": "Tacoma's northern defensive zone protects the approaches near Fife and Milton without routinely interfering with I-5 traffic passing through the corridor."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.335,
+            47.25
+          ],
+          [
+            -122.31,
+            47.245
+          ],
+          [
+            -122.29,
+            47.23
           ]
         ]
       }

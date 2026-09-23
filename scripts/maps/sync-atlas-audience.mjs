@@ -7,6 +7,7 @@ const mode = process.argv.includes("--write") ? "write" : "check";
 const root = process.cwd();
 const datasetNames = ["regions.geojson", "districts.geojson", "context.geojson"];
 const validAudiences = new Set(["gm", "player"]);
+const validMapScopes = new Set(["regional", "seattle", "both"]);
 const validContextCategories = new Set([
   "landmark",
   "transit",
@@ -56,8 +57,13 @@ const validateDataset = (dataset, filename) => {
       throw new Error(`${filename} feature ${feature.id}: audience must be "gm" or "player"`);
     }
 
-    if (filename === "context.geojson" && !validContextCategories.has(feature.properties.category)) {
-      throw new Error(`${filename} feature ${feature.id}: invalid context category ${feature.properties.category}`);
+    if (filename === "context.geojson") {
+      if (!validContextCategories.has(feature.properties.category)) {
+        throw new Error(`${filename} feature ${feature.id}: invalid context category ${feature.properties.category}`);
+      }
+      if (!validMapScopes.has(feature.properties.map_scope)) {
+        throw new Error(`${filename} feature ${feature.id}: map_scope must be "regional", "seattle", or "both"`);
+      }
     }
   }
 };

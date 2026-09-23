@@ -123,7 +123,11 @@
   const categoryLabelFor = (feature) => {
     if (feature.properties.map_layer !== "context") return feature.properties.category;
     const category = CONTEXT_CATEGORIES.find((item) => item.id === feature.properties.category);
-    const label = category ? `${category.label} point of interest` : "Point of interest";
+    const label = category
+      ? feature.properties.category === "route"
+        ? "Route"
+        : `${category.label} point of interest`
+      : "Map feature";
     return atlasMode === "gm" && feature.properties.audience === "gm"
       ? `${label} · GM only`
       : label;
@@ -165,6 +169,10 @@
       ["Status", properties.status],
       ["Known for", properties.known_for],
       ["Access", properties.access],
+      ["Governance", properties.governance],
+      ["Communities", properties.communities],
+      ["Organizations", properties.organizations],
+      ["Connections", properties.connections],
       ...(atlasMode === "gm" ? [
         ["Visibility", properties.audience === "gm" ? "GM only" : properties.audience === "player" ? "Player-visible" : null],
         ["GM notes", properties.gm_notes],
@@ -279,10 +287,9 @@
   };
 
   const bindContextEvents = () => {
-    ["context-points", "context-point-symbols", "context-labels"].forEach((layerId) => {
+    ["context-lines", "context-points", "context-point-symbols", "context-labels"].forEach((layerId) => {
       map.on("mouseenter", layerId, (event) => {
         const eventFeature = event.features[0];
-        if (eventFeature.geometry.type !== "Point") return;
         map.getCanvas().style.cursor = "pointer";
         const feature = canonicalFeature(eventFeature);
         setFeatureState(hoveredFeature, { hover: false });
@@ -302,13 +309,34 @@
       });
       map.on("click", layerId, (event) => {
         const eventFeature = event.features[0];
-        if (eventFeature.geometry.type !== "Point") return;
         const feature = canonicalFeature(eventFeature);
-        if (activeView !== "seattle") applyView("seattle", false);
+        const requestedScope = feature.properties.map_scope;
+        const targetView = requestedScope === "regional" || requestedScope === "seattle"
+          ? requestedScope
+          : activeView;
+        if (activeView !== targetView) applyView(targetView, false);
         showFeature(feature, true);
       });
     });
   };
+
+  const contextFilter = (geometryType, viewName) => [
+    "all",
+    ["==", ["geometry-type"], geometryType],
+    [
+      "any",
+      ["!", ["has", "map_scope"]],
+      ["==", ["get", "map_scope"], "both"],
+      ["==", ["get", "map_scope"], viewName],
+    ],
+  ];
+
+  const contextScopeFilter = (viewName) => [
+    "any",
+    ["!", ["has", "map_scope"]],
+    ["==", ["get", "map_scope"], "both"],
+    ["==", ["get", "map_scope"], viewName],
+  ];
 
   const addPolygonSource = (sourceId, data) => {
     map.addSource(sourceId, { type: "geojson", data, generateId: false });
@@ -372,10 +400,15 @@
       id: "context-lines",
       type: "line",
       source: "context",
-      filter: ["==", ["geometry-type"], "LineString"],
+      filter: contextFilter("LineString", "regional"),
       paint: {
         "line-color": ["coalesce", ["get", "color"], "#f7c65d"],
-        "line-width": 2,
+        "line-width": [
+          "case",
+          ["boolean", ["feature-state", "selected"], false], 4,
+          ["boolean", ["feature-state", "hover"], false], 3,
+          2,
+        ],
         "line-dasharray": [2, 2],
         "line-opacity": 0.8,
       },
@@ -384,7 +417,7 @@
       id: "context-points",
       type: "circle",
       source: "context",
-      filter: ["==", ["geometry-type"], "Point"],
+      filter: contextFilter("Point", "regional"),
       paint: {
         "circle-radius": [
           "case",
@@ -411,7 +444,7 @@
       id: "context-point-symbols",
       type: "symbol",
       source: "context",
-      filter: ["==", ["geometry-type"], "Point"],
+      filter: contextFilter("Point", "regional"),
       layout: {
         "text-field": categoryExpression("symbol", "•"),
         "text-size": 13,
@@ -427,7 +460,8 @@
       id: "context-labels",
       type: "symbol",
       source: "context",
-      minzoom: 10.5,
+      minzoom: 7.5,
+      filter: contextScopeFilter("regional"),
       layout: {
         "text-field": ["get", "name"],
         "text-size": 11,
@@ -487,8 +521,14 @@
       setLayerVisibility(`regions-${suffix}`, showRegions);
       setLayerVisibility(`districts-${suffix}`, !showRegions);
     });
-    setLayerVisibility("context-labels", !showRegions);
-    setLayerVisibility("context-point-symbols", !showRegions);
+    ["context-lines", "context-points", "context-point-symbols"].forEach((layerId) => {
+      const geometryType = layerId === "context-lines" ? "LineString" : "Point";
+      if (map.getLayer(layerId)) map.setFilter(layerId, contextFilter(geometryType, activeView));
+    });
+    if (map.getLayer("context-labels")) {
+      map.setFilter("context-labels", contextScopeFilter(activeView));
+      setLayerVisibility("context-labels", true);
+    }
     if (note) {
       note.textContent = atlasMode === "gm"
         ? "Private GM atlas. Player-visible and unrevealed features may coexist here."
