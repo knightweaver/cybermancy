@@ -210,7 +210,15 @@ jobs:
           curl -fsSL "$REPO_URL/releases/download/$ALIAS/module.json" -o alias-url-module.json
           cmp alias-assets/module.json alias-url-module.json
 
-          LATEST_LOCATION="$(curl -fsSI "$REPO_URL/releases/latest/download/module.json" | tr -d '\r' | awk 'BEGIN{IGNORECASE=1} /^location:/{print $2; exit}')"
+          curl -fsSI "$REPO_URL/releases/latest/download/module.json" -o latest-headers.txt
+          LATEST_LOCATION="$(python - <<'PY'
+from pathlib import Path
+for line in Path("latest-headers.txt").read_text().splitlines():
+    if line.lower().startswith("location:"):
+        print(line.split(":",1)[1].strip())
+        break
+PY
+)"
           case "$LATEST_LOCATION" in
             *"/releases/download/$CANONICAL/module.json") ;;
             *) echo "latest manifest redirect resolved unexpectedly: $LATEST_LOCATION" >&2; exit 1 ;;
