@@ -211,14 +211,7 @@ jobs:
           cmp alias-assets/module.json alias-url-module.json
 
           curl -fsSI "$REPO_URL/releases/latest/download/module.json" -o latest-headers.txt
-          LATEST_LOCATION="$(python - <<'PY'
-from pathlib import Path
-for line in Path("latest-headers.txt").read_text().splitlines():
-    if line.lower().startswith("location:"):
-        print(line.split(":",1)[1].strip())
-        break
-PY
-)"
+          LATEST_LOCATION="$(python -c 'from pathlib import Path; print(next(line.split(":",1)[1].strip() for line in Path("latest-headers.txt").read_text().splitlines() if line.lower().startswith("location:")))')"
           case "$LATEST_LOCATION" in
             *"/releases/download/$CANONICAL/module.json") ;;
             *) echo "latest manifest redirect resolved unexpectedly: $LATEST_LOCATION" >&2; exit 1 ;;
