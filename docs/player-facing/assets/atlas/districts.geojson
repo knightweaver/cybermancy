@@ -153,13 +153,17 @@
         "category": "SEATTLE DISTRICT",
         "color": "#e95fd5",
         "legend_order": 13,
-        "status": "Eastside trade and expedition interface",
-        "known_for": "Lake Washington ferries, salvage markets, expedition outfitters, and Eastside brokers",
-        "access": "Corporate Core approaches and guarded ferries across Lake Washington",
-        "description": "Along Seattle's Lake Washington shore, Meridian is the city's principal staging and trading interface with the Silicon Wilds. Ferry terminals, salvage markets, expedition outfitters, traders, fixers, and information brokers move people and recovered technology between the Corporate Core, the Eastside frontier, Gasworks, and corporate buyers.",
+        "status": "Professional interface for Seattle's gray and black economies",
+        "known_for": "Lake Washington ferries, the Seam, salvage markets, fixers, and expedition outfitters",
+        "access": "I-5 on the west, Lake Washington on the east, and guarded ferry terminals",
+        "governance": "Nominal Seattle authority layered over market customs, broker networks, and venue-specific neutrality",
+        "communities": "Traders, runners, ferry crews, salvage brokers, information dealers, and expedition teams",
+        "organizations": "Madison Terminal, Leschi Terminal, Afterimage, and the Third Door",
+        "connections": "Corporate Core to Meridian to Lake Washington ferries to the Silicon Wilds; returning salvage moves toward Gasworks and corporate buyers",
+        "description": "Between I-5 and Lake Washington, from the ruined I-90 corridor north to ruined SR-520, Meridian is Seattle's principal staging and trading interface with the Silicon Wilds. Information is currency here: ferries, salvage markets, outfitters, fixers, and brokers move people, rumors, and recovered technology between the city and the Eastside frontier.",
         "label_coordinates": [
-          -122.299,
-          47.609
+          -122.298,
+          47.616
         ]
       },
       "geometry": {
@@ -168,18 +172,18 @@
           [
             [
               -122.323,
-              47.623
+              47.64
             ],
             [
               -122.275,
-              47.625
+              47.64
             ],
             [
-              -122.272,
-              47.595
+              -122.27,
+              47.59
             ],
             [
-              -122.29,
+              -122.315,
               47.59
             ],
             [
@@ -189,6 +193,10 @@
             [
               -122.323,
               47.623
+            ],
+            [
+              -122.323,
+              47.64
             ]
           ]
         ]
@@ -298,17 +306,21 @@
       "type": "Feature",
       "id": 7,
       "properties": {
-        "name": "Fremont Works",
-        "code": "SEA // WORKS",
+        "name": "Gasworks",
+        "code": "SEA // GASWORKS",
         "category": "SEATTLE DISTRICT",
         "color": "#80e291",
         "legend_order": 16,
-        "status": "Maker territory",
-        "known_for": "Riggers, salvage engineers, art, and workshops",
-        "access": "Independent streets north of the canal",
-        "description": "Small workshops, Riggers, salvage engineers, artists, and eccentric institutions turned the neighborhood's cultivated weirdness into practical resistance to corporate homogenization.",
+        "status": "Productive anarchy under workshop custom",
+        "known_for": "Prototyping, fabrication, salvage engineering, art, and experimental technology",
+        "access": "North of the Lake Washington Ship Canal between roughly 8th Avenue NW and the Ship Canal Bridge",
+        "governance": "No formal government; major decisions move through open committees and workshop consensus",
+        "communities": "Riggers, engineers, artists, inventors, salvage crews, apprentices, and small workshops",
+        "organizations": "Greater Seattle Workshop Exchange (GSWX), commonly called the Gasworks; the Foundry; Eriador, Inc.",
+        "connections": "Meridian supplies Eastside salvage; Gasworks prototypes move to Forgetown for mass production",
+        "description": "Gasworks is a maker district built on productive anarchy. Small workshops and shared facilities turn salvage into practical machines, art, and experimental technology while resisting corporate homogenization through custom, reputation, and open technical exchange.",
         "label_coordinates": [
-          -122.35,
+          -122.347,
           47.661
         ]
       },
@@ -353,10 +365,14 @@
         "category": "SEATTLE DISTRICT",
         "color": "#7f91ff",
         "legend_order": 17,
-        "status": "Corporate academic territory",
-        "known_for": "Research, sealed laboratories, and controlled knowledge",
-        "access": "Public campus edges; restricted research interior",
-        "description": "The University of Washington still looks enough like a university to use the name, but corporate priorities control its research and intellectual property. Sealed pre-Razz laboratories remain beneath it.",
+        "status": "Traditional university governed through the corporate UW Compact",
+        "known_for": "Corporate research domains, independent humanities, and two expended Prometheus Shards",
+        "access": "Public academic spaces; controlled laboratories and Dominion-secured perimeter zones",
+        "governance": "University administration and faculty governance constrained by the seven-party UW Compact",
+        "communities": "Students, faculty, researchers, corporate scholars, and underfunded independent humanities departments",
+        "organizations": "Dominion, Neuracore, Helion, OmniTrine, Verdant, AstraVail, and ChimeraGene",
+        "connections": "A major recruitment and research nexus linking Seattle's corporations, civic institutions, and technical labor market",
+        "description": "The University of Washington still retains recognizable academic governance, but seven corporations divide its most valuable research domains through the UW Compact. Public campus life continues beside controlled laboratories, corporate scholarship pipelines, and independent humanities departments that survive with little funding.",
         "label_coordinates": [
           -122.305,
           47.663
@@ -398,15 +414,19 @@
       "type": "Feature",
       "id": 9,
       "properties": {
-        "name": "Working Seattle",
-        "code": "SEA // WORKING",
+        "name": "The South End",
+        "code": "SEA // SOUTH END",
         "category": "SEATTLE DISTRICT",
         "color": "#a7d45f",
         "legend_order": 18,
-        "status": "Municipal and neighborhood control",
-        "known_for": "Dense communities and the labor that keeps Seattle alive",
-        "access": "Open transit with unreliable infrastructure",
-        "description": "Mixed communities of immigrants, metahumans, municipal workers, and families keep the city functioning without receiving corporate-core investment. Social cohesion is strong; infrastructure is not.",
+        "status": "Ordinary municipal district sustained by neighborhood institutions",
+        "known_for": "Affordable housing, families, schools, churches, small businesses, and essential labor",
+        "access": "South of I-90 and east of I-5, with porous edges and unreliable infrastructure",
+        "governance": "Seattle municipal government without a single district ruler; practical authority is distributed among neighborhood and labor groups",
+        "communities": "Immigrant and metahuman families, municipal workers, tradespeople, congregations, and small businesses",
+        "organizations": "The Yardmen, Southline Union, and Porchlight Boys",
+        "connections": "Residential and labor communities link central Seattle to Bombshell and the southern approaches",
+        "description": "The South End is run-down but functioning: a broad working district where families, schools, churches, trades, and small businesses keep ordinary life going without Corporate Core investment. Its geographic and social boundary with Bombshell is porous rather than clean.",
         "label_coordinates": [
           -122.278,
           47.551
@@ -433,7 +453,11 @@
               47.51
             ],
             [
-              -122.304,
+              -122.31,
+              47.49
+            ],
+            [
+              -122.295,
               47.54
             ],
             [
@@ -453,10 +477,14 @@
         "category": "SPECIAL HAZARD ZONE",
         "color": "#ff5b60",
         "legend_order": 19,
-        "status": "Scarred and incompletely governed",
-        "known_for": "War ruins, warehouses, rail yards, and exclusion blocks",
-        "access": "Usable corridors separated by sealed ruins",
-        "description": "The industrial south still bears the physical scars of the Black Helix–Dominion war. Functional warehouses and rail lines stand beside shattered exclusion zones and the fortified Boeing Field complex.",
+        "status": "Inhabited war ruin with weak municipal services",
+        "known_for": "SoDo and Duwamish ruins, warehouses, rail yards, mutual aid, gangs, and Boeing Field",
+        "access": "Usable industrial corridors and neighborhood streets separated by exclusion blocks and damaged infrastructure",
+        "governance": "Fragmented municipal presence, neighborhood rebuilding groups, protection networks, gangs, and corporate intermediaries",
+        "communities": "Long-term residents, displaced families, industrial workers, scavengers, metahuman communities, and mutual-aid crews",
+        "organizations": "Bombshell Mutual Works, Church of the Shattered Glass, the Cinders, Copperheads, and Rail Dogs",
+        "connections": "Industrial and rail corridors connect the Corporate Core and South End to Boeing Field and Tacoma",
+        "description": "Bombshell spans the SoDo, Georgetown, Duwamish, and southeastern war zone. It is both ruin and inhabited district: functional warehouses, rail lines, homes, churches, and mutual-aid projects stand beside shattered exclusion blocks and the fortified Boeing Field complex.",
         "label_coordinates": [
           -122.327,
           47.54
@@ -475,11 +503,11 @@
               47.588
             ],
             [
-              -122.304,
+              -122.295,
               47.54
             ],
             [
-              -122.325,
+              -122.31,
               47.49
             ],
             [
@@ -503,10 +531,14 @@
         "category": "SEMI-AUTONOMOUS ENCLAVE",
         "color": "#45c4a0",
         "legend_order": 20,
-        "status": "Self-reliant peninsula",
-        "known_for": "Neighborhood government and ferry dependence",
-        "access": "Ferries and limited overland approaches",
-        "description": "The loss and degradation of bridge infrastructure made West Seattle almost a separate town. Neighborhood associations and local defense groups carry more practical authority than City Hall.",
+        "status": "Semi-autonomous Seattle district under a civic compact",
+        "known_for": "Neighborhood government, local defense, food resilience, controlled bridges, and ferries",
+        "access": "West Seattle High Bridge, 1st Avenue South Bridge, ferries, and guarded checkpoints",
+        "governance": "West Seattle Civic Compact led by the Compact Council and Council Steward Miriam 'Miri' Hale",
+        "communities": "Neighborhood associations, fishing and food cooperatives, families, bridge crews, and volunteer defenders",
+        "organizations": "Compact Council, Civic Guard, Town Square, Open Signal Coalition, and Vesper Syndicate",
+        "connections": "Surviving bridges and ferries connect the peninsula to central and southern Seattle; local fishing compacts support food security",
+        "description": "West Seattle remains formally part of Seattle but operates with unusual autonomy under the West Seattle Civic Compact. Controlled bridges, neighborhood government, the Civic Guard, ferry links, and local food systems make the peninsula resilient and politically distinct.",
         "label_coordinates": [
           -122.393,
           47.545

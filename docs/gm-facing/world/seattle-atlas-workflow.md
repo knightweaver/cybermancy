@@ -21,7 +21,13 @@ Context features may use these categories:
 - `event`
 - `route`
 
-Player-safe panel fields are `name`, `code`, `description`, `status`, `known_for`, and `access`.
+Every context feature also requires a `map_scope`:
+
+- `"map_scope": "regional"` — visible only in the regional view.
+- `"map_scope": "seattle"` — visible only in the Seattle district view.
+- `"map_scope": "both"` — visible in both views.
+
+Player-safe panel fields are `name`, `code`, `description`, `status`, `known_for`, `access`, `governance`, `communities`, `organizations`, and `connections`.
 
 Private planning fields may be recorded as `gm_notes`, `adventure_hooks`, or `events`. Any property whose name begins with `gm_` is also treated as private.
 
