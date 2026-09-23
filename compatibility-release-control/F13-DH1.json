@@ -1,0 +1,14 @@
+{
+  "aliasTag": "F13-DH1",
+  "canonicalTag": "v0.1.14",
+  "title": "Cybermancy F13-DH1",
+  "runtimeAsset": "cybermancy-v0.1.14.zip",
+  "qualifiedRuntimeSha256": "157623168893bfcc4d755b50182037e2a50d726d76cc30bf9bcd8413571f5606",
+  "compatibility": {
+    "foundry": "13",
+    "daggerheartMajor": "1",
+    "daggerheartSupportedRange": "1.2-1.9"
+  },
+  "publicationRevision": 1,
+  "purpose": "Memorable infrastructure-compatibility alias for the final pre-migration Foundry 13 / Daggerheart 1.x baseline."
+}
