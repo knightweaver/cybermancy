@@ -210,9 +210,11 @@ jobs:
           curl -fsSL "$REPO_URL/releases/download/$ALIAS/module.json" -o alias-url-module.json
           cmp alias-assets/module.json alias-url-module.json
 
-          LATEST_EFFECTIVE="$(curl -fsSL -o latest-url-module.json -w '%{url_effective}' "$REPO_URL/releases/latest/download/module.json")"
-          cmp alias-assets/module.json latest-url-module.json
-          case "$LATEST_EFFECTIVE" in
+          LATEST_LOCATION="$(curl -fsSI "$REPO_URL/releases/latest/download/module.json" | tr -d '\r' | awk 'BEGIN{IGNORECASE=1} /^location:/{print $2; exit}')"
+          case "$LATEST_LOCATION" in
             *"/releases/download/$CANONICAL/module.json") ;;
-            *) echo "latest manifest resolved unexpectedly: $LATEST_EFFECTIVE" >&2; exit 1 ;;
+            *) echo "latest manifest redirect resolved unexpectedly: $LATEST_LOCATION" >&2; exit 1 ;;
           esac
+
+          curl -fsSL "$REPO_URL/releases/latest/download/module.json" -o latest-url-module.json
+          cmp alias-assets/module.json latest-url-module.json
