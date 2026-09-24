@@ -19,7 +19,8 @@
           -122.34,
           47.6
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/region-seattle.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -86,7 +87,8 @@
           -122.2,
           47.95
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/region-everett-bastion.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -146,7 +148,8 @@
           47.24
         ],
         "gm_notes": "First Ephor Sabine 'Breakwater' Okafor leads the Ephorate. Empty Seats includes peaceful and militant wings. Human Coalition Front remnants and the full political consequences of the Porter Way Bombing are GM-facing campaign material.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/region-tacoma.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -206,7 +209,8 @@
           47.6
         ],
         "gm_notes": "Reports of 'Wessie' remain unresolved canon and should not be mapped as fact.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/region-silicon-wilds.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -273,7 +277,8 @@
           -121.53,
           47.57
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/region-cascade-approaches.webp"
       },
       "geometry": {
         "type": "Polygon",

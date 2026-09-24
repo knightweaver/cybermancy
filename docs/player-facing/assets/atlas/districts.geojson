@@ -18,7 +18,8 @@
         "label_coordinates": [
           -122.343,
           47.606
-        ]
+        ],
+        "image_asset": "images/locations/district-corporate-core.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -64,7 +65,8 @@
         "label_coordinates": [
           -122.356,
           47.633
-        ]
+        ],
+        "image_asset": "images/locations/district-queen-anne.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -114,7 +116,8 @@
         "label_coordinates": [
           -122.333,
           47.636
-        ]
+        ],
+        "image_asset": "images/locations/district-helios-corridor.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -164,7 +167,8 @@
         "label_coordinates": [
           -122.298,
           47.616
-        ]
+        ],
+        "image_asset": "images/locations/district-meridian.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -218,7 +222,8 @@
         "label_coordinates": [
           -122.333,
           47.588
-        ]
+        ],
+        "image_asset": "images/locations/district-old-city.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -264,7 +269,8 @@
         "label_coordinates": [
           -122.392,
           47.67
-        ]
+        ],
+        "image_asset": "images/locations/district-ballard-reach.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -322,7 +328,8 @@
         "label_coordinates": [
           -122.347,
           47.661
-        ]
+        ],
+        "image_asset": "images/locations/district-gasworks.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -376,7 +383,8 @@
         "label_coordinates": [
           -122.305,
           47.663
-        ]
+        ],
+        "image_asset": "images/locations/district-university-enclave.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -430,7 +438,8 @@
         "label_coordinates": [
           -122.278,
           47.551
-        ]
+        ],
+        "image_asset": "images/locations/district-the-south-end.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -488,7 +497,8 @@
         "label_coordinates": [
           -122.327,
           47.54
-        ]
+        ],
+        "image_asset": "images/locations/district-bombshell.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -542,7 +552,8 @@
         "label_coordinates": [
           -122.393,
           47.545
-        ]
+        ],
+        "image_asset": "images/locations/district-west-seattle.webp"
       },
       "geometry": {
         "type": "Polygon",

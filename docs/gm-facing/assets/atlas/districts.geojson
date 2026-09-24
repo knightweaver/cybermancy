@@ -19,7 +19,8 @@
           -122.343,
           47.606
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-corporate-core.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -66,7 +67,8 @@
           -122.356,
           47.633
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-queen-anne.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -117,7 +119,8 @@
           -122.333,
           47.636
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-helios-corridor.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -169,7 +172,8 @@
           47.616
         ],
         "gm_notes": "Afterimage is not neutral ground. The Third Door is neutral runner ground overseen by Etta 'Switch' Mercer, Garran 'Rampart' Okoye, and Ilyra 'Copper' Venn. Admission mechanics remain unresolved canon.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-meridian.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -224,7 +228,8 @@
           -122.333,
           47.588
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-old-city.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -271,7 +276,8 @@
           -122.392,
           47.67
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-ballard-reach.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -332,7 +338,8 @@
         ],
         "gm_notes": "Rumors concerning structures or inhabitants beneath Gas Works Park remain unresolved. The Foundry will blacklist members who disguise purpose-built weapons as dual-use projects.",
         "events": "AQRE/The Works is the district's annual exposition and induction festival.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-gasworks.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -388,7 +395,8 @@
           47.663
         ],
         "gm_notes": "The UW Compact negotiations helped create the Council, although only five of the seven Compact signatories later joined it. Adyton is not on campus and its location remains unknown. The KBDJ extraction details remain unresolved.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-university-enclave.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -443,7 +451,8 @@
           -122.278,
           47.551
         ],
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-the-south-end.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -503,7 +512,8 @@
           47.54
         ],
         "gm_notes": "Auntie Lee Varga leads Bombshell Mutual Works. Sister Rhea Calder sincerely worships Abraxas through the Church of the Shattered Glass. Corporate exploitation generally operates through intermediaries.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-bombshell.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -559,7 +569,8 @@
           47.545
         ],
         "gm_notes": "Commander Tomas 'Tom' Reyes leads the Civic Guard. The Open Signal Coalition is publicly independent but covertly supported by Vesper Syndicate as part of its psychoactive neurofeed effort.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/district-west-seattle.webp"
       },
       "geometry": {
         "type": "Polygon",

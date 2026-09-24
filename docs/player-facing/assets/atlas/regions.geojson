@@ -18,7 +18,8 @@
         "label_coordinates": [
           -122.34,
           47.6
-        ]
+        ],
+        "image_asset": "images/locations/region-seattle.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -84,7 +85,8 @@
         "label_coordinates": [
           -122.2,
           47.95
-        ]
+        ],
+        "image_asset": "images/locations/region-everett-bastion.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -142,7 +144,8 @@
         "label_coordinates": [
           -122.44,
           47.24
-        ]
+        ],
+        "image_asset": "images/locations/region-tacoma.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -200,7 +203,8 @@
         "label_coordinates": [
           -122.02,
           47.6
-        ]
+        ],
+        "image_asset": "images/locations/region-silicon-wilds.webp"
       },
       "geometry": {
         "type": "Polygon",
@@ -266,7 +270,8 @@
         "label_coordinates": [
           -121.53,
           47.57
-        ]
+        ],
+        "image_asset": "images/locations/region-cascade-approaches.webp"
       },
       "geometry": {
         "type": "Polygon",
