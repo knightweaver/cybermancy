@@ -147,7 +147,11 @@ def main() -> int:
 
     for pack in manifest.get("packs", []):
         pack_name = pack["name"]
-        directory = repo / "src" / pack["path"]
+        manifest_path = str(pack.get("path") or "")
+        if not manifest_path.endswith(".db"):
+            errors.append(f"{pack_name}: Foundry 14 pack path must end in .db: {manifest_path}")
+            continue
+        directory = repo / "src" / manifest_path[:-3]
         entries = []
         docs = 0
         folders = 0

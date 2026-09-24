@@ -246,7 +246,13 @@ def main() -> int:
     manifest = load_json(repo / "module.json")
     baseline = load_json(baseline_path)
     expected_paths = {entry["path"]: entry for entry in baseline["sourceEntries"]}
-    pack_dirs = [repo / "src" / pack["path"] for pack in manifest.get("packs", [])]
+    def source_pack_dir(pack: dict) -> Path:
+        manifest_path = str(pack.get("path") or "")
+        if not manifest_path.endswith(".db"):
+            raise ValueError(f"Foundry 14 pack path must end in .db: {manifest_path}")
+        return repo / "src" / manifest_path[:-3]
+
+    pack_dirs = [source_pack_dir(pack) for pack in manifest.get("packs", [])]
     if len(pack_dirs) != baseline["counts"]["declaredCompendia"]:
         raise ValueError("declared Compendium count differs from frozen baseline")
 
