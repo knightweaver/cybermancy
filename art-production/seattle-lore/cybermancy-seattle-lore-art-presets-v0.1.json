@@ -1,0 +1,123 @@
+{
+  "presetVersion": "0.1",
+  "name": "Cybermancy Seattle Lore Art",
+  "visualCanon": "docs/gm-facing/meta/visual-canon.md",
+  "defaults": {
+    "model": "gpt-image-2.5-flare",
+    "quality": "medium",
+    "background": "opaque",
+    "outputFormat": "webp",
+    "outputCompression": 92
+  },
+  "basePrompt": "Grounded semi-photorealistic Cybermancy environment art with believable near-future infrastructure, lived-in human activity, restrained cyberpunk lighting, and clear geographic identity.",
+  "globalNegative": [
+    "no text, captions, labels, logos, readable signage, maps, diagrams, borders, stat blocks, UI, HUD overlays, or pseudo-writing",
+    "no GM-only secrets, hidden campaign actors, unresolved rumors presented as fact, or invented named characters",
+    "no cartoon, anime, superhero, generic space-marine, glossy-plastic, excessive-chrome, rainbow-neon, or sterile-utopian styling",
+    "no unmotivated glow, muddy darkness, empty generic cyberpunk streets, or geography that contradicts the atlas"
+  ],
+  "substyles": {
+    "academic": {
+      "description": "Public education and research under uneven corporate influence.",
+      "palette": "weathered brick, concrete, steel blue, institutional white, restrained corporate accents",
+      "materials": "brick, concrete, glass, laboratory composites, old wood, technical fabric"
+    },
+    "civic": {
+      "description": "Human-scale public life, municipal continuity, and neighborhood institutions.",
+      "palette": "charcoal, rain blue, muted civic colors, warm practical light",
+      "materials": "weathered concrete, painted steel, brick, repaired glass, public furnishings"
+    },
+    "corporate": {
+      "description": "Controlled, premium, precise, and quietly surveilled.",
+      "palette": "black, white, steel blue, restrained gold and amber",
+      "materials": "architectural glass, ceramic composite, precision metal, premium textile"
+    },
+    "frontier": {
+      "description": "Independent settlements, salvage economies, repaired infrastructure, and ecological reclamation.",
+      "palette": "forest green, wet concrete, rust, steel blue, amber work light",
+      "materials": "salvaged steel, timber, concrete, patched polymer, vegetation"
+    },
+    "industrial": {
+      "description": "Working fabrication, logistics, repair, and heavy infrastructure.",
+      "palette": "blackened steel, rust, safety amber, teal work light, weathered paint",
+      "materials": "painted steel, concrete, heavy machinery, carbon composites, worn tools"
+    },
+    "maritime": {
+      "description": "Puget Sound trade, ferries, fisheries, docks, and wet-weather infrastructure.",
+      "palette": "deep water blue, fog grey, oxidized metal, faded paint, warm cabin light",
+      "materials": "marine steel, wet timber, rope, composite hulls, concrete docks"
+    },
+    "memorial": {
+      "description": "Respectful public remembrance centered on survivors and civic continuity.",
+      "palette": "weathered steel, stone grey, subdued flowers, warm candle or vigil light",
+      "materials": "stabilized wreckage, stone, glass, paper offerings, fabric"
+    },
+    "street": {
+      "description": "Dense mixed economies, local custom, practical improvisation, and watchful social life.",
+      "palette": "charcoal, wet asphalt, faded paint, selective teal and amber",
+      "materials": "old masonry, repaired polymer, concrete, worn leather, mixed-generation hardware"
+    },
+    "uncanny": {
+      "description": "Ninety percent believable environment with one selective Resonance or ecological impossibility.",
+      "palette": "muted natural tones, steel blue, subtle cyan-violet anomaly, warm human light",
+      "materials": "real vegetation, damaged concrete, glass, electronics, restrained luminous geometry"
+    }
+  },
+  "assetFamilies": {
+    "regionEnvironment": {
+      "composition": "3:2 panoramic regional establishing scene with layered geography and representative human activity",
+      "promptNotes": [
+        "show political and material identity through visible infrastructure",
+        "avoid attempting a literal overhead map"
+      ],
+      "size": "1536x1024",
+      "quality": "medium",
+      "background": "opaque",
+      "outputFormat": "webp"
+    },
+    "districtEnvironment": {
+      "composition": "3:2 district establishing scene with foreground human scale, characteristic streets or workplaces, and a readable skyline",
+      "promptNotes": [
+        "show ordinary life as well as district-defining infrastructure",
+        "distinguish the district from generic Seattle cyberpunk"
+      ],
+      "size": "1536x1024",
+      "quality": "medium",
+      "background": "opaque",
+      "outputFormat": "webp"
+    },
+    "locationEnvironment": {
+      "composition": "3:2 focused establishing view of a specific landmark, institution, settlement, transit facility, or hazard",
+      "promptNotes": [
+        "make the named subject visually dominant",
+        "include enough surroundings to establish geographic context"
+      ],
+      "size": "1536x1024",
+      "quality": "medium",
+      "background": "opaque",
+      "outputFormat": "webp"
+    },
+    "routeEnvironment": {
+      "composition": "3:2 cinematic travel scene along or across the route, emphasizing movement, infrastructure, control, and destination",
+      "promptNotes": [
+        "do not depict an overhead map",
+        "make the route's practical function immediately legible"
+      ],
+      "size": "1536x1024",
+      "quality": "medium",
+      "background": "opaque",
+      "outputFormat": "webp"
+    },
+    "eventEnvironment": {
+      "composition": "3:2 public event scene with a clear central activity, characteristic venue, and readable crowd behavior",
+      "promptNotes": [
+        "show the event in progress",
+        "avoid readable banners or signage"
+      ],
+      "size": "1536x1024",
+      "quality": "medium",
+      "background": "opaque",
+      "outputFormat": "webp"
+    }
+  }
+}
