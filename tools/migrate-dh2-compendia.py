@@ -181,6 +181,7 @@ def migrate_environment_refs(doc: dict, rel: str, counters: Counter) -> list[dic
 def migrate_document(doc: dict, rel: str, counters: Counter) -> list[dict]:
     unresolved: list[dict] = []
     if is_folder(doc):
+        update_stats(doc, counters)
         return unresolved
 
     if doc.get("type") == "class":

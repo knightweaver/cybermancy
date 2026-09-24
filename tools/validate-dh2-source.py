@@ -8,6 +8,7 @@ import json
 import re
 import subprocess
 import sys
+from urllib.parse import unquote
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -265,7 +266,7 @@ def main() -> int:
                         if stats.get("coreVersion") != TARGET_CORE or stats.get("systemVersion") != TARGET_SYSTEM:
                             errors.append(f"{rel}: stale _stats target {stats.get('coreVersion')}/{stats.get('systemVersion')}")
             for ref in asset_refs(current):
-                asset = repo / ref.removeprefix("modules/cybermancy/")
+                asset = repo / unquote(ref.removeprefix("modules/cybermancy/"))
                 if not asset.is_file():
                     errors.append(f"{rel}: missing artwork {ref}")
 
