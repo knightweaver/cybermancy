@@ -11,6 +11,7 @@
   data-regions="../../assets/atlas/regions.geojson"
   data-districts="../../assets/atlas/districts.geojson"
   data-context="../../assets/atlas/context.geojson"
+  data-asset-root="../../assets/"
   data-atlas-mode="player"
 >
   <div class="atlas-toolbar" aria-label="Map view controls">
@@ -43,6 +44,7 @@
 
     <aside id="cybermancy-atlas-panel" class="atlas-panel" aria-live="polite">
       <div class="atlas-hero" aria-hidden="true">
+        <img id="atlas-hero-image" class="atlas-hero-image" alt="" decoding="async" hidden />
         <span id="atlas-hero-code">SEA // 01</span>
       </div>
       <div class="atlas-panel-copy">

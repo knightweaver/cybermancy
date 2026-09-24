@@ -16,7 +16,7 @@
     "convert-jpg-to-webp": " py .\\convert_and_resize_png_to_webp.py --width 400 --height 400 --dpi 96 --quality 8 --lossless --recursive ..\\assets\\icons\\",
     "convert descriptors to loadable": "py .\\pyCybermancy\\convert-descriptors-to-loadable.py .\\src-descriptors\\weapons.csv -o .\\src-loadable\\ -c .\\src-descriptors\\actions-by-category.json",
     "browse images": "node scripts/image-browser.mjs",
-    "atlas:check": "node scripts/maps/sync-atlas-audience.mjs --check",
+    "atlas:check": "node scripts/maps/sync-atlas-audience.mjs --check && node scripts/maps/validate-atlas-art.mjs",
     "atlas:sync": "node scripts/maps/sync-atlas-audience.mjs --write",
     "zip command": "tar -a -c -f cybermancy.zip --exclude=cybermancy/.git --exclude=cybermancy/node_modules --exclude=cybermancy/.idea --exclude=cybermancy/pyCybermancy --exclude=cybermancy/src-descriptors cybermancy",
     "batch image generation": "py .\\batch-image-generation-on-OpenAI.py --input .\\circuit_domain_cards_witty.csv --outdir .\\circuit-domain-img --effect-key domain",
@@ -32,7 +32,8 @@
     "validate:compiled-packs": "node tools/validate-compiled-packs.mjs",
     "build:runtime-package": "python tools/build-runtime-package.py --repo .",
     "validate:release": "npm run validate:release-manifest && npm run validate:domains && npm run validate:assets -- --strict-prefix",
-    "build:release-candidate": "npm run validate:release && npm run clean:packs && npm run compile:packs && npm run validate:compiled-packs && npm run build:runtime-package"
+    "build:release-candidate": "npm run validate:release && npm run clean:packs && npm run compile:packs && npm run validate:compiled-packs && npm run build:runtime-package",
+    "atlas:validate-art": "node scripts/maps/validate-atlas-art.mjs"
   },
   "repository": {
     "type": "git",

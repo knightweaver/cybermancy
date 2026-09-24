@@ -13,6 +13,7 @@
     const isFullscreen = new URLSearchParams(window.location.search).get("atlas") === "fullscreen";
     document.body.classList.toggle("atlas-fullscreen-page", isFullscreen);
     const atlasMode = root.dataset.atlasMode === "gm" ? "gm" : "player";
+    const atlasAssetRoot = new URL(root.dataset.assetRoot || "../../assets/", window.location.href);
 
     let destroyed = false;
 
@@ -83,6 +84,7 @@
     description: document.getElementById("atlas-description"),
     facts: document.getElementById("atlas-facts"),
     heroCode: document.getElementById("atlas-hero-code"),
+    heroImage: document.getElementById("atlas-hero-image"),
   };
   const legend = document.getElementById("cybermancy-atlas-legend");
   const poiKey = document.getElementById("cybermancy-atlas-poi-key");
@@ -103,6 +105,33 @@
       "'": "&#39;",
       '"': "&quot;",
     })[character]);
+
+  const renderHeroImage = (properties = {}) => {
+    if (!panel.heroImage) return;
+
+    const imageAsset = properties.image_asset;
+    if (!imageAsset) {
+      panel.heroImage.dataset.requestedSrc = "";
+      panel.heroImage.hidden = true;
+      panel.heroImage.removeAttribute("src");
+      return;
+    }
+
+    const source = new URL(imageAsset, atlasAssetRoot).href;
+    panel.heroImage.dataset.requestedSrc = source;
+    panel.heroImage.hidden = true;
+
+    panel.heroImage.onload = () => {
+      if (panel.heroImage.dataset.requestedSrc === source) panel.heroImage.hidden = false;
+    };
+    panel.heroImage.onerror = () => {
+      if (panel.heroImage.dataset.requestedSrc === source) {
+        panel.heroImage.hidden = true;
+        panel.heroImage.removeAttribute("src");
+      }
+    };
+    panel.heroImage.src = source;
+  };
 
   const featureBounds = (feature) => {
     const bounds = new maplibregl.LngLatBounds();
@@ -196,6 +225,7 @@
     panel.category.textContent = overview.category;
     panel.description.textContent = overview.description;
     panel.heroCode.textContent = overview.code;
+    renderHeroImage();
     renderFacts();
     const insetSource = inset.getSource("selection");
     if (insetSource) insetSource.setData({ type: "FeatureCollection", features: [] });
@@ -218,6 +248,7 @@
     panel.category.textContent = categoryLabelFor(feature);
     panel.description.textContent = properties.description;
     panel.heroCode.textContent = properties.code || "SEA // MAP";
+    renderHeroImage(properties);
     renderFacts(properties);
 
     const bounds = featureBounds(feature);
@@ -563,6 +594,7 @@
     panel.category.textContent = "Atlas error";
     panel.description.textContent = message;
     panel.heroCode.textContent = "ERR // MAP";
+    renderHeroImage();
     renderFacts();
     if (note) note.textContent = "The atlas could not finish loading. See the browser console for details.";
   };
