@@ -1,0 +1,65 @@
+name: Cybermancy v0.2.0 data migration
+
+on:
+  push:
+    branches: [migration/v0.2.0-f14-dh2]
+    paths:
+      - "tools/migrate-dh2-compendia.py"
+      - "tools/validate-dh2-source.py"
+      - "tools/validate-domain-registration.mjs"
+      - "tools/validate-compiled-packs.mjs"
+      - "build/rulebook/scripts/**"
+      - "pyCybermancy/rulebook_normalize/**"
+      - ".github/workflows/migration-data-sync.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cybermancy-v0.2.0-data-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: migration/v0.2.0-f14-dh2
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install Node build dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Project frozen v0.1.14 source to DH2-owned source shape
+        run: python tools/migrate-dh2-compendia.py --repo . --baseline maintenance/baseline-v0.2.0.json --write
+      - name: Validate preservation and DH2 source shape
+        run: python tools/validate-dh2-source.py --repo . --baseline maintenance/baseline-v0.2.0.json
+      - name: Validate Domains and artwork
+        run: |
+          npm run validate:domains
+          npm run validate:assets -- --strict-prefix
+      - name: Compile and re-extract all declared Compendia
+        run: |
+          npm run clean:packs
+          npm run compile:packs
+          npm run validate:compiled-packs
+      - name: Rulebook migration regression
+        run: |
+          python -m unittest discover -s build/rulebook/scripts/tests -p "test_*.py" -v
+          python build/rulebook/scripts/maintain-rulebook.py status --verbose
+      - name: Commit deterministic source projection and audit reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/packs maintenance/migration/v0.2.0-source-migration-report.json maintenance/migration/v0.2.0-source-validation-report.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Migrate Cybermancy Compendium source for Daggerheart 2.10.5"
+            git push origin HEAD:migration/v0.2.0-f14-dh2
+          fi

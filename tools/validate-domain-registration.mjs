@@ -9,8 +9,8 @@ import {
 
 const ROOT = process.cwd();
 const EXPECTED_IDS = ["circuit", "maker", "bullet"];
-const CORE_DAGGERHEART_127_DOMAINS = {
-  arcana: {}, blade: {}, bone: {}, codex: {}, grace: {},
+const CORE_DAGGERHEART_2105_DOMAINS = {
+  arcana: {}, blade: {}, bone: {}, codex: {}, dread: {}, grace: {},
   midnight: {}, sage: {}, splendor: {}, valor: {}
 };
 
@@ -54,8 +54,8 @@ for (const id of EXPECTED_IDS) {
     `${id}: Homebrew Domain src must use Cybermancy SVG glyph`
   );
   assert(
-    !Object.prototype.hasOwnProperty.call(CORE_DAGGERHEART_127_DOMAINS, id),
-    `${id}: collides with a Daggerheart 1.2.7 core Domain`
+    !Object.prototype.hasOwnProperty.call(CORE_DAGGERHEART_2105_DOMAINS, id),
+    `${id}: collides with a Daggerheart 2.10.5 core Domain`
   );
 
   try {
@@ -84,7 +84,7 @@ const classDocs = await sourceDocuments(path.join(ROOT, "src", "packs", "system"
 const customClassUsage = Object.fromEntries(EXPECTED_IDS.map(id => [id, 0]));
 for (const { name, doc } of classDocs) {
   for (const domain of doc.system?.domains ?? []) {
-    const isCore = Object.prototype.hasOwnProperty.call(CORE_DAGGERHEART_127_DOMAINS, domain);
+    const isCore = Object.prototype.hasOwnProperty.call(CORE_DAGGERHEART_2105_DOMAINS, domain);
     const isCybermancy = Object.prototype.hasOwnProperty.call(CYBERMANCY_DOMAINS, domain);
     assert(isCore || isCybermancy, `${name}: references unknown Domain "${domain}"`);
     if (isCybermancy) customClassUsage[domain] += 1;
@@ -102,7 +102,7 @@ const unrelatedDomain = {
 };
 
 const firstPlan = planDomainRegistration({
-  coreDomains: CORE_DAGGERHEART_127_DOMAINS,
+  coreDomains: CORE_DAGGERHEART_2105_DOMAINS,
   homebrewDomains: { "custom-domain": unrelatedDomain }
 });
 assert(firstPlan.added.length === 3, "first registration should add all 3 Domains");
@@ -114,7 +114,7 @@ assert(
 );
 
 const secondPlan = planDomainRegistration({
-  coreDomains: CORE_DAGGERHEART_127_DOMAINS,
+  coreDomains: CORE_DAGGERHEART_2105_DOMAINS,
   homebrewDomains: firstPlan.nextDomains
 });
 assert(secondPlan.added.length === 0, "second registration must be idempotent");
@@ -131,7 +131,7 @@ const conflictingDomains = {
   }
 };
 const conflictPlan = planDomainRegistration({
-  coreDomains: CORE_DAGGERHEART_127_DOMAINS,
+  coreDomains: CORE_DAGGERHEART_2105_DOMAINS,
   homebrewDomains: conflictingDomains
 });
 assert(
@@ -144,7 +144,7 @@ assert(
 );
 
 const coreConflictPlan = planDomainRegistration({
-  coreDomains: { ...CORE_DAGGERHEART_127_DOMAINS, circuit: { id: "circuit" } },
+  coreDomains: { ...CORE_DAGGERHEART_2105_DOMAINS, circuit: { id: "circuit" } },
   homebrewDomains: {}
 });
 assert(coreConflictPlan.coreConflicts.includes("circuit"), "core collisions must be rejected");
