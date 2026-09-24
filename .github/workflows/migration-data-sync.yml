@@ -5,6 +5,8 @@ on:
     branches: [migration/v0.2.0-f14-dh2]
     paths:
       - "module.json"
+      - "scripts/main.js"
+      - "scripts/domains.js"
       - "tools/validate-release-manifest.mjs"
       - "tools/compile-packs.mjs"
       - "tools/extract-packs.mjs"

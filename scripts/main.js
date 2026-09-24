@@ -1,4 +1,9 @@
-import { registerCybermancyDomains, auditCybermancyDomains, CYBERMANCY_DOMAINS } from "./domains.js";
+import {
+  registerCybermancyDomains,
+  auditCybermancyDomains,
+  auditCybermancyRuntime,
+  CYBERMANCY_DOMAINS
+} from "./domains.js";
 import { registerCybermancyHooks } from "./hooks.js";
 import { CybermancyWeaponSheet } from "./sheets/CybermancyWeaponSheet.js";
 import { CybermancyRunnerSheet } from "./sheets/CybermancyRunnerSheet.js";
@@ -11,6 +16,7 @@ Hooks.once("init", function () {
     module.api = {
       domains: CYBERMANCY_DOMAINS,
       auditDomains: auditCybermancyDomains,
+      auditRuntime: auditCybermancyRuntime,
       registerDomains: registerCybermancyDomains
     };
   }
@@ -42,6 +48,16 @@ Hooks.once("ready", async function () {
   registerCybermancyHooks();
 
   try {
+    const runtime = auditCybermancyRuntime();
+    if (!runtime.valid) {
+      throw new Error(`Unsupported or incomplete Daggerheart runtime: ${JSON.stringify(runtime)}`);
+    }
+    if (!runtime.exactQualificationTarget) {
+      console.warn(
+        `Cybermancy | Running Daggerheart ${runtime.systemVersion}; v0.2.0 qualification target is Daggerheart ${runtime.qualificationTarget}.`
+      );
+    }
+
     const result = await registerCybermancyDomains();
     console.log(`Cybermancy | Domain registration status: ${result.status}`);
   } catch (error) {
