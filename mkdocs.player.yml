@@ -19,11 +19,12 @@ markdown_extensions:
 extra_css:
   - styles/items.css
   - https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css
-  - styles/cybermancy-atlas.css
+  # Bump the cache token whenever atlas front-end assets change.
+  - styles/cybermancy-atlas.css?v=2
 extra_javascript:
   - js/table-filter.js
   - https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js
-  - js/cybermancy-atlas.js
+  - js/cybermancy-atlas.js?v=2
 plugins:
   - search
   - include-markdown
