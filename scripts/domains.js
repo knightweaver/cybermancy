@@ -1,9 +1,10 @@
 /**
- * Cybermancy Domain registration for Daggerheart 1.2.7.
+ * Cybermancy Domain registration for Daggerheart 2.10.5.
  *
- * Daggerheart exposes custom Domains through its world-scoped Homebrew setting.
- * CONFIG.DH.DOMAIN.allDomains() merges those Homebrew Domains with the core
- * Daggerheart Domains, so Cybermancy registers Circuit, Maker, and Bullet
+ * Daggerheart 2.10.5 exposes custom Domains through its world-scoped Homebrew
+ * DataModel setting. Its onChange handler refreshes game.system.settings.homebrew,
+ * and CONFIG.DH.DOMAIN.allDomains() merges those Homebrew Domains with core
+ * Daggerheart Domains. Cybermancy therefore registers Circuit, Maker, and Bullet
  * through that supported interface rather than patching the Daggerheart system.
  */
 
@@ -112,19 +113,66 @@ export function auditCybermancyDomains(allDomains = {}) {
 }
 
 /**
+ * Audit the Daggerheart runtime state required by Cybermancy activation.
+ *
+ * The module manifest intentionally supports Daggerheart major 2, while
+ * Foundry 14.368 / Daggerheart 2.10.5 remains the exact v0.2.0 qualification
+ * target. Other 2.x versions are structurally accepted but are not reported as
+ * exactly qualified.
+ */
+export function auditCybermancyRuntime() {
+  const systemId = globalThis.game?.system?.id ?? null;
+  const systemVersion = globalThis.game?.system?.version ?? null;
+  const majorCompatible = String(systemVersion ?? "").split(".")[0] === "2";
+  const configReady = Boolean(globalThis.CONFIG?.DH);
+  const domainApiReady =
+    configReady &&
+    typeof CONFIG.DH.DOMAIN?.allDomains === "function" &&
+    Boolean(CONFIG.DH.DOMAIN?.domains);
+  const settingsApiReady =
+    configReady &&
+    Boolean(CONFIG.DH.SETTINGS?.gameSettings?.Homebrew) &&
+    Boolean(globalThis.game?.settings?.get) &&
+    Boolean(globalThis.game?.settings?.set);
+  const homebrewReady = Boolean(globalThis.game?.system?.settings?.homebrew);
+
+  return {
+    valid:
+      systemId === "daggerheart" &&
+      majorCompatible &&
+      configReady &&
+      domainApiReady &&
+      settingsApiReady &&
+      homebrewReady,
+    systemId,
+    systemVersion,
+    qualificationTarget: "2.10.5",
+    majorCompatible,
+    exactQualificationTarget: systemVersion === "2.10.5",
+    configReady,
+    domainApiReady,
+    settingsApiReady,
+    homebrewReady
+  };
+}
+
+/**
  * Persist Cybermancy Domains into Daggerheart's native world-scoped Homebrew
  * setting. A GM is required to make the world-level setting change.
  */
 export async function registerCybermancyDomains({ notify = true } = {}) {
-  if (!globalThis.game || !globalThis.CONFIG?.DH) {
-    throw new Error("Cybermancy Domains require an initialized Daggerheart world.");
+  const runtime = auditCybermancyRuntime();
+  if (!runtime.valid) {
+    throw new Error(
+      `Cybermancy Domains require an initialized Daggerheart 2.x world; runtime audit: ${JSON.stringify(runtime)}`
+    );
   }
 
   const settingNamespace = CONFIG.DH.id;
   const settingKey = CONFIG.DH.SETTINGS.gameSettings.Homebrew;
   const currentModel = game.settings.get(settingNamespace, settingKey);
   const current = currentModel?.toObject
-    ? currentModel.toObject()
+    ? currentModel.toObject(true)
     : structuredClone(currentModel ?? {});
   const homebrewDomains = current.domains ?? {};
   const coreDomains = CONFIG.DH.DOMAIN.domains ?? {};
@@ -136,7 +184,7 @@ export async function registerCybermancyDomains({ notify = true } = {}) {
       `Cybermancy | Cannot register Domains because IDs collide with Daggerheart core domains: ${plan.coreConflicts.join(", ")}. Restore an unmodified Daggerheart installation before enabling Cybermancy.`;
     console.error(message);
     if (notify && game.user?.isGM) ui.notifications?.error(message);
-    return { status: "core-conflict", ...plan };
+    return { status: "core-conflict", wroteSetting: false, ...plan, runtime };
   }
 
   if (plan.conflicts.length) {
@@ -145,7 +193,7 @@ export async function registerCybermancyDomains({ notify = true } = {}) {
       `Cybermancy | Existing Homebrew Domains conflict with Cybermancy: ${ids.join(", ")}. Existing world data was preserved.`;
     console.warn(message, plan.conflicts);
     if (notify && game.user?.isGM) ui.notifications?.warn(message);
-    return { status: "homebrew-conflict", ...plan };
+    return { status: "homebrew-conflict", wroteSetting: false, ...plan, runtime };
   }
 
   if (!game.user?.isGM) {
@@ -158,16 +206,20 @@ export async function registerCybermancyDomains({ notify = true } = {}) {
     }
     return {
       status: audit.valid ? "already-registered" : "gm-required",
+      wroteSetting: false,
       ...plan,
-      audit
+      audit,
+      runtime
     };
   }
 
+  let wroteSetting = false;
   if (plan.changed) {
     await game.settings.set(settingNamespace, settingKey, {
       ...current,
       domains: plan.nextDomains
     });
+    wroteSetting = true;
   }
 
   const audit = auditCybermancyDomains(CONFIG.DH.DOMAIN.allDomains());
@@ -176,7 +228,7 @@ export async function registerCybermancyDomains({ notify = true } = {}) {
       `Cybermancy | Domain registration did not validate. Missing: ${audit.missing.join(", ") || "none"}; mismatched: ${audit.mismatched.join(", ") || "none"}.`;
     console.error(message, audit);
     if (notify) ui.notifications?.error(message);
-    return { status: "validation-failed", ...plan, audit };
+    return { status: "validation-failed", wroteSetting, ...plan, audit, runtime };
   }
 
   console.info(
@@ -185,7 +237,9 @@ export async function registerCybermancyDomains({ notify = true } = {}) {
 
   return {
     status: plan.changed ? "registered" : "already-registered",
+    wroteSetting,
     ...plan,
-    audit
+    audit,
+    runtime
   };
 }
