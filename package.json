@@ -31,10 +31,11 @@
     "extract:packs": "node tools/extract-packs.mjs",
     "validate:compiled-packs": "node tools/validate-compiled-packs.mjs",
     "build:runtime-package": "python tools/build-runtime-package.py --repo .",
-    "validate:release": "npm run validate:release-manifest && npm run validate:domains && npm run validate:runtime-sheets && npm run validate:assets -- --strict-prefix",
+    "validate:release": "npm run validate:release-manifest && npm run validate:domains && npm run validate:runtime-sheets && npm run validate:runtime-hooks && npm run validate:assets -- --strict-prefix",
     "build:release-candidate": "npm run validate:release && npm run clean:packs && npm run compile:packs && npm run validate:compiled-packs && npm run build:runtime-package",
     "atlas:validate-art": "node scripts/maps/validate-atlas-art.mjs",
-    "validate:runtime-sheets": "node tools/validate-runtime-sheets.mjs"
+    "validate:runtime-sheets": "node tools/validate-runtime-sheets.mjs",
+    "validate:runtime-hooks": "node tools/validate-runtime-hooks.mjs"
   },
   "repository": {
     "type": "git",
