@@ -5,8 +5,6 @@ import {
   CYBERMANCY_DOMAINS
 } from "./domains.js";
 import { registerCybermancyHooks } from "./hooks.js";
-import { CybermancyWeaponSheet } from "./sheets/CybermancyWeaponSheet.js";
-import { CybermancyRunnerSheet } from "./sheets/CybermancyRunnerSheet.js";
 
 Hooks.once("init", function () {
   console.log("Cybermancy | init");
@@ -21,26 +19,9 @@ Hooks.once("init", function () {
     };
   }
 
-  game.settings.register("cybermancy", "enableSmartlink", {
-    name: "Enable Smartlink Edge Bonus",
-    hint: "Apply +1 Edge on qualifying attacks when Smartlink flag is set.",
-    scope: "world",
-    config: true,
-    type: Boolean,
-    default: true
-  });
-
-  Items.registerSheet("cybermancy", CybermancyWeaponSheet, {
-    types: ["weapon"],
-    makeDefault: false,
-    label: "Cybermancy Weapon Sheet"
-  });
-
-  Actors.registerSheet("cybermancy", CybermancyRunnerSheet, {
-    types: ["character"],
-    makeDefault: false,
-    label: "Cybermancy Runner Sheet"
-  });
+  // Cybermancy v0.2.0 intentionally uses Daggerheart 2's native
+  // ApplicationV2 character and weapon sheets. The retired v0.1.x custom
+  // sheets used legacy ActorSheet/ItemSheet APIs and a manual d20 attack path.
 });
 
 Hooks.once("ready", async function () {

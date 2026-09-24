@@ -5,8 +5,12 @@ on:
     branches: [migration/v0.2.0-f14-dh2]
     paths:
       - "module.json"
+      - "package.json"
       - "scripts/main.js"
       - "scripts/domains.js"
+      - "scripts/sheets/**"
+      - "templates/**"
+      - "styles/**"
       - "tools/validate-release-manifest.mjs"
       - "tools/compile-packs.mjs"
       - "tools/extract-packs.mjs"
@@ -15,6 +19,7 @@ on:
       - "tools/migrate-dh2-compendia.py"
       - "tools/validate-dh2-source.py"
       - "tools/validate-domain-registration.mjs"
+      - "tools/validate-runtime-sheets.mjs"
       - "tools/validate-compiled-packs.mjs"
       - "build/rulebook/scripts/**"
       - "pyCybermancy/rulebook_normalize/**"
@@ -51,9 +56,10 @@ jobs:
         run: python tools/migrate-dh2-compendia.py --repo . --baseline maintenance/baseline-v0.2.0.json --write
       - name: Validate preservation and DH2 source shape
         run: python tools/validate-dh2-source.py --repo . --baseline maintenance/baseline-v0.2.0.json
-      - name: Validate Domains and artwork
+      - name: Validate Domains, native DH2 sheets, and artwork
         run: |
           npm run validate:domains
+          npm run validate:runtime-sheets
           npm run validate:assets -- --strict-prefix
       - name: Compile and re-extract all declared Compendia
         run: |

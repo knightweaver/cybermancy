@@ -13,11 +13,6 @@ RUNTIME_FILES = (
     "scripts/main.js",
     "scripts/domains.js",
     "scripts/hooks.js",
-    "scripts/sheets/CybermancyRunnerSheet.js",
-    "scripts/sheets/CybermancyWeaponSheet.js",
-    "styles/cybermancy.css",
-    "templates/actor-runner-sheet.hbs",
-    "templates/item-weapon-sheet.hbs",
     "lang/en.json",
 )
 OPTIONAL_ROOT_FILES = ("LICENSE", "README.md")

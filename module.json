@@ -2,7 +2,7 @@
   "type": "module",
   "id": "cybermancy",
   "title": "Cybermancy (Daggerheart Extension)",
-  "description": "Cyberpunk/Shadowrun-flavored extension for Daggerheart: custom sheets, extra fields, roll helpers, and compendia.",
+  "description": "Cyberpunk/Shadowrun-flavored extension for Daggerheart: custom Domains, character options, equipment, adversaries, environments, and Compendia.",
   "version": "0.2.0",
   "compatibility": {
     "minimum": "14",
@@ -194,9 +194,7 @@
       ]
     }
   ],
-  "styles": [
-    "styles/cybermancy.css"
-  ],
+  "styles": [],
   "languages": [
     {
       "lang": "en",
