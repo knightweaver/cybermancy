@@ -9,8 +9,7 @@
     "description": "<p>Spellwork and software share the same bus. </p><p>After you succeed on a Spellcast roll using an Arcana card, you may immediately take an additional action to perform a Circuit-domain hack or Circuit feature you have access to. </p><p>This follow-up action does not cost Hope (if it normally would), but it can still have other costs (like marking Stress) and it must target the same system, scene, or opposition when reasonable.</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "sort": 0,
@@ -23,9 +22,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1776262284326,
     "modifiedTime": 1776262318197,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

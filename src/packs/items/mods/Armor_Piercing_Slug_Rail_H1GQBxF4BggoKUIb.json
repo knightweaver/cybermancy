@@ -6,8 +6,7 @@
     "description": "<p class=\"Card-Feature\">When resolving a successful attack with this weapon, if it is loaded with Armor piercing rounds, the target must mark 2 Stress to mark 1 Armor Slot</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": null,
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1762172767604,
     "modifiedTime": 1762172767604,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

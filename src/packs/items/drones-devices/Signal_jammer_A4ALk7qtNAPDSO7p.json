@@ -6,8 +6,7 @@
     "description": "Your Primary Drone gains a signal jammer such that all comms (ally and adversary) within Close are effectively jammed.  All other drones within Very Close can no longer receive signal or commands.",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "dZpRLvzzvRTw50fz",
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763830439729,
     "modifiedTime": 1763830439729,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

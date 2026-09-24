@@ -344,8 +344,7 @@
             "range": "far"
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "sort": 0,
@@ -358,9 +357,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763854869171,
         "modifiedTime": 1763854869171,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -440,8 +439,7 @@
             "range": ""
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": "wCGkCV9uQXcmcfwo",
@@ -455,9 +453,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763855155240,
         "modifiedTime": 1763855155240,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -475,8 +473,7 @@
         "description": "<p>This device is <strong>Hardened</strong> - all Hardened rules apply to hacking attempts on this device.</p>",
         "resource": null,
         "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "effects": [],
       "sort": 0,
@@ -489,9 +486,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763855480515,
         "modifiedTime": 1763855480515,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -563,8 +560,7 @@
           "diceStates": {},
           "dieFaces": "d4"
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": "m8XcfCKsOStlflZD",
@@ -578,9 +574,9 @@
         "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.TnUIH9OqR1o3iZaT",
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763855505218,
         "modifiedTime": 1763855505218,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -599,9 +595,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763469938999,
     "modifiedTime": 1764426713211,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

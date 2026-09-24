@@ -119,8 +119,7 @@
         "description": "",
         "resource": null,
         "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "_id": "3RwKafFpwm30Cp5j",
       "img": "modules/cybermancy/assets/tokens/npcs/ravers/raver-02.webp",
@@ -136,9 +135,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!kClQ3R1arK0iaohd.3RwKafFpwm30Cp5j"
@@ -210,9 +209,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "_id": "SOWHMlRKU3At8eEv",
       "img": "icons/skills/melee/unarmed-punch-fist-white.webp",
@@ -229,9 +227,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!kClQ3R1arK0iaohd.SOWHMlRKU3At8eEv"
@@ -248,9 +246,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1787230015228,
     "modifiedTime": 1790038081459,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

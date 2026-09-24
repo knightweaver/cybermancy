@@ -43,8 +43,7 @@
         "range": ""
       }
     },
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "action"
   },
   "img": "modules/cybermancy/assets/icons/subclasses/ive-seen-this-model-before.png",
   "effects": [
@@ -90,9 +89,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!items.effects!vjpIyehB1OhhhDJB.ty8KK61xcSPAuUg8"
@@ -108,9 +107,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1760878913204,
     "modifiedTime": 1760879502318,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

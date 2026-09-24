@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "sourceEntries": 774,
+  "documents": 675,
+  "folders": 99,
+  "domainCards": {
+    "bullet": 24,
+    "circuit": 24,
+    "maker": 26
+  },
+  "environmentEmbeddedFeatures": 28,
+  "environmentFeatureForms": {
+    "action": 15,
+    "passive": 9,
+    "reaction": 4
+  },
+  "externalizedWorldActorOccurrences": 6,
+  "stableEnvironmentCompendiumRefs": 3,
+  "fixtures": {
+    "b052B7vEbJN5tSB1": "equipment/armor",
+    "pjN7ciiS9yyGB7rP": "class",
+    "qxZt0FgPJJ5icWji": "subclass",
+    "s0WW3VsQHwUfqi1X": "domain/circuit",
+    "41cNX3rZNCbl34ra": "domain/maker",
+    "BgW4OBFfHHrTS0QG": "domain/bullet",
+    "JUYmyWUgti1my9nG": "adversary",
+    "h5LbBi4TNmuMEzo5": "environment",
+    "qST6XFvhsrHJE1UO": "environment",
+    "nzH9MmLg9aeVLFqV": "environment",
+    "kClQ3R1arK0iaohd": "environment"
+  },
+  "errors": []
+}

@@ -152,9 +152,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "_id": "kO4E4yxfHF5LGbfO",
       "img": "modules/cybermancy/assets/images/environments/police-pursuit.png",
@@ -170,9 +169,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!wVd05jjzyHhhdh4F.kO4E4yxfHF5LGbfO"
@@ -221,9 +220,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "_id": "BZDclhtIiYZqv6VJ",
       "img": "modules/cybermancy/assets/images/environments/pedestrians.png",
@@ -239,9 +237,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!wVd05jjzyHhhdh4F.BZDclhtIiYZqv6VJ"
@@ -290,9 +288,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "_id": "6Yud3ouh7JdoAY1N",
       "img": "icons/magic/water/wave-water-teal.webp",
@@ -308,9 +305,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!wVd05jjzyHhhdh4F.6Yud3ouh7JdoAY1N"
@@ -359,9 +356,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "_id": "oPXr2L1lvTDsDyWd",
       "img": "modules/cybermancy/assets/images/environments/short-cut.png",
@@ -377,9 +373,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!wVd05jjzyHhhdh4F.oPXr2L1lvTDsDyWd"
@@ -395,9 +391,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1787230011078,
     "modifiedTime": 1787230015247,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

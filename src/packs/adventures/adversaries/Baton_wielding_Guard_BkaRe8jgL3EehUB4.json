@@ -172,9 +172,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1776016944367,
     "modifiedTime": 1787229932036,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -346,9 +346,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "effects": [],
       "folder": null,
@@ -362,9 +361,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": "BT83wOOYeRCn9aoe",
         "modifiedTime": 1776017333716
       },
@@ -437,9 +436,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [
         {
@@ -479,9 +477,9 @@
             "compendiumSource": null,
             "duplicateSource": null,
             "exportSource": null,
-            "coreVersion": "13.351",
+            "coreVersion": "14.368",
             "systemId": "daggerheart",
-            "systemVersion": "1.2.7",
+            "systemVersion": "2.10.5",
             "lastModifiedBy": null
           },
           "_key": "!actors.items.effects!BkaRe8jgL3EehUB4.9gizFt9ovKL05DXu.LmzztuktRkwOCy1a"
@@ -498,9 +496,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!BkaRe8jgL3EehUB4.9gizFt9ovKL05DXu"

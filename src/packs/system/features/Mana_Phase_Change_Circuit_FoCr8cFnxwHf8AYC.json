@@ -37,8 +37,7 @@
         "range": ""
       }
     },
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "action"
   },
   "effects": [],
   "sort": 0,
@@ -51,9 +50,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1776262001878,
     "modifiedTime": 1776262112560,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

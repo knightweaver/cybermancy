@@ -35,8 +35,7 @@
       "max": "",
       "icon": "fa-solid fa-microchip"
     },
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "action"
   },
   "effects": [],
   "folder": "wCGkCV9uQXcmcfwo",
@@ -49,9 +48,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1762170911192,
     "modifiedTime": 1787574145097,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

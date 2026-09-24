@@ -9,8 +9,7 @@
     "description": "<p>Your body is both ward and wire—a walking firewall etched in runes and circuitry. Requirement: You have at least one Arcana card and one Circuit card in your active loadout. </p><p>Effect: As a Reaction, once per Scene, You have Resistance to magic damage. In addition, when you would take damage from ICE (digital countermeasures), you may mark 1 Armor Slot to reduce that damage as normal (treat it as a physical hit for purposes of Armor).</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "sort": 0,
@@ -23,9 +22,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1776184088784,
     "modifiedTime": 1776184197718,
     "lastModifiedBy": "ONclH8Ftjn3ugooV"

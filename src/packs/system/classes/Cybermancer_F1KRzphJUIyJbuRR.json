@@ -30,10 +30,6 @@
         "item": "Compendium.cybermancy.cybermancy-features.Item.hDtPHdtGOMM6qRSD"
       }
     ],
-    "subclasses": [
-      "Compendium.cybermancy.cybermancy-subclasses.Item.3hsFByoWPpW8STKg",
-      "Compendium.cybermancy.cybermancy-subclasses.Item.xTPCKDgfdmOxe5q4"
-    ],
     "inventory": {
       "take": [
         "Compendium.cybermancy.cybermancy-loot.Item.3hRVdJwunzn57oy4"
@@ -72,9 +68,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763004347342,
     "modifiedTime": 1763495026160,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

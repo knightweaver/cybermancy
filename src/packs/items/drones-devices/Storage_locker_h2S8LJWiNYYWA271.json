@@ -6,8 +6,7 @@
     "description": "Your Primary Drone  gains an internal modular cargo bay with secure locking and temperature stabilization. Supports mission-specific payloads, evidence retention, and concealment; access controlled via cryptographic key.",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "aDjnzcfvUUAWKGgw",
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763830400385,
     "modifiedTime": 1763830405238,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

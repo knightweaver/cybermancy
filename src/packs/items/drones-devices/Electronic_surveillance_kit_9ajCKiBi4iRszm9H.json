@@ -6,8 +6,7 @@
     "description": "Give your Primary Drone the ability to eavesdrop on electric signals within Very Far.  If those signals are encrypted, you must make a Knowledge check against the Environment Difficulty to decrypt.",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "aDjnzcfvUUAWKGgw",
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763830381898,
     "modifiedTime": 1763830405238,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

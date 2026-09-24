@@ -8,8 +8,7 @@
     "description": "<p class=\"Card-Feature\">Your Primary Drone is versitile! - +1 Mod slot</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "sort": 0,
@@ -22,9 +21,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1761613918069,
     "modifiedTime": 1761613985750,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

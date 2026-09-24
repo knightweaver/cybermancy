@@ -6,8 +6,7 @@
     "description": "<p class=\"Card-Feature\">When attached to a rifle, allows the gun to be concealed more easily.  -2 on a Perceive check for the prescence of the gun to be detected.</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": null,
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1762172767742,
     "modifiedTime": 1762172767742,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

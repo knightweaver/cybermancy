@@ -6,8 +6,7 @@
     "description": "Place a token on this card and remove 1 grenade from your inventory.  Your Primary Drone now has the ability to launch that grenade as an attack action .",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "dZpRLvzzvRTw50fz",
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763830430411,
     "modifiedTime": 1763830437767,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

@@ -175,9 +175,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1782187231743,
     "modifiedTime": 1787229932036,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -305,9 +305,8 @@
           "dieFaces": "d4"
         },
         "actions": {},
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "effects": [],
       "folder": null,
@@ -321,9 +320,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!HUSSmkyHHq5WfNqh.yBaLF9DwPH2GSRKf"
@@ -419,9 +418,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": null,
@@ -435,9 +433,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!HUSSmkyHHq5WfNqh.LP7xVLMTkJsmiIvl"
@@ -525,9 +523,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [
         {
@@ -567,9 +564,9 @@
             "compendiumSource": null,
             "duplicateSource": null,
             "exportSource": null,
-            "coreVersion": "13.351",
+            "coreVersion": "14.368",
             "systemId": "daggerheart",
-            "systemVersion": "1.2.7",
+            "systemVersion": "2.10.5",
             "lastModifiedBy": null
           },
           "_key": "!actors.items.effects!HUSSmkyHHq5WfNqh.69reUZ5tv3splqyO.CjMrSdL6kgD8mKRQ"
@@ -586,9 +583,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!HUSSmkyHHq5WfNqh.69reUZ5tv3splqyO"

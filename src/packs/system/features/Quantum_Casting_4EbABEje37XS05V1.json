@@ -9,8 +9,7 @@
     "description": "<p>Your technical expertise amplifies your spellwork. </p><p>When you spend Hope to apply an Experience bonus to an Arcana Spellcast roll, and that Experience is clearly related to technology, hacking, or digital systems, double the Experience’s modifier for that roll (for example, +2 becomes +4).</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "sort": 0,
@@ -23,9 +22,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1776262351625,
     "modifiedTime": 1776262381276,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

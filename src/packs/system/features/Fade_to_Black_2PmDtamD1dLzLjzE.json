@@ -9,8 +9,7 @@
     "description": "<p>As a passive effect, if Nyla is standing perfectly still in shadow, her difficulty for being perceived becomes an 18.</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "sort": 0,
@@ -23,9 +22,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1782184727348,
     "modifiedTime": 1782184827655,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

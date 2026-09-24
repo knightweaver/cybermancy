@@ -6,8 +6,7 @@
     "description": "Your Primary Drone gains the ability to trigger the Hidden condition as an action.  That condition persists until it takes any other action.",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "N3tZmW1d7VzxoH0j",
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763830441827,
     "modifiedTime": 1763830441827,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

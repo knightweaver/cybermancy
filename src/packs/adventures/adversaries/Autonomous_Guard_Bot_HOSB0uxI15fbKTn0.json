@@ -309,8 +309,7 @@
           "diceStates": {},
           "dieFaces": "d4"
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": "wCGkCV9uQXcmcfwo",
@@ -324,9 +323,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763855635491,
         "modifiedTime": 1763855635491,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -428,8 +427,7 @@
             "range": "veryClose"
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "img": "icons/magic/lightning/bolt-strike-sparks-teal.webp",
       "flags": {},
@@ -439,9 +437,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763855935714,
         "modifiedTime": 1763855935714,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -550,8 +548,7 @@
             "range": "close"
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "sort": 0,
@@ -564,9 +561,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763856119942,
         "modifiedTime": 1763856119942,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -638,8 +635,7 @@
           "diceStates": {},
           "dieFaces": "d4"
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": "m8XcfCKsOStlflZD",
@@ -653,9 +649,9 @@
         "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.3dikGZKpf3RcF80E",
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763856278509,
         "modifiedTime": 1763856278509,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -674,9 +670,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763469965215,
     "modifiedTime": 1763856294305,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

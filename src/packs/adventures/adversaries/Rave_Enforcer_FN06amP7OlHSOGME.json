@@ -348,9 +348,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "img": "icons/skills/melee/strike-flail-spiked-pink.webp",
       "flags": {},
@@ -360,9 +359,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "sort": 0,
@@ -472,9 +471,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "img": "icons/creatures/abilities/tail-strike-bone-orange.webp",
       "flags": {},
@@ -484,9 +482,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "sort": 0,
@@ -505,9 +503,8 @@
         "description": "<p>When the Elemental makes a successful attack against a PC, you gain a Fear.</p>",
         "resource": null,
         "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "passive"
       },
       "img": "icons/skills/melee/strike-weapons-orange.webp",
       "flags": {},
@@ -517,9 +514,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "sort": 0,
@@ -537,9 +534,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1767543970257,
     "modifiedTime": 1787229932036,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
