@@ -4,6 +4,8 @@ on:
   push:
     branches: [migration/v0.2.0-f14-dh2]
     paths:
+      - "module.json"
+      - "tools/validate-release-manifest.mjs"
       - "tools/migrate-dh2-compendia.py"
       - "tools/validate-dh2-source.py"
       - "tools/validate-domain-registration.mjs"
@@ -37,6 +39,8 @@ jobs:
           cache: npm
       - name: Install Node build dependencies
         run: npm ci --no-audit --no-fund
+      - name: Validate v0.2.0 runtime manifest target
+        run: npm run validate:release-manifest
       - name: Project frozen v0.1.14 source to DH2-owned source shape
         run: python tools/migrate-dh2-compendia.py --repo . --baseline maintenance/baseline-v0.2.0.json --write
       - name: Validate preservation and DH2 source shape

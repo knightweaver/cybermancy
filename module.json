@@ -3,11 +3,11 @@
   "id": "cybermancy",
   "title": "Cybermancy (Daggerheart Extension)",
   "description": "Cyberpunk/Shadowrun-flavored extension for Daggerheart: custom sheets, extra fields, roll helpers, and compendia.",
-  "version": "0.1.14",
+  "version": "0.2.0",
   "compatibility": {
-    "minimum": "13",
-    "verified": "13",
-    "maximum": "13"
+    "minimum": "14",
+    "verified": "14",
+    "maximum": "14"
   },
   "authors": [
     {
@@ -21,9 +21,9 @@
         "id": "daggerheart",
         "type": "system",
         "compatibility": {
-          "minimum": "1.2",
-          "verified": "1.2",
-          "maximum": "1.9"
+          "minimum": "2",
+          "verified": "2",
+          "maximum": "2"
         }
       }
     ]
@@ -206,7 +206,7 @@
   ],
   "url": "https://github.com/knightweaver/cybermancy",
   "manifest": "https://github.com/knightweaver/cybermancy/releases/latest/download/module.json",
-  "download": "https://github.com/knightweaver/cybermancy/releases/download/v0.1.14/cybermancy-v0.1.14.zip",
+  "download": "https://github.com/knightweaver/cybermancy/releases/download/v0.2.0/cybermancy-v0.2.0.zip",
   "license": "LICENSE",
   "readme": "README.md",
   "esmodules": [
