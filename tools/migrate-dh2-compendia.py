@@ -268,36 +268,41 @@ def main() -> int:
 
     for rel in sorted(current_paths):
         path = repo / rel
-        source = load_json(path)
+        current = load_json(path)
         legacy = git_show(repo, LEGACY_TAG, rel)
 
-        if canonical_identity(source) != canonical_identity(legacy):
+        if canonical_identity(current) != canonical_identity(legacy):
             raise ValueError(f"{rel}: current source identity differs from frozen {LEGACY_TAG}")
 
-        before = copy.deepcopy(source)
-        unresolved = migrate_document(source, rel, counters)
+        # Always derive the target projection from the frozen baseline rather
+        # than from the already-migrated working tree. This keeps both the
+        # projection and its audit report deterministic and stable across
+        # repeated workflow runs.
+        projected = copy.deepcopy(legacy)
+        unresolved = migrate_document(projected, rel, counters)
         for row in unresolved:
-            unresolved_all.append({"path": rel, "actorId": source.get("_id"), **row})
+            unresolved_all.append({"path": rel, "actorId": projected.get("_id"), **row})
 
-        if canonical_identity(source) != canonical_identity(legacy):
+        if canonical_identity(projected) != canonical_identity(legacy):
             raise ValueError(f"{rel}: migration changed a protected document identity field")
 
         pack_rel = "/".join(rel.split("/")[:-1])
         bucket = pack_counts.setdefault(pack_rel, {"entries": 0, "documents": 0, "folders": 0, "changed": 0})
         bucket["entries"] += 1
-        bucket["folders" if is_folder(source) else "documents"] += 1
+        bucket["folders" if is_folder(projected) else "documents"] += 1
 
-        if source != before:
+        if projected != legacy:
             bucket["changed"] += 1
             changed_files.append({
                 "path": rel,
-                "id": source.get("_id"),
-                "kind": "folder" if is_folder(source) else "document",
-                "beforeSha256": sha256_json(before),
-                "afterSha256": sha256_json(source),
+                "id": projected.get("_id"),
+                "kind": "folder" if is_folder(projected) else "document",
+                "beforeSha256": sha256_json(legacy),
+                "afterSha256": sha256_json(projected),
             })
-            if args.write:
-                dump_json(path, source)
+
+        if args.write and current != projected:
+            dump_json(path, projected)
 
     report = {
         "schemaVersion": "1.0",
