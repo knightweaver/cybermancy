@@ -12,6 +12,14 @@ const baseline = JSON.parse(
 );
 const expectedCounts = new Map(baseline.compendia.map(pack => [pack.name, pack.entryCount]));
 const errors = [];
+
+const stripDb = packPath => {
+  if (!packPath.endsWith(".db")) {
+    errors.push(`Foundry 14 pack path must end in .db: ${packPath}`);
+    return packPath;
+  }
+  return packPath.slice(0, -3);
+};
 const results = [];
 
 async function readJsonDocuments(directory) {
@@ -104,7 +112,7 @@ try {
   let totalExtracted = 0;
 
   for (const pack of manifest.packs ?? []) {
-    const compiledRel = pack.path;
+    const compiledRel = stripDb(pack.path);
     const compiledAbs = path.join(ROOT, compiledRel);
     const sourceAbs = path.join(ROOT, "src", compiledRel);
     const expectedCount = expectedCounts.get(pack.name);
@@ -173,6 +181,7 @@ try {
       packName: pack.name,
       documentType: pack.type,
       sourcePath: path.relative(ROOT, sourceAbs).replaceAll("\\", "/"),
+      manifestPath: pack.path.replaceAll("\\", "/"),
       compiledPath: compiledRel.replaceAll("\\", "/"),
       expectedEntryCount: expectedCount,
       sourceEntryCount: sourceDocs.size,

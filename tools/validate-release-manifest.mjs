@@ -84,8 +84,11 @@ for (const pack of manifest.packs ?? []) {
     errors.push(`${pack.name}: pack path is missing`);
     continue;
   }
-  if (packPath.endsWith(".db")) {
-    errors.push(`${pack.name}: pack path must name the LevelDB directory without a legacy .db suffix: ${JSON.stringify(packPath)}`);
+  if (!packPath.endsWith(".db")) {
+    errors.push(`${pack.name}: Foundry 14 pack path must end in .db: ${JSON.stringify(packPath)}`);
+  }
+  if (packPath.endsWith(".db.db")) {
+    errors.push(`${pack.name}: pack path has a doubled .db suffix: ${JSON.stringify(packPath)}`);
   }
   if (packPath.includes("\\")) {
     errors.push(`${pack.name}: pack path must use forward slashes: ${JSON.stringify(packPath)}`);
@@ -106,7 +109,8 @@ for (const pack of manifest.packs ?? []) {
     errors.push(`${pack.name}: ${pack.type} pack must declare system "daggerheart", got ${JSON.stringify(pack.system)}`);
   }
 
-  const sourceRel = path.join("src", packPath);
+  const physicalPackPath = packPath.endsWith(".db") ? packPath.slice(0, -3) : packPath;
+  const sourceRel = path.join("src", physicalPackPath);
   try {
     const stat = await fs.stat(path.join(ROOT, sourceRel));
     if (!stat.isDirectory()) errors.push(`${pack.name}: source pack is not a directory: ${sourceRel}`);
@@ -164,4 +168,5 @@ console.log(" - Foundry compatibility: 14 / 14 / 14");
 console.log(" - Daggerheart compatibility: 2 / 2 / 2");
 console.log(" - qualification target: Foundry 14.368 / Daggerheart 2.10.5");
 console.log(` - declared Compendia: ${declaredPacks.size}`);
+console.log(" - Foundry 14 Compendium manifest paths: .db");
 console.log(" - scripts/main.js runtime entry point: declared");

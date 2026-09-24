@@ -6,6 +6,10 @@ on:
     paths:
       - "module.json"
       - "tools/validate-release-manifest.mjs"
+      - "tools/compile-packs.mjs"
+      - "tools/extract-packs.mjs"
+      - "tools/build-runtime-package.py"
+      - "tools/prepare-release.py"
       - "tools/migrate-dh2-compendia.py"
       - "tools/validate-dh2-source.py"
       - "tools/validate-domain-registration.mjs"
@@ -54,6 +58,23 @@ jobs:
           npm run clean:packs
           npm run compile:packs
           npm run validate:compiled-packs
+      - name: Build deterministic Foundry 14 runtime package
+        run: npm run build:runtime-package
+      - name: Verify runtime package metadata
+        run: |
+          python - <<'PY'
+          import json
+          report=json.load(open("build/release/runtime-package.json", encoding="utf-8"))
+          assert report["status"] == "PASS"
+          assert report["moduleVersion"] == "0.2.0"
+          assert report["compiledCompendiumCount"] == 15
+          assert report["foundry14DbManifestPathsValidated"] is True
+          mappings=report["packMappings"]
+          assert len(mappings) == 15
+          assert all(m["manifestPath"].endswith(".db") for m in mappings)
+          assert all(not m["compiledDirectory"].endswith(".db") for m in mappings)
+          print(json.dumps(report, indent=2))
+          PY
       - name: Rulebook migration regression
         run: |
           python -m unittest discover -s build/rulebook/scripts/tests -p "test_rulebook_normalization.py" -v
