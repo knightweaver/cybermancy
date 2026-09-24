@@ -13,7 +13,8 @@
         "status": "Primary guarded north-south road",
         "known_for": "Protected commerce among Everett, Seattle, and Tacoma",
         "access": "Checkpoints, convoy schedules, and locally controlled approaches",
-        "description": "The surviving I-5 corridor carries guarded commerce through the Puget Sound city-states. Control changes along the route, and Tacoma maintains a defensive zone without routinely stopping through traffic."
+        "description": "The surviving I-5 corridor carries guarded commerce through the Puget Sound city-states. Control changes along the route, and Tacoma maintains a defensive zone without routinely stopping through traffic.",
+        "image_asset": "images/locations/route-guarded-i-5-corridor.webp"
       },
       "geometry": {
         "type": "LineString",
@@ -60,7 +61,8 @@
         "status": "Local passenger and light-cargo crossing",
         "known_for": "Connecting West Seattle with the central waterfront",
         "access": "Scheduled sailings and neighborhood-controlled terminals",
-        "description": "Ferries supplement West Seattle's surviving guarded bridges and carry passengers and light cargo to the central city."
+        "description": "Ferries supplement West Seattle's surviving guarded bridges and carry passengers and light cargo to the central city.",
+        "image_asset": "images/locations/route-west-seattle-ferry-route.webp"
       },
       "geometry": {
         "type": "LineString",
@@ -91,7 +93,8 @@
         "status": "Protected civic landmark",
         "known_for": "Observation decks, civic ceremonies, and skyline visibility",
         "access": "Public lower levels; controlled upper access",
-        "description": "Seattle's most recognizable surviving landmark remains a civic symbol, observation point, and carefully maintained piece of the pre-Razz skyline."
+        "description": "Seattle's most recognizable surviving landmark remains a civic symbol, observation point, and carefully maintained piece of the pre-Razz skyline.",
+        "image_asset": "images/locations/poi-space-needle.webp"
       },
       "geometry": {
         "type": "Point",
@@ -112,7 +115,8 @@
         "status": "Active corporate research campus",
         "known_for": "Biomedical research and its elevated central platform",
         "access": "Public perimeter; credentialed interior",
-        "description": "Five research buildings and an elevated central platform dominate Seattle's biomedical corridor. Corporate security treats the campus as critical infrastructure."
+        "description": "Five research buildings and an elevated central platform dominate Seattle's biomedical corridor. Corporate security treats the campus as critical infrastructure.",
+        "image_asset": "images/locations/poi-helios-campus.webp"
       },
       "geometry": {
         "type": "Point",
@@ -133,7 +137,8 @@
         "status": "Fortified aerospace complex",
         "known_for": "Heavy security, air operations, and industrial capacity",
         "access": "Restricted perimeter inside Bombshell",
-        "description": "The surviving Boeing Field complex has become a hardened corporate-industrial fortress surrounded by the damaged infrastructure of southern Seattle."
+        "description": "The surviving Boeing Field complex has become a hardened corporate-industrial fortress surrounded by the damaged infrastructure of southern Seattle.",
+        "image_asset": "images/locations/poi-boeing-field-fortress.webp"
       },
       "geometry": {
         "type": "Point",
@@ -154,7 +159,8 @@
         "status": "Public memorial",
         "known_for": "The Unforgotten and Unforgiven observance and metahuman civil-rights vigils",
         "access": "Public plaza during daylight and commemorations",
-        "description": "A destroyed armored carrier has become Bombshell's public memorial to metahumans killed during one of Seattle's defining acts of violence. The annual Unforgotten and Unforgiven observance keeps the site politically and culturally active."
+        "description": "A destroyed armored carrier has become Bombshell's public memorial to metahumans killed during one of Seattle's defining acts of violence. The annual Unforgotten and Unforgiven observance keeps the site politically and culturally active.",
+        "image_asset": "images/locations/poi-the-names-we-carry.webp"
       },
       "geometry": {
         "type": "Point",
@@ -178,7 +184,8 @@
         "access": "Madison and Leschi terminals with controlled Eastside landings",
         "organizations": "Soundline Co-op, Crosswake Marine, and Lucky Crossing",
         "connections": "Meridian to Eastside settlements; returning salvage continues to Gasworks or corporate buyers",
-        "description": "Lake Washington ferries connect Meridian with the Silicon Wilds. Expeditions, traders, and outfitters travel east; recovered technology returns through Madison or Leschi toward Gasworks workshops and corporate buyers."
+        "description": "Lake Washington ferries connect Meridian with the Silicon Wilds. Expeditions, traders, and outfitters travel east; recovered technology returns through Madison or Leschi toward Gasworks workshops and corporate buyers.",
+        "image_asset": "images/locations/route-meridiansilicon-wilds-ferry-route.webp"
       },
       "geometry": {
         "type": "LineString",
@@ -213,7 +220,8 @@
         "status": "Continuous gray-market bazaar",
         "known_for": "Salvage, information, expedition gear, and twenty-four-hour trade",
         "access": "Beneath and alongside I-5 in Meridian",
-        "description": "The Seam is Meridian's twenty-four-hour market under I-5, where brokers, fixers, traders, and expedition crews exchange equipment, salvage, information, and introductions."
+        "description": "The Seam is Meridian's twenty-four-hour market under I-5, where brokers, fixers, traders, and expedition crews exchange equipment, salvage, information, and introductions.",
+        "image_asset": "images/locations/poi-the-seam.webp"
       },
       "geometry": {
         "type": "Point",
@@ -235,7 +243,8 @@
         "known_for": "Soundline service and Eastside expedition departures",
         "access": "Ticketed public service with cargo and identity checks",
         "organizations": "Soundline Co-op",
-        "description": "Madison is Meridian's principal passenger and light-cargo terminal for Lake Washington crossings."
+        "description": "Madison is Meridian's principal passenger and light-cargo terminal for Lake Washington crossings.",
+        "image_asset": "images/locations/poi-madison-ferry-terminal.webp"
       },
       "geometry": {
         "type": "Point",
@@ -257,7 +266,8 @@
         "known_for": "Vehicles, salvage shipments, and expedition cargo",
         "access": "Controlled freight yards and scheduled vehicle ferries",
         "organizations": "Crosswake Marine",
-        "description": "Leschi handles heavy freight, vehicles, and the bulk of the salvage returning from the Silicon Wilds."
+        "description": "Leschi handles heavy freight, vehicles, and the bulk of the salvage returning from the Silicon Wilds.",
+        "image_asset": "images/locations/poi-leschi-freight-terminal.webp"
       },
       "geometry": {
         "type": "Point",
@@ -278,7 +288,8 @@
         "status": "Active nightclub and deal venue",
         "known_for": "Music, runners, brokers, and dangerous private business",
         "access": "Public club floor; selective private rooms",
-        "description": "Afterimage is one of Meridian's best-known nightlife and deal-making venues. It is emphatically not neutral ground."
+        "description": "Afterimage is one of Meridian's best-known nightlife and deal-making venues. It is emphatically not neutral ground.",
+        "image_asset": "images/locations/poi-afterimage.webp"
       },
       "geometry": {
         "type": "Point",
@@ -300,7 +311,8 @@
         "known_for": "Introductions, arbitration, and protected negotiations",
         "access": "Admission by established standing and invitation",
         "governance": "The Three Elders enforce venue neutrality",
-        "description": "The Third Door is a tightly controlled neutral venue for experienced runners, fixers, and brokers. Violence or coercion inside carries consequences across Meridian."
+        "description": "The Third Door is a tightly controlled neutral venue for experienced runners, fixers, and brokers. Violence or coercion inside carries consequences across Meridian.",
+        "image_asset": "images/locations/poi-the-third-door.webp"
       },
       "geometry": {
         "type": "Point",
@@ -322,7 +334,8 @@
         "known_for": "Fabrication bays, prototyping, induction, and workshop collaboration",
         "access": "Members receive priority; visitors require sponsorship or a public event",
         "organizations": "Greater Seattle Workshop Exchange",
-        "description": "The Foundry is Gasworks' central shared makerspace and industrial complex, providing equipment and work areas that small shops could not maintain alone."
+        "description": "The Foundry is Gasworks' central shared makerspace and industrial complex, providing equipment and work areas that small shops could not maintain alone.",
+        "image_asset": "images/locations/poi-the-foundry.webp"
       },
       "geometry": {
         "type": "Point",
@@ -343,7 +356,8 @@
         "status": "Public industrial landmark",
         "known_for": "Old machinery, gatherings, and views across the canal",
         "access": "Open grounds with locally posted restrictions",
-        "description": "The preserved industrial structures of Gas Works Park remain a district landmark and gathering place."
+        "description": "The preserved industrial structures of Gas Works Park remain a district landmark and gathering place.",
+        "image_asset": "images/locations/poi-gas-works-park.webp"
       },
       "geometry": {
         "type": "Point",
@@ -364,7 +378,8 @@
         "status": "Public neighborhood landmark",
         "known_for": "Gasworks' inherited eccentric civic identity",
         "access": "Open street access",
-        "description": "The old Lenin statue survives as a familiar meeting point and symbol of the district's cultivated weirdness."
+        "description": "The old Lenin statue survives as a familiar meeting point and symbol of the district's cultivated weirdness.",
+        "image_asset": "images/locations/poi-fremont-lenin-statue.webp"
       },
       "geometry": {
         "type": "Point",
@@ -385,7 +400,8 @@
         "status": "Publicly displayed, expended artifact",
         "known_for": "One of the university's two expended Prometheus Shards",
         "access": "Public lobby during campus hours",
-        "description": "An expended Prometheus Shard is displayed in the Physics-Astronomy lobby under university security."
+        "description": "An expended Prometheus Shard is displayed in the Physics-Astronomy lobby under university security.",
+        "image_asset": "images/locations/poi-physics-astronomy-prometheus-shard.webp"
       },
       "geometry": {
         "type": "Point",
@@ -406,7 +422,8 @@
         "status": "Publicly displayed, expended artifact",
         "known_for": "One of the university's two expended Prometheus Shards",
         "access": "Public lobby during campus hours",
-        "description": "An expended Prometheus Shard is displayed in the Allen Center lobby under university and corporate observation."
+        "description": "An expended Prometheus Shard is displayed in the Allen Center lobby under university and corporate observation.",
+        "image_asset": "images/locations/poi-allen-center-prometheus-shard.webp"
       },
       "geometry": {
         "type": "Point",
@@ -428,7 +445,8 @@
         "known_for": "Repairs, supplies, neighborhood coordination, and practical relief",
         "access": "Open to residents and volunteers subject to local safety rules",
         "organizations": "Bombshell Mutual Works",
-        "description": "Auntie Lee Varga's mutual-aid network coordinates repairs, supplies, and neighborhood rebuilding across Bombshell."
+        "description": "Auntie Lee Varga's mutual-aid network coordinates repairs, supplies, and neighborhood rebuilding across Bombshell.",
+        "image_asset": "images/locations/poi-bombshell-mutual-works.webp"
       },
       "geometry": {
         "type": "Point",
@@ -449,7 +467,8 @@
         "status": "Active Bombshell congregation",
         "known_for": "Mutual support, apocalyptic preaching, and Sister Rhea Calder",
         "access": "Open services; congregation-controlled private areas",
-        "description": "The Church of the Shattered Glass is an active Bombshell congregation led by Sister Rhea Calder, offering community support alongside uncompromising spiritual teaching."
+        "description": "The Church of the Shattered Glass is an active Bombshell congregation led by Sister Rhea Calder, offering community support alongside uncompromising spiritual teaching.",
+        "image_asset": "images/locations/poi-church-of-the-shattered-glass.webp"
       },
       "geometry": {
         "type": "Point",
@@ -470,7 +489,8 @@
         "status": "Surviving controlled crossing",
         "known_for": "Primary bridge access to West Seattle",
         "access": "Identity, cargo, and weapons checks",
-        "description": "The surviving high bridge remains one of West Seattle's principal overland connections and is guarded by Civic Guard checkpoints."
+        "description": "The surviving high bridge remains one of West Seattle's principal overland connections and is guarded by Civic Guard checkpoints.",
+        "image_asset": "images/locations/poi-west-seattle-high-bridge.webp"
       },
       "geometry": {
         "type": "Point",
@@ -491,7 +511,8 @@
         "status": "Surviving controlled crossing",
         "known_for": "Southern vehicle and freight access to West Seattle",
         "access": "Identity, cargo, and weapons checks",
-        "description": "The 1st Avenue South Bridge provides West Seattle's surviving southern overland connection and is guarded as critical infrastructure."
+        "description": "The 1st Avenue South Bridge provides West Seattle's surviving southern overland connection and is guarded as critical infrastructure.",
+        "image_asset": "images/locations/poi-1st-avenue-south-bridge.webp"
       },
       "geometry": {
         "type": "Point",
@@ -512,7 +533,8 @@
         "status": "Established urban Wild",
         "known_for": "Dense altered plant life and unreliable interior paths",
         "access": "Travel with local guides and protective equipment",
-        "description": "The Arboretum has become a true urban Wild. Its altered vegetation and shifting safe paths form a hazardous eastern edge within Meridian."
+        "description": "The Arboretum has become a true urban Wild. Its altered vegetation and shifting safe paths form a hazardous eastern edge within Meridian.",
+        "image_asset": "images/locations/poi-washington-park-arboretum-wild.webp"
       },
       "geometry": {
         "type": "Point",
@@ -533,7 +555,8 @@
         "status": "Established urban decay Wild",
         "known_for": "Unstable structures, altered growth, and unreliable streets",
         "access": "Marked perimeter routes only",
-        "description": "Parts of Madrona have collapsed into an urban decay Wild whose damaged streets and altered growth complicate Meridian's lakefront routes."
+        "description": "Parts of Madrona have collapsed into an urban decay Wild whose damaged streets and altered growth complicate Meridian's lakefront routes.",
+        "image_asset": "images/locations/poi-madrona-decay-wild.webp"
       },
       "geometry": {
         "type": "Point",
@@ -555,7 +578,8 @@
         "known_for": "Public demonstrations, new makers, prototypes, and Gasworks-wide celebration",
         "access": "Public exhibitions with member-only workshop events",
         "organizations": "Greater Seattle Workshop Exchange",
-        "description": "The Works is Gasworks' annual exposition, festival, and induction season, when workshops demonstrate new projects and prospective members enter the district's maker culture."
+        "description": "The Works is Gasworks' annual exposition, festival, and induction season, when workshops demonstrate new projects and prospective members enter the district's maker culture.",
+        "image_asset": "images/locations/poi-aqre-the-works.webp"
       },
       "geometry": {
         "type": "Point",
@@ -576,7 +600,8 @@
         "status": "Active Gasworks technology firm",
         "known_for": "Small-scale technical work within the workshop economy",
         "access": "Business access by appointment",
-        "description": "Eriador, Inc. operates inside Gasworks' larger workshop ecosystem and employs Stella Brownlock."
+        "description": "Eriador, Inc. operates inside Gasworks' larger workshop ecosystem and employs Stella Brownlock.",
+        "image_asset": "images/locations/poi-eriador-inc.webp"
       },
       "geometry": {
         "type": "Point",
@@ -598,7 +623,8 @@
         "known_for": "Earthquake ruins, lake trade, local farming, and salvage",
         "access": "Lake landings and the I-405 corridor",
         "governance": "Mayor and local council",
-        "description": "Kirkland Downs occupies surviving lakefront and earthquake ruins, balancing fishing, agriculture, and salvage under a local mayor and council."
+        "description": "Kirkland Downs occupies surviving lakefront and earthquake ruins, balancing fishing, agriculture, and salvage under a local mayor and council.",
+        "image_asset": "images/locations/poi-kirkland-downs.webp"
       },
       "geometry": {
         "type": "Point",
@@ -621,7 +647,8 @@
         "access": "Ferries, I-405, and guarded local approaches",
         "governance": "A compact among the dominant houses",
         "organizations": "Lucky Crossing and Badvue's house compact",
-        "description": "Former downtown Bellevue has become Badvue, a casino boomtown where expedition outfitting, vice, salvage money, and house politics meet."
+        "description": "Former downtown Bellevue has become Badvue, a casino boomtown where expedition outfitting, vice, salvage money, and house politics meet.",
+        "image_asset": "images/locations/poi-badvue.webp"
       },
       "geometry": {
         "type": "Point",
@@ -642,7 +669,8 @@
         "status": "Agrarian lake outpost",
         "known_for": "Food production, lake trade, and operational ties to the Silicon Wilds",
         "access": "Lake crossings and locally controlled roads",
-        "description": "Mercer Island lies outside the Silicon Wilds' strict east-of-lake geography but is culturally and operationally part of its settlement network."
+        "description": "Mercer Island lies outside the Silicon Wilds' strict east-of-lake geography but is culturally and operationally part of its settlement network.",
+        "image_asset": "images/locations/poi-mercer-island-outpost.webp"
       },
       "geometry": {
         "type": "Point",
@@ -665,7 +693,8 @@
         "access": "I-405 freight traffic and controlled gates",
         "governance": "Competing entrepreneurs and workshop owners",
         "connections": "Gasworks prototypes commonly move here for larger production runs",
-        "description": "Built around former Factoria, Forgetown manufactures whatever the frontier can pay for and turns Gasworks prototypes into rugged production goods."
+        "description": "Built around former Factoria, Forgetown manufactures whatever the frontier can pay for and turns Gasworks prototypes into rugged production goods.",
+        "image_asset": "images/locations/poi-forgetown.webp"
       },
       "geometry": {
         "type": "Point",
@@ -687,7 +716,8 @@
         "known_for": "Tolls, hardened defenses, and control of the Redmond approach",
         "access": "SR-520 corridor under local inspection and toll",
         "governance": "Marshal Tamsin Rook",
-        "description": "Redmond's surviving settlement, commonly called Fool's End, is a fortified military fief controlling a major route into the eastern Wilds."
+        "description": "Redmond's surviving settlement, commonly called Fool's End, is a fortified military fief controlling a major route into the eastern Wilds.",
+        "image_asset": "images/locations/poi-fool-s-end.webp"
       },
       "geometry": {
         "type": "Point",
@@ -709,7 +739,8 @@
         "status": "Partially secured settlement corridor",
         "known_for": "Trade among Kirkland Downs, Badvue, and Forgetown",
         "access": "Convoys, settlement patrols, and negotiated tolls",
-        "description": "Surviving stretches of I-405 form the Wilds' main north-south trade spine among Kirkland Downs, Badvue, and Forgetown."
+        "description": "Surviving stretches of I-405 form the Wilds' main north-south trade spine among Kirkland Downs, Badvue, and Forgetown.",
+        "image_asset": "images/locations/route-i-405-wilds-corridor.webp"
       },
       "geometry": {
         "type": "LineString",
@@ -741,7 +772,8 @@
         "status": "Partially secured east-west corridor",
         "known_for": "Access from Lake Washington toward Fool's End",
         "access": "Patrolled segments, tolls, and hazardous gaps",
-        "description": "The surviving SR-520 corridor connects Eastside lake approaches with Fool's End and the routes beyond Redmond."
+        "description": "The surviving SR-520 corridor connects Eastside lake approaches with Fool's End and the routes beyond Redmond.",
+        "image_asset": "images/locations/route-sr-520-wilds-corridor.webp"
       },
       "geometry": {
         "type": "LineString",
@@ -773,7 +805,8 @@
         "known_for": "International cargo, military logistics, and Black Helix-secured convoys",
         "access": "Ephorate-controlled harbor and credentialed freight zones",
         "organizations": "Tacoma Ephorate and Black Helix",
-        "description": "Tacoma's deepwater port is the foundation of its independence and a trade asset Seattle cannot afford to lose."
+        "description": "Tacoma's deepwater port is the foundation of its independence and a trade asset Seattle cannot afford to lose.",
+        "image_asset": "images/locations/poi-port-of-tacoma.webp"
       },
       "geometry": {
         "type": "Point",
@@ -794,7 +827,8 @@
         "status": "Public bombing memorial",
         "known_for": "Remembering the school-bus victims of the Porter Way Bombing",
         "access": "Public roadside memorial near Milton",
-        "description": "The memorial marks the Porter Way Bombing, where a Human Coalition Front attack intended for a convoy struck a school bus thirteen years before the campaign."
+        "description": "The memorial marks the Porter Way Bombing, where a Human Coalition Front attack intended for a convoy struck a school bus thirteen years before the campaign.",
+        "image_asset": "images/locations/poi-porter-way-memorial.webp"
       },
       "geometry": {
         "type": "Point",
@@ -816,7 +850,8 @@
         "status": "Porous fortified approach",
         "known_for": "Checkpoints between Fife and the I-5/Highway 161 interchange",
         "access": "Through traffic usually continues; entry into Tacoma-controlled territory is inspected",
-        "description": "Tacoma's northern defensive zone protects the approaches near Fife and Milton without routinely interfering with I-5 traffic passing through the corridor."
+        "description": "Tacoma's northern defensive zone protects the approaches near Fife and Milton without routinely interfering with I-5 traffic passing through the corridor.",
+        "image_asset": "images/locations/route-tacoma-defensive-zone.webp"
       },
       "geometry": {
         "type": "LineString",
