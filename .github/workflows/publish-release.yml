@@ -10,7 +10,7 @@ on:
       control:
         description: "Release-control file"
         required: true
-        default: "release-control/v0.1.14.json"
+        default: "release-control/v0.2.0.json"
 
 concurrency:
   group: cybermancy-release
@@ -24,7 +24,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      RELEASE_CONTROL: ${{ github.event.inputs.control || 'release-control/v0.1.14.json' }}
+      RELEASE_CONTROL: ${{ github.event.inputs.control || 'release-control/v0.2.0.json' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
