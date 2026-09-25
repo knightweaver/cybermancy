@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "tag": "v0.2.0",
+  "publish": true,
+  "qualifiedWorkflowRunId": 36134465097,
+  "qualifiedArtifactName": "cybermancy-runtime-candidate-v0.2.0",
+  "qualifiedRuntimeSha256": "08c394d072af001c9cdfcd0e952d71cacb50e13e6048dc80367716ee7e1915b7",
+  "runtime": {
+    "foundryCore": "14.368",
+    "system": "daggerheart",
+    "systemVersion": "2.10.5"
+  },
+  "qualification": {
+    "status": "PASS",
+    "method": "User-confirmed clean-world checklist on Foundry 14.368 / Daggerheart 2.10.5",
+    "result": "Cybermancy v0.2.0 activated successfully after removing the Daggerheart relationship maximum; the full clean-world checklist passed. The qualified ZIP is the inner runtime archive from workflow run 36134465097, built from migration branch commit 7abd3d03db4da4971be9e99211720b52c04f9442.",
+    "qualifiedAt": "2026-09-25"
+  }
+}
