@@ -107,3 +107,14 @@ jobs:
             git commit -m "Migrate Cybermancy Compendium source for Daggerheart 2.10.5"
             git push origin HEAD:migration/v0.2.0-f14-dh2
           fi
+      - name: Upload clean-world qualification candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: cybermancy-runtime-candidate-v0.2.0
+          path: |
+            release/cybermancy-v0.2.0.zip
+            module.json
+            build/release/runtime-package.json
+            build/release/compiled-packs.json
+          if-no-files-found: error
+          retention-days: 30
