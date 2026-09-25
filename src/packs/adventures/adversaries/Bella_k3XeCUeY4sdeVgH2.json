@@ -318,9 +318,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
       "flags": {},
@@ -330,9 +329,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "createdTime": 1782188303148,
         "modifiedTime": 1782188303148,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -444,9 +443,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "img": "icons/magic/sonic/projectile-shock-wave-blue.webp",
       "flags": {},
@@ -456,9 +454,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "createdTime": 1782188311649,
         "modifiedTime": 1782188311649,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -516,9 +514,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "img": "icons/skills/movement/arrows-up-trio-red.webp",
       "flags": {},
@@ -528,9 +525,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "createdTime": 1782188317459,
         "modifiedTime": 1782188317459,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -588,9 +585,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "img": "icons/magic/holy/barrier-shield-winged-blue.webp",
       "flags": {},
@@ -600,9 +596,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "createdTime": 1782188324071,
         "modifiedTime": 1782188324071,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -628,9 +624,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1782188134201,
     "modifiedTime": 1787229932036,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

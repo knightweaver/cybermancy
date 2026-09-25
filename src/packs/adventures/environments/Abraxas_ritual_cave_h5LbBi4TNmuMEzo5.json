@@ -12,11 +12,7 @@
     "potentialAdversaries": {
       "Z7NPSGwDz2oWThDw": {
         "label": "Potential Adversaries",
-        "adversaries": [
-          "Actor.BxqhkxeMpY5hXiF6",
-          "Actor.0TWQnZxMA2GLtizO",
-          "Actor.XQjo8jN8c4CWqYf7"
-        ]
+        "adversaries": []
       }
     },
     "notes": "",
@@ -155,9 +151,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "effects": [],
       "folder": null,
@@ -170,9 +165,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!h5LbBi4TNmuMEzo5.yYbRS5Fq4hLvUeVk"
@@ -214,9 +209,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "reaction"
       },
       "effects": [],
       "folder": null,
@@ -229,9 +223,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!h5LbBi4TNmuMEzo5.0zAgAAnH2R4mw6OG"
@@ -273,9 +267,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": null,
@@ -288,9 +281,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!h5LbBi4TNmuMEzo5.7JnwHSKnDj8XsdaI"
@@ -332,9 +325,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "reaction"
       },
       "effects": [],
       "folder": null,
@@ -347,9 +339,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!h5LbBi4TNmuMEzo5.srAADA0R5JtA60Da"
@@ -391,9 +383,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "effects": [],
       "folder": null,
@@ -406,9 +397,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!h5LbBi4TNmuMEzo5.tpCy8WlGXYHCtSHk"
@@ -459,6 +450,20 @@
           }
         ],
         "goal": "Create escalating objective pressure: actions spent fighting are actions not spent rescuing Voss or shutting down the ritual."
+      },
+      "migration": {
+        "unresolvedPotentialAdversaries": [
+          {
+            "groupId": "Z7NPSGwDz2oWThDw",
+            "label": "Potential Adversaries",
+            "legacyWorldActorRefs": [
+              "Actor.BxqhkxeMpY5hXiF6",
+              "Actor.0TWQnZxMA2GLtizO",
+              "Actor.XQjo8jN8c4CWqYf7"
+            ],
+            "status": "external-unresolved"
+          }
+        ]
       }
     }
   },
@@ -470,9 +475,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1787229971166,
     "modifiedTime": 1787229971166,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

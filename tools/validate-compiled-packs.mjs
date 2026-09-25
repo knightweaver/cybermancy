@@ -6,10 +6,20 @@ import path from "node:path";
 import os from "node:os";
 
 const ROOT = process.cwd();
-const manifest = JSON.parse(
-  await fs.readFile(path.join(ROOT, "module.json"), "utf8")
+const manifest = JSON.parse(await fs.readFile(path.join(ROOT, "module.json"), "utf8"));
+const baseline = JSON.parse(
+  await fs.readFile(path.join(ROOT, "maintenance", "baseline-v0.2.0.json"), "utf8")
 );
+const expectedCounts = new Map(baseline.compendia.map(pack => [pack.name, pack.entryCount]));
 const errors = [];
+
+const stripDb = packPath => {
+  if (!packPath.endsWith(".db")) {
+    errors.push(`Foundry 14 pack path must end in .db: ${packPath}`);
+    return packPath;
+  }
+  return packPath.slice(0, -3);
+};
 const results = [];
 
 async function readJsonDocuments(directory) {
@@ -37,7 +47,9 @@ function comparable(doc) {
     _key: doc._key ?? null,
     name: doc.name ?? null,
     type: doc.type ?? null,
-    folder: doc.folder ?? null
+    folder: doc.folder ?? null,
+    img: doc.img ?? null,
+    sort: doc.sort ?? null
   };
 }
 
@@ -53,18 +65,62 @@ function compareIdentity(source, extracted, context) {
   }
 }
 
-const tempRoot = await fs.mkdtemp(
-  path.join(os.tmpdir(), "cybermancy-pack-validation-")
-);
+function compareActorEmbedded(source, extracted, context) {
+  const sourceItems = source.items ?? [];
+  const extractedItems = extracted.items ?? [];
+  if (sourceItems.length !== extractedItems.length) {
+    errors.push(`${context}: embedded Item count changed ${sourceItems.length} -> ${extractedItems.length}`);
+    return;
+  }
+  const byId = new Map(extractedItems.map(item => [item._id, item]));
+  for (const item of sourceItems) {
+    const other = byId.get(item._id);
+    if (!other) {
+      errors.push(`${context}: missing embedded Item ${item._id}`);
+      continue;
+    }
+    for (const key of ["_id", "_key", "name", "type", "img", "sort"]) {
+      if ((item[key] ?? null) !== (other[key] ?? null)) {
+        errors.push(`${context}/Item.${item._id}: ${key} changed during compile/re-extract`);
+      }
+    }
+    if (item.type === "feature") {
+      for (const key of ["description", "featureForm"]) {
+        if ((item.system?.[key] ?? null) !== (other.system?.[key] ?? null)) {
+          errors.push(`${context}/Item.${item._id}: system.${key} changed during compile/re-extract`);
+        }
+      }
+      if (JSON.stringify(item.system?.actions ?? {}) !== JSON.stringify(other.system?.actions ?? {})) {
+        errors.push(`${context}/Item.${item._id}: Feature actions changed during compile/re-extract`);
+      }
+    }
+  }
+  if (source.type === "environment") {
+    if (
+      JSON.stringify(source.system?.potentialAdversaries ?? {}) !==
+      JSON.stringify(extracted.system?.potentialAdversaries ?? {})
+    ) {
+      errors.push(`${context}: Environment potentialAdversaries changed during compile/re-extract`);
+    }
+  }
+}
+
+const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "cybermancy-pack-validation-"));
 
 try {
   let totalSource = 0;
   let totalExtracted = 0;
 
   for (const pack of manifest.packs ?? []) {
-    const compiledRel = pack.path;
+    const compiledRel = stripDb(pack.path);
     const compiledAbs = path.join(ROOT, compiledRel);
     const sourceAbs = path.join(ROOT, "src", compiledRel);
+    const expectedCount = expectedCounts.get(pack.name);
+
+    if (expectedCount === undefined) {
+      errors.push(`${pack.name}: no frozen baseline count`);
+      continue;
+    }
 
     try {
       const stat = await fs.stat(compiledAbs);
@@ -79,6 +135,9 @@ try {
 
     const sourceDocs = await readJsonDocuments(sourceAbs);
     totalSource += sourceDocs.size;
+    if (sourceDocs.size !== expectedCount) {
+      errors.push(`${pack.name}: expected ${expectedCount} source entries, got ${sourceDocs.size}`);
+    }
 
     const extractDir = path.join(tempRoot, pack.name);
     await fs.mkdir(extractDir, { recursive: true });
@@ -109,19 +168,33 @@ try {
     }
 
     for (const id of sourceIds) {
+      const source = sourceDocs.get(id);
       const extracted = extractedDocs.get(id);
       if (!extracted) continue;
-      compareIdentity(sourceDocs.get(id), extracted, `${pack.name}/${id}`);
+      compareIdentity(source, extracted, `${pack.name}/${id}`);
+      if (source.type === "adversary" || source.type === "environment") {
+        compareActorEmbedded(source, extracted, `${pack.name}/${id}`);
+      }
     }
 
     results.push({
       packName: pack.name,
       documentType: pack.type,
       sourcePath: path.relative(ROOT, sourceAbs).replaceAll("\\", "/"),
+      manifestPath: pack.path.replaceAll("\\", "/"),
       compiledPath: compiledRel.replaceAll("\\", "/"),
+      expectedEntryCount: expectedCount,
       sourceEntryCount: sourceDocs.size,
       extractedEntryCount: extractedDocs.size
     });
+  }
+
+  const expectedTotal = baseline.counts.declaredSourceEntries;
+  if (totalSource !== expectedTotal) {
+    errors.push(`total source entries expected ${expectedTotal}, got ${totalSource}`);
+  }
+  if (totalExtracted !== expectedTotal) {
+    errors.push(`total extracted entries expected ${expectedTotal}, got ${totalExtracted}`);
   }
 
   const reportDir = path.join(ROOT, "build", "release");
@@ -132,7 +205,9 @@ try {
     declaredCompendiumCount: (manifest.packs ?? []).length,
     totalSourceEntries: totalSource,
     totalExtractedEntries: totalExtracted,
+    expectedTotalEntries: expectedTotal,
     packResults: results,
+    embeddedActorIntegrityValidated: true,
     generatedPacksAreDerivative: true
   };
 
@@ -152,6 +227,7 @@ try {
   console.log(` - Compendia: ${summary.declaredCompendiumCount}`);
   console.log(` - Source entries: ${totalSource}`);
   console.log(` - Re-extracted compiled entries: ${totalExtracted}`);
+  console.log(" - embedded Actor Item identity/forms/actions: PASS");
 } finally {
   await fs.rm(tempRoot, { recursive: true, force: true });
 }

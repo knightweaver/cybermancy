@@ -9,8 +9,7 @@
     "description": "<p>You hotfix the scene with a split-second patch. </p><p>Once per scene, you may invoke a flashback to declare that you previously acquired, prepared, or cached a small magical or technological item you now need (the GM may forbid items that would trivialize the scene; no ammunition, explosives, or excavation tools).  </p><p>Flashback cost may be reduced due to the ephemeral nature of the item, and may use hope and/or stress resources.  The item persists for 5 seconds (long enough for one immediate use) before the weight of collective perception forces it to derez.</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "sort": 0,
@@ -23,9 +22,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1776262225391,
     "modifiedTime": 1776262254996,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

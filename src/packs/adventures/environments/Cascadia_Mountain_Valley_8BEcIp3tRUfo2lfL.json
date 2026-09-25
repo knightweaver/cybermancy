@@ -12,11 +12,7 @@
     "potentialAdversaries": {
       "GaxEgC55GpcjxJET": {
         "label": "Potential Adversaries",
-        "adversaries": [
-          "Actor.BxqhkxeMpY5hXiF6",
-          "Actor.0TWQnZxMA2GLtizO",
-          "Actor.XQjo8jN8c4CWqYf7"
-        ]
+        "adversaries": []
       }
     },
     "notes": "",
@@ -155,9 +151,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "effects": [],
       "folder": null,
@@ -170,9 +165,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!8BEcIp3tRUfo2lfL.LXeDmrjJsVe0gdhK"
@@ -214,9 +209,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": null,
@@ -229,9 +223,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!8BEcIp3tRUfo2lfL.0UmSQVGb5zxpOZ6Q"
@@ -273,9 +267,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": null,
@@ -288,9 +281,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!8BEcIp3tRUfo2lfL.yKBUQ555BcPsKMSi"
@@ -332,9 +325,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "reaction"
       },
       "effects": [],
       "folder": null,
@@ -347,9 +339,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!8BEcIp3tRUfo2lfL.ZzqwUjQE3eYPmo0x"
@@ -391,9 +383,8 @@
             }
           }
         },
-        "originItemType": null,
         "attribution": {},
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "effects": [],
       "folder": null,
@@ -406,9 +397,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!8BEcIp3tRUfo2lfL.mz5PLojyKYLYePey"
@@ -457,6 +448,20 @@
           }
         ],
         "goal": "Let the party lower its guard, recover, and connect with the land before revealing corruption ahead."
+      },
+      "migration": {
+        "unresolvedPotentialAdversaries": [
+          {
+            "groupId": "GaxEgC55GpcjxJET",
+            "label": "Potential Adversaries",
+            "legacyWorldActorRefs": [
+              "Actor.BxqhkxeMpY5hXiF6",
+              "Actor.0TWQnZxMA2GLtizO",
+              "Actor.XQjo8jN8c4CWqYf7"
+            ],
+            "status": "external-unresolved"
+          }
+        ]
       }
     }
   },
@@ -468,9 +473,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1787229975551,
     "modifiedTime": 1787230015247,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

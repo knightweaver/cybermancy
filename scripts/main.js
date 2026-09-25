@@ -1,7 +1,10 @@
-import { registerCybermancyDomains, auditCybermancyDomains, CYBERMANCY_DOMAINS } from "./domains.js";
+import {
+  registerCybermancyDomains,
+  auditCybermancyDomains,
+  auditCybermancyRuntime,
+  CYBERMANCY_DOMAINS
+} from "./domains.js";
 import { registerCybermancyHooks } from "./hooks.js";
-import { CybermancyWeaponSheet } from "./sheets/CybermancyWeaponSheet.js";
-import { CybermancyRunnerSheet } from "./sheets/CybermancyRunnerSheet.js";
 
 Hooks.once("init", function () {
   console.log("Cybermancy | init");
@@ -11,30 +14,14 @@ Hooks.once("init", function () {
     module.api = {
       domains: CYBERMANCY_DOMAINS,
       auditDomains: auditCybermancyDomains,
+      auditRuntime: auditCybermancyRuntime,
       registerDomains: registerCybermancyDomains
     };
   }
 
-  game.settings.register("cybermancy", "enableSmartlink", {
-    name: "Enable Smartlink Edge Bonus",
-    hint: "Apply +1 Edge on qualifying attacks when Smartlink flag is set.",
-    scope: "world",
-    config: true,
-    type: Boolean,
-    default: true
-  });
-
-  Items.registerSheet("cybermancy", CybermancyWeaponSheet, {
-    types: ["weapon"],
-    makeDefault: false,
-    label: "Cybermancy Weapon Sheet"
-  });
-
-  Actors.registerSheet("cybermancy", CybermancyRunnerSheet, {
-    types: ["character"],
-    makeDefault: false,
-    label: "Cybermancy Runner Sheet"
-  });
+  // Cybermancy v0.2.0 intentionally uses Daggerheart 2's native
+  // ApplicationV2 character and weapon sheets. The retired v0.1.x custom
+  // sheets used legacy ActorSheet/ItemSheet APIs and a manual d20 attack path.
 });
 
 Hooks.once("ready", async function () {
@@ -42,6 +29,16 @@ Hooks.once("ready", async function () {
   registerCybermancyHooks();
 
   try {
+    const runtime = auditCybermancyRuntime();
+    if (!runtime.valid) {
+      throw new Error(`Unsupported or incomplete Daggerheart runtime: ${JSON.stringify(runtime)}`);
+    }
+    if (!runtime.exactQualificationTarget) {
+      console.warn(
+        `Cybermancy | Running Daggerheart ${runtime.systemVersion}; v0.2.0 qualification target is Daggerheart ${runtime.qualificationTarget}.`
+      );
+    }
+
     const result = await registerCybermancyDomains();
     console.log(`Cybermancy | Domain registration status: ${result.status}`);
   } catch (error) {

@@ -261,8 +261,7 @@
           "dieFaces": "d4"
         },
         "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "img": "icons/magic/time/hourglass-brown-orange.webp",
       "flags": {},
@@ -272,9 +271,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "sort": 0,
@@ -377,8 +376,7 @@
             "range": "far"
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "img": "icons/skills/ranged/arrows-flying-salvo-yellow.webp",
       "flags": {},
@@ -388,9 +386,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "sort": 0,
@@ -441,8 +439,7 @@
           "diceStates": {},
           "dieFaces": "d4"
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": "wCGkCV9uQXcmcfwo",
@@ -451,9 +448,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "sort": 100000,
@@ -469,9 +466,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763859003809,
     "modifiedTime": 1763859003809,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

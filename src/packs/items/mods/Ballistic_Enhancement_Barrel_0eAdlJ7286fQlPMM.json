@@ -6,8 +6,7 @@
     "description": "<p class=\"Card-Feature\">Increase the die increment whenever this weapon is fired (e.g. from a d4 to a d6).  If a Critical Failure is rolled while firing a weapon with this mod, the creature holding the weapon must Mark 2 Hit Points of damage and the weapon is destroyed.</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": null,
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1762172767620,
     "modifiedTime": 1762172767620,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

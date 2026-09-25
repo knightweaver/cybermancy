@@ -6,8 +6,7 @@
     "description": "Your Primary Drone gains the ability to deploy a linear barrier.  Any creature can gain the Hidden condition by crouching down behind the barrier, but the drone may now gain the Hidden condition from its own portable barrier.",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "dZpRLvzzvRTw50fz",
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763830434617,
     "modifiedTime": 1763830437767,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

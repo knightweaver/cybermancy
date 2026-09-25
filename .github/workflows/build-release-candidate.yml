@@ -16,9 +16,12 @@ on:
       - "tools/validate-release-manifest.mjs"
       - "tools/validate-runtime-assets.mjs"
       - "tools/validate-domain-registration.mjs"
+      - "tools/validate-runtime-sheets.mjs"
       - "tools/compile-packs.mjs"
+      - "tools/extract-packs.mjs"
       - "tools/validate-compiled-packs.mjs"
       - "tools/build-runtime-package.py"
+      - "tools/prepare-release.py"
       - ".github/workflows/build-release-candidate.yml"
   workflow_dispatch:
 

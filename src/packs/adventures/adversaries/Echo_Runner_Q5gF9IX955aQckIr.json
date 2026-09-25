@@ -252,8 +252,7 @@
         "description": "<p>When the Runner takes damage from an attack, they can teleport up to Far range.</p>",
         "resource": null,
         "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
       "flags": {},
@@ -263,9 +262,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763499179941,
         "modifiedTime": 1763499195275,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -372,8 +371,7 @@
             "range": "veryClose"
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "img": "icons/magic/unholy/projectile-bolts-salvo-pink.webp",
       "flags": {},
@@ -383,9 +381,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763499226808,
         "modifiedTime": 1763499305270,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -409,9 +407,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763470785323,
     "modifiedTime": 1787229932036,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

@@ -41,8 +41,7 @@
       }
     },
     "resource": null,
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "GkiyW809vi3O2fmM",
@@ -55,9 +54,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1762121468679,
     "modifiedTime": 1762121827950,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

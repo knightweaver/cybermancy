@@ -261,8 +261,7 @@
           "dieFaces": "d4"
         },
         "actions": {},
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "passive"
       },
       "img": "icons/magic/time/hourglass-brown-orange.webp",
       "flags": {},
@@ -272,9 +271,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763857284331,
         "modifiedTime": 1763857284331,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -381,8 +380,7 @@
             "range": "far"
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "img": "icons/skills/ranged/arrows-flying-salvo-yellow.webp",
       "flags": {},
@@ -392,9 +390,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763857475348,
         "modifiedTime": 1763857586655,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -449,8 +447,7 @@
           "diceStates": {},
           "dieFaces": "d4"
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "folder": "wCGkCV9uQXcmcfwo",
@@ -464,9 +461,9 @@
         "compendiumSource": "Compendium.cybermancy.cybermancy-features.Item.CgKgSlZKkyC2nul1",
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763858897709,
         "modifiedTime": 1763858897709,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -485,9 +482,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763470133198,
     "modifiedTime": 1763856850626,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

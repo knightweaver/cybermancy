@@ -6,6 +6,9 @@ import path from "node:path";
 const ROOT = process.cwd();
 const manifestPath = path.join(ROOT, "module.json");
 const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+const baseline = JSON.parse(
+  await fs.readFile(path.join(ROOT, "maintenance", "baseline-v0.2.0.json"), "utf8")
+);
 const errors = [];
 
 const requireCompatibility = (label, value, expected) => {
@@ -29,7 +32,23 @@ if (!/^\d+\.\d+\.\d+$/.test(String(manifest.version ?? ""))) {
   errors.push(`module version must be semantic x.y.z, got ${JSON.stringify(manifest.version)}`);
 }
 
-requireCompatibility("Foundry", manifest.compatibility, { minimum: "13", verified: "13", maximum: "13" });
+if (manifest.version !== "0.2.0") {
+  errors.push(`migration branch module version must be "0.2.0", got ${JSON.stringify(manifest.version)}`);
+}
+
+const qualification = baseline.targetRuntime ?? {};
+if (
+  qualification.foundryCore !== "14.368" ||
+  qualification.systemId !== "daggerheart" ||
+  qualification.systemVersion !== "2.10.5"
+) {
+  errors.push(
+    `qualification target must remain Foundry 14.368 / Daggerheart 2.10.5, got ` +
+    `${JSON.stringify(qualification)}`
+  );
+}
+
+requireCompatibility("Foundry", manifest.compatibility, { minimum: "14", verified: "14", maximum: "14" });
 
 const daggerheart = (manifest.relationships?.systems ?? []).find(
   system => system?.id === "daggerheart"
@@ -40,7 +59,7 @@ if (!daggerheart) {
   if (daggerheart.type !== "system") {
     errors.push(`Daggerheart relationship type must be "system", got ${JSON.stringify(daggerheart.type)}`);
   }
-  requireCompatibility("Daggerheart", daggerheart.compatibility, { minimum: "1.2", verified: "1.2", maximum: "1.9" });
+  requireCompatibility("Daggerheart", daggerheart.compatibility, { minimum: "2", verified: "2" });
 }
 
 const esmodules = manifest.esmodules ?? [];
@@ -65,8 +84,11 @@ for (const pack of manifest.packs ?? []) {
     errors.push(`${pack.name}: pack path is missing`);
     continue;
   }
-  if (packPath.endsWith(".db")) {
-    errors.push(`${pack.name}: pack path must name the LevelDB directory without a legacy .db suffix: ${JSON.stringify(packPath)}`);
+  if (!packPath.endsWith(".db")) {
+    errors.push(`${pack.name}: Foundry 14 pack path must end in .db: ${JSON.stringify(packPath)}`);
+  }
+  if (packPath.endsWith(".db.db")) {
+    errors.push(`${pack.name}: pack path has a doubled .db suffix: ${JSON.stringify(packPath)}`);
   }
   if (packPath.includes("\\")) {
     errors.push(`${pack.name}: pack path must use forward slashes: ${JSON.stringify(packPath)}`);
@@ -87,7 +109,8 @@ for (const pack of manifest.packs ?? []) {
     errors.push(`${pack.name}: ${pack.type} pack must declare system "daggerheart", got ${JSON.stringify(pack.system)}`);
   }
 
-  const sourceRel = path.join("src", packPath);
+  const physicalPackPath = packPath.endsWith(".db") ? packPath.slice(0, -3) : packPath;
+  const sourceRel = path.join("src", physicalPackPath);
   try {
     const stat = await fs.stat(path.join(ROOT, sourceRel));
     if (!stat.isDirectory()) errors.push(`${pack.name}: source pack is not a directory: ${sourceRel}`);
@@ -141,7 +164,9 @@ if (errors.length) {
 
 console.log("Cybermancy release manifest validation PASS");
 console.log(` - version: ${manifest.version}`);
-console.log(" - Foundry compatibility: 13 / 13 / 13");
-console.log(" - Daggerheart compatibility: 1.2 / 1.2 / 1.9");
+console.log(" - Foundry compatibility: 14 / 14 / 14");
+console.log(" - Daggerheart compatibility: minimum 2, verified 2, no maximum");
+console.log(" - qualification target: Foundry 14.368 / Daggerheart 2.10.5");
 console.log(` - declared Compendia: ${declaredPacks.size}`);
+console.log(" - Foundry 14 Compendium manifest paths: .db");
 console.log(" - scripts/main.js runtime entry point: declared");

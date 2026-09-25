@@ -9,8 +9,15 @@ const manifest = JSON.parse(
   await fs.readFile(path.join(ROOT, "module.json"), "utf8")
 );
 
+const stripDb = packPath => {
+  if (!packPath.endsWith(".db")) {
+    throw new Error(`Foundry 14 pack path must end in .db: ${packPath}`);
+  }
+  return packPath.slice(0, -3);
+};
+
 for (const pack of manifest.packs ?? []) {
-  const compiledRel = pack.path;
+  const compiledRel = stripDb(pack.path);
   const sourceRel = path.join("src", compiledRel);
   const sourceAbs = path.join(ROOT, sourceRel);
   const compiledAbs = path.join(ROOT, compiledRel);

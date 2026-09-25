@@ -13,11 +13,6 @@ RUNTIME_FILES = (
     "scripts/main.js",
     "scripts/domains.js",
     "scripts/hooks.js",
-    "scripts/sheets/CybermancyRunnerSheet.js",
-    "scripts/sheets/CybermancyWeaponSheet.js",
-    "styles/cybermancy.css",
-    "templates/actor-runner-sheet.hbs",
-    "templates/item-weapon-sheet.hbs",
     "lang/en.json",
 )
 OPTIONAL_ROOT_FILES = ("LICENSE", "README.md")
@@ -63,20 +58,32 @@ def main() -> int:
     runtime_files.extend(sorted(p for p in assets_root.rglob("*") if p.is_file()))
 
     pack_dirs = []
+    pack_mappings = []
     for pack in manifest.get("packs", []):
-        compiled_rel = str(pack.get("path") or "")
-        if not compiled_rel:
+        manifest_rel = str(pack.get("path") or "")
+        if not manifest_rel:
             raise ValueError(f"Compiled pack path missing for {pack.get('name')!r}")
-        if compiled_rel.endswith(".db"):
+        if not manifest_rel.endswith(".db"):
             raise ValueError(
-                f"Compiled pack path must name the LevelDB directory, not a legacy .db path: {compiled_rel}"
+                f"Foundry 14 pack path must end in .db: {manifest_rel}"
             )
+        if manifest_rel.endswith(".db.db"):
+            raise ValueError(f"Pack path has a doubled .db suffix: {manifest_rel}")
+        compiled_rel = manifest_rel[:-3]
         compiled = repo / compiled_rel
         if not compiled.is_dir():
             raise ValueError(f"Compiled pack missing: {compiled_rel}")
         if not (compiled / "CURRENT").is_file() or not any(compiled.glob("MANIFEST-*")):
             raise ValueError(f"Compiled pack is not a recognizable LevelDB directory: {compiled_rel}")
         pack_dirs.append(compiled)
+        pack_mappings.append(
+            {
+                "packName": pack.get("name"),
+                "manifestPath": manifest_rel,
+                "compiledDirectory": compiled_rel,
+                "sourceDirectory": f"src/{compiled_rel}",
+            }
+        )
         runtime_files.extend(sorted(p for p in compiled.rglob("*") if p.is_file()))
 
     runtime_files = [p for p in runtime_files if p.name != ".gitkeep"]
@@ -126,6 +133,8 @@ def main() -> int:
         "archiveSha256": digest,
         "runtimeFileCount": len(rel_map),
         "compiledCompendiumCount": len(pack_dirs),
+        "packMappings": pack_mappings,
+        "foundry14DbManifestPathsValidated": True,
         "canonical": False,
         "purpose": "clean-install Foundry runtime qualification candidate",
     }

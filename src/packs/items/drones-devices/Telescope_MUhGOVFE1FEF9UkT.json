@@ -6,8 +6,7 @@
     "description": "Your Primary Drone gains the ability to see with a 20x optical zoom, plus an additional 10x digital zoom allowing it to see and capture high quality images and video within 400m",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": "aDjnzcfvUUAWKGgw",
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763830405226,
     "modifiedTime": 1763830405238,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

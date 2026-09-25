@@ -53,10 +53,21 @@ def main() -> int:
         raise ValueError("manual clean-install qualification PASS is required")
 
     runtime_target = control.get("runtime") or {}
-    if str(runtime_target.get("foundryCore")) != "13":
-        raise ValueError("release-control Foundry target must be major version 13")
-    if str(runtime_target.get("systemVersion")) != "1":
-        raise ValueError("release-control Daggerheart target must be major version 1")
+    if str(runtime_target.get("foundryCore")) != "14.368":
+        raise ValueError("release-control Foundry qualification target must be 14.368")
+    if str(runtime_target.get("system")) != "daggerheart":
+        raise ValueError("release-control system must be daggerheart")
+    if str(runtime_target.get("systemVersion")) != "2.10.5":
+        raise ValueError("release-control Daggerheart qualification target must be 2.10.5")
+
+    pack_paths = [str(pack.get("path") or "") for pack in module.get("packs", [])]
+    if len(pack_paths) != 15:
+        raise ValueError(f"v0.2.0 release must declare 15 Compendia, got {len(pack_paths)}")
+    invalid_pack_paths = [p for p in pack_paths if not p.endswith(".db") or p.endswith(".db.db")]
+    if invalid_pack_paths:
+        raise ValueError(
+            f"v0.2.0 release contains invalid Foundry 14 Compendium paths: {invalid_pack_paths}"
+        )
 
     expected_hash = str(control.get("qualifiedRuntimeSha256") or "")
     if len(expected_hash) != 64:
@@ -68,6 +79,10 @@ def main() -> int:
 
     if runtime.get("status") != "PASS":
         raise ValueError("fresh runtime rebuild is not PASS")
+    if runtime.get("compiledCompendiumCount") != 15:
+        raise ValueError("fresh runtime rebuild does not contain all 15 compiled Compendia")
+    if runtime.get("foundry14DbManifestPathsValidated") is not True:
+        raise ValueError("fresh runtime rebuild did not validate Foundry 14 .db manifest paths")
     if equivalence.get("status") != "PASS" or equivalence.get("forbiddenDifferenceCount") != 0:
         raise ValueError("fresh rebuild did not pass runtime equivalence validation")
     if equivalence.get("qualifiedSha256") != expected_hash:

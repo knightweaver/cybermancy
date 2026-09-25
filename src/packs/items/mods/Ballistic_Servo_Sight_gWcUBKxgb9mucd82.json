@@ -6,8 +6,7 @@
     "description": "<p class=\"Card-Feature\">Allow your gun to be fired 1 range increment further than normal, up to a max range of Very Long</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "folder": null,
@@ -20,9 +19,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1762172767636,
     "modifiedTime": 1762172767636,
     "lastModifiedBy": "9AtfWssIybpdSZVY"

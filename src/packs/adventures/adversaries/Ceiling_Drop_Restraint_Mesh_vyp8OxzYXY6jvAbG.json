@@ -282,8 +282,7 @@
             "range": ""
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false
+        "featureForm": "action"
       },
       "effects": [],
       "sort": 0,
@@ -296,9 +295,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.350",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.1.2",
+        "systemVersion": "2.10.5",
         "createdTime": 1763859405797,
         "modifiedTime": 1763859405797,
         "lastModifiedBy": "BT83wOOYeRCn9aoe"
@@ -316,9 +315,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.350",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.1.2",
+    "systemVersion": "2.10.5",
     "createdTime": 1763470767654,
     "modifiedTime": 1764426210981,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

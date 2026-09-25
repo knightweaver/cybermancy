@@ -9,8 +9,7 @@
     "description": "<p>Spend 2 Fear. Jax moves to Close range and immediately spotlights one other Dead Current member.</p>",
     "resource": null,
     "actions": {},
-    "originItemType": null,
-    "multiclassOrigin": false
+    "featureForm": "passive"
   },
   "effects": [],
   "sort": 0,
@@ -23,9 +22,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1782183216212,
     "modifiedTime": 1782183282809,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"

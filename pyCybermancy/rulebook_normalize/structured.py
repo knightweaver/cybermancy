@@ -171,7 +171,8 @@ SYSTEM_EXCLUDE_PREFIXES = (
     'burden', 'trait', 'range', 'cost', 'price', 'attack', 'actions', 'features',
     'motivesAndTactics', 'impulses', 'potentialAdversaries', 'experiences',
     'damageThresholds', 'resources', 'weaponFeatures', 'armorFeatures', 'attribution',
-    'equipped', 'secondary', 'attached', 'originItemType', 'multiclassOrigin'
+    'equipped', 'secondary', 'attached', 'originItemType', 'multiclassOrigin',
+    'featureForm', 'granter', 'actorResources'
 )
 
 

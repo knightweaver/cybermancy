@@ -152,9 +152,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "_id": "2Kf3W62pHWknM9QV",
       "img": "icons/magic/water/wave-water-teal.webp",
@@ -170,9 +169,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!VCxw5dbjhtvG2bYE.2Kf3W62pHWknM9QV"
@@ -212,9 +211,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "_id": "smePOc2QG8sgDgUJ",
       "img": "modules/cybermancy/assets/images/environments/cut-off.png",
@@ -230,9 +228,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!VCxw5dbjhtvG2bYE.smePOc2QG8sgDgUJ"
@@ -281,9 +279,8 @@
             }
           }
         },
-        "originItemType": null,
-        "multiclassOrigin": false,
-        "attribution": {}
+        "attribution": {},
+        "featureForm": "action"
       },
       "_id": "G4SKiyVXBBwKSjiU",
       "img": "modules/cybermancy/assets/images/environments/police-pursuit.png",
@@ -299,9 +296,9 @@
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null,
-        "coreVersion": "13.351",
+        "coreVersion": "14.368",
         "systemId": "daggerheart",
-        "systemVersion": "1.2.7",
+        "systemVersion": "2.10.5",
         "lastModifiedBy": null
       },
       "_key": "!actors.items!VCxw5dbjhtvG2bYE.G4SKiyVXBBwKSjiU"
@@ -317,9 +314,9 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.351",
+    "coreVersion": "14.368",
     "systemId": "daggerheart",
-    "systemVersion": "1.2.7",
+    "systemVersion": "2.10.5",
     "createdTime": 1787230009044,
     "modifiedTime": 1787230015247,
     "lastModifiedBy": "BT83wOOYeRCn9aoe"
