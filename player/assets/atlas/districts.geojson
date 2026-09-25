@@ -1,0 +1,591 @@
+{
+  "type": "FeatureCollection",
+  "name": "Cybermancy player-safe Seattle districts",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "name": "Corporate Core",
+        "code": "SEA // CORE",
+        "category": "SEATTLE DISTRICT",
+        "color": "#38e7ee",
+        "legend_order": 10,
+        "status": "Council-controlled",
+        "known_for": "Arcologies, luxury towers, and curated civic space",
+        "access": "Credentialed transit and dense surveillance",
+        "description": "The pristine Seattle shown on corporate feeds: towers, luxury arcologies, corporate hotels, immaculate public spaces, security drones, and the surviving institutions of civic government.",
+        "label_coordinates": [
+          -122.343,
+          47.606
+        ],
+        "image_asset": "images/locations/district-corporate-core.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.358,
+              47.616
+            ],
+            [
+              -122.338,
+              47.618
+            ],
+            [
+              -122.327,
+              47.603
+            ],
+            [
+              -122.348,
+              47.591
+            ],
+            [
+              -122.358,
+              47.616
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "name": "Queen Anne",
+        "code": "SEA // CROWN",
+        "category": "SEATTLE DISTRICT",
+        "color": "#b991ff",
+        "legend_order": 11,
+        "status": "Executive residential zone",
+        "known_for": "Compounds, boutique arcologies, and the Space Needle",
+        "access": "Controlled hill approaches",
+        "description": "Historic houses have become executive compounds and boutique arcologies. The hill is easy to defend, and this is where wealthy Seattle tells itself that civilization survived.",
+        "label_coordinates": [
+          -122.356,
+          47.633
+        ],
+        "image_asset": "images/locations/district-queen-anne.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.365,
+              47.648
+            ],
+            [
+              -122.342,
+              47.65
+            ],
+            [
+              -122.338,
+              47.618
+            ],
+            [
+              -122.358,
+              47.616
+            ],
+            [
+              -122.375,
+              47.625
+            ],
+            [
+              -122.365,
+              47.648
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "name": "Helios Corridor",
+        "code": "SEA // HELIOS",
+        "category": "SEATTLE DISTRICT",
+        "color": "#ff8a55",
+        "legend_order": 12,
+        "status": "Biotech and research enclave",
+        "known_for": "The five-building Helios campus",
+        "access": "Corporate streets and restricted laboratories",
+        "description": "A dense biomedical research corridor dominated by the five-building Helios campus and its elevated central platform. Its skyline has become inseparable from stories of Aurum Rex.",
+        "label_coordinates": [
+          -122.333,
+          47.636
+        ],
+        "image_asset": "images/locations/district-helios-corridor.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.342,
+              47.65
+            ],
+            [
+              -122.329,
+              47.651
+            ],
+            [
+              -122.323,
+              47.623
+            ],
+            [
+              -122.338,
+              47.618
+            ],
+            [
+              -122.342,
+              47.65
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+        "name": "Meridian",
+        "code": "SEA // MERIDIAN",
+        "category": "SEATTLE DISTRICT",
+        "color": "#e95fd5",
+        "legend_order": 13,
+        "status": "Professional interface for Seattle's gray and black economies",
+        "known_for": "Lake Washington ferries, the Seam, salvage markets, fixers, and expedition outfitters",
+        "access": "I-5 on the west, Lake Washington on the east, and guarded ferry terminals",
+        "governance": "Nominal Seattle authority layered over market customs, broker networks, and venue-specific neutrality",
+        "communities": "Traders, runners, ferry crews, salvage brokers, information dealers, and expedition teams",
+        "organizations": "Madison Terminal, Leschi Terminal, Afterimage, and the Third Door",
+        "connections": "Corporate Core to Meridian to Lake Washington ferries to the Silicon Wilds; returning salvage moves toward Gasworks and corporate buyers",
+        "description": "Between I-5 and Lake Washington, from the ruined I-90 corridor north to ruined SR-520, Meridian is Seattle's principal staging and trading interface with the Silicon Wilds. Information is currency here: ferries, salvage markets, outfitters, fixers, and brokers move people, rumors, and recovered technology between the city and the Eastside frontier.",
+        "label_coordinates": [
+          -122.298,
+          47.616
+        ],
+        "image_asset": "images/locations/district-meridian.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.323,
+              47.64
+            ],
+            [
+              -122.275,
+              47.64
+            ],
+            [
+              -122.27,
+              47.59
+            ],
+            [
+              -122.315,
+              47.59
+            ],
+            [
+              -122.327,
+              47.603
+            ],
+            [
+              -122.323,
+              47.623
+            ],
+            [
+              -122.323,
+              47.64
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "properties": {
+        "name": "Old City",
+        "code": "SEA // OLD CITY",
+        "category": "SEATTLE DISTRICT",
+        "color": "#d3a24f",
+        "legend_order": 14,
+        "status": "Dense mixed-control district",
+        "known_for": "Old infrastructure and underground markets",
+        "access": "Active by day; selectively lawless after dark",
+        "description": "Pre-Razz buildings, alleys, and surviving underground spaces support legitimate commerce by day and runners, smugglers, unlicensed cyberware, and information markets after dark.",
+        "label_coordinates": [
+          -122.333,
+          47.588
+        ],
+        "image_asset": "images/locations/district-old-city.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.348,
+              47.591
+            ],
+            [
+              -122.327,
+              47.603
+            ],
+            [
+              -122.315,
+              47.588
+            ],
+            [
+              -122.346,
+              47.579
+            ],
+            [
+              -122.348,
+              47.591
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "properties": {
+        "name": "Ballard Reach",
+        "code": "SEA // REACH",
+        "category": "SEATTLE DISTRICT",
+        "color": "#57b5dc",
+        "legend_order": 15,
+        "status": "Maritime semi-autonomy",
+        "known_for": "Repair yards, fisheries, smugglers, and Currentborn",
+        "access": "Water routes and guarded industrial roads",
+        "description": "Boat repair, fisheries, small shipyards, smugglers, and Currentborn communities give Ballard enough maritime capacity to maintain unusual independence from the corporate core.",
+        "label_coordinates": [
+          -122.392,
+          47.67
+        ],
+        "image_asset": "images/locations/district-ballard-reach.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.414,
+              47.695
+            ],
+            [
+              -122.37,
+              47.695
+            ],
+            [
+              -122.37,
+              47.675
+            ],
+            [
+              -122.365,
+              47.648
+            ],
+            [
+              -122.39,
+              47.64
+            ],
+            [
+              -122.414,
+              47.655
+            ],
+            [
+              -122.414,
+              47.695
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "properties": {
+        "name": "Gasworks",
+        "code": "SEA // GASWORKS",
+        "category": "SEATTLE DISTRICT",
+        "color": "#80e291",
+        "legend_order": 16,
+        "status": "Productive anarchy under workshop custom",
+        "known_for": "Prototyping, fabrication, salvage engineering, art, and experimental technology",
+        "access": "North of the Lake Washington Ship Canal between roughly 8th Avenue NW and the Ship Canal Bridge",
+        "governance": "No formal government; major decisions move through open committees and workshop consensus",
+        "communities": "Riggers, engineers, artists, inventors, salvage crews, apprentices, and small workshops",
+        "organizations": "Greater Seattle Workshop Exchange (GSWX), commonly called the Gasworks; the Foundry; Eriador, Inc.",
+        "connections": "Meridian supplies Eastside salvage; Gasworks prototypes move to Forgetown for mass production",
+        "description": "Gasworks is a maker district built on productive anarchy. Small workshops and shared facilities turn salvage into practical machines, art, and experimental technology while resisting corporate homogenization through custom, reputation, and open technical exchange.",
+        "label_coordinates": [
+          -122.347,
+          47.661
+        ],
+        "image_asset": "images/locations/district-gasworks.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.37,
+              47.675
+            ],
+            [
+              -122.335,
+              47.675
+            ],
+            [
+              -122.329,
+              47.651
+            ],
+            [
+              -122.342,
+              47.65
+            ],
+            [
+              -122.365,
+              47.648
+            ],
+            [
+              -122.37,
+              47.675
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "properties": {
+        "name": "University Enclave",
+        "code": "SEA // U-ENCLAVE",
+        "category": "SEATTLE DISTRICT",
+        "color": "#7f91ff",
+        "legend_order": 17,
+        "status": "Traditional university governed through the corporate UW Compact",
+        "known_for": "Corporate research domains, independent humanities, and two expended Prometheus Shards",
+        "access": "Public academic spaces; controlled laboratories and Dominion-secured perimeter zones",
+        "governance": "University administration and faculty governance constrained by the seven-party UW Compact",
+        "communities": "Students, faculty, researchers, corporate scholars, and underfunded independent humanities departments",
+        "organizations": "Dominion, Neuracore, Helion, OmniTrine, Verdant, AstraVail, and ChimeraGene",
+        "connections": "A major recruitment and research nexus linking Seattle's corporations, civic institutions, and technical labor market",
+        "description": "The University of Washington still retains recognizable academic governance, but seven corporations divide its most valuable research domains through the UW Compact. Public campus life continues beside controlled laboratories, corporate scholarship pipelines, and independent humanities departments that survive with little funding.",
+        "label_coordinates": [
+          -122.305,
+          47.663
+        ],
+        "image_asset": "images/locations/district-university-enclave.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.329,
+              47.681
+            ],
+            [
+              -122.286,
+              47.682
+            ],
+            [
+              -122.28,
+              47.651
+            ],
+            [
+              -122.305,
+              47.641
+            ],
+            [
+              -122.329,
+              47.651
+            ],
+            [
+              -122.329,
+              47.681
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "properties": {
+        "name": "The South End",
+        "code": "SEA // SOUTH END",
+        "category": "SEATTLE DISTRICT",
+        "color": "#a7d45f",
+        "legend_order": 18,
+        "status": "Ordinary municipal district sustained by neighborhood institutions",
+        "known_for": "Affordable housing, families, schools, churches, small businesses, and essential labor",
+        "access": "South of I-90 and east of I-5, with porous edges and unreliable infrastructure",
+        "governance": "Seattle municipal government without a single district ruler; practical authority is distributed among neighborhood and labor groups",
+        "communities": "Immigrant and metahuman families, municipal workers, tradespeople, congregations, and small businesses",
+        "organizations": "The Yardmen, Southline Union, and Porchlight Boys",
+        "connections": "Residential and labor communities link central Seattle to Bombshell and the southern approaches",
+        "description": "The South End is run-down but functioning: a broad working district where families, schools, churches, trades, and small businesses keep ordinary life going without Corporate Core investment. Its geographic and social boundary with Bombshell is porous rather than clean.",
+        "label_coordinates": [
+          -122.278,
+          47.551
+        ],
+        "image_asset": "images/locations/district-the-south-end.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.315,
+              47.588
+            ],
+            [
+              -122.29,
+              47.59
+            ],
+            [
+              -122.25,
+              47.575
+            ],
+            [
+              -122.25,
+              47.51
+            ],
+            [
+              -122.31,
+              47.49
+            ],
+            [
+              -122.295,
+              47.54
+            ],
+            [
+              -122.315,
+              47.588
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "properties": {
+        "name": "Bombshell",
+        "code": "SEA // BOMBSHELL",
+        "category": "SPECIAL HAZARD ZONE",
+        "color": "#ff5b60",
+        "legend_order": 19,
+        "status": "Inhabited war ruin with weak municipal services",
+        "known_for": "SoDo and Duwamish ruins, warehouses, rail yards, mutual aid, gangs, and Boeing Field",
+        "access": "Usable industrial corridors and neighborhood streets separated by exclusion blocks and damaged infrastructure",
+        "governance": "Fragmented municipal presence, neighborhood rebuilding groups, protection networks, gangs, and corporate intermediaries",
+        "communities": "Long-term residents, displaced families, industrial workers, scavengers, metahuman communities, and mutual-aid crews",
+        "organizations": "Bombshell Mutual Works, Church of the Shattered Glass, the Cinders, Copperheads, and Rail Dogs",
+        "connections": "Industrial and rail corridors connect the Corporate Core and South End to Boeing Field and Tacoma",
+        "description": "Bombshell spans the SoDo, Georgetown, Duwamish, and southeastern war zone. It is both ruin and inhabited district: functional warehouses, rail lines, homes, churches, and mutual-aid projects stand beside shattered exclusion blocks and the fortified Boeing Field complex.",
+        "label_coordinates": [
+          -122.327,
+          47.54
+        ],
+        "image_asset": "images/locations/district-bombshell.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.346,
+              47.579
+            ],
+            [
+              -122.315,
+              47.588
+            ],
+            [
+              -122.295,
+              47.54
+            ],
+            [
+              -122.31,
+              47.49
+            ],
+            [
+              -122.36,
+              47.52
+            ],
+            [
+              -122.346,
+              47.579
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "properties": {
+        "name": "West Seattle",
+        "code": "SEA // WEST",
+        "category": "SEMI-AUTONOMOUS ENCLAVE",
+        "color": "#45c4a0",
+        "legend_order": 20,
+        "status": "Semi-autonomous Seattle district under a civic compact",
+        "known_for": "Neighborhood government, local defense, food resilience, controlled bridges, and ferries",
+        "access": "West Seattle High Bridge, 1st Avenue South Bridge, ferries, and guarded checkpoints",
+        "governance": "West Seattle Civic Compact led by the Compact Council and Council Steward Miriam 'Miri' Hale",
+        "communities": "Neighborhood associations, fishing and food cooperatives, families, bridge crews, and volunteer defenders",
+        "organizations": "Compact Council, Civic Guard, Town Square, Open Signal Coalition, and Vesper Syndicate",
+        "connections": "Surviving bridges and ferries connect the peninsula to central and southern Seattle; local fishing compacts support food security",
+        "description": "West Seattle remains formally part of Seattle but operates with unusual autonomy under the West Seattle Civic Compact. Controlled bridges, neighborhood government, the Civic Guard, ferry links, and local food systems make the peninsula resilient and politically distinct.",
+        "label_coordinates": [
+          -122.393,
+          47.545
+        ],
+        "image_asset": "images/locations/district-west-seattle.webp"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.42,
+              47.59
+            ],
+            [
+              -122.365,
+              47.59
+            ],
+            [
+              -122.36,
+              47.52
+            ],
+            [
+              -122.39,
+              47.49
+            ],
+            [
+              -122.43,
+              47.515
+            ],
+            [
+              -122.42,
+              47.59
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

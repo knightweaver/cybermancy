@@ -1,0 +1,59 @@
+/* Canonical Cybermancy item layout --------------------------------------- */
+.item {
+  margin-block: 1.25rem 2rem;
+}
+.item .item-subtitle {
+  opacity: .85;
+  font-size: 0.95rem;
+  letter-spacing: .02em;
+  margin-bottom: .25rem;
+}
+.item .item-flavor {
+  font-style: italic;
+  margin: .5rem 0 1rem 0;
+}
+.item .badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .6rem;
+  margin: .5rem 0 1rem 0;
+}
+.item .badge {
+  font-size: .8rem;
+  padding: .15rem .5rem;
+  border-radius: 999px;
+  border: 1px solid var(--md-default-fg-color--lighter, #ddd);
+}
+.item .tag {
+  background: var(--md-primary-fg-color--transparent, rgba(0,0,0,.04));
+}
+.item .stat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.item .stat-table th, .item .stat-table td {
+  padding: .35rem .5rem;
+  border-bottom: 1px solid var(--md-default-fg-color--light, #e5e5e5);
+}
+.item .meta {
+  font-size: .85rem;
+  opacity: .8;
+  margin-top: .75rem;
+}
+
+/* Images inside the left column look tidy */
+.item .item-image {
+  border-radius: 8px;
+  display: block;
+  max-width: 100%;
+}
+
+/* Two-column layout on desktop; stacks on mobile */
+.grid.item-grid {
+  gap: 1.25rem 2rem;
+}
+@media (min-width: 768px) {
+  .grid.item-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+  }
+}

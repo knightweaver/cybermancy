@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Character Sheet – Kade “Stonewall” Harrow</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 1rem;
+    }
+    .character-sheet {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+    .sheet-header {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    .char-portrait {
+      width: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #eee;
+    }
+    .identity h1 {
+      margin: 0 0 0.25rem;
+      font-size: 1.6rem;
+    }
+    .identity .tags {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.25rem;
+    }
+    .identity .meta {
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr;
+      gap: 1rem;
+    }
+    .box {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+    }
+    .box h2 {
+      font-size: 1rem;
+      margin: 0 0 0.35rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.25rem;
+    }
+    .traits-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .traits-table th,
+    .traits-table td {
+      border: 1px solid #ddd;
+      padding: 0.2rem 0.4rem;
+      text-align: center;
+    }
+    .traits-table th {
+      background: #f0f0f0;
+    }
+    .list {
+      margin: 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+    }
+    .list li {
+      margin-bottom: 0.25rem;
+    }
+    .section {
+      margin-top: 1rem;
+    }
+    .section h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.35rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    .subsection-title {
+      font-weight: 600;
+      margin-top: 0.5rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    table.simple {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    table.simple th,
+    table.simple td {
+      border: 1px solid #ddd;
+      padding: 0.25rem 0.35rem;
+    }
+    table.simple th {
+      background: #c42929;
+      text-align: left;
+    }
+    .bio {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+<div class="character-sheet">
+
+  <!-- HEADER -->
+  <div class="sheet-header">
+    <img class="char-portrait" src="../../assets/images/npcs/kade-stonewall-harrow.png" alt="Kade “Stonewall” Harrow portrait" />
+
+    <div class="identity">
+      <h1>Kade “Stonewall” Harrow</h1>
+
+      <div class="tags">
+        Heritage: Dwarf • Community: Orderborne
+      </div>
+
+      <div class="tags">
+        Class: Street Samuri • Subclass: Bodyguard
+      </div>
+
+      <div class="meta">
+        Level 1 • Proficiency: +1
+        • Evasion: 0 • Armor: 0
+      </div>
+
+      <div class="meta">
+        HP: 0 / 0
+        • Stress: 0 / 5
+        • Hope: 2 / 6
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CORE TRAITS -->
+  <div class="grid-2">
+    <div class="box">
+      <h2>Traits</h2>
+      <table class="traits-table">
+        <tr>
+          <th>Strength</th>
+          <th>Agility</th>
+          <th>Finesse</th>
+          <th>Instinct</th>
+          <th>Presence</th>
+          <th>Knowledge</th>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>-1</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="box">
+      <h2>Defense & Resources</h2>
+
+      <div>
+        Major Threshold: 0 • Severe: 0
+      </div>
+
+      <div style="margin-top:0.25rem;">
+        Resistances:<br />
+        Physical: — • Magical: —
+      </div>
+
+      <div style="margin-top:0.5rem;">
+        Gold:
+        0 coins •
+        1 handfuls •
+        0 bags •
+        0 chests
+      </div>
+    </div>
+  </div>
+
+
+  <!-- EXPERIENCES -->
+  <div class="section">
+    <h2>Experiences</h2>
+    <ul class="list">
+      
+      <li><strong>Calming prescence</strong> (2): You are the harbor in the storm, whether that is in a chaotic situation or in tense social negotiations</li>
+      
+      <li><strong>Escape with protected</strong> (2): “Pulled three researchers out of a collapsing black-lab after a containment breach.”
+
+Applies in scenes in which you are trying to get others out of danger</li>
+      
+    </ul>
+  </div>
+
+
+  <!-- FEATURES -->
+  <div class="section">
+    <h2>Features</h2>
+
+    
+      <div class="subsection-title">Ancestry</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Increased Fortitude</strong> – <p><strong>Spend 3 Hope</strong> to halve incoming physical damage.</p>
+        </li>
+        
+        <li>
+          <strong>Thick Skin</strong> – <p>When you take Minor damage, you can <strong>mark 2 Stress</strong> instead of marking a Hit Point.</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Community</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Dedicated</strong> – <p>Record three sayings or values your upbringing instilled in you. Once per rest, when you describe how you’re embodying one of these principles through your current action, you can roll a d20 as your Hope Die</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Class</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Focused aggression</strong> – <p class="Card-Feature"><strong>Spend 3 Hope</strong> to gain +2 to either all attacks made by Melee weapons or all attacks made by guns until the end of the Scene.</p>
+        </li>
+        
+        <li>
+          <strong>Quick reflexes</strong> – <p class="Card-Feature">As a Reaction, when you are about to be attacked at Melee range and are wielding a Melee weapon, <strong>Mark 1 Stress</strong> to make an Attack on the would-be attacker first.</p>
+        </li>
+        
+        <li>
+          <strong>Dual wielding</strong> – <p class="Card-Feature">If you are wielding a Melee weapon and gun (both of which must be one-handed), <strong>Spend 3 Hope</strong> to make an attack with each against different targets. =</p>
+        </li>
+        
+      </ul>
+    
+      <div class="subsection-title">Subclass</div>
+      <ul class="list">
+        
+        <li>
+          <strong>Protection assignment</strong> – <p class="Card-Feature">At the beginning of a Scene, designate 1 ally as your Primary Focus. If they are within Very Close of you, they get +2 Evasion. <br /><strong>Mark 1 Stress</strong> to change which ally is your focus.</p>
+        </li>
+        
+        <li>
+          <strong>Situational awareness</strong> – <p class="Card-Feature"><strong>Spend 1 Hope</strong> and make an Instinct roll (13). On a success, you are immediately aware if there are any creatures with the Hidden condition within Far (but you don’t know exactly where they are).</p>
+        </li>
+        
+        <li>
+          <strong>Get behind me</strong> – <p class="Card-Feature">Once per Scene, as a Reaction, when an adversary makes a successful attack on an ally within Close, move immediately to position your token within Melee of your ally and between the adversary and the ally (moving one of them if necessary). The attack is now successful on you instead of your ally.</p>
+        </li>
+        
+        <li>
+          <strong>Two foci</strong> – <p class="Card-Feature">You are able to have 2 allies as your Primary Foci for your Protection assignment feature.</p>
+        </li>
+        
+        <li>
+          <strong>Sphere of control</strong> – <p class="Card-Feature">When you Spotlight an Action to Attack, you can attack any adversary within Melee of all allies within Very Close of you.</p>
+        </li>
+        
+        <li>
+          <strong>Calm in the storm</strong> – All allies within Close of you can Spend 1 Hope as a Reaction to grant themselves +2 Evasion.
+        </li>
+        
+      </ul>
+    
+  </div>
+
+
+  <!-- DOMAINS -->
+  <div class="section">
+    <h2>Domain Abilities</h2>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Domain</th>
+          <th>Level</th>
+          <th>Text</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>Whirlwind</td>
+          <td>blade</td>
+          <td>1</td>
+          <td><p class="Body-Foundation">When you make a successful attack against a target within Very Close range, you can <strong>spend a Hope</strong> to use the attack against all other targets within Very Close range. All additional adversaries you succeed against with this ability take half damage.</p><p>@Template[type:emanation|range:vc]</p></td>
+        </tr>
+        
+        <tr>
+          <td>Gun Trainer</td>
+          <td>bullet</td>
+          <td>1</td>
+          <td><p><em>You teach death politely.</em></p><p class="Card-Feature">As a downtime action you train each of your allies to better use their guns. Give each ally a <strong>Bullet die</strong> appropriate to your Tier (Tier 1: d4, Tier 2: d6, Tier 3: d8, Tier 4:d10). They may use this <strong>Bullet die</strong> in the same way as your Class or Subclass</p></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- WEAPONS -->
+  <div class="section">
+    <h2>Weapons</h2>
+
+    <table class="simple">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Equipped</th>
+          <th>Trait & Range</th>
+          <th>Damage</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+        <tr>
+          <td>Smartpistol</td>
+          <td>Yes</td>
+          <td>finesse • far</td>
+          <td>d6+2 (physical)</td>
+          <td>
+            
+              <strong>Smartlink</strong> – <p></p><p><span style="font-family: 'Bruno Ace'"><strong>Smartlink:</strong></span></p><ul><li><p><span style="font-family: Montserrat, sans-serif">Once per scene, reroll one attack die if linked to cyberware/gear.</span></p></li></ul><br />
+            
+              <strong>Critical Effect:  Pinpoint</strong> – <p></p><p><span style="font-family: 'Bruno Ace'"><strong>Critical Effect - Pinpoint:</strong></span></p><ul><li><p><span style="font-family: Montserrat, sans-serif">Crit ignores cover; disable weapon/armor.</span></p></li></ul><br />
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>Vibro-Knife</td>
+          <td>No</td>
+          <td>agility • melee</td>
+          <td>d8+2 (physical)</td>
+          <td>
+            
+              <strong>Piercing</strong> – <p></p><p><span style="font-family: 'Bruno Ace'"><strong>Piercing:</strong></span></p><ul><li><p><span style="font-family: Montserrat, sans-serif">Ignores armor on a Hope critical.</span></p></li></ul><br />
+            
+              <strong>Critical Effect:  Silent Kill</strong> – <p></p><p><span style="font-family: 'Bruno Ace'"><strong>Critical Effect - Silent Kill:</strong></span></p><ul><li><p><span style="font-family: Montserrat, sans-serif">Disable one target silently with no alert escalation.</span></p></li></ul><br />
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- ARMOR & GEAR -->
+  <div class="section">
+    <h2>Armor & Gear</h2>
+
+    <div class="subsection-title">Armor</div>
+    <ul class="list">
+      
+      <li>
+        <strong>KevFlex Jacket</strong>
+        (Equipped: Yes)<br />
+        Base: 3 • Major 6 • Severe 13<br />
+        Lightweight synthetic leather threaded with flexible Kevlar weave—keeps you quick without feeling naked.
+      </li>
+      
+    </ul>
+
+    <div class="subsection-title">Consumables</div>
+    <ul class="list">
+      
+      <li>
+        <strong>Armor Piercing Rounds</strong> (x1)<br />
+        <p class="Card-Feature">Take a Reload action to apply this ammo to any weapon and place 4 tokens on this card.  <br /><br />Discard 1 token for all subsequent attacks using that weapon.  Targets must Mark 1 Stress whenever the Mark an Armor to reduce damage.</p>
+      </li>
+      
+    </ul>
+
+    <div class="subsection-title">Other Gear</div>
+    <ul class="list">
+      
+      <li>
+        <strong>Neuro-muscular Telemetry - Prescence</strong> (x1)<br />
+        You can attach this gem to a weapon, allowing you to use your Presence when making an attack with that weapon. stores resonance data and telemetry snapshots
+      </li>
+      
+      <li>
+        <strong>Synth Premium Bedroll Key</strong> (x1)<br />
+        During downtime, you automatically clear a Stress. black-market tech favored by runners and fixers
+      </li>
+      
+    </ul>
+  </div>
+
+
+  <!-- BIOGRAPHY -->
+  <div class="section">
+    <h2>Background</h2>
+    <div class="bio">
+      <p>Background and motivation:</p><p><br data-start="57" data-end="60" />Former executive-protection specialist for Helion Dynamics. Kade spent a decade shielding board members and senior engineers during hostile acquisitions and lab extractions. After refusing to falsify an incident report that would have pinned a civilian death on a junior colleague, he was terminated, blacklisted, and quietly threatened. His motivation is simple: keep people alive. The corporate world taught him how cheaply they value human bodies; he intends to push back one life at a time.</p><p></p><p data-start="556" data-end="818"></p><p data-start="556" data-end="818">Something he knows and is excited by:<br data-start="593" data-end="596" /></p><p data-start="556" data-end="818">He has an encyclopedic grasp of threat geometry—angles, cover vectors, and the physics of bullets in motion. He treats it like a living puzzle and genuinely enjoys optimizing a battlefield so his allies walk out breathing.</p><p data-start="989" data-end="1244"></p><p data-start="989" data-end="1244">Why he started shadowrunning:<br data-start="1018" data-end="1021" /></p><p data-start="989" data-end="1244">Shadowrunning is the only space where he can apply his protection instincts without corporate interference. The pay is clean enough, the work is honest in its own crooked way, and the targets of violence usually deserve it.</p><p data-start="1246" data-end="1585"></p><p data-start="1246" data-end="1585">Why he joined this team:<br data-start="1270" data-end="1273" /></p><p data-start="1246" data-end="1585">He recognized the team’s lack of hard defensive discipline. They had talent but no one who understood structured risk, suppression timing, or how to anchor a breach. Kade saw an opportunity to keep them alive—and in return they offered him something he hadn’t had in years: autonomy, and people worth protecting.</p><p data-start="1587" data-end="1743" data-is-last-node data-is-only-node></p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
