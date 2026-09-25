@@ -59,7 +59,7 @@ if (!daggerheart) {
   if (daggerheart.type !== "system") {
     errors.push(`Daggerheart relationship type must be "system", got ${JSON.stringify(daggerheart.type)}`);
   }
-  requireCompatibility("Daggerheart", daggerheart.compatibility, { minimum: "2", verified: "2", maximum: "2" });
+  requireCompatibility("Daggerheart", daggerheart.compatibility, { minimum: "2", verified: "2" });
 }
 
 const esmodules = manifest.esmodules ?? [];
@@ -165,7 +165,7 @@ if (errors.length) {
 console.log("Cybermancy release manifest validation PASS");
 console.log(` - version: ${manifest.version}`);
 console.log(" - Foundry compatibility: 14 / 14 / 14");
-console.log(" - Daggerheart compatibility: 2 / 2 / 2");
+console.log(" - Daggerheart compatibility: minimum 2, verified 2, no maximum");
 console.log(" - qualification target: Foundry 14.368 / Daggerheart 2.10.5");
 console.log(` - declared Compendia: ${declaredPacks.size}`);
 console.log(" - Foundry 14 Compendium manifest paths: .db");
