@@ -48,11 +48,11 @@
   },
   "pdf": {
     "pageCount": 1,
-    "minimumBodyFontPt": 10,
+    "minimumBodyFontPt": 10.0,
     "layoutMetrics": {
-      "motivesGapAfterDescriptionPt": 16,
+      "motivesGapAfterDescriptionPt": 18.0,
       "experienceRowHeightPt": 11.4,
-      "leftContentBottomPt": 254.10000000000002,
+      "leftContentBottomPt": 252.10000000000002,
       "leftSafeBottomPt": 70
     }
   },

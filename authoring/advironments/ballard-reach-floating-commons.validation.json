@@ -48,7 +48,7 @@
   },
   "pdf": {
     "pageCount": 1,
-    "minimumBodyFontPt": 10,
+    "minimumBodyFontPt": 10.0,
     "layoutMetrics": {
       "environmentSummaryHeightPt": 123.6
     }

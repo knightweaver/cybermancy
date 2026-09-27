@@ -1,0 +1,296 @@
+{
+  "name": "Ballard Reach Floating Commons",
+  "type": "environment",
+  "img": "modules/cybermancy/assets/images/environments/ballard-reach-floating-commons.png",
+  "folder": "QkE61ieXiN62Wb82",
+  "system": {
+    "description": "<p>A working network of floating fish exchanges, repair pontoons, and shared platforms where practical help, crew trust, and shifting moorings shape access and opportunity.</p><section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Open amid active work and let PCs offer practical help.</p><p><strong><em>Access:</em></strong> Use Crew’s Word for passage, supplies, or leads; after failure, give a concrete task before another attempt.</p><p><strong><em>Mutual Aid:</em></strong> Reward freely given help with Mutual Aid when PCs negotiate or navigate the Commons.</p><p><strong><em>Complication:</em></strong> Use Shift the Moorings when platform movement creates a useful navigable timing problem.</p><p><strong><em>Goal:</em></strong> Make working relationships shape access and opportunity without portraying the district as hostile.</p></section>",
+    "tier": 2,
+    "type": "social",
+    "difficulty": 14,
+    "notes": "<p>A Tier 2 social environment that makes working relationships shape passage, supplies, information, and navigation without treating Ballard Reach residents as default adversaries.</p>",
+    "impulses": "reward practical help, let crew trust shape access, turn moving platforms into timing complications, offer concrete work instead of hostility",
+    "potentialAdversaries": {},
+    "attribution": {
+      "source": "Cybermancy",
+      "page": null,
+      "artist": ""
+    }
+  },
+  "items": [
+    {
+      "name": "Working Berths",
+      "type": "feature",
+      "_id": "2PESe9mwWHW7xn8D",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per scene, a PC who spends time helping with a practical task can clear 1 Stress.</p>",
+        "resource": null,
+        "actions": {
+          "YGSWIYrqadnnqvv8": {
+            "type": "effect",
+            "_id": "YGSWIYrqadnnqvv8",
+            "systemPath": "actions",
+            "description": "<p>Once per scene, a PC who spends time helping with a practical task can clear 1 Stress.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Working Berths",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "featureForm": "passive",
+        "attribution": {},
+        "gmNotes": "",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!fOzT71BFgwfsx88K.2PESe9mwWHW7xn8D"
+    },
+    {
+      "name": "Crew’s Word",
+      "type": "feature",
+      "_id": "5zDjXoEPrerlyt9I",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>A PC seeking passage, supplies, or information makes a Presence or Instinct Roll (14). Success with Hope secures fair terms and a useful lead. Success with Fear secures terms with one clearly stated small favor owed. On a failure, the crew offers a concrete task to complete before trying again; failure with Fear also delays access until that task is done.</p>",
+        "resource": null,
+        "actions": {
+          "iQ1qlccn93TvdxB6": {
+            "type": "effect",
+            "_id": "iQ1qlccn93TvdxB6",
+            "systemPath": "actions",
+            "description": "<p>A PC seeking passage, supplies, or information makes a Presence or Instinct Roll (14). Success with Hope secures fair terms and a useful lead. Success with Fear secures terms with one clearly stated small favor owed. On a failure, the crew offers a concrete task to complete before trying again; failure with Fear also delays access until that task is done.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Crew’s Word",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "featureForm": "action",
+        "attribution": {},
+        "gmNotes": "",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!fOzT71BFgwfsx88K.5zDjXoEPrerlyt9I"
+    },
+    {
+      "name": "Mutual Aid",
+      "type": "feature",
+      "_id": "GR6uVOiLviQZnA6O",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per PC per scene, helping a resident without demanding payment grants advantage on that PC’s next roll to negotiate or navigate the Commons in this scene; it expires on use or at scene end.</p>",
+        "resource": null,
+        "actions": {
+          "JFYYUQECFCKtGcMy": {
+            "type": "effect",
+            "_id": "JFYYUQECFCKtGcMy",
+            "systemPath": "actions",
+            "description": "<p>Once per PC per scene, helping a resident without demanding payment grants advantage on that PC’s next roll to negotiate or navigate the Commons in this scene; it expires on use or at scene end.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Mutual Aid",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "featureForm": "passive",
+        "attribution": {},
+        "gmNotes": "",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!fOzT71BFgwfsx88K.GR6uVOiLviQZnA6O"
+    },
+    {
+      "name": "Shift the Moorings",
+      "type": "feature",
+      "_id": "h5h2WU3CvQglbaxM",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Spend a Fear when platform movement matters. A pontoon separates; PCs crossing make an Agility Reaction Roll (14). Failure marks 1 Stress and puts the PC on an adjacent secured craft; success keeps them on the intended platform. A successful Agility or Finesse Roll (14) reconnects the route; separation otherwise ends with the scene.</p>",
+        "resource": null,
+        "actions": {
+          "0C9HnSHVn94zXC76": {
+            "type": "effect",
+            "_id": "0C9HnSHVn94zXC76",
+            "systemPath": "actions",
+            "description": "<p>Spend a Fear when platform movement matters. A pontoon separates; PCs crossing make an Agility Reaction Roll (14). Failure marks 1 Stress and puts the PC on an adjacent secured craft; success keeps them on the intended platform. A successful Agility or Finesse Roll (14) reconnects the route; separation otherwise ends with the scene.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Shift the Moorings",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "featureForm": "action",
+        "attribution": {},
+        "gmNotes": "",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 300000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!fOzT71BFgwfsx88K.h5h2WU3CvQglbaxM"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "cybermancy": {
+      "targetCoreVersion": "14.368",
+      "targetSystemVersion": "2.10.5",
+      "potentialAdversaryNames": [],
+      "tags": [
+        "ballard-reach",
+        "floating-commons",
+        "social",
+        "maritime",
+        "fisheries",
+        "repair",
+        "currentborn"
+      ],
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Open amid active work and let PCs offer practical help.",
+            "featureRefs": [
+              "Working Berths"
+            ]
+          },
+          {
+            "label": "Access",
+            "text": "Use Crew’s Word for passage, supplies, or leads; after failure, give a concrete task before another attempt.",
+            "featureRefs": [
+              "Crew’s Word"
+            ]
+          },
+          {
+            "label": "Mutual Aid",
+            "text": "Reward freely given help with Mutual Aid when PCs negotiate or navigate the Commons.",
+            "featureRefs": [
+              "Mutual Aid"
+            ]
+          },
+          {
+            "label": "Complication",
+            "text": "Use Shift the Moorings when platform movement creates a useful navigable timing problem.",
+            "featureRefs": [
+              "Shift the Moorings"
+            ]
+          }
+        ],
+        "goal": "Make working relationships shape access and opportunity without portraying the district as hostile."
+      },
+      "specVersion": "1.1",
+      "packageBuilderVersion": "1.4.0"
+    }
+  },
+  "_id": "fOzT71BFgwfsx88K",
+  "sort": 0,
+  "_key": "!actors!fOzT71BFgwfsx88K"
+}
