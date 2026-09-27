@@ -1,0 +1,171 @@
+{
+  "$schema": "https://raw.githubusercontent.com/knightweaver/cybermancy-advironment-generator/main/schema/cybermancy-entity-spec-v1.1.schema.json",
+  "specVersion": "1.1",
+  "entityType": "adversary",
+  "identity": {
+    "name": "Cascadian First Peoples Hunter",
+    "slug": "cascadian-first-peoples-hunter",
+    "tier": 2,
+    "classification": "ranged",
+    "concept": "An individual First Peoples hunter defending a Cascadian route, skilled with a recurved bow and able to use Resonance to stir nearby wildlife without summoning creatures.",
+    "description": "A wary Cascadian route defender who uses cover, a recurved bow, and subtle Resonance with nearby wildlife to pressure intruders while leaving room for withdrawal or conversation."
+  },
+  "design": {
+    "encounterPurpose": "A tense, mobile Tier 2 ranged encounter in which violence is possible but not inevitable; the hunter defends a route rather than representing any specific nation or universal First Peoples tradition.",
+    "motivesAndTactics": [
+      "defend a Cascadian route",
+      "open from cover",
+      "demand intruders stop or turn back",
+      "pressure targets who leave cover",
+      "use nearby wildlife to disrupt pursuit",
+      "withdraw or negotiate when appropriate"
+    ],
+    "tags": [
+      "cascadia",
+      "hunter",
+      "ranged",
+      "resonance",
+      "wildlife",
+      "route-defense"
+    ],
+    "references": {
+      "official": [],
+      "cybermancy": []
+    },
+    "designerNotes": "Mechanics and Fast Play were approved by the GM before packaging. The character is intentionally not assigned to a specific nation, and the encounter does not present their conduct as universal First Peoples tradition."
+  },
+  "fastPlay": {
+    "prompts": [
+      {
+        "label": "Opening",
+        "text": "Open from cover and demand that intruders stop or turn back.",
+        "featureRefs": []
+      },
+      {
+        "label": "Pressure",
+        "text": "Press advancing targets with the Recurved Bow and use Press the Shot when one breaks cover.",
+        "featureRefs": [
+          "Press the Shot"
+        ]
+      },
+      {
+        "label": "Wildlife",
+        "text": "Use Resonant Wildlife against a pursuer or someone threatening the hunter’s position.",
+        "featureRefs": [
+          "Resonant Wildlife"
+        ]
+      },
+      {
+        "label": "Off-Ramp",
+        "text": "Permit withdrawal or conversation when the intruders stop pressing the route.",
+        "featureRefs": []
+      }
+    ],
+    "goal": "Create a tense, mobile encounter where violence is not inevitable."
+  },
+  "mechanics": {
+    "difficulty": 14,
+    "damageThresholds": {
+      "major": 10,
+      "severe": 19
+    },
+    "hitPoints": 5,
+    "stress": 3,
+    "attack": {
+      "name": "Recurved Bow",
+      "bonus": 2,
+      "range": "far",
+      "damage": {
+        "count": 2,
+        "die": "d8",
+        "bonus": 4,
+        "types": [
+          "physical"
+        ]
+      }
+    },
+    "experiences": [
+      {
+        "name": "Tracking",
+        "value": 2
+      },
+      {
+        "name": "Forest Routes",
+        "value": 2
+      }
+    ],
+    "features": [
+      {
+        "name": "Trailwise",
+        "featureType": "passive",
+        "rules": "The hunter has advantage on rolls to track creatures or detect movement through familiar wilderness.",
+        "automation": "text",
+        "tags": [
+          "tracking",
+          "wilderness",
+          "advantage"
+        ]
+      },
+      {
+        "name": "Press the Shot",
+        "featureType": "reaction",
+        "rules": "Once per GM turn, when a target within Far range leaves cover, mark 1 Stress to make a standard Recurved Bow attack against them.",
+        "automation": "text",
+        "tags": [
+          "reaction",
+          "ranged",
+          "cover",
+          "stress"
+        ]
+      },
+      {
+        "name": "Resonant Wildlife",
+        "featureType": "action",
+        "rules": "Once per scene, mark 1 Stress to call nearby wildlife around a target within Far range. They make an Instinct Reaction Roll (14). On a failure, they mark 1 Stress and have disadvantage on their next attack against the hunter before the end of the hunter’s next spotlight. On a success, the animals scatter without mechanical effect. If that attack does not occur by the deadline, the disadvantage ends. This uses wildlife already present; it does not summon an Actor.",
+        "automation": "text",
+        "tags": [
+          "action",
+          "resonance",
+          "wildlife",
+          "reaction-roll",
+          "disadvantage",
+          "stress"
+        ]
+      }
+    ],
+    "physicalResistance": false,
+    "magicalResistance": false
+  },
+  "art": {
+    "portrait": {
+      "path": "modules/cybermancy/assets/images/adversaries/cascadian-first-peoples-hunter.png",
+      "aspectRatio": "4:5",
+      "width": 1122,
+      "height": 1402,
+      "prompt": "Reuse the exact approved production artwork file 'Cascadian Hunter, Bow at Ready.png'; do not regenerate or substitute artwork."
+    },
+    "token": {
+      "path": "modules/cybermancy/assets/tokens/adversaries/cascadian-first-peoples-hunter-token.png",
+      "aspectRatio": "1:1",
+      "width": 1254,
+      "height": 1254,
+      "prompt": "Reuse the exact approved production artwork file 'Transparent Corners, Dark Metal Token.png'; preserve its transparent exterior corners and do not regenerate or substitute artwork."
+    }
+  },
+  "foundry": {
+    "targetCoreVersion": "14.368",
+    "targetSystemVersion": "2.10.5",
+    "attributionSource": "Cybermancy",
+    "folderStrategy": "target-config",
+    "tokenRing": true
+  },
+  "print": {
+    "pageTarget": 1,
+    "style": "cybermancy-daggerheart-reference",
+    "includeArt": true
+  },
+  "provenance": {
+    "status": "approved",
+    "notes": "Mechanics and Fast Play approved by the GM. Reconstructed for the Foundry 14.368 / Daggerheart 2.10.5 generator after scratch workspace loss."
+  }
+}
