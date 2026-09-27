@@ -1,0 +1,60 @@
+{
+  "packageBuilderVersion": "1.4.0",
+  "entity": "Ballard Reach Floating Commons",
+  "slug": "ballard-reach-floating-commons",
+  "status": "pass",
+  "gates": [
+    {
+      "name": "A - Canonical spec",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "B - Mechanical design / Fast Play",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "C - Foundry JSON / compiled structure",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "D - Cross-artifact consistency",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "E - Art QA",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "F - PDF QA",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "fastPlay": {
+    "wordCount": 67,
+    "promptCount": 4,
+    "goalPresent": true
+  },
+  "pdf": {
+    "pageCount": 1,
+    "minimumBodyFontPt": 10,
+    "layoutMetrics": {
+      "environmentSummaryHeightPt": 123.6
+    }
+  },
+  "target": {
+    "foundryCore": "14.368",
+    "system": "Daggerheart 2.10.5"
+  }
+}
