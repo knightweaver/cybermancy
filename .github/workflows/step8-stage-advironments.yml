@@ -1,0 +1,106 @@
+name: Step 8 stage advironments
+on:
+  push:
+    branches:
+      - feat/cascadian-hunter-ballard-commons
+permissions:
+  contents: write
+jobs:
+  stage:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Cybermancy branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/cascadian-hunter-ballard-commons
+          fetch-depth: 0
+      - name: Check out current generator
+        uses: actions/checkout@v4
+        with:
+          repository: knightweaver/cybermancy-advironment-generator
+          path: .generator
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: .generator/requirements.txt
+      - name: Install generator dependencies
+        run: python -m pip install -r .generator/requirements.txt
+      - name: Reassemble and verify production art
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/images/environments
+          cat \
+            .tmp/cybermancy-step8/commons.part00 \
+            .tmp/cybermancy-step8/commons.part01 \
+            .tmp/cybermancy-step8/commons.part02 \
+            > assets/images/environments/ballard-reach-floating-commons.png
+
+          test "$(git hash-object assets/images/adversaries/cascadian-first-peoples-hunter.png)" = "a5e850c7a4dfb315f3b7002076ff955d1dd633ba"
+          test "$(git hash-object assets/tokens/adversaries/cascadian-first-peoples-hunter-token.png)" = "cf2e5797971da84e7bc46bc38fa08b3000e812a3"
+          test "$(git hash-object assets/images/environments/ballard-reach-floating-commons.png)" = "13b5d6ba7a03638e3a96d4e131d1518de305c0f1"
+      - name: Rebuild approved packages from staged specs and art
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/advironment-build
+          mkdir -p /tmp/advironment-build
+
+          python .generator/src/package_builder.py build \
+            --spec authoring/advironments/cascadian-first-peoples-hunter.spec.json \
+            --schema .generator/schema/cybermancy-entity-spec-v1.1.schema.json \
+            --output-dir /tmp/advironment-build \
+            --portrait assets/images/adversaries/cascadian-first-peoples-hunter.png \
+            --token assets/tokens/adversaries/cascadian-first-peoples-hunter-token.png \
+            --adversary-folder-id bGbHLVHuUyuOGOqC
+
+          python .generator/src/package_builder.py build \
+            --spec authoring/advironments/ballard-reach-floating-commons.spec.json \
+            --schema .generator/schema/cybermancy-entity-spec-v1.1.schema.json \
+            --output-dir /tmp/advironment-build \
+            --environment-art assets/images/environments/ballard-reach-floating-commons.png \
+            --environment-folder-id QkE61ieXiN62Wb82
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('/tmp/advironment-build')
+          checks = [
+              ('cascadian-first-peoples-hunter', 'RTpixp9E8DXcCr3O', 'bGbHLVHuUyuOGOqC'),
+              ('ballard-reach-floating-commons', 'fOzT71BFgwfsx88K', 'QkE61ieXiN62Wb82'),
+          ]
+          for slug, actor_id, folder_id in checks:
+              package = root / f'{slug}-package'
+              validation = json.loads((package / 'validation.json').read_text())
+              assert validation['status'] == 'pass', validation
+              assert all(g['status'] == 'pass' for g in validation['gates']), validation
+              actor = json.loads((package / 'foundry' / f'{slug}.json').read_text())
+              assert actor['_id'] == actor_id, actor['_id']
+              assert actor['folder'] == folder_id, actor['folder']
+          PY
+
+          cmp /tmp/advironment-build/cascadian-first-peoples-hunter-package/validation.json \
+              authoring/advironments/cascadian-first-peoples-hunter.validation.json
+          cmp /tmp/advironment-build/ballard-reach-floating-commons-package/validation.json \
+              authoring/advironments/ballard-reach-floating-commons.validation.json
+
+          cp /tmp/advironment-build/cascadian-first-peoples-hunter-package/foundry/cascadian-first-peoples-hunter.json \
+             src/packs/adventures/adversaries/Cascadian_First_Peoples_Hunter_RTpixp9E8DXcCr3O.json
+          cp /tmp/advironment-build/ballard-reach-floating-commons-package/foundry/ballard-reach-floating-commons.json \
+             src/packs/adventures/environments/Ballard_Reach_Floating_Commons_fOzT71BFgwfsx88K.json
+      - name: Commit completed Step 8 staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .generator
+          git rm -r .tmp/cybermancy-step8
+          git rm .github/workflows/step8-stage-advironments.yml
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Stage Cascadian Hunter and Ballard Floating Commons"
+          git push origin HEAD:feat/cascadian-hunter-ballard-commons
