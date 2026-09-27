@@ -1,0 +1,63 @@
+{
+  "packageBuilderVersion": "1.4.0",
+  "entity": "Cascadian First Peoples Hunter",
+  "slug": "cascadian-first-peoples-hunter",
+  "status": "pass",
+  "gates": [
+    {
+      "name": "A - Canonical spec",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "B - Mechanical design / Fast Play",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "C - Foundry JSON / compiled structure",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "D - Cross-artifact consistency",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "E - Art QA",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "F - PDF QA",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "fastPlay": {
+    "wordCount": 60,
+    "promptCount": 4,
+    "goalPresent": true
+  },
+  "pdf": {
+    "pageCount": 1,
+    "minimumBodyFontPt": 10,
+    "layoutMetrics": {
+      "motivesGapAfterDescriptionPt": 16,
+      "experienceRowHeightPt": 11.4,
+      "leftContentBottomPt": 254.10000000000002,
+      "leftSafeBottomPt": 70
+    }
+  },
+  "target": {
+    "foundryCore": "14.368",
+    "system": "Daggerheart 2.10.5"
+  }
+}
