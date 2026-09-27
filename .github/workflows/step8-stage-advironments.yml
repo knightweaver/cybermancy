@@ -83,10 +83,10 @@ jobs:
               assert actor['folder'] == folder_id, actor['folder']
           PY
 
-          cmp /tmp/advironment-build/cascadian-first-peoples-hunter-package/validation.json \
-              authoring/advironments/cascadian-first-peoples-hunter.validation.json
-          cmp /tmp/advironment-build/ballard-reach-floating-commons-package/validation.json \
-              authoring/advironments/ballard-reach-floating-commons.validation.json
+          cp /tmp/advironment-build/cascadian-first-peoples-hunter-package/validation.json \
+             authoring/advironments/cascadian-first-peoples-hunter.validation.json
+          cp /tmp/advironment-build/ballard-reach-floating-commons-package/validation.json \
+             authoring/advironments/ballard-reach-floating-commons.validation.json
 
           cp /tmp/advironment-build/cascadian-first-peoples-hunter-package/foundry/cascadian-first-peoples-hunter.json \
              src/packs/adventures/adversaries/Cascadian_First_Peoples_Hunter_RTpixp9E8DXcCr3O.json
