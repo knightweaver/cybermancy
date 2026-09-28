@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "baselineId": "cybermancy-v0.2.0-migration-baseline",
+  "description": "Explicit compendium additions permitted after the frozen v0.2.0 migration baseline. This file is additive only; maintenance/baseline-v0.2.0.json remains immutable.",
+  "additions": [
+    {
+      "packName": "cybermancy-adversaries",
+      "sourcePath": "src/packs/adventures/adversaries/Cascadian_First_Peoples_Hunter_RTpixp9E8DXcCr3O.json",
+      "id": "RTpixp9E8DXcCr3O",
+      "name": "Cascadian First Peoples Hunter",
+      "entityType": "adversary",
+      "kind": "document"
+    },
+    {
+      "packName": "cybermancy-environments",
+      "sourcePath": "src/packs/adventures/environments/Ballard_Reach_Floating_Commons_fOzT71BFgwfsx88K.json",
+      "id": "fOzT71BFgwfsx88K",
+      "name": "Ballard Reach Floating Commons",
+      "entityType": "environment",
+      "kind": "document"
+    }
+  ]
+}

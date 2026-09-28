@@ -1,0 +1,444 @@
+{
+  "name": "Cascadian First Peoples Hunter",
+  "img": "modules/cybermancy/assets/images/adversaries/cascadian-first-peoples-hunter.png",
+  "type": "adversary",
+  "folder": "bGbHLVHuUyuOGOqC",
+  "system": {
+    "difficulty": 14,
+    "damageThresholds": {
+      "major": 10,
+      "severe": 19
+    },
+    "resources": {
+      "hitPoints": {
+        "value": 0,
+        "max": 5,
+        "isReversed": true
+      },
+      "stress": {
+        "value": 0,
+        "max": 3,
+        "isReversed": true
+      }
+    },
+    "motivesAndTactics": "defend a Cascadian route, open from cover, demand intruders stop or turn back, pressure targets who leave cover, use nearby wildlife to disrupt pursuit, withdraw or negotiate when appropriate",
+    "resistance": {
+      "physical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      },
+      "magical": {
+        "resistance": false,
+        "immunity": false,
+        "reduction": 0
+      }
+    },
+    "type": "ranged",
+    "notes": "",
+    "experiences": {
+      "ihTjWzk3r1RK0jU4": {
+        "name": "Tracking",
+        "value": 2,
+        "description": ""
+      },
+      "6rYGlSoet9xT3CLl": {
+        "name": "Forest Routes",
+        "value": 2,
+        "description": ""
+      }
+    },
+    "tier": 2,
+    "description": "<p>A wary Cascadian route defender who uses cover, a recurved bow, and subtle Resonance with nearby wildlife to pressure intruders while leaving room for withdrawal or conversation.</p><section class=\"cybermancy-fast-play\"><h3>FAST PLAY</h3><p><strong><em>Opening:</em></strong> Open from cover and demand that intruders stop or turn back.</p><p><strong><em>Pressure:</em></strong> Press advancing targets with the Recurved Bow and use Press the Shot when one breaks cover.</p><p><strong><em>Wildlife:</em></strong> Use Resonant Wildlife against a pursuer or someone threatening the hunter’s position.</p><p><strong><em>Off-Ramp:</em></strong> Permit withdrawal or conversation when the intruders stop pressing the route.</p><p><strong><em>Goal:</em></strong> Create a tense, mobile encounter where violence is not inevitable.</p></section>",
+    "attack": {
+      "name": "Recurved Bow",
+      "roll": {
+        "bonus": 2,
+        "type": "attack",
+        "trait": null,
+        "difficulty": null,
+        "advState": "neutral",
+        "diceRolling": {
+          "multiplier": "prof",
+          "flatMultiplier": 1,
+          "dice": "d6",
+          "compare": null,
+          "treshold": null
+        },
+        "useDefault": false
+      },
+      "range": "far",
+      "damage": {
+        "main": {
+          "value": {
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "dice": "d8",
+            "bonus": 4,
+            "multiplier": "flat",
+            "flatMultiplier": 2
+          },
+          "applyTo": "hitPoints",
+          "type": [
+            "physical"
+          ],
+          "resultBased": false,
+          "valueAlt": {
+            "multiplier": "prof",
+            "flatMultiplier": 1,
+            "dice": "d6",
+            "bonus": null,
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            }
+          },
+          "base": false,
+          "includeBase": false,
+          "direct": false,
+          "fullRestore": false,
+          "itemId": null
+        },
+        "resources": {}
+      },
+      "img": "icons/creatures/abilities/mouth-teeth-human.webp",
+      "type": "attack",
+      "chatDisplay": false,
+      "_id": "mDQ4IqJJIQg0xujf",
+      "systemPath": "actions",
+      "baseAction": false,
+      "description": "",
+      "originItem": {
+        "type": "itemCollection"
+      },
+      "actionType": "action",
+      "cost": [],
+      "triggers": [],
+      "areas": [],
+      "uses": {
+        "value": null,
+        "max": null,
+        "recovery": null,
+        "consumeOnSuccess": false
+      },
+      "target": {
+        "type": "any",
+        "amount": null
+      },
+      "effects": [],
+      "save": {
+        "trait": null,
+        "difficulty": null,
+        "damageMod": "none"
+      }
+    },
+    "attribution": {
+      "source": "Cybermancy",
+      "page": null,
+      "artist": ""
+    },
+    "criticalThreshold": 20
+  },
+  "flags": {
+    "cybermancy": {
+      "fastPlay": {
+        "prompts": [
+          {
+            "label": "Opening",
+            "text": "Open from cover and demand that intruders stop or turn back.",
+            "featureRefs": []
+          },
+          {
+            "label": "Pressure",
+            "text": "Press advancing targets with the Recurved Bow and use Press the Shot when one breaks cover.",
+            "featureRefs": [
+              "Press the Shot"
+            ]
+          },
+          {
+            "label": "Wildlife",
+            "text": "Use Resonant Wildlife against a pursuer or someone threatening the hunter’s position.",
+            "featureRefs": [
+              "Resonant Wildlife"
+            ]
+          },
+          {
+            "label": "Off-Ramp",
+            "text": "Permit withdrawal or conversation when the intruders stop pressing the route.",
+            "featureRefs": []
+          }
+        ],
+        "goal": "Create a tense, mobile encounter where violence is not inevitable."
+      },
+      "specVersion": "1.1",
+      "packageBuilderVersion": "1.4.0"
+    }
+  },
+  "prototypeToken": {
+    "name": "Cascadian First Peoples Hunter",
+    "displayName": 0,
+    "actorLink": false,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "modules/cybermancy/assets/tokens/adversaries/cascadian-first-peoples-hunter-token.png",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "resources.hitPoints"
+    },
+    "bar2": {
+      "attribute": "resources.stress"
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": true,
+      "colors": {
+        "ring": "#4d4033",
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 0.8,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Trailwise",
+      "type": "feature",
+      "_id": "j0GggYeF4ppibGWl",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>The hunter has advantage on rolls to track creatures or detect movement through familiar wilderness.</p>",
+        "resource": null,
+        "actions": {
+          "qtRX1wCJxkn8dXv6": {
+            "type": "effect",
+            "_id": "qtRX1wCJxkn8dXv6",
+            "systemPath": "actions",
+            "description": "<p>The hunter has advantage on rolls to track creatures or detect movement through familiar wilderness.</p>",
+            "chatDisplay": true,
+            "actionType": "passive",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Trailwise",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "featureForm": "passive",
+        "attribution": {},
+        "gmNotes": "",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!RTpixp9E8DXcCr3O.j0GggYeF4ppibGWl"
+    },
+    {
+      "name": "Press the Shot",
+      "type": "feature",
+      "_id": "c1CcGcXcXsx0XMyG",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per GM turn, when a target within Far range leaves cover, mark 1 Stress to make a standard Recurved Bow attack against them.</p>",
+        "resource": null,
+        "actions": {
+          "Q9dh1OL2vSo2ZPsY": {
+            "type": "effect",
+            "_id": "Q9dh1OL2vSo2ZPsY",
+            "systemPath": "actions",
+            "description": "<p>Once per GM turn, when a target within Far range leaves cover, mark 1 Stress to make a standard Recurved Bow attack against them.</p>",
+            "chatDisplay": true,
+            "actionType": "reaction",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Press the Shot",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "featureForm": "reaction",
+        "attribution": {},
+        "gmNotes": "",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 100000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!RTpixp9E8DXcCr3O.c1CcGcXcXsx0XMyG"
+    },
+    {
+      "name": "Resonant Wildlife",
+      "type": "feature",
+      "_id": "eClfhi4sfUs7rjk5",
+      "img": "icons/svg/aura.svg",
+      "system": {
+        "description": "<p>Once per scene, mark 1 Stress to call nearby wildlife around a target within Far range. They make an Instinct Reaction Roll (14). On a failure, they mark 1 Stress and have disadvantage on their next attack against the hunter before the end of the hunter’s next spotlight. On a success, the animals scatter without mechanical effect. If that attack does not occur by the deadline, the disadvantage ends. This uses wildlife already present; it does not summon an Actor.</p>",
+        "resource": null,
+        "actions": {
+          "mnKQ75W3TBz0R0Et": {
+            "type": "effect",
+            "_id": "mnKQ75W3TBz0R0Et",
+            "systemPath": "actions",
+            "description": "<p>Once per scene, mark 1 Stress to call nearby wildlife around a target within Far range. They make an Instinct Reaction Roll (14). On a failure, they mark 1 Stress and have disadvantage on their next attack against the hunter before the end of the hunter’s next spotlight. On a success, the animals scatter without mechanical effect. If that attack does not occur by the deadline, the disadvantage ends. This uses wildlife already present; it does not summon an Actor.</p>",
+            "chatDisplay": true,
+            "actionType": "action",
+            "cost": [],
+            "uses": {
+              "value": null,
+              "max": "",
+              "recovery": null,
+              "consumeOnSuccess": false
+            },
+            "effects": [],
+            "target": {
+              "type": "any",
+              "amount": null
+            },
+            "name": "Resonant Wildlife",
+            "img": "icons/svg/aura.svg",
+            "range": "",
+            "baseAction": false,
+            "originItem": {
+              "type": "itemCollection"
+            },
+            "triggers": [],
+            "areas": []
+          }
+        },
+        "featureForm": "action",
+        "attribution": {},
+        "gmNotes": "",
+        "granter": null,
+        "actorResources": []
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 200000,
+      "flags": {},
+      "ownership": {
+        "default": 0
+      },
+      "_key": "!actors.items!RTpixp9E8DXcCr3O.eClfhi4sfUs7rjk5"
+    }
+  ],
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "_id": "RTpixp9E8DXcCr3O",
+  "sort": 0,
+  "_key": "!actors!RTpixp9E8DXcCr3O"
+}

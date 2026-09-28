@@ -1,0 +1,156 @@
+{
+  "$schema": "https://raw.githubusercontent.com/knightweaver/cybermancy-advironment-generator/main/schema/cybermancy-entity-spec-v1.1.schema.json",
+  "specVersion": "1.1",
+  "entityType": "environment",
+  "identity": {
+    "name": "Ballard Reach Floating Commons",
+    "slug": "ballard-reach-floating-commons",
+    "tier": 2,
+    "classification": "social",
+    "concept": "A playable cluster of floating fish exchanges, repair pontoons, and shared platforms grounded in Ballard Reach’s fisheries, repair yards, maritime independence, and Currentborn communities.",
+    "description": "A working network of floating fish exchanges, repair pontoons, and shared platforms where practical help, crew trust, and shifting moorings shape access and opportunity."
+  },
+  "design": {
+    "encounterPurpose": "A Tier 2 social environment that makes working relationships shape passage, supplies, information, and navigation without treating Ballard Reach residents as default adversaries.",
+    "impulses": [
+      "reward practical help",
+      "let crew trust shape access",
+      "turn moving platforms into timing complications",
+      "offer concrete work instead of hostility"
+    ],
+    "tags": [
+      "ballard-reach",
+      "floating-commons",
+      "social",
+      "maritime",
+      "fisheries",
+      "repair",
+      "currentborn"
+    ],
+    "references": {
+      "official": [],
+      "cybermancy": []
+    },
+    "designerNotes": "Mechanics and Fast Play were approved by the GM before packaging. The floating structures are new encounter details grounded in established Ballard Reach lore; residents are not default adversaries."
+  },
+  "fastPlay": {
+    "prompts": [
+      {
+        "label": "Opening",
+        "text": "Open amid active work and let PCs offer practical help.",
+        "featureRefs": [
+          "Working Berths"
+        ]
+      },
+      {
+        "label": "Access",
+        "text": "Use Crew’s Word for passage, supplies, or leads; after failure, give a concrete task before another attempt.",
+        "featureRefs": [
+          "Crew’s Word"
+        ]
+      },
+      {
+        "label": "Mutual Aid",
+        "text": "Reward freely given help with Mutual Aid when PCs negotiate or navigate the Commons.",
+        "featureRefs": [
+          "Mutual Aid"
+        ]
+      },
+      {
+        "label": "Complication",
+        "text": "Use Shift the Moorings when platform movement creates a useful navigable timing problem.",
+        "featureRefs": [
+          "Shift the Moorings"
+        ]
+      }
+    ],
+    "goal": "Make working relationships shape access and opportunity without portraying the district as hostile."
+  },
+  "mechanics": {
+    "difficulty": 14,
+    "impulses": [
+      "reward practical help",
+      "let crew trust shape access",
+      "turn moving platforms into timing complications",
+      "offer concrete work instead of hostility"
+    ],
+    "potentialAdversaries": [],
+    "features": [
+      {
+        "name": "Working Berths",
+        "featureType": "passive",
+        "rules": "Once per scene, a PC who spends time helping with a practical task can clear 1 Stress.",
+        "automation": "text",
+        "tags": [
+          "social",
+          "recovery",
+          "practical-help"
+        ]
+      },
+      {
+        "name": "Crew’s Word",
+        "featureType": "action",
+        "rules": "A PC seeking passage, supplies, or information makes a Presence or Instinct Roll (14). Success with Hope secures fair terms and a useful lead. Success with Fear secures terms with one clearly stated small favor owed. On a failure, the crew offers a concrete task to complete before trying again; failure with Fear also delays access until that task is done.",
+        "automation": "text",
+        "tags": [
+          "social",
+          "presence",
+          "instinct",
+          "access",
+          "hope",
+          "fear"
+        ]
+      },
+      {
+        "name": "Mutual Aid",
+        "featureType": "passive",
+        "rules": "Once per PC per scene, helping a resident without demanding payment grants advantage on that PC’s next roll to negotiate or navigate the Commons in this scene; it expires on use or at scene end.",
+        "automation": "text",
+        "tags": [
+          "social",
+          "help",
+          "advantage",
+          "navigation"
+        ]
+      },
+      {
+        "name": "Shift the Moorings",
+        "featureType": "fear",
+        "rules": "Spend a Fear when platform movement matters. A pontoon separates; PCs crossing make an Agility Reaction Roll (14). Failure marks 1 Stress and puts the PC on an adjacent secured craft; success keeps them on the intended platform. A successful Agility or Finesse Roll (14) reconnects the route; separation otherwise ends with the scene.",
+        "automation": "text",
+        "tags": [
+          "fear",
+          "agility",
+          "finesse",
+          "movement",
+          "stress",
+          "platforms"
+        ]
+      }
+    ]
+  },
+  "art": {
+    "environment": {
+      "path": "modules/cybermancy/assets/images/environments/ballard-reach-floating-commons.png",
+      "aspectRatio": "3:2",
+      "width": 1536,
+      "height": 1024,
+      "prompt": "Reuse the exact approved production artwork file 'Ballard Reach floating fish commons.png'; do not regenerate or substitute artwork."
+    }
+  },
+  "foundry": {
+    "targetCoreVersion": "14.368",
+    "targetSystemVersion": "2.10.5",
+    "attributionSource": "Cybermancy",
+    "folderStrategy": "target-config"
+  },
+  "print": {
+    "pageTarget": 1,
+    "style": "cybermancy-daggerheart-reference",
+    "includeArt": true
+  },
+  "provenance": {
+    "status": "approved",
+    "notes": "Mechanics and Fast Play approved by the GM. Reconstructed for the Foundry 14.368 / Daggerheart 2.10.5 generator after scratch workspace loss."
+  }
+}

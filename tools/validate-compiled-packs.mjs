@@ -10,8 +10,107 @@ const manifest = JSON.parse(await fs.readFile(path.join(ROOT, "module.json"), "u
 const baseline = JSON.parse(
   await fs.readFile(path.join(ROOT, "maintenance", "baseline-v0.2.0.json"), "utf8")
 );
-const expectedCounts = new Map(baseline.compendia.map(pack => [pack.name, pack.entryCount]));
+const additionsManifest = JSON.parse(
+  await fs.readFile(
+    path.join(ROOT, "maintenance", "post-v0.2.0-compendium-additions.json"),
+    "utf8"
+  )
+);
 const errors = [];
+
+const normalizeRel = value => String(value).replaceAll("\\", "/");
+const baselinePacks = new Map(baseline.compendia.map(pack => [pack.name, pack]));
+const baselineIdsByPack = new Map();
+const baselineGlobalIds = new Set();
+const baselinePaths = new Set();
+
+for (const pack of baseline.compendia) {
+  const prefix = `${normalizeRel(pack.sourcePath)}/`;
+  const entries = (baseline.sourceEntries ?? []).filter(entry =>
+    normalizeRel(entry.path).startsWith(prefix)
+  );
+  const ids = new Set(entries.map(entry => entry.id));
+  baselineIdsByPack.set(pack.name, ids);
+  if (ids.size !== pack.entryCount) {
+    errors.push(
+      `${pack.name}: frozen baseline declares ${pack.entryCount} entries but sourceEntries records ${ids.size}`
+    );
+  }
+  for (const entry of entries) {
+    baselineGlobalIds.add(entry.id);
+    baselinePaths.add(normalizeRel(entry.path));
+  }
+}
+
+const declaredAdditions = Array.isArray(additionsManifest.additions)
+  ? additionsManifest.additions
+  : [];
+const additionsByPack = new Map([...baselinePacks.keys()].map(name => [name, []]));
+const additionIds = new Set();
+const additionPaths = new Set();
+
+if (additionsManifest.schemaVersion !== "1.0") {
+  errors.push(
+    `post-v0.2.0 additions manifest schemaVersion must be "1.0", got ${JSON.stringify(additionsManifest.schemaVersion)}`
+  );
+}
+if (additionsManifest.baselineId !== baseline.baselineId) {
+  errors.push(
+    `post-v0.2.0 additions manifest baselineId ${JSON.stringify(additionsManifest.baselineId)} does not match frozen baseline ${JSON.stringify(baseline.baselineId)}`
+  );
+}
+
+for (const addition of declaredAdditions) {
+  const pack = baselinePacks.get(addition.packName);
+  const rel = normalizeRel(addition.sourcePath ?? "");
+
+  if (!pack) {
+    errors.push(`addition ${addition.id ?? "<missing id>"}: unknown packName ${JSON.stringify(addition.packName)}`);
+    continue;
+  }
+  if (!/^[A-Za-z0-9]{16}$/.test(addition.id ?? "")) {
+    errors.push(`${addition.packName}: invalid addition id ${JSON.stringify(addition.id)}`);
+  }
+  if (addition.kind !== "document") {
+    errors.push(`${addition.packName}/${addition.id}: additions must be document records`);
+  }
+  if (typeof addition.name !== "string" || !addition.name.trim()) {
+    errors.push(`${addition.packName}/${addition.id}: addition name is required`);
+  }
+  if (typeof addition.entityType !== "string" || !addition.entityType.trim()) {
+    errors.push(`${addition.packName}/${addition.id}: addition entityType is required`);
+  }
+
+  const expectedPrefix = `${normalizeRel(pack.sourcePath)}/`;
+  if (!rel.startsWith(expectedPrefix) || !rel.toLowerCase().endsWith(".json")) {
+    errors.push(
+      `${addition.packName}/${addition.id}: sourcePath must be a JSON file under ${expectedPrefix}`
+    );
+  }
+  if (baselineGlobalIds.has(addition.id)) {
+    errors.push(`${addition.packName}/${addition.id}: id already exists in frozen v0.2.0 baseline`);
+  }
+  if (baselinePaths.has(rel)) {
+    errors.push(`${addition.packName}/${addition.id}: sourcePath already exists in frozen v0.2.0 baseline`);
+  }
+  if (additionIds.has(addition.id)) {
+    errors.push(`duplicate post-baseline addition id: ${addition.id}`);
+  }
+  if (additionPaths.has(rel)) {
+    errors.push(`duplicate post-baseline addition sourcePath: ${rel}`);
+  }
+
+  additionIds.add(addition.id);
+  additionPaths.add(rel);
+  additionsByPack.get(addition.packName).push(addition);
+}
+
+const expectedCounts = new Map(
+  baseline.compendia.map(pack => [
+    pack.name,
+    pack.entryCount + (additionsByPack.get(pack.name)?.length ?? 0)
+  ])
+);
 
 const stripDb = packPath => {
   if (!packPath.endsWith(".db")) {
@@ -156,6 +255,51 @@ try {
     }
 
     const sourceIds = [...sourceDocs.keys()].sort();
+    const baselineIds = baselineIdsByPack.get(pack.name) ?? new Set();
+    const packAdditions = additionsByPack.get(pack.name) ?? [];
+    const allowedAdditionIds = new Set(packAdditions.map(addition => addition.id));
+    const expectedIds = new Set([...baselineIds, ...allowedAdditionIds]);
+
+    const missingBaseline = [...baselineIds].filter(id => !sourceDocs.has(id)).sort();
+    const missingAdditions = [...allowedAdditionIds].filter(id => !sourceDocs.has(id)).sort();
+    const undeclared = sourceIds.filter(id => !expectedIds.has(id));
+
+    if (missingBaseline.length) {
+      errors.push(
+        `${pack.name}: frozen baseline IDs missing from source: ${JSON.stringify(missingBaseline.slice(0, 10))}`
+      );
+    }
+    if (missingAdditions.length) {
+      errors.push(
+        `${pack.name}: declared post-baseline additions missing from source: ${JSON.stringify(missingAdditions.slice(0, 10))}`
+      );
+    }
+    if (undeclared.length) {
+      errors.push(
+        `${pack.name}: undeclared source IDs beyond frozen baseline: ${JSON.stringify(undeclared.slice(0, 10))}`
+      );
+    }
+    if (sourceIds.length !== expectedIds.size) {
+      errors.push(
+        `${pack.name}: expected exact frozen-baseline-plus-additions ID set of ${expectedIds.size}, got ${sourceIds.length}`
+      );
+    }
+
+    for (const addition of packAdditions) {
+      const doc = sourceDocs.get(addition.id);
+      if (!doc) continue;
+      if (doc.name !== addition.name) {
+        errors.push(
+          `${pack.name}/${addition.id}: addition name mismatch; manifest=${JSON.stringify(addition.name)} source=${JSON.stringify(doc.name)}`
+        );
+      }
+      if (doc.type !== addition.entityType) {
+        errors.push(
+          `${pack.name}/${addition.id}: addition entityType mismatch; manifest=${JSON.stringify(addition.entityType)} source=${JSON.stringify(doc.type)}`
+        );
+      }
+    }
+
     const extractedIds = [...extractedDocs.keys()].sort();
     if (JSON.stringify(sourceIds) !== JSON.stringify(extractedIds)) {
       const sourceSet = new Set(sourceIds);
@@ -183,13 +327,15 @@ try {
       sourcePath: path.relative(ROOT, sourceAbs).replaceAll("\\", "/"),
       manifestPath: pack.path.replaceAll("\\", "/"),
       compiledPath: compiledRel.replaceAll("\\", "/"),
+      frozenBaselineEntryCount: baselinePacks.get(pack.name)?.entryCount ?? null,
+      declaredAdditionCount: additionsByPack.get(pack.name)?.length ?? 0,
       expectedEntryCount: expectedCount,
       sourceEntryCount: sourceDocs.size,
       extractedEntryCount: extractedDocs.size
     });
   }
 
-  const expectedTotal = baseline.counts.declaredSourceEntries;
+  const expectedTotal = baseline.counts.declaredSourceEntries + declaredAdditions.length;
   if (totalSource !== expectedTotal) {
     errors.push(`total source entries expected ${expectedTotal}, got ${totalSource}`);
   }
@@ -202,11 +348,17 @@ try {
   const summary = {
     status: errors.length ? "FAIL" : "PASS",
     compiler: "@foundryvtt/foundryvtt-cli",
+    frozenBaselineId: baseline.baselineId,
+    frozenBaselineEntries: baseline.counts.declaredSourceEntries,
+    additionsManifest: "maintenance/post-v0.2.0-compendium-additions.json",
+    declaredAdditions: declaredAdditions.length,
     declaredCompendiumCount: (manifest.packs ?? []).length,
     totalSourceEntries: totalSource,
     totalExtractedEntries: totalExtracted,
     expectedTotalEntries: expectedTotal,
     packResults: results,
+    frozenBaselineIdsValidated: true,
+    postBaselineAdditionsValidated: true,
     embeddedActorIntegrityValidated: true,
     generatedPacksAreDerivative: true
   };
@@ -225,6 +377,8 @@ try {
 
   console.log("Cybermancy compiled-pack validation PASS");
   console.log(` - Compendia: ${summary.declaredCompendiumCount}`);
+  console.log(` - Frozen baseline entries: ${summary.frozenBaselineEntries}`);
+  console.log(` - Declared post-baseline additions: ${summary.declaredAdditions}`);
   console.log(` - Source entries: ${totalSource}`);
   console.log(` - Re-extracted compiled entries: ${totalExtracted}`);
   console.log(" - embedded Actor Item identity/forms/actions: PASS");
