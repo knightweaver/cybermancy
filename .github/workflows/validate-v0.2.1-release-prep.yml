@@ -1,0 +1,51 @@
+name: Validate v0.2.1 release prep
+
+on:
+  push:
+    branches:
+      - release/v0.2.1-prep
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install build dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Validate v0.2.1 release manifest and runtime
+        run: npm run validate:release
+      - name: Compile and validate Compendia
+        run: |
+          npm run clean:packs
+          npm run compile:packs
+          npm run validate:compiled-packs
+      - name: Assert v0.2.1 release-prep wiring
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+          const module = JSON.parse(fs.readFileSync("module.json", "utf8"));
+          if (module.version !== "0.2.1") throw new Error("module version is not 0.2.1");
+          const expected = "https://github.com/knightweaver/cybermancy/releases/download/v0.2.1/cybermancy-v0.2.1.zip";
+          if (module.download !== expected) throw new Error("v0.2.1 download URL mismatch");
+          const publish = fs.readFileSync(".github/workflows/publish-release.yml", "utf8");
+          if (publish.includes("github.event.inputs.control || 'release-control/v0.2.0.json'")) {
+            throw new Error("old v0.2.0 release-control fallback remains");
+          }
+          if (!publish.includes("steps.release_control.outputs.control")) {
+            throw new Error("dynamic release-control output is not wired into publish workflow");
+          }
+          if (!publish.includes('fetch-depth: 0')) {
+            throw new Error("publish workflow cannot reliably diff push before/after commits");
+          }
+          if (!fs.existsSync("RELEASE-NOTES-v0.2.1.md")) {
+            throw new Error("v0.2.1 release notes missing");
+          }
+          console.log("v0.2.1 release-prep wiring: PASS");
+          NODE
