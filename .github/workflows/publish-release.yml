@@ -8,9 +8,8 @@ on:
   workflow_dispatch:
     inputs:
       control:
-        description: "Release-control file"
+        description: "Release-control file (for example release-control/v0.2.1.json)"
         required: true
-        default: "release-control/v0.2.0.json"
 
 concurrency:
   group: cybermancy-release
@@ -24,10 +23,37 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      RELEASE_CONTROL: ${{ github.event.inputs.control || 'release-control/v0.2.0.json' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Resolve release control
+        id: release_control
+        shell: bash
+        env:
+          DISPATCH_CONTROL: ${{ github.event.inputs.control }}
+          BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            CONTROL="$DISPATCH_CONTROL"
+          else
+            mapfile -t CONTROLS < <(
+              git diff --name-only "$BEFORE_SHA" "$GITHUB_SHA" -- 'release-control/*.json'
+            )
+            if [ "${#CONTROLS[@]}" -ne 1 ]; then
+              echo "Expected exactly one changed release-control JSON, found ${#CONTROLS[@]}: ${CONTROLS[*]}" >&2
+              exit 1
+            fi
+            CONTROL="${CONTROLS[0]}"
+          fi
+
+          if [ -z "$CONTROL" ] || [ ! -f "$CONTROL" ]; then
+            echo "Release-control file is missing: $CONTROL" >&2
+            exit 1
+          fi
+
+          echo "control=$CONTROL" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -37,6 +63,8 @@ jobs:
       - name: Read release control
         id: control
         shell: bash
+        env:
+          RELEASE_CONTROL: ${{ steps.release_control.outputs.control }}
         run: |
           python - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
@@ -72,7 +100,7 @@ jobs:
         run: |
           cp "qualified-runtime/release/${{ steps.control.outputs.archive }}"              "release/${{ steps.control.outputs.archive }}"
       - name: Enforce release gates
-        run: python tools/prepare-release.py --repo . --control "$RELEASE_CONTROL"
+        run: python tools/prepare-release.py --repo . --control "${{ steps.release_control.outputs.control }}"
       - name: Publish or refresh GitHub release
         shell: bash
         run: |

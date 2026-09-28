@@ -32,8 +32,10 @@ if (!/^\d+\.\d+\.\d+$/.test(String(manifest.version ?? ""))) {
   errors.push(`module version must be semantic x.y.z, got ${JSON.stringify(manifest.version)}`);
 }
 
-if (manifest.version !== "0.2.0") {
-  errors.push(`migration branch module version must be "0.2.0", got ${JSON.stringify(manifest.version)}`);
+if (!/^0\.2\.\d+$/.test(String(manifest.version ?? ""))) {
+  errors.push(
+    `Foundry 14 / Daggerheart 2 release-line module version must be 0.2.x, got ${JSON.stringify(manifest.version)}`
+  );
 }
 
 const qualification = baseline.targetRuntime ?? {};
