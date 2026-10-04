@@ -76,19 +76,24 @@
       "properties": {
         "name": "Everett Bastion",
         "code": "EVR // INDUSTRIAL",
-        "category": "INDEPENDENT CITY-STATE",
+        "category": "INDUSTRIAL MUNICIPALITY",
         "color": "#78a9ff",
         "legend_order": 2,
-        "status": "Northern industrial power",
-        "known_for": "Aerospace, heavy fabrication, and guarded port facilities",
-        "access": "Protected I-5 commerce corridor",
-        "description": "Everett's aerospace factories, port infrastructure, and former naval presence gave it enough industrial capacity to remain viable and politically distinct from Seattle.",
+        "status": "Everett municipality and northern industrial-defense hub",
+        "known_for": "Aerospace, defense manufacturing, heavy fabrication, port industry, and skilled trades",
+        "access": "I-5 commerce corridor, Paine industrial traffic, and Puget Sound port access",
+        "description": "Everett Bastion is not a sovereign city-state. It is an ordinary municipality whose identity is dominated by aerospace, defense manufacturing, private-security infrastructure, heavy fabrication, transport, worker housing, and the remains of older U.S. military infrastructure. Its visible patriotic culture sits uneasily beside the fact that corporations now control much of the industry once associated with national institutions.",
         "label_coordinates": [
-          -122.2,
-          47.95
+          -122.24,
+          47.965
         ],
         "audience": "player",
-        "image_asset": "images/locations/region-everett-bastion.webp"
+        "image_asset": "images/locations/region-everett-bastion.webp",
+        "governance": "Conventional Everett municipal government and services operating alongside powerful corporate employers",
+        "communities": "Industrial workers, veterans, skilled trades, aerospace staff, security contractors, transport crews, and their families",
+        "organizations": "AstraVail Technologies, Black Helix Security, municipal services, port contractors, and aerospace manufacturers",
+        "connections": "Competes for skilled labor while supplying aerospace, security, fabrication, and transport capacity across Puget Sound",
+        "gm_notes": "AstraVail Technologies and Black Helix Security are peers rather than territorial enemies; their strongest recurring rivalry is competition for skilled workers. Evelyn “Gauge” Mercer is a major local industrial fixer and a professional peer and friend of Mira “The Loom.” There is no organized anti-corporate uprising at campaign start."
       },
       "geometry": {
         "type": "Polygon",
@@ -96,31 +101,31 @@
           [
             [
               -122.34,
-              48.1
+              48.02
             ],
             [
-              -122.1,
-              48.1
+              -122.19,
+              48.02
             ],
             [
-              -122.055,
-              47.93
+              -122.12,
+              47.975
             ],
             [
-              -122.14,
-              47.79
+              -122.16,
+              47.91
             ],
             [
-              -122.29,
-              47.79
+              -122.25,
+              47.89
             ],
             [
-              -122.36,
+              -122.33,
               47.92
             ],
             [
               -122.34,
-              48.1
+              48.02
             ]
           ]
         ]
@@ -266,51 +271,63 @@
       "properties": {
         "name": "Cascade Approaches",
         "code": "CAS // FRONTIER",
-        "category": "CONTESTED FRONTIER",
+        "category": "CASCADIAN TRANSITION ZONE",
         "color": "#f2b84b",
         "legend_order": 5,
-        "status": "Fragmented local control",
-        "known_for": "Independent settlements and Resonance anomalies",
-        "access": "Expedition travel beyond the last checkpoints",
-        "description": "Corporate authority thins east of the surviving metropolitan corridor. Roads decay into defended routes between cohesive settlements, dangerous wilderness, and territories whose boundaries are not merely political.",
+        "status": "Western gateway into Cascadia; authority fades by degrees rather than at a border",
+        "known_for": "First Nations stewardship, ordinary towns, independent settlements, locally maintained routes, and Resonance-altered ecology",
+        "access": "Increasingly unreliable eastbound roads and locally maintained routes beyond the metropolitan corridor",
+        "description": "The Cascade Approaches are the western gateway into Cascadia, not a synonym for Cascadia itself. Moving east, pavement degrades, maps and communications become less reliable, commercial networks thin out, infrastructure becomes locally maintained, metropolitan authority matters less, and forest and mountains increasingly dominate. GeoJSON can only sketch this transition; its north and south edges are not meaningful political boundaries.",
         "label_coordinates": [
-          -121.53,
-          47.57
+          -121.55,
+          47.58
         ],
         "audience": "player",
-        "image_asset": "images/locations/region-cascade-approaches.webp"
+        "image_asset": "images/locations/region-cascade-approaches.webp",
+        "governance": "No single regional government; First Nations exercise broad stewardship over ancestral territories alongside towns, settlements, homesteads, farms, and technical enclaves",
+        "communities": "First Nations communities, small towns, independent settlements, homesteads, agricultural communities, technical enclaves, guides, and route maintainers",
+        "connections": "Seattle and the Eastside fade west-to-east into the much larger cultural and geographic region of Cascadia",
+        "gm_notes": "Resonance-altered plants and animals are normal features of Cascadia; strange does not automatically mean broken. The Adventure 3 pattern of unusual aggression, emergent techno-organic structures, organic/artificial integration without implants, and continuing internal glow after death is abnormal and remains a current mystery. Selka’s Snoqualmie home village lies north of North Bend, has roughly 300–500 people, and must remain unmapped/private."
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              -121.82,
-              48.08
-            ],
-            [
-              -121.23,
-              48.06
-            ],
-            [
-              -121.2,
-              47.15
-            ],
-            [
-              -121.8,
-              47.13
-            ],
-            [
               -121.87,
-              47.47
+              48.18
+            ],
+            [
+              -121.4,
+              48.24
+            ],
+            [
+              -121.18,
+              48.05
+            ],
+            [
+              -121.17,
+              47.12
+            ],
+            [
+              -121.46,
+              46.98
+            ],
+            [
+              -121.86,
+              47.1
+            ],
+            [
+              -121.88,
+              47.48
             ],
             [
               -121.84,
-              47.69
+              47.7
             ],
             [
-              -121.82,
-              48.08
+              -121.87,
+              48.18
             ]
           ]
         ]
