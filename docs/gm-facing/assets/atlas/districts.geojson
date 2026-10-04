@@ -11,40 +11,52 @@
         "category": "SEATTLE DISTRICT",
         "color": "#38e7ee",
         "legend_order": 10,
-        "status": "Council-controlled",
-        "known_for": "Arcologies, luxury towers, and curated civic space",
-        "access": "Credentialed transit and dense surveillance",
-        "description": "The pristine Seattle shown on corporate feeds: towers, luxury arcologies, corporate hotels, immaculate public spaces, security drones, and the surviving institutions of civic government.",
+        "status": "Materially comfortable corporate center under pervasive credentialing and surveillance",
+        "known_for": "Flagship offices, high-end public space, employment-linked housing, transit, nightlife, and overlapping corporate security",
+        "access": "Public pedestrian access with checkpoints, identity systems, traffic monitoring, and dense surveillance",
+        "description": "The Corporate Core is the clean, safe, materially comfortable Seattle that corporate employment can buy. There is no enclosing wall and pedestrians can enter; unfamiliarity alone does not trigger intervention. Control instead comes through checkpoints, identity systems, surveillance, traffic monitoring, credentialing, employment-linked housing, status pressure, and reciprocal security arrangements that make the district highly desirable while keeping daily life legible to institutions.",
         "label_coordinates": [
           -122.343,
-          47.606
+          47.612
         ],
         "audience": "player",
-        "image_asset": "images/locations/district-corporate-core.webp"
+        "image_asset": "images/locations/district-corporate-core.webp",
+        "governance": "Seattle civic authority operates inside a dense web of reciprocal corporate-security and credentialing arrangements",
+        "communities": "Corporate employees, service workers, residents in employment-linked housing, visitors, commuters, and municipal staff",
+        "organizations": "Major megacorporations, corporate-security contractors, civic agencies, hospitality and transit operators",
+        "connections": "Puget Sound waterfront, Mercer transit links, I-5, Meridian, Queen Anne, and Old City"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              -122.358,
-              47.616
+              -122.357,
+              47.624
             ],
             [
-              -122.338,
-              47.618
+              -122.336,
+              47.625
             ],
             [
-              -122.327,
-              47.603
+              -122.329,
+              47.62
             ],
             [
-              -122.348,
-              47.591
+              -122.326,
+              47.602
             ],
             [
-              -122.358,
-              47.616
+              -122.336,
+              47.601
+            ],
+            [
+              -122.356,
+              47.601
+            ],
+            [
+              -122.357,
+              47.624
             ]
           ]
         ]
@@ -59,44 +71,56 @@
         "category": "SEATTLE DISTRICT",
         "color": "#b991ff",
         "legend_order": 11,
-        "status": "Executive residential zone",
-        "known_for": "Compounds, boutique arcologies, and the Space Needle",
-        "access": "Controlled hill approaches",
-        "description": "Historic houses have become executive compounds and boutique arcologies. The hill is easy to defend, and this is where wealthy Seattle tells itself that civilization survived.",
+        "status": "Primary enclave of Seattle’s post-Resonance wealthy elite",
+        "known_for": "Large private compounds, elegant residences, private schools, elite clubs, fine dining, golf, yacht culture, charities, and discreet security",
+        "access": "Public roads remain open, but outsiders are conspicuous under overlapping private-security observation",
+        "description": "Queen Anne is Seattle’s primary enclave of post-Resonance wealth: manicured private compounds and roughly one-to-four-acre estates where geography permits, elegant apartments toward the south, private schools, clubs, fine dining, golf, yacht culture, charities, and elaborate social rituals. Public roads are open, but overlapping security systems make outsiders continuously visible. Vaelis Thorne, a powerful Drow socialite and elite hostess, is one of the district’s prominent social figures.",
         "label_coordinates": [
-          -122.356,
-          47.633
+          -122.38,
+          47.648
         ],
         "audience": "player",
-        "image_asset": "images/locations/district-queen-anne.webp"
+        "image_asset": "images/locations/district-queen-anne.webp",
+        "governance": "Seattle jurisdiction remains in force while estate associations, private institutions, and contracted security shape daily life",
+        "communities": "Wealthy families, executives, elite professionals, domestic and service workers, private-school communities, club members, and marina residents",
+        "organizations": "Private schools, elite clubs, charities, marina organizations, estate security networks, and Dominion subcontract security",
+        "connections": "Mercer and the Corporate Core to the south, Salmon Bay and Ballard Reach to the north, Puget Sound to the west, and Lake Union to the east"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              -122.365,
-              47.648
+              -122.438,
+              47.662
             ],
             [
-              -122.342,
-              47.65
-            ],
-            [
-              -122.338,
-              47.618
-            ],
-            [
-              -122.358,
-              47.616
-            ],
-            [
-              -122.375,
-              47.625
+              -122.405,
+              47.676
             ],
             [
               -122.365,
-              47.648
+              47.674
+            ],
+            [
+              -122.332,
+              47.655
+            ],
+            [
+              -122.334,
+              47.624
+            ],
+            [
+              -122.385,
+              47.624
+            ],
+            [
+              -122.422,
+              47.637
+            ],
+            [
+              -122.438,
+              47.662
             ]
           ]
         ]
@@ -111,40 +135,119 @@
         "category": "SEATTLE DISTRICT",
         "color": "#ff8a55",
         "legend_order": 12,
-        "status": "Biotech and research enclave",
-        "known_for": "The five-building Helios campus",
-        "access": "Corporate streets and restricted laboratories",
-        "description": "A dense biomedical research corridor dominated by the five-building Helios campus and its elevated central platform. Its skyline has become inseparable from stories of Aurum Rex.",
+        "status": "Helios-dominated corporate habitat and biomedical enclave",
+        "known_for": "Corporate housing, hospitals, biotech research, regenerative medicine, clinics, laboratories, and employee services",
+        "access": "Public-facing clinics and commercial facilities mixed with credentialed Helios residential, research, and logistics space",
+        "description": "Helios Corridor is a property-defined corporate habitat rather than a conventional neighborhood. Helios Biotech requires its employees to live within corporate buildings and folds work, housing, healthcare, transportation, food, recreation, professional development, social life, and security into one attractive and highly functional ecosystem. The surrounding corridor of hospitals, clinics, biotech startups, contract laboratories, suppliers, restaurants, training facilities, and corporate housing is either Helios-owned or economically dependent on it. Dr. Aurelia Vale is the public head of Helios Biotech.",
         "label_coordinates": [
-          -122.333,
-          47.636
+          -122.335,
+          47.637
         ],
         "audience": "player",
-        "image_asset": "images/locations/district-helios-corridor.webp"
+        "image_asset": "images/locations/district-helios-corridor.webp",
+        "governance": "Seattle retains technical jurisdiction, but Helios Biotech dominates property, services, security, and access and keeps municipal authorities at arm’s length",
+        "communities": "Helios employees and families, clinicians, researchers, contract-lab staff, biotech workers, suppliers, trainees, and service workers",
+        "organizations": "Helios Biotech, hospitals, specialty clinics, biotech startups, contract laboratories, medical suppliers, research contractors, and clinical logistics firms",
+        "connections": "Property enclaves along the west, south, and east shores of Lake Union, including structures on or over the water; no Helios district frontage on the north shore",
+        "gm_notes": "Dr. Aurelia Vale is Aurum Rex, the Dragon, one of the principal Cabal powers. Helios Biotech is connected to Project Chimera. These facts are GM-only and must not appear in player-facing data."
       },
       "geometry": {
-        "type": "Polygon",
+        "type": "MultiPolygon",
         "coordinates": [
           [
             [
-              -122.342,
-              47.65
-            ],
+              [
+                -122.353,
+                47.625
+              ],
+              [
+                -122.342,
+                47.625
+              ],
+              [
+                -122.342,
+                47.653
+              ],
+              [
+                -122.352,
+                47.653
+              ],
+              [
+                -122.353,
+                47.625
+              ]
+            ]
+          ],
+          [
             [
-              -122.329,
-              47.651
-            ],
+              [
+                -122.345,
+                47.621
+              ],
+              [
+                -122.326,
+                47.621
+              ],
+              [
+                -122.326,
+                47.63
+              ],
+              [
+                -122.345,
+                47.63
+              ],
+              [
+                -122.345,
+                47.621
+              ]
+            ]
+          ],
+          [
             [
-              -122.323,
-              47.623
-            ],
+              [
+                -122.329,
+                47.625
+              ],
+              [
+                -122.319,
+                47.626
+              ],
+              [
+                -122.319,
+                47.653
+              ],
+              [
+                -122.328,
+                47.653
+              ],
+              [
+                -122.329,
+                47.625
+              ]
+            ]
+          ],
+          [
             [
-              -122.338,
-              47.618
-            ],
-            [
-              -122.342,
-              47.65
+              [
+                -122.339,
+                47.636
+              ],
+              [
+                -122.331,
+                47.636
+              ],
+              [
+                -122.331,
+                47.645
+              ],
+              [
+                -122.339,
+                47.645
+              ],
+              [
+                -122.339,
+                47.636
+              ]
             ]
           ]
         ]
@@ -220,40 +323,48 @@
         "category": "SEATTLE DISTRICT",
         "color": "#d3a24f",
         "legend_order": 14,
-        "status": "Dense mixed-control district",
-        "known_for": "Old infrastructure and underground markets",
-        "access": "Active by day; selectively lawless after dark",
-        "description": "Pre-Razz buildings, alleys, and surviving underground spaces support legitimate commerce by day and runners, smugglers, unlicensed cyberware, and information markets after dark.",
+        "status": "Working-class district held together by practical continuity and benign neglect",
+        "known_for": "Genuine older Seattle buildings, multigenerational neighborhoods, inexpensive commerce, shelters, utility infrastructure, and pragmatic tolerance",
+        "access": "Open city streets with uneven municipal attention and few formal barriers",
+        "description": "Old City is the common street name for a broad swath of older Seattle that survived largely because nobody cared enough to remake it. Its buildings and streets are genuinely old rather than a recreated historic district. The defining attitude is practical continuity: residents tend to meet metahumans, awakened people, cybernetics, corporations, outsiders, and strange post-Resonance events with pragmatic indifference rather than ideology.",
         "label_coordinates": [
-          -122.333,
-          47.588
+          -122.343,
+          47.585
         ],
         "audience": "player",
-        "image_asset": "images/locations/district-old-city.webp"
+        "image_asset": "images/locations/district-old-city.webp",
+        "governance": "Seattle municipal government technically governs the district but exercises relatively little day-to-day influence",
+        "communities": "Retirees, service workers, merchants, clergy, artists, low-level corporate workers, unhoused residents, and newcomers",
+        "connections": "Yesler and the Corporate Core to the north, S Spokane to the south, the Duwamish Waterway to the west, and I-5 to the east",
+        "gm_notes": "The Adventure 1 underground settlement beneath Old City was relocated intact by a Prometheus Shard. Its destination remains unknown. Do not imply that abandoned tunnels necessarily contain treasure, contamination, a replacement settlement, or any other resolved explanation."
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              -122.348,
-              47.591
+              -122.365,
+              47.602
             ],
             [
-              -122.327,
-              47.603
+              -122.326,
+              47.602
             ],
             [
-              -122.315,
-              47.588
+              -122.326,
+              47.572
             ],
             [
-              -122.346,
+              -122.356,
+              47.566
+            ],
+            [
+              -122.369,
               47.579
             ],
             [
-              -122.348,
-              47.591
+              -122.365,
+              47.602
             ]
           ]
         ]
@@ -268,48 +379,56 @@
         "category": "SEATTLE DISTRICT",
         "color": "#57b5dc",
         "legend_order": 15,
-        "status": "Maritime semi-autonomy",
-        "known_for": "Repair yards, fisheries, smugglers, and Currentborn",
-        "access": "Water routes and guarded industrial roads",
-        "description": "Boat repair, fisheries, small shipyards, smugglers, and Currentborn communities give Ballard enough maritime capacity to maintain unusual independence from the corporate core.",
+        "status": "Maritime district balancing independence with practical mutual dependence",
+        "known_for": "Fishing, salvage, boat repair, small shipyards, floating structures, smuggling, markets, marine trades, and independent manufacturing",
+        "access": "Water routes, industrial roads, docks, floating walkways, and neighborhood streets",
+        "description": "Ballard Reach is defined by the sea, freedom, maritime competence, independence, and the practical mutual dependence required to survive on the water. Roughly half the district is conventional land neighborhoods and industrial waterfront and half is docks, floating structures, and water-based settlement. Persistent cultural friction with Queen Anne is most visible where mega-yacht culture meets Ballard boats, but there is no organized conflict at campaign start.",
         "label_coordinates": [
-          -122.392,
-          47.67
+          -122.39,
+          47.687
         ],
         "audience": "player",
-        "image_asset": "images/locations/district-ballard-reach.webp"
+        "image_asset": "images/locations/district-ballard-reach.webp",
+        "governance": "The informal Captains’ Council handles practical disputes and common concerns without formal elections or municipal-style statute",
+        "communities": "Fishing crews, salvagers, boatbuilders, marine mechanics, traders, smugglers, floating-house residents, and other maritime families",
+        "organizations": "Captains’ Council, independent boatyards, repair shops, markets, small shipyards, and marine trades",
+        "connections": "Salmon Bay separates Ballard Reach from Queen Anne; the eastern boundary with Gasworks is intentionally fuzzy around roughly 8th Avenue NW"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              -122.414,
-              47.695
-            ],
-            [
-              -122.37,
-              47.695
-            ],
-            [
-              -122.37,
-              47.675
+              -122.418,
+              47.668
             ],
             [
               -122.365,
-              47.648
+              47.667
+            ],
+            [
+              -122.36,
+              47.685
+            ],
+            [
+              -122.363,
+              47.708
             ],
             [
               -122.39,
-              47.64
+              47.717
             ],
             [
               -122.414,
-              47.655
+              47.706
             ],
             [
-              -122.414,
-              47.695
+              -122.423,
+              47.687
+            ],
+            [
+              -122.418,
+              47.668
             ]
           ]
         ]
@@ -327,11 +446,11 @@
         "status": "Productive anarchy under workshop custom",
         "known_for": "Prototyping, fabrication, salvage engineering, art, and experimental technology",
         "access": "North of the Lake Washington Ship Canal between roughly 8th Avenue NW and the Ship Canal Bridge",
-        "governance": "No formal government; major decisions move through open committees and workshop consensus",
+        "governance": "Major decisions move through committees, workshop consensus, custom, reputation, and technical credibility. Chief Engineer Imani Calder chairs the council and serves as the de facto public face, but is not a mayor or centralized executive.",
         "communities": "Riggers, engineers, artists, inventors, salvage crews, apprentices, and small workshops",
-        "organizations": "Greater Seattle Workshop Exchange (GSWX), commonly called the Gasworks; the Foundry; Eriador, Inc.",
+        "organizations": "Greater Seattle Workshop Exchange (Gasworks), the Foundry, neighborhood workshops, manufactories, and Eriador, Inc.",
         "connections": "Meridian supplies Eastside salvage; Gasworks prototypes move to Forgetown for mass production",
-        "description": "Gasworks is a maker district built on productive anarchy. Small workshops and shared facilities turn salvage into practical machines, art, and experimental technology while resisting corporate homogenization through custom, reputation, and open technical exchange.",
+        "description": "Gasworks is a maker district built on productive anarchy. Small workshops, manufactories, and the Foundry turn salvage into practical machines, art, prototypes, and experimental technology. The Greater Seattle Workshop Exchange keeps technical exchange unusually open, while reputation, workshop custom, and committee consensus substitute for centralized government. Chief Engineer Imani Calder chairs the council and is the district’s most visible spokesperson.",
         "label_coordinates": [
           -122.347,
           47.661
