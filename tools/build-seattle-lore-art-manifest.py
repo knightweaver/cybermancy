@@ -101,24 +101,7 @@ VISUAL_SPECS: dict[str, tuple[str, str]] = {
 }
 
 
-PENDING_ART_NAMES = {
-    "Alder House",
-    "The Stadium",
-    "The Long Table",
-    "Spokane Pump Station 4",
-    "The Exchange",
-    "Vesper Row",
-    "Mercer Interchange",
-    "West Point Estate",
-    "Discovery Park",
-    "Interbay",
-    "Fishermen’s Terminal Yacht-Club Complex",
-    "The Crosscurrent",
-    "The Hardstand",
-    "Everett Naval Breakers",
-    "Paine Industrial Aerodrome",
-    "North Bend",
-}
+PENDING_ART_NAMES: set[str] = set()
 
 
 PARENT_BY_NAME = {
@@ -349,7 +332,7 @@ SCHEMA = """# Cybermancy Seattle Lore Art Manifest Schema v0.1
 
 **Source:** Canonical GM Seattle Atlas GeoJSON, with GM-only notes excluded from prompts
 
-**Expected manifest rows:** 67\n\n**Expected enabled rows while new art is pending:** 51
+**Expected manifest rows:** 67\n\n**Expected enabled rows:** 67
 
 ## Purpose
 
@@ -381,7 +364,7 @@ Additional columns follow the Edgeheart manifest conventions and are ignored saf
 
 ## Validation rules
 
-1. Exactly 67 manifest rows: 5 regions, 11 districts, 45 point/event POIs, and 6 routes. Newly added POIs may remain `enabled=false` only while their final art asset is pending.
+1. Exactly 67 manifest rows: 5 regions, 11 districts, 45 point/event POIs, and 6 routes. All current Atlas features have final art assets and must be `enabled=true`.
 2. Each GM atlas feature appears exactly once and matches the player atlas by ID and name.
 3. `record_id` and `output_filename` values are unique.
 4. Every row resolves to a declared preset family and approved substyle.
@@ -407,7 +390,7 @@ Remove `--dry-run` only after reviewing the generation ledger and approving a re
 
 README = """# Seattle Lore Art Production
 
-This directory contains the source-backed image-generation manifest for every named feature currently displayed by the Seattle Atlas. Rows with `enabled=false` represent canonical mapped features whose final art asset has not yet been produced; they are retained in the manifest but excluded from art-path acceptance checks until enabled.
+This directory contains the source-backed image-generation manifest for every named feature currently displayed by the Seattle Atlas. Every current feature has a final mapped art asset.
 
 ## Files
 
@@ -439,7 +422,7 @@ def validate(rows: list[dict[str, str]]) -> None:
         raise ValueError(f"Unexpected coverage: rows={len(rows)} counts={counts}")
     enabled_count = sum(row["enabled"].lower() == "true" for row in rows)
     pending_count = sum(row["enabled"].lower() == "false" for row in rows)
-    if enabled_count != 51 or pending_count != 16:
+    if enabled_count != 67 or pending_count != 0:
         raise ValueError(f"Unexpected art readiness: enabled={enabled_count} pending={pending_count}")
     for key in ("record_id", "output_filename"):
         values = [row[key] for row in rows]

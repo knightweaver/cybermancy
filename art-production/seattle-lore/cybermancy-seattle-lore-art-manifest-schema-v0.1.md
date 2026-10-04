@@ -6,7 +6,7 @@
 
 **Expected manifest rows:** 67
 
-**Expected enabled rows while new art is pending:** 51
+**Expected enabled rows:** 67
 
 ## Purpose
 
@@ -38,7 +38,7 @@ Additional columns follow the Edgeheart manifest conventions and are ignored saf
 
 ## Validation rules
 
-1. Exactly 67 manifest rows: 5 regions, 11 districts, 45 point/event POIs, and 6 routes. Newly added POIs may remain `enabled=false` only while their final art asset is pending.
+1. Exactly 67 manifest rows: 5 regions, 11 districts, 45 point/event POIs, and 6 routes. All current Atlas features have final art assets and must be `enabled=true`.
 2. Each GM atlas feature appears exactly once and matches the player atlas by ID and name.
 3. `record_id` and `output_filename` values are unique.
 4. Every row resolves to a declared preset family and approved substyle.
