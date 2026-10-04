@@ -913,6 +913,399 @@
           ]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "id": 140,
+      "properties": {
+        "name": "Alder House",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // ALDER HOUSE",
+        "status": "Old City shelter in a converted former hotel",
+        "known_for": "Seattle’s largest and best-known local homeless shelter",
+        "access": "Public intake and community services; overnight capacity managed by staff",
+        "organizations": "Alder House",
+        "description": "Alder House occupies a former hotel in Old City and has grown into the district’s largest and best-known homeless shelter. Longtime director and caretaker Margaret “Mags” Okafor is a familiar neighborhood figure whose authority comes from decades of keeping the doors open.",
+        "connections": "Old City service networks, churches, neighborhood merchants, outreach workers, and municipal social-service contacts",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.335,
+          47.596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 141,
+      "properties": {
+        "name": "The Stadium",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // STADIUM",
+        "status": "Continuously modernized stadium and event complex",
+        "known_for": "Sports, major public events, corporate hospitality, and crowds from across Seattle",
+        "access": "Public event access with variable security and credentialing",
+        "description": "The Stadium is a large, continuously updated complex south of downtown. Its corporate naming rights change often enough that locals simply call it the Stadium, treating the shifting sponsor identity as background noise.",
+        "connections": "Old City, Corporate Core transit, waterfront routes, event security, food and service businesses",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.332,
+          47.591
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 142,
+      "properties": {
+        "name": "The Long Table",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // LONG TABLE",
+        "status": "Old City diner and bar",
+        "known_for": "Workers, mechanics, locals, quiet meetings, and relative anonymity",
+        "access": "Open to the public",
+        "description": "The Long Table is an old diner and bar just south of the Corporate Core where neighborhood regulars, mechanics, service workers, and people who prefer not to be noticed share booths under old fixtures and repaired ventilation. It survives by being useful, familiar, and uninterested in anyone’s status.",
+        "connections": "Old City residents, shift workers, mechanics, runners, and lower-level corporate employees",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.337,
+          47.599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 143,
+      "properties": {
+        "name": "Spokane Pump Station 4",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // PUMP 4",
+        "status": "Aging municipal water and drainage facility",
+        "known_for": "Old pumps, service tunnels, stormwater infrastructure, and access to legacy utility networks",
+        "access": "Municipal facility; exterior service areas are visible while operational spaces are restricted",
+        "organizations": "Seattle municipal utilities",
+        "description": "Spokane Pump Station 4 is an aging municipal facility near the southern edge of Old City. Its patched pumps, control cabinets, and maintenance shafts connect to older utility, storm, and sewer infrastructure that predates many current street plans.",
+        "gm_notes": "The old infrastructure should not be treated as proof of treasure, contamination, a replacement underground settlement, or any resolved Adventure 1 mystery.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.351,
+          47.572
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 144,
+      "properties": {
+        "name": "The Exchange",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // EXCHANGE",
+        "status": "Major Corporate Core public plaza",
+        "known_for": "Flagship offices, restaurants, premium public space, transit connections, and business meetings",
+        "access": "Public pedestrian space under dense passive surveillance and credential-aware security",
+        "organizations": "Major corporate tenants and plaza management",
+        "description": "The Exchange is one of the Corporate Core’s defining public spaces: a broad, meticulously maintained plaza surrounded by flagship offices, restaurants, transit entrances, and expensive civic amenities. It is pleasant, active, and safe precisely because almost everything happening there is observable.",
+        "connections": "Corporate offices, Mercer Interchange, hotels, restaurants, and executive transit",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.338,
+          47.611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 145,
+      "properties": {
+        "name": "Vesper Row",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // VESPER ROW",
+        "status": "Corporate Core nightlife corridor",
+        "known_for": "Bars, restaurants, clubs, entertainment, visiting professionals, and after-hours corporate social life",
+        "access": "Public, with venue-specific credentialing and security",
+        "description": "Vesper Row is the Corporate Core’s principal nightlife corridor, serving corporate workers, clients, travelers, and visitors with polished bars, restaurants, clubs, and late-night entertainment. It is lively rather than lawless, with security designed to be visible only when needed.",
+        "connections": "Corporate hotels, The Exchange, executive residences, transit, and hospitality networks",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.347,
+          47.617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 146,
+      "properties": {
+        "name": "Mercer Interchange",
+        "category": "transit",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // MERCER",
+        "status": "Integrated metropolitan transit interchange",
+        "known_for": "Rail, autonomous shuttles, waterfront connections, and passenger-drone transfers",
+        "access": "Public transit with identity-aware ticketing, screening, and corporate priority services",
+        "organizations": "Municipal and corporate transit operators",
+        "description": "Mercer Interchange combines rail, autonomous vehicles and shuttles, waterfront connections, and passenger-drone infrastructure in a single high-capacity node at the north edge of the Corporate Core.",
+        "connections": "Corporate Core, Queen Anne, waterfront routes, regional rail, and corporate air mobility",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.349,
+          47.624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 147,
+      "properties": {
+        "name": "West Point Estate",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // WEST POINT",
+        "status": "Enormous private Queen Anne estate incorporating the old West Point Lighthouse",
+        "known_for": "One of Seattle’s largest elite compounds and a preserved lighthouse incorporated into private grounds",
+        "access": "Private estate; public roads nearby remain open",
+        "organizations": "Helion Dynamics executive household",
+        "description": "West Point Estate is an enormous private compound built around the old West Point Lighthouse. The property belongs to the female CEO of Helion Dynamics and is among the clearest expressions of Queen Anne’s estate culture: landscaped grounds, discreet security, and old civic geography absorbed into private wealth.",
+        "gm_notes": "Helion Dynamics is distinct from Helios Biotech. Do not conflate the companies or invent a Council/Cabal affiliation for the estate.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.435,
+          47.661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 148,
+      "properties": {
+        "name": "Discovery Park",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // DISCOVERY",
+        "status": "Elite private arboretum and recreation preserve",
+        "known_for": "Managed landscapes, arboretum collections, private recreation, clubs, and social events",
+        "access": "Controlled membership and guest access rather than ordinary public-park access",
+        "description": "Discovery Park is no longer an ordinary municipal park. It has become an elite arboretum and recreation preserve serving Queen Anne’s wealthy residents through curated landscapes, walking grounds, private recreation, and social events.",
+        "connections": "Queen Anne estates, private schools, clubs, charities, and West Point",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.411,
+          47.658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 149,
+      "properties": {
+        "name": "Interbay",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // INTERBAY",
+        "status": "Queen Anne shopping, arts, entertainment, and dining concentration",
+        "known_for": "Fine dining, galleries, boutiques, performance venues, and elite-oriented commercial life",
+        "access": "Public streets and businesses with extensive private security",
+        "description": "Interbay is Queen Anne’s major concentration of shopping, arts, entertainment, and fine dining, where premium retail and cultural venues serve residents and visitors moving between the hill, the waterfront, and marina districts.",
+        "connections": "Queen Anne residences, waterfront marinas, cultural institutions, restaurants, and corporate visitors",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.383,
+          47.65
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 150,
+      "properties": {
+        "name": "Fishermen’s Terminal Yacht-Club Complex",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // YACHT CLUB",
+        "status": "Exclusive yacht-club and marina complex replacing the former Fishermen’s Terminal",
+        "known_for": "Mega-yachts, private berths, marina services, elite social life, and waterfront hospitality",
+        "access": "Private marina and club access with controlled guest facilities",
+        "description": "The former Fishermen’s Terminal has been completely replaced by an exclusive yacht-club and marina complex serving Queen Anne’s maritime elite. The Atlas uses this descriptive label because no approved formal club name is established.",
+        "connections": "Queen Anne yacht culture, Interbay, Salmon Bay, and recurring practical friction with Ballard Reach",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.378,
+          47.659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 151,
+      "properties": {
+        "name": "The Crosscurrent",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "seattle",
+        "code": "SEA // CROSSCURRENT",
+        "status": "Floating Ballard tavern, marine shop, chandlery, and meeting hall",
+        "known_for": "Captains’ Council meetings, repairs, supplies, drinks, and maritime gossip",
+        "access": "Open by water and floating walkways",
+        "organizations": "Captains’ Council",
+        "description": "The Crosscurrent is a central floating Ballard establishment combining tavern, marine repair shop, chandlery, and meeting hall. It is the principal meeting place of the informal Captains’ Council. Proprietor Maris Vale, an aquatic/siren metahuman, is a marine mechanic first and bartender second; her Goth daughter Nerissa “Neri” Vale is similarly charismatic while rejecting nearly all of her mother’s social style.",
+        "connections": "Ballard boat crews, floating communities, repair yards, Captains’ Council, markets, and marine trades",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.389,
+          47.681
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 152,
+      "properties": {
+        "name": "The Hardstand",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "regional",
+        "code": "EVR // HARDSTAND",
+        "status": "Bastion biker, worker, and veteran bar",
+        "known_for": "Industrial crews, veterans, mechanics, shift changes, job rumors, and informal hiring",
+        "access": "Public bar in a converted machine shop",
+        "description": "The Hardstand is a major Everett biker, worker, and veteran bar operating from a converted machine shop. Owner Rhea “Chief” Navarro, a former naval aviation mechanic, keeps the place oriented toward working people rather than corporate hospitality.",
+        "connections": "Paine aerospace crews, port workers, veterans, private-security staff, and industrial contractors",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.214,
+          47.981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 153,
+      "properties": {
+        "name": "Everett Naval Breakers",
+        "category": "landmark",
+        "color": "#d7c47b",
+        "map_scope": "regional",
+        "code": "EVR // BREAKERS",
+        "status": "Industrial salvage and manufacturing complex on the former Naval Station Everett",
+        "known_for": "Shipbreaking, heavy salvage, contractor work, fabrication, and dismantling an old aircraft carrier",
+        "access": "Industrial contractor zone with controlled work areas",
+        "organizations": "Municipal port interests, salvage firms, manufacturers, and defense contractors",
+        "description": "The former Naval Station Everett now functions as an industrial salvage, manufacturing, and contractor complex. An old aircraft carrier remains under active dismantling, surrounded by cranes, cutting rigs, fabrication sheds, and reused naval infrastructure.",
+        "connections": "Everett port industry, heavy fabrication, defense contractors, and regional materials markets",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.229,
+          47.999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 154,
+      "properties": {
+        "name": "Paine Industrial Aerodrome",
+        "category": "transit",
+        "color": "#d7c47b",
+        "map_scope": "regional",
+        "code": "EVR // PAINE",
+        "status": "Aerospace manufacturing, testing, cargo, and autonomous-systems complex",
+        "known_for": "Aircraft production, prototypes, drones, cargo, test flights, skilled-labor competition, and corporate espionage opportunities",
+        "access": "Credentialed industrial and aviation zones around active runways",
+        "organizations": "AstraVail Technologies, Black Helix Security, aerospace manufacturers, cargo operators, and specialist contractors",
+        "description": "Paine Field and its surrounding aerospace complex form the Paine Industrial Aerodrome: a dense concentration of aircraft production, prototype testing, autonomous systems, cargo operations, drones, and specialized labor.",
+        "gm_notes": "AstraVail and Black Helix are peers rather than territorial enemies. Their recurring rivalry centers on skilled workers and contracts; espionage opportunities do not imply an active shooting war.",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.282,
+          47.906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 155,
+      "properties": {
+        "name": "North Bend",
+        "category": "settlement",
+        "color": "#d7c47b",
+        "map_scope": "regional",
+        "code": "CAS // NORTH BEND",
+        "status": "Ordinary small town at the dependable edge of the Cascade Approaches",
+        "known_for": "Food, fuel, lodging, repairs, supplies, local information, and access to guides",
+        "access": "Road access from the metropolitan corridor; routes become substantially less dependable farther east",
+        "governance": "Ordinary local civic government and community institutions",
+        "description": "North Bend remains an ordinary small town. Its importance comes from being one of the last familiar service towns before infrastructure becomes substantially less dependable, making it a natural stop for food, fuel, lodging, repairs, supplies, local information, contacts, and guides.",
+        "connections": "Seattle and Eastside travelers, Cascade routes, local residents, guides, repair shops, and supply networks",
+        "audience": "player"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.783,
+          47.495
+        ]
+      }
     }
   ]
 }
