@@ -18,6 +18,7 @@
     let destroyed = false;
 
   const BASEMAP = "https://tiles.openfreemap.org/styles/dark";
+  const ATLAS_ASSET_VERSION = "4";
   const VIEW_CONFIG = {
     regional: {
       bounds: [[-122.82, 46.95], [-121.18, 48.25]],
@@ -117,7 +118,9 @@
       return;
     }
 
-    const source = new URL(imageAsset, atlasAssetRoot).href;
+    const sourceUrl = new URL(imageAsset, atlasAssetRoot);
+    sourceUrl.searchParams.set("v", ATLAS_ASSET_VERSION);
+    const source = sourceUrl.href;
     panel.heroImage.dataset.requestedSrc = source;
     panel.heroImage.hidden = true;
 
@@ -578,8 +581,10 @@
   };
 
   const loadJson = async (path) => {
-    const response = await fetch(path);
-    if (!response.ok) throw new Error(`Unable to load ${path}: ${response.status}`);
+    const source = new URL(path, window.location.href);
+    source.searchParams.set("v", ATLAS_ASSET_VERSION);
+    const response = await fetch(source.href, { cache: "no-cache" });
+    if (!response.ok) throw new Error(`Unable to load ${source.href}: ${response.status}`);
     return response.json();
   };
 
