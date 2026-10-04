@@ -675,10 +675,23 @@
   };
 
   window.addEventListener("resize", handleResize);
+
+  // Observe the actual map viewports rather than the entire Atlas root. In full-screen
+  // mode the detail panel changes its scroll height as hover content changes; observing
+  // the root caused those content-only changes to call map.resize(), which could move
+  // the map beneath the pointer and create hover/leave oscillation.
+  const mapContainer = map.getContainer();
+  const insetContainer = inset.getContainer();
   const resizeObserver = typeof ResizeObserver === "undefined"
     ? null
-    : new ResizeObserver(handleResize);
-  resizeObserver?.observe(root);
+    : new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === mapContainer) map.resize();
+        if (entry.target === insetContainer) inset.resize();
+      });
+    });
+  resizeObserver?.observe(mapContainer);
+  resizeObserver?.observe(insetContainer);
 
   cleanupAtlas = () => {
     destroyed = true;
