@@ -672,14 +672,14 @@
     },
     {
       "enabled": "true",
-      "record_id": "context-107-meridian-silicon-wilds-ferry-route",
+      "record_id": "context-107-meridiansilicon-wilds-ferry-route",
       "family": "route",
       "asset_kind": "primary",
       "preset_family": "routeEnvironment",
       "parent_id": "",
       "parent_name": "",
       "name": "Meridian–Silicon Wilds Ferry Route",
-      "slug": "meridian-silicon-wilds-ferry-route",
+      "slug": "meridiansilicon-wilds-ferry-route",
       "source_dataset": "context.geojson",
       "source_feature_id": "107",
       "source_section": "Seattle Atlas",
@@ -697,7 +697,7 @@
       "prompt_notes": "Use public atlas canon only. Preserve recognizable Puget Sound geography and the subject's relationship to adjacent districts or routes.",
       "negative_notes": "do not reveal or invent GM-only actors, conspiracies, hidden facilities, secret inhabitants, unresolved rumors, or definitive explanations for ambiguous phenomena; do not place Silicon Wilds territory west of Lake Washington or merge Mercer Island into its geographic boundary; do not invent a featured monster, named entity, or settled cause",
       "prompt": "Create original Cybermancy lore artwork for Meridian–Silicon Wilds Ferry Route, a cinematic travel-corridor establishing image. Canonical context: Lake Washington ferries connect Meridian with the Silicon Wilds. Expeditions, traders, and outfitters travel east; recovered technology returns through Madison or Leschi toward Gasworks workshops and corporate buyers. Status: Guarded cross-lake trade route. Known for: Soundline passenger service, Crosswake freight, Lucky Crossing casino service, expeditions, and salvage. Access: Madison and Leschi terminals with controlled Eastside landings. Organizations: Soundline Co-op, Crosswake Marine, and Lucky Crossing. Connections: Meridian to Eastside settlements; returning salvage continues to Gasworks or corporate buyers. Visual direction: A guarded vehicle ferry crossing Lake Washington between Seattle and the Eastside, carrying expedition teams east and secured salvage cargo west. Seattle's shoreline should be behind the vessel and ruined, overgrown Eastside towers ahead, making the lake boundary unmistakable. Use a grounded semi-photorealistic Cybermancy aesthetic: believable near-future cyberpunk, lived-in human activity, functional technology, physically plausible architecture and materials, visible maintenance and repair, muted charcoal and steel colors, cool teal-blue ambient light, restrained amber-orange practical light, Seattle atmospheric depth, readable shadows, and selective technological or Resonance glow only where motivated. Compose as a 3:2 landscape environment suitable for an atlas lore panel, with a clear focal structure, foreground human scale, midground activity, and geographic context in the background. Avoid: do not reveal or invent GM-only actors, conspiracies, hidden facilities, secret inhabitants, unresolved rumors, or definitive explanations for ambiguous phenomena; do not place Silicon Wilds territory west of Lake Washington or merge Mercer Island into its geographic boundary; do not invent a featured monster, named entity, or settled cause; text, captions, logos, readable signage, labels, maps, diagrams, borders, stat blocks, UI or HUD overlays, pseudo-writing, copyrighted character likenesses, cartoon or anime treatment, superhero styling, generic space-marine imagery, glossy plastic, excessive chrome, rainbow neon, unexplained glowing clutter, sterile utopian futurism, muddy darkness, or an uninhabited generic cyberpunk city.",
-      "output_filename": "route-meridian-silicon-wilds-ferry-route.webp",
+      "output_filename": "route-meridiansilicon-wilds-ferry-route.webp",
       "selection_notes": "Generated from context.geojson feature 107; GM notes intentionally excluded from image prompt."
     },
     {
