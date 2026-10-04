@@ -1,6 +1,6 @@
 # Seattle Lore Art Production
 
-This directory contains the source-backed image-generation manifest for every named feature currently displayed by the Seattle Atlas. Rows with `enabled=false` represent canonical mapped features whose final art asset is still pending; they stay in the manifest but are excluded from art-path acceptance checks until enabled.
+This directory contains the source-backed image-generation manifest for every named feature currently displayed by the Seattle Atlas. Every current feature has a final mapped art asset.
 
 ## Files
 

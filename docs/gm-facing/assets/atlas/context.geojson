@@ -929,7 +929,8 @@
         "organizations": "Alder House",
         "description": "Alder House occupies a former hotel in Old City and has grown into the district’s largest and best-known homeless shelter. Longtime director and caretaker Margaret “Mags” Okafor is a familiar neighborhood figure whose authority comes from decades of keeping the doors open.",
         "connections": "Old City service networks, churches, neighborhood merchants, outreach workers, and municipal social-service contacts",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-alder-house.webp"
       },
       "geometry": {
         "type": "Point",
@@ -953,7 +954,8 @@
         "access": "Public event access with variable security and credentialing",
         "description": "The Stadium is a large, continuously updated complex south of downtown. Its corporate naming rights change often enough that locals simply call it the Stadium, treating the shifting sponsor identity as background noise.",
         "connections": "Old City, Corporate Core transit, waterfront routes, event security, food and service businesses",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-the-stadium.webp"
       },
       "geometry": {
         "type": "Point",
@@ -977,7 +979,8 @@
         "access": "Open to the public",
         "description": "The Long Table is an old diner and bar just south of the Corporate Core where neighborhood regulars, mechanics, service workers, and people who prefer not to be noticed share booths under old fixtures and repaired ventilation. It survives by being useful, familiar, and uninterested in anyone’s status.",
         "connections": "Old City residents, shift workers, mechanics, runners, and lower-level corporate employees",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-the-long-table.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1002,7 +1005,8 @@
         "organizations": "Seattle municipal utilities",
         "description": "Spokane Pump Station 4 is an aging municipal facility near the southern edge of Old City. Its patched pumps, control cabinets, and maintenance shafts connect to older utility, storm, and sewer infrastructure that predates many current street plans.",
         "gm_notes": "The old infrastructure should not be treated as proof of treasure, contamination, a replacement underground settlement, or any resolved Adventure 1 mystery.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-spokane-pump-station-4.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1027,7 +1031,8 @@
         "organizations": "Major corporate tenants and plaza management",
         "description": "The Exchange is one of the Corporate Core’s defining public spaces: a broad, meticulously maintained plaza surrounded by flagship offices, restaurants, transit entrances, and expensive civic amenities. It is pleasant, active, and safe precisely because almost everything happening there is observable.",
         "connections": "Corporate offices, Mercer Interchange, hotels, restaurants, and executive transit",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-the-exchange.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1051,7 +1056,8 @@
         "access": "Public, with venue-specific credentialing and security",
         "description": "Vesper Row is the Corporate Core’s principal nightlife corridor, serving corporate workers, clients, travelers, and visitors with polished bars, restaurants, clubs, and late-night entertainment. It is lively rather than lawless, with security designed to be visible only when needed.",
         "connections": "Corporate hotels, The Exchange, executive residences, transit, and hospitality networks",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-vesper-row.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1076,7 +1082,8 @@
         "organizations": "Municipal and corporate transit operators",
         "description": "Mercer Interchange combines rail, autonomous vehicles and shuttles, waterfront connections, and passenger-drone infrastructure in a single high-capacity node at the north edge of the Corporate Core.",
         "connections": "Corporate Core, Queen Anne, waterfront routes, regional rail, and corporate air mobility",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-mercer-interchange.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1101,7 +1108,8 @@
         "organizations": "Helion Dynamics executive household",
         "description": "West Point Estate is an enormous private compound built around the old West Point Lighthouse. The property belongs to the female CEO of Helion Dynamics and is among the clearest expressions of Queen Anne’s estate culture: landscaped grounds, discreet security, and old civic geography absorbed into private wealth.",
         "gm_notes": "Helion Dynamics is distinct from Helios Biotech. Do not conflate the companies or invent a Council/Cabal affiliation for the estate.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-west-point-estate.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1125,7 +1133,8 @@
         "access": "Controlled membership and guest access rather than ordinary public-park access",
         "description": "Discovery Park is no longer an ordinary municipal park. It has become an elite arboretum and recreation preserve serving Queen Anne’s wealthy residents through curated landscapes, walking grounds, private recreation, and social events.",
         "connections": "Queen Anne estates, private schools, clubs, charities, and West Point",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-discovery-park.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1149,7 +1158,8 @@
         "access": "Public streets and businesses with extensive private security",
         "description": "Interbay is Queen Anne’s major concentration of shopping, arts, entertainment, and fine dining, where premium retail and cultural venues serve residents and visitors moving between the hill, the waterfront, and marina districts.",
         "connections": "Queen Anne residences, waterfront marinas, cultural institutions, restaurants, and corporate visitors",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-interbay.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1173,7 +1183,8 @@
         "access": "Private marina and club access with controlled guest facilities",
         "description": "The former Fishermen’s Terminal has been completely replaced by an exclusive yacht-club and marina complex serving Queen Anne’s maritime elite. The Atlas uses this descriptive label because no approved formal club name is established.",
         "connections": "Queen Anne yacht culture, Interbay, Salmon Bay, and recurring practical friction with Ballard Reach",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-fishermens-terminal-yacht-club-complex.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1198,7 +1209,8 @@
         "organizations": "Captains’ Council",
         "description": "The Crosscurrent is a central floating Ballard establishment combining tavern, marine repair shop, chandlery, and meeting hall. It is the principal meeting place of the informal Captains’ Council. Proprietor Maris Vale, an aquatic/siren metahuman, is a marine mechanic first and bartender second; her Goth daughter Nerissa “Neri” Vale is similarly charismatic while rejecting nearly all of her mother’s social style.",
         "connections": "Ballard boat crews, floating communities, repair yards, Captains’ Council, markets, and marine trades",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-the-crosscurrent.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1222,7 +1234,8 @@
         "access": "Public bar in a converted machine shop",
         "description": "The Hardstand is a major Everett biker, worker, and veteran bar operating from a converted machine shop. Owner Rhea “Chief” Navarro, a former naval aviation mechanic, keeps the place oriented toward working people rather than corporate hospitality.",
         "connections": "Paine aerospace crews, port workers, veterans, private-security staff, and industrial contractors",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-the-hardstand.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1247,7 +1260,8 @@
         "organizations": "Municipal port interests, salvage firms, manufacturers, and defense contractors",
         "description": "The former Naval Station Everett now functions as an industrial salvage, manufacturing, and contractor complex. An old aircraft carrier remains under active dismantling, surrounded by cranes, cutting rigs, fabrication sheds, and reused naval infrastructure.",
         "connections": "Everett port industry, heavy fabrication, defense contractors, and regional materials markets",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-everett-naval-breakers.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1272,7 +1286,8 @@
         "organizations": "AstraVail Technologies, Black Helix Security, aerospace manufacturers, cargo operators, and specialist contractors",
         "description": "Paine Field and its surrounding aerospace complex form the Paine Industrial Aerodrome: a dense concentration of aircraft production, prototype testing, autonomous systems, cargo operations, drones, and specialized labor.",
         "gm_notes": "AstraVail and Black Helix are peers rather than territorial enemies. Their recurring rivalry centers on skilled workers and contracts; espionage opportunities do not imply an active shooting war.",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-paine-industrial-aerodrome.webp"
       },
       "geometry": {
         "type": "Point",
@@ -1297,7 +1312,8 @@
         "governance": "Ordinary local civic government and community institutions",
         "description": "North Bend remains an ordinary small town. Its importance comes from being one of the last familiar service towns before infrastructure becomes substantially less dependable, making it a natural stop for food, fuel, lodging, repairs, supplies, local information, contacts, and guides.",
         "connections": "Seattle and Eastside travelers, Cascade routes, local residents, guides, repair shops, and supply networks",
-        "audience": "player"
+        "audience": "player",
+        "image_asset": "images/locations/poi-north-bend.webp"
       },
       "geometry": {
         "type": "Point",
