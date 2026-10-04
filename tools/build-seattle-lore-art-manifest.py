@@ -82,10 +82,62 @@ VISUAL_SPECS: dict[str, tuple[str, str]] = {
     "Port of Tacoma": ("industrial", "A vast working deepwater port with container cranes, ocean-going cargo ships, rail transfer, military logistics, harbor patrols, and credentialed freight zones. Show the port as the material foundation of Tacoma's independence and regional trade."),
     "Porter Way Memorial": ("memorial", "A restrained roadside memorial near Milton honoring school-bus bombing victims: a protected shelter, weathered personal offerings, flowers, small lights, families and travelers pausing beside the route. Do not reenact the attack, show bodies, or introduce current extremist activity."),
     "Tacoma Defensive Zone": ("industrial", "A porous fortified approach near Fife and Milton where through traffic continues along I-5 while side routes into Tacoma pass inspection. Include layered checkpoints, earthworks, watch positions, commercial vehicles, and visible restraint rather than a sealed border or firefight."),
+    "Alder House": ("civic", "A grounded view of a former hotel converted into a busy neighborhood shelter: repaired lobby windows, practical intake desk, donated supplies, residents and outreach workers moving through a dignified but heavily used building. Emphasize continuity, care, and Old City street life rather than misery."),
+    "The Stadium": ("civic", "A large continuously modernized stadium complex at the edge of Old City, mixing old concrete structure with layered upgrades, transit crowds, event staff, food vendors, and changing corporate sponsorship surfaces without readable branding. It should feel like infrastructure that has survived by being endlessly renovated."),
+    "The Long Table": ("street", "An old diner-bar interior just south of the Corporate Core: repaired booths, long counter, mechanics and service workers beside quiet corporate employees and people seeking anonymity, worn surfaces, practical food, restrained lighting, and a sense that nobody asks unnecessary questions."),
+    "Spokane Pump Station 4": ("industrial", "An aging municipal pump station near the Duwamish edge: patched concrete, old pumps, maintenance gantries, damp service corridors, municipal workers, flood-control hardware, and access hatches into legacy storm and sewer systems. Keep it utilitarian and ordinary, not a secret dungeon."),
+    "The Exchange": ("corporate", "A broad immaculate corporate plaza framed by flagship offices, restaurants, transit entrances, premium landscaping, and many pedestrians. Security and identity systems should be present but visually integrated, making the space genuinely pleasant while quietly surveilled."),
+    "Vesper Row": ("corporate", "A polished Corporate Core nightlife corridor after work: restaurants, bars, music venues, corporate workers, visitors, taxis and autonomous shuttles, discreet door security, clean wet pavement, and restrained nightlife lighting without generic rainbow neon excess."),
+    "Mercer Interchange": ("corporate", "A large integrated transit node combining rail platforms, autonomous shuttles, pedestrian concourses, waterfront transfer signs without readable text, and rooftop passenger-drone infrastructure. Show smooth high-capacity movement, premium maintenance, and layered credentialing."),
+    "West Point Estate": ("corporate", "A vast landscaped private estate incorporating the old West Point Lighthouse: preserved lighthouse, elegant contemporary residence, wooded grounds, discreet security, distant Puget Sound, and restrained wealth. Do not identify or depict the owner."),
+    "Discovery Park": ("corporate", "An elite private arboretum and recreation preserve on Queen Anne: carefully managed native and exotic plantings, walking paths, understated club facilities, small groups of wealthy visitors and staff, and protected views toward Puget Sound. It must not read as an ordinary public city park."),
+    "Interbay": ("corporate", "A wealthy mixed shopping, arts, entertainment, and fine-dining district between Queen Anne and the waterfront: galleries, boutiques, restaurants, performance venues, pedestrians in expensive but plausible clothing, discreet security, and layered old-new architecture."),
+    "Fishermen’s Terminal Yacht-Club Complex": ("maritime", "An exclusive marina and yacht-club complex occupying the former Fishermen's Terminal: large private yachts, immaculate floating docks, marina service crews, club terraces, premium but functional marine infrastructure, and Salmon Bay beyond. Preserve maritime plausibility and avoid readable club branding."),
+    "The Crosscurrent": ("maritime", "A floating Ballard establishment combining tavern, marine repair shop, chandlery, and meeting hall: patched pontoons, workboats alongside, tools and rope, people drinking beside active repair benches, practical marine supplies, and a crowded communal interior. The place should feel socially central because it is useful."),
+    "The Hardstand": ("industrial", "A biker, worker, and veteran bar inside a converted Everett machine shop: preserved gantry hardware, old tool cabinets, motorcycles outside, aerospace and port workers after shift, veterans, heavy tables, and practical warm lighting. Working-class competence rather than outlaw caricature."),
+    "Everett Naval Breakers": ("industrial", "A former naval station transformed into an active shipbreaking and manufacturing complex: an old aircraft carrier under dismantling, cranes, cutting rigs, salvage stacks, fabrication sheds, contractors, and cold Puget Sound weather. Emphasize heavy industrial reuse, not military sovereignty."),
+    "Paine Industrial Aerodrome": ("industrial", "A busy Paine Field aerospace manufacturing and testing complex: active runway, large assembly halls, prototype aircraft, cargo operations, autonomous drones, test equipment, skilled crews, and competing corporate facilities. Show industrial density and technical work rather than an air-show spectacle."),
+    "North Bend": ("frontier", "An ordinary small Pacific Northwest town at the edge of dependable infrastructure: gas and charging facilities, repair shop, motel, diner, supply stores, local residents, travelers loading gear, and Cascade foothills beyond. It should look familiar and useful, not like a fortified frontier outpost."),
+}
+
+
+PENDING_ART_NAMES = {
+    "Alder House",
+    "The Stadium",
+    "The Long Table",
+    "Spokane Pump Station 4",
+    "The Exchange",
+    "Vesper Row",
+    "Mercer Interchange",
+    "West Point Estate",
+    "Discovery Park",
+    "Interbay",
+    "Fishermen’s Terminal Yacht-Club Complex",
+    "The Crosscurrent",
+    "The Hardstand",
+    "Everett Naval Breakers",
+    "Paine Industrial Aerodrome",
+    "North Bend",
 }
 
 
 PARENT_BY_NAME = {
+    "Alder House": "district-5-old-city",
+    "The Stadium": "district-5-old-city",
+    "The Long Table": "district-5-old-city",
+    "Spokane Pump Station 4": "district-5-old-city",
+    "The Exchange": "district-1-corporate-core",
+    "Vesper Row": "district-1-corporate-core",
+    "Mercer Interchange": "district-1-corporate-core",
+    "West Point Estate": "district-2-queen-anne",
+    "Discovery Park": "district-2-queen-anne",
+    "Interbay": "district-2-queen-anne",
+    "Fishermen’s Terminal Yacht-Club Complex": "district-2-queen-anne",
+    "The Crosscurrent": "district-6-ballard-reach",
+    "The Hardstand": "region-102-everett-bastion",
+    "Everett Naval Breakers": "region-102-everett-bastion",
+    "Paine Industrial Aerodrome": "region-102-everett-bastion",
+    "North Bend": "region-105-cascade-approaches",
     "Space Needle": "district-2-queen-anne",
     "Helios Campus": "district-3-helios-corridor",
     "Boeing Field Fortress": "district-10-bombshell",
@@ -207,7 +259,7 @@ def build_rows() -> list[dict[str, str]]:
                 negative += "; do not invent a featured monster, named entity, or settled cause"
 
             rows.append({
-                "enabled": "true",
+                "enabled": "false" if name in PENDING_ART_NAMES else "true",
                 "record_id": rid,
                 "family": family_for(layer, category),
                 "asset_kind": "primary",
@@ -297,7 +349,7 @@ SCHEMA = """# Cybermancy Seattle Lore Art Manifest Schema v0.1
 
 **Source:** Canonical GM Seattle Atlas GeoJSON, with GM-only notes excluded from prompts
 
-**Expected enabled rows:** 51
+**Expected manifest rows:** 67\n\n**Expected enabled rows while new art is pending:** 51
 
 ## Purpose
 
@@ -309,7 +361,7 @@ This manifest is the deterministic production boundary between the Seattle Atlas
 |---|---:|---|
 | Regions | 5 | `regionEnvironment` |
 | Districts | 11 | `districtEnvironment` |
-| Point and event POIs | 29 | `locationEnvironment` or `eventEnvironment` |
+| Point and event POIs | 45 | `locationEnvironment` or `eventEnvironment` |
 | Routes and corridors | 6 | `routeEnvironment` |
 
 ## Core fields
@@ -329,7 +381,7 @@ Additional columns follow the Edgeheart manifest conventions and are ignored saf
 
 ## Validation rules
 
-1. Exactly 51 enabled rows: 5 regions, 11 districts, 29 point/event POIs, and 6 routes.
+1. Exactly 67 manifest rows: 5 regions, 11 districts, 45 point/event POIs, and 6 routes. Newly added POIs may remain `enabled=false` only while their final art asset is pending.
 2. Each GM atlas feature appears exactly once and matches the player atlas by ID and name.
 3. `record_id` and `output_filename` values are unique.
 4. Every row resolves to a declared preset family and approved substyle.
@@ -355,7 +407,7 @@ Remove `--dry-run` only after reviewing the generation ledger and approving a re
 
 README = """# Seattle Lore Art Production
 
-This directory contains the source-backed image-generation manifest for every named feature currently displayed by the Seattle Atlas.
+This directory contains the source-backed image-generation manifest for every named feature currently displayed by the Seattle Atlas. Rows with `enabled=false` represent canonical mapped features whose final art asset has not yet been produced; they are retained in the manifest but excluded from art-path acceptance checks until enabled.
 
 ## Files
 
@@ -383,7 +435,7 @@ def validate(rows: list[dict[str, str]]) -> None:
         "route": sum(row["atlas_category"] == "route" for row in rows),
     }
     counts["poi"] = len(rows) - counts["region"] - counts["district"] - counts["route"]
-    if len(rows) != 51 or counts != {"region": 5, "district": 11, "route": 6, "poi": 29}:
+    if len(rows) != 67 or counts != {"region": 5, "district": 11, "route": 6, "poi": 45}:
         raise ValueError(f"Unexpected coverage: rows={len(rows)} counts={counts}")
     for key in ("record_id", "output_filename"):
         values = [row[key] for row in rows]
