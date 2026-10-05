@@ -10,6 +10,8 @@
     "rimraf": "^6.0.1"
   },
   "scripts": {
+    "schemes:check": "node scripts/schemes/validate-schemes.mjs",
+    "schemes:test-browser": "node scripts/schemes/test-atlas-browser.cjs",
     "cleanup": "rimraf stage packs",
     "descriptor2loadable": "node scripts/descriptor2loadableJSON.mjs",
     "validate:domains": "node tools/validate-domain-registration.mjs",
