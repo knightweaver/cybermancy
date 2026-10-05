@@ -22,10 +22,12 @@ extra_css:
   - https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css
   # Bump the cache token whenever atlas front-end assets change.
   - styles/cybermancy-atlas.css?v=4
+  - styles/scheme-atlas.css?v=1
 extra_javascript:
   - js/table-filter.js
   - https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js
   - js/cybermancy-atlas.js?v=4
+  - js/scheme-atlas.js?v=1
 plugins:
   - search
   - include-markdown
@@ -35,6 +37,8 @@ nav:
   - Home: index.md
   - World:
       - Seattle Atlas: world/seattle-atlas.md
+      - Scheme Atlas: world/scheme-atlas.md
+      - Scheme Atlas Data Guide: world/scheme-atlas-workflow.md
       - Atlas Publishing Workflow: world/seattle-atlas-workflow.md
       - Project Helios: world/project-helios-remnants.md
       - The Council: world/the-council.md
