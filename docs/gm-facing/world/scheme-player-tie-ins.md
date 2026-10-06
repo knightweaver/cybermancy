@@ -1,6 +1,6 @@
 # Scheme and player tie-in planning — GM
 
-Recorded October 6, 2026. This page preserves the GM's candidate list and its approximate priority. Candidates are not final selections for player introduction. Scheme objectives, missions, rumors, and awareness remain controlled by the scheme database; this planning page does not change exposure flags.
+Recorded October 6, 2026. This page preserves the GM's candidate list and its approximate priority. All 13 distinct schemes in the list are queued for player introduction. Each has two available, unrevealed rumors in the database. Queued status does not imply actual PC exposure; rumor order and delivery remain GM choices. Scheme objectives, missions, rumors, and awareness remain controlled by the scheme database; this planning page does not change exposure flags.
 
 ## Confirmed decisions
 
@@ -11,11 +11,11 @@ Recorded October 6, 2026. This page preserves the GM's candidate list and its ap
 - Little is established about Peggy's current whereabouts. Preserve that uncertainty.
 - Players reveal personal history and affiliations at their own pace. Missions may create opportunities for voluntary disclosure; progress must not require revealing Mithrandir, Astraea, the Adyton, Peggy, or other private backstory. Offer workable ways to contribute through publicly available skills, contacts, or evidence.
 
-## Candidate list
+## Queued list
 
 The list retains the GM's order rather than assigning a numerical ranking. The final O2 entry is a geography correction to the earlier candidate, not a second scheme.
 
-| Scheme | Player or campaign connection | Planning status |
+| Scheme | Player or campaign connection | Tie-in guidance (all queued) |
 | --- | --- | --- |
 | D2 — License to Make | Stella; Eriador, independent fabrication, coworkers, and Peony | Highest-confidence personal tie-in |
 | O2 — The Definitive Record | Plex; preservation and maintenance of truth | Strong candidate; located in Bombshell |
@@ -43,4 +43,4 @@ Source reviewed: **Cybermancy - Adventure 3 - Session 1 - full transcript - 0924
 
 D2 and O2 provide immediate personal stakes for Stella and Plex. O1 provides an accessible community hook for Xibo without resolving his private history. CG2 can follow Adventure 3 through the funding lead already discovered in play. If the GM chooses it, an indirect ChimeraGene backer can become a future revelation rather than a retroactive claim that the party already established its involvement.
 
-Introduce rumors before missions where useful. Record rumors and final introduction choices only after their content is developed and approved; leave current player-awareness flags unchanged until exposure actually occurs.
+Introduce rumors before missions where useful. Rumor records include player-facing wording, suggested delivery, and GM context distinguishing established scheme premises from allegations and proposed anecdotes. All scheme and rumor `revealed` flags remain false, and player-knowledge notes remain empty. Record actual exposure only when it occurs; delivering one rumor does not disclose a scheme’s full objective or hidden sponsor.

@@ -28,6 +28,12 @@ await ctl('awareness').selectOption('revealed');assert.equal(await count('.sa-no
 await ctl('location').selectOption('');await overview();assert.equal(await count('.sa-node'),data.schemes.length);
 await ctl('search').fill('Everett Bastion');assert.ok((await visibleIds()).has('BH3'));await ctl('search').fill('');
 
+// Queuing is distinct from exposure; each selected scheme has available rumors.
+const queuedIds=new Set(['D2','O2','AV2','O1','HB1','VB2','VS1','O3','CVAI2','CG2','VB3','N1','HB2']);
+await ctl('awareness').selectOption('queued');assert.deepEqual(await visibleIds(),queuedIds);assert.equal(await count('.sa-badge'),13);
+await p.locator('[data-id=D2]').click();assert.ok((await ctl('details').textContent()).includes('Rumors (2)'));assert.ok((await ctl('details').textContent()).includes('The price of a clean workshop'));await overview();
+await ctl('awareness').selectOption('revealed');assert.equal(await count('.sa-node'),0);await ctl('awareness').selectOption('');await overview();
+
 for(const type of ['directs','supports','exploits','opposes','competes'])assert.ok(await count(`.sa-edge[data-type=${type}]`)>0);
 assert.equal(await p.locator('.sa-edge[data-type=opposes] path').first().getAttribute('marker-end').then(x=>x.includes('opposes')),true);
 assert.equal(await p.locator('.sa-edge[data-type=competes] path').first().getAttribute('marker-start').then(x=>x.includes('competes')),true);

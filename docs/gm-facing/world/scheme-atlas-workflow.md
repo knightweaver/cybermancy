@@ -12,7 +12,7 @@ Each scheme has a stable identifier, title, owning entity, corporate/strategic l
 
 Missions and rumors are independent arrays; both support multiple records. Each record has a stable `id`, `title`, `description`, `status`, `revealed` boolean, and optional document `url` (empty when absent). Mission statuses: `draft-hook`, `available`, `active`, `completed`, `failed`, `withdrawn`. Rumor statuses: `draft`, `available`, `retired`. Record truth, provenance, or misleading interpretations in the rumor description; do not silently present rumors as GM facts.
 
-When PCs hear a rumor, mark that rumor revealed, mark the scheme revealed, and update the knowledge note to reflect only the information actually conveyed. A mission may still be unrevealed. Queuing an introduction does not itself reveal a scheme. Initial content includes the 33 drafted corporate mission-entry hooks, no full missions, and no invented rumors.
+When PCs hear a rumor, mark that rumor revealed, mark the scheme revealed, and update the knowledge note to reflect only the information actually conveyed. A mission may still be unrevealed. Queuing an introduction does not itself reveal a scheme. At launch, content included 33 drafted corporate mission-entry hooks, no full missions, and no rumors. The October 6 update queues 13 schemes and adds two available, unrevealed rumors per queued scheme. Each rumor separates player-facing wording, suggested delivery, and GM context; allegations and proposed anecdotes are not automatically GM facts.
 
 ## Location tags and filtering
 
@@ -42,7 +42,7 @@ The five Council seats and their corporations share cool entity colors. Aurum Re
 
 ## Campaign tie-ins
 
-[Scheme and player tie-in planning](scheme-player-tie-ins.md) records the October 6 shortlist, confirmed geography and NPC-name corrections, and provisional hooks. Shortlisting does not queue a player introduction or mark a scheme revealed.
+[Scheme and player tie-in planning](scheme-player-tie-ins.md) records the October 6 shortlist, confirmed geography and NPC-name corrections, and provisional hooks. The 13 listed schemes are now queued for introduction. Queuing and making rumors available do not mark a scheme or rumor revealed.
 
 ## Publication and checks
 
