@@ -171,13 +171,15 @@
       if (!related(s.id).length) panel.append(el('p','No scheme relationships recorded.'));
     }
     function select(id) {
-      selected=id; override=false; render();
+      selected=id; override=false; render();frameSelection();panel.scrollTop=0;
+    }
+    function frameSelection() {
       const ps=[...neighborhood()].map(key=>points.get(key)).filter(Boolean);
+      if(!ps.length){fit();return;}
       const left=Math.min(...ps.map(p=>p.x-p.w/2)),right=Math.max(...ps.map(p=>p.x+p.w/2));
       const top=Math.min(...ps.map(p=>p.y-p.h/2)),bottom=Math.max(...ps.map(p=>p.y+p.h/2));
       camera.k=Math.min(1.15,(svg.clientWidth-40)/(right-left),(svg.clientHeight-40)/(bottom-top));
       camera.x=svg.clientWidth/2-(left+right)/2*camera.k;camera.y=svg.clientHeight/2-(top+bottom)/2*camera.k;transform();
-      panel.scrollTop=0;
     }
     function endpoint(p, target) {
       const dx=target.x-p.x,dy=target.y-p.y;
@@ -241,7 +243,35 @@
     svg.addEventListener('pointerdown',event=>{if(event.button!==0||event.target.closest('.sa-node'))return;drag={x:event.clientX,y:event.clientY,cx:camera.x,cy:camera.y};suppressClick=false;svg.setPointerCapture(event.pointerId);});
     svg.addEventListener('pointermove',event=>{if(!drag)return;const dx=event.clientX-drag.x,dy=event.clientY-drag.y;if(Math.hypot(dx,dy)>4)suppressClick=true;camera.x=drag.cx+dx;camera.y=drag.cy+dy;transform();});
     const endDrag=()=>{drag=null;setTimeout(()=>{suppressClick=false;},0);};svg.addEventListener('pointerup',endDrag);svg.addEventListener('pointercancel',endDrag);
-    const observer=new ResizeObserver(()=>{if(!selected)fit();}); observer.observe(q('graph'));
+    const divider=q('resize'), layoutElement=root.querySelector('.sa-layout');
+    let panelWidth=300, resizing=null;
+    panel.id=prefix+'details'; divider.setAttribute('aria-controls',panel.id);
+    function resizePanel(width=panelWidth) {
+      if (window.matchMedia('(max-width:1000px)').matches || root.classList.contains('sa-panel-hidden')) return;
+      // Reserve 280px for the graph and 22px for the divider and its gaps.
+      const max=Math.max(240,layoutElement.clientWidth-302);
+      panelWidth=Math.round(Math.max(240,Math.min(max,width)));
+      const value=panelWidth+'px';
+      if(root.style.getPropertyValue('--sa-panel-width')!==value)root.style.setProperty('--sa-panel-width',value);
+      divider.setAttribute('aria-valuemin',240); divider.setAttribute('aria-valuemax',Math.floor(max));
+      divider.setAttribute('aria-valuenow',panelWidth); divider.setAttribute('aria-valuetext',panelWidth+' pixels wide');
+    }
+    divider.addEventListener('pointerdown',event=>{
+      if(event.button!==0)return;
+      event.preventDefault(); divider.focus();
+      resizing={x:event.clientX,width:panelWidth};
+      divider.setPointerCapture(event.pointerId); root.classList.add('sa-resizing');
+    });
+    divider.addEventListener('pointermove',event=>{if(resizing)resizePanel(resizing.width+resizing.x-event.clientX);});
+    const endResize=()=>{resizing=null;root.classList.remove('sa-resizing');};
+    for(const event of ['pointerup','pointercancel','lostpointercapture'])divider.addEventListener(event,endResize);
+    divider.addEventListener('keydown',event=>{
+      if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+      event.preventDefault();
+      resizePanel(event.key==='Home'?240:event.key==='End'?Infinity:panelWidth+(event.key==='ArrowLeft'?1:-1)*(event.shiftKey?50:10));
+    });
+    const observer=new ResizeObserver(()=>{resizePanel();if(selected)frameSelection();else fit();});
+    observer.observe(q('graph')); observer.observe(layoutElement);
     // Material replaces the content on instant navigation. Disconnect observers for removed roots.
     const removal=new MutationObserver(()=>{if(!root.isConnected){observer.disconnect();removal.disconnect();}});removal.observe(document.body,{childList:true,subtree:true});
     render();fit();
