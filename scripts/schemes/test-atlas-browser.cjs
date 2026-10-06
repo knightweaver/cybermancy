@@ -9,6 +9,24 @@ const ctl=k=>p.locator(`[data-sa=${k}]`);const count=(s)=>p.locator(s).count();c
 try{
 await p.goto(origin+'/gm/world/scheme-atlas/');await p.waitForSelector('.sa-node');assert.equal(await count('.sa-node'),data.schemes.length);assert.equal(await count('.sa-edge'),data.relationships.length);assert.equal(await count('.sa-title'),0);
 
+// Canonical location tags, district-to-region inclusion, and combined filters.
+const visibleIds=async()=>new Set(await p.locator('.sa-node').evaluateAll(ns=>ns.map(n=>n.dataset.id)));
+assert.equal(await p.locator('[data-sa=location] optgroup[label=Districts] option').count(),11);
+assert.equal(await p.locator('[data-sa=location] optgroup[label=Regions] option').count(),5);
+await ctl('location').selectOption('gasworks');assert.deepEqual(await visibleIds(),new Set(['D2']));
+await p.locator('[data-id=D2]').click();assert.ok((await ctl('details').textContent()).includes('Gasworks (Seattle)'));
+assert.ok((await ctl('status').textContent()).includes('hidden by filters'));await ctl('all-related').click();assert.ok(await count('.sa-node')>1);
+await overview();assert.deepEqual(await visibleIds(),new Set(['D2']));
+await ctl('location').selectOption('bombshell');assert.deepEqual(await visibleIds(),new Set(['D3','HD2','VB2','CD1','CH2','CAB2']));
+await ctl('entity').selectOption('helion');assert.deepEqual(await visibleIds(),new Set(['HD2','CH2']));await ctl('entity').selectOption('');
+await ctl('location').selectOption('silicon-wilds');const wilds=await visibleIds();for(const id of ['HD3','VB1','AV1','AV3','CG2','KL2','BH2'])assert.ok(wilds.has(id),id+' should match Silicon Wilds');assert.equal(wilds.has('HD1'),false);
+await ctl('location').selectOption('seattle');const seattle=await visibleIds();for(const id of ['D1','D2','D3','N1','N2','HB1','VS2','KL2'])assert.ok(seattle.has(id),id+' should match Seattle');assert.equal(seattle.has('BH2'),false);
+await ctl('location').selectOption('unassigned');assert.ok((await visibleIds()).has('KL3'));assert.equal((await visibleIds()).has('D2'),false);
+await ctl('search').fill('zzzz-no-match');assert.equal(await count('.sa-node'),0);await ctl('search').fill('');
+await ctl('awareness').selectOption('revealed');assert.equal(await count('.sa-node'),0);await ctl('awareness').selectOption('');
+await ctl('location').selectOption('');await overview();assert.equal(await count('.sa-node'),data.schemes.length);
+await ctl('search').fill('Everett Bastion');assert.ok((await visibleIds()).has('BH3'));await ctl('search').fill('');
+
 for(const type of ['directs','supports','exploits','opposes','competes'])assert.ok(await count(`.sa-edge[data-type=${type}]`)>0);
 assert.equal(await p.locator('.sa-edge[data-type=opposes] path').first().getAttribute('marker-end').then(x=>x.includes('opposes')),true);
 assert.equal(await p.locator('.sa-edge[data-type=competes] path').first().getAttribute('marker-start').then(x=>x.includes('competes')),true);
@@ -47,6 +65,6 @@ await p.setViewportSize({width:760,height:1000});assert.equal(await ctl('resize'
 // Test multiple mission/rumor records and distinct queued/revealed flags in an isolated fixture.
 const fixture=structuredClone(data);const s=fixture.schemes[0];s.awareness={selectedForIntroduction:true,revealed:true,knowledge:'Players heard only a transport rumor.'};s.missions.push({...s.missions[0],id:'D1-H2',title:'Second hook'});s.rumors=[{id:'D1-R1',title:'Transport rumor',description:'A test rumor.',status:'available',revealed:true,url:''},{id:'D1-R2',title:'Unheard rumor',description:'Another test rumor.',status:'draft',revealed:false,url:''}];
 await p.route('**/assets/schemes/schemes.json',route=>route.fulfill({json:fixture}));await p.goto(origin+'/gm/world/scheme-atlas/');await p.waitForSelector('.sa-node');await p.locator('[data-id=D1]').click();const text=await ctl('details').textContent();assert.ok(text.includes('Missions / hooks (2)'));assert.ok(text.includes('Rumors (2)'));assert.ok(text.includes('Players heard only a transport rumor.'));assert.equal(await count('[data-id=D1] .sa-badge'),2);await ctl('awareness').selectOption('revealed');assert.equal(await count('.sa-node'),1);
-assert.deepEqual(errors,[]);console.log('PASS: compact overview, all relationship markers, all collision-free selection neighborhoods, details, filters/overrides, keyboard, zoom, fullscreen, resizable panel (pointer, keyboard, bounds, selection/scroll retention), instant navigation, responsive viewport, multiple mission/rumor records and awareness.');
+assert.deepEqual(errors,[]);console.log('PASS: compact overview, all relationship markers, all collision-free selection neighborhoods, details, location filters/region inclusion, filters/overrides, keyboard, zoom, fullscreen, resizable panel (pointer, keyboard, bounds, selection/scroll retention), instant navigation, responsive viewport, multiple mission/rumor records and awareness.');
 }finally{await browser.close();server.close();}
 })();

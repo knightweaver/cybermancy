@@ -8,11 +8,25 @@ const requireValue = (ok, message) => { if (!ok) fail(message); };
 const read = path => readFileSync(resolve(root,path),'utf8');
 const data = JSON.parse(read('docs/gm-facing/assets/schemes/schemes.json'));
 const types = new Set(['directs','supports','exploits','opposes','competes']);
+const locations = new Map();
 const entities = new Map(), schemes = new Map(), ids = new Set();
 const unique = (id, scope) => { requireValue(typeof id==='string' && /^[A-Za-z0-9][A-Za-z0-9-]*$/.test(id),`Invalid ${scope} ID: ${id}`); requireValue(!ids.has(`${scope}:${id}`),`Duplicate ${scope} ID: ${id}`); ids.add(`${scope}:${id}`); };
 const text = (record, key, allowEmpty=false) => requireValue(typeof record[key]==='string' && (allowEmpty || record[key].trim().length),`Missing text ${record.id}.${key}`);
 requireValue(data.schemaVersion===1 && data.audience==='gm','Scheme data must be version 1 and GM-only');
 requireValue(Array.isArray(data.entities) && Array.isArray(data.schemes) && Array.isArray(data.relationships),'Missing data arrays');
+requireValue(Array.isArray(data.locations),'Missing location registry');
+for(const l of data.locations){
+  unique(l.id,'location');text(l,'name');
+  requireValue(['district','region'].includes(l.type),`Invalid location type: ${l.id}`);locations.set(l.id,l);
+}
+for(const l of data.locations){
+  requireValue(l.type==='region'?!l.region:locations.get(l.region)?.type==='region',`Invalid parent region: ${l.id}`);
+}
+for(const kind of ['district','region']){
+  const atlas=JSON.parse(read(`docs/gm-facing/assets/atlas/${kind}s.geojson`));
+  const names=new Set(atlas.features.map(f=>f.properties.name));
+  for(const l of locations.values())if(l.type===kind)requireValue(names.has(l.name),`Unknown atlas location: ${l.name}`);
+}
 for(const e of data.entities){
   unique(e.id,'entity');text(e,'name');
   requireValue(['council','cabal','independent'].includes(e.affiliation),`Invalid affiliation: ${e.id}`);
@@ -22,6 +36,8 @@ for(const s of data.schemes){
   unique(s.id,'scheme');requireValue(entities.has(s.entity),`Unknown entity: ${s.id}`);
   for(const key of ['title','scope','objective','plan','consequences'])text(s,key);
   text(s,'notes',true);
+  requireValue(Array.isArray(s.locations)&&s.locations.every(id=>locations.has(id)),`Invalid locations: ${s.id}`);
+  requireValue(new Set(s.locations).size===s.locations.length,`Duplicate locations: ${s.id}`);
   requireValue(['corporate','strategic'].includes(s.layer),`Invalid layer: ${s.id}`);
   requireValue(['approved','proposed','retired'].includes(s.approval),`Invalid approval: ${s.id}`);
   requireValue(Array.isArray(s.projects) && s.projects.every(p=>typeof p==='string'),'Invalid projects: '+s.id);

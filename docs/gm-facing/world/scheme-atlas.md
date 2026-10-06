@@ -6,6 +6,7 @@ Explore the Council, Cabal, and corporate schemes. Select an identifier to expan
   <div class="sa-toolbar">
     <label>Search <input type="search" data-sa="search" placeholder="Identifier, title, or details" /></label>
     <label>Entity <select data-sa="entity"><option value="">All entities</option></select></label>
+    <label>Location <select data-sa="location"><option value="">All locations</option><option value="unassigned">No specific location recorded</option></select></label>
     <label>Awareness <select data-sa="awareness"><option value="">All schemes</option><option value="queued">Queued for introduction</option><option value="revealed">Revealed to players</option><option value="unrevealed">Not revealed</option></select></label>
     <label>Approval <select data-sa="approval"><option value="">All approvals</option><option value="approved">Approved</option><option value="proposed">Proposed</option><option value="retired">Retired</option></select></label>
     <fieldset data-sa="types"><legend>Relationships</legend></fieldset>

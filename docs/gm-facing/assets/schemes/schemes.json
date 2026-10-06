@@ -3,6 +3,99 @@
   "title": "Cybermancy Scheme Atlas",
   "audience": "gm",
   "sourceNote": "Approved scheme proposals and relationships from the October 5, 2026 worldbuilding conversation. Hypothetical cooperation and discoveries remain conditional. No player introductions have been selected.",
+  "locations": [
+    {
+      "id": "seattle",
+      "name": "Seattle",
+      "type": "region"
+    },
+    {
+      "id": "everett-bastion",
+      "name": "Everett Bastion",
+      "type": "region"
+    },
+    {
+      "id": "tacoma",
+      "name": "Tacoma",
+      "type": "region"
+    },
+    {
+      "id": "silicon-wilds",
+      "name": "Silicon Wilds",
+      "type": "region"
+    },
+    {
+      "id": "cascade-approaches",
+      "name": "Cascade Approaches",
+      "type": "region"
+    },
+    {
+      "id": "corporate-core",
+      "name": "Corporate Core",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "queen-anne",
+      "name": "Queen Anne",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "helios-corridor",
+      "name": "Helios Corridor",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "meridian",
+      "name": "Meridian",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "old-city",
+      "name": "Old City",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "ballard-reach",
+      "name": "Ballard Reach",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "gasworks",
+      "name": "Gasworks",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "university-enclave",
+      "name": "University Enclave",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "the-south-end",
+      "name": "The South End",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "bombshell",
+      "name": "Bombshell",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "west-seattle",
+      "name": "West Seattle",
+      "type": "district",
+      "region": "seattle"
+    }
+  ],
   "entities": [
     {
       "id": "dominion",
@@ -111,7 +204,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "corporate-core"
+      ]
     },
     {
       "id": "D2",
@@ -140,7 +236,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "gasworks"
+      ]
     },
     {
       "id": "D3",
@@ -169,7 +268,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
     },
     {
       "id": "N1",
@@ -198,7 +300,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "N2",
@@ -227,7 +332,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "the-south-end"
+      ]
     },
     {
       "id": "N3",
@@ -256,7 +364,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "HD1",
@@ -285,7 +396,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "west-seattle"
+      ]
     },
     {
       "id": "HD2",
@@ -314,7 +428,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
     },
     {
       "id": "HD3",
@@ -343,7 +460,11 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "silicon-wilds",
+        "cascade-approaches"
+      ]
     },
     {
       "id": "O1",
@@ -372,7 +493,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "O2",
@@ -401,7 +525,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "O3",
@@ -430,7 +557,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "west-seattle"
+      ]
     },
     {
       "id": "VB1",
@@ -459,7 +589,11 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "silicon-wilds",
+        "west-seattle"
+      ]
     },
     {
       "id": "VB2",
@@ -488,7 +622,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
     },
     {
       "id": "VB3",
@@ -517,7 +654,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "cascade-approaches"
+      ]
     },
     {
       "id": "AV1",
@@ -546,7 +686,12 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "everett-bastion",
+        "seattle",
+        "silicon-wilds"
+      ]
     },
     {
       "id": "AV2",
@@ -575,7 +720,11 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "everett-bastion",
+        "university-enclave"
+      ]
     },
     {
       "id": "AV3",
@@ -604,7 +753,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "silicon-wilds"
+      ]
     },
     {
       "id": "CG1",
@@ -633,7 +785,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "queen-anne"
+      ]
     },
     {
       "id": "CG2",
@@ -662,7 +817,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "silicon-wilds"
+      ]
     },
     {
       "id": "CG3",
@@ -691,7 +849,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "university-enclave"
+      ]
     },
     {
       "id": "VS1",
@@ -720,7 +881,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "west-seattle"
+      ]
     },
     {
       "id": "VS2",
@@ -749,7 +913,11 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "corporate-core",
+        "meridian"
+      ]
     },
     {
       "id": "VS3",
@@ -778,7 +946,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "KL1",
@@ -807,7 +978,11 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "tacoma",
+        "seattle"
+      ]
     },
     {
       "id": "KL2",
@@ -836,7 +1011,11 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "meridian",
+        "silicon-wilds"
+      ]
     },
     {
       "id": "KL3",
@@ -865,7 +1044,8 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": []
     },
     {
       "id": "BH1",
@@ -894,7 +1074,11 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "tacoma",
+        "seattle"
+      ]
     },
     {
       "id": "BH2",
@@ -923,7 +1107,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "silicon-wilds"
+      ]
     },
     {
       "id": "BH3",
@@ -952,7 +1139,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "everett-bastion"
+      ]
     },
     {
       "id": "HB1",
@@ -981,7 +1171,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "helios-corridor"
+      ]
     },
     {
       "id": "HB2",
@@ -1010,7 +1203,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "HB3",
@@ -1039,7 +1235,10 @@
           "url": ""
         }
       ],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CD1",
@@ -1061,7 +1260,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
     },
     {
       "id": "CD2",
@@ -1081,7 +1283,11 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "tacoma",
+        "west-seattle"
+      ]
     },
     {
       "id": "CN1",
@@ -1103,7 +1309,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CN2",
@@ -1125,7 +1334,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CH1",
@@ -1147,7 +1359,11 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "west-seattle",
+        "university-enclave"
+      ]
     },
     {
       "id": "CH2",
@@ -1169,7 +1385,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
     },
     {
       "id": "CO1",
@@ -1191,7 +1410,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CO2",
@@ -1213,7 +1435,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CV1",
@@ -1235,7 +1460,8 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": []
     },
     {
       "id": "CV2",
@@ -1257,7 +1483,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CA1",
@@ -1279,7 +1508,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "helios-corridor"
+      ]
     },
     {
       "id": "CA2",
@@ -1301,7 +1533,8 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": []
     },
     {
       "id": "CVAI1",
@@ -1323,7 +1556,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CVAI2",
@@ -1345,7 +1581,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CAB1",
@@ -1367,7 +1606,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
     },
     {
       "id": "CAB2",
@@ -1389,7 +1631,10 @@
         "knowledge": ""
       },
       "missions": [],
-      "rumors": []
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
     }
   ],
   "relationships": [
