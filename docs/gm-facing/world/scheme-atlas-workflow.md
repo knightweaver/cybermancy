@@ -40,6 +40,10 @@ Distinct relations between the same pair may coexist. Competition is symmetric: 
 
 The five Council seats and their corporations share cool entity colors. Aurum Rex and Helios Biotech share warm gold; VAI and Abraxas have distinct warm colors. Independent megacorps use separate neutral palettes. Helion and Helios remain distinct; Vesper's exploitation by Abraxas does not imply Cabal membership. Aurum Rex is Dr. Aurelia Vale, CEO of Helios Biotech.
 
+## Campaign tie-ins
+
+[Scheme and player tie-in planning](scheme-player-tie-ins.md) records the October 6 shortlist, confirmed geography and NPC-name corrections, and provisional hooks. Shortlisting does not queue a player introduction or mark a scheme revealed.
+
 ## Publication and checks
 
 Run `npm run schemes:check` after data edits. It checks identifiers, endpoint validity, duplicate relationships, record fields, exposure consistency, GM-only source paths, and navigation/assets. Run the normal docs staging and GM build before publication. The staged configuration inherits the GM configuration; no Player configuration changes are needed.

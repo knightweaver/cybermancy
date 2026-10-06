@@ -501,7 +501,7 @@
     {
       "id": "O2",
       "title": "The Definitive Record",
-      "scope": "City",
+      "scope": "District: Bombshell",
       "entity": "omnitrine",
       "layer": "corporate",
       "objective": "Make the Last Truth Index the authoritative archive of Seattle's founding conflicts.",
@@ -527,7 +527,7 @@
       ],
       "rumors": [],
       "locations": [
-        "seattle"
+        "bombshell"
       ]
     },
     {
@@ -598,13 +598,13 @@
     {
       "id": "VB2",
       "title": "Green Recovery",
-      "scope": "District: Bombshell",
+      "scope": "District: Old City",
       "entity": "verdant",
       "layer": "corporate",
       "objective": "Acquire exclusive remediation rights over inhabited industrial land.",
-      "plan": "Treatments improve some sites, but contracts give Verdant control over future land use and displacement. Bombshell Mutual Works needs cleanup without losing neighborhoods.",
+      "plan": "Treatments improve some sites, but contracts give Verdant control over future land use and displacement. Old City residents need cleanup without losing their homes and community institutions.",
       "consequences": "Environmental recovery transfers control over housing and land use.",
-      "notes": "",
+      "notes": "The Shelter is a potential site threatened by clearance or redevelopment; its destruction is not predetermined.",
       "projects": [],
       "approval": "approved",
       "awareness": {
@@ -624,7 +624,7 @@
       ],
       "rumors": [],
       "locations": [
-        "bombshell"
+        "old-city"
       ]
     },
     {
