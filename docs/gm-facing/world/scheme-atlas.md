@@ -27,10 +27,11 @@ Explore the Council, Cabal, and corporate schemes. Select an identifier to expan
       </div>
       <p class="sa-status" data-sa="status" role="status">Loading scheme atlas…</p>
     </div>
-    <aside class="sa-panel" data-sa="details" aria-label="Selected scheme details" aria-live="polite"><h2>Select a scheme</h2><p>Colored identifiers represent entities. Select a node to expand it and its immediate neighbors. Drag the background to pan; scroll to zoom.</p></aside>
+    <div class="sa-divider" data-sa="resize" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize details panel" title="Drag to resize details; Left widens, Right narrows"></div>
+    <aside id="sa-details" class="sa-panel" data-sa="details" aria-label="Selected scheme details" aria-live="polite"><h2>Select a scheme</h2><p>Colored identifiers represent entities. Select a node to expand it and its immediate neighbors. Drag the background to pan; scroll to zoom.</p></aside>
   </div>
   <div class="sa-legend" data-sa="legend"></div>
-  <p class="sa-help">→ Directs/supports · ⇢ Exploits · ⊣ Opposes · blocking bars at both ends: Competes. Dashed links distinguish exploitation and competition; hover or focus a link for its label and conditions. ◆ Queued · ● Revealed.</p>
+  <p class="sa-help">→ Directs/supports · ⇢ Exploits · ⊣ Opposes · blocking bars at both ends: Competes. Dashed links distinguish exploitation and competition; hover or focus a link for its label and conditions. ◆ Queued · ● Revealed. Drag the divider beside Details to adjust its width, or focus it and use Left/Right arrows (Shift for larger steps).</p>
   <noscript>The scheme atlas requires JavaScript. Its canonical data is in the GM scheme data file.</noscript>
 </div>
 
