@@ -27,7 +27,7 @@ extra_javascript:
   - js/table-filter.js
   - https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js
   - js/cybermancy-atlas.js?v=4
-  - js/scheme-atlas.js?v=2
+  - js/scheme-atlas.js?v=3
 plugins:
   - search
   - include-markdown

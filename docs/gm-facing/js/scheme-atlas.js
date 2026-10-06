@@ -44,6 +44,19 @@
     if (!root.isConnected) return;
     const schemes = new Map(data.schemes.map(s => [s.id, s]));
     const entities = new Map(data.entities.map(e => [e.id, e]));
+    const locations = new Map(data.locations.map(l => [l.id,l]));
+    const schemeLocations = s => {
+      const ids=new Set(s.locations);
+      for(const id of s.locations){const region=locations.get(id).region;if(region)ids.add(region);}
+      return ids;
+    };
+    for(const type of ['district','region']){
+      const group=el('optgroup');group.label=type==='district'?'Districts':'Regions';
+      for(const location of data.locations.filter(l=>l.type===type).sort((a,b)=>a.name.localeCompare(b.name))){
+        const option=el('option',location.name);option.value=location.id;group.append(option);
+      }
+      q('location').append(group);
+    }
     let selected = null, neighborsOnly = false, override = false;
     let points = new Map(), visible = [], edges = [], labels = [];
     let camera = {x:0,y:0,k:1}, bounds = {x:0,y:0,w:1000,h:700};
@@ -77,9 +90,11 @@
     function matches(s) {
       const search = q('search').value.trim().toLowerCase();
       const awareness = q('awareness').value;
+      const location = q('location').value;
       return (!q('entity').value || s.entity === q('entity').value)
+        && (!location || (location==='unassigned' ? !s.locations.length : schemeLocations(s).has(location)))
         && (!q('approval').value || s.approval === q('approval').value)
-        && (!search || JSON.stringify(s).toLowerCase().includes(search) || entities.get(s.entity).name.toLowerCase().includes(search))
+        && (!search || JSON.stringify(s).toLowerCase().includes(search) || entities.get(s.entity).name.toLowerCase().includes(search) || [...schemeLocations(s)].some(id=>locations.get(id).name.toLowerCase().includes(search)))
         && (!awareness || (awareness === 'queued' ? s.awareness.selectedForIntroduction : awareness === 'revealed' ? s.awareness.revealed : !s.awareness.revealed));
     }
     function layout(expanded) {
@@ -154,6 +169,7 @@
       if (!selected) { panel.append(el('h2','Select a scheme'),el('p','Choose a colored identifier to expand its title and all immediate neighbors. The overview displays every relationship permitted by the filters.')); return; }
       const s=schemes.get(selected), entity=entities.get(s.entity);
       panel.append(el('h2',`${s.id} · ${s.title}`),el('p',`${entity.name} · ${entity.affiliation} · ${s.layer} · ${s.scope}`,'sa-meta'));
+      section('Locations',s.locations.length?s.locations.map(id=>{const l=locations.get(id);return l.name+(l.region?' ('+locations.get(l.region).name+')':'');}).join('; '):'No specific location recorded.');
       section('Status',`${s.approval} · ${s.awareness.selectedForIntroduction?'Queued for introduction':'Not selected for introduction'} · ${s.awareness.revealed?'Revealed to players':'Not revealed'}`);
       section('Objective',s.objective); section('Plan',s.plan); section('Consequences',s.consequences);
       if (s.projects.length) section('Projects',s.projects.join('; '));
@@ -230,7 +246,7 @@
       q('neighbors').setAttribute('aria-pressed',neighborsOnly);
       q('all-related').disabled=!selected;
     }
-    for(const key of ['entity','awareness','approval'])q(key).addEventListener('change',()=>{override=false;render();fit();});
+    for(const key of ['entity','location','awareness','approval'])q(key).addEventListener('change',()=>{override=false;render();fit();});
     q('search').addEventListener('input',()=>{override=false;render();fit();});
     q('overview').addEventListener('click',()=>{selected=null;neighborsOnly=false;override=false;render();fit();});
     q('neighbors').addEventListener('click',()=>{neighborsOnly=!neighborsOnly;render();fit();});

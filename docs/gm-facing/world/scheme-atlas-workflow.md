@@ -14,6 +14,14 @@ Missions and rumors are independent arrays; both support multiple records. Each 
 
 When PCs hear a rumor, mark that rumor revealed, mark the scheme revealed, and update the knowledge note to reflect only the information actually conveyed. A mission may still be unrevealed. Queuing an introduction does not itself reveal a scheme. Initial content includes the 33 drafted corporate mission-entry hooks, no full missions, and no invented rumors.
 
+## Location tags and filtering
+
+The Location selector groups canonical Districts and Regions. A district matches only schemes explicitly tagged to it; a region also includes schemes tagged to its districts. The filter combines with entity, awareness, approval, search, and relationship filters. **Show all related** can temporarily include neighbors outside the chosen location; the status line reports hidden selected relationships.
+
+Each scheme's `locations` array contains IDs from the top-level `locations` registry. Registry records have `id`, `name`, and `type` (`district` or `region`); districts also have a `region` ID. The current catalog follows the Seattle Atlas district/region names, including **The South End** and **Everett Bastion**. Tags record explicit geographic ties in existing scopes, plans, and mission hooks. City-scoped schemes are tied to Seattle. Named places such as Forgetown are covered by their established region, Silicon Wilds, while their original scope remains visible. Tags do not automatically propagate through scheme relationships or imply that a regional scheme concerns every district.
+
+Use **No specific location recorded** for schemes with broad regional scope but no named geographic tie. An empty array means no specific tie has been recorded, not that the scheme lacks geographic consequences. The Details panel displays recorded locations. Request tag revisions through the campaign conversation and include them in the normal data review.
+
 ## Relationship direction
 
 | Type | Source → target means | Graph |
