@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "Cybermancy Scheme Atlas",
   "audience": "gm",
-  "sourceNote": "Approved scheme proposals and relationships from the October 5, 2026 worldbuilding conversation. Hypothetical cooperation and discoveries remain conditional. No player introductions have been selected.",
+  "sourceNote": "Approved scheme proposals and relationships from the October 5, 2026 worldbuilding conversation, with October 6 geography corrections and 13 schemes queued for introduction. Each queued scheme has two available, unrevealed rumors. Hypothetical cooperation and discoveries remain conditional. No actual player exposure is recorded.",
   "locations": [
     {
       "id": "seattle",
@@ -222,7 +222,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -236,7 +236,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "D2-R1",
+          "title": "The price of a clean workshop",
+          "description": "Rumor: “Insurers are asking Gasworks shops to accept Dominion inspections. The cheaper policy comes with a very expensive set of keys.”\n\nSuggested delivery: Workshop conversation near Eriador.\n\nGM context: Accurate direction of D2. Specific offers are rumor-level leads, not completed agreements.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "D2-R2",
+          "title": "A maker’s mark",
+          "description": "Rumor: “A prohibited prototype carries a familiar maker’s mark. The committee wants a culprit before anyone checks who actually built it.”\n\nSuggested delivery: Foundry member seeking a discreet provenance check.\n\nGM context: Introduces D2-H1. Attribution is disputed; do not establish Eriador guilt, a frame-up, or Peony as prohibited equipment.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "gasworks"
       ]
@@ -286,7 +303,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -300,7 +317,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "N1-R1",
+          "title": "The part that needs permission",
+          "description": "Rumor: “A patient at the Lantern Room says a replacement implant part now needs Neuracore certification. The part exists; the clinic’s enrollment does not.”\n\nSuggested delivery: Patient conversation that Xibo can take to Dr. Ryen Vale.\n\nGM context: Approved N1 clinic tie-in, newly authored as a rumor. It does not establish that the clinic has enrolled or that treatment is already impossible.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "N1-R2",
+          "title": "The free upgrade",
+          "description": "Rumor: “A patient says Neuracore offered a subsidized replacement—but future maintenance must go through its approved network. Dr. Ryen Vale may know the catch.”\n\nSuggested delivery: Patient comparing options near the Lantern Room.\n\nGM context: Accurate N1 dependence mechanism. No PC implant failure, mandatory scan, or forced disclosure of Xibo’s condition is introduced.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "seattle"
       ]
@@ -479,7 +513,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -493,7 +527,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "O1-R1",
+          "title": "A person who will not reconcile",
+          "description": "Rumor: “Someone at the Shelter tried consolidating their records. Now the identity service says their tenancy and benefits belong to different people.”\n\nSuggested delivery: A Shelter resident speaking to Xibo.\n\nGM context: New proposed resident-level manifestation of O1. This does not diagnose Xibo, identify Peggy, or require him to disclose his past.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "O1-R2",
+          "title": "Help with one condition",
+          "description": "Rumor: “OmniTrine says it can fix a Shelter resident’s missing credentials for free—if every clinic, landlord, and employer uses its account afterward.”\n\nSuggested delivery: Resident comparing an assistance offer with Alice or Bob.\n\nGM context: Accurate account-consolidation pressure. The resident’s history and decision remain open; help need not require PC backstory disclosure.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "seattle"
       ]
@@ -501,7 +552,7 @@
     {
       "id": "O2",
       "title": "The Definitive Record",
-      "scope": "City",
+      "scope": "District: Bombshell",
       "entity": "omnitrine",
       "layer": "corporate",
       "objective": "Make the Last Truth Index the authoritative archive of Seattle's founding conflicts.",
@@ -511,7 +562,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -525,9 +576,26 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "O2-R1",
+          "title": "History with a warranty",
+          "description": "Rumor: “An OmniTrine preservation grant is making the rounds in Bombshell. Once they scan your history, their copy becomes the one institutions believe.”\n\nSuggested delivery: Custodian of an independent witness collection.\n\nGM context: Accurate O2 premise. The grant terms are a lead to investigate, not proof that a collection has already been surrendered.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "O2-R2",
+          "title": "The unverified dead",
+          "description": "Rumor: “Two accounts of the same wartime incident disagree. Only the corporate-certified version is being accepted; the other witnesses still live here.”\n\nSuggested delivery: Bombshell neighbor discussing a contested archive entry.\n\nGM context: Consistent with O2 and CO1. Neither account’s truth is predetermined; preserve the distinction between authentication and accuracy.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
-        "seattle"
+        "bombshell"
       ]
     },
     {
@@ -543,7 +611,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -557,7 +625,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "O3-R1",
+          "title": "A rescue with a license attached",
+          "description": "Rumor: “OmniTrine is warning West Seattle that its free network is compromised. Its replacement would be safe, licensed, and entirely dependent on OmniTrine.”\n\nSuggested delivery: Resident comparing competing communications offers.\n\nGM context: Accurate O3 rescue offer. OmniTrine can expose real manipulation while seeking new control.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "O3-R2",
+          "title": "Follow the equipment money",
+          "description": "Rumor: “Someone claims the Open Signal Coalition’s funding records would embarrass its loudest defenders. Others say most members never saw those records.”\n\nSuggested delivery: Local organizer seeking a careful funding investigation.\n\nGM context: Introduces O3-H1. Preserve the distinction between covert sponsorship and what individual members knew; no blanket complicity.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "west-seattle"
       ]
@@ -598,17 +683,17 @@
     {
       "id": "VB2",
       "title": "Green Recovery",
-      "scope": "District: Bombshell",
+      "scope": "District: Old City",
       "entity": "verdant",
       "layer": "corporate",
       "objective": "Acquire exclusive remediation rights over inhabited industrial land.",
-      "plan": "Treatments improve some sites, but contracts give Verdant control over future land use and displacement. Bombshell Mutual Works needs cleanup without losing neighborhoods.",
+      "plan": "Treatments improve some sites, but contracts give Verdant control over future land use and displacement. Old City residents need cleanup without losing their homes and community institutions.",
       "consequences": "Environmental recovery transfers control over housing and land use.",
-      "notes": "",
+      "notes": "The Shelter is a potential site threatened by clearance or redevelopment; its destruction is not predetermined.",
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -622,9 +707,26 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "VB2-R1",
+          "title": "Green paint on the eviction map",
+          "description": "Rumor: “Verdant’s cleanup proposal for Old City has generous relocation allowances. A Shelter resident says the building is inside the survey boundary.”\n\nSuggested delivery: Shelter resident showing a survey notice to Xibo.\n\nGM context: New lead consistent with the approved Old City relocation. Survey boundary and terms are investigable; clearance and destruction are not settled outcomes.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "VB2-R2",
+          "title": "The second soil report",
+          "description": "Rumor: “There are supposedly two soil reports for the same Old City block. The one used to justify clearance is not the one residents remember seeing.”\n\nSuggested delivery: Neighbor or independent survey worker.\n\nGM context: Introduces VB2-H1. The discrepancy is an allegation; do not predetermine contamination, falsification, or the need to demolish the Shelter.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
-        "bombshell"
+        "old-city"
       ]
     },
     {
@@ -640,7 +742,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -654,7 +756,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "VB3-R1",
+          "title": "A fence around the strange",
+          "description": "Rumor: “Verdant is proposing a demonstration belt in the Cascade Approaches. Its pitch treats ordinary altered wildlife as a biosecurity problem.”\n\nSuggested delivery: Frontier researcher or local steward.\n\nGM context: Accurate VB3 framing. Preserve the distinction between ordinary post-Resonance ecology and Adventure 3’s abnormal wildlife.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "VB3-R2",
+          "title": "The quiet side of the boundary",
+          "description": "Rumor: “The demonstration belt supposedly makes Resonance quieter. Local researchers want to know what else stops thriving on the quiet side.”\n\nSuggested delivery: Researcher seeking independent ecological observations.\n\nGM context: Consistent with Eden suppression and VB3-H1. Ecological outcomes require evidence; no effect on Selka’s family or the Shire is established.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "cascade-approaches"
       ]
@@ -706,7 +825,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -720,7 +839,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "AV2-R1",
+          "title": "A whole lab, not one graduate",
+          "description": "Rumor: “AstraVail is offering Everett placements to an entire University flight-engineering team. Apparently the inventions travel with the engineers.”\n\nSuggested delivery: University acquaintance discussing recruitment terms.\n\nGM context: Accurate AV2 direction. The specific team and contracts remain to be developed; no Astraea affiliation is implied.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "AV2-R2",
+          "title": "Two offers, one future",
+          "description": "Rumor: “A flight engineer has offers from AstraVail and Black Helix. Both promise freedom to innovate; neither seems willing to let her leave.”\n\nSuggested delivery: Engineer or colleague requesting an independent contract review.\n\nGM context: Introduces the AV2/BH3 competition. Restrictive terms need investigation; no abduction or accepted contract is established.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "everett-bastion",
         "university-enclave"
@@ -803,7 +939,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -817,7 +953,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "CG2-R1",
+          "title": "Before you send the sample",
+          "description": "Rumor: “ChimeraGene is asking frontier researchers for altered-creature samples. The payment looks generous; the ownership clauses cover discoveries nobody has made yet.”\n\nSuggested delivery: Researcher or sample broker after Adventure 3.\n\nGM context: Accurate CG2 appropriation pressure. Corporate interest in altered creatures is a proposed follow-on, not their established cause.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "CG2-R2",
+          "title": "An angel with a long reach",
+          "description": "Rumor: “A sample broker claims a ChimeraGene intermediary funds small independent laboratories. Voss’s angel investor might be worth a second look.”\n\nSuggested delivery: Broker with an unverified claim; Xibo can investigate his existing funding lead.\n\nGM context: ChimeraGene backing remains explicitly unconfirmed. Voss’s own corporation and angel funding are established; the transcript did not identify the backer.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "silicon-wilds"
       ]
@@ -867,7 +1020,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -881,7 +1034,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "VS1-R1",
+          "title": "Free speech, monthly fee",
+          "description": "Rumor: “West Seattle’s Open Signal Coalition got equipment it could never afford. Now its independent broadcasts need a subscription to keep working.”\n\nSuggested delivery: West Seattle technician at a runner meeting.\n\nGM context: Accurate VS1 dependence on proprietary services. Initial delivery need not identify the covert Vesper sponsor.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "VS1-R2",
+          "title": "Everyone liked the new program",
+          "description": "Rumor: “After a new broadcast update, listeners keep praising the same things in almost the same words. A technician wants someone to check the feed.”\n\nSuggested delivery: Coalition technician asking for a discreet second opinion.\n\nGM context: Lead to VS1-H1 and psychoactive neurofeeds. Similar speech is suspicious evidence, not a definitive diagnosis or proof that every coalition member knows.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "west-seattle"
       ]
@@ -1157,7 +1327,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -1171,7 +1341,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "HB1-R1",
+          "title": "The clinic outside the family",
+          "description": "Rumor: “A Shelter resident still uses an independent clinic in Helios Corridor. Its supplier says deliveries would be easier if it joined the Helios family.”\n\nSuggested delivery: Shelter resident worried about continuity of care.\n\nGM context: Uses the approved HB1 resident catalyst while retaining Helios Corridor geography. Specific clinic affiliation and procurement facts remain to be investigated.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "HB1-R2",
+          "title": "Bought everything around it",
+          "description": "Rumor: “Helios offered to buy a little independent business in the Corridor. It refused. Now every business it depends on seems to be taking the deal.”\n\nSuggested delivery: Resident with a former job or supplier connection in the Corridor.\n\nGM context: Accurate HB1 acquisition pressure. Do not assert Helios owns the Shelter or force the resident’s employment history to be a secret.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "helios-corridor"
       ]
@@ -1189,7 +1376,7 @@
       "projects": [],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
@@ -1203,7 +1390,24 @@
           "url": ""
         }
       ],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "HB2-R1",
+          "title": "They really are feeling better",
+          "description": "Rumor: “People in a Helios community-health program say they sleep better, feel less lonely, and finally understand each other. Even their skeptics admit it helps.”\n\nSuggested delivery: Participant discussing the program with friends.\n\nGM context: Early benefits are genuine in HB2’s premise; participants are not merely dupes. Specific accounts are new rumor-level introductions.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "HB2-R2",
+          "title": "A memory everyone shares",
+          "description": "Rumor: “Two strangers in the same health program describe the same childhood memory. Both insist it is theirs—and neither wants to stop treatment.”\n\nSuggested delivery: Acquaintance troubled by independent participant accounts.\n\nGM context: Introduces HB2-H1. Shared memories are a clue to investigate, not proof of any specific mechanism or universal outcome; no PC enrollment is assumed.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "seattle"
       ]
@@ -1576,12 +1780,29 @@
       ],
       "approval": "approved",
       "awareness": {
-        "selectedForIntroduction": false,
+        "selectedForIntroduction": true,
         "revealed": false,
         "knowledge": ""
       },
       "missions": [],
-      "rumors": [],
+      "rumors": [
+        {
+          "id": "CVAI2-R1",
+          "title": "Two originals",
+          "description": "Rumor: “A West Seattle document supposedly has two incompatible originals, and both pass authentication. The verifier says nothing is wrong.”\n\nSuggested delivery: Independent network operator showing a verification problem.\n\nGM context: New incident-level lead consistent with Babel. The rumor does not identify VAI, establish an alliance, or settle which record is genuine.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "CVAI2-R2",
+          "title": "Proof without permission",
+          "description": "Rumor: “A tool circulating through West Seattle lets communities certify records without OmniTrine. People love it—until two communities certify opposite accounts.”\n\nSuggested delivery: User comparing community authentication tools.\n\nGM context: Accurate CVAI2 method and risk. Distribution and this anecdote are proposed leads; do not imply that independence guarantees truth.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
       "locations": [
         "seattle"
       ]

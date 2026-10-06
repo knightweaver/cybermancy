@@ -17,7 +17,8 @@ await ctl('location').selectOption('gasworks');assert.deepEqual(await visibleIds
 await p.locator('[data-id=D2]').click();assert.ok((await ctl('details').textContent()).includes('Gasworks (Seattle)'));
 assert.ok((await ctl('status').textContent()).includes('hidden by filters'));await ctl('all-related').click();assert.ok(await count('.sa-node')>1);
 await overview();assert.deepEqual(await visibleIds(),new Set(['D2']));
-await ctl('location').selectOption('bombshell');assert.deepEqual(await visibleIds(),new Set(['D3','HD2','VB2','CD1','CH2','CAB2']));
+await ctl('location').selectOption('bombshell');assert.deepEqual(await visibleIds(),new Set(['D3','HD2','O2','CD1','CH2','CAB2']));
+await ctl('location').selectOption('old-city');assert.deepEqual(await visibleIds(),new Set(['VB2']));await ctl('location').selectOption('bombshell');
 await ctl('entity').selectOption('helion');assert.deepEqual(await visibleIds(),new Set(['HD2','CH2']));await ctl('entity').selectOption('');
 await ctl('location').selectOption('silicon-wilds');const wilds=await visibleIds();for(const id of ['HD3','VB1','AV1','AV3','CG2','KL2','BH2'])assert.ok(wilds.has(id),id+' should match Silicon Wilds');assert.equal(wilds.has('HD1'),false);
 await ctl('location').selectOption('seattle');const seattle=await visibleIds();for(const id of ['D1','D2','D3','N1','N2','HB1','VS2','KL2'])assert.ok(seattle.has(id),id+' should match Seattle');assert.equal(seattle.has('BH2'),false);
@@ -26,6 +27,12 @@ await ctl('search').fill('zzzz-no-match');assert.equal(await count('.sa-node'),0
 await ctl('awareness').selectOption('revealed');assert.equal(await count('.sa-node'),0);await ctl('awareness').selectOption('');
 await ctl('location').selectOption('');await overview();assert.equal(await count('.sa-node'),data.schemes.length);
 await ctl('search').fill('Everett Bastion');assert.ok((await visibleIds()).has('BH3'));await ctl('search').fill('');
+
+// Queuing is distinct from exposure; each selected scheme has available rumors.
+const queuedIds=new Set(['D2','O2','AV2','O1','HB1','VB2','VS1','O3','CVAI2','CG2','VB3','N1','HB2']);
+await ctl('awareness').selectOption('queued');assert.deepEqual(await visibleIds(),queuedIds);assert.equal(await count('.sa-badge'),13);
+await p.locator('[data-id=D2]').click();assert.ok((await ctl('details').textContent()).includes('Rumors (2)'));assert.ok((await ctl('details').textContent()).includes('The price of a clean workshop'));await overview();
+await ctl('awareness').selectOption('revealed');assert.equal(await count('.sa-node'),0);await ctl('awareness').selectOption('');await overview();
 
 for(const type of ['directs','supports','exploits','opposes','competes'])assert.ok(await count(`.sa-edge[data-type=${type}]`)>0);
 assert.equal(await p.locator('.sa-edge[data-type=opposes] path').first().getAttribute('marker-end').then(x=>x.includes('opposes')),true);
