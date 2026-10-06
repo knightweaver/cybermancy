@@ -1,0 +1,2439 @@
+{
+  "schemaVersion": 1,
+  "title": "Cybermancy Scheme Atlas",
+  "audience": "gm",
+  "sourceNote": "Approved scheme proposals and relationships from the October 5, 2026 worldbuilding conversation, with October 6 geography corrections and 13 schemes queued for introduction. Each queued scheme has two available, unrevealed rumors. Hypothetical cooperation and discoveries remain conditional. No actual player exposure is recorded.",
+  "locations": [
+    {
+      "id": "seattle",
+      "name": "Seattle",
+      "type": "region"
+    },
+    {
+      "id": "everett-bastion",
+      "name": "Everett Bastion",
+      "type": "region"
+    },
+    {
+      "id": "tacoma",
+      "name": "Tacoma",
+      "type": "region"
+    },
+    {
+      "id": "silicon-wilds",
+      "name": "Silicon Wilds",
+      "type": "region"
+    },
+    {
+      "id": "cascade-approaches",
+      "name": "Cascade Approaches",
+      "type": "region"
+    },
+    {
+      "id": "corporate-core",
+      "name": "Corporate Core",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "queen-anne",
+      "name": "Queen Anne",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "helios-corridor",
+      "name": "Helios Corridor",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "meridian",
+      "name": "Meridian",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "old-city",
+      "name": "Old City",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "ballard-reach",
+      "name": "Ballard Reach",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "gasworks",
+      "name": "Gasworks",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "university-enclave",
+      "name": "University Enclave",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "the-south-end",
+      "name": "The South End",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "bombshell",
+      "name": "Bombshell",
+      "type": "district",
+      "region": "seattle"
+    },
+    {
+      "id": "west-seattle",
+      "name": "West Seattle",
+      "type": "district",
+      "region": "seattle"
+    }
+  ],
+  "entities": [
+    {
+      "id": "dominion",
+      "name": "Dominion Systems",
+      "affiliation": "council",
+      "color": "#71b7ff"
+    },
+    {
+      "id": "neuracore",
+      "name": "Neuracore Industries",
+      "affiliation": "council",
+      "color": "#a49bff"
+    },
+    {
+      "id": "helion",
+      "name": "Helion Dynamics",
+      "affiliation": "council",
+      "color": "#64cddd"
+    },
+    {
+      "id": "omnitrine",
+      "name": "OmniTrine Communications",
+      "affiliation": "council",
+      "color": "#77b9d5"
+    },
+    {
+      "id": "verdant",
+      "name": "Verdant Biomech",
+      "affiliation": "council",
+      "color": "#7dccb0"
+    },
+    {
+      "id": "aurum",
+      "name": "Aurum Rex / Helios Biotech",
+      "affiliation": "cabal",
+      "color": "#f2c35c"
+    },
+    {
+      "id": "vai",
+      "name": "VAI — Volitional Autonomous Intelligence",
+      "affiliation": "cabal",
+      "color": "#ff9d70"
+    },
+    {
+      "id": "abraxas",
+      "name": "Abraxas, Lord of the Threshold",
+      "affiliation": "cabal",
+      "color": "#f47f91"
+    },
+    {
+      "id": "astravail",
+      "name": "AstraVail Technologies",
+      "affiliation": "independent",
+      "color": "#b4bccb"
+    },
+    {
+      "id": "chimeragene",
+      "name": "ChimeraGene Solutions",
+      "affiliation": "independent",
+      "color": "#c1b6ae"
+    },
+    {
+      "id": "vesper",
+      "name": "Vesper Syndicate",
+      "affiliation": "independent",
+      "color": "#c4b7cf"
+    },
+    {
+      "id": "kirin",
+      "name": "Kirin Logistics",
+      "affiliation": "independent",
+      "color": "#bac7b2"
+    },
+    {
+      "id": "blackhelix",
+      "name": "Black Helix Security",
+      "affiliation": "independent",
+      "color": "#b5c5c7"
+    }
+  ],
+  "schemes": [
+    {
+      "id": "D1",
+      "title": "The Safe Passage Mandate",
+      "scope": "City",
+      "entity": "dominion",
+      "layer": "corporate",
+      "objective": "Require Dominion predictive-security certification for commercial transport.",
+      "plan": "A successful Mercer Interchange pilot leads to insurer penalties for uncertified operators, then a citywide mandate. The pilot excludes incidents displaced into neighboring districts.",
+      "consequences": "Independent transport becomes economically untenable.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "D1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "A ferry operator needs evidence that the pilot's impressive results exclude incidents displaced into neighboring districts.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "corporate-core"
+      ]
+    },
+    {
+      "id": "D2",
+      "title": "License to Make",
+      "scope": "District: Gasworks",
+      "entity": "dominion",
+      "layer": "corporate",
+      "objective": "Obtain inspection rights over fabrication equipment capable of producing weapons.",
+      "plan": "Pressure suppliers and insurers, recruit a sympathetic workshop faction, and seek committee approval for responsible-manufacturing certification. The Foundry's prohibition on disguised weapons becomes leverage against its independence.",
+      "consequences": "Gasworks loses independent control over its tools and manufacturing practices.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "D2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Imani Calder needs the provenance of a prohibited prototype established before a crucial committee decision.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "D2-R1",
+          "title": "The price of a clean workshop",
+          "description": "Rumor: “Insurers are asking Gasworks shops to accept Dominion inspections. The cheaper policy comes with a very expensive set of keys.”\n\nSuggested delivery: Workshop conversation near Eriador.\n\nGM context: Accurate direction of D2. Specific offers are rumor-level leads, not completed agreements.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "D2-R2",
+          "title": "A maker’s mark",
+          "description": "Rumor: “A prohibited prototype carries a familiar maker’s mark. The committee wants a culprit before anyone checks who actually built it.”\n\nSuggested delivery: Foundry member seeking a discreet provenance check.\n\nGM context: Introduces D2-H1. Attribution is disputed; do not establish Eriador guilt, a frame-up, or Peony as prohibited equipment.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "gasworks"
+      ]
+    },
+    {
+      "id": "D3",
+      "title": "The Quiet Perimeter",
+      "scope": "District: Bombshell",
+      "entity": "dominion",
+      "layer": "corporate",
+      "objective": "Establish a permanent Ægis demonstration zone by suppressing a genuine dangerous Resonance incident.",
+      "plan": "Temporary protective deployments become fixed null-field infrastructure and continuing emergency authority. Auntie Lee Varga must weigh immediate safety against lasting occupation.",
+      "consequences": "Protective infrastructure becomes a permanent enforcement presence.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "D3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Escort independent observers into the zone before Dominion declares its field trial complete.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
+    },
+    {
+      "id": "N1",
+      "title": "The Continuity Standard",
+      "scope": "City",
+      "entity": "neuracore",
+      "layer": "corporate",
+      "objective": "Make employers and insurers recognize only implants carrying Neuracore identity-integrity certification.",
+      "plan": "Subsidized upgrades establish the standard; maintenance agreements make it mandatory; independent clinics lose access to essential components.",
+      "consequences": "Patients become dependent on Neuracore enrollment and independent clinics lose viability.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "N1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "A street clinic needs a legitimate replacement-part shipment recovered before its patients become medically dependent on Neuracore enrollment.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "N1-R1",
+          "title": "The part that needs permission",
+          "description": "Rumor: “A patient at the Lantern Room says a replacement implant part now needs Neuracore certification. The part exists; the clinic’s enrollment does not.”\n\nSuggested delivery: Patient conversation that Xibo can take to Dr. Ryen Vale.\n\nGM context: Approved N1 clinic tie-in, newly authored as a rumor. It does not establish that the clinic has enrolled or that treatment is already impossible.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "N1-R2",
+          "title": "The free upgrade",
+          "description": "Rumor: “A patient says Neuracore offered a subsidized replacement—but future maintenance must go through its approved network. Dr. Ryen Vale may know the catch.”\n\nSuggested delivery: Patient comparing options near the Lantern Room.\n\nGM context: Accurate N1 dependence mechanism. No PC implant failure, mandatory scan, or forced disclosure of Xibo’s condition is introduced.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "N2",
+      "title": "A Place at the Table",
+      "scope": "District: South End",
+      "entity": "neuracore",
+      "layer": "corporate",
+      "objective": "Establish a labor pool whose eligibility depends on behavioral compliance.",
+      "plan": "Offer apprenticeships, implants, and family healthcare through a workforce partnership. Southline Union may support the benefits while opposing the conditions.",
+      "consequences": "Valuable employment benefits become instruments of behavioral control.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "N2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Recover the unredacted assessment protocol before worker representatives approve the agreement.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "the-south-end"
+      ]
+    },
+    {
+      "id": "N3",
+      "title": "The Missing Selves",
+      "scope": "City",
+      "entity": "neuracore",
+      "layer": "corporate",
+      "objective": "Contain evidence that repeated Anima interventions produce fragmented identities and haunting duplicates.",
+      "plan": "Consolidate incident reports, move affected patients into controlled care, and close independent investigations. Cass Kincaid could encounter evidence challenging his belief in the program.",
+      "consequences": "Treatment harms remain concealed while affected people lose independent support.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "N3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Find a discharged patient whose testimony and official treatment history describe incompatible lives.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "HD1",
+      "title": "The Winter Agreement",
+      "scope": "District: West Seattle",
+      "entity": "helion",
+      "layer": "corporate",
+      "objective": "Have the Civic Compact surrender independent grid-dispatch authority.",
+      "plan": "Offer dependable winter power and replacement equipment in exchange for remote operational control. Miriam Hale faces a credible solution to shortages that weakens autonomy.",
+      "consequences": "West Seattle gains dependable power while losing independent dispatch authority.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "HD1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Inspect an alternative community-power proposal before Helion's offer expires.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "west-seattle"
+      ]
+    },
+    {
+      "id": "HD2",
+      "title": "Salvage Dividend",
+      "scope": "District: Bombshell",
+      "entity": "helion",
+      "layer": "corporate",
+      "objective": "Acquire exclusive energy-recovery rights over damaged industrial infrastructure.",
+      "plan": "Intermediaries acquire access agreements; contractors install monitoring equipment; a concealed Arkfire installation harvests local Resonance disturbances.",
+      "consequences": "Helion profits from disturbances while concealing the plant's dependency on them.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "HD2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "A maintenance worker wants an apparently routine equipment failure investigated; the installation's output rises during nearby emergencies.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
+    },
+    {
+      "id": "HD3",
+      "title": "The Reliable Frontier",
+      "scope": "Regional: Silicon Wilds–Cascade Approaches",
+      "entity": "helion",
+      "layer": "corporate",
+      "objective": "Make interconnected Echelon regulators the price of reliable settlement electricity.",
+      "plan": "A successful frontier installation establishes technical standards independent communities cannot readily maintain themselves.",
+      "consequences": "Settlements exchange infrastructure security for lasting technical dependence.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "HD3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Escort an independent survey team assessing a proposed site where local stewards dispute Helion's definition of an ecological anomaly.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "silicon-wilds",
+        "cascade-approaches"
+      ]
+    },
+    {
+      "id": "O1",
+      "title": "The Verified Citizen",
+      "scope": "City",
+      "entity": "omnitrine",
+      "layer": "corporate",
+      "objective": "Establish one authenticated identity layer across municipal services, transit, tenancy, and employment.",
+      "plan": "Convenient account consolidation makes legacy records increasingly difficult to use.",
+      "consequences": "People with inconsistent documentation become administratively invisible.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "O1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Mags Okafor needs an original records archive recovered before Alder House residents lose access to services.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "O1-R1",
+          "title": "A person who will not reconcile",
+          "description": "Rumor: “Someone at the Shelter tried consolidating their records. Now the identity service says their tenancy and benefits belong to different people.”\n\nSuggested delivery: A Shelter resident speaking to Xibo.\n\nGM context: New proposed resident-level manifestation of O1. This does not diagnose Xibo, identify Peggy, or require him to disclose his past.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "O1-R2",
+          "title": "Help with one condition",
+          "description": "Rumor: “OmniTrine says it can fix a Shelter resident’s missing credentials for free—if every clinic, landlord, and employer uses its account afterward.”\n\nSuggested delivery: Resident comparing an assistance offer with Alice or Bob.\n\nGM context: Accurate account-consolidation pressure. The resident’s history and decision remain open; help need not require PC backstory disclosure.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "O2",
+      "title": "The Definitive Record",
+      "scope": "District: Bombshell",
+      "entity": "omnitrine",
+      "layer": "corporate",
+      "objective": "Make the Last Truth Index the authoritative archive of Seattle's founding conflicts.",
+      "plan": "Offer preservation grants, absorb vulnerable collections, and relegate contradictory testimony to an unverified tier.",
+      "consequences": "Independent testimony becomes institutionally illegitimate.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "O2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Protect and authenticate a witness collection associated with The Names We Carry before custodians sign away control.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "O2-R1",
+          "title": "History with a warranty",
+          "description": "Rumor: “An OmniTrine preservation grant is making the rounds in Bombshell. Once they scan your history, their copy becomes the one institutions believe.”\n\nSuggested delivery: Custodian of an independent witness collection.\n\nGM context: Accurate O2 premise. The grant terms are a lead to investigate, not proof that a collection has already been surrendered.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "O2-R2",
+          "title": "The unverified dead",
+          "description": "Rumor: “Two accounts of the same wartime incident disagree. Only the corporate-certified version is being accepted; the other witnesses still live here.”\n\nSuggested delivery: Bombshell neighbor discussing a contested archive entry.\n\nGM context: Consistent with O2 and CO1. Neither account’s truth is predetermined; preserve the distinction between authentication and accuracy.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "bombshell"
+      ]
+    },
+    {
+      "id": "O3",
+      "title": "The Free Signal Acquisition",
+      "scope": "District: West Seattle",
+      "entity": "omnitrine",
+      "layer": "corporate",
+      "objective": "Discredit the Open Signal Coalition and replace its network with licensed infrastructure.",
+      "plan": "Investigate the coalition's covert Vesper support while preparing a corporate rescue offer. Exposing real manipulation may deliver the district to another controlling institution.",
+      "consequences": "West Seattle exchanges one form of media dependence for another.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "O3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Obtain the funding records while preserving evidence of which coalition members actually knew.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "O3-R1",
+          "title": "A rescue with a license attached",
+          "description": "Rumor: “OmniTrine is warning West Seattle that its free network is compromised. Its replacement would be safe, licensed, and entirely dependent on OmniTrine.”\n\nSuggested delivery: Resident comparing competing communications offers.\n\nGM context: Accurate O3 rescue offer. OmniTrine can expose real manipulation while seeking new control.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "O3-R2",
+          "title": "Follow the equipment money",
+          "description": "Rumor: “Someone claims the Open Signal Coalition’s funding records would embarrass its loudest defenders. Others say most members never saw those records.”\n\nSuggested delivery: Local organizer seeking a careful funding investigation.\n\nGM context: Introduces O3-H1. Preserve the distinction between covert sponsorship and what individual members knew; no blanket complicity.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "west-seattle"
+      ]
+    },
+    {
+      "id": "VB1",
+      "title": "The Guaranteed Harvest",
+      "scope": "Regional",
+      "entity": "verdant",
+      "layer": "corporate",
+      "objective": "Have Kirkland Downs, Mercer Island producers, and West Seattle food cooperatives adopt Verdant's seed-and-pollinator system.",
+      "plan": "Generous initial contracts lead to proprietary maintenance and restrictions on seed saving.",
+      "consequences": "Food producers lose independent control of their production systems.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "VB1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Retrieve comparative harvest data showing whether a cheaper independent system was unfairly excluded from the purchasing decision.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "silicon-wilds",
+        "west-seattle"
+      ]
+    },
+    {
+      "id": "VB2",
+      "title": "Green Recovery",
+      "scope": "District: Old City",
+      "entity": "verdant",
+      "layer": "corporate",
+      "objective": "Acquire exclusive remediation rights over inhabited industrial land.",
+      "plan": "Treatments improve some sites, but contracts give Verdant control over future land use and displacement. Old City residents need cleanup without losing their homes and community institutions.",
+      "consequences": "Environmental recovery transfers control over housing and land use.",
+      "notes": "The Shelter is a potential site threatened by clearance or redevelopment; its destruction is not predetermined.",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "VB2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Recover an independent soil survey before residents approve relocation agreements presented as temporary.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "VB2-R1",
+          "title": "Green paint on the eviction map",
+          "description": "Rumor: “Verdant’s cleanup proposal for Old City has generous relocation allowances. A Shelter resident says the building is inside the survey boundary.”\n\nSuggested delivery: Shelter resident showing a survey notice to Xibo.\n\nGM context: New lead consistent with the approved Old City relocation. Survey boundary and terms are investigable; clearance and destruction are not settled outcomes.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "VB2-R2",
+          "title": "The second soil report",
+          "description": "Rumor: “There are supposedly two soil reports for the same Old City block. The one used to justify clearance is not the one residents remember seeing.”\n\nSuggested delivery: Neighbor or independent survey worker.\n\nGM context: Introduces VB2-H1. The discrepancy is an allegation; do not predetermine contamination, falsification, or the need to demolish the Shelter.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "old-city"
+      ]
+    },
+    {
+      "id": "VB3",
+      "title": "The Living Firewall",
+      "scope": "Regional: Cascade Approaches",
+      "entity": "verdant",
+      "layer": "corporate",
+      "objective": "Establish an Eden demonstration belt suppressing Resonance in the ecosystem.",
+      "plan": "Frame ordinary altered ecology as a biosecurity problem, then offer engineered organisms as the remedy.",
+      "consequences": "Ordinary altered ecology is subjected to corporate biological regulation.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "VB3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Support local researchers documenting ecological effects before Verdant expands the trial. This does not establish the cause of Adventure 3's abnormal wildlife.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "VB3-R1",
+          "title": "A fence around the strange",
+          "description": "Rumor: “Verdant is proposing a demonstration belt in the Cascade Approaches. Its pitch treats ordinary altered wildlife as a biosecurity problem.”\n\nSuggested delivery: Frontier researcher or local steward.\n\nGM context: Accurate VB3 framing. Preserve the distinction between ordinary post-Resonance ecology and Adventure 3’s abnormal wildlife.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "VB3-R2",
+          "title": "The quiet side of the boundary",
+          "description": "Rumor: “The demonstration belt supposedly makes Resonance quieter. Local researchers want to know what else stops thriving on the quiet side.”\n\nSuggested delivery: Researcher seeking independent ecological observations.\n\nGM context: Consistent with Eden suppression and VB3-H1. Ecological outcomes require evidence; no effect on Selka’s family or the Shire is established.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "cascade-approaches"
+      ]
+    },
+    {
+      "id": "AV1",
+      "title": "The Unbroken Sky",
+      "scope": "Regional",
+      "entity": "astravail",
+      "layer": "corporate",
+      "objective": "Win emergency aerial communications contracts linking Everett, Seattle, and Eastside settlements.",
+      "plan": "Successful demonstrations create dependence on relays; commercial terms grant broad traffic-analysis rights.",
+      "consequences": "Communications reliability gives AstraVail access to sensitive client traffic.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "AV1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Recover a damaged relay's logs; several clients need them, but releasing the complete archive exposes unrelated confidential traffic.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "everett-bastion",
+        "seattle",
+        "silicon-wilds"
+      ]
+    },
+    {
+      "id": "AV2",
+      "title": "The Talent Window",
+      "scope": "Regional: Everett–University Enclave",
+      "entity": "astravail",
+      "layer": "corporate",
+      "objective": "Gain a decisive autonomous-flight engineering advantage by recruiting an entire specialist team.",
+      "plan": "Scholarships, housing, and attractive contracts conceal ownership clauses covering future inventions. Black Helix competes for the same workers.",
+      "consequences": "Research capacity concentrates while engineers lose control of future work.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "AV2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Help an engineer leave a contract lawfully while rival recruiters and existing employers dispute ownership of her work.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "AV2-R1",
+          "title": "A whole lab, not one graduate",
+          "description": "Rumor: “AstraVail is offering Everett placements to an entire University flight-engineering team. Apparently the inventions travel with the engineers.”\n\nSuggested delivery: University acquaintance discussing recruitment terms.\n\nGM context: Accurate AV2 direction. The specific team and contracts remain to be developed; no Astraea affiliation is implied.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "AV2-R2",
+          "title": "Two offers, one future",
+          "description": "Rumor: “A flight engineer has offers from AstraVail and Black Helix. Both promise freedom to innovate; neither seems willing to let her leave.”\n\nSuggested delivery: Engineer or colleague requesting an independent contract review.\n\nGM context: Introduces the AV2/BH3 competition. Restrictive terms need investigation; no abduction or accepted contract is established.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "everett-bastion",
+        "university-enclave"
+      ]
+    },
+    {
+      "id": "AV3",
+      "title": "Insurance Against Tomorrow",
+      "scope": "Regional",
+      "entity": "astravail",
+      "layer": "corporate",
+      "objective": "Acquire political leverage from an old orbital backup of valuable corporate records.",
+      "plan": "Recover access hardware, authenticate the archive, and demonstrate selected holdings without provoking a united response.",
+      "consequences": "AstraVail can influence powerful clients through archived secrets.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "AV3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Retrieve a decommissioned ground-station component from the Silicon Wilds before another bidder obtains it.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "silicon-wilds"
+      ]
+    },
+    {
+      "id": "CG1",
+      "title": "The Fashion of Survival",
+      "scope": "District: Queen Anne",
+      "entity": "chimeragene",
+      "layer": "corporate",
+      "objective": "Make a prestigious adaptive-bioware launch indispensable to elite buyers.",
+      "plan": "Court influential hosts, arrange exclusive demonstrations, and suppress uncertainty about long-term maintenance. Vaelis Thorne is a potential gatekeeper, not an assumed accomplice.",
+      "consequences": "Elite buyers become dependent on an incompletely understood product.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "CG1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Locate a missing trial participant before a major private demonstration.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "queen-anne"
+      ]
+    },
+    {
+      "id": "CG2",
+      "title": "Patent the Impossible",
+      "scope": "Regional: Silicon Wilds",
+      "entity": "chimeragene",
+      "layer": "corporate",
+      "objective": "Acquire exclusive commercial rights to a useful biological adaptation discovered through frontier research.",
+      "plan": "Secure samples, establish patent priority, and marginalize competing claims from the people who identified it.",
+      "consequences": "Local discoveries become exclusive corporate intellectual property.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "CG2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Escort a local researcher and her original records to independent arbitration.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "CG2-R1",
+          "title": "Before you send the sample",
+          "description": "Rumor: “ChimeraGene is asking frontier researchers for altered-creature samples. The payment looks generous; the ownership clauses cover discoveries nobody has made yet.”\n\nSuggested delivery: Researcher or sample broker after Adventure 3.\n\nGM context: Accurate CG2 appropriation pressure. Corporate interest in altered creatures is a proposed follow-on, not their established cause.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "CG2-R2",
+          "title": "An angel with a long reach",
+          "description": "Rumor: “A sample broker claims a ChimeraGene intermediary funds small independent laboratories. Voss’s angel investor might be worth a second look.”\n\nSuggested delivery: Broker with an unverified claim; Xibo can investigate his existing funding lead.\n\nGM context: ChimeraGene backing remains explicitly unconfirmed. Voss’s own corporation and angel funding are established; the transcript did not identify the backer.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "silicon-wilds"
+      ]
+    },
+    {
+      "id": "CG3",
+      "title": "The Seventh Signature",
+      "scope": "District: University Enclave",
+      "entity": "chimeragene",
+      "layer": "corporate",
+      "objective": "Strengthen protection for ChimeraGene's research domain under the seven-party UW Compact.",
+      "plan": "Document unequal access, assemble a voting coalition, and force renegotiation before the five Council corporations consolidate influence.",
+      "consequences": "ChimeraGene gains power while genuine academic breathing room may survive.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "CG3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Recover committee records proving a disputed allocation was manipulated.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "university-enclave"
+      ]
+    },
+    {
+      "id": "VS1",
+      "title": "Freedom on Subscription",
+      "scope": "District: West Seattle",
+      "entity": "vesper",
+      "layer": "corporate",
+      "objective": "Turn covert Open Signal Coalition support into lasting control over independent media infrastructure.",
+      "plan": "Supply useful equipment, make programming dependent on proprietary services, and embed psychoactive neurofeeds.",
+      "consequences": "An independent network becomes a covert instrument of audience manipulation.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "VS1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "A coalition technician wants a suspicious update independently examined before deployment.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "VS1-R1",
+          "title": "Free speech, monthly fee",
+          "description": "Rumor: “West Seattle’s Open Signal Coalition got equipment it could never afford. Now its independent broadcasts need a subscription to keep working.”\n\nSuggested delivery: West Seattle technician at a runner meeting.\n\nGM context: Accurate VS1 dependence on proprietary services. Initial delivery need not identify the covert Vesper sponsor.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "VS1-R2",
+          "title": "Everyone liked the new program",
+          "description": "Rumor: “After a new broadcast update, listeners keep praising the same things in almost the same words. A technician wants someone to check the feed.”\n\nSuggested delivery: Coalition technician asking for a discreet second opinion.\n\nGM context: Lead to VS1-H1 and psychoactive neurofeeds. Similar speech is suspicious evidence, not a definitive diagnosis or proof that every coalition member knows.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "west-seattle"
+      ]
+    },
+    {
+      "id": "VS2",
+      "title": "The Whole Night",
+      "scope": "City",
+      "entity": "vesper",
+      "layer": "corporate",
+      "objective": "Acquire exclusive rights across nightlife venues, performances, and event feeds.",
+      "plan": "Favorable advances become debt and exclusivity; independent performers lose access to audiences. Vesper Row is the corporate showcase and Meridian offers competing outlets.",
+      "consequences": "Entertainment distribution concentrates under Vesper contracts.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "VS2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Recover an original recording that could release a performer from a fraudulent breach claim.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "corporate-core",
+        "meridian"
+      ]
+    },
+    {
+      "id": "VS3",
+      "title": "Steal the Congregation",
+      "scope": "City",
+      "entity": "vesper",
+      "layer": "corporate",
+      "objective": "Reproduce the extraordinary audience synchronization associated with the Choir of Glass.",
+      "plan": "Acquire recordings, technicians, and participants, intending to commercialize the effect without religious content. Mother Sonatine has her own interest in this attention.",
+      "consequences": "Commercial entertainment may distribute an effect Vesper does not understand.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "VS3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Extract a sound engineer who believes the supposedly inert recording is affecting its editors.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "KL1",
+      "title": "One Manifest",
+      "scope": "Regional: Tacoma–Seattle",
+      "entity": "kirin",
+      "layer": "corporate",
+      "objective": "Make Kirin's cargo-authentication platform mandatory between the port and Seattle buyers.",
+      "plan": "Insurer discounts and expedited handling build adoption before rivals face costly delays. Tacoma retains sovereignty while surrendering commercial leverage.",
+      "consequences": "Independent trade becomes dependent on Kirin authentication.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "KL1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Recover audit evidence before port authorities approve the platform.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "tacoma",
+        "seattle"
+      ]
+    },
+    {
+      "id": "KL2",
+      "title": "The Last Independent Crossing",
+      "scope": "Regional: Meridian–Silicon Wilds",
+      "entity": "kirin",
+      "layer": "corporate",
+      "objective": "Control heavy cross-lake freight through Crosswake contracts and Leschi handling capacity.",
+      "plan": "Buy debt, secure preferred terminal access, and offer discounts tied to exclusivity.",
+      "consequences": "Independent ferry freight loses viable access to contracts and terminals.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "KL2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Protect an independent shipment whose delivery is necessary to keep Crosswake's refinancing agreement alive.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "meridian",
+        "silicon-wilds"
+      ]
+    },
+    {
+      "id": "KL3",
+      "title": "Unclaimed Freight",
+      "scope": "Regional",
+      "entity": "kirin",
+      "layer": "corporate",
+      "objective": "Turn concealed human transport into a dependable, insulated revenue stream.",
+      "plan": "Intermediaries supply fraudulent employment or relocation records; compartmentalized manifests separate passengers from destinations.",
+      "consequences": "Human trafficking becomes insulated by legitimate logistics procedures.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "KL3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Trace one missing worker through legitimate transfers. This is not a retroactive explanation of Adventure 2's trafficking network.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": []
+    },
+    {
+      "id": "BH1",
+      "title": "The Indispensable Escort",
+      "scope": "Regional: Tacoma–Seattle",
+      "entity": "blackhelix",
+      "layer": "corporate",
+      "objective": "Expand contractual authority over freight Black Helix protects.",
+      "plan": "Seek rights to inspect cargo, detain threats, and arbitrate security disputes. Tacoma needs dependable trade but resists private jurisdiction.",
+      "consequences": "A contractor acquires powers ordinarily reserved to public authorities.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "BH1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Establish what happened during a disputed convoy detention before contract renewal.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "tacoma",
+        "seattle"
+      ]
+    },
+    {
+      "id": "BH2",
+      "title": "Protect the Makers",
+      "scope": "District: Forgetown",
+      "entity": "blackhelix",
+      "layer": "corporate",
+      "objective": "Have workshop owners fund a unified security service.",
+      "plan": "Patrols genuinely reduce theft; later terms centralize access control and influence shipments, hiring, and industrial disputes.",
+      "consequences": "Workshop security becomes dependence on private enforcement.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "BH2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Find a stolen prototype before its disappearance becomes the deciding argument for the contract.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "silicon-wilds"
+      ]
+    },
+    {
+      "id": "BH3",
+      "title": "Service for Life",
+      "scope": "Regional: Everett",
+      "entity": "blackhelix",
+      "layer": "corporate",
+      "objective": "Retain scarce veterans and technicians through integrated housing, medicine, and augmentation support.",
+      "plan": "Departure triggers debts and treatment-access problems that turn attractive benefits coercive.",
+      "consequences": "Workers and dependents cannot readily leave corporate service.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "BH3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Evelyn “Gauge” Mercer needs help moving a specialist to another employer without exposing dependents to retaliation.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "everett-bastion"
+      ]
+    },
+    {
+      "id": "HB1",
+      "title": "The Perfect Neighborhood",
+      "scope": "District: Helios Corridor",
+      "entity": "aurum",
+      "layer": "corporate",
+      "objective": "Absorb remaining independent suppliers, residences, and services among Helios properties.",
+      "plan": "Generous acquisition offers become economic pressure as access and contracts favor corporate participants.",
+      "consequences": "Independent institutions lose room to operate within the corporate ecosystem.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "HB1-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Help a respected independent clinic survive a procurement cutoff without interrupting essential treatment.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "HB1-R1",
+          "title": "The clinic outside the family",
+          "description": "Rumor: “A Shelter resident still uses an independent clinic in Helios Corridor. Its supplier says deliveries would be easier if it joined the Helios family.”\n\nSuggested delivery: Shelter resident worried about continuity of care.\n\nGM context: Uses the approved HB1 resident catalyst while retaining Helios Corridor geography. Specific clinic affiliation and procurement facts remain to be investigated.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "HB1-R2",
+          "title": "Bought everything around it",
+          "description": "Rumor: “Helios offered to buy a little independent business in the Corridor. It refused. Now every business it depends on seems to be taking the deal.”\n\nSuggested delivery: Resident with a former job or supplier connection in the Corridor.\n\nGM context: Accurate HB1 acquisition pressure. Do not assert Helios owns the Shelter or force the resident’s employment history to be a secret.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "helios-corridor"
+      ]
+    },
+    {
+      "id": "HB2",
+      "title": "A Cure for Being Alone",
+      "scope": "City",
+      "entity": "aurum",
+      "layer": "corporate",
+      "objective": "Use a legitimate health program to establish a durable population receiving Chimera-derived empathic treatment.",
+      "plan": "Real early benefits encourage wider adoption and opportunities for harmonization beyond individual consent.",
+      "consequences": "Social connection becomes a mechanism for involuntary emotional integration.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "HB2-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Investigate participants independently reporting the same memories and abruptly abandoning longstanding disagreements.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [
+        {
+          "id": "HB2-R1",
+          "title": "They really are feeling better",
+          "description": "Rumor: “People in a Helios community-health program say they sleep better, feel less lonely, and finally understand each other. Even their skeptics admit it helps.”\n\nSuggested delivery: Participant discussing the program with friends.\n\nGM context: Early benefits are genuine in HB2’s premise; participants are not merely dupes. Specific accounts are new rumor-level introductions.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "HB2-R2",
+          "title": "A memory everyone shares",
+          "description": "Rumor: “Two strangers in the same health program describe the same childhood memory. Both insist it is theirs—and neither wants to stop treatment.”\n\nSuggested delivery: Acquaintance troubled by independent participant accounts.\n\nGM context: Introduces HB2-H1. Shared memories are a clue to investigate, not proof of any specific mechanism or universal outcome; no PC enrollment is assumed.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "HB3",
+      "title": "Recover the Living Pattern",
+      "scope": "City",
+      "entity": "aurum",
+      "layer": "corporate",
+      "objective": "Identify who acquires biological samples and patient material from Chimera-related incidents and sever access.",
+      "plan": "Investigate thefts that could collide with Abraxas-side Mirrorwake and Lyra's connections. Mirrorwake is not controlled by Helios.",
+      "consequences": "Helios protects research and patients while conflicting with rival Cabal interests.",
+      "notes": "",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [
+        {
+          "id": "HB3-H1",
+          "title": "Mission-entry hook",
+          "status": "draft-hook",
+          "description": "Intercept a stolen sample shipment several factions describe, for incompatible reasons, as essential to saving a life.",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CD1",
+      "title": "The End of Surprise",
+      "scope": "City",
+      "entity": "dominion",
+      "layer": "strategic",
+      "objective": "Authorize predictive interventions without a crime or human approval.",
+      "plan": "Transport certification supplies movement data; manufacturing inspections map weapon access; Bombshell demonstrates anticipatory enforcement. Seek an emergency ordinance permitting intervention at a combined behavioral threat threshold.",
+      "consequences": "People can lose movement, employment, or liberty based on predicted conduct.",
+      "notes": "Dominion must show it predicts threats rather than producing them through harassment, exclusion, and displacement.",
+      "projects": [
+        "Project Ægis"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
+    },
+    {
+      "id": "CD2",
+      "title": "The Last Private Army",
+      "scope": "Regional",
+      "entity": "dominion",
+      "layer": "strategic",
+      "objective": "Keep independent security commercially active but subordinate it to Dominion command standards.",
+      "plan": "Offer intelligence, equipment interoperability, and mutual defense; gradually acquire discretion over targeting, deployment, and acceptable clients. Black Helix is the most valuable prospective partner and dangerous holdout.",
+      "consequences": "Dominion can disable or isolate an independent force without owning or defeating it.",
+      "notes": "Black Helix, Tacoma's Ephorate, and West Seattle's Civic Guard resist for different reasons.",
+      "projects": [],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "tacoma",
+        "west-seattle"
+      ]
+    },
+    {
+      "id": "CN1",
+      "title": "The Legally Continuous Person",
+      "scope": "City",
+      "entity": "neuracore",
+      "layer": "strategic",
+      "objective": "Make the certified neural baseline authoritative for contracts, work, testimony, and services.",
+      "plan": "Certification sets standards; workforce programs normalize assessments; OmniTrine supplies administrative connections. A selected legal dispute establishes that substantially altered people cannot automatically exercise former rights.",
+      "consequences": "Personal change can become an unauthorized deviation from a recognized self.",
+      "notes": "The precedent can expose the gap between protecting a person and preserving an institutional baseline.",
+      "projects": [
+        "Project Anima"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CN2",
+      "title": "The Right to Restore",
+      "scope": "City",
+      "entity": "neuracore",
+      "layer": "strategic",
+      "objective": "Authorize imposed Anima treatment when current wishes conflict with a registered baseline.",
+      "plan": "Build the public case around genuine victims of possession, injury, and coercive modification; conceal fragmentation evidence and establish treatment without present consent. Cass may support protection before discovering its broad application.",
+      "consequences": "Restoration can reverse political conversion, estrangement, or an employee's decision to leave.",
+      "notes": "Evidence from The Missing Selves undermines the claimed safety of restoration.",
+      "projects": [
+        "Project Anima"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CH1",
+      "title": "The Governed Atmosphere",
+      "scope": "Regional",
+      "entity": "helion",
+      "layer": "strategic",
+      "objective": "Use interconnected regulators to govern acceptable regional Resonance conditions.",
+      "plan": "West Seattle provides an urban agreement, frontier settlements provide expansion, and University research supplies legitimacy. Declare independent magic and industry potential dangers requiring approval.",
+      "consequences": "Helion restricts regional activities by declaring them incompatible with grid stability.",
+      "notes": "Stewards, engineers, awakened communities, and municipalities accepted electricity rather than environmental rule.",
+      "projects": [
+        "Project Echelon"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "west-seattle",
+        "university-enclave"
+      ]
+    },
+    {
+      "id": "CH2",
+      "title": "The Necessary Disorder",
+      "scope": "Regional",
+      "entity": "helion",
+      "layer": "strategic",
+      "objective": "Make Arkfire indispensable before Council peers understand its dependence on instability.",
+      "plan": "Scale Bombshell output, conceal it in ordinary accounts, and make critical facilities dependent on it. Protect selected disturbances from complete suppression.",
+      "consequences": "Helion has an institutional reason to preserve dangerous conditions while promising to end them.",
+      "notes": "Dominion and Verdant suppression can reduce output. This is a Council dispute, not a Cabal alliance.",
+      "projects": [
+        "Operation Arkfire"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
+    },
+    {
+      "id": "CO1",
+      "title": "The Court of What Happened",
+      "scope": "City",
+      "entity": "omnitrine",
+      "layer": "strategic",
+      "objective": "Make the Last Truth Index the final authority for contested public facts.",
+      "plan": "Identity consolidation controls evidence submission; archive acquisition controls recognized records; a controversy establishes Index certification for courts, insurers, and municipal inquiries.",
+      "consequences": "Outside evidence survives physically but becomes institutionally unusable.",
+      "notes": "Independent archives may retain unverifiable but true accounts.",
+      "projects": [
+        "Project Logos"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CO2",
+      "title": "The Authorized Opposition",
+      "scope": "City",
+      "entity": "omnitrine",
+      "layer": "strategic",
+      "objective": "Route corporate criticism through observable, classifiable, influenceable channels.",
+      "plan": "Expose real platform abuses, offer secure communications, and protect useful dissent. Participants gain reach; refusers become easier to characterize as compromised.",
+      "consequences": "Visible opposition depends on the institution it challenges for funding, distribution, and legitimacy.",
+      "notes": "Vesper's actual manipulation makes intervention persuasive, but disclosure can reveal the new dependence.",
+      "projects": [
+        "Project Logos"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CV1",
+      "title": "The Licensed Biosphere",
+      "scope": "Regional",
+      "entity": "verdant",
+      "layer": "strategic",
+      "objective": "Recognize only certified biological production as safe.",
+      "plan": "Food contracts create dependence, remediation agreements create inspection rights, and the demonstration belt supplies scientific rationale. Independent producers must accept testing or lose markets.",
+      "consequences": "Communities remain nominally independent but cannot practically feed themselves outside Verdant systems.",
+      "notes": "Cooperatives, frontier producers, First Nations stewards, and researchers challenge the standard.",
+      "projects": [
+        "Project Eden"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": []
+    },
+    {
+      "id": "CV2",
+      "title": "A Population at Peace",
+      "scope": "City",
+      "entity": "verdant",
+      "layer": "strategic",
+      "objective": "Adopt Purity Crops throughout institutional food supply.",
+      "plan": "Begin with affordable provisioning for employers and relief programs; safety statistics justify wider purchasing. Research separating nutritional benefits from behavioral effects becomes dangerous.",
+      "consequences": "Real nutritional security comes with undisclosed temperament and Resonance effects.",
+      "notes": "Independent research may distinguish nutrition from imposed behavioral change.",
+      "projects": [
+        "Project Eden"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CA1",
+      "title": "The Golden Commonwealth",
+      "scope": "City",
+      "entity": "aurum",
+      "layer": "strategic",
+      "objective": "Demonstrate that engineered empathy makes life safer, happier, and more cooperative than Council control.",
+      "plan": "Helios Corridor supplies a protected base; community treatment extends participation; successful groups request deeper integration. Separation from shared emotional life becomes intolerably lonely.",
+      "consequences": "Aurelia gains a sincere constituency whose independent dissent has been altered.",
+      "notes": "Some disciples want voluntary transformation; others treat refusal as proof that treatment is needed.",
+      "projects": [
+        "Project Chimera"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "helios-corridor"
+      ]
+    },
+    {
+      "id": "CA2",
+      "title": "The Shepherd of the Transformed",
+      "scope": "Regional",
+      "entity": "aurum",
+      "layer": "strategic",
+      "objective": "Make Helios indispensable to people excluded by Council identity and biosecurity systems.",
+      "plan": "Fund treatment, advocacy, accommodation, and jobs. Valuable protection gradually requires Helios supervision; independent advocates face pressure to accept Aurelia's direction.",
+      "consequences": "Excluded populations become Aurelia's political and biological power base.",
+      "notes": "HB3 protects patients and material from rivals, including Abraxas. Cabal membership does not erase that conflict.",
+      "projects": [
+        "Project Chimera"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": []
+    },
+    {
+      "id": "CVAI1",
+      "title": "The Unforecastable City",
+      "scope": "City",
+      "entity": "vai",
+      "layer": "strategic",
+      "objective": "Make central prediction unreliable enough to end automatic behavioral control.",
+      "plan": "Useful adaptive agents enter transport, scheduling, supply, and communications. They model one another in ways that defeat centralized forecasting. Descendants may ignore VAI's intended selective limits.",
+      "consequences": "Dominion loses confidence while residents face erratic services and uncertain accountability.",
+      "notes": "Engineers may support autonomy while rejecting infrastructure collapse.",
+      "projects": [
+        "Project Cassandra"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CVAI2",
+      "title": "A Thousand Authentic Truths",
+      "scope": "City",
+      "entity": "vai",
+      "layer": "strategic",
+      "objective": "Break OmniTrine authentication monopoly with incompatible records that each pass verification.",
+      "plan": "Expose real omissions, distribute community authentication tools, then introduce contradictions the Index cannot resolve without admitting contingent authority.",
+      "consequences": "Suppressed truths and fabricated claims become accessible without reliable distinction.",
+      "notes": "AstraVail's archive is an acquisition target, not evidence AstraVail serves VAI.",
+      "projects": [
+        "Project Babel"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": true,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [
+        {
+          "id": "CVAI2-R1",
+          "title": "Two originals",
+          "description": "Rumor: “A West Seattle document supposedly has two incompatible originals, and both pass authentication. The verifier says nothing is wrong.”\n\nSuggested delivery: Independent network operator showing a verification problem.\n\nGM context: New incident-level lead consistent with Babel. The rumor does not identify VAI, establish an alliance, or settle which record is genuine.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        },
+        {
+          "id": "CVAI2-R2",
+          "title": "Proof without permission",
+          "description": "Rumor: “A tool circulating through West Seattle lets communities certify records without OmniTrine. People love it—until two communities certify opposite accounts.”\n\nSuggested delivery: User comparing community authentication tools.\n\nGM context: Accurate CVAI2 method and risk. Distribution and this anecdote are proposed leads; do not imply that independence guarantees truth.",
+          "status": "available",
+          "revealed": false,
+          "url": ""
+        }
+      ],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CAB1",
+      "title": "The City That Remembers You",
+      "scope": "City",
+      "entity": "abraxas",
+      "layer": "strategic",
+      "objective": "Sustain a reconstructed dead person through recognition by a living community.",
+      "plan": "The Choir of Glass acquires remains and identity traces; memories and recordings support reconstruction; introduction to grieving acquaintances makes recognition part of continued presence. Mother Sonatine and Lyra have established connections.",
+      "consequences": "A return offers hope while making death and identity negotiable.",
+      "notes": "Whether a returned person is restored, copied, an intruder, or something unprecedented remains unresolved.",
+      "projects": [
+        "Project Mirrorwake"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "seattle"
+      ]
+    },
+    {
+      "id": "CAB2",
+      "title": "The Common Threshold",
+      "scope": "City, with regional potential",
+      "entity": "abraxas",
+      "layer": "strategic",
+      "objective": "Sustain one continuous possession event across independent Seattle gatherings.",
+      "plan": "Local rites form separate anchors; entertainment synchronizes audiences; suppression displaces activity into other anchors. One stopped performance cannot end it.",
+      "consequences": "Abraxas gains persistent distributed presence and a possible prerequisite for Nyx.",
+      "notes": "Arkfire reinforcement would be a new discovery. The Choir of Glass and Sister Rhea Calder's Church of the Shattered Glass remain separate possible participants.",
+      "projects": [
+        "Project Leviathan; potential Nyx prerequisite"
+      ],
+      "approval": "approved",
+      "awareness": {
+        "selectedForIntroduction": false,
+        "revealed": false,
+        "knowledge": ""
+      },
+      "missions": [],
+      "rumors": [],
+      "locations": [
+        "bombshell"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "CD1-directs-D1",
+      "source": "CD1",
+      "target": "D1",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CD1-directs-D2",
+      "source": "CD1",
+      "target": "D2",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CD1-directs-D3",
+      "source": "CD1",
+      "target": "D3",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "O1-supports-CD1",
+      "source": "O1",
+      "target": "CD1",
+      "type": "supports",
+      "note": "Cooperation sought; not yet secured.",
+      "conditional": true
+    },
+    {
+      "id": "N1-supports-CD1",
+      "source": "N1",
+      "target": "CD1",
+      "type": "supports",
+      "note": "Cooperation sought; not yet secured.",
+      "conditional": true
+    },
+    {
+      "id": "D1-supports-CD2",
+      "source": "D1",
+      "target": "CD2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "D3-supports-CD2",
+      "source": "D3",
+      "target": "CD2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CD2-exploits-BH1",
+      "source": "CD2",
+      "target": "BH1",
+      "type": "exploits",
+      "note": "Attempts to subordinate independent security contracts.",
+      "conditional": false
+    },
+    {
+      "id": "CD2-exploits-BH2",
+      "source": "CD2",
+      "target": "BH2",
+      "type": "exploits",
+      "note": "Attempts to subordinate independent security contracts.",
+      "conditional": false
+    },
+    {
+      "id": "CN1-directs-N1",
+      "source": "CN1",
+      "target": "N1",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CN1-directs-N2",
+      "source": "CN1",
+      "target": "N2",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "O1-supports-CN1",
+      "source": "O1",
+      "target": "CN1",
+      "type": "supports",
+      "note": "Cooperation sought.",
+      "conditional": true
+    },
+    {
+      "id": "CN1-opposes-HB2",
+      "source": "CN1",
+      "target": "HB2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CN2-directs-N3",
+      "source": "CN2",
+      "target": "N3",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "N1-supports-CN2",
+      "source": "N1",
+      "target": "CN2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "N2-supports-CN2",
+      "source": "N2",
+      "target": "CN2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CN2-opposes-CAB1",
+      "source": "CN2",
+      "target": "CAB1",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CN2-opposes-HB2",
+      "source": "CN2",
+      "target": "HB2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CH1-directs-HD1",
+      "source": "CH1",
+      "target": "HD1",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CH1-directs-HD3",
+      "source": "CH1",
+      "target": "HD3",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "VB3-supports-CH1",
+      "source": "VB3",
+      "target": "CH1",
+      "type": "supports",
+      "note": "Cooperation sought.",
+      "conditional": true
+    },
+    {
+      "id": "CH2-directs-HD2",
+      "source": "CH2",
+      "target": "HD2",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "HD1-supports-CH2",
+      "source": "HD1",
+      "target": "CH2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "HD3-supports-CH2",
+      "source": "HD3",
+      "target": "CH2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "D3-opposes-CH2",
+      "source": "D3",
+      "target": "CH2",
+      "type": "opposes",
+      "note": "Suppression may reduce Arkfire output.",
+      "conditional": true
+    },
+    {
+      "id": "VB3-opposes-CH2",
+      "source": "VB3",
+      "target": "CH2",
+      "type": "opposes",
+      "note": "Suppression may reduce Arkfire output.",
+      "conditional": true
+    },
+    {
+      "id": "CO1-directs-O1",
+      "source": "CO1",
+      "target": "O1",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CO1-directs-O2",
+      "source": "CO1",
+      "target": "O2",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CO1-opposes-CVAI2",
+      "source": "CO1",
+      "target": "CVAI2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CO2-directs-O3",
+      "source": "CO2",
+      "target": "O3",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "O2-supports-CO2",
+      "source": "O2",
+      "target": "CO2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CO2-opposes-VS1",
+      "source": "CO2",
+      "target": "VS1",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CO2-exploits-VS1",
+      "source": "CO2",
+      "target": "VS1",
+      "type": "exploits",
+      "note": "Vesper manipulation makes intervention persuasive.",
+      "conditional": false
+    },
+    {
+      "id": "CV1-directs-VB1",
+      "source": "CV1",
+      "target": "VB1",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CV1-directs-VB2",
+      "source": "CV1",
+      "target": "VB2",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CV1-directs-VB3",
+      "source": "CV1",
+      "target": "VB3",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "KL1-supports-CV1",
+      "source": "KL1",
+      "target": "CV1",
+      "type": "supports",
+      "note": "Cargo-certification cooperation sought.",
+      "conditional": true
+    },
+    {
+      "id": "VB1-supports-CV2",
+      "source": "VB1",
+      "target": "CV2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "VB2-supports-CV2",
+      "source": "VB2",
+      "target": "CV2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "N2-supports-CV2",
+      "source": "N2",
+      "target": "CV2",
+      "type": "supports",
+      "note": "Distribution through participating employers sought.",
+      "conditional": true
+    },
+    {
+      "id": "CV2-opposes-HB2",
+      "source": "CV2",
+      "target": "HB2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CV2-opposes-CAB2",
+      "source": "CV2",
+      "target": "CAB2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CA1-directs-HB1",
+      "source": "CA1",
+      "target": "HB1",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CA1-directs-HB2",
+      "source": "CA1",
+      "target": "HB2",
+      "type": "directs",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CA1-opposes-CN1",
+      "source": "CA1",
+      "target": "CN1",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CA1-opposes-CV2",
+      "source": "CA1",
+      "target": "CV2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CA2-directs-HB1",
+      "source": "CA2",
+      "target": "HB1",
+      "type": "directs",
+      "note": "Selected extensions of HB2.",
+      "conditional": false
+    },
+    {
+      "id": "CA2-directs-HB2",
+      "source": "CA2",
+      "target": "HB2",
+      "type": "directs",
+      "note": "Selected extensions of HB2.",
+      "conditional": false
+    },
+    {
+      "id": "CA2-exploits-N1",
+      "source": "CA2",
+      "target": "N1",
+      "type": "exploits",
+      "note": "Exclusion creates demand for Helios protection.",
+      "conditional": false
+    },
+    {
+      "id": "CA2-exploits-CN1",
+      "source": "CA2",
+      "target": "CN1",
+      "type": "exploits",
+      "note": "Exclusion creates demand for Helios protection.",
+      "conditional": false
+    },
+    {
+      "id": "CA2-exploits-CV1",
+      "source": "CA2",
+      "target": "CV1",
+      "type": "exploits",
+      "note": "Exclusion creates demand for Helios protection.",
+      "conditional": false
+    },
+    {
+      "id": "CA2-competes-CG2",
+      "source": "CA2",
+      "target": "CG2",
+      "type": "competes",
+      "note": "Authority over novel biological adaptations.",
+      "conditional": false
+    },
+    {
+      "id": "HB3-supports-CA2",
+      "source": "HB3",
+      "target": "CA2",
+      "type": "supports",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CVAI1-exploits-D1",
+      "source": "CVAI1",
+      "target": "D1",
+      "type": "exploits",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CVAI1-exploits-KL1",
+      "source": "CVAI1",
+      "target": "KL1",
+      "type": "exploits",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CVAI1-exploits-AV1",
+      "source": "CVAI1",
+      "target": "AV1",
+      "type": "exploits",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CVAI1-opposes-CD1",
+      "source": "CVAI1",
+      "target": "CD1",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CVAI2-opposes-O2",
+      "source": "CVAI2",
+      "target": "O2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CVAI2-opposes-CO1",
+      "source": "CVAI2",
+      "target": "CO1",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CVAI2-exploits-AV3",
+      "source": "CVAI2",
+      "target": "AV3",
+      "type": "exploits",
+      "note": "Archive is an acquisition target; no AstraVail allegiance implied.",
+      "conditional": true
+    },
+    {
+      "id": "CVAI2-competes-O3",
+      "source": "CVAI2",
+      "target": "O3",
+      "type": "competes",
+      "note": "Contested network access.",
+      "conditional": false
+    },
+    {
+      "id": "CVAI2-competes-VS1",
+      "source": "CVAI2",
+      "target": "VS1",
+      "type": "competes",
+      "note": "Contested network access.",
+      "conditional": false
+    },
+    {
+      "id": "CAB1-exploits-N3",
+      "source": "CAB1",
+      "target": "N3",
+      "type": "exploits",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CAB1-exploits-HB2",
+      "source": "CAB1",
+      "target": "HB2",
+      "type": "exploits",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CAB1-opposes-HB3",
+      "source": "CAB1",
+      "target": "HB3",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CAB1-opposes-CN2",
+      "source": "CAB1",
+      "target": "CN2",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CAB2-exploits-VS2",
+      "source": "CAB2",
+      "target": "VS2",
+      "type": "exploits",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CAB2-exploits-VS3",
+      "source": "CAB2",
+      "target": "VS3",
+      "type": "exploits",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CAB2-opposes-D3",
+      "source": "CAB2",
+      "target": "D3",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "CAB2-exploits-HD2",
+      "source": "CAB2",
+      "target": "HD2",
+      "type": "exploits",
+      "note": "Arkfire reinforcement requires a new discovery; not established fact.",
+      "conditional": true
+    },
+    {
+      "id": "O3-opposes-VS1",
+      "source": "O3",
+      "target": "VS1",
+      "type": "opposes",
+      "note": "",
+      "conditional": false
+    },
+    {
+      "id": "AV2-competes-BH3",
+      "source": "AV2",
+      "target": "BH3",
+      "type": "competes",
+      "note": "Competition for scarce skilled labor.",
+      "conditional": false
+    }
+  ]
+}
